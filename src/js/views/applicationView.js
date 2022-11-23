@@ -7,14 +7,13 @@ class ApplicationView {
   }
 
   _generateMarkup(card) {
-    console.log(card);
     const markupString = card
       .map(card => {
         return `
           <div class="card">
             <h2 class="card__title">${card.title}</h2>
             <div class="card__articles">
-              ${card.sections.map(this._generateMarkupArticle).join('')}
+              ${card.sections.map(this._generateMarkupTitles).join('')}
             </div>
           </div>
     `;
@@ -23,34 +22,26 @@ class ApplicationView {
     return markupString;
   }
 
-  _generateMarkupArticle(article) {
-    const descriptor = article.sectionArticles
-      .map(descriptor => {
-        if (!descriptor.articleTitle) return;
-
-        return `
-          <li class="card__descriptor">
-          ${
-            descriptor.articleSource
-              ? `<a class="card__descriptor-anchor" href="${descriptor.articleSource}" target="_blank">${descriptor.articleTitle}</a>`
-              : `<p class="card__descriptor-title">${descriptor.articleTitle}</p>`
-          }
-          </li>`;
-      })
-      .join('');
+  _generateMarkupTitles(article) {
+    const title = article.highlights
+      ? article.sectionTitle
+          .replace(
+            `${article.highlights.highlight1}`,
+            `<span class="tooltip highlight--1">${article.highlights.highlight1}</span>`
+          )
+          .replace(
+            `${article.highlights.highlight2}`,
+            `<span class="tooltip highlight--2">${article.highlights.highlight2}</span>`
+          )
+      : article.sectionTitle;
 
     return `
       <div class="card__article">
-        <div class="card__article-wrapper">
           ${
             article.sectionSource
-              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank">${article.sectionTitle}</a>`
-              : `<p class="card__article-title">${article.sectionTitle}</p>`
+              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank">${title}</a>`
+              : `<p class="card__article-title">${title}</p>`
           }
-        </div>
-        <ul class="card__descriptors">
-          ${descriptor}
-        </ul>
       </div>
     `;
   }

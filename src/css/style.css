@@ -239,3 +239,54 @@ code {
   border-radius: 0.25rem;
   color: #e6e6e6;
 }
+
+/* --------------------- Tooltip functionality --------------------- */
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip__text {
+  visibility: hidden;
+  width: 440px;
+  background-color: #555;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 10px;
+  text-indent: 20px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  transform: translateX(-50%);
+
+  /* Fade in tooltip */
+  /* opacity: 0; */
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip__text::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip_paragraph:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltip__text {
+  visibility: visible;
+  opacity: 1;
+}
