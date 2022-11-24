@@ -121,6 +121,7 @@ const section3 = {
       tooltips: [
         'A Component in React is just a JavaScript function that returns JSX code.',
         'Components are in the end just a combination of HTML, CSS and JavaScript.',
+        'Components are reusable building blocks in your UI.',
       ],
     },
     {
@@ -131,7 +132,7 @@ const section3 = {
       },
       tooltips: [
         'React uses something which is called a Declarative Approach for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript.',
-        "Instead, with React you will always define the desired end state, the target state or possibly also different target states depending on different conditions, and it's then React's job to figure out which elements on the actual webpage might need to be added or removed or updated, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript",
+        "Instead, with React you will always define the desired end state, the target state or possibly also different target states depending on different conditions, and it's then React's job to figure out which elements on the actual webpage might need to be added or removed or updated, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
       ],
     },
     {
@@ -156,6 +157,7 @@ const section3 = {
       highlights: {
         highlight2: ['JSX'],
       },
+      tooltips: ['JSX = HTML code inside of JavaScript'],
     },
     {
       sectionTitle: '32. How React Works',
@@ -167,6 +169,11 @@ const section3 = {
       highlights: {
         highlight2: ['Custom Component'],
       },
+      tooltips: [
+        'A React Component is basically just a custom HTML element. The key difference between custom and built-in HTML elements is that custom elements (components) NOT start with a lowercase character, but with an uppercase character. And indeed your own custom Components must start with an uppercase character, so that React is able to detect that is a custom Component.',
+        'There are 3 steps to build a custom component: create & export the component, import the component, use the component.',
+        'Is considered a good practice to put new Components into new files, so that you have one file per Component.',
+      ],
     },
     {
       sectionTitle: '34. Writing More Complex JSX Code',
@@ -198,7 +205,10 @@ const section3 = {
       },
       tooltips: [
         'Props are the "attributes" of your custom HTML elements (components).',
+        'React will ensure that we get one parameter in every Component which we use as a Component, and that one parameter will be an object which holds all the received attributes as properties.',
+        "You can name that parameter whatever you want. Typically, it's named props to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
         'The convention for props which hold functions is to start with "on".',
+        "Props allows you to make your components reusable, and it allows you to pass data from a component to another component. Props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
       ],
     },
     {
@@ -212,7 +222,10 @@ const section3 = {
         highlight1: ['Splitting Components'],
       },
       tooltips: [
-        'Separation of concerns: React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable.',
+        'As you work on your React app and on your React components, you will notice in any project that your components eventually become bigger and bigger, as you have more and more logic and JSX code in them. This is something which will naturally happen, that is why React has the component concept.',
+        'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall user interface by combining these building blocks/components.',
+        'Separation of concerns: React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML code and all the JavaScript logic',
+        "If we split our code across multiple files, then we'll have small pieces of code which are easy to manage and maintain.",
       ],
     },
     {
@@ -222,6 +235,11 @@ const section3 = {
         highlight1: ['"Composition"'],
         highlight2: ['("children props")'],
       },
+      tooltips: [
+        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (div, h2, p tags) as wrappers.",
+        "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is props.children",
+        'props.children is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called Composition.',
+      ],
     },
     {
       sectionTitle: '41. A First Summary',
