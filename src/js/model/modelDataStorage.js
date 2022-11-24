@@ -278,6 +278,11 @@ const section4 = {
       highlights: {
         highlight1: ['Event Handlers'],
       },
+      tooltips: [
+        'On all built-in HTML elements, like "div", "h2", "buttons" and so on, we have full access to all the native DOM events, which we can listen to',
+        `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as props which start with "on" (example: onClick, onScroll).`,
+        'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs',
+      ],
     },
     {
       sectionTitle: '48. How Component Functions Are Executed',
@@ -285,6 +290,11 @@ const section4 = {
       highlights: {
         highlight1: ['Component Functions'],
       },
+      tooltips: [
+        'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX code.',
+        "If you have a variable in your Component function and that variable changes, React ignores it. It doesn't care about that, that code executes, sure, but the overall component function doesn't execute again just because some variable changed.",
+        `We need a way of telling React that something changed and that a certain component should be re-evaluated, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to import something from the React library.`,
+      ],
     },
     {
       sectionTitle: '49. Working with "State"',
@@ -299,6 +309,13 @@ const section4 = {
       highlights: {
         highlight2: ['"useState"'],
       },
+      tooltips: [
+        `The "useState" is a function provided by the React library and this function allows us to define values as state, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.`,
+        'We use "useState" only inside of a component function!',
+        `"useState" returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an state updating function, which we can then call to assign a new value to that variable. So we'll not be assigning values with the equal sign, instead, we will be assigning new values by calling a function.`,
+        'The initial value of a state is only considered when a component function is being executed for the first time.',
+        '"useState" registers some state for the component function in which "useState" is being called, and I wanna be even more precise, it registers state for a specific component instance. For example, if you have a component function and you used four times, every component receives its own separate state, which is detached from the others components state.',
+      ],
     },
     {
       sectionTitle: '51. State can be updated in many ways!',
@@ -306,6 +323,12 @@ const section4 = {
       highlights: {
         highlight1: ['State can be updated'],
       },
+      tooltips: [
+        'The state is changed when you use the state updating function provided by "useState" hook.',
+        'Only the component where the "useState" was registered will be updated, not any other components.',
+        '"useState" adds reactivity to our application. Without "useState", our UI would never change, but with "useState" and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen.',
+        'When the state is changed, NOT only the JSX markup is re-evaluated, the entire component function is re-evaluated (re-rendered or re-executed).',
+      ],
     },
     {
       sectionTitle: '52. Adding Form Inputs',
@@ -321,6 +344,9 @@ const section4 = {
       highlights: {
         highlight1: ['Multiple States'],
       },
+      tooltips: [
+        'You can call "useState()" more than once in a component function. You can have multiple states, multiple states slices or state pieces per component and all of the states inside of one at the same component will then all to be totally separated from each other.',
+      ],
     },
     {
       sectionTitle: `55. Using One State Instead (And What's Better)`,
@@ -335,6 +361,10 @@ const section4 = {
       highlights: {
         highlight1: ['Updating State That Depends On The Previous State'],
       },
+      tooltips: [
+        "Reacts schedules state updates, it doesn't perform them instantly.",
+        `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the "useState" hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
+      ],
     },
     {
       sectionTitle: '57. Handling Form Submission',
@@ -346,6 +376,9 @@ const section4 = {
       highlights: {
         highlight1: ['Two-Way Binding'],
       },
+      tooltips: [
+        `Two-way binding is very useful when you're working with html "form" or "input" tags, because it allows you to gather user input, but then also change it.`,
+      ],
     },
     {
       sectionTitle: '59. Child-to-Parent Component Communication (Bottom-up)',

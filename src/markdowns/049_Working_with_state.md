@@ -4,9 +4,7 @@
 import React, {useState} from 'react';
 ```
 
-==With `import React from 'react'` we import **the overall React object**. Now, with `import {useState} from 'react'` we want to import **a single pieces from the React library**==.
-
-==The `useState` that we import is a function==. The `useState` is a function provided by the React library and this function allows us to ==**define values as state** where changes to these values should reflect in the component function being called again==, which is a key difference to a value stored in a regular variable.
+==With `import React from 'react'` we import **the overall React object**. Now, with `import {useState} from 'react'` we want to import **a single pieces from the React library**. The `useState` that we import is a function. The `useState` is a function provided by the React library and this function allows us to **define values as state** where changes to these values should reflect in the component function being called again==, which is a key difference to a value stored in a regular variable.
 
 > **Note**: We use `useState` only inside of a component function !!!
 
@@ -46,7 +44,7 @@ Now, in addition, whenever state changes because a some event happen, it's only 
 
 If you have one component function called `ExpenseItem`, but then you use that component function four times, when we create four `<ExpenseItem/>`, every time `ExpenseItem` is called, a new separate state is created for each component and managed independently for each other by React. So, if you change the state, for example in the first `<ExpenseItem/>`, the other ones are not affected because they have their own state.
 
-That's really important: ==**it's one state per component instance basis**==, so _we have separate states, even if we create a component more than once_. This behavior is crucial, because it would be a rather undesired behavior if we change something in one item and all the other items are updated as well.
+==That's really important: **it's one state per component instance basis**, so _we have separate states, even if we create a component more than once_. This behavior is crucial, because it would be a rather undesired behavior if we change something in one item and all the other items are updated as well==.
 
 Now, in addition, ==whenever state changes because a some event happen, it's only that specific instance where the component is being used where React will re-evaluate it==. _Only that specific instance is being updated and therefore for being re-evaluated_, and the others instances are not effected by that state change, and this is important to keep in mind that _state is separated on a per component instance basis_.
 
