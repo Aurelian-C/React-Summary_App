@@ -64,6 +64,10 @@ function App(props) {
 }
 ```
 
+## An Alternative Way Of Building Components
+
+![033_alternative_way_of_building_components](..\img\033_alternative_way_of_building_components.jpg)
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)

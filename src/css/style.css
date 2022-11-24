@@ -246,6 +246,7 @@ code {
 .tooltip {
   position: relative;
   /* display: inline-block; */
+  cursor: help;
 }
 
 /* Tooltip text */
