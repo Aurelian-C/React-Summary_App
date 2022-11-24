@@ -23,17 +23,25 @@ class ApplicationView {
   }
 
   _generateMarkupTitles(article) {
-    const title = article.highlights
-      ? article.sectionTitle
-          .replace(
-            `${article.highlights.highlight1}`,
-            `<span class="tooltip highlight--1">${article.highlights.highlight1}</span>`
-          )
-          .replace(
-            `${article.highlights.highlight2}`,
-            `<span class="tooltip highlight--2">${article.highlights.highlight2}</span>`
-          )
-      : article.sectionTitle;
+    let title = article.sectionTitle;
+
+    if (article.highlights?.highlight1) {
+      article.highlights.highlight1.map(highlight => {
+        title = title.replace(
+          highlight,
+          `<span class="tooltip highlight--1">${highlight}</span>`
+        );
+      });
+    }
+
+    if (article.highlights?.highlight2) {
+      article.highlights.highlight2.map(highlight => {
+        title = title.replace(
+          highlight,
+          `<span class="tooltip highlight--2">${highlight}</span>`
+        );
+      });
+    }
 
     return `
       <div class="card__article">
@@ -48,3 +56,17 @@ class ApplicationView {
 }
 
 export default new ApplicationView();
+
+/*
+const title = article.highlights
+? article.sectionTitle
+    .replace(
+      `${article.highlights.highlight1}`,
+      `<span class="tooltip highlight--1">${article.highlights.highlight1}</span>`
+    )
+    .replace(
+      `${article.highlights.highlight2}`,
+      `<span class="tooltip highlight--2">${article.highlights.highlight2}</span>`
+    )
+: article.sectionTitle;
+*/
