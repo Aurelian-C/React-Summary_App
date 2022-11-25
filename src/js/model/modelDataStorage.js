@@ -423,6 +423,10 @@ const section5 = {
       highlights: {
         highlight1: ['Lists of Data'],
       },
+      tooltips: [
+        'With React you can output arrays of JSX elements on your page.',
+        'If you do output an array of JSX elements, then React is capable of rendering on the UI that array of JSX elements. So if you had an array of JSX elements as part of your JSX code, React would simply render that elements side by side.',
+      ],
     },
     {
       sectionTitle: '65. Using Stateful Lists',
@@ -430,6 +434,9 @@ const section5 = {
       highlights: {
         highlight1: ['Stateful Lists'],
       },
+      tooltips: [
+        `React won't update a component if you only change some variable inside of that component. Instead, to update a component, you need to use "useState" hook.`,
+      ],
     },
     {
       sectionTitle: '66. Understanding "Keys"',
@@ -437,10 +444,25 @@ const section5 = {
       highlights: {
         highlight2: ['"Keys"'],
       },
+      tooltips: [
+        'React has a special concept when it comes to rendering lists of data, a concept which exists to ensure that React is able to update and render such lists efficiently, without performance losses or bugs which may occur.',
+        `The "key" prop is a prop you can add to any component, no matter if it's a custom component or if it's a built-in HTML element.`,
+        'The "key" prop helps React to correctly identify and update (if needed) the list of JSX elements.',
+        'Keys should be unique so that components maintain their identity across updates.',
+        `Whenever you're working with an array of JSX elements React wants a "key" on every element.`,
+      ],
     },
     {
       sectionTitle: '67. Outputting Conditional Content',
       sectionSource: '',
+      highlights: {
+        highlight1: ['Conditional Content'],
+      },
+      tooltips: [
+        'With React you can render (output) on you page different content based on different conditions.',
+        'You can store JSX content in variables. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.',
+        'When it comes to output content conditionally, long statements like "if" or "for" loops are not allowed between curly braces, in JSX expressions. So, for achive our results, we need to use Ternary Operator or Short Circuiting with && or ||',
+      ],
     },
     {
       sectionTitle: '68. Adding Conditional Return Statements',
@@ -456,6 +478,11 @@ const section5 = {
       highlights: {
         highlight1: ['Dynamic Styles'],
       },
+      tooltips: [
+        'You can set the style of an element dynamically by adding the "style" prop.',
+        `In React "style" prop doesn't want a string as a value, instead "style" want as a value an object.`,
+        'This object you should use have the CSS property names as key names, and the values as key values.',
+      ],
     },
     {
       sectionTitle: '71. Wrap Up & Next Steps',
