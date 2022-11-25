@@ -44,14 +44,6 @@ _React uses something which is called a_ ==**Declarative Approach**== _for build
 
 ![025_why_components](..\img\025_react_and_components.jpg)
 
-## Splitting Components Into Multiple Components
-
-As you work on your React app and on your React components, you will notice in any project that your components eventually become bigger and bigger, as you have more and more logic and JSX code in them. This is something which will naturally happen, that is why React has the component concept.
-
-This concept of components that React have allows you to ==split your application into smaller building blocks==, where every building block/component is focused on ==one core task==, you could say, and then you build your overall user interface by ==combining these building blocks/components==. By doing that, you ==keep every component on its own relatively _small_ and _manageable_==, and you keep its code base small and manageable, and you still can build a complex user interface.
-
-Now, there is no rule when to build a new component, whereas as adding more to an existing component.
-
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)

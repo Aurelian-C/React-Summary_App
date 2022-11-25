@@ -226,6 +226,7 @@ const section3 = {
         'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall user interface by combining these building blocks/components.',
         'Separation of concerns: React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML code and all the JavaScript logic',
         "If we split our code across multiple files, then we'll have small pieces of code which are easy to manage and maintain.",
+        'You can have also multiple components per one file and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
       ],
     },
     {
@@ -527,6 +528,9 @@ const section6 = {
       highlights: {
         highlight2: ['Styled Components'],
       },
+      tooltips: [
+        'Style components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
+      ],
     },
     {
       sectionTitle: '78. Styled Components & Dynamic Props',
@@ -542,6 +546,11 @@ const section6 = {
       highlights: {
         highlight2: ['CSS Modules'],
       },
+      tooltips: [
+        'CSS Modules is a feature which is only available in projects that are configured to support it.',
+        "What CSS Modules does under the hood is it takes CSS classes that are in the CSS file that you are importing, and changes the name of that classes to be unique. That's the core thing it does, for every component it changes the classes names off the classes that are in the CSS file that you're importing, it generates new classes names to be unique.",
+        'CSS Modules concept ensures that the CSS styles we set up in a CSS file are scoped to the component we import that file into.',
+      ],
     },
     {
       sectionTitle: '81. Dynamic Styles with CSS Modules',
