@@ -577,6 +577,9 @@ const section7 = {
       highlights: {
         highlight1: ['Error Messages'],
       },
+      tooltips: [
+        'As a side note, you can have errors  that your IDE (VSCode) able to detect, but sometimes you get a React error which is not showing up in your IDE.',
+      ],
     },
     {
       sectionTitle: '85. Analyzing Code Flow & Warnings',
@@ -598,6 +601,10 @@ const section7 = {
       highlights: {
         highlight1: ['React DevTools'],
       },
+      tooltips: [
+        "Let's have a look at a dedicated tool, which is available for React Development, which can help us with React specific problems and which can help us with understanding our React Application better and that would be the React Dev Tools.",
+        'In the Components tab (Google Chrome) we see the actual React Components and the Components structure that is responsible for the UI output.',
+      ],
     },
     {
       sectionTitle: '88. Module Resources',
