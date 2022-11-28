@@ -726,6 +726,13 @@ const section9 = {
       highlights: {
         highlight2: ['"ref"s'],
       },
+      tooltips: [
+        'In their most basic form, "ref"s allow us to get access to other DOM elements and work with them.',
+        'With "ref"s we can set up a connection between a HTML element, which is being rendered in the end, and our JavaScript code.',
+        'The "ref" prop is supported on all built-in HTML elemets, but you cannot use "ref" prop on you Custom Components.',
+        '"ref" value which is being generated always is an object, which always has a "current" property key that stores the actual DOM node.',
+        'Rarely use "ref"s to manipulate the DOM. Use "ref"s only to read the DOM node.',
+      ],
     },
     {
       sectionTitle: '107. Controlled vs Uncontrolled Components',
