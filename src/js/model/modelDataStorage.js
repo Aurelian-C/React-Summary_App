@@ -678,6 +678,11 @@ const section9 = {
       highlights: {
         highlight1: ['JSX Limitations'],
       },
+      tooltips: [
+        `You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable).`,
+        'The solution: always wrap adjacent elements!',
+        `"div" soup problem: in bigger apps, you can easily end up with tons of unnecessary "div"s (or other elements) which add no semantic meaning or structure to the page, but are only there because of React's/JSX requirement.`,
+      ],
     },
     {
       sectionTitle: '102. Creating a Wrapper Component',
@@ -685,6 +690,9 @@ const section9 = {
       highlights: {
         highlight1: ['Wrapper Component'],
       },
+      tooltips: [
+        "A wrapping element it's an element which won't render anything to the DOM, but the requirement is not that there must be one root component being rendered to the DOM, the requirement just is that there must be one root element that you return or that you store in a variable.",
+      ],
     },
     {
       sectionTitle: '103. React Fragments',
@@ -692,6 +700,11 @@ const section9 = {
       highlights: {
         highlight2: ['Fragments'],
       },
+      tooltips: [
+        'Fragments let you group a list of children without adding extra nodes to the DOM.',
+        'Fragments allow us to write cleaner code, to end up with less unnecessary HTML elements on the final page.',
+        "You can access the Fragment component with React.Fragment, or in some projects you can also use the shortcut syntax. These two syntaxes render empty wrappers, which don't render any actual HTML element to the DOM.",
+      ],
     },
     {
       sectionTitle: '104. Introducing React Portals',
@@ -699,6 +712,9 @@ const section9 = {
       highlights: {
         highlight2: ['Portals'],
       },
+      tooltips: [
+        'We can use a Portal to keep the structure that we have in JSX code, but to render the JSX code differently (in other place) in the real DOM.',
+      ],
     },
     {
       sectionTitle: '105. Working with Portals',
