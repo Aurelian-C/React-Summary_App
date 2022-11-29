@@ -800,6 +800,10 @@ const section10 = {
       highlights: {
         highlight1: ['useEffect Cleanup Function'],
       },
+      tooltips: [
+        'In the useEffect() function you can return only one specific thing, and that thing is a function. The function that you return from the useEffect() is called Cleanup function.',
+        'This function that you return from useEffect() will run as a cleanup process before useEffect() will be re-executed. The Cleanup function will not run when the useEffect() is executed for the first time.',
+      ],
     },
     {
       sectionTitle: '115. useEffect Summary',
