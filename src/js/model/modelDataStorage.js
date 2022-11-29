@@ -757,22 +757,41 @@ const section10 = {
       sectionTitle: '110. What are "Side Effects" & Introducing useEffect',
       sectionSource: '',
       highlights: {
-        highlight2: ['"Side Effects"', 'useEffect'],
+        highlight1: ['"Side Effects"'],
       },
+      tooltips: [
+        "The main job of React is to bring something onto the screen and to make sure that the user may interact with that something, and that what's shown on the screen may change based on certain events.",
+        'Side effects are everything else that might be happening in your app and that thing is not related to bring something onto the screen.',
+        "A good example is sending a Http request: you might be sending a Http request, to then draw something onto the screen once you got the response, but sending the request itself and handling potential errors and so on, that's not something you need React for, that's not something React cares about, that's not what React is.",
+      ],
     },
     {
       sectionTitle: '111. Using the useEffect() Hook',
       sectionSource: '',
+      highlights: {
+        highlight2: ['useEffect()'],
+      },
+      tooltips: [
+        'Sometimes, we want to run some additional code after React has updated the DOM. What does useEffect() do? By using this hook, you tell React that your component needs to do something after render.',
+        'The useEffect() hook is called with two arguments. The first argument is a function that should be executed after every component evaluation, if the specified dependencies changed. The specified dependencies are the second argument that you pass in useEffect().',
+        'Therefore, in that first function you can put any side effect code, and that code will then only execute when the dependencies specified by you changed, and not when the component re-renders.',
+        'useEffect() will run no matter what only when your app is run for the first time. After your app run for the first time, useEffect() will only executed if the dependencies changes.',
+        'useEffect() function runs after every component render cycle, not before it, not during it, but after it.',
+      ],
     },
     {
-      sectionTitle: '112. useEffect & Dependencies',
+      sectionTitle: '112. useEffect & dependencies',
       sectionSource: '',
       highlights: {
-        highlight1: ['useEffect & Dependencies'],
+        highlight1: ['useEffect & dependencies'],
       },
+      tooltips: [
+        "You add as dependencies what you're using in your side effect function.",
+        "Does useEffect() run after every render? Yes! By default, if you don't pass an array of dependencies, useEffect() runs both after the first render and after every component render cycle.",
+      ],
     },
     {
-      sectionTitle: '113. What to add & Not to add as Dependencies',
+      sectionTitle: '113. What to add & not to add as dependencies',
       sectionSource: '',
     },
     {
