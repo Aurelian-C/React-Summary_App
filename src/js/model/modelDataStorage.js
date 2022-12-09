@@ -810,11 +810,15 @@ const section10 = {
       sectionSource: '',
     },
     {
-      sectionTitle: '116. Introducing useReducer & Reducers In General',
+      sectionTitle: '116. Introducing useReducer() for state management',
       sectionSource: '',
       highlights: {
-        highlight2: ['useReducer'],
+        highlight2: ['useReducer()'],
       },
+      tooltips: [
+        'useReducer() is another built-in hook and it will help us with state management.',
+        "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea.",
+      ],
     },
     {
       sectionTitle: '117. Using the useReducer() Hook',
