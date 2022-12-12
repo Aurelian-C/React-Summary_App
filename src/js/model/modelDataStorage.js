@@ -810,7 +810,7 @@ const section10 = {
       sectionSource: '',
     },
     {
-      sectionTitle: '116. Introducing useReducer() for state management',
+      sectionTitle: '116. Introducing useReducer() for State Management',
       sectionSource: '',
       highlights: {
         highlight2: ['useReducer()'],
@@ -846,6 +846,15 @@ const section10 = {
       highlights: {
         highlight2: ['React Context (Context API)'],
       },
+      tooltips: [
+        `I'm talking about a problem, where you are passing a lot of data through a lot of components via "props". Now it is quite common that you pass data to components through "props", but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
+        'React Context provides a way to pass data through the component tree without having to pass "props" down manually at every level.',
+        'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
+        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass "props" down manually at every level ("props chain").',
+        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing "props" through intermediate elements.',
+        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of "props", every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
+        "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
+      ],
     },
     {
       sectionTitle: '122. Using the React Context API',
@@ -864,6 +873,9 @@ const section10 = {
       highlights: {
         highlight1: ['Making Context Dynamic'],
       },
+      tooltips: [
+        "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
+      ],
     },
     {
       sectionTitle: '125. Building & Using a Custom Context Provider Component',
@@ -879,6 +891,13 @@ const section10 = {
     {
       sectionTitle: '127. Learning the "Rules of Hooks"',
       sectionSource: '',
+      highlights: {
+        highlight1: ['Rules of Hooks'],
+      },
+      tooltips: [
+        'Only call React Hooks in React Functions! That means in a React Component Function, or also allowed in a Custom Hook Function.',
+        'Only call React Hooks at the Top Level of your React Component Function or Custom Hook Function.',
+      ],
     },
     {
       sectionTitle: '128. Refactoring an Input Component',
