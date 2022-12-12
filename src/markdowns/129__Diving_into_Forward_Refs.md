@@ -20,6 +20,8 @@ We need to wrap our component with `React.forwardRef()`. `React.forwardRef()` is
 
 Now with that, Input (your Custom Component) is able to take a `ref` prop and it will expose a `ref`, and it is controllable or usable with refs. But ==the only thing you will be able to use is what you expose through `useImperativeHandle()`==.
 
+![129_Diving_into_Forward_Refs1](..\img\129_Diving_into_Forward_Refs1.jpg)
+
 ### 2. Second step
 
 `useImperativeHandle()` takes two two parameters. The first parameter is ==a `ref` that should be set from outside==. So if now the parent Component adds the `ref` prop and binds `ref` to something, essentially, `ref` inside the child Component will establish the connection between parent refs and child refs. The second parameter is a function, a function that should return an object, and that ==object will contain all the data you will be able to use from outside of your custom Component==.
@@ -54,6 +56,8 @@ export default Input;
 With `React.forwardRef()` and `useImperativeHandle()` hook , you can ==_expose functionalities from a custom React Component to its parent Component_, to then use your custom Component in the parent Component through refs, and trigger certain functionalities with the help of refs==.
 
 ==The idea behind `React.forwardRef()` is that you can use your refs custom Input Component as you can use `ref` to a built-in input==. So this something you can do, not something you will need all the time and you should avoid it at all costs, I would almost say.
+
+![129_Diving_into_Forward_Refs2](..\img\129_Diving_into_Forward_Refs2.jpg)
 
 ## References
 
