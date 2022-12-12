@@ -835,6 +835,10 @@ const section10 = {
       highlights: {
         highlight1: ['Nested Properties As Dependencies To useEffect'],
       },
+      tooltips: [
+        'We used object destructuring to add object properties as dependencies to useEffect()',
+        'The key thing is NOT that we use destructuring, but that we pass specific properties instead of the entire object as a dependency.',
+      ],
     },
     {
       sectionTitle: '120. useReducer vs useState for State Management',
@@ -863,9 +867,6 @@ const section10 = {
     {
       sectionTitle: '123. Tapping Into Context with the useContext Hook',
       sectionSource: '',
-      highlights: {
-        highlight2: ['useContext Hook'],
-      },
     },
     {
       sectionTitle: '124. Making Context Dynamic',
@@ -880,9 +881,6 @@ const section10 = {
     {
       sectionTitle: '125. Building & Using a Custom Context Provider Component',
       sectionSource: '',
-      highlights: {
-        highlight1: ['Custom Context Provider Component'],
-      },
     },
     {
       sectionTitle: '126. React Context Limitations',
@@ -909,6 +907,10 @@ const section10 = {
       highlights: {
         highlight2: ['"Forward Refs"'],
       },
+      tooltips: [
+        'The "ref" prop is supported on all built-in HTML Components, but you cannot use "ref" prop on your Custom Components!',
+        'If you want to use "ref" on your Custom Component, you need to use React.forwardRef() & useImperativeHandle() hook.',
+      ],
     },
     {
       sectionTitle: '130. Module Resources',
