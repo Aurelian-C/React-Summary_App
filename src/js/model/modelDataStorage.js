@@ -114,14 +114,15 @@ const section3 = {
     },
     {
       sectionTitle: '25. What Are Components And Why Is React All About Them?',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/025__What_are_components.html',
       highlights: {
         highlight1: ['Components'],
       },
       tooltips: [
         'A Component in React is just a JavaScript function that returns JSX code.',
         'Components are in the end just a combination of HTML, CSS and JavaScript.',
-        'Components are reusable building blocks in your UI.',
+        "Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
+        'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
       ],
     },
     {
@@ -131,7 +132,7 @@ const section3 = {
         highlight1: ['"Declarative Way"'],
       },
       tooltips: [
-        'React uses something which is called a Declarative Approach for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript.',
+        'With just Vanilla JavaScript, we have to write every single step that should be taken to build an app (Imperative Approach). React uses something which is called a Declarative Approach for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript.',
         "Instead, with React you will always define the desired end state, the target state or possibly also different target states depending on different conditions, and it's then React's job to figure out which elements on the actual webpage might need to be added or removed or updated, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
       ],
     },

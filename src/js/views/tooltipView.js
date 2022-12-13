@@ -7,7 +7,9 @@ class TooltipView {
 
       if (!hasToolClass) return;
 
-      const title = e.target.closest('.card__article-title');
+      const title =
+        e.target.closest('.card__article-title') ||
+        e.target.closest('.card__article-anchor');
       const obj = allTitlesAsObjects.find(el => {
         return el.sectionTitle === title.textContent;
       });

@@ -25,6 +25,13 @@ const Button = props => {
 ==If you have a class name with a name like `.form-control`, you need to access that object property with bracket [`[]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) notation, example `classes['cssSelectorWithStyles']`, because `.form-control` isn't a valid name for accessing object property with [`.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects) notation==.
 
 ```react
+// Wrong 
+// form-control isn't a valid name for accessing object property with . notation
+const Button = props => {
+    return <button className={classes.form-control}>{props.children}</button>; 
+};
+
+// Good
 const Button = props => {
     return <button className={classes['form-control']}>{props.children}</button>;
 };
