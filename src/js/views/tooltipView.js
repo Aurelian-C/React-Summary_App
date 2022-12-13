@@ -10,9 +10,9 @@ class TooltipView {
       const title =
         e.target.closest('.card__article-title') ||
         e.target.closest('.card__article-anchor');
-      const obj = allTitlesAsObjects.find(el => {
-        return el.sectionTitle === title.textContent;
-      });
+      const obj = allTitlesAsObjects.find(
+        el => el.sectionTitle === title.textContent
+      );
 
       if (!obj.tooltips) return;
 
@@ -22,6 +22,14 @@ class TooltipView {
       const insertTooltip = `<div class="tooltip__text">${tooltipText}</div>`;
 
       e.target.insertAdjacentHTML('afterbegin', insertTooltip);
+
+      const tooltipBox = e.target.querySelector('.tooltip__text');
+      const tooltipDOMRect = tooltipBox.getBoundingClientRect();
+
+      if (tooltipDOMRect.top < 0)
+        tooltipBox.style.transform = `translate(-50%, ${Math.abs(
+          tooltipDOMRect.top - 10
+        )}px)`;
     });
   }
 }
