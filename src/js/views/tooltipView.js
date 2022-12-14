@@ -27,13 +27,10 @@ class TooltipView {
 
       const tooltipBox = e.target.querySelector('.tooltip__text');
       const tooltipDOMRect = tooltipBox.getBoundingClientRect();
-      const viewportWidth = document.body.getBoundingClientRect().width;
-      const tooltipBoxWidth = tooltipDOMRect.left + tooltipDOMRect.width;
 
-      if (tooltipDOMRect.top < 0 || tooltipBoxWidth > viewportWidth) {
-        const moveX = viewportWidth - (tooltipBoxWidth + 10);
+      if (tooltipDOMRect.top < 0) {
         const moveY = tooltipDOMRect.height;
-        tooltipBox.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        tooltipBox.style.transform = `translateY(${moveY}px)`;
       }
     });
   }
