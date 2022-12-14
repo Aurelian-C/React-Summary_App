@@ -244,7 +244,7 @@ code {
 
 /* Tooltip container */
 .tooltip {
-  position: relative;
+  /* position: relative; */
   /* display: inline-block; */
   cursor: help;
 }
@@ -289,4 +289,11 @@ code {
 .tooltip:hover .tooltip__text {
   visibility: visible;
   opacity: 1;
+}
+
+@media screen and (max-width: 550px) {
+  .tooltip__text {
+    width: 320px;
+    transform: translate(0) !important;
+  }
 }
