@@ -123,6 +123,7 @@ const section3 = {
         'Components are in the end just a combination of HTML, CSS and JavaScript.',
         "Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
         'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
+        'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.',
       ],
     },
     {
@@ -166,22 +167,20 @@ const section3 = {
     },
     {
       sectionTitle: '33. Building a First Custom Component',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/033__Building_a_first_custom_component.html',
       highlights: {
         highlight2: ['Custom Component'],
       },
       tooltips: [
-        'A React Component is basically just a custom HTML element. The key difference between custom and built-in HTML elements is that custom elements (components) NOT start with a lowercase character, but with an uppercase character. And indeed your own custom Components must start with an uppercase character, so that React is able to detect that is a custom Component.',
+        'A React component is basically just a custom HTML element. The key difference between custom and built-in HTML elements is that custom elements (components) NOT start with a lowercase character, but with an uppercase character. And indeed your own custom components must start with an uppercase character, so that React is able to detect that is a custom component.',
         'There are 3 steps to build a custom component: create & export the component, import the component, use the component.',
-        'Is considered a good practice to put new Components into new files, so that you have one file per Component.',
+        'Is considered a good practice to put new components into new files, so that you have one file per component.',
       ],
     },
     {
       sectionTitle: '34. Writing More Complex JSX Code',
       sectionSource: '',
-      highlights: {
-        highlight1: ['Complex JSX Code'],
-      },
     },
     {
       sectionTitle: '35. Adding Basic CSS Styling',
@@ -200,13 +199,13 @@ const section3 = {
     },
     {
       sectionTitle: '37. Passing Data via "props"',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/037__Passing_data_via_props.html',
       highlights: {
         highlight2: ['"props"'],
       },
       tooltips: [
         'Props are the "attributes" of your custom HTML elements (components).',
-        'React will ensure that we get one parameter in every Component which we use as a Component, and that one parameter will be an object which holds all the received attributes as properties.',
+        'React will ensure that we get one parameter in every component which we use as a component, and that one parameter will be an object which holds all the received attributes as properties.',
         "You can name that parameter whatever you want. Typically, it's named props to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
         'The convention for props which hold functions is to start with "on".',
         "Props allows you to make your components reusable, and it allows you to pass data from a component to another component. Props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
@@ -218,21 +217,22 @@ const section3 = {
     },
     {
       sectionTitle: '39. Splitting Components Into Multiple Components',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/039__Splitting_components_into_multiple_components.html',
       highlights: {
         highlight1: ['Splitting Components'],
       },
       tooltips: [
         'As you work on your React app and on your React components, you will notice in any project that your components eventually become bigger and bigger, as you have more and more logic and JSX code in them. This is something which will naturally happen, that is why React has the component concept.',
-        'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall user interface by combining these building blocks/components.',
+        'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall UI by combining these building blocks/components.',
         'Separation of concerns: React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML code and all the JavaScript logic',
         "If we split our code across multiple files, then we'll have small pieces of code which are easy to manage and maintain.",
-        'You can have also multiple components per one file and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
+        'You can have also multiple components per one file, and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
       ],
     },
     {
       sectionTitle: '40. The Concept of "Composition" ("children props")',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/040__The_concept_of_composition.html',
       highlights: {
         highlight1: ['"Composition"'],
         highlight2: ['("children props")'],
@@ -950,7 +950,13 @@ const section11 = {
     },
     {
       sectionTitle: '137. Adding a Form',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/137__Adding_a_form.html',
+      highlights: {
+        highlight1: ['Adding a Form'],
+      },
+      tooltips: [
+        'When you receive an object through "props", you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator ( ex: input {...props.object} )',
+      ],
     },
     {
       sectionTitle: '138. Fixing Form Input IDs',

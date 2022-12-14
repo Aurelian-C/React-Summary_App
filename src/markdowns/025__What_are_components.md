@@ -8,6 +8,8 @@ With just the JavaScript, you have to write every single step that should be tak
 
 ## What is a component?
 
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called `props`) and return React elements describing what should appear on the screen.
+
 ==A component in React is just a **JavaScript function**, a special kind of function, special regarding what it returns (_it does return **JSX** code_), but other than that it's just a JavaScript function. **Components are just functions which then _return HTML code_**==, and of course the HTML code do you return in a component depends on what the components should render on the screen.
 
 ==Components are **_reusable_ building blocks** in your UI. Components are in the end just a combination of **HTML** code, **CSS** code for styling and possibly **JavaScript** code for some logic==.
@@ -17,6 +19,8 @@ With just the JavaScript, you have to write every single step that should be tak
 ## Why components?
 
 React is all about components because all user interfaces in the end are made up of components. ==React is all about **splitting your application into small building blocks (components)**, where every building block (component) has a **clear task**, and therefore your **code stays _maintainable_ and _manageable_**== and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.
+
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
 ![025_why_components](..\img\025_why_components.jpg)
 
@@ -43,4 +47,5 @@ _React uses something which is called a_ ==**Declarative Approach**== _for build
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [Components and Props - reactjs.org](https://reactjs.org/docs/components-and-props.html)
 
