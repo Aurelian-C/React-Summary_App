@@ -7,29 +7,33 @@ class TooltipView {
 
       if (!hasToolClass) return;
 
-      const title =
+      const element =
         e.target.closest('.card__article-title') ||
         e.target.closest('.card__article-anchor');
-      const obj = allTitlesAsObjects.find(
-        el => el.sectionTitle === title.textContent
-      );
+      const { title } = element.dataset;
+      const obj = allTitlesAsObjects.find(el => el.sectionTitle === title);
 
       if (!obj.tooltips) return;
 
-      const tooltipText = obj.tooltips
-        .map(string => `<p class="tooltip_paragraph">${string}</p>`)
-        .join('');
-      const insertTooltip = `<div class="tooltip__text">${tooltipText}</div>`;
+      const elIsInTheDOM = element.querySelector('.tooltip__text');
+      if (!elIsInTheDOM) {
+        const tooltipText = obj.tooltips
+          .map(string => `<p class="tooltip_paragraph">${string}</p>`)
+          .join('');
+        const insertTooltip = `<div class="tooltip__text">${tooltipText}</div>`;
 
-      e.target.insertAdjacentHTML('afterbegin', insertTooltip);
+        e.target.insertAdjacentHTML('afterbegin', insertTooltip);
+      }
 
       const tooltipBox = e.target.querySelector('.tooltip__text');
       const tooltipDOMRect = tooltipBox.getBoundingClientRect();
+      console.log(tooltipDOMRect.right);
 
-      if (tooltipDOMRect.top < 0)
-        tooltipBox.style.transform = `translate(-50%, ${Math.abs(
-          tooltipDOMRect.top - 10
-        )}px)`;
+      if (tooltipDOMRect.top < 0) {
+        const move = tooltipDOMRect.height;
+        console.log(move);
+        tooltipBox.style.transform = `translateY(${move}px)`;
+      }
     });
   }
 }

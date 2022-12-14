@@ -47,8 +47,8 @@ class ApplicationView {
       <div class="card__article">
           ${
             article.sectionSource
-              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank">${title}</a>`
-              : `<p class="card__article-title">${title}</p>`
+              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank" data-title='${article.sectionTitle}'>${title}</a>`
+              : `<p class="card__article-title" data-title='${article.sectionTitle}'>${title}</p>`
           }
       </div>
     `;

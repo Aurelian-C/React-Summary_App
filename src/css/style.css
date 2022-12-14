@@ -263,7 +263,6 @@ code {
   position: absolute;
   z-index: 1;
   bottom: 110%;
-  transform: translateX(-50%);
 
   /* Fade in tooltip */
   /* opacity: 0; */

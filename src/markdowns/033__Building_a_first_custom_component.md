@@ -7,12 +7,12 @@ Before you start to build a component, you need to create first a React project.
 ```react
 // Custom component
 function App() {
-    return (
-        <div>
-            <h2>Let's get started!</h2>
-            <Expense></Expense>
-        </div>
-    );
+  return (
+      <div>
+          <h2>Let's get started!</h2>
+          <Expense></Expense>
+      </div>
+  );
 }
 ```
 
