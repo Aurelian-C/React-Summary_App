@@ -709,12 +709,14 @@ const section9 = {
     },
     {
       sectionTitle: '104. Introducing React Portals',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/104__React_Portals.html',
       highlights: {
         highlight2: ['Portals'],
       },
       tooltips: [
-        'We can use a Portal to keep the structure that we have in JSX code, but to render the JSX code differently (in other place) in the real DOM.',
+        'You can use a Portal to keep the structure that you have in your JSX code, but to render the JSX code differently (in other place) in the real DOM.',
+        'Portals let your components render some of their children into a different place in the DOM.',
+        'A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.',
       ],
     },
     {
