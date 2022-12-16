@@ -191,6 +191,7 @@ const section3 = {
         '36. Outputting Dynamic Data & Working with Expressions in JSX',
       sectionSource: '',
       highlights: {
+        highlight1: ['Outputting Dynamic Data'],
         highlight2: ['Expressions in JSX'],
       },
       tooltips: [
@@ -278,7 +279,7 @@ const section4 = {
       sectionTitle: '47. Listening to Events & Working with Event Handlers',
       sectionSource: '',
       highlights: {
-        highlight1: ['Event Handlers'],
+        highlight1: ['Listening to Events', 'Event Handlers'],
       },
       tooltips: [
         'On all built-in HTML elements, like "div", "h2", "buttons" and so on, we have full access to all the native DOM events, which we can listen to',
@@ -301,9 +302,6 @@ const section4 = {
     {
       sectionTitle: '49. Working with "State"',
       sectionSource: '',
-      highlights: {
-        highlight1: ['"State"'],
-      },
     },
     {
       sectionTitle: '50. A Closer Look at the "useState" Hook',
@@ -395,6 +393,9 @@ const section4 = {
     {
       sectionTitle: '60. Lifting The State Up',
       sectionSource: '',
+      highlights: {
+        highlight1: ['Lifting The State Up'],
+      },
     },
     {
       sectionTitle:
@@ -530,7 +531,7 @@ const section6 = {
         highlight2: ['Styled Components'],
       },
       tooltips: [
-        'Style components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
+        'Styled components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
       ],
     },
     {

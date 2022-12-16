@@ -4,7 +4,7 @@
 
 ==React will ensure that we get **one parameter in every component** which we use as a component, and that one parameter will be an **object** which holds all the received **attributes as properties**==, hence the name `props` for the overall concept. Therefore, we get one parameter, and you can name that parameter whatever you want. Typically, _it's named `props` to make it clear that is the object which holds all the values we get for the attributes on our custom element_.
 
-==`props` is a super important concept because it allows you to **make your components reusable**, and it allows you to **pass data from a component to another component**==.
+==`props` is a super important concept because it allows you to **make your components reusable**, and it allows you to **pass _data_ from a component to another component**==.
 
 _`props` are not limited to **dynamically** set values. We can do that, but we don't have to. We also **hard coded** value in `props`_. ==The main idea behind `props` is always the same though: we wanna make sure that **we can pass data into our components** to make them **configurable** and **reusable**==.
 
