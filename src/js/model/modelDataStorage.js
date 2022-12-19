@@ -850,23 +850,35 @@ const section10 = {
     },
     {
       sectionTitle: '121. Introducing React Context (Context API)',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/121__Introducing_React_Context.html',
       highlights: {
         highlight2: ['React Context (Context API)'],
       },
       tooltips: [
-        `I'm talking about a problem, where you are passing a lot of data through a lot of components via "props". Now it is quite common that you pass data to components through "props", but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
-        'React Context provides a way to pass data through the component tree without having to pass "props" down manually at every level.',
+        `I'm talking about a problem, where you are passing a lot of data through a lot of components via <code>props</code>. Now it is quite common that you pass data to components through <code>props</code>, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
+        'React Context provides a way to pass data through the component tree without having to pass <code>props</code> down manually at every level.',
         'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
-        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass "props" down manually at every level ("props chain").',
-        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing "props" through intermediate elements.',
-        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of "props", every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
+        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass <code>props</code> down manually at every level ("props chain").',
+        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing <code>props</code> through intermediate elements.',
+        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of <code>props</code>, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
         "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
       ],
     },
     {
       sectionTitle: '122. Using the React Context API',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/122__Using_the_React_Context_API.html',
+      highlights: {
+        highlight1: ['Using the React Context API'],
+      },
+      tooltips: [
+        '<code>React.createContext()</code> return an Context object that contains components.',
+        'When React renders a component that subscribes to the Context object, it will read the current Context value from the closest matching Provider above it in the tree.',
+        "Every Context object comes with a Provider React component, that allows consuming components to subscribe to Context changes. Any component that's not wrapped by the Provider will not be able to listen/subscribe to the Context.",
+        'The Provider component accepts a <code>value</code> prop to be passed to consuming components that are descendants of that Provider. One Provider can be connected to many consumers.',
+        "All consumers that are descendants of a Provider will re-render whenever the Provider's <code>value</code> prop changes.",
+        'Now, providing is always the first step. Besides providing, you then need to consume it. <code>useContext()</code> hook allows us to use a Context, it allows us to tap into a Context and listen to it. <code>useContext()</code> return the wide-state of that Context that you point in the `useContext()` function.',
+        'The component that use the Context will be re-evaluated by React whenever the Context changes!',
+      ],
     },
     {
       sectionTitle: '123. Tapping Into Context with the useContext Hook',
@@ -884,7 +896,8 @@ const section10 = {
     },
     {
       sectionTitle: '125. Building & Using a Custom Context Provider Component',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/125__Building_&_using_a_Custom_Context_Provider_Component.html',
     },
     {
       sectionTitle: '126. React Context Limitations',
@@ -958,7 +971,7 @@ const section11 = {
         highlight1: ['Adding a Form'],
       },
       tooltips: [
-        'When you receive an object through "props", you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator ( ex: input {...props.object} )',
+        'When you receive an object through "props", you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator: <<span>input {...props.object}</span> />',
       ],
     },
     {

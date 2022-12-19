@@ -20,7 +20,7 @@ In a typical React application, ==data is passed top-down (parent to child) via 
 
 Context is designed to ==**share data that can be considered "global"** for a tree of React components==, such as the current authenticated user, theme, or preferred language. Context is primarily used when some ==data needs to be accessible by _many_ components at different nesting levels==. Using Context, we can ==avoid passing `props` through intermediate elements==.
 
-> **Warning**: ==Apply Context sparingly (sparingly = cu cumpătare) because it **MAKES COMPONENT REUSE MORE DIFFICULT** !!!== If you would use Context instead of `props`, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.
+> **Warning**: ==Apply Context sparingly (sparingly = cu cumpătare) because it **MAKES COMPONENT REUSE MORE DIFFICULT** !!!== If you would use Context instead of `props`, every component would do the same thing, it would be bound to the same Context, so it might be less reusable.
 >
 > If you only want to avoid passing some `props` through many levels, component composition is often a simpler solution than Context.
 
@@ -42,7 +42,7 @@ For example, consider a Page component that passes a `user` and `avatarSize` pro
 </Link>
 ```
 
-It might feel redundant to pass down the `user` and `avatarSize` props through many levels if in the end only the `Avatar` component really needs it. It’s also annoying that whenever the `Avatar` component needs more props from the top, you have to add them at all the intermediate levels too.
+It might feel redundant to pass down the `user` and `avatarSize` props through many levels if in the end only the `Avatar` component really needs it. It’s also annoying that whenever the `Avatar` component needs more `props` from the top, you have to add them at all the intermediate levels too.
 
 ## References
 
