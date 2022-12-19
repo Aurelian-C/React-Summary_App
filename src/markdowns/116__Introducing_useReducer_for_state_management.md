@@ -23,7 +23,7 @@ const Componenet = () => {
 }
 ```
 
-In these examples above, you set a state that depends on another previous state, and you can't use the state updating function for that. Why? Because ==with the state updating function we only get the latest state for that state which we're setting==. These approach of set a state that depends on another previous state without using state updating function, can lead to bugs in your app.
+In this example above, you set a state that depends on another previous state, and you can't use the state updating function for that. Why? Because ==with the state updating function we only get the latest state for that state which we're setting==. These approach of set a state that depends on another previous state without using state updating function, can lead to bugs in your app.
 
 For example, `enteredEmail` state is a different state than our `emailIsvalid` state, they are _two different states, two different variables_. And _we are updating our new `emailIsvalid` state by looking at the `enteredEmail` state, that is another state that `emailIsValid` state, and that is something we should not do_. It works in most cases, but in some scenarios it could not work because maybe some state update for `enteredEmail` wasn't processed in time, and then _we would try to update `emailIsValid` based on some outdated `enteredEmail` state_. So we should use the state updating function, but we can't, because _with the state updating function we only get the latest state for that state which we're setting_. So we would get the latest `emailIsValid` state, not the latest `enteredEmail` state. So that's why state updating function is not an option in `setEmailIsValid`.
 

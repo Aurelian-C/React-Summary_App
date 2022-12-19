@@ -815,18 +815,20 @@ const section10 = {
     },
     {
       sectionTitle: '116. Introducing useReducer() for State Management',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/116__Introducing_useReducer_for_state_management.html',
       highlights: {
         highlight2: ['useReducer()'],
       },
       tooltips: [
-        'useReducer() is another built-in hook and it will help us with state management.',
-        "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea.",
+        '<code>useReducer()</code> is another built-in hook and it will help us with state management.',
+        "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea, and you can do this with the help of <code>useReducer()</code>.",
+        "<code>useReducer()</code> is an alternative to <code>useState()</code>, it's a replacement if you need a more powerful state management.",
       ],
     },
     {
       sectionTitle: '117. Using the useReducer() Hook',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/117__Using_the_useReducer_hook.html',
     },
     {
       sectionTitle: '118. useReducer & useEffect',
