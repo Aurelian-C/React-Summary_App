@@ -10,8 +10,8 @@
 
   --has-content-color: rgb(255, 255, 0);
 
-  --highlight-color-1: rgb(153, 255, 0);
-  --highlight-color-2: rgb(124, 155, 255);
+  --highlight-color-1: rgb(136, 136, 136);
+  --highlight-color-2: rgb(136, 136, 136);
 }
 
 *,
@@ -216,7 +216,7 @@ body {
   padding: 1px 4px;
   border-radius: 5px;
   font-weight: bold;
-  color: black;
+  /* color: black; */
 }
 
 .highlight--2 {
@@ -224,7 +224,7 @@ body {
   padding: 1px 4px;
   border-radius: 5px;
   font-weight: bold;
-  color: black;
+  /* color: black; */
 }
 
 a > code {
