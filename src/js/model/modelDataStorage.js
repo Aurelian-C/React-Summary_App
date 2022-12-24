@@ -277,19 +277,20 @@ const section4 = {
     },
     {
       sectionTitle: '47. Listening to Events & Working with Event Handlers',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/047__Listening_&_working_with_events.html',
       highlights: {
         highlight1: ['Listening to Events', 'Event Handlers'],
       },
       tooltips: [
-        'On all built-in HTML elements, like "div", "h2", "buttons" and so on, we have full access to all the native DOM events, which we can listen to',
-        `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as props which start with "on" (example: onClick, onScroll).`,
+        'On all built-in HTML elements, like <<code>div</code>>, <<code>h2</code>>, <<code>buttons</code>> and so on, we have full access to all the native DOM events, which we can listen to.',
+        `In React we add an event listener by going to the JSX element and there we add a special <code>prop</code>. But now it's not a <code>prop</code> which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as <code>props</code> which start with "on" (example: onClick, onScroll).`,
         'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs',
       ],
     },
     {
       sectionTitle: '48. How Component Functions Are Executed',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/048__How_component_functions_are_executed.html',
       highlights: {
         highlight1: ['Component Functions'],
       },
