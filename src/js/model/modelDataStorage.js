@@ -195,7 +195,7 @@ const section3 = {
         highlight2: ['Expressions in JSX'],
       },
       tooltips: [
-        'You write expressions in JSX code with the help of curly brackets {}',
+        'You write expressions in JSX code with the help of curly brackets <code>{}</code>',
       ],
     },
     {
@@ -207,9 +207,9 @@ const section3 = {
       tooltips: [
         'Props are the "attributes" of your custom HTML elements (components).',
         'React will ensure that we get one parameter in every component which we use as a component, and that one parameter will be an object which holds all the received attributes as properties.',
-        "You can name that parameter whatever you want. Typically, it's named props to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
+        "You can name that parameter whatever you want. Typically, it's named <code>props</code> to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
         'The convention for props which hold functions is to start with "on".',
-        "Props allows you to make your components reusable, and it allows you to pass data from a component to another component. Props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
+        "<code>props</code> allows you to make your components reusable, and it allows you to pass data from a component to another component. <code>props</code> are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
       ],
     },
     {
@@ -239,9 +239,9 @@ const section3 = {
         highlight2: ['("children props")'],
       },
       tooltips: [
-        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (div, h2, p tags) as wrappers.",
-        "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is props.children",
-        'props.children is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called Composition.',
+        "Sometimes you wanna have a component where you don't configure everything through <code>props</code>, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
+        "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
+        '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
       ],
     },
     {
