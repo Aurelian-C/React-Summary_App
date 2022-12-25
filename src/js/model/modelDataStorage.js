@@ -282,9 +282,9 @@ const section4 = {
         highlight1: ['Listening to Events', 'Event Handlers'],
       },
       tooltips: [
-        'On all built-in HTML elements, like <<code>div</code>>, <<code>h2</code>>, <<code>buttons</code>> and so on, we have full access to all the native DOM events, which we can listen to.',
-        `In React we add an event listener by going to the JSX element and there we add a special <code>prop</code>. But now it's not a <code>prop</code> which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as <code>props</code> which start with "on" (example: onClick, onScroll).`,
-        'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs',
+        'On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to.',
+        `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as <code>props</code> which start with "on" (example: onClick, onScroll).`,
+        'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs.',
       ],
     },
     {
@@ -296,7 +296,7 @@ const section4 = {
       },
       tooltips: [
         'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX code.',
-        "If you have a variable in your Component function and that variable changes, React ignores it. It doesn't care about that, that code executes, sure, but the overall component function doesn't execute again just because some variable changed.",
+        "If you have a variable in your component function and that variable changes, React ignores it. It doesn't care about that, that code executes, sure, but the overall component function doesn't execute again just because some variable changed.",
         `We need a way of telling React that something changed and that a certain component should be re-evaluated, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to import something from the React library.`,
       ],
     },
@@ -311,11 +311,11 @@ const section4 = {
         highlight2: ['"useState"'],
       },
       tooltips: [
-        `The "useState" is a function provided by the React library and this function allows us to define values as state, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.`,
-        'We use "useState" only inside of a component function!',
-        `"useState" returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an state updating function, which we can then call to assign a new value to that variable. So we'll not be assigning values with the equal sign, instead, we will be assigning new values by calling a function.`,
+        `The <code>useState()</code> is a function provided by the React library and this function allows us to define values as state, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.`,
+        'We use <code>useState()</code> only inside of a component function!',
+        `<code>useState()</code> returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an state updating function, which we can then call to assign a new value to that variable. So we'll not be assigning values with the equal sign, instead, we will be assigning new values by calling a function.`,
         'The initial value of a state is only considered when a component function is being executed for the first time.',
-        '"useState" registers some state for the component function in which "useState" is being called, and I wanna be even more precise, it registers state for a specific component instance. For example, if you have a component function and you used four times, every component receives its own separate state, which is detached from the others components state.',
+        '<code>useState()</code> registers some state for the component function in which <code>useState()</code> is being called, and I wanna be even more precise, it registers state for a specific component instance. For example, if you have a component function and you used four times, every component receives its own separate state, which is detached from the others components state.',
       ],
     },
     {
@@ -325,9 +325,9 @@ const section4 = {
         highlight1: ['State can be updated'],
       },
       tooltips: [
-        'The state is changed when you use the state updating function provided by "useState" hook.',
-        'Only the component where the "useState" was registered will be updated, not any other components.',
-        '"useState" adds reactivity to our application. Without "useState", our UI would never change, but with "useState" and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen.',
+        'The state is changed when you use the state updating function provided by <code>useState</code> hook.',
+        'Only the component where the <code>useState()</code> was registered will be updated, not any other components.',
+        '<code>useState()</code> adds reactivity to our application. Without <code>useState()</code>, our UI would never change, but with <code>useState()</code> and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen.',
         'When the state is changed, NOT only the JSX markup is re-evaluated, the entire component function is re-evaluated (re-rendered or re-executed).',
       ],
     },
@@ -346,7 +346,7 @@ const section4 = {
         highlight1: ['Multiple States'],
       },
       tooltips: [
-        'You can call "useState()" more than once in a component function. You can have multiple states, multiple states slices or state pieces per component and all of the states inside of one at the same component will then all to be totally separated from each other.',
+        'You can call <code>useState()</code> more than once in a component function. You can have multiple states, multiple states slices or state pieces per component and all of the states inside of one at the same component will then all to be totally separated from each other.',
       ],
     },
     {
@@ -364,7 +364,7 @@ const section4 = {
       },
       tooltips: [
         "Reacts schedules state updates, it doesn't perform them instantly.",
-        `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the "useState" hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
+        `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the <code>useState</code> hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
       ],
     },
     {
@@ -378,7 +378,7 @@ const section4 = {
         highlight1: ['Two-Way Binding'],
       },
       tooltips: [
-        `Two-way binding is very useful when you're working with html "form" or "input" tags, because it allows you to gather user input, but then also change it.`,
+        `Two-way binding is very useful when you're working with html <<span>form</span>> or <<span>input</span>> tags, because it allows you to gather user input, but then also change it.`,
       ],
     },
     {
@@ -388,7 +388,7 @@ const section4 = {
         highlight1: ['Child-to-Parent Component Communication'],
       },
       tooltips: [
-        "We can't skip components in between. Props can only be passed from parent to child, we can't skip intermediate components.",
+        "We can't skip components in between. <code>props</code> can only be passed from parent to child, we can't skip intermediate components.",
       ],
     },
     {
