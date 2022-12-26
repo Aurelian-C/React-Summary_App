@@ -684,7 +684,7 @@ const section9 = {
       tooltips: [
         `You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable).`,
         'The solution: always wrap adjacent elements!',
-        `"div" soup problem: in bigger apps, you can easily end up with tons of unnecessary "div"s (or other elements) which add no semantic meaning or structure to the page, but are only there because of React's/JSX requirement.`,
+        `<<span>div</span>> soup problem: in bigger apps, you can easily end up with tons of unnecessary <<span>div</span>>s (or other elements) which add no semantic meaning or structure to the page, but are only there because of React's/JSX requirement.`,
       ],
     },
     {
@@ -706,7 +706,7 @@ const section9 = {
       tooltips: [
         'Fragments let you group a list of children without adding extra nodes to the DOM.',
         'Fragments allow us to write cleaner code, to end up with less unnecessary HTML elements on the final page.',
-        "You can access the Fragment component with React.Fragment, or in some projects you can also use the shortcut syntax. These two syntaxes render empty wrappers, which don't render any actual HTML element to the DOM.",
+        "You can access the Fragment component with <code>React.Fragment</code>, or in some projects you can also use the shortcut syntax. These two syntaxes render empty wrappers, which don't render any actual HTML element to the DOM.",
       ],
     },
     {
@@ -732,11 +732,11 @@ const section9 = {
         highlight2: ['"ref"s'],
       },
       tooltips: [
-        'In their most basic form, "ref"s allow us to get access to other DOM elements and work with them.',
-        'With "ref"s we can set up a connection between a HTML element, which is being rendered in the end, and our JavaScript code.',
-        'The "ref" prop is supported on all built-in HTML elemets, but you cannot use "ref" prop on you Custom Components.',
-        '"ref" value which is being generated always is an object, which always has a "current" property key that stores the actual DOM node.',
-        'Rarely use "ref"s to manipulate the DOM. Use "ref"s only to read the DOM node.',
+        'In their most basic form, <code>ref</code> allow us to get access to other DOM elements and work with them.',
+        'With <code>ref</code> we can set up a connection between a HTML element, which is being rendered in the end, and our JavaScript code.',
+        'The <code>ref</code> prop is supported on all built-in HTML elemets, but you cannot use <code>ref</code> prop on you custom components.',
+        '<code>ref</code> value which is being generated always is an object, which always has a <code>current</code> property key that stores the actual DOM node.',
+        'Rarely use <code>ref</code> to manipulate the DOM. Use <code>ref</code> only to read the DOM node.',
       ],
     },
     {
@@ -777,11 +777,11 @@ const section10 = {
         highlight2: ['useEffect()'],
       },
       tooltips: [
-        'Sometimes, we want to run some additional code after React has updated the DOM. What does useEffect() do? By using this hook, you tell React that your component needs to do something after render.',
-        'The useEffect() hook is called with two arguments. The first argument is a function that should be executed after every component evaluation, if the specified dependencies changed. The specified dependencies are the second argument that you pass in useEffect().',
+        'Sometimes, we want to run some additional code after React has updated the DOM. What does <code>useEffect()</code> do? By using this hook, you tell React that your component needs to do something after render.',
+        'The <code>useEffect()</code> function is called with two arguments. The first argument is a function that should be executed after every component evaluation, if the specified dependencies changed. The specified dependencies are the second argument that you pass in <code>useEffect()</code>.',
         'Therefore, in that first function you can put any side effect code, and that code will then only execute when the dependencies specified by you changed, and not when the component re-renders.',
-        'useEffect() will run no matter what only when your app is run for the first time. After your app run for the first time, useEffect() will only executed if the dependencies changes.',
-        'useEffect() function runs after every component render cycle, not before it, not during it, but after it.',
+        '<code>useEffect()</code> will run no matter what only when your app is run for the first time. After your app run for the first time, <code>useEffect()</code> will only executed if the dependencies changes.',
+        '<code>useEffect()</code> function runs after every component render cycle, not before it, not during it, but after it.',
       ],
     },
     {
@@ -792,7 +792,7 @@ const section10 = {
       },
       tooltips: [
         "You add as dependencies what you're using in your side effect function.",
-        "Does useEffect() run after every render? Yes! By default, if you don't pass an array of dependencies, useEffect() runs both after the first render and after every component render cycle.",
+        "Does <code>useEffect()</code> run after every render? Yes! By default, if you don't pass an array of dependencies, <code>useEffect()</code> runs both after the first render and after every component render cycle.",
       ],
     },
     {
@@ -806,8 +806,8 @@ const section10 = {
         highlight1: ['useEffect Cleanup Function'],
       },
       tooltips: [
-        'In the useEffect() function you can return only one specific thing, and that thing is a function. The function that you return from the useEffect() is called Cleanup function.',
-        'This function that you return from useEffect() will run as a cleanup process before useEffect() will be re-executed. The Cleanup function will not run when the useEffect() is executed for the first time.',
+        'In the <code>useEffect()</code> function you can return only one specific thing, and that thing is a function. The function that you return from the <code>useEffect()</code> is called Cleanup function.',
+        'This function that you return from <code>useEffect()</code> will run as a cleanup process before <code>useEffect()</code> will be re-executed. The Cleanup function will not run when the <code>useEffect()</code> is executed for the first time.',
       ],
     },
     {
@@ -843,7 +843,7 @@ const section10 = {
         highlight1: ['Nested Properties As Dependencies To useEffect'],
       },
       tooltips: [
-        'We used object destructuring to add object properties as dependencies to useEffect()',
+        'We used object destructuring to add object properties as dependencies to <code>useEffect()</code>.',
         'The key thing is NOT that we use destructuring, but that we pass specific properties instead of the entire object as a dependency.',
       ],
     },
@@ -928,8 +928,8 @@ const section10 = {
         highlight2: ['"Forward Refs"'],
       },
       tooltips: [
-        'The "ref" prop is supported on all built-in HTML Components, but you cannot use "ref" prop on your Custom Components!',
-        'If you want to use "ref" on your Custom Component, you need to use React.forwardRef() & useImperativeHandle() hook.',
+        'The <code>ref</code> prop is supported on all built-in HTML Components, but you cannot use <code>ref</code> prop on your custom components!',
+        'If you want to use <code>ref</code> on your custom component, you need to use <code>React.forwardRef()</code> and maybe possibly <code>useImperativeHandle()</code> hook.',
       ],
     },
     {
