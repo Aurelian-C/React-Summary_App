@@ -8,7 +8,7 @@ const [item, setItem] = useState( {
 	item3: '',
 })
 
-setItem( {
+setItem({
 	...item,
 	item1: 'value',
 })
@@ -18,14 +18,14 @@ Whenever you update state and you depend on the previous state, you should not d
 
 ```react
 // The CORRECT way
-setItem( (prevState) => {
+setItem((prevState) => {
 	return { ...prevState, item1: 'value'};
 })
 ```
 
 Now why should we do it like this instead of like first example above? In many cases, both will work fine, but keep in mind that I mentioned that ==**Reacts schedules state updates, it doesn't perform them instantly**. And therefore, theoretically, if you schedule a lot of state updates at the same time, you could be depending on an outdated or incorrect state snapshot if you use the first example approach==.
 
-If you use the second approach, React will guarantee that the state snapshot it gives you here in the inner function will always be the latest state snapshot, keeping all scheduled state updates in mind. So he ==second approach is the safer way to ensure that you always operate on the latest state snapshot==. So you should use the second approach function syntax whenever your state update depends on the previous state. That is something you should memorize, if your state update depends on the previous state, use the second approach function syntax.
+If you use the second approach, React will guarantee that the state snapshot it gives you in the inner function will always be the latest state snapshot, keeping all scheduled state updates in mind. So he ==second approach is the safer way to ensure that you always operate on the latest state snapshot==. So you should use the second approach function syntax whenever your state update depends on the previous state. That is something you should memorize, if your state update depends on the previous state, use the second approach function syntax.
 
 ## References
 

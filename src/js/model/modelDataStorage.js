@@ -306,11 +306,13 @@ const section4 = {
     },
     {
       sectionTitle: '50. A Closer Look at the "useState" Hook',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/050__A_closer_look_at_the_useState_hook.html',
       highlights: {
         highlight2: ['"useState"'],
       },
       tooltips: [
+        "With <code>import React from 'react'</code> we import the overall React object. Now, with <code>import {useState} from 'react'</code> we want to import a single pieces from the React library.",
         `The <code>useState()</code> is a function provided by the React library and this function allows us to define values as state, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.`,
         'We use <code>useState()</code> only inside of a component function!',
         `<code>useState()</code> returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an state updating function, which we can then call to assign a new value to that variable. So we'll not be assigning values with the equal sign, instead, we will be assigning new values by calling a function.`,
@@ -358,7 +360,8 @@ const section4 = {
     },
     {
       sectionTitle: '56. Updating State That Depends On The Previous State',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/056__Updating_state_that_depends_on_the_previous_state.html',
       highlights: {
         highlight1: ['Updating State That Depends On The Previous State'],
       },
@@ -373,7 +376,7 @@ const section4 = {
     },
     {
       sectionTitle: '58. Adding Two-Way Binding',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/058__Adding_two_way_binding.html',
       highlights: {
         highlight1: ['Two-Way Binding'],
       },
@@ -393,15 +396,20 @@ const section4 = {
     },
     {
       sectionTitle: '60. Lifting The State Up',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/060__Lifting_the_state_up.html',
       highlights: {
         highlight1: ['Lifting The State Up'],
       },
+      tooltips: [
+        'We learned about a very important concept of moving data from a child to a parent component by utilizing <code>props</code> to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
+        'You will hear the term Lifting The State Up quite a bit when you were working with React and whenever you hear that, it is about moving data from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
+      ],
     },
     {
       sectionTitle:
         '61. Controlled vs Uncontrolled Components & Stateless vs Stateful Components',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/061__Stateful_vs_stateless_components.html',
       highlights: {
         highlight1: ['Controlled', 'Stateless', 'Stateful'],
       },
@@ -423,7 +431,7 @@ const section5 = {
     },
     {
       sectionTitle: '64. Rendering Lists of Data',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/064__Rendering_lists_of_data.html',
       highlights: {
         highlight1: ['Lists of Data'],
       },
@@ -444,7 +452,7 @@ const section5 = {
     },
     {
       sectionTitle: '66. Understanding "Keys"',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/066__Understanding_Keys.html',
       highlights: {
         highlight2: ['"Keys"'],
       },
@@ -458,7 +466,7 @@ const section5 = {
     },
     {
       sectionTitle: '67. Outputting Conditional Content',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/067__Outputting_conditional_content.html',
       highlights: {
         highlight1: ['Conditional Content'],
       },
@@ -478,7 +486,7 @@ const section5 = {
     },
     {
       sectionTitle: '70. Adding Dynamic Styles',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/070__Adding_dynamic_styles.html',
       highlights: {
         highlight1: ['Dynamic Styles'],
       },
@@ -509,7 +517,7 @@ const section6 = {
   sections: [
     {
       sectionTitle: '74. Module Introduction',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/074__Styling_React_components.html',
     },
     {
       sectionTitle: '75. Setting Dynamic Inline Styles',
@@ -527,7 +535,7 @@ const section6 = {
     },
     {
       sectionTitle: '77. Introducing Styled Components',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/077__Introducing_styled_components.html',
       highlights: {
         highlight2: ['Styled Components'],
       },
@@ -545,7 +553,7 @@ const section6 = {
     },
     {
       sectionTitle: '80. Using CSS Modules',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/080__Using_CSS_modules.html',
       highlights: {
         highlight2: ['CSS Modules'],
       },
@@ -677,7 +685,7 @@ const section9 = {
     },
     {
       sectionTitle: '101. JSX Limitations & Workarounds',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/101__JSX_limitations_&_workarounds.html',
       highlights: {
         highlight1: ['JSX Limitations'],
       },
@@ -699,7 +707,7 @@ const section9 = {
     },
     {
       sectionTitle: '103. React Fragments',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/103__React_Fragments.html',
       highlights: {
         highlight2: ['Fragments'],
       },
@@ -727,7 +735,7 @@ const section9 = {
     },
     {
       sectionTitle: '106. Working with "ref"s',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/106__Working_with_ref.html',
       highlights: {
         highlight2: ['"ref"s'],
       },
@@ -741,7 +749,8 @@ const section9 = {
     },
     {
       sectionTitle: '107. Controlled vs Uncontrolled Components',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/107__Controlled_vs_uncontrolled_components.html',
     },
     {
       sectionTitle: '108. Module Resources',
@@ -760,7 +769,7 @@ const section10 = {
     },
     {
       sectionTitle: '110. What are "Side Effects" & Introducing useEffect',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/110__What_are_side_effects.html',
       highlights: {
         highlight1: ['"Side Effects"'],
       },
@@ -772,7 +781,7 @@ const section10 = {
     },
     {
       sectionTitle: '111. Using the useEffect() Hook',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/111__Using_the_useEffect.html',
       highlights: {
         highlight2: ['useEffect()'],
       },
@@ -797,11 +806,13 @@ const section10 = {
     },
     {
       sectionTitle: '113. What to add & not to add as dependencies',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/113__What_to_add_&_not_to_add_as_dependencies.html',
     },
     {
       sectionTitle: '114. Using the useEffect Cleanup Function',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/114__Using_the_useEffect_cleanup_function.html',
       highlights: {
         highlight1: ['useEffect Cleanup Function'],
       },
@@ -838,7 +849,8 @@ const section10 = {
     {
       sectionTitle:
         '119. Adding Nested Properties As Dependencies To useEffect',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/119__Adding_nested_properties_as_dependencies_to_useEffect.html',
       highlights: {
         highlight1: ['Nested Properties As Dependencies To useEffect'],
       },
@@ -849,7 +861,7 @@ const section10 = {
     },
     {
       sectionTitle: '120. useReducer vs useState for State Management',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/120__useReducer_vs_useEffect.html',
     },
     {
       sectionTitle: '121. Introducing React Context (Context API)',
@@ -904,11 +916,11 @@ const section10 = {
     },
     {
       sectionTitle: '126. React Context Limitations',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/126__React_Context_limitations.html',
     },
     {
       sectionTitle: '127. Learning the "Rules of Hooks"',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/127__Learning_the_rules_of_Hooks.html',
       highlights: {
         highlight1: ['Rules of Hooks'],
       },
@@ -923,7 +935,7 @@ const section10 = {
     },
     {
       sectionTitle: '129. Diving into "Forward Refs"',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/129__Diving_into_Forward_Refs.html',
       highlights: {
         highlight2: ['"Forward Refs"'],
       },

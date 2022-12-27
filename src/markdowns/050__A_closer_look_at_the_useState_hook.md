@@ -1,4 +1,4 @@
-# Working with "State"
+# A closer look at the `useState` hook
 
 ```react
 import React, {useState} from 'react';
@@ -12,7 +12,7 @@ import React, {useState} from 'react';
 
 Now, ==`useState` doesn't work just by calling it==. Instead, with `useState` you can set an ==initial state value==. _With `useState` we basically create a special kind of variable, you could say, a variable where changes will lead a component function to be called again_.
 
-==`useState` returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an **state updating function**, _which we can then call to assign a new value to that variable_==. So we'll not be assigning values with the equal sign, instead, we will be _assigning new values by calling a function_:
+==`useState` returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is a **state updating function**, _which we can then call to assign a new value to that variable_==. So we'll not be assigning values with the equal sign, instead, we will be _assigning new values by calling a function_:
 
 ```react
 // 1. Register a state
@@ -26,7 +26,7 @@ If you have data which might change and where changes to that data should be ref
 
 > **Note**: Only the component where the `useState` was registered will be updated, not any other components.
 
-==`useState` adds reactivity to our application. Without `useState`, our UI would never change, but with `useState` and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen==.
+==`useState` adds reactivity to our application. **Without** `useState` **our UI would never change**, but with `useState` and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen==.
 
 ![049_updating_data_via_state](..\img\049_updating_data_via_state.jpg)
 
@@ -42,7 +42,7 @@ Now, in addition, whenever state changes because a some event happen, it's only 
 
 `useState` registers some state for the component function in which `useState` is being called, and I wanna be even more precise, _it registers it for a specific component instance_. For example, ==if you have a component function and you used four times, **every item (component) receives its own separate state, which is detached from the others components states**==.
 
-If you have one component function called `ExpenseItem`, but then you use that component function four times, when we create four `<ExpenseItem/>`, every time `ExpenseItem` is called, a new separate state is created for each component and managed independently for each other by React. So, if you change the state, for example in the first `<ExpenseItem/>`, the other ones are not affected because they have their own state.
+_If you have one component function called `ExpenseItem`, but then you use that component function four times, when we create four `<ExpenseItem/>`, every time `ExpenseItem` is called, a new separate state is created for each component and managed independently for each other by React. So, if you change the state, for example in the first `<ExpenseItem/>`, the other ones are not affected because they have their own state_.
 
 ==That's really important: **it's one state per component instance basis**, so _we have separate states, even if we create a component more than once_. This behavior is crucial, because it would be a rather undesired behavior if we change something in one item and all the other items are updated as well==.
 
