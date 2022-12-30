@@ -1,6 +1,6 @@
 # Learning the "Rules of Hooks"
 
-**React Hooks** are simply all those **functions** that start with the word 'use' (`useState`, `useContext`, `useEffect` etc).
+**React Hooks** are simply all those **functions** that start with the word 'use' (`useState`, `useContext`, `useEffect` etc).  You can also write your own Hooks by combining the existing ones. Hooks are more restrictive than regular functions.
 
 There are **two main rules** you have to know when it comes to working with React Hooks:
 
@@ -12,3 +12,4 @@ There are **two main rules** you have to know when it comes to working with Reac
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [Using Hooks - beta.reactjs.org](https://beta.reactjs.org/learn#using-hooks)

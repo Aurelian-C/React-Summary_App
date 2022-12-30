@@ -119,8 +119,8 @@ const section3 = {
         highlight1: ['Components'],
       },
       tooltips: [
-        'A Component in React is just a JavaScript function that returns JSX code.',
-        'Components are in the end just a combination of HTML, CSS and JavaScript.',
+        'A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.',
+        'A component in React is just a JavaScript function that returns JSX code. Components are in the end just a combination of HTML, CSS and JavaScript.',
         "Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
         'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
         'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.',
@@ -159,7 +159,11 @@ const section3 = {
       highlights: {
         highlight2: ['JSX'],
       },
-      tooltips: ['JSX = HTML code inside of JavaScript'],
+      tooltips: [
+        'JSX = HTML code inside of JavaScript',
+        "JSX is stricter than HTML. You have to close tags like <<span>br /></span> or <<span>input /></span>. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or an empty <>...<</span>/></span> wrapper.",
+        'You can store JSX content in variables. You are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
+      ],
     },
     {
       sectionTitle: '32. How React Works',
@@ -173,7 +177,7 @@ const section3 = {
         highlight2: ['Custom Component'],
       },
       tooltips: [
-        'A React component is basically just a custom HTML element. The key difference between custom and built-in HTML elements is that custom elements (components) NOT start with a lowercase character, but with an uppercase character. And indeed your own custom components must start with an uppercase character, so that React is able to detect that is a custom component.',
+        'A React custom component is basically just a custom HTML element. The key difference between custom components and built-in HTML elements (tags) is that custom components always start with a capital letter. And indeed your own custom components must start with a capital letter, so that React is able to detect that is a custom component. React custom components names must always start with a capital letter, while HTML tags must be lowercase.',
         'There are 3 steps to build a custom component: create & export the component, import the component, use the component.',
         'Is considered a good practice to put new components into new files, so that you have one file per component.',
       ],
@@ -184,7 +188,13 @@ const section3 = {
     },
     {
       sectionTitle: '35. Adding Basic CSS Styling',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/035__Adding_basic_CSS_styling.html',
+      highlights: {
+        highlight1: ['CSS Styling'],
+      },
+      tooltips: [
+        'In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.',
+      ],
     },
     {
       sectionTitle:
@@ -195,7 +205,7 @@ const section3 = {
         highlight2: ['Expressions in JSX'],
       },
       tooltips: [
-        'You write expressions in JSX code with the help of curly brackets <code>{}</code>',
+        'You write expressions in JSX code with the help of curly brackets <code>{}</code>. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.',
       ],
     },
     {
@@ -282,6 +292,7 @@ const section4 = {
         highlight1: ['Listening to Events', 'Event Handlers'],
       },
       tooltips: [
+        'You can respond to events in React by declaring event handler functions inside your custom components.',
         'On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to.',
         `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as <code>props</code> which start with "on" (example: onClick, onScroll).`,
         'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs.',
@@ -472,8 +483,7 @@ const section5 = {
       },
       tooltips: [
         'With React you can render (output) on you page different content based on different conditions.',
-        'You can store JSX content in variables. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.',
-        'When it comes to output content conditionally, long statements like <code>if</code> or <code>for</code> loops are not allowed between curly braces, in JSX expressions. So, for achive our results, we need to use Ternary Operator or Short Circuiting with <code>&&</code> or <code>||</code>',
+        'When it comes to output content conditionally, long statements like <code>if</code> or <code>for</code> loops are not allowed between curly braces, in JSX expressions. So, for achive our results, we need to use Ternary Operator or Short Circuiting with <code>&&</code> or <code>||</code>.',
       ],
     },
     {

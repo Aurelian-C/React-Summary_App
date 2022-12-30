@@ -22,6 +22,8 @@ const [value, setValue] = useState(initialValue)
 setValue(updatingValue)
 ```
 
+> **Note**: You will get two things from `useState`: the current state (`value`), and the function that lets you update it (`setValue`). You can give them any names, but the convention is to call them like `[something, setSomething]`.
+
 If you have data which might change and where changes to that data should be reflected on the UI, then you need `useState` because a regular variables will not do the trick, ==with `useState` however you can **set** _and_ **change** values==, and ==when they do change, React will re-evaluate the component in which the `useState` was registered==.
 
 > **Note**: Only the component where the `useState` was registered will be updated, not any other components.
