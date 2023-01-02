@@ -217,9 +217,9 @@ const section3 = {
       tooltips: [
         'Props are the "attributes" of your custom HTML elements (components).',
         'React will ensure that we get one parameter in every component which we use as a component, and that one parameter will be an object which holds all the received attributes as properties.',
-        "You can name that parameter whatever you want. Typically, it's named <code>props</code> to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
+        "You can name that parameter whatever you want. Typically, it's named props to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
         'The convention for props which hold functions is to start with "on".',
-        "<code>props</code> allows you to make your components reusable, and it allows you to pass data from a component to another component. <code>props</code> are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
+        "props allows you to make your components reusable, and it allows you to pass data from a component to another component. props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
       ],
     },
     {
@@ -249,7 +249,7 @@ const section3 = {
         highlight2: ['("children props")'],
       },
       tooltips: [
-        "Sometimes you wanna have a component where you don't configure everything through <code>props</code>, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
+        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
         "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
         '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
       ],
@@ -294,7 +294,7 @@ const section4 = {
       tooltips: [
         'You can respond to events in React by declaring event handler functions inside your custom components.',
         'On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to.',
-        `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as <code>props</code> which start with "on" (example: onClick, onScroll).`,
+        `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as props which start with "on" (example: onClick, onScroll).`,
         'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs.',
       ],
     },
@@ -402,7 +402,7 @@ const section4 = {
         highlight1: ['Child-to-Parent Component Communication'],
       },
       tooltips: [
-        "We can't skip components in between. <code>props</code> can only be passed from parent to child, we can't skip intermediate components.",
+        "We can't skip components in between. props can only be passed from parent to child, we can't skip intermediate components.",
       ],
     },
     {
@@ -412,7 +412,7 @@ const section4 = {
         highlight1: ['Lifting The State Up'],
       },
       tooltips: [
-        'We learned about a very important concept of moving data from a child to a parent component by utilizing <code>props</code> to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
+        'We learned about a very important concept of moving data from a child to a parent component by utilizing props to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
         'You will hear the term Lifting The State Up quite a bit when you were working with React and whenever you hear that, it is about moving data from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
       ],
     },
@@ -880,12 +880,12 @@ const section10 = {
         highlight2: ['React Context (Context API)'],
       },
       tooltips: [
-        `I'm talking about a problem, where you are passing a lot of data through a lot of components via <code>props</code>. Now it is quite common that you pass data to components through <code>props</code>, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
-        'React Context provides a way to pass data through the component tree without having to pass <code>props</code> down manually at every level.',
+        `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
+        'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
         'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
-        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass <code>props</code> down manually at every level ("props chain").',
-        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing <code>props</code> through intermediate elements.',
-        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of <code>props</code>, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
+        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass props down manually at every level ("props chain").',
+        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing props through intermediate elements.',
+        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
         "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
       ],
     },
@@ -996,7 +996,7 @@ const section11 = {
         highlight1: ['Adding a Form'],
       },
       tooltips: [
-        'When you receive an object through "props", you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator: <<span>input {...props.object}</span> />',
+        'When you receive an object through props, you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator: <<span>input {...props.object}</span> />',
       ],
     },
     {
@@ -1070,10 +1070,10 @@ const section12 = {
         highlight1: ['How React Really Works'],
       },
       tooltips: [
-        'React.js only cares about components, <code>props</code>, state and context. On the other hand, ReactDOM is your interface to the web, ReactDOM is responsible for bringing something onto the screen, which the user is then able to see.',
-        'Whenever <code>props</code>, state or context changes, components that use these concepts are updated by React, and React checks whether that component now wants to draw something new onto the screen, and if that should be the case, React will let ReactDOM know about that, so that ReactDOM is able to bring that new screen, that new component, that new output to the screen.',
+        'React.js only cares about components, props, state and context. On the other hand, ReactDOM is your interface to the web, ReactDOM is responsible for bringing something onto the screen, which the user is then able to see.',
+        'Whenever props, state or context changes, components that use these concepts are updated by React, and React checks whether that component now wants to draw something new onto the screen, and if that should be the case, React will let ReactDOM know about that, so that ReactDOM is able to bring that new screen, that new component, that new output to the screen.',
         'React is concerned about components and what React in the end does is, it uses a concept called the virtual DOM. With the help of virtual DOM, React determines how the component tree currently looks like and what it should look like, for example, after a state update. And that information is then handed off to ReactDOM which now knows about the differences and which then knows how it should manipulate the real DOM to match that virtual DOM, that virtual snapshot React derived for your component trees.',
-        'Whenever state, <code>props</code> or a context of a component changes, that component function is re-executed, that component is re-evaluated by React. But it is worth noting that re-evaluating a component is not the same as re-rendering the DOM.',
+        'Whenever state, props or a context of a component changes, that component function is re-executed, that component is re-evaluated by React. But it is worth noting that re-evaluating a component is not the same as re-rendering the DOM.',
         'Just because a component function is re-executed by React does not mean that the respective part of the actual real DOM is re-rendered or re-evaluated. Instead we have to differentiate between our component part (our React part) and the real DOM.',
       ],
     },
@@ -1088,7 +1088,19 @@ const section12 = {
     {
       sectionTitle:
         '155. Preventing Unnecessary Re-Evaluations with React.memo()',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/155__React_memo.html',
+      highlights: {
+        highlight2: ['React.memo()'],
+      },
+      tooltips: [
+        '<code>React.memo()</code> lets you skip re-rendering a component when its props are unchanged. It help you optimize functional components to avoids unnecessary components re-rendering.',
+        '<code>React.memo()</code> only work for functional components.',
+        'React normally re-renders a component whenever its parent re-renders. With <code>React.memo()</code> you can create a component that React will not re-render when its parent re-renders so long as its new props are the same as the old props.',
+        'If you wrap a component with <code>React.memo()</code>, if that wrapped component is not re-evaluated, its children components are also not re-evaluated.',
+        '<code>React.memo()</code> can be a great tool if you have a huge component tree with a lot of child components, and on a high level in the component tree you can avoid unnecessary re-render cycles for the entire branch of the component tree, because even children components of the parent component that is wrapped by <code>React.memo()</code> will not be re-executed. With the help of <code>React.memo()</code> you can cut off entire branches of unnecessary re-evaluations.',
+        "You just don't wanna wrap every component with <code>React.memo()</code>, instead you wanna pick some key parts in your component tree which allows you to cut off an entire branch of child components, that's way more effective than doing this on every child component.",
+        'A component that receives through props reference values (arrays, objects or functions) will be re-evaluated although you wrap that component with <code>React.memo()</code>.',
+      ],
     },
     {
       sectionTitle: '156. Preventing Function Re-Creation with useCallback()',

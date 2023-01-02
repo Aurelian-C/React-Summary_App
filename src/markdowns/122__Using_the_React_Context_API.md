@@ -32,7 +32,7 @@ const MyContext = React.createContext({
 export default MyContext;
 ```
 
-> **Note**: ==The `defaultValue` argument is **only used** when a component does not have a matching Provider above it in the tree==. This default value can be helpful for testing components in isolation without wrapping them. 
+> **Note**: ==The `defaultValue` argument is **only used** when a component does not have a matching Provider above it in the tree==. This default value can be helpful for testing components in isolation without wrapping them.
 >
 > Passing `undefined` as a `Context.Provider` "value" prop does not cause consuming components to use `defaultValue`.
 
@@ -51,8 +51,8 @@ import MyContext from './store/auth-context';
 
 const Componenet = () => {
     <MyContext.Provider value={/* some value */}>
-        // Other components    
-    </MyContext.Provider>  
+        // Other components
+    </MyContext.Provider>
 };
 
 // Technically, you don't need a Provider component if you have a default value, but in reality, you will use Context to have a value which can change and that will only be possible with a Provider component.
@@ -87,11 +87,11 @@ const Component = () => {
 
 The good thing is we can set up a **dynamic Context** where we don't just pass **data** to other components but also **functions**.
 
-## Context vs `props`
+## Context vs props
 
-In most cases, you will use `props` to pass data to components, because `props` are your mechanism to configure components and to make them reusable. Only if you have something which you would forward through a lot of components, and you're forwarding it to a component that _does something very specific_, for example, a navigation where you have a button that will always logout the user, in such cases you wanna consider Context.
+In most cases, you will use props to pass data to components, because props are your mechanism to configure components and to make them reusable. Only if you have something which you would forward through a lot of components, and you're forwarding it to a component that _does something very specific_, for example, a navigation where you have a button that will always logout the user, in such cases you wanna consider Context.
 
-_If you would use Context instead of `props`, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable_.
+_If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable_.
 
 You can of course always rely on "prop chains" if you prefer that, but Context allows you to write more concise code and it often makes managing such app-wide state simply a bit easier.
 

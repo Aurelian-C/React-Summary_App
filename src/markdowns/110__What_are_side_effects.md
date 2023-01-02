@@ -4,7 +4,7 @@ What is an Effect, also called a Side Effect? Well, let's not forget that our co
 
 That is what we focused on this far, with state and events and all of that. ==The main job of React is to **bring something onto the screen**, and to make sure that the user may interact with that something==, and that what's shown on the screen may change based on certain events.
 
-We wanna ==evaluate and render the JSX code== and the DOM. We wanna ==manage state and `props`== to make sure that every component has the data it needs, and that we reflect the user input correctly. We wanna ==react to user events==, and of course React is there to also ==re-evaluate our components== and their JSX code and manipulate the real DOM as needed. So that's all baked into React with the tools and features we learned thus far (`useState()`, `props`, etc).
+We wanna ==evaluate and render the JSX code== and the DOM. We wanna ==manage state and props== to make sure that every component has the data it needs, and that we reflect the user input correctly. We wanna ==react to user events==, and of course React is there to also ==re-evaluate our components== and their JSX code and manipulate the real DOM as needed. So that's all baked into React with the tools and features we learned thus far (`useState()`, props, etc).
 
 ## What is a "side effect"?
 

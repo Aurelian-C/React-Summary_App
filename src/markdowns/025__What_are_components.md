@@ -8,7 +8,7 @@ With just the JavaScript, you have to write every single step that should be tak
 
 ## What is a component?
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called `props`) and return React elements describing what should appear on the screen.
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called props) and return React elements describing what should appear on the screen.
 
 ==A component in React is just a **JavaScript function**, a special kind of function, special regarding what it returns (_it does return **JSX** code_), but other than that it's just a JavaScript function. **Components are just functions which then _return HTML code_**==, and of course the HTML code do you return in a component depends on what the components should render on the screen.
 
@@ -48,4 +48,3 @@ _React uses something which is called a_ ==**Declarative Approach**== _for build
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 1. [Components and Props - reactjs.org](https://reactjs.org/docs/components-and-props.html)
-

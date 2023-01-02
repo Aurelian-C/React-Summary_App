@@ -2,7 +2,7 @@
 
 Before you start to build a component, you need to create first a React project. The easiest way of getting started with a React project is to use a tool called [Create React App](https://github.com/facebook/create-react-app).
 
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called `props`) and return React elements describing what should appear on the screen. The simplest way to define a component is to write a JavaScript function:
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called props) and return React elements describing what should appear on the screen. The simplest way to define a component is to write a JavaScript function:
 
 ```react
 function Welcome(props) {
@@ -142,16 +142,16 @@ function App(props) {
 }
 ```
 
-You can also “escape into JavaScript” from JSX attributes, but you have to use curly braces *instead of* quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
+You can also “escape into JavaScript” from JSX attributes, but you have to use curly braces _instead of_ quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
 
 ```react
 function Image = {
   return (
-  	<img 
-       className="avatar" 
-       src={user.imageUrl} 
+  	<img
+       className="avatar"
+       src={user.imageUrl}
     />
-  ); 
+  );
 }
 ```
 

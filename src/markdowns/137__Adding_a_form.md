@@ -1,6 +1,6 @@
 # Adding a form
 
-When you receive an object through `props`, you can use a little trick to pass all the configuration data that you have in that object for a component by using spread `...` operator:
+When you receive an object through props, you can use a little trick to pass all the configuration data that you have in that object for a component by using spread `...` operator:
 
 ```react
 const Input = (props) => {
@@ -16,7 +16,7 @@ const Input = (props) => {
 export default Input;
 ```
 
-This trick ensures that all the key-value pairs in the `props.input` object which we receive on `<input {...props.input} />` are added as `props` to `<input/>`. This is how that works when you use the spread operator on an element like `<input/>`.
+This trick ensures that all the key-value pairs in the `props.input` object which we receive on `<input {...props.input} />` are added as props to `<input/>`. This is how that works when you use the spread operator on an element like `<input/>`.
 
 It's simply a convenient way of making the `<input {...props.input} />` highly configurable from outside `Input` component, through the `props.input` object.
 

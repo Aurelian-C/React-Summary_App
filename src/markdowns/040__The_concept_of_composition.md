@@ -1,8 +1,8 @@
 # The concept of composition - `children` props
 
-Sometimes you wanna have a component where you don't configure everything through `props`, but where instead you're able to ==pass content between the opening and closing tags of that component. Out of the box, **you can't use your custom components as wrappers around other kind of content**. Having content between opening and closing tags doesn't work just like that with custom components as wrappers==. 
+Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to ==pass content between the opening and closing tags of that component. Out of the box, **you can't use your custom components as wrappers around other kind of content**. Having content between opening and closing tags doesn't work just like that with custom components as wrappers==.
 
-==Out of the box you can only use built-in HTML elements (`<div>` tag, `<h2>` tag etc) as wrappers. If you want to use custom components as wrappers, you need to use one special `props` that is build into React, which every component receives, even if you're never setting it explicitly, and that is `props.children`==:
+==Out of the box you can only use built-in HTML elements (`<div>` tag, `<h2>` tag etc) as wrappers. If you want to use custom components as wrappers, you need to use one special props that is build into React, which every component receives, even if you're never setting it explicitly, and that is `props.children`==:
 
 ```react
 function Card(props) {
