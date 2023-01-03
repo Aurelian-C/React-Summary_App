@@ -1132,7 +1132,14 @@ const section12 = {
     },
     {
       sectionTitle: '161. Optimizing with useMemo()',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/161__useMemo.html',
+      highlights: {
+        highlight2: ['useMemo()'],
+      },
+      tooltips: [
+        '<code>useMemo</code> is a React hook that lets you cache the result of a calculation between re-renders until its dependencies change.',
+        'You will use <code>useMemo</code> far less often than you use <code>useCallback</code> because memoizing functions is much more useful and you need that more often than memoizing data. You essentially wanna memoize data if it would be performance-intensive to recalculate something based on it.',
+      ],
     },
     {
       sectionTitle: '162. Module Resources',
