@@ -1104,7 +1104,15 @@ const section12 = {
     },
     {
       sectionTitle: '156. Preventing Function Re-Creation with useCallback()',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/156__useCallback.html',
+      highlights: {
+        highlight2: ['useCallback()'],
+      },
+      tooltips: [
+        'When you optimize rendering performance, you will sometimes need to cache the functions that you pass to child components. To cache a function between re-renders of your component, wrap its definition into the <code>useCallback</code> hook.',
+        '<code>useCallback</code> is a hook that allows us to basically store a function across component executions.',
+        "By wrapping a function in <code>useCallback</code>, you ensure that it's the same function between the re-renders (until dependencies change). You don't have to wrap a function in <code>useCallback</code> unless you do it for some specific reason.",
+      ],
     },
     {
       sectionTitle: '157. useCallback() and its Dependencies',
@@ -1112,7 +1120,7 @@ const section12 = {
     },
     {
       sectionTitle: '158. A First Summary',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/157__A_first_summary.html',
     },
     {
       sectionTitle: '159. A Closer Look At State & Components',
