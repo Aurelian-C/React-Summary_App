@@ -1187,7 +1187,15 @@ const section13 = {
     },
     {
       sectionTitle: '171. Introducing Error Boundaries',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/171__Introducing_error_boundaries.html',
+      highlights: {
+        highlight2: ['Error Boundaries'],
+      },
+      tooltips: [
+        'Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.',
+        "Error boundaries work like a JavaScript <code>catch {}>/code> block, but for components. Only class components can be error boundaries. In practice, most of the time you'll want to declare an error boundary component once and use it throughout your application.",
+        "Note that error boundaries only catch errors in the components below them in the tree. An error boundary can't catch an error within itself.",
+      ],
     },
     {
       sectionTitle: '172. Module Resources',
