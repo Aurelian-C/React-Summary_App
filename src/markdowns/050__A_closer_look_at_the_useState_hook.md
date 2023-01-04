@@ -95,6 +95,30 @@ This would be an alternative to having the three individual state slices, like i
 
 > **Note**: I tend to **prefer the individual state slices**, and I would say you also see that more often out there in the world, in other React projects, but ultimately both approaches are fine.
 
+## Find the minimal but complete representation of UI state
+
+To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this.
+
+Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it DRY (Don’t Repeat Yourself). Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand. For example, if you’re building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don’t store the number of items as another state value — instead, read the length of your array.
+
+Which pieces of data are state? Identify the ones that are not:
+
+- Does data **remain unchanged** over time? If so, it isn’t state.
+- Is data **passed in from a parent** via props? If so, it isn’t state.
+- **Can you compute data** based on existing state or props in your component? If so, it *definitely* isn’t state!
+
+What’s left is probably state.
+
+## Props vs State
+
+There are two types of “model” data in React: props and state. The two are very different:
+
+- [**Props** are like arguments you pass](https://beta.reactjs.org/learn/passing-props-to-a-component) to a function. They let a parent component pass data to a child component and customize its appearance. For example, a `Form` can pass a `color` prop to a `Button`.
+- [**State** is like a component’s memory.](https://beta.reactjs.org/learn/state-a-components-memory) It lets a component keep track of some information and change it in response to interactions. For example, a `Button` might keep track of `isHovered` state.
+
+Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and *pass it down* to child components as their props.
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [Thinking in React - beta.reactjs.org](https://beta.reactjs.org/learn/thinking-in-react#step-3-find-the-minimal-but-complete-representation-of-ui-state)

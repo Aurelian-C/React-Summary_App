@@ -325,6 +325,7 @@ const section4 = {
       tooltips: [
         "With <code>import React from 'react'</code> we import the overall React object. Now, with <code>import {useState} from 'react'</code> we want to import a single pieces from the React library.",
         `The <code>useState()</code> is a function provided by the React library and this function allows us to define values as state, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.`,
+        'State is reserved only for interactivity, that is, data that changes over time.',
         'We use <code>useState()</code> only inside of a component function!',
         `<code>useState()</code> returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an state updating function, which we can then call to assign a new value to that variable. So we'll not be assigning values with the equal sign, instead, we will be assigning new values by calling a function.`,
         'The initial value of a state is only considered when a component function is being executed for the first time.',
@@ -338,6 +339,7 @@ const section4 = {
         highlight1: ['State can be updated'],
       },
       tooltips: [
+        'To make the UI interactive, you need to let users change your underlying data model. You will use state for this.',
         'The state is changed when you use the state updating function provided by <code>useState</code> hook.',
         'Only the component where the <code>useState()</code> was registered will be updated, not any other components.',
         '<code>useState()</code> adds reactivity to our application. Without <code>useState()</code>, our UI would never change, but with <code>useState()</code> and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen.',
