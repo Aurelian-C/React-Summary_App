@@ -226,9 +226,7 @@ const section3 = {
         highlight2: ['"props"'],
       },
       tooltips: [
-        'Props are the "attributes" of your custom HTML elements (components).',
-        'React will ensure that we get one parameter in every component which we use as a component, and that one parameter will be an object which holds all the received attributes as properties.',
-        "You can name that parameter whatever you want. Typically, it's named props to make it clear that is the object which holds all the values we get for the attributes on our custom element.",
+        'React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!',
         'The convention for props which hold functions is to start with "on".',
         "props allows you to make your components reusable, and it allows you to pass data from a component to another component. props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
       ],
@@ -460,6 +458,7 @@ const section5 = {
         highlight1: ['Lists of Data'],
       },
       tooltips: [
+        "You will often want to display multiple similar components from a collection of data. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an array of components</i>. For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item's place in the list even if the list changes.",
         'With React you can output arrays of JSX elements on your page.',
         'If you do output an array of JSX elements, then React is capable of rendering on the UI that array of JSX elements. So if you had an array of JSX elements as part of your JSX code, React would simply render that elements side by side.',
       ],

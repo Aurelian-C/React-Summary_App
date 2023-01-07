@@ -21,6 +21,59 @@ Composition is important, you use it all the time when working with React. Whene
 
 ==`props.children` **holds all the content you're passing between the opening and closing tag** off your custom component==.
 
+## Passing JSX as children: `props.children`
+
+It is common to nest built-in browser tags:
+
+```react
+<div>
+  <img />
+</div>
+```
+
+Sometimes you’ll want to nest your own components the same way:
+
+```react
+<Card>
+  <Avatar />
+</Card>
+```
+
+When you nest content inside a JSX tag, the parent component will receive that content in a prop called `children`. For example, the `Card` component below will receive a `children` prop set to `<Avatar />` and render it in a wrapper div:
+
+```react
+import Avatar from './Avatar.js';
+
+function Card({ children }) {
+  return (
+    <div className="card">
+      {children}
+    </div>
+  );
+}
+
+export default function Profile() {
+  return (
+    <Card>
+      <Avatar
+        size={100}
+        person={{ 
+          name: 'Katsuko Saruhashi',
+          imageId: 'YfeOqp2'
+        }}
+      />
+    </Card>
+  );
+}
+```
+
+Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card` component can wrap any nested content. It doesn’t need to “know” what’s being rendered inside of it. You will see this flexible pattern in many places.
+
+You can think of a component with a `children` prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX. You will often use the `children` prop for visual wrappers: panels, grids, and so on.
+
+![037_props_children](..\img\037_props_children.jpg)
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [Passing JSX as children - beta.reactjs.org](https://beta.reactjs.org/learn/passing-props-to-a-component#passing-jsx-as-children)
