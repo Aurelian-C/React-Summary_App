@@ -122,8 +122,12 @@ const section3 = {
         'A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.',
         'A component in React is just a JavaScript function that returns JSX code. Components are in the end just a combination of HTML, CSS and JavaScript.',
         "Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
+        'Components are a handy way to organize UI code and markup, even if some of them are only used once.',
         'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
         'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.',
+        `React components are regular JavaScript functions except:
+        <br>- their names always begin with a capital letter;
+        <br>- they return JSX markup.`,
       ],
     },
     {
@@ -155,11 +159,12 @@ const section3 = {
     },
     {
       sectionTitle: '31. Introducing JSX',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/031__Introducing_JSX.html',
       highlights: {
         highlight2: ['JSX'],
       },
       tooltips: [
+        'JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file.',
         'JSX = HTML code inside of JavaScript',
         "JSX is stricter than HTML. You have to close tags like <<span>br /></span> or <<span>input /></span>. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or an empty <>...<</span>/></span> wrapper.",
         'You can store JSX content in variables. You are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
@@ -180,6 +185,7 @@ const section3 = {
         'A React custom component is basically just a custom HTML element. The key difference between custom components and built-in HTML elements (tags) is that custom components always start with a capital letter. And indeed your own custom components must start with a capital letter, so that React is able to detect that is a custom component. React custom components names must always start with a capital letter, while HTML tags must be lowercase.',
         'There are 3 steps to build a custom component: create & export the component, import the component, use the component.',
         'Is considered a good practice to put new components into new files, so that you have one file per component.',
+        'Components (parent) can render other components (child), but you must never nest their definitions (never define a component inside another component!).',
       ],
     },
     {
@@ -205,7 +211,12 @@ const section3 = {
         highlight2: ['Expressions in JSX'],
       },
       tooltips: [
-        'You write expressions in JSX code with the help of curly brackets <code>{}</code>. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user.',
+        'JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.',
+        "JSX is a special way of writing JavaScript. That means it's possible to use JavaScript inside it with curly braces <code>{ }</code>.",
+        'You write expressions in JSX code with the help of curly brackets <code>{}</code>. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. Any JavaScript expression will work between curly braces, including function calls.',
+        `You can only use curly braces in two ways inside JSX:
+        <br>- as text directly inside a JSX tag: <<span>h1>{name}'s To Do List<</span>/h1> works, but <{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}> will not.
+        <br>- as attributes immediately following the = sign: src={avatar} will read the avatar variable, but src="{avatar}" will pass the string "{avatar}".`,
       ],
     },
     {
@@ -234,11 +245,11 @@ const section3 = {
         highlight1: ['Splitting Components'],
       },
       tooltips: [
-        'As you work on your React app and on your React components, you will notice in any project that your components eventually become bigger and bigger, as you have more and more logic and JSX code in them. This is something which will naturally happen, that is why React has the component concept.',
+        'You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.',
         'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall UI by combining these building blocks/components.',
         'Separation of concerns: React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML code and all the JavaScript logic',
         "If we split our code across multiple files, then we'll have small pieces of code which are easy to manage and maintain.",
-        'You can have also multiple components per one file, and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
+        'Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other. If the file gets crowded, you can always split your components to a separate file. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
       ],
     },
     {
