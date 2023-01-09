@@ -1285,7 +1285,17 @@ const section15 = {
     },
     {
       sectionTitle: '187. What are "Custom Hooks"?',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/187__What_are_Custom_Hooks.html',
+      highlights: {
+        highlight2: ['"Custom Hooks"'],
+      },
+      tooltips: [
+        'Custom Hooks are mechanism for <i>reusing logic</i>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks.',
+        'Custom Hooks let you share logic between components.',
+        "Custom Hooks must be named starting with 'use' followed by a capital letter.",
+        'Custom Hooks only share stateful logic, not state itself.',
+        'All Hooks re-run every time your component re-renders.',
+      ],
     },
     {
       sectionTitle: '188. Creating a Custom React Hook Function',
