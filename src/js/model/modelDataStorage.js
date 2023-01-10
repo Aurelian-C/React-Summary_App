@@ -1140,7 +1140,13 @@ const section12 = {
     },
     {
       sectionTitle: '160. Understanding State Scheduling & Batching',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/160__Understanding_state_scheduling.html',
+      highlights: {
+        highlight1: ['State Scheduling'],
+      },
+      tooltips: [
+        'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
+      ],
     },
     {
       sectionTitle: '161. Optimizing with useMemo()',
@@ -1291,9 +1297,9 @@ const section15 = {
       },
       tooltips: [
         'Custom Hooks are mechanism for <i>reusing logic</i>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks.',
-        'Custom Hooks let you share logic between components.',
+        'Custom Hooks let you <i>share logic between components</i>.',
         "Custom Hooks must be named starting with 'use' followed by a capital letter.",
-        'Custom Hooks only share stateful logic, not state itself.',
+        'Custom Hooks only <i>share stateful logic, not state itself</i>.',
         'All Hooks re-run every time your component re-renders.',
       ],
     },
@@ -1350,7 +1356,7 @@ const section16 = {
     },
     {
       sectionTitle: "199. What's So Complex About Forms?",
-      sectionSource: '',
+      sectionSource: '/src/markdowns/199__What_is_so_complex_about_forms.html',
     },
     {
       sectionTitle:

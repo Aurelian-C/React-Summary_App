@@ -311,3 +311,9 @@ code {
   visibility: visible;
   opacity: 1;
 }
+
+/* Tooltip box style marked word */
+i {
+  color: rgb(138, 255, 0);
+  font-style: normal;
+}
