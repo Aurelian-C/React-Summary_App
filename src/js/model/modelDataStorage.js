@@ -1,117 +1,7 @@
-const section1 = {
-  title:
-    '<p class="card__title--1">Section 1</p> <p class="card__title--2">Getting Started</p>',
-  sections: [
-    {
-      sectionTitle: '1. Welcome To The Course!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '2. What is React.js?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '3. Why React Instead Of "Just JavaScript"?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '4. Building Single-Page Applications (SPAs) with React',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '5. Exploring React.js Alternatives (Angular / Vue)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '6. Join our Online Learning Community',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '7. About This Course & Course Outline',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '8. The Two Ways (Paths) Of Taking This Course',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '9. Getting The Most Out Of This Course',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '10. Setting Up The Course Dev Environment (Code Editor)',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section2 = {
-  title:
-    '<p class="card__title--1">Section 2</p> <p class="card__title--2">JavaScript Refresher</p>',
-  sections: [
-    {
-      sectionTitle: '11. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '12. Understanding "let" and "const"',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '13. Arrow Functions',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '14. Exports and Imports',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '15. Understanding Classes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '16. Classes, Properties and Methods',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '17. The Spread & Rest Operator',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '18. Destructuring',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '19. Reference and Primitive Types Refresher',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '20. Refreshing Array Functions',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '21. Wrap Up',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '22. Next-Gen JavaScript - Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '23. JS Array Functions',
-      sectionSource: '',
-    },
-  ],
-};
-
 const section3 = {
   title:
     '<p class="card__title--1">Section 3</p> <p class="card__title--2">React Basics & Working With Components</p>',
   sections: [
-    {
-      sectionTitle: '24. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '25. What Are Components And Why Is React All About Them?',
       sectionSource: '/src/markdowns/025__What_are_components.html',
@@ -120,7 +10,7 @@ const section3 = {
       },
       tooltips: [
         'A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.',
-        'A component in React is just a JavaScript function that returns JSX code. Components are in the end just a combination of HTML, CSS and JavaScript.',
+        'A component in React is just a JavaScript function that returns JSX markup. Components are in the end just a combination of HTML, CSS and JavaScript.',
         "Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
         'Components are a handy way to organize UI code and markup, even if some of them are only used once.',
         'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
@@ -142,19 +32,7 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '27. A Note About New React Projects & NodeJS',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '28. Creating a new React Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '29. The Starting Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '30. Analyzing a Standard React Project',
       sectionSource: '',
     },
     {
@@ -167,7 +45,7 @@ const section3 = {
         'JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file.',
         'JSX = HTML code inside of JavaScript',
         "JSX is stricter than HTML. You have to close tags like <<span>br /></span> or <<span>input /></span>. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or an empty <>...<</span>/></span> wrapper.",
-        'You can store JSX content in variables. You are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
+        'You can store JSX markup in variables. You are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
       ],
     },
     {
@@ -188,10 +66,7 @@ const section3 = {
         'Components (parent) can render other components (child), but you must never nest their definitions (never define a component inside another component!).',
       ],
     },
-    {
-      sectionTitle: '34. Writing More Complex JSX Code',
-      sectionSource: '',
-    },
+
     {
       sectionTitle: '35. Adding Basic CSS Styling',
       sectionSource: '/src/markdowns/035__Adding_basic_CSS_styling.html',
@@ -213,7 +88,7 @@ const section3 = {
       tooltips: [
         'JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.',
         "JSX is a special way of writing JavaScript. That means it's possible to use JavaScript inside it with curly braces <code>{ }</code>.",
-        'You write expressions in JSX code with the help of curly brackets <code>{}</code>. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. Any JavaScript expression will work between curly braces, including function calls.',
+        'You write expressions in JSX markup with the help of curly brackets <code>{}</code>. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. Any JavaScript expression will work between curly braces, including function calls.',
         `You can only use curly braces in two ways inside JSX:
         <br>- as text directly inside a JSX tag: <<span>h1>{name}'s To Do List<</span>/h1> works, but <{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}> will not.
         <br>- as attributes immediately following the = sign: src={avatar} will read the avatar variable, but src="{avatar}" will pass the string "{avatar}".`,
@@ -264,23 +139,7 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '41. A First Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '42. A Closer Look At JSX',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '43. Organizing Component Files',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '44. An Alternative Function Syntax',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '45. Module Resources',
       sectionSource: '',
     },
   ],
@@ -291,20 +150,20 @@ const section4 = {
     '<p class="card__title--1">Section 4</p> <p class="card__title--2">React State & Working with Events</p>',
   sections: [
     {
-      sectionTitle: '46. Module Introduction',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '47. Listening to Events & Working with Event Handlers',
       sectionSource: '/src/markdowns/047__Listening_&_working_with_events.html',
       highlights: {
         highlight1: ['Listening to Events', 'Event Handlers'],
       },
       tooltips: [
-        'You can respond to events in React by declaring event handler functions inside your custom components.',
-        'On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to.',
-        `In React we add an event listener by going to the JSX element and there we add a special prop. But now it's not a prop which sets some value, but instead it's a prop which starts with "on", because React exposes all the default events as props which start with "on" (example: onClick, onScroll).`,
-        'All these "on" props, all these event handler props (onClick, onSubmit, etc), want a function passed as a value, which then is executed when that event occurs.',
+        "On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to. <i>React exposes all native DOM events as props which start with 'on'</i>.",
+        "When you're building your own components, you can name their event handler props any way that you like. By convention, event handler props should start with 'on', followed by a capital letter.",
+        '<i>React lets you add event handlers to your JSX markup</i>. You can respond to events in React by declaring event handler functions inside your custom components.',
+        `Event handler functions:
+        <br> - are usually <i>defined inside your components</i>;
+        <br> - <i>have names that start with 'handle'</i>, followed by the name of the event.`,
+        "Because event handlers are declared inside of a component, they have access to the component's props",
+        'You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props</i>.',
       ],
     },
     {
@@ -315,85 +174,76 @@ const section4 = {
         highlight1: ['Component Functions'],
       },
       tooltips: [
-        'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX code.',
-        "If you have a variable in your component function and that variable changes, React ignores it. It doesn't care about that, that code executes, sure, but the overall component function doesn't execute again just because some variable changed.",
-        `We need a way of telling React that something changed and that a certain component should be re-evaluated, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to import something from the React library.`,
+        'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX markup.',
+        "If you have a regular variable in your component function and that variable changes, that code executes, but the overall component function doesn't re-execute just because a regular variable changed. By default, React doesn't care about chainges of regular variables inside of components. It doesn't re-evaluate the component's JSX markup.",
+        `<i>Changes to regular variable isn't enough to trigger re-renders</i> because:
+        <br>- <i>Local variables don't persist between renders</i>;
+        <br>- <i>Changes to local variables won't trigger renders</i>; React doesn't realize it needs to render the component again with the new data.
+        `,
+        `To update a component with data that was changed (new data), two things need to happen:
+        <br>1. <i>Retain the data between renders</i>;
+        <br>2. <i>Trigger React to render the component with the new data (re-rendering)</i>.
+        `,
+        `We need a way of telling React that something changed and that a certain component should be re-executed, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to store a variable by adding it like a state variable.`,
       ],
     },
     {
-      sectionTitle: '49. Working with "State"',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '50. A Closer Look at the "useState" Hook',
-      sectionSource:
-        '/src/markdowns/050__A_closer_look_at_the_useState_hook.html',
+      sectionTitle: '49. Working with State',
+      sectionSource: '/src/markdowns/049__Working_with_state.html',
       highlights: {
-        highlight2: ['"useState"'],
-      },
-      tooltips: [
-        "With <code>import React from 'react'</code> we import the overall React object. Now, with <code>import {useState} from 'react'</code> we want to import a single pieces from the React library.",
-        `The <code>useState()</code> is a function provided by the React library and this function allows us to define values as state, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.`,
-        'State is reserved only for interactivity, that is, data that changes over time.',
-        'We use <code>useState()</code> only inside of a component function!',
-        `<code>useState()</code> returns an array where the first element is the variable itself, you could say, the value itself, and the second element in the array is an state updating function, which we can then call to assign a new value to that variable. So we'll not be assigning values with the equal sign, instead, we will be assigning new values by calling a function.`,
-        'The initial value of a state is only considered when a component function is being executed for the first time.',
-        '<code>useState()</code> registers some state for the component function in which <code>useState()</code> is being called, and I wanna be even more precise, it registers state for a specific component instance. For example, if you have a component function and you used four times, every component receives its own separate state, which is detached from the others components state.',
-      ],
-    },
-    {
-      sectionTitle: '51. State can be updated in many ways!',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['State can be updated'],
+        highlight1: ['State'],
       },
       tooltips: [
         'To make the UI interactive, you need to let users change your underlying data model. You will use state for this.',
-        'The state is changed when you use the state updating function provided by <code>useState</code> hook.',
+        `The <code>useState</code> always return an array that has exactly two items:
+        <br>1. A <i>state variable</i> to retain the data between renders;
+        <br>2. A <i>state setter function</i> to update the variable and trigger React to render the component again.
+        `,
+        'The <code>useState</code> hook allows us to <i>define values as state</i>, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.',
+        '<i>The state variable is changed when you use the state setter function</i> provided by <code>useState</code> hook.',
         'Only the component where the <code>useState()</code> was registered will be updated, not any other components.',
-        '<code>useState()</code> adds reactivity to our application. Without <code>useState()</code>, our UI would never change, but with <code>useState()</code> and with listening to events, we can make sure that we can react to user input and that such input can result in a visible change on our screen.',
-        'When the state is changed, NOT only the JSX markup is re-evaluated, the entire component function is re-evaluated (re-rendered or re-executed).',
+        '<i><code>useState()</code> adds reactivity to our application. Without <code>useState()</code>, our UI would never change</i>, but with <code>useState()</code> and with listening to events, we can make sure that we can react to user actions/events and that user actions/events can result in a visible change on our screen.',
+        'You can have as many state variables of as many types as you like in one component, so you can call <code>useState()</code> more than once in a component function. All of the states inside of the same component will be totally separated from each other.',
+        '<i>State is local to a component instance</i> on the screen. In other words, if you render the same component twice, each copy will have completely isolated state! Changing one of them will not affect the other.',
+        `<i>There are two types of "model" data in React: props and state</i>. The two are very different:
+        <br>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance.
+        <br>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions`,
       ],
     },
     {
-      sectionTitle: '52. Adding Form Inputs',
+      sectionTitle: '50. Updating Objects in State',
+      sectionSource: '/src/markdowns/050__Updating_objects_in_state.html',
+    },
+    {
+      sectionTitle: '51. Updating Arrays in State',
       sectionSource: '',
     },
     {
-      sectionTitle: '53. Listening to User Input',
+      sectionTitle: '52. State as a Snapshot',
       sectionSource: '',
     },
     {
-      sectionTitle: '54. Working with Multiple States',
+      sectionTitle: '53. Queueing a Series of State Updates',
       sectionSource: '',
-      highlights: {
-        highlight1: ['Multiple States'],
-      },
-      tooltips: [
-        'You can call <code>useState()</code> more than once in a component function. You can have multiple states, multiple states slices or state pieces per component and all of the states inside of one at the same component will then all to be totally separated from each other.',
-      ],
     },
     {
-      sectionTitle: `55. Using One State Instead (And What's Better)`,
+      sectionTitle: '54. Choosing the State Structure',
       sectionSource: '',
-      highlights: {
-        highlight1: ['Using One State'],
-      },
     },
     {
       sectionTitle: '56. Updating State That Depends On The Previous State',
       sectionSource:
         '/src/markdowns/056__Updating_state_that_depends_on_the_previous_state.html',
       highlights: {
-        highlight1: ['Updating State That Depends On The Previous State'],
+        highlight1: ['Updating State', 'Previous State'],
       },
       tooltips: [
-        "Reacts schedules state updates, it doesn't perform them instantly.",
+        'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
         `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the <code>useState</code> hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
       ],
     },
     {
-      sectionTitle: '57. Handling Form Submission',
+      sectionTitle: '57. Render and Commit',
       sectionSource: '',
     },
     {
@@ -436,10 +286,6 @@ const section4 = {
         highlight1: ['Controlled', 'Stateless', 'Stateful'],
       },
     },
-    {
-      sectionTitle: '62. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -447,10 +293,6 @@ const section5 = {
   title:
     '<p class="card__title--1">Section 5</p> <p class="card__title--2">Rendering Lists & Conditional Content</p>',
   sections: [
-    {
-      sectionTitle: '63. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '64. Rendering Lists of Data',
       sectionSource: '/src/markdowns/064__Rendering_lists_of_data.html',
@@ -460,7 +302,7 @@ const section5 = {
       tooltips: [
         "You will often want to display multiple similar components from a collection of data. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an array of components</i>. For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item's place in the list even if the list changes.",
         'With React you can output arrays of JSX elements on your page.',
-        'If you do output an array of JSX elements, then React is capable of rendering on the UI that array of JSX elements. So if you had an array of JSX elements as part of your JSX code, React would simply render that elements side by side.',
+        'If you do output an array of JSX elements, then React is capable of rendering on the UI that array of JSX elements. So if you had an array of JSX elements as part of your JSX markup, React would simply render that elements side by side.',
       ],
     },
     {
@@ -502,10 +344,7 @@ const section5 = {
       sectionTitle: '68. Adding Conditional Return Statements',
       sectionSource: '',
     },
-    {
-      sectionTitle: '69. Demo App: Adding a Chart',
-      sectionSource: '',
-    },
+
     {
       sectionTitle: '70. Adding Dynamic Styles',
       sectionSource: '/src/markdowns/070__Adding_dynamic_styles.html',
@@ -517,18 +356,6 @@ const section5 = {
         `In React <code>style</code> prop doesn't want a string as a value, instead <code>style</code> want as a value an object.`,
         'This object you should use have the CSS property names as key names, and the values as key values.',
       ],
-    },
-    {
-      sectionTitle: '71. Wrap Up & Next Steps',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '72. Fixing a Small Bug',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '73. Module Resources',
-      sectionSource: '',
     },
   ],
 };
@@ -589,10 +416,6 @@ const section6 = {
       sectionTitle: '81. Dynamic Styles with CSS Modules',
       sectionSource: '',
     },
-    {
-      sectionTitle: '82. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -600,10 +423,6 @@ const section7 = {
   title:
     '<p class="card__title--1">Section 7</p> <p class="card__title--2">Debugging React Apps</p>',
   sections: [
-    {
-      sectionTitle: '83. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '84. Understanding React Error Messages',
       sectionSource: '',
@@ -639,61 +458,6 @@ const section7 = {
         'In the Components tab (Google Chrome) we see the actual React Components and the Components structure that is responsible for the UI output.',
       ],
     },
-    {
-      sectionTitle: '88. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section8 = {
-  title:
-    '<p class="card__title--1">Section 8</p> <p class="card__title--2">Time to Practice: A Complete Practice Project</p>',
-  sections: [
-    {
-      sectionTitle: '89. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '90. Adding a "User" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '91. Adding a re-usable "Card" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '92. Adding a re-usable "Button" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '93. Managing the User Input State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '94. Adding Validation & Resetting Logic',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '95. Adding a Users List Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '96. Managing a List Of Users via State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '97. Adding The "ErrorModal" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '98. Managing the Error State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '99. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -701,10 +465,6 @@ const section9 = {
   title:
     '<p class="card__title--1">Section 9</p> <p class="card__title--2">Diving Deeper: Working with Fragments, Portals & "Refs"</p>',
   sections: [
-    {
-      sectionTitle: '100. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '101. JSX Limitations & Workarounds',
       sectionSource: '/src/markdowns/101__JSX_limitations_&_workarounds.html',
@@ -746,14 +506,10 @@ const section9 = {
         highlight2: ['Portals'],
       },
       tooltips: [
-        'You can use a Portal to keep the structure that you have in your JSX code, but to render the JSX code differently (in other place) in the real DOM.',
+        'You can use a Portal to keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM.',
         'Portals let your components render some of their children into a different place in the DOM.',
         'A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.',
       ],
-    },
-    {
-      sectionTitle: '105. Working with Portals',
-      sectionSource: '',
     },
     {
       sectionTitle: '106. Working with "ref"s',
@@ -774,10 +530,6 @@ const section9 = {
       sectionSource:
         '/src/markdowns/107__Controlled_vs_uncontrolled_components.html',
     },
-    {
-      sectionTitle: '108. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -785,10 +537,6 @@ const section10 = {
   title:
     '<p class="card__title--1">Section 10</p> <p class="card__title--2">Advanced: Handling Side Effects, Using Reducers & Using the Context API</p>',
   sections: [
-    {
-      sectionTitle: '109. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '110. What are "Side Effects" & Introducing useEffect',
       sectionSource: '/src/markdowns/110__What_are_side_effects.html',
@@ -842,10 +590,6 @@ const section10 = {
         'In the <code>useEffect()</code> function you can return only one specific thing, and that thing is a function. The function that you return from the <code>useEffect()</code> is called Cleanup function.',
         'This function that you return from <code>useEffect()</code> will run as a cleanup process before <code>useEffect()</code> will be re-executed. The Cleanup function will not run when the <code>useEffect()</code> is executed for the first time.',
       ],
-    },
-    {
-      sectionTitle: '115. useEffect Summary',
-      sectionSource: '',
     },
     {
       sectionTitle: '116. Introducing useReducer() for State Management',
@@ -918,10 +662,6 @@ const section10 = {
       ],
     },
     {
-      sectionTitle: '123. Tapping Into Context with the useContext Hook',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '124. Making Context Dynamic',
       sectionSource: '',
       highlights: {
@@ -947,13 +687,8 @@ const section10 = {
         highlight1: ['Rules of Hooks'],
       },
       tooltips: [
-        'Only call React Hooks in React Functions! That means in a React Component Function, or also allowed in a Custom Hook Function.',
-        'Only call React Hooks at the Top Level of your React Component Function or Custom Hook Function.',
+        "Hooks — functions starting with 'use' — can only be <i>called at the top level of your components or your own Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.",
       ],
-    },
-    {
-      sectionTitle: '128. Refactoring an Input Component',
-      sectionSource: '',
     },
     {
       sectionTitle: '129. Diving into "Forward Refs"',
@@ -966,10 +701,6 @@ const section10 = {
         'If you want to use <code>ref</code> on your custom component, you need to use <code>React.forwardRef()</code> and maybe possibly <code>useImperativeHandle()</code> hook.',
       ],
     },
-    {
-      sectionTitle: '130. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -977,30 +708,6 @@ const section11 = {
   title:
     '<p class="card__title--1">Section 11</p> <p class="card__title--2">Practice Project: Building a Food Order App</p>',
   sections: [
-    {
-      sectionTitle: '131. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '132. Starting Setup',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '133. Adding a "Header" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '134. Adding the "Cart" Button Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '135. Adding a "Meals" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '136. Adding Individual Meal Items & Displaying Them',
-      sectionSource: '',
-    },
     {
       sectionTitle: '137. Adding a Form',
       sectionSource: '/src/markdowns/137__Adding_a_form.html',
@@ -1011,59 +718,6 @@ const section11 = {
         'When you receive an object through props, you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator: <<span>input {...props.object}</span> />',
       ],
     },
-    {
-      sectionTitle: '138. Fixing Form Input IDs',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '139. Working on the "Shopping Cart" Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '140. Adding a Modal via a React Portal',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '141. Managing Cart & Modal State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '142. Adding a Cart Context',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '143. Using the Context',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '144. Adding a Cart Reducer',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '145. Working with Refs & Forward Refs',
-      sectionSource:
-        '/src/markdowns/145__Working_with_Refs_&_Forward_Refs.html',
-    },
-    {
-      sectionTitle: '146. Outputting Cart Items',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '147. Working on a More Complex Reducer Logic',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '148. Making Items Removable',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '149. Using the useEffect Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '150. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -1071,10 +725,6 @@ const section12 = {
   title:
     '<p class="card__title--1">Section 12</p> <p class="card__title--2">A Look Behind The Scenes Of React & Optimization Techniques</p>',
   sections: [
-    {
-      sectionTitle: '151. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '152. How React Really Works',
       sectionSource: '/src/markdowns/152__How_React_really_works.html',
@@ -1159,10 +809,6 @@ const section12 = {
         'You will use <code>useMemo</code> far less often than you use <code>useCallback</code> because memoizing functions is much more useful and you need that more often than memoizing data. You essentially wanna memoize data if it would be performance-intensive to recalculate something based on it.',
       ],
     },
-    {
-      sectionTitle: '162. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -1170,39 +816,6 @@ const section13 = {
   title:
     '<p class="card__title--1">Section 13</p> <p class="card__title--2">An Alternative Way Of Building Components: Class-based Components</p>',
   sections: [
-    {
-      sectionTitle: '163. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '164. What & Why',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '165. Adding a First Class-based Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '166. Working with State & Events',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '167. The Component Lifecycle (Class-based Components Only!)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '168. Lifecycle Methods In Action',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '169. Class-based Components & Context',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '170. Class-based vs Functional Components: A Summary',
-      sectionSource: '',
-    },
     {
       sectionTitle: '171. Introducing Error Boundaries',
       sectionSource: '/src/markdowns/171__Introducing_error_boundaries.html',
@@ -1215,69 +828,6 @@ const section13 = {
         "Note that error boundaries only catch errors in the components below them in the tree. An error boundary can't catch an error within itself.",
       ],
     },
-    {
-      sectionTitle: '172. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section14 = {
-  title:
-    '<p class="card__title--1">Section 14</p> <p class="card__title--2">Sending Http Requests (e.g. Connecting to a Database)</p>',
-  sections: [
-    {
-      sectionTitle: '173. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '174. How To (Not) Connect To A Database',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '175. Using the Star Wars API',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '176. Our Starting App & Backend',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '177. Sending a GET Request',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '178. Using async / await',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '179. Handling Loading & Data States',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '180. Handling Http Errors',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '181. Using useEffect() For Requests',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '182. Preparing The Project For The Next Steps',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '183. Sending a POST Request',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '184. Wrap Up',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '185. Module Resources',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -1285,10 +835,6 @@ const section15 = {
   title:
     '<p class="card__title--1">Section 15</p> <p class="card__title--2">Building Custom React Hooks</p>',
   sections: [
-    {
-      sectionTitle: '186. Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: '187. What are "Custom Hooks"?',
       sectionSource: '/src/markdowns/187__What_are_Custom_Hooks.html',
@@ -1312,14 +858,6 @@ const section15 = {
       sectionSource: '',
     },
     {
-      sectionTitle: '190. Configuring Custom Hooks',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '191. Onwards To A More Realistic Example',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '192. Building a Custom Http Hook',
       sectionSource: '',
     },
@@ -1328,15 +866,7 @@ const section15 = {
       sectionSource: '',
     },
     {
-      sectionTitle: '194. Adjusting the Custom Hook Logic',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '195. Using The Custom Hook In More Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '196. Module Resources',
       sectionSource: '',
     },
   ],
@@ -1346,14 +876,6 @@ const section16 = {
   title:
     '<p class="card__title--1">Section 16</p> <p class="card__title--2">Working with Forms & User Input</p>',
   sections: [
-    {
-      sectionTitle: '197. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '198. Our Starting Setup',
-      sectionSource: '',
-    },
     {
       sectionTitle: "199. What's So Complex About Forms?",
       sectionSource: '/src/markdowns/199__What_is_so_complex_about_forms.html',
@@ -1372,15 +894,7 @@ const section16 = {
       sectionSource: '',
     },
     {
-      sectionTitle: '203. Handling the "was touched" State',
-      sectionSource: '',
-    },
-    {
       sectionTitle: '204. React To Lost Focus',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '205. Refactoring & Deriving States',
       sectionSource: '',
     },
     {
@@ -1393,81 +907,6 @@ const section16 = {
     },
     {
       sectionTitle: '208. Re-Using The Custom Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '209. A Challenge For You!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '210. Applying Our Hook & Knowledge To A New Form',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '211. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '212. Bonus: Using useReducer()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '213. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section17 = {
-  title:
-    '<p class="card__title--1">Section 17</p> <p class="card__title--2">Practice Project: Adding Http & Forms To The Food Order App</p>',
-  sections: [
-    {
-      sectionTitle: '214. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '215. Moving "Meals" Data To The Backend',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '216. Fetching Meals via Http',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '217. Handling the Loading State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '218. Handling Errors',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '219. Adding A Checkout Form',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '220. Reading Form Values',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '221. Adding Form Validation',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '222. Submitting & Sending Cart Data',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '223. Adding Better User Feedback',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '224. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '225. Module Resources',
       sectionSource: '',
     },
   ],
@@ -2637,23 +2076,18 @@ const section30 = {
 };
 
 export const data = [
-  section1,
-  section2,
   section3,
   section4,
   section5,
   section6,
   section7,
-  section8,
   section9,
   section10,
   section11,
   section12,
   section13,
-  section14,
   section15,
   section16,
-  section17,
   section18,
   section19,
   section20,

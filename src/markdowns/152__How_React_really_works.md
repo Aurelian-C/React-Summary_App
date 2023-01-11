@@ -33,6 +33,57 @@ To see a real example, it could look like this image below.
 
 For the start we have the Previous Evaluation Result above, so when the component function run for the first time the result is Previous Evaluation Result above. Now some state changes and all of a sudden we wanna show a new `<p>This is new!</p>`, so that's our Current Evaluation Result. In this case, React would determine that the difference between both snapshots is this `<p>This is new!</p>`, and it would report this change to ReactDOM so that ReactDOM can update the real DOM and insert this `<p>This is new!</p>`. ReactDOM would not re-render the entire DOM, it would not touch this existing `<h1>` or `<div>` element. It would only insert the `<p>This is new!</p>` after the `<h1>` element, inside of the `<div>`.
 
+## Render and Commit
+
+Before your components are displayed on screen, they must be rendered by React. Imagine that your components are cooks in the kitchen, assembling tasty dishes from ingredients. In this scenario, React is the waiter who puts in requests from customers and brings them their orders. This process of requesting and serving UI has three steps:
+
+1. **Triggering** a render (delivering the guest’s order to the kitchen)
+2. **Rendering** the component (preparing the order in the kitchen)
+3. **Committing** to the DOM (placing the order on the table)
+
+### Step 1: **Trigger** a render 
+
+There are two reasons for a component to render:
+
+1. It’s the component’s **initial render.**
+2. The component’s (or one of its ancestors’) **state has been updated.**
+
+When your app starts, you need to trigger the _initial render_. Frameworks and sandboxes sometimes hide this code, but it’s done by calling [`createRoot`](https://beta.reactjs.org/apis/react-dom/client/createRoot) with the target DOM node, and then calling its `render` method with your component:
+
+```react
+const root = createRoot(document.getElementById('root'))
+root.render(<Image />);
+```
+
+Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function.](https://beta.reactjs.org/reference/react/useState#setstate) Updating your component’s state automatically queues a render.
+
+### Step 2: React **renders** your components 
+
+After you trigger a render, React calls your components to figure out what to display on screen. **“Rendering” is React calling your components.**
+
+- **On initial render,** React will call the root component.
+- **For subsequent renders,** React will call the function component whose state update triggered the render.
+
+This process is recursive: if the updated component returns some other component, React will render *that* component next, and if that component also returns something, it will render *that* component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.
+
+### Step 3: React **commits** changes to the DOM 
+
+After rendering (calling) your components, React will modify the DOM.
+
+- **For the initial render,** React will use the [`appendChild()`](https://developer.mozilla.org/docs/Web/API/Node/appendChild) DOM API to put all the DOM nodes it has created on screen.
+- **For re-renders,** React will apply the minimal necessary operations (calculated while rendering!) to make the DOM match the latest rendering output.
+
+**React only changes the DOM nodes if there’s a difference between renders.**
+
+## Summary
+
+- Any screen update in a React app happens in three steps:
+  1. Trigger
+  2. Render
+  3. Commit
+- React does not touch the DOM if the rendering result is the same as last time.
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [Render and Commit - beta.reactjs.org](https://beta.reactjs.org/learn/render-and-commit)
