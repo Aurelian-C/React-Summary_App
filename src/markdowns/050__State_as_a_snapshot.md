@@ -1,6 +1,6 @@
 # State as a snapshot
 
-State variables might look like regular JavaScript variables that you can read and write to. However, state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render.
+==State variables might look like regular JavaScript variables that you can read and write to. However, **state behaves more like a snapshot**. _Setting it does not change the state variable you already have, but instead triggers a re-render_==.
 
 >You will learn:
 >
@@ -11,7 +11,7 @@ State variables might look like regular JavaScript variables that you can read a
 
 ## Setting state _triggers_ renders 
 
-You might think of your UI as changing directly in response to the user event like a click. In React, it works a little differently from this mental model. You know that ==**setting state requests a re-render** from React. This means that for an interface to react to the event, you need to *update the state*==.
+_You might think of your UI as changing directly in response to the user event like a click. In React, it works a little differently from this mental model_. You know that ==**setting state requests a re-render** from React. This means that for an interface to react to the event, you need to *update the state*==.
 
 Let’s take a closer look at the relationship between state and rendering.
 
