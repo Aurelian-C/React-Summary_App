@@ -2,6 +2,8 @@
 
 ==State variables might look like regular JavaScript variables that you can read and write to. However, _state behaves more like a snapshot_. **Setting it does not change the state variable you already have, but instead triggers a re-render**==.
 
+State updates are _scheduled_ by React, they are _not processed immediately_.
+
 >You will learn:
 >
 >- How setting state triggers re-renders

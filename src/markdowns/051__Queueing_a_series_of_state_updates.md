@@ -4,7 +4,7 @@ State updates are _scheduled_ by React, they are _not processed immediately_. Se
 
 >You will learn:
 >
->- What “batching” is and how React uses it to process multiple state updates
+>- What "batching" is and how React uses it to process multiple state updates
 >- How to apply several updates to the same state variable in a row
 
 ## React batches state updates
@@ -29,7 +29,7 @@ export default function Counter() {
 }
 ```
 
-However, as you might recall from the previous section, ==each render’s state values are fixed==, so the value of `number` inside the first render’s event handler is always `0`, no matter how many times you call `setNumber(number + 1)`.
+However, as you might recall from the previous lecture, ==each render’s state values are fixed==, so the value of `number` inside the first render’s event handler is always `0`, no matter how many times you call `setNumber(number + 1)`.
 
 ==**React waits until _all_ code in the event handlers has run before processing your state updates**. This is why the re-render only happens *after* all these `setNumber()` calls==.
 
@@ -41,7 +41,7 @@ However, as you might recall from the previous section, ==each render’s state 
 
 ## Updating the same state variable multiple times before the next render
 
-It is an uncommon use case, but if you would like to update the same state variable multiple times before the next render, instead of passing the *next state value* like `setNumber(number + 1)`, you can pass as argument an **updater function** that calculates the next state based on the previous one in the queue, like `setNumber(n => n + 1)`. It is a way to tell React to “do something with the state value” instead of just replacing it.
+It is an uncommon use case, but if you would like to update the same state variable multiple times before the next render, instead of passing the *next state value* like `setNumber(number + 1)`, you can ==pass as argument an **updater function** that calculates the next state based on the previous one in the queue, like `setNumber(n => n + 1)`. It is a way to tell React to “do something with the state value” instead of just replacing it==.
 
 ```react
 import { useState } from 'react';
@@ -66,7 +66,7 @@ export default function Counter() {
 Here, `n => n + 1` is called an **updater function.** When you pass it to a state setter:
 
 1. React queues this function to be processed after all the other code in the event handler has run.
-2. During the next render, React goes through the queue and gives you the final updated state.
+2. ==During the next render, React goes through the queue and _gives you the final updated state_==.
 
 Here’s how React works through these lines of code while executing the event handler:
 
@@ -82,19 +82,27 @@ When you call `useState` during the next render, React goes through the queue. T
 | `n => n + 1`  | `1`  | `1 + 1 = 2` |
 | `n => n + 1`  | `2`  | `2 + 1 = 3` |
 
-React stores `3` as the final result and returns it from `useState`.
-
-This is why clicking “+3” in the above example correctly increments the value by 3.
+React stores `3` as the final result and returns it from `useState`. This is why clicking “+3” in the above example correctly increments the value by 3.
 
 ### What happens if you update state after replacing it 
 
 What about this event handler? What do you think `number` will be in the next render?
 
 ```react
-<button onClick={() => {
-  setNumber(number + 5);
-  setNumber(n => n + 1);
-}}>
+import { useState } from 'react';
+
+export default function Counter() {
+  const [number, setNumber] = useState(0);
+  return (
+    <>
+      <h1>{number}</h1>
+      <button onClick={() => {
+        setNumber(number + 5);
+        setNumber(n => n + 1);
+      }}>Increase the number</button>
+    </>
+  )
+}
 ```
 
 Here’s what this event handler tells React to do:
@@ -111,18 +119,28 @@ During the next render, React goes through the state queue:
 
 React stores `6` as the final result and returns it from `useState`.
 
-> **Note**: You may have noticed that `setState(x)` actually works like `setState(n => x)`, but `n` is unused!
+> **Note**: ==You may have noticed that `setState(x)` actually works like `setState(n => x)`, but `n` is unused!==
 
 ### What happens if you replace state after updating it
 
 Let’s try one more example. What do you think `number` will be in the next render?
 
 ```react
-<button onClick={() => {
-  setNumber(number + 5);
-  setNumber(n => n + 1);
-  setNumber(42);
-}}>
+import { useState } from 'react';
+
+export default function Counter() {
+  const [number, setNumber] = useState(0);
+  return (
+    <>
+      <h1>{number}</h1>
+      <button onClick={() => {
+        setNumber(number + 5);
+        setNumber(n => n + 1);
+        setNumber(42);
+      }}>Increase the number</button>
+    </>
+  )
+}
 ```
 
 Here’s how React works through these lines of code while executing this event handler:
