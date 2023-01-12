@@ -6,6 +6,8 @@
 
 ## When a _regular variable_ isn’t enough
 
+If you have a variable in your component function and that variable changes, React ignores it. It doesn't care about that, that code executes, sure, but ==the overall component function **doesn't execute again just because some regular variable changed**==. We need a way of telling React that something changed and that a certain component should be re-evaluated, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to import something from the React library.
+
 If an event handler update a local variable that is in your custom component, React prevent that change from being visible on the screen because:
 
 1. ==Local variables don’t persist between renders==. When React renders a component a second time, it renders it from scratch — it doesn’t consider any changes to the local variables;

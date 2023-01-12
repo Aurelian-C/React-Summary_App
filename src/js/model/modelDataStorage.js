@@ -167,7 +167,7 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '48. How Component Functions Are Executed',
+      sectionTitle: '48. How Component Functions Are Executed: Render & Commit',
       sectionSource:
         '/src/markdowns/048__How_component_functions_are_executed.html',
       highlights: {
@@ -175,6 +175,28 @@ const section4 = {
       },
       tooltips: [
         'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX markup.',
+        `Before your components are displayed on screen, they must be rendered by React. The process of rendering a component to UI has three steps:
+        <br>1. <i>Triggering</i> a render;
+        <br>2. <i>Rendering</i> the component;
+        <br>3. <i>Committing</i> to the DOM.
+        `,
+        `There are two reasons when a component trigger a render:
+        <br>1. It's the component's <i>initial render</i>.
+        <br>2. The component's (or one of its ancestors) <i>state has been updated</i>.
+        `,
+        `<i>After you trigger a render, React calls your components to figure out what to display on screen</i> ("rendering" is React calling your components):
+        <br>- on <i>initial render</i>, React will call the root component.
+        <br>- for <i>subsequent renders</i>, React will call the function component whose state update triggered the render.`,
+        "After rendering (calling) your components, React will modify the DOM. <i>React only changes the DOM nodes if there's a difference between renders</i>.",
+      ],
+    },
+    {
+      sectionTitle: '49. Working with State',
+      sectionSource: '/src/markdowns/049__Working_with_state.html',
+      highlights: {
+        highlight1: ['State'],
+      },
+      tooltips: [
         "If you have a regular variable in your component function and that variable changes, that code executes, but the overall component function doesn't re-execute just because a regular variable changed. By default, React doesn't care about chainges of regular variables inside of components. It doesn't re-evaluate the component's JSX markup.",
         `<i>Changes to regular variable isn't enough to trigger re-renders</i> because:
         <br>- <i>Local variables don't persist between renders</i>;
@@ -185,15 +207,6 @@ const section4 = {
         <br>2. <i>Trigger React to render the component with the new data (re-rendering)</i>.
         `,
         `We need a way of telling React that something changed and that a certain component should be re-executed, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to store a variable by adding it like a state variable.`,
-      ],
-    },
-    {
-      sectionTitle: '49. Working with State',
-      sectionSource: '/src/markdowns/049__Working_with_state.html',
-      highlights: {
-        highlight1: ['State'],
-      },
-      tooltips: [
         'To make the UI interactive, you need to let users change your underlying data model. You will use state for this.',
         `The <code>useState</code> always return an array that has exactly two items:
         <br>1. A <i>state variable</i> to retain the data between renders;
@@ -211,19 +224,37 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '50. Updating Objects in State',
-      sectionSource: '/src/markdowns/050__Updating_objects_in_state.html',
+      sectionTitle: '50. State as a Snapshot',
+      sectionSource: '/src/markdowns/050__State_as_a_snapshot.html',
+      highlights: {
+        highlight1: ['State as a Snapshot'],
+      },
+      tooltips: [
+        'State variables might look like regular JavaScript variables that you can read and write to. However, <i>state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render</i>. You know that <i>setting state requests a re-render</i> from React. This means that for an interface to react to the event, you need to update the state.',
+        '"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers, and local variables were all calculated <i>using its state at the time of the render</i>.',
+        `As a <i>component's memory</i>, state is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function</i>.`,
+        `<i>When React calls your component, it gives you a snapshot of the state for that particular render</i>. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, <i>all calculated using the state values from that render</i>!`,
+        `<i>Setting state only changes it for the next render! A state variable's value never changes within a render</i>, even if its event handler's code is asynchronous. React keeps the state values "fixed" within one render's event handlers. You don't need to worry whether the state has changed while the code is running.`,
+      ],
     },
     {
-      sectionTitle: '51. Updating Arrays in State',
-      sectionSource: '',
+      sectionTitle:
+        '51. Queueing a series of state updates: state scheduling & batching',
+      sectionSource:
+        '/src/markdowns/051__Queueing_a_series_of_state_updates.html',
+      highlights: {
+        highlight1: ['state scheduling', 'batching'],
+      },
+      tooltips: [
+        'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
+      ],
     },
     {
-      sectionTitle: '52. State as a Snapshot',
-      sectionSource: '',
+      sectionTitle: '52. Updating Objects in State',
+      sectionSource: '/src/markdowns/052__Updating_objects_in_state.html',
     },
     {
-      sectionTitle: '53. Queueing a Series of State Updates',
+      sectionTitle: '53. Updating Arrays in State',
       sectionSource: '',
     },
     {
@@ -241,10 +272,6 @@ const section4 = {
         'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
         `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the <code>useState</code> hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
       ],
-    },
-    {
-      sectionTitle: '57. Render and Commit',
-      sectionSource: '',
     },
     {
       sectionTitle: '58. Adding Two-Way Binding',
@@ -783,20 +810,6 @@ const section12 = {
     {
       sectionTitle: '158. A First Summary',
       sectionSource: '/src/markdowns/157__A_first_summary.html',
-    },
-    {
-      sectionTitle: '159. A Closer Look At State & Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '160. Understanding State Scheduling & Batching',
-      sectionSource: '/src/markdowns/160__Understanding_state_scheduling.html',
-      highlights: {
-        highlight1: ['State Scheduling'],
-      },
-      tooltips: [
-        'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
-      ],
     },
     {
       sectionTitle: '161. Optimizing with useMemo()',
