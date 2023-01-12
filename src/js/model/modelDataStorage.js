@@ -230,11 +230,18 @@ const section4 = {
         highlight1: ['State as a Snapshot'],
       },
       tooltips: [
-        'State variables might look like regular JavaScript variables that you can read and write to. However, <i>state behaves more like a snapshot. Setting it does not change the state variable you already have, but instead triggers a re-render</i>. You know that <i>setting state requests a re-render</i> from React. This means that for an interface to react to the event, you need to update the state.',
-        '"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers, and local variables were all calculated <i>using its state at the time of the render</i>.',
-        `As a <i>component's memory</i>, state is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function</i>.`,
+        '<i>State behaves more like a snapshot</i>. Setting it does not change the state variable you already have, but instead trigger React to rendering the component again.',
+        '"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers and local variables were all calculated <i>using its state at the time of the render</i>.',
+        `State behaves like a <i>component's memory</i>, so is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function</i>.`,
         `<i>When React calls your component, it gives you a snapshot of the state for that particular render</i>. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, <i>all calculated using the state values from that render</i>!`,
         `<i>Setting state only changes it for the next render! A state variable's value never changes within a render</i>, even if its event handler's code is asynchronous. <i>React keeps the state values "fixed" within one render's event handlers</i>. You don't need to worry whether the state has changed while the code is running.`,
+        `Summary:
+        <br>- Setting state requests a <i>new render</i>.
+        <br>- React stores state <i>outside of your component</i>, as if on a shelf.
+        <br>- When you call <code>useState</code>, React gives you <i>a snapshot of the state for that render</i>.
+        <br>- Variables and event handlers don't "survive" re-renders. <i>Every render has its own event handlers</i>.
+        <br>- Every render (and functions inside it) will always "see" the snapshot of the state that React gave to that render.
+        <br>- Event handlers created in the past have the state values from the render in which they were created.`,
       ],
     },
     {
