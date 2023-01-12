@@ -247,6 +247,11 @@ const section4 = {
       },
       tooltips: [
         'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
+        "<i>Setting state does not change the variable in the existing render, but it requests a new render. Setting state only changes it for the next render! A state variable's value never changes within a render</i>.",
+        "<i>Each render's state values are fixed</i>. React waits until all code in the event handlers has run before processing your state updates. So setting a state variable will queue another render.",
+        "React lets you update multiple state variables — even from multiple components — without triggering too many re-renders. But this also means that the UI won't be updated until after your event handler, and any code in it, completes. This behavior is also known as batching.",
+        'With batching React processes multiple state updates after event handlers have finished running.',
+        'To update some state multiple times in one event, you can use an updater function: <code>setNumber(n => n + 1)</code>.',
       ],
     },
     {

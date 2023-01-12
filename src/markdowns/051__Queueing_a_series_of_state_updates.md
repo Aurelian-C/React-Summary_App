@@ -1,6 +1,6 @@
 # Queueing a series of state updates: state scheduling & batching
 
-Setting a state variable will queue another render. But sometimes you might want to _perform multiple operations on the value before queueing the next render_. To do this, it helps to understand how React batches state updates.
+State updates are _scheduled_ by React, they are _not processed immediately_. Setting a state variable will queue another render. But sometimes you might want to _perform multiple operations on the value before queueing the next render_. To do this, it helps to understand how React batches state updates.
 
 >You will learn:
 >
