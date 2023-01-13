@@ -1,4 +1,4 @@
-# Lifting the state up
+# "Lifting The State Up" to share it between components
 
 We learned about a very important concept of ==_moving data_ from a child to a parent component by utilizing props to **receive a function from the parent component, which we call in the child component**==. This concept is called ==**Lifting State Up**==.
 

@@ -127,6 +127,7 @@ body {
   flex-direction: column;
   margin: 5px 0;
   display: flex;
+  position: relative;
 }
 
 .card__article-wrapper {
@@ -147,6 +148,8 @@ body {
   font-weight: 400;
   text-decoration: none;
   position: relative;
+  display: inline-block;
+  width: fit-content;
 }
 
 .card__article-title {
@@ -156,9 +159,11 @@ body {
   font-weight: 400;
   position: relative;
   transition: all 0.3s ease-in-out;
+  display: inline-block;
+  width: fit-content;
 }
 
-.card__article-title::before,
+/* .card__article-title::before,
 .card__article-anchor::before {
   content: '';
   position: absolute;
@@ -170,7 +175,7 @@ body {
   border-right: 1px solid white;
   opacity: 0.4;
   transition: all 0.3s ease-in-out;
-}
+} */
 
 .card__article-anchor .highlight--1,
 .card__article-anchor .highlight--2 {
@@ -263,22 +268,19 @@ code {
 
 /* Tooltip container */
 .tooltip {
-  /* position: relative; */
-  /* display: inline-block; */
-  cursor: help;
-}
-
-/* Tooltip text */
-.tooltip__text {
   visibility: hidden;
-  width: 100%;
+  min-width: 50rem;
   background-color: #555;
   color: #fff;
   border-radius: 6px;
-  padding: 5px 10px;
+  padding: 5px;
   text-indent: 20px;
   font-size: 1.3rem;
   font-style: normal;
+  top: 110%;
+  left: 0;
+  height: fit-content;
+  opacity: 0;
 
   /* Position the tooltip text */
   position: absolute;
@@ -291,7 +293,7 @@ code {
 }
 
 /* Tooltip arrow */
-.tooltip__text::after {
+/* .tooltip::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -300,16 +302,22 @@ code {
   border-width: 5px;
   border-style: solid;
   border-color: #555 transparent transparent transparent;
-}
+} */
 
 .tooltip_paragraph:not(:last-child) {
   margin-bottom: 10px;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltip__text {
+.tooltip:hover {
   visibility: visible;
   opacity: 1;
+}
+
+.card__article-title:hover + .tooltip,
+.card__article-anchor:hover + .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Tooltip box style marked word */

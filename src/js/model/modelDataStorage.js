@@ -3,10 +3,10 @@ const section3 = {
     '<p class="card__title--1">Section 3</p> <p class="card__title--2">React Basics & Working With Components</p>',
   sections: [
     {
-      sectionTitle: '25. What Are Components And Why Is React All About Them?',
+      sectionTitle: '25. What are components and why is react all about them?',
       sectionSource: '/src/markdowns/025__What_are_components.html',
       highlights: {
-        highlight1: ['Components'],
+        highlight1: ['components'],
       },
       tooltips: [
         'A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.',
@@ -21,10 +21,10 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '26. React Code Is Written In A "Declarative Way"!',
+      sectionTitle: '26. React code is written in a "declarative way"!',
       sectionSource: '',
       highlights: {
-        highlight1: ['"Declarative Way"'],
+        highlight1: ['"declarative way"'],
       },
       tooltips: [
         'With just Vanilla JavaScript, we have to write every single step that should be taken to build an app (Imperative Approach). React uses something which is called a Declarative Approach for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript.',
@@ -32,11 +32,11 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '28. Creating a new React Project',
+      sectionTitle: '28. How to create a new React project',
       sectionSource: '',
     },
     {
-      sectionTitle: '31. Introducing JSX',
+      sectionTitle: '31. Introducing JSX markup',
       sectionSource: '/src/markdowns/031__Introducing_JSX.html',
       highlights: {
         highlight2: ['JSX'],
@@ -49,15 +49,15 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '32. How React Works',
+      sectionTitle: '32. How React works',
       sectionSource: '',
     },
     {
-      sectionTitle: '33. Building a First Custom Component',
+      sectionTitle: '33. Building a first custom component',
       sectionSource:
         '/src/markdowns/033__Building_a_first_custom_component.html',
       highlights: {
-        highlight2: ['Custom Component'],
+        highlight2: ['custom component'],
       },
       tooltips: [
         'A React custom component is basically just a custom HTML element. The key difference between custom components and built-in HTML elements (tags) is that custom components always start with a capital letter. And indeed your own custom components must start with a capital letter, so that React is able to detect that is a custom component. React custom components names must always start with a capital letter, while HTML tags must be lowercase.',
@@ -68,10 +68,10 @@ const section3 = {
     },
 
     {
-      sectionTitle: '35. Adding Basic CSS Styling',
+      sectionTitle: '35. Adding basic CSS styling',
       sectionSource: '/src/markdowns/035__Adding_basic_CSS_styling.html',
       highlights: {
-        highlight1: ['CSS Styling'],
+        highlight1: ['CSS styling'],
       },
       tooltips: [
         'In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.',
@@ -79,11 +79,11 @@ const section3 = {
     },
     {
       sectionTitle:
-        '36. Outputting Dynamic Data & Working with Expressions in JSX',
+        '36. Outputting dynamic data & working with expressions in JSX markup',
       sectionSource: '',
       highlights: {
-        highlight1: ['Outputting Dynamic Data'],
-        highlight2: ['Expressions in JSX'],
+        highlight1: ['Outputting dynamic data'],
+        highlight2: ['expressions in JSX'],
       },
       tooltips: [
         'JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.',
@@ -95,10 +95,10 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '37. Passing Data via "props"',
+      sectionTitle: '37. Passing data via props',
       sectionSource: '/src/markdowns/037__Passing_data_via_props.html',
       highlights: {
-        highlight2: ['"props"'],
+        highlight2: ['props'],
       },
       tooltips: [
         'React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!',
@@ -107,15 +107,15 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '38. Adding "normal" JavaScript Logic to Components',
+      sectionTitle: '38. Adding "normal" JavaScript logic to components',
       sectionSource: '',
     },
     {
-      sectionTitle: '39. Splitting Components Into Multiple Components',
+      sectionTitle: '39. Splitting components into multiple components',
       sectionSource:
         '/src/markdowns/039__Splitting_components_into_multiple_components.html',
       highlights: {
-        highlight1: ['Splitting Components'],
+        highlight1: ['Splitting components'],
       },
       tooltips: [
         'You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.',
@@ -126,11 +126,11 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '40. The Concept of "Composition" ("children props")',
+      sectionTitle:
+        '40. The Concept of "composition": <code>props.children</code>',
       sectionSource: '/src/markdowns/040__The_concept_of_composition.html',
       highlights: {
-        highlight1: ['"Composition"'],
-        highlight2: ['("children props")'],
+        highlight1: ['"composition"', 'props.children'],
       },
       tooltips: [
         "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
@@ -139,7 +139,7 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: '43. Organizing Component Files',
+      sectionTitle: '43. Organizing component files',
       sectionSource: '',
     },
   ],
@@ -150,10 +150,10 @@ const section4 = {
     '<p class="card__title--1">Section 4</p> <p class="card__title--2">React State & Working with Events</p>',
   sections: [
     {
-      sectionTitle: '47. Listening to Events & Working with Event Handlers',
+      sectionTitle: '47. Listening to events & working with event handlers',
       sectionSource: '/src/markdowns/047__Listening_&_working_with_events.html',
       highlights: {
-        highlight1: ['Listening to Events', 'Event Handlers'],
+        highlight1: ['Listening to events', 'event handlers'],
       },
       tooltips: [
         "On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to. <i>React exposes all native DOM events as props which start with 'on'</i>.",
@@ -167,11 +167,11 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '48. How Component Functions Are Executed: Render & Commit',
+      sectionTitle: '48. How component functions are executed: render & commit',
       sectionSource:
         '/src/markdowns/048__How_component_functions_are_executed.html',
       highlights: {
-        highlight1: ['Component Functions'],
+        highlight1: ['render', 'commit'],
       },
       tooltips: [
         'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX markup.',
@@ -191,10 +191,10 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '49. Working with State',
+      sectionTitle: '49. Working with state',
       sectionSource: '/src/markdowns/049__Working_with_state.html',
       highlights: {
-        highlight1: ['State'],
+        highlight1: ['state'],
       },
       tooltips: [
         "If you have a regular variable in your component function and that variable changes, that code executes, but the overall component function doesn't re-execute just because a regular variable changed. By default, React doesn't care about chainges of regular variables inside of components. It doesn't re-evaluate the component's JSX markup.",
@@ -224,10 +224,10 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '50. State as a Snapshot',
+      sectionTitle: '50. State as a snapshot',
       sectionSource: '/src/markdowns/050__State_as_a_snapshot.html',
       highlights: {
-        highlight1: ['State as a Snapshot'],
+        highlight1: ['snapshot'],
       },
       tooltips: [
         '<i>State behaves more like a snapshot</i>. Setting it does not change the state variable you already have, but instead trigger React to rendering the component again.',
@@ -265,11 +265,8 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '52. Updating Objects in State',
+      sectionTitle: '52. Updating objects in state',
       sectionSource: '/src/markdowns/052__Updating_objects_in_state.html',
-      highlights: {
-        highlight1: ['Updating Objects'],
-      },
       tooltips: [
         "State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>.",
         'You should <i>treat object in React as if they were immutable</i> (unchangeable or "read-only"), so treat any JavaScript object that you put into state as read-only.',
@@ -283,11 +280,8 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '53. Updating Arrays in State',
+      sectionTitle: '53. Updating arrays in state',
       sectionSource: '/src/markdowns/053__Updating_arrays_in_state.html',
-      highlights: {
-        highlight1: ['Updating Arrays'],
-      },
       tooltips: [
         'Arrays are mutable in JavaScript, but <i>you should treat them as immutable when you store them in state</i>. Just like with objects, when you want to update an array stored in state, you need to <i>create a new one (or make a copy of an existing one), and then set state to use the new array</i>.',
         "In JavaScript, arrays are just another kind of object. Like with objects, <i>you should treat arrays in React state as read-only</i>. This means that you shouldn't reassign items inside an array like <code>arr[0] = 'bird'</code>, and you also shouldn't use methods that mutate the array, such as <code>push()</code> and <code>pop()</code>. Instead, every time you want to update an array, you'll want to <i>pass a new array to your state setting function</i>.",
@@ -335,10 +329,10 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '60. Lifting The State Up',
+      sectionTitle: '60. "Lifting The State Up" to share it between components',
       sectionSource: '/src/markdowns/060__Lifting_the_state_up.html',
       highlights: {
-        highlight1: ['Lifting The State Up'],
+        highlight1: ['"Lifting The State Up"'],
       },
       tooltips: [
         'We learned about a very important concept of moving data from a child to a parent component by utilizing props to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
@@ -2129,7 +2123,7 @@ const section30 = {
   ],
 };
 
-export const data = [
+export const dataStorage = [
   section3,
   section4,
   section5,

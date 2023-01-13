@@ -13,7 +13,7 @@ class ApplicationView {
           <div class="card">
             <h2 class="card__title">${card.title}</h2>
             <div class="card__articles">
-              ${card.sections.map(this._generateMarkupTitles).join('')}
+              ${card.sections.map(this._generateMarkupArticle).join('')}
             </div>
           </div>
     `;
@@ -22,14 +22,16 @@ class ApplicationView {
     return markupString;
   }
 
-  _generateMarkupTitles(article) {
+  _generateMarkupArticle(article) {
+    const tooltipMarkup =
+      article.tooltips?.length > 0 ? '<div class="tooltip"></div>' : '';
     let title = article.sectionTitle;
 
     if (article.highlights?.highlight1) {
       article.highlights.highlight1.map(highlight => {
         title = title.replace(
           highlight,
-          `<span class="tooltip highlight--1">${highlight}</span>`
+          `<span class="highlight--1">${highlight}</span>`
         );
       });
     }
@@ -38,7 +40,7 @@ class ApplicationView {
       article.highlights.highlight2.map(highlight => {
         title = title.replace(
           highlight,
-          `<span class="tooltip highlight--2">${highlight}</span>`
+          `<span class="highlight--2">${highlight}</span>`
         );
       });
     }
@@ -50,8 +52,13 @@ class ApplicationView {
               ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank" data-title='${article.sectionTitle}'>${title}</a>`
               : `<p class="card__article-title" data-title='${article.sectionTitle}'>${title}</p>`
           }
+       ${tooltipMarkup}
       </div>
     `;
+  }
+
+  _generateMarkupTooltip(article) {
+    return `<div class={tooltip}></div>`;
   }
 }
 
