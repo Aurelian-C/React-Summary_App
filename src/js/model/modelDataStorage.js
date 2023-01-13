@@ -22,13 +22,21 @@ const section3 = {
     },
     {
       sectionTitle: '26. React code is written in a "declarative way"!',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/026__React_code_is_written_in_a_declarative_way',
       highlights: {
         highlight1: ['"declarative way"'],
       },
       tooltips: [
-        'With just Vanilla JavaScript, we have to write every single step that should be taken to build an app (Imperative Approach). React uses something which is called a Declarative Approach for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript.',
-        "Instead, with React you will always define the desired end state, the target state or possibly also different target states depending on different conditions, and it's then React's job to figure out which elements on the actual webpage might need to be added or removed or updated, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
+        'With just Vanilla JavaScript, we have to write every single line of code that should be taken to build an app (Imperative Way). <i>React uses something which is called a Declarative Way for building components and to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you describe the different states that your component can be in, and switch between them in response to user actions (user events) or computer actions (http events).',
+        "Declarative Way basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the UI, as you would be doing it with Vanilla JavaScript. Instead, <i>with React you will always define different states that your component can be in, and then it's React job to figure out which elements on the UI might need to be added or removed or updated</i>, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
+        `Summary:
+        <br>Declarative programming means <i>describing the UI for each visual state</i> rather than micromanaging the UI (imperative). When developing a component:
+        <br>1. Identify all its <i>visual states</i>.
+        <br>2. Determine the human and computer triggers for <i>state changes</i>.
+        <br>3. <i>Model the state</i> with <code>useState</code>.
+        <br>4. <i>Remove non-essential state</i> to avoid bugs and paradoxes.
+        <br>5. Connect the <i>event handlers to set state</i>.`,
       ],
     },
     {
