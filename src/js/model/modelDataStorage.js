@@ -267,6 +267,20 @@ const section4 = {
     {
       sectionTitle: '52. Updating Objects in State',
       sectionSource: '/src/markdowns/052__Updating_objects_in_state.html',
+      highlights: {
+        highlight1: ['Updating Objects'],
+      },
+      tooltips: [
+        "State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>.",
+        'You should <i>treat object in React as if they were immutable</i> (unchangeable or "read-only"), so treat any JavaScript object that you put into state as read-only.',
+        "Mutation is only a problem when you change existing objects that are already in state, so mutating an object you've just created is okay because no other code references it yet. Changing it isn't going to accidentally impact something that depends on it. This is called a <i>local mutation</i>.",
+        `Summary:
+        <br>- Treat all state in React as immutable.
+        <br>- When you store objects in state, mutating them will not trigger renders and will change the state in previous render "snapshots".
+        <br>- Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.
+        <br>- You can use the <code>{...obj, something: 'newValue'}</code> object spread syntax to create copies of objects.
+        `,
+      ],
     },
     {
       sectionTitle: '53. Updating Arrays in State',
