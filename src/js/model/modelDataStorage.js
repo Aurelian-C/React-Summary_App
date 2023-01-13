@@ -50,10 +50,15 @@ const section3 = {
         highlight2: ['JSX'],
       },
       tooltips: [
-        'JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file.',
-        'JSX = HTML code inside of JavaScript',
-        "JSX is stricter than HTML. You have to close tags like <<span>br /></span> or <<span>input /></span>. Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or an empty <>...<</span>/></span> wrapper.",
-        'You can store JSX markup in variables. You are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
+        'JSX = JavaScript XML.',
+        'JSX is a <i>syntax extension</i> for JavaScript that lets you write <i>HTML-like markup inside a JavaScript file</i>.',
+        'JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.',
+        `<i>JSX is stricter than HTML</i>: 
+        <br>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>. 
+        <br>2. <i>Return a single root element</i>: Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or an empty <>...<</span>/></span> wrapper.
+        <br>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.
+        `,
+        '<i>You can store JSX markup in variables</i>: you are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
       ],
     },
     {
