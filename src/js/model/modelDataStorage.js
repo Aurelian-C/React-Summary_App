@@ -70,9 +70,7 @@ const section3 = {
     {
       sectionTitle: '35. Adding basic CSS styling',
       sectionSource: '/src/markdowns/035__Adding_basic_CSS_styling.html',
-      highlights: {
-        highlight1: ['CSS styling'],
-      },
+
       tooltips: [
         'In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.',
       ],
@@ -114,9 +112,7 @@ const section3 = {
       sectionTitle: '39. Splitting components into multiple components',
       sectionSource:
         '/src/markdowns/039__Splitting_components_into_multiple_components.html',
-      highlights: {
-        highlight1: ['Splitting components'],
-      },
+
       tooltips: [
         'You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.',
         'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall UI by combining these building blocks/components.',
@@ -127,7 +123,7 @@ const section3 = {
     },
     {
       sectionTitle:
-        '40. The Concept of "composition": <code>props.children</code>',
+        '40. The concept of "composition": <code>props.children</code>',
       sectionSource: '/src/markdowns/040__The_concept_of_composition.html',
       highlights: {
         highlight1: ['"composition"', 'props.children'],
@@ -152,9 +148,7 @@ const section4 = {
     {
       sectionTitle: '47. Listening to events & working with event handlers',
       sectionSource: '/src/markdowns/047__Listening_&_working_with_events.html',
-      highlights: {
-        highlight1: ['Listening to events', 'event handlers'],
-      },
+
       tooltips: [
         "On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to. <i>React exposes all native DOM events as props which start with 'on'</i>.",
         "When you're building your own components, you can name their event handler props any way that you like. By convention, event handler props should start with 'on', followed by a capital letter.",
@@ -226,9 +220,7 @@ const section4 = {
     {
       sectionTitle: '50. State as a snapshot',
       sectionSource: '/src/markdowns/050__State_as_a_snapshot.html',
-      highlights: {
-        highlight1: ['snapshot'],
-      },
+
       tooltips: [
         '<i>State behaves more like a snapshot</i>. Setting it does not change the state variable you already have, but instead trigger React to rendering the component again.',
         '"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers and local variables were all calculated <i>using its state at the time of the render</i>.',
@@ -293,46 +285,44 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '54. Choosing the State Structure',
+      sectionTitle: '54. Choosing the state structure',
       sectionSource: '',
     },
     {
-      sectionTitle: '56. Updating State That Depends On The Previous State',
+      sectionTitle: '56. Updating state that depends on the previous state',
       sectionSource:
         '/src/markdowns/056__Updating_state_that_depends_on_the_previous_state.html',
-      highlights: {
-        highlight1: ['Updating State', 'Previous State'],
-      },
+
       tooltips: [
         'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
         `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the <code>useState</code> hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
       ],
     },
     {
-      sectionTitle: '58. Adding Two-Way Binding',
+      sectionTitle: '58. Adding two-way binding',
       sectionSource: '/src/markdowns/058__Adding_two_way_binding.html',
       highlights: {
-        highlight1: ['Two-Way Binding'],
+        highlight1: ['two-way binding'],
       },
       tooltips: [
         `Two-way binding is very useful when you're working with html <<span>form</span>> or <<span>input</span>> tags, because it allows you to gather user input, but then also change it.`,
       ],
     },
     {
-      sectionTitle: '59. Child-to-Parent Component Communication (Bottom-up)',
+      sectionTitle: '59. Child-to-Parent component communication (bottom-up)',
       sectionSource: '',
       highlights: {
-        highlight1: ['Child-to-Parent Component Communication'],
+        highlight1: ['Child-to-Parent component communication'],
       },
       tooltips: [
         "We can't skip components in between. props can only be passed from parent to child, we can't skip intermediate components.",
       ],
     },
     {
-      sectionTitle: '60. "Lifting The State Up" to share it between components',
+      sectionTitle: '60. "Lifting the state up" to share it between components',
       sectionSource: '/src/markdowns/060__Lifting_the_state_up.html',
       highlights: {
-        highlight1: ['"Lifting The State Up"'],
+        highlight1: ['"Lifting the state up"'],
       },
       tooltips: [
         'We learned about a very important concept of moving data from a child to a parent component by utilizing props to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
@@ -341,12 +331,9 @@ const section4 = {
     },
     {
       sectionTitle:
-        '61. Controlled vs Uncontrolled Components & Stateless vs Stateful Components',
+        '61. Controlled vs uncontrolled components & stateless vs stateful Components',
       sectionSource:
         '/src/markdowns/061__Stateful_vs_stateless_components.html',
-      highlights: {
-        highlight1: ['Controlled', 'Stateless', 'Stateful'],
-      },
     },
   ],
 };
@@ -356,10 +343,10 @@ const section5 = {
     '<p class="card__title--1">Section 5</p> <p class="card__title--2">Rendering Lists & Conditional Content</p>',
   sections: [
     {
-      sectionTitle: '64. Rendering Lists of Data',
+      sectionTitle: '64. Rendering lists of data',
       sectionSource: '/src/markdowns/064__Rendering_lists_of_data.html',
       highlights: {
-        highlight1: ['Lists of Data'],
+        highlight1: ['lists of data'],
       },
       tooltips: [
         "You will often want to display multiple similar components from a collection of data. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an array of components</i>. For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item's place in the list even if the list changes.",
@@ -368,20 +355,20 @@ const section5 = {
       ],
     },
     {
-      sectionTitle: '65. Using Stateful Lists',
+      sectionTitle: '65. Using stateful lists',
       sectionSource: '',
       highlights: {
-        highlight1: ['Stateful Lists'],
+        highlight1: ['stateful lists'],
       },
       tooltips: [
         `React won't update a component if you only change some variable inside of that component. Instead, to update a component, you need to use <code>useState</code> hook.`,
       ],
     },
     {
-      sectionTitle: '66. Understanding "Keys"',
+      sectionTitle: '66. Understanding "keys"',
       sectionSource: '/src/markdowns/066__Understanding_Keys.html',
       highlights: {
-        highlight2: ['"Keys"'],
+        highlight2: ['"keys"'],
       },
       tooltips: [
         'React has a special concept when it comes to rendering lists of data, a concept which exists to ensure that React is able to update and render such lists efficiently, without performance losses or bugs which may occur.',
@@ -392,10 +379,10 @@ const section5 = {
       ],
     },
     {
-      sectionTitle: '67. Outputting Conditional Content',
+      sectionTitle: '67. Outputting conditional content',
       sectionSource: '/src/markdowns/067__Outputting_conditional_content.html',
       highlights: {
-        highlight1: ['Conditional Content'],
+        highlight1: ['conditional content'],
       },
       tooltips: [
         'With React you can render (output) on you page different content based on different conditions.',
@@ -403,15 +390,15 @@ const section5 = {
       ],
     },
     {
-      sectionTitle: '68. Adding Conditional Return Statements',
+      sectionTitle: '68. Adding conditional return statements',
       sectionSource: '',
     },
 
     {
-      sectionTitle: '70. Adding Dynamic Styles',
+      sectionTitle: '70. Adding dynamic styles',
       sectionSource: '/src/markdowns/070__Adding_dynamic_styles.html',
       highlights: {
-        highlight1: ['Dynamic Styles'],
+        highlight1: ['dynamic styles'],
       },
       tooltips: [
         'You can set the style of an element dynamically by adding the <code>style</code> prop.',
@@ -427,46 +414,46 @@ const section6 = {
     '<p class="card__title--1">Section 6</p> <p class="card__title--2">Styling React Components</p>',
   sections: [
     {
-      sectionTitle: '74. Module Introduction',
+      sectionTitle: '74. Module introduction',
       sectionSource: '/src/markdowns/074__Styling_React_components.html',
     },
     {
-      sectionTitle: '75. Setting Dynamic Inline Styles',
+      sectionTitle: '75. Setting dynamic inline styles',
       sectionSource: '',
       highlights: {
-        highlight1: ['Dynamic Inline Styles'],
+        highlight1: ['dynamic inline styles'],
       },
     },
     {
-      sectionTitle: '76. Setting CSS Classes Dynamically',
+      sectionTitle: '76. Setting CSS classes dynamically',
       sectionSource: '',
       highlights: {
-        highlight1: ['CSS Classes Dynamically'],
+        highlight1: ['CSS classes dynamically'],
       },
     },
     {
-      sectionTitle: '77. Introducing Styled Components',
+      sectionTitle: '77. Introducing styled components',
       sectionSource: '/src/markdowns/077__Introducing_styled_components.html',
       highlights: {
-        highlight2: ['Styled Components'],
+        highlight2: ['styled components'],
       },
       tooltips: [
         'Styled components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
       ],
     },
     {
-      sectionTitle: '78. Styled Components & Dynamic Props',
+      sectionTitle: '78. Styled components & dynamic props',
       sectionSource: '',
     },
     {
-      sectionTitle: '79. Styled Components & Media Queries',
+      sectionTitle: '79. Styled components & media queries',
       sectionSource: '',
     },
     {
-      sectionTitle: '80. Using CSS Modules',
+      sectionTitle: '80. Using CSS modules',
       sectionSource: '/src/markdowns/080__Using_CSS_modules.html',
       highlights: {
-        highlight2: ['CSS Modules'],
+        highlight2: ['CSS modules'],
       },
       tooltips: [
         'CSS Modules is a feature which is only available in projects that are configured to support it.',
@@ -475,7 +462,7 @@ const section6 = {
       ],
     },
     {
-      sectionTitle: '81. Dynamic Styles with CSS Modules',
+      sectionTitle: '81. Dynamic styles with CSS modules',
       sectionSource: '',
     },
   ],
@@ -486,27 +473,27 @@ const section7 = {
     '<p class="card__title--1">Section 7</p> <p class="card__title--2">Debugging React Apps</p>',
   sections: [
     {
-      sectionTitle: '84. Understanding React Error Messages',
+      sectionTitle: '84. Understanding React error messages',
       sectionSource: '',
       highlights: {
-        highlight1: ['Error Messages'],
+        highlight1: ['error messages'],
       },
       tooltips: [
         'As a side note, you can have errors  that your IDE (VSCode) able to detect, but sometimes you get a React error which is not showing up in your IDE.',
       ],
     },
     {
-      sectionTitle: '85. Analyzing Code Flow & Warnings',
+      sectionTitle: '85. Analyzing code flow & warnings',
       sectionSource: '',
       highlights: {
-        highlight1: ['Code Flow', 'Warnings'],
+        highlight1: ['code flow', 'warnings'],
       },
     },
     {
-      sectionTitle: '86. Working with Breakpoints',
+      sectionTitle: '86. Working with breakpoints',
       sectionSource: '',
       highlights: {
-        highlight1: ['Breakpoints'],
+        highlight1: ['breakpoints'],
       },
     },
     {
@@ -528,10 +515,10 @@ const section9 = {
     '<p class="card__title--1">Section 9</p> <p class="card__title--2">Diving Deeper: Working with Fragments, Portals & "Refs"</p>',
   sections: [
     {
-      sectionTitle: '101. JSX Limitations & Workarounds',
+      sectionTitle: '101. JSX limitations & workarounds',
       sectionSource: '/src/markdowns/101__JSX_limitations_&_workarounds.html',
       highlights: {
-        highlight1: ['JSX Limitations'],
+        highlight1: ['JSX limitations'],
       },
       tooltips: [
         `You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable).`,
@@ -540,10 +527,10 @@ const section9 = {
       ],
     },
     {
-      sectionTitle: '102. Creating a Wrapper Component',
+      sectionTitle: '102. Creating a wrapper component',
       sectionSource: '',
       highlights: {
-        highlight1: ['Wrapper Component'],
+        highlight1: ['wrapper component'],
       },
       tooltips: [
         "A wrapping element it's an element which won't render anything to the DOM, but the requirement is not that there must be one root component being rendered to the DOM, the requirement just is that there must be one root element that you return or that you store in a variable.",
@@ -588,7 +575,7 @@ const section9 = {
       ],
     },
     {
-      sectionTitle: '107. Controlled vs Uncontrolled Components',
+      sectionTitle: '107. Controlled vs uncontrolled components',
       sectionSource:
         '/src/markdowns/107__Controlled_vs_uncontrolled_components.html',
     },
@@ -600,10 +587,10 @@ const section10 = {
     '<p class="card__title--1">Section 10</p> <p class="card__title--2">Advanced: Handling Side Effects, Using Reducers & Using the Context API</p>',
   sections: [
     {
-      sectionTitle: '110. What are "Side Effects" & Introducing useEffect',
+      sectionTitle: '110. What are "side effects" & introducing useEffect',
       sectionSource: '/src/markdowns/110__What_are_side_effects.html',
       highlights: {
-        highlight1: ['"Side Effects"'],
+        highlight1: ['"side effects"'],
       },
       tooltips: [
         "The main job of React is to bring something onto the screen and to make sure that the user may interact with that something, and that what's shown on the screen may change based on certain events.",
@@ -642,11 +629,11 @@ const section10 = {
         '/src/markdowns/113__What_to_add_&_not_to_add_as_dependencies.html',
     },
     {
-      sectionTitle: '114. Using the useEffect Cleanup Function',
+      sectionTitle: '114. Using the useEffect cleanup function',
       sectionSource:
         '/src/markdowns/114__Using_the_useEffect_cleanup_function.html',
       highlights: {
-        highlight1: ['useEffect Cleanup Function'],
+        highlight1: ['useEffect cleanup function'],
       },
       tooltips: [
         'In the <code>useEffect()</code> function you can return only one specific thing, and that thing is a function. The function that you return from the <code>useEffect()</code> is called Cleanup function.',
@@ -654,7 +641,7 @@ const section10 = {
       ],
     },
     {
-      sectionTitle: '116. Introducing useReducer() for State Management',
+      sectionTitle: '116. Introducing useReducer() for state management',
       sectionSource:
         '/src/markdowns/116__Introducing_useReducer_for_state_management.html',
       highlights: {
@@ -676,11 +663,11 @@ const section10 = {
     },
     {
       sectionTitle:
-        '119. Adding Nested Properties As Dependencies To useEffect',
+        '119. Adding nested properties as dependencies to useEffect',
       sectionSource:
         '/src/markdowns/119__Adding_nested_properties_as_dependencies_to_useEffect.html',
       highlights: {
-        highlight1: ['Nested Properties As Dependencies To useEffect'],
+        highlight1: ['nested properties as dependencies'],
       },
       tooltips: [
         'We used object destructuring to add object properties as dependencies to <code>useEffect()</code>.',
@@ -688,7 +675,7 @@ const section10 = {
       ],
     },
     {
-      sectionTitle: '120. useReducer vs useState for State Management',
+      sectionTitle: '120. useReducer vs useState for state management',
       sectionSource: '/src/markdowns/120__useReducer_vs_useEffect.html',
     },
     {
@@ -710,9 +697,7 @@ const section10 = {
     {
       sectionTitle: '122. Using the React Context API',
       sectionSource: '/src/markdowns/122__Using_the_React_Context_API.html',
-      highlights: {
-        highlight1: ['Using the React Context API'],
-      },
+
       tooltips: [
         '<code>React.createContext()</code> return an Context object that contains components.',
         'When React renders a component that subscribes to the Context object, it will read the current Context value from the closest matching Provider above it in the tree.',
@@ -724,39 +709,39 @@ const section10 = {
       ],
     },
     {
-      sectionTitle: '124. Making Context Dynamic',
+      sectionTitle: '124. Making Context dynamic',
       sectionSource: '',
       highlights: {
-        highlight1: ['Making Context Dynamic'],
+        highlight1: ['Context dynamic'],
       },
       tooltips: [
         "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
       ],
     },
     {
-      sectionTitle: '125. Building & Using a Custom Context Provider Component',
+      sectionTitle: '125. Building & using a custom Context Provider component',
       sectionSource:
         '/src/markdowns/125__Building_&_using_a_Custom_Context_Provider_Component.html',
     },
     {
-      sectionTitle: '126. React Context Limitations',
+      sectionTitle: '126. React Context limitations',
       sectionSource: '/src/markdowns/126__React_Context_limitations.html',
     },
     {
-      sectionTitle: '127. Learning the "Rules of Hooks"',
+      sectionTitle: '127. Learning the "rules of Hooks"',
       sectionSource: '/src/markdowns/127__Learning_the_rules_of_Hooks.html',
       highlights: {
-        highlight1: ['Rules of Hooks'],
+        highlight1: ['rules of Hooks'],
       },
       tooltips: [
         "Hooks — functions starting with 'use' — can only be <i>called at the top level of your components or your own Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.",
       ],
     },
     {
-      sectionTitle: '129. Diving into "Forward Refs"',
+      sectionTitle: '129. Diving into "forward Refs"',
       sectionSource: '/src/markdowns/129__Diving_into_Forward_Refs.html',
       highlights: {
-        highlight2: ['"Forward Refs"'],
+        highlight2: ['"forward Refs"'],
       },
       tooltips: [
         'The <code>ref</code> prop is supported on all built-in HTML Components, but you cannot use <code>ref</code> prop on your custom components!',
@@ -771,11 +756,8 @@ const section11 = {
     '<p class="card__title--1">Section 11</p> <p class="card__title--2">Practice Project: Building a Food Order App</p>',
   sections: [
     {
-      sectionTitle: '137. Adding a Form',
+      sectionTitle: '137. Adding a form',
       sectionSource: '/src/markdowns/137__Adding_a_form.html',
-      highlights: {
-        highlight1: ['Adding a Form'],
-      },
       tooltips: [
         'When you receive an object through props, you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator: <<span>input {...props.object}</span> />',
       ],
@@ -788,11 +770,8 @@ const section12 = {
     '<p class="card__title--1">Section 12</p> <p class="card__title--2">A Look Behind The Scenes Of React & Optimization Techniques</p>',
   sections: [
     {
-      sectionTitle: '152. How React Really Works',
+      sectionTitle: '152. How React really works',
       sectionSource: '/src/markdowns/152__How_React_really_works.html',
-      highlights: {
-        highlight1: ['How React Really Works'],
-      },
       tooltips: [
         'React.js only cares about components, props, state and context. On the other hand, ReactDOM is your interface to the web, ReactDOM is responsible for bringing something onto the screen, which the user is then able to see.',
         'Whenever props, state or context changes, components that use these concepts are updated by React, and React checks whether that component now wants to draw something new onto the screen, and if that should be the case, React will let ReactDOM know about that, so that ReactDOM is able to bring that new screen, that new component, that new output to the screen.',
@@ -802,16 +781,16 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: '153. Component Updates In Action',
+      sectionTitle: '153. Component updates in action',
       sectionSource: '',
     },
     {
-      sectionTitle: '154. A Closer Look At Child Component Re-Evaluation',
+      sectionTitle: '154. A closer look at child component re-evaluation',
       sectionSource: '',
     },
     {
       sectionTitle:
-        '155. Preventing Unnecessary Re-Evaluations with React.memo()',
+        '155. Preventing unnecessary re-evaluations with React.memo()',
       sectionSource: '/src/markdowns/155__React_memo.html',
       highlights: {
         highlight2: ['React.memo()'],
@@ -827,7 +806,7 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: '156. Preventing Function Re-Creation with useCallback()',
+      sectionTitle: '156. Preventing function re-creation with useCallback()',
       sectionSource: '/src/markdowns/156__useCallback.html',
       highlights: {
         highlight2: ['useCallback()'],
@@ -839,11 +818,11 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: '157. useCallback() and its Dependencies',
+      sectionTitle: '157. useCallback() and its dependencies',
       sectionSource: '',
     },
     {
-      sectionTitle: '158. A First Summary',
+      sectionTitle: '158. A first summary',
       sectionSource: '/src/markdowns/157__A_first_summary.html',
     },
     {
@@ -865,10 +844,10 @@ const section13 = {
     '<p class="card__title--1">Section 13</p> <p class="card__title--2">An Alternative Way Of Building Components: Class-based Components</p>',
   sections: [
     {
-      sectionTitle: '171. Introducing Error Boundaries',
+      sectionTitle: '171. Introducing error boundaries',
       sectionSource: '/src/markdowns/171__Introducing_error_boundaries.html',
       highlights: {
-        highlight2: ['Error Boundaries'],
+        highlight2: ['error boundaries'],
       },
       tooltips: [
         'Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.',
@@ -884,10 +863,10 @@ const section15 = {
     '<p class="card__title--1">Section 15</p> <p class="card__title--2">Building Custom React Hooks</p>',
   sections: [
     {
-      sectionTitle: '187. What are "Custom Hooks"?',
+      sectionTitle: '187. What are "custom Hooks"?',
       sectionSource: '/src/markdowns/187__What_are_Custom_Hooks.html',
       highlights: {
-        highlight2: ['"Custom Hooks"'],
+        highlight2: ['"custom Hooks"'],
       },
       tooltips: [
         'Custom Hooks are mechanism for <i>reusing logic</i>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks.',
@@ -898,23 +877,23 @@ const section15 = {
       ],
     },
     {
-      sectionTitle: '188. Creating a Custom React Hook Function',
+      sectionTitle: '188. Creating a custom React Hook function',
       sectionSource: '',
     },
     {
-      sectionTitle: '189. Using Custom Hooks',
+      sectionTitle: '189. Using custom Hooks',
       sectionSource: '',
     },
     {
-      sectionTitle: '192. Building a Custom Http Hook',
+      sectionTitle: '192. Building a custom Http Hook',
       sectionSource: '',
     },
     {
-      sectionTitle: '193. Using the Custom Http Hook',
+      sectionTitle: '193. Using the custom Http Hook',
       sectionSource: '',
     },
     {
-      sectionTitle: '195. Using The Custom Hook In More Components',
+      sectionTitle: '195. Using The custom Hook in more components',
       sectionSource: '',
     },
   ],
@@ -925,36 +904,36 @@ const section16 = {
     '<p class="card__title--1">Section 16</p> <p class="card__title--2">Working with Forms & User Input</p>',
   sections: [
     {
-      sectionTitle: "199. What's So Complex About Forms?",
+      sectionTitle: "199. What's so complex about Forms?",
       sectionSource: '/src/markdowns/199__What_is_so_complex_about_forms.html',
     },
     {
       sectionTitle:
-        '200. Dealing With Form Submission & Getting User Input Values',
+        '200. Dealing with form submission & getting user input values',
       sectionSource: '',
     },
     {
-      sectionTitle: '201. Adding Basic Validation',
+      sectionTitle: '201. Adding basic validation',
       sectionSource: '',
     },
     {
-      sectionTitle: '202. Providing Validation Feedback',
+      sectionTitle: '202. Providing validation feedback',
       sectionSource: '',
     },
     {
-      sectionTitle: '204. React To Lost Focus',
+      sectionTitle: '204. React to lost focus',
       sectionSource: '',
     },
     {
-      sectionTitle: '206. Managing The Overall Form Validity',
+      sectionTitle: '206. Managing The overall form validity',
       sectionSource: '',
     },
     {
-      sectionTitle: '207. Adding A Custom Input Hook',
+      sectionTitle: '207. Adding a custom input Hook',
       sectionSource: '',
     },
     {
-      sectionTitle: '208. Re-Using The Custom Hook',
+      sectionTitle: '208. Re-using the custom Hook',
       sectionSource: '',
     },
   ],
