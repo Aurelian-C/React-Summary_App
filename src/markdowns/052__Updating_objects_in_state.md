@@ -154,5 +154,4 @@ For large forms, keeping all data grouped in an object is very convenient — as
 
 ## References
 
-1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 1. [Updating Objects in State - beta.reactjs.org](https://beta.reactjs.org/learn/updating-objects-in-state)

@@ -284,7 +284,19 @@ const section4 = {
     },
     {
       sectionTitle: '53. Updating Arrays in State',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/053__Updating_arrays_in_state.html',
+      highlights: {
+        highlight1: ['Updating Arrays'],
+      },
+      tooltips: [
+        'Arrays are mutable in JavaScript, but <i>you should treat them as immutable when you store them in state</i>. Just like with objects, when you want to update an array stored in state, you need to <i>create a new one (or make a copy of an existing one), and then set state to use the new array</i>.',
+        "In JavaScript, arrays are just another kind of object. Like with objects, <i>you should treat arrays in React state as read-only</i>. This means that you shouldn't reassign items inside an array like <code>arr[0] = 'bird'</code>, and you also shouldn't use methods that mutate the array, such as <code>push()</code> and <code>pop()</code>. Instead, every time you want to update an array, you'll want to <i>pass a new array to your state setting function</i>.",
+        `Summary:
+        <br>- You can put arrays into state, but you can't change them.
+        <br>- Instead of mutating an array, create a new version of it, and update the state to it.
+        <br>- You can use the <code>[...arr, newItem]</code> array spread syntax to create arrays with new items.
+        <br>- You can use <code>filter()</code> and <code>map()</code> to create new arrays with filtered or transformed items.`,
+      ],
     },
     {
       sectionTitle: '54. Choosing the State Structure',
