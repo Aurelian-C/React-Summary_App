@@ -142,6 +142,18 @@ You’ve seen how to implement a form imperatively above. To better understand h
 
 ==Start with the state that *absolutely must* be there==. Your first idea likely won’t be the best, but that’s ok — refactoring state is a part of the process!
 
+#### Find the minimal but complete representation of UI state
+
+To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this. ==Think of state as the minimal set of changing data that your app needs to remember==. The most important principle for structuring state is to keep it DRY (Don’t Repeat Yourself). ==Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand==. For example, if you’re building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don’t store the number of items as another state value — instead, read the length of your array.
+
+Which pieces of data are state? Identify the ones that are not:
+
+- Does data **remain unchanged** over time? If so, it isn’t state.
+- Is data **passed in from a parent** via props? If so, it isn’t state.
+- **Can you compute data** based on existing state or props in your component? If so, it *definitely* isn’t state!
+
+What’s left is probably state.
+
 ### Step 4: Remove any **non-essential state variables** 
 
 You want to avoid duplication in the state content so ==you’re only tracking what is essential==. Spending a little time on refactoring your state structure will make your components easier to understand, reduce duplication, and avoid unintended meanings. Your goal is to ==prevent the cases where the state in memory doesn’t represent any valid UI that you’d want a user to see== (for example, you never want to show an error message and disable the input at the same time, or the user won’t be able to correct the error!).

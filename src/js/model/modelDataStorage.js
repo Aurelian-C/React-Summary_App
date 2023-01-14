@@ -299,13 +299,19 @@ const section4 = {
     },
     {
       sectionTitle: '54. Choosing the state structure',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/054__Choosing_the_state_structure.html',
+      tooltips: [
+        '<i>Group related state</i>: if you always update two or more state variables at the same time, consider merging them into a single state variable.',
+        '<i>Avoid contradictions in state</i>: when the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.',
+        "<i>Avoid redundant state</i>: if you can calculate some information from the component's props or its existing state variables during rendering, you should not put that information into that component's state.",
+        '<i>Avoid duplication in state</i>: when the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.',
+        '<i>Avoid deeply nested state</i>: deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.',
+      ],
     },
     {
       sectionTitle: '56. Updating state that depends on the previous state',
       sectionSource:
         '/src/markdowns/056__Updating_state_that_depends_on_the_previous_state.html',
-
       tooltips: [
         'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
         `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the <code>useState</code> hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
@@ -2142,3 +2148,76 @@ export const dataStorage = [
   section29,
   section30,
 ];
+
+export const initialTravelPlan = {
+  0: {
+    id: 0,
+    title: '(Root)',
+    childIds: [1, 8],
+  },
+  1: {
+    id: 1,
+    title: 'Earth',
+    childIds: [2, 5],
+  },
+  2: {
+    id: 2,
+    title: 'Asia',
+    childIds: [3, 4],
+  },
+  3: {
+    id: 3,
+    title: 'China',
+    childIds: [],
+  },
+  4: {
+    id: 4,
+    title: 'Hong Kong',
+    childIds: [],
+  },
+  5: {
+    id: 5,
+    title: 'Europe',
+    childIds: [6, 7],
+  },
+  6: {
+    id: 6,
+    title: 'Croatia',
+    childIds: [],
+  },
+  7: {
+    id: 7,
+    title: 'France',
+    childIds: [],
+  },
+  8: {
+    id: 8,
+    title: 'Moon',
+    childIds: [9, 11],
+  },
+  9: {
+    id: 9,
+    title: 'Rheita',
+    childIds: [],
+  },
+  10: {
+    id: 10,
+    title: 'Piccolomini',
+    childIds: [],
+  },
+  11: {
+    id: 11,
+    title: 'Mars',
+    childIds: [12, 13],
+  },
+  12: {
+    id: 12,
+    title: 'Corn Town',
+    childIds: [],
+  },
+  13: {
+    id: 13,
+    title: 'Green Hill',
+    childIds: [],
+  },
+};
