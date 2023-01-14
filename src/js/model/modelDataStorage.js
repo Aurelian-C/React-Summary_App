@@ -121,6 +121,7 @@ const section3 = {
         'Props are <i>read-only snapshots in time</i>: every render receives a new version of props.',
         "<i>You can't change props</i>. When you need interactivity, you'll need to set state.",
         "<i>props allows you to make your components reusable</i>, and it allows you to pass data from a component to another component. props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
+        "When we pass props from parent to child we can't skip intermediate child components in between.",
       ],
     },
     {
@@ -145,7 +146,8 @@ const section3 = {
         '40. The concept of "composition": <code>props.children</code>',
       sectionSource: '/src/markdowns/040__The_concept_of_composition.html',
       highlights: {
-        highlight1: ['"composition"', 'props.children'],
+        highlight1: ['"composition"'],
+        highlight2: ['props.children'],
       },
       tooltips: [
         "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. <i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
@@ -307,6 +309,9 @@ const section4 = {
     {
       sectionTitle: '54. Choosing the state structure',
       sectionSource: '/src/markdowns/054__Choosing_the_state_structure.html',
+      highlights: {
+        highlight1: ['state structure'],
+      },
       tooltips: [
         '<i>Group related state</i>: if you always update two or more state variables at the same time, consider merging them into a single state variable.',
         '<i>Avoid contradictions in state</i>: when the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.',
@@ -328,20 +333,10 @@ const section4 = {
       sectionTitle: '58. Adding two-way binding',
       sectionSource: '/src/markdowns/058__Adding_two_way_binding.html',
       highlights: {
-        highlight1: ['two-way binding'],
+        highlight2: ['two-way binding'],
       },
       tooltips: [
         `Two-way binding is very useful when you're working with html <<span>form</span>> or <<span>input</span>> tags, because it allows you to gather user input, but then also change it.`,
-      ],
-    },
-    {
-      sectionTitle: '59. Child-to-Parent component communication (bottom-up)',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['Child-to-Parent component communication'],
-      },
-      tooltips: [
-        "We can't skip components in between. props can only be passed from parent to child, we can't skip intermediate components.",
       ],
     },
     {
@@ -390,16 +385,6 @@ const section5 = {
       ],
     },
     {
-      sectionTitle: '65. Using stateful lists',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['stateful lists'],
-      },
-      tooltips: [
-        `React won't update a component if you only change some variable inside of that component. Instead, to update a component, you need to use <code>useState</code> hook.`,
-      ],
-    },
-    {
       sectionTitle: '66. Understanding "keys"',
       sectionSource: '/src/markdowns/066__Understanding_Keys.html',
       highlights: {
@@ -424,11 +409,6 @@ const section5 = {
         'When it comes to output content conditionally, long statements like <code>if</code> or <code>for</code> loops are not allowed between curly braces, in JSX expressions. So, for achive our results, we need to use Ternary Operator or Short Circuiting with <code>&&</code> or <code>||</code>.',
       ],
     },
-    {
-      sectionTitle: '68. Adding conditional return statements',
-      sectionSource: '',
-    },
-
     {
       sectionTitle: '70. Adding dynamic styles',
       sectionSource: '/src/markdowns/070__Adding_dynamic_styles.html',
@@ -470,19 +450,13 @@ const section6 = {
       sectionTitle: '77. Introducing styled components',
       sectionSource: '/src/markdowns/077__Introducing_styled_components.html',
       highlights: {
-        highlight2: ['styled components'],
+        highlight1: ['styled components'],
       },
       tooltips: [
         'Styled components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
+        'Styled components & dynamic props',
+        'Styled components & media queries',
       ],
-    },
-    {
-      sectionTitle: '78. Styled components & dynamic props',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '79. Styled components & media queries',
-      sectionSource: '',
     },
     {
       sectionTitle: '80. Using CSS modules',
@@ -610,9 +584,12 @@ const section9 = {
       ],
     },
     {
-      sectionTitle: '107. Controlled vs uncontrolled components',
+      sectionTitle: '107. <code>useRef</code> & uncontrolled components',
       sectionSource:
-        '/src/markdowns/107__Controlled_vs_uncontrolled_components.html',
+        '/src/markdowns/107__useRef_and_uncontrolled_components.html',
+      tooltips: [
+        "When we use ref's for inputs, we have uncontrolled input components.",
+      ],
     },
   ],
 };

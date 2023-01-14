@@ -9,18 +9,16 @@ Now, you can talk about uncontrolled and controlled components, also in the cont
 #### Controlled Component:
 
 ```react
-import {useState} from 'react'
-
 // Controlled Component
 const ControlledComponent = () => {
-    const stateValue = useState('');
+    const [inputValue, setInputValue] = useState('');
     
-    const submitHandler = (e) => {
-        stateValue = e.target.value;
+    const handleSubmit = (e) => {
+        setInputValue(e.target.value);
     };
     
-    return (<form onSubmit={submitHandler}>
-                <input value={stateValue}/>
+    return (<form onSubmit={handleSubmit}>
+                <input value={inputValue}/>
             </form>)
 };
 ```
@@ -28,16 +26,15 @@ const ControlledComponent = () => {
 #### Uncontrolled component:
 
 ```react
-import {useRef} from 'react'
-
+// Uncontrolled component
 const UncontrolledComponent = () => {
     const refValue = useRef();
     
-    const submitHandler = (e) => {
+    const handleSubmit = (e) => {
        refValue.current.value = '';
     };
     
-    return (<form onSubmit={submitHandler}>
+    return (<form onSubmit={handleSubmit}>
                 <input ref={refValue}/>
             </form>)
 };
