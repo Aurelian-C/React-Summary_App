@@ -112,9 +112,15 @@ const section3 = {
         highlight2: ['props'],
       },
       tooltips: [
-        'React components use props to communicate with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX!',
-        'The convention for props which hold functions is to start with "on".',
-        "props allows you to make your components reusable, and it allows you to pass data from a component to another component. props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
+        '<i>React components use props to communicate with each other</i>. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup! <i>To pass props, add them to the JSX markup, just like you would with HTML attributes</i>.',
+        'Props let you think about parent and child components independently.',
+        'The convention for props which hold functions is to start their name with "on".',
+        '<i>To read props, you can use the function destructuring syntax</i>: <code>Avatar({ person, size })</code>.',
+        'You can specify a default value like <code>size = 100</code>, which is used for missing and <code>undefined</code> props.',
+        "<i>You can forward all props with JSX spread syntax</i>, but don't overuse it! When you receive an object through props, you can use the spread operator: <<span>input {...props.object}</span> />",
+        'Props are <i>read-only snapshots in time</i>: every render receives a new version of props.',
+        "<i>You can't change props</i>. When you need interactivity, you'll need to set state.",
+        "<i>props allows you to make your components reusable</i>, and it allows you to pass data from a component to another component. props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
       ],
     },
     {
@@ -142,9 +148,10 @@ const section3 = {
         highlight1: ['"composition"', 'props.children'],
       },
       tooltips: [
-        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. Out of the box, you can't use your custom components as wrappers around other kind of content. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
+        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. <i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
         "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
         '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
+        'You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.',
       ],
     },
     {
