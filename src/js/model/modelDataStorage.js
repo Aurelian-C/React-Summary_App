@@ -339,7 +339,7 @@ const section4 = {
     },
     {
       sectionTitle:
-        '60. "Lifting the data/state up" to share it between components',
+        '60. "Lifting the data/state up" to share data/state between components',
       sectionSource: '/src/markdowns/060__Lifting_the_state_up.html',
       highlights: {
         highlight1: ['"Lifting the data/state up"'],
