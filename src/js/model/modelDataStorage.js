@@ -344,15 +344,23 @@ const section4 = {
         highlight1: ['"Lifting the state up"'],
       },
       tooltips: [
-        'We learned about a very important concept of moving data from a child to a parent component by utilizing props to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
+        'We learned about a very important concept of <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
         'You will hear the term Lifting The State Up quite a bit when you were working with React and whenever you hear that, it is about moving data from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
+        `<i>A single source of truth for each state</i>: in a React application, many components will have their own state. For each unique piece of state, you will choose the component that "owns" it. For each piece of state, there is a specific component that holds that piece of information. Instead of duplicating shared state between components, you will lift it up to their common shared parent, and pass it down to the children that need it.
+        `,
       ],
     },
     {
       sectionTitle:
-        '61. Controlled vs uncontrolled components & stateless vs stateful Components',
+        '61. Controlled (stateless) vs Uncontrolled (stateful) components',
       sectionSource:
-        '/src/markdowns/061__Stateful_vs_stateless_components.html',
+        '/src/markdowns/061__Controlled_vs_uncontrolled_components.html',
+      tooltips: [
+        '<i>It is common to call a component with some local state "uncontrolled"</i>. For example, a child component that have a state variable that can be changed by its parent component is called an uncontrolled component.',
+        '<i>A component is "controlled" when the important data in it is driven by props rather than its own local state. This lets the parent component fully specify its behavior</i>.',
+        "Uncontrolled components are easier to use within their parents because they require less configuration. But they're less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.",
+        'When writing a component, consider which information in it should be <i>controlled (via props)</i>, and which information should be <i>uncontrolled (via state)</i>',
+      ],
     },
   ],
 };
