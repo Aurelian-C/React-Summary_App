@@ -338,14 +338,15 @@ const section4 = {
       ],
     },
     {
-      sectionTitle: '60. "Lifting the state up" to share it between components',
+      sectionTitle:
+        '60. "Lifting the data/state up" to share it between components',
       sectionSource: '/src/markdowns/060__Lifting_the_state_up.html',
       highlights: {
-        highlight1: ['"Lifting the state up"'],
+        highlight1: ['"Lifting the data/state up"'],
       },
       tooltips: [
-        'We learned about a very important concept of <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component. This concept is called Lifting State Up.',
-        'You will hear the term Lifting The State Up quite a bit when you were working with React and whenever you hear that, it is about moving data from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
+        'In React is a concept called "Lifting The Data/State Up". "Lifting The Data Up" means <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component.',
+        'You will hear the term Lifting The Data/State Up quite a bit when you were working with React and whenever you hear that, it is about moving data/state from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
         `<i>A single source of truth for each state</i>: in a React application, many components will have their own state. For each unique piece of state, you will choose the component that "owns" it. For each piece of state, there is a specific component that holds that piece of information. Instead of duplicating shared state between components, you will lift it up to their common shared parent, and pass it down to the children that need it.
         `,
       ],
