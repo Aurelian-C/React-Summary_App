@@ -330,6 +330,23 @@ const section4 = {
       ],
     },
     {
+      sectionTitle: '57. Preserving and resetting state',
+      sectionSource: '/src/markdowns/057__Preserving_and_resetting_state.html',
+      tooltips: [
+        '<i>State is isolated between components</i>. In React, each component on the screen has fully isolated state. React keeps track of which state belongs to which component <i>based on their place in the UI tree</i>. You can control when to preserve state and when to reset it between re-renders.',
+        'React uses tree structures to manage and model the UI you make. React makes UI trees from your JSX.',
+        "<i>State is tied to a position in the tree</i>: React associates each piece of state it's holding with the correct component by where that component sits in the UI tree.",
+        '<i>React will keep the state around for as long as you render the same component at the same position in the UI tree. When React removes a component or a different component gets rendered at the same position in the UI tree, it destroys its state. When you add that component again to the DOM, its state is initialized from scratch.</i>',
+        'Same component at the same position preserves state. Different components at the same position reset state.',
+        'When you render a different component in the same position, it resets the state of its entire subtree.',
+        'If you want to preserve the state between re-renders, the structure of your tree needs to "match up" from one render to another. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree.',
+        `<i>Resetting state at the same position</i>:
+        <br>1. Render components in different positions;
+        <br>2. Give each component an explicit identity with <code>key</code>.
+        `,
+      ],
+    },
+    {
       sectionTitle: '58. Adding two-way binding',
       sectionSource: '/src/markdowns/058__Adding_two_way_binding.html',
       highlights: {
@@ -364,6 +381,76 @@ const section4 = {
         "Uncontrolled components are easier to use within their parents because they require less configuration. But they're less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.",
         'When writing a component, consider which information in it should be <i>controlled (via props)</i>, and which information should be <i>uncontrolled (via state)</i>',
       ],
+    },
+    {
+      sectionTitle: '116. Introducing useReducer() for state management',
+      sectionSource:
+        '/src/markdowns/116__Introducing_useReducer_for_state_management.html',
+      highlights: {
+        highlight2: ['useReducer()'],
+      },
+      tooltips: [
+        '<code>useReducer()</code> is another built-in hook and it will help us with state management.',
+        "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea, and you can do this with the help of <code>useReducer()</code>.",
+        "<code>useReducer()</code> is an alternative to <code>useState()</code>, it's a replacement if you need a more powerful state management.",
+      ],
+    },
+    {
+      sectionTitle: '117. Using the useReducer() Hook',
+      sectionSource: '/src/markdowns/117__Using_the_useReducer_hook.html',
+    },
+    {
+      sectionTitle: '120. useReducer vs useState for state management',
+      sectionSource: '/src/markdowns/120__useReducer_vs_useState.html',
+    },
+    {
+      sectionTitle: '121. Introducing React Context (Context API)',
+      sectionSource: '/src/markdowns/121__Introducing_React_Context.html',
+      highlights: {
+        highlight2: ['React Context (Context API)'],
+      },
+      tooltips: [
+        `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
+        'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
+        'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
+        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass props down manually at every level ("props chain").',
+        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing props through intermediate elements.',
+        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
+        "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
+      ],
+    },
+    {
+      sectionTitle: '122. Using the React Context API',
+      sectionSource: '/src/markdowns/122__Using_the_React_Context_API.html',
+
+      tooltips: [
+        '<code>React.createContext()</code> return an Context object that contains components.',
+        'When React renders a component that subscribes to the Context object, it will read the current Context value from the closest matching Provider above it in the tree.',
+        "Every Context object comes with a Provider React component, that allows consuming components to subscribe to Context changes. Any component that's not wrapped by the Provider will not be able to listen/subscribe to the Context.",
+        'The Provider component accepts a <code>value</code> prop to be passed to consuming components that are descendants of that Provider. One Provider can be connected to many consumers.',
+        "All consumers that are descendants of a Provider will re-render whenever the Provider's <code>value</code> prop changes.",
+        'Now, providing is always the first step. Besides providing, you then need to consume it. <code>useContext()</code> hook allows us to use a Context, it allows us to tap into a Context and listen to it. <code>useContext()</code> return the wide-state of that Context that you point in the `useContext()` function.',
+        'The component that use the Context will be re-evaluated by React whenever the Context changes!',
+      ],
+    },
+    {
+      sectionTitle: '124. Making Context dynamic',
+      sectionSource: '',
+      highlights: {
+        highlight1: ['Context dynamic'],
+      },
+      tooltips: [
+        "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
+      ],
+    },
+    {
+      sectionTitle: '125. Building & using a custom Context Provider component',
+      sectionSource:
+        '/src/markdowns/125__Building_&_using_a_Custom_Context_Provider_Component.html',
+    },
+    {
+      sectionTitle: '126. React Context limitations',
+      sectionSource: '/src/markdowns/126__React_Context_limitations.html',
     },
   ],
 };
@@ -596,7 +683,7 @@ const section9 = {
 
 const section10 = {
   title:
-    '<p class="card__title--1">Section 10</p> <p class="card__title--2">Advanced: Handling Side Effects, Using Reducers & Using the Context API</p>',
+    '<p class="card__title--1">Section 10</p> <p class="card__title--2">Advanced: Handling Side Effects</p>',
   sections: [
     {
       sectionTitle: '110. What are "side effects" & introducing useEffect',
@@ -653,27 +740,6 @@ const section10 = {
       ],
     },
     {
-      sectionTitle: '116. Introducing useReducer() for state management',
-      sectionSource:
-        '/src/markdowns/116__Introducing_useReducer_for_state_management.html',
-      highlights: {
-        highlight2: ['useReducer()'],
-      },
-      tooltips: [
-        '<code>useReducer()</code> is another built-in hook and it will help us with state management.',
-        "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea, and you can do this with the help of <code>useReducer()</code>.",
-        "<code>useReducer()</code> is an alternative to <code>useState()</code>, it's a replacement if you need a more powerful state management.",
-      ],
-    },
-    {
-      sectionTitle: '117. Using the useReducer() Hook',
-      sectionSource: '/src/markdowns/117__Using_the_useReducer_hook.html',
-    },
-    {
-      sectionTitle: '118. useReducer & useEffect',
-      sectionSource: '',
-    },
-    {
       sectionTitle:
         '119. Adding nested properties as dependencies to useEffect',
       sectionSource:
@@ -685,59 +751,6 @@ const section10 = {
         'We used object destructuring to add object properties as dependencies to <code>useEffect()</code>.',
         'The key thing is NOT that we use destructuring, but that we pass specific properties instead of the entire object as a dependency.',
       ],
-    },
-    {
-      sectionTitle: '120. useReducer vs useState for state management',
-      sectionSource: '/src/markdowns/120__useReducer_vs_useEffect.html',
-    },
-    {
-      sectionTitle: '121. Introducing React Context (Context API)',
-      sectionSource: '/src/markdowns/121__Introducing_React_Context.html',
-      highlights: {
-        highlight2: ['React Context (Context API)'],
-      },
-      tooltips: [
-        `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
-        'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
-        'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
-        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass props down manually at every level ("props chain").',
-        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing props through intermediate elements.',
-        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
-        "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
-      ],
-    },
-    {
-      sectionTitle: '122. Using the React Context API',
-      sectionSource: '/src/markdowns/122__Using_the_React_Context_API.html',
-
-      tooltips: [
-        '<code>React.createContext()</code> return an Context object that contains components.',
-        'When React renders a component that subscribes to the Context object, it will read the current Context value from the closest matching Provider above it in the tree.',
-        "Every Context object comes with a Provider React component, that allows consuming components to subscribe to Context changes. Any component that's not wrapped by the Provider will not be able to listen/subscribe to the Context.",
-        'The Provider component accepts a <code>value</code> prop to be passed to consuming components that are descendants of that Provider. One Provider can be connected to many consumers.',
-        "All consumers that are descendants of a Provider will re-render whenever the Provider's <code>value</code> prop changes.",
-        'Now, providing is always the first step. Besides providing, you then need to consume it. <code>useContext()</code> hook allows us to use a Context, it allows us to tap into a Context and listen to it. <code>useContext()</code> return the wide-state of that Context that you point in the `useContext()` function.',
-        'The component that use the Context will be re-evaluated by React whenever the Context changes!',
-      ],
-    },
-    {
-      sectionTitle: '124. Making Context dynamic',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['Context dynamic'],
-      },
-      tooltips: [
-        "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
-      ],
-    },
-    {
-      sectionTitle: '125. Building & using a custom Context Provider component',
-      sectionSource:
-        '/src/markdowns/125__Building_&_using_a_Custom_Context_Provider_Component.html',
-    },
-    {
-      sectionTitle: '126. React Context limitations',
-      sectionSource: '/src/markdowns/126__React_Context_limitations.html',
     },
     {
       sectionTitle: '127. Learning the "rules of Hooks"',
