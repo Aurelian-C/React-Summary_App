@@ -513,7 +513,7 @@ const section4 = {
     '<p class="card__title--1">Section 4</p> <p class="card__title--2">Styling React Components</p>',
   sections: [
     {
-      sectionTitle: 'Module introduction',
+      sectionTitle: 'Introduction to styling React components',
       sectionSource:
         '/src/markdowns/Introduction_to_styling_React_components.html',
     },
@@ -777,21 +777,7 @@ const section7 = {
 
 const section8 = {
   title:
-    '<p class="card__title--1">Section 8</p> <p class="card__title--2">Practice Project: Building a Food Order App</p>',
-  sections: [
-    {
-      sectionTitle: 'Adding a form',
-      sectionSource: '/src/markdowns/137__Adding_a_form.html',
-      tooltips: [
-        'When you receive an object through props, you can use a little trick to pass all the configuration data that you have in that object for a component by using spread operator: <<span>input {...props.object}</span> />',
-      ],
-    },
-  ],
-};
-
-const section9 = {
-  title:
-    '<p class="card__title--1">Section 9</p> <p class="card__title--2">A Look Behind The Scenes Of React & Optimization Techniques</p>',
+    '<p class="card__title--1">Section 8</p> <p class="card__title--2">A Look Behind The Scenes Of React & Optimization Techniques</p>',
   sections: [
     {
       sectionTitle: 'How React really works',
@@ -856,9 +842,9 @@ const section9 = {
   ],
 };
 
-const section10 = {
+const section9 = {
   title:
-    '<p class="card__title--1">Section 10</p> <p class="card__title--2">An Alternative Way Of Building Components: Class-based Components</p>',
+    '<p class="card__title--1">Section 9</p> <p class="card__title--2">An Alternative Way Of Building Components: Class-based Components</p>',
   sections: [
     {
       sectionTitle: 'Introducing error boundaries',
@@ -875,9 +861,9 @@ const section10 = {
   ],
 };
 
-const section11 = {
+const section10 = {
   title:
-    '<p class="card__title--1">Section 11</p> <p class="card__title--2">Building Custom React Hooks</p>',
+    '<p class="card__title--1">Section 10</p> <p class="card__title--2">Building Custom React Hooks</p>',
   sections: [
     {
       sectionTitle: 'What are "custom Hooks"?',
@@ -896,9 +882,9 @@ const section11 = {
   ],
 };
 
-const section12 = {
+const section11 = {
   title:
-    '<p class="card__title--1">Section 12</p> <p class="card__title--2">Working with Forms & User Input</p>',
+    '<p class="card__title--1">Section 11</p> <p class="card__title--2">Working with Forms & User Input</p>',
   sections: [
     {
       sectionTitle: "What's so complex about Forms?",
@@ -2111,7 +2097,6 @@ export const dataStorage = [
   section9,
   section10,
   section11,
-  section12,
   section18,
   section19,
   section20,

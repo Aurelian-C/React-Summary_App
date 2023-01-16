@@ -116,6 +116,39 @@ function Profile(props) {
 
 This forwards all of `Profile`’s props to the `Avatar` without listing each of their names. **Use spread syntax with restraint.** If you’re using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX.
 
+#### Another example
+
+```react
+const Input = (props) => {
+  return (
+    <div>
+      <label htmlFor={props.input.id}>{props.label}</label>
+      <input {...props.input} />
+    </div>
+  );
+};
+// props.input will be an object
+
+const MealItemForm = (props) => {
+  return (
+    <form>
+      <Input
+        label='Amount'
+        input={{ // this object will be spread to the <input {...props.input} />
+          id: 'amount_' + props.id,
+          type: 'number',
+          min: '1',
+          max: '5',
+          step: '1',
+          defaultValue: '1',
+        }}
+      />
+      <button>+ Add</button>
+    </form>
+  );
+};
+```
+
 ## Passing JSX as children: `props.children`
 
 It is common to nest built-in browser tags:
