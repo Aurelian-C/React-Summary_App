@@ -325,6 +325,7 @@ code {
 .card__article-anchor:hover + .tooltip {
   opacity: 1;
   visibility: visible;
+  transition: all 0.5s;
 }
 
 /* Tooltip box style marked word */
