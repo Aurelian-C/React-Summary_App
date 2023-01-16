@@ -27,29 +27,31 @@ class ApplicationView {
       article.tooltips?.length > 0 ? '<div class="tooltip"></div>' : '';
     let title = article.sectionTitle;
 
-    if (article.highlights?.highlight1) {
-      article.highlights.highlight1.map(highlight => {
-        title = title.replace(
-          highlight,
-          `<span class="highlight--1">${highlight}</span>`
-        );
-      });
-    }
+    const createHighlight1 = highlight => {
+      title = title.replace(
+        highlight,
+        `<span class="highlight--1">${highlight}</span>`
+      );
+    };
+    const createHighlight2 = highlight => {
+      title = title.replace(
+        highlight,
+        `<span class="highlight--2">${highlight}</span>`
+      );
+    };
 
+    if (article.highlights?.highlight1) {
+      article.highlights.highlight1.map(createHighlight1);
+    }
     if (article.highlights?.highlight2) {
-      article.highlights.highlight2.map(highlight => {
-        title = title.replace(
-          highlight,
-          `<span class="highlight--2">${highlight}</span>`
-        );
-      });
+      article.highlights.highlight2.map(createHighlight2);
     }
 
     return `
       <div class="card__article">
           ${
             article.sectionSource
-              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank" data-title='${article.sectionTitle}'>${title}</a>`
+              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank" data-title='${article.sectionTitle}'><i class="fa-solid fa-check content__icon"></i>${title}</a>`
               : `<p class="card__article-title" data-title='${article.sectionTitle}'>${title}</p>`
           }
        ${tooltipMarkup}

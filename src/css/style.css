@@ -126,9 +126,19 @@ body {
 
 .card__article {
   flex-direction: column;
-  margin: 5px 0;
+  margin-top: 7px;
   display: flex;
   position: relative;
+}
+
+.content__icon {
+  margin-right: 5px;
+  color: rgb(102, 102, 102);
+}
+
+.content__icon--header {
+  font-size: 2rem;
+  margin: 0 3px;
 }
 
 .card__article-wrapper {
