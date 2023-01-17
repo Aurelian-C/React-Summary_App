@@ -726,16 +726,26 @@ const section7 = {
     '<p class="card__title--1">Section 7</p> <p class="card__title--2">Handling Side Effects</p>',
   sections: [
     {
-      sectionTitle: 'What are "side effects" & introducing useEffect',
-      sectionSource:
-        '/src/markdowns/What_are_side_effects_&_introducing_to_useEffect.html',
+      sectionTitle: 'Synchronizing with Effects',
+      sectionSource: '/src/markdowns/Synchronizing_with_effects.html',
       highlights: {
         highlight1: ['"side effects"'],
       },
       tooltips: [
-        "The main job of React is to bring something onto the screen and to make sure that the user may interact with that something, and that what's shown on the screen may change based on certain events.",
-        'Side effects are everything else that might be happening in your app and that thing is not related to bring something onto the screen.',
-        "A good example is sending a Http request: you might be sending a Http request, to then draw something onto the screen once you got the response, but sending the request itself and handling potential errors and so on, that's not something you need React for, that's not something React cares about, that's not what React is.",
+        'Some components need to synchronize with external systems. <i>Effects let you run some code after rendering</i> so that you can synchronize your component with some system outside of React.',
+        "Effects let you synchronize a component with some external system. If there's no external system and you only want to adjust some state based on other state, you might not need an Effect.",
+        `Event handlers contain "side effects" (they change the program's state) and are caused by a specific user action. On the other side, <i>Effects let you specify side effects that are caused by <u>rendering itself</u>, rather than by a particular event</i>. Unlike events, Effects are caused by rendering itself rather than a particular interaction.`,
+        '<i>Effects run at the end of the rendering process</i> <b>after</b> the screen updates. Every time your component renders, React will update the screen and then run the code inside <code>useEffect</code>. In other words, <i><code>useEffect</code> "delays" a piece of code from running until that render is reflected on the screen</i>.',
+        'In React, rendering should be a pure calculation of JSX and should not contain side effects like modifying the DOM. By wrapping the DOM update in an Effect, you let React update the screen first. Then your Effect runs.',
+        'By default, Effects run after every render (including the initial one). Often, this is not what you want. You can tell React to skip unnecessarily re-running the Effect by specifying an array of dependencies as the second argument to the <code>useEffect</code>.',
+        'An empty dependency array <code>[]</code> corresponds to the component "mounting", i.e. being added to the screen.',
+        'The dependency array can contain multiple dependencies. React will only skip re-running the Effect if all of the dependencies you specify have exactly the same values as they had during the previous render.',
+        `You can't "choose" your dependencies, they are determined by the code inside the Effect. You will get a lint error if the dependencies you specified don't match what React expects based on the code inside your Effect. This helps catch many bugs in your code. If your Effect uses some value but you don't want to re-run the Effect when it changes, you'll need to edit the Effect code itself to not "need" that dependency. If the linter lets you omit a dependency without errors, that means it is safe to do. Omitting always-stable dependencies only works when the linter can "see" that the object is stable.`,
+        'In the <code>useEffect()</code> function you can return only one specific thing, and that thing is a function. The function that you return from the <code>useEffect()</code> is called cleanup function. This function that you return from <code>useEffect()</code> will run as a cleanup process before <code>useEffect()</code> will be re-executed. The cleanup function will not run when the <code>useEffect()</code> is executed for the first time.',
+        'React will call your cleanup function each time before the Effect runs again, and one final time when the component unmounts from DOM (gets removed from DOM).',
+        'When you implement the cleanup well, there should be no user-visible difference between running the Effect once vs running it, cleaning it up, and running it again.',
+        "In development React remounts every component once immediately after its initial mount. In production, you don't have this behavior. Remounting components only happens in development to help you find Effects that need cleanup.",
+        'When Strict Mode is on, React mounts components twice (in development only!) to stress-test your Effects. If your Effect breaks because of remounting, you need to implement a cleanup function. React will call your cleanup function before the Effect runs next time, and during the unmount.',
       ],
     },
     {
@@ -767,17 +777,6 @@ const section7 = {
       sectionTitle: 'What to add & not to add as dependencies to useEffect()',
       sectionSource:
         '/src/markdowns/What_to_add_&_not_to_add_as_dependencies_to_useEffect.html',
-    },
-    {
-      sectionTitle: 'Using the useEffect cleanup function',
-      sectionSource: '/src/markdowns/Using_the_useEffect_cleanup_function.html',
-      highlights: {
-        highlight1: ['useEffect cleanup function'],
-      },
-      tooltips: [
-        'In the <code>useEffect()</code> function you can return only one specific thing, and that thing is a function. The function that you return from the <code>useEffect()</code> is called Cleanup function.',
-        'This function that you return from <code>useEffect()</code> will run as a cleanup process before <code>useEffect()</code> will be re-executed. The Cleanup function will not run when the <code>useEffect()</code> is executed for the first time.',
-      ],
     },
     {
       sectionTitle: 'Adding nested properties as dependencies to useEffect',
