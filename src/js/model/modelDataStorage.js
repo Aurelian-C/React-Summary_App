@@ -749,6 +749,18 @@ const section7 = {
       ],
     },
     {
+      sectionTitle: 'You might not need an Effect',
+      sectionSource: '/src/markdowns/You_might_not_need_an_effect.html',
+      tooltips: [
+        `Effects are an escape hatch from the React paradigm. They let you "step outside" of React and synchronize your components with some external system. <i>If there is no external system involved (for example, if you want to update a component's state when some props or state change), you shouldn't need an Effect</i>. Removing unnecessary Effects will make your code easier to follow, faster to run, and less error-prone.`,
+        `There are two common cases in which you don't need Effects:
+        <br>- You don't need Effects to <i>transform data for rendering</i>;
+        <br>- You don't need Effects to <i>handle user events</i>.
+        `,
+        'You do need Effects to <i>synchronize with external systems</i>.',
+      ],
+    },
+    {
       sectionTitle: 'Using the useEffect() Hook',
       sectionSource: '/src/markdowns/Using_the_useEffect_hook.html',
       highlights: {
