@@ -188,7 +188,7 @@ const section2 = {
         <br>1. It's the component's <i>initial render</i>.
         <br>2. The component's (or one of its ancestors) <i>state has been updated</i>.
         `,
-        `<i>After you trigger a render, React calls your components to figure out what to display on screen</i> ("rendering" is React calling your components):
+        `<i>After you trigger a render, React calls your components to figure out what to display on screen</i> (<b>"rendering" is React calling your components</b>):
         <br>- on <i>initial render</i>, React will call the root component.
         <br>- for <i>subsequent renders</i>, React will call the function component whose state update triggered the render.`,
         "After rendering (calling) your components, React will modify the DOM. <i>React only changes the DOM nodes if there's a difference between renders</i>.",
