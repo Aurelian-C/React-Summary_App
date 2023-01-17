@@ -15,24 +15,26 @@ class TooltipView {
 
       if (!obj.tooltips) return;
 
-      const elIsInTheDOM = cardArticle.querySelector('.tooltip');
+      const tooltipContainer = cardArticle.querySelector('.tooltip');
       const tooltipHasChildren =
-        elIsInTheDOM.querySelector('.tooltip_paragraph');
-      if (elIsInTheDOM && !tooltipHasChildren) {
+        tooltipContainer.querySelector('.tooltip_paragraph');
+      if (tooltipContainer && !tooltipHasChildren) {
         const tooltipText = obj.tooltips
           .map(string => `<p class="tooltip_paragraph">${string}</p>`)
           .join('');
 
-        elIsInTheDOM.insertAdjacentHTML('afterbegin', tooltipText);
+        tooltipContainer.insertAdjacentHTML('afterbegin', tooltipText);
       }
 
-      // const tooltipBox = cardArticle.querySelector('.tooltip');
-      // const tooltipDOMRect = cardArticle.getBoundingClientRect();
+      const bodyWidth = document.body.getBoundingClientRect().width;
+      const tooltipContainerPosition = tooltipContainer.getBoundingClientRect();
+      const tooltipContainerOffsetX =
+        tooltipContainerPosition.left + tooltipContainerPosition.width;
 
-      // if (tooltipDOMRect.top < 0) {
-      //   const moveY = tooltipDOMRect.height;
-      //   tooltipBox.style.transform = `translateY(${moveY}px)`;
-      // }
+      if (tooltipContainerOffsetX > bodyWidth) {
+        const moveX = tooltipContainerOffsetX + 10 - bodyWidth;
+        tooltipContainer.style.transform = `translateX(-${moveX}px)`;
+      }
     });
   }
 }

@@ -276,7 +276,7 @@ code {
 /* Tooltip container */
 .tooltip {
   visibility: hidden;
-  min-width: 50rem;
+  min-width: 60rem;
   background-color: #555;
   color: #fff;
   border-radius: 6px;
@@ -332,4 +332,8 @@ code {
 i {
   color: rgb(138, 255, 0);
   font-style: normal;
+}
+
+b {
+  font-style: italic;
 }
