@@ -763,20 +763,13 @@ const section7 = {
       ],
     },
     {
-      sectionTitle: 'useEffect & dependencies',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['useEffect & dependencies'],
-      },
-      tooltips: [
-        "You add as dependencies what you're using in your side effect function.",
-        "Does <code>useEffect()</code> run after every render? Yes! By default, if you don't pass an array of dependencies, <code>useEffect()</code> runs both after the first render and after every component render cycle.",
-      ],
-    },
-    {
       sectionTitle: 'What to add & not to add as dependencies to useEffect()',
       sectionSource:
         '/src/markdowns/What_to_add_&_not_to_add_as_dependencies_to_useEffect.html',
+      tooltips: [
+        "You add as dependencies what you're using in your <code>useEffect</code> function.",
+        "Does <code>useEffect()</code> run after every render? Yes! By default, if you don't pass an array of dependencies, <code>useEffect()</code> runs both after the first render and after every component render cycle.",
+      ],
     },
     {
       sectionTitle: 'Adding nested properties as dependencies to useEffect',
