@@ -1,115 +1,88 @@
 # Diving into "Forward Refs"
 
-==The `ref` prop is supported on all built-in HTML Components, but you cannot use `ref` prop on your Custom Components !!!==
+==The `ref` prop is supported on all built-in HTML elements, but by default you can't use `ref` prop on your custom components !!!==
 
 ```react
 // Correct
 <input ref={value} />
 
 // Wrong:
-<Header ref={value} />   // Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+<MyInput ref={value} />   // Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
 ```
 
-==`React.forwardRef()` & `useImperativeHandle()` hook allows us to interact with a custom Input Components **imperatively**==, which means not by passing some state to a Component that then changes something in it, but, for example, by _calling a function that is **inside** of a Component_, which is something you won't need to do often and you shouldn't do often, because it's not the typical React pattern you want, but sometimes it is helpful.
+==A custom component doesn’t expose its DOM nodes by default. You can opt into exposing a DOM node by using `forwardRef` and passing the second `ref` argument down to a specific node==.
 
-`useImperativeHandle()` allows us to ==use a Component or functionalities from inside a Component imperatively==, which simply means not through the regular state props management, not by controlling the Component through state in the parent Component, but instead by directly calling or manipulating something in the Component. And again, that is something you rarely wanna use and therefore, you shouldn't use it very often in your projects as well. ==`useImperativeHandle()` should be used with `React.forwardRef()`==.
+## Accessing another component’s DOM nodes 
 
-### 1. First step
+When you put a ref on a built-in component that outputs a HTML element like `<input />`, React will set that ref’s `current` property to the corresponding DOM node (such as the actual `<input />` in the browser). However, if you try to put a ref on **your own** component, like `<MyInput />`, by default you will get `null`. To help you notice the issue, React also prints an error to the console:
 
-We need to wrap our component with `React.forwardRef()`. `React.forwardRef()` is basically a function which we execute, to which we pass our Component function. So our Component function is now the first argument of `React.forwardRef()`, and `React.forwardRef()` returns a React Component, so Input still is a React Component, but ==a React Component that is capable of being bound to a `ref` set from outside==.
+```react
+Warning: Function components cannot be given refs. Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+```
 
-Now with that, Input (your Custom Component) is able to take a `ref` prop and it will expose a `ref`, and it is controllable or usable with refs. But ==the only thing you will be able to use is what you expose through `useImperativeHandle()`==.
+This happens because by default ==React does not let a component access the DOM nodes of other components. Not even for its own children!== This is intentional. Refs are an escape hatch that should be used sparingly. _Manually manipulating **another** component’s DOM nodes makes your code even more fragile_.
+
+Instead, ==custom components that _want_ to expose their DOM nodes have to **opt in** to that behavior. A component can specify that it “forwards” its ref to one of its children==. Here’s how `MyInput` can use the `forwardRef` API:
+
+```react
+import React from 'react';
+
+const MyInput = React.forwardRef((props, ref) => {
+  return <input {...props} ref={ref} />;
+});
+```
+
+==In design systems, it is a common pattern for low-level components like buttons, inputs, and so on, to forward their refs to their DOM nodes. On the other hand, high-level components like forms, lists, or page sections usually won’t expose their DOM nodes to avoid accidental dependencies on the DOM structure==.
+
+## Exposing a subset of the API with an imperative handle
+
+==In the above example, `MyInput` exposes the original DOM input element. This lets the parent component to call, for example, `focus()` on it. However, this also lets the parent component do something else — for example, change its CSS styles. In uncommon cases, you may want to **restrict the exposed functionality**==. You can do that with `useImperativeHandle`:
+
+```react
+import {
+  forwardRef, 
+  useRef, 
+  useImperativeHandle
+} from 'react';
+
+const MyInput = forwardRef((props, ref) => {
+  const realInputRef = useRef(null);
+  useImperativeHandle(ref, () => ({
+    // Only expose focus and nothing else
+    focus() {
+      realInputRef.current.focus();
+    },
+  }));
+  return <input {...props} ref={realInputRef} />;
+});
+
+export default function Form() {
+  const inputRef = useRef(null);
+
+  function handleClick() {
+    inputRef.current.focus();
+  }
+
+  return (
+    <>
+      <MyInput ref={inputRef} />
+      <button onClick={handleClick}>
+        Focus the input
+      </button>
+    </>
+  );
+}
+```
+
+Here, `realInputRef` inside `MyInput` holds the actual input DOM node. However, ==`useImperativeHandle` instructs React to provide **your own special object** as the value of a ref to the parent component. So `inputRef.current` inside the `Form` component will only have the `focus` method. In this case, **the ref “handle” is not the DOM node**, but the custom object you create inside `useImperativeHandle` call==.
+
+### Another example
 
 ![Diving_into_Forward_Refs1](..\img\Diving_into_Forward_Refs1.jpg)
 
-### 2. Second step
-
-`useImperativeHandle()` takes two two parameters. The first parameter is ==a `ref` that should be set from outside==. So if now the parent Component adds the `ref` prop and binds `ref` to something, essentially, `ref` inside the child Component will establish the connection between parent refs and child refs. The second parameter is a function, a function that should return an object, and that ==object will contain all the data you will be able to use from outside of your custom Component==.
-
-```react
-import React, { useRef, useImperativeHandle } from 'react';
-
-const Input = React.forwardRef((props, ref) => {
-  const inputRef = useRef();
-
-  const activate = () => {
-    inputRef.current.focus();
-  };
-
-  useImperativeHandle(ref, () => {
-    return {
-      focus: activate,
-    };
-  });
-
-  return (
-    <div>
-        <label htmlFor={props.id}>{props.label}</label>
-        <input ref={inputRef} type={props.type} id={props.id} onChange={props.onChange} />
-    </div>
-  );
-});
-
-export default Input;
-```
-
-With `React.forwardRef()` and `useImperativeHandle()` hook , you can ==_expose functionalities from a custom React Component to its parent Component_, to then use your custom Component in the parent Component through refs, and trigger certain functionalities with the help of refs==.
-
-==The idea behind `React.forwardRef()` is that you can use your refs custom Input Component as you can use `ref` to a built-in input==. So this something you can do, not something you will need all the time and you should avoid it at all costs, I would almost say.
-
 ![Diving_into_Forward_Refs2](..\img\Diving_into_Forward_Refs2.jpg)
-
-# Working with Refs & Forward Refs
-
-```react
-import React from "react";
-
-const Input = React.forwardRef((props, ref) => {
-  return (
-    <div>
-      <label htmlFor={props.input.id}>{props.label}</label>
-      <input ref={ref} {...props.input} />
-    </div>
-  );
-});
-
-export default Input;
-```
-
-```react
-import Input from "../../UI/Input";
-import { useRef } from "react";
-
-const MealItemForm = (props) => {
-  const inputRef = useRef();
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    const enteredValue = inputRef.current.value; // inputRef.current will point at the input elemenet (DOM node)
-  };
-
-  return (
-    <form onSubmit={submitHandler}>
-      <Input
-        ref={inputRef}
-        label="Amount"
-        input={{
-          id: "amount_" + props.id,
-          type: "number",
-          min: "1",
-          max: "5",
-          step: "1",
-          defaultValue: "1",
-        }}
-      />
-      <button>Add</button>
-    </form>
-  );
-};
-
-export default MealItemForm;
-```
 
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [Manipulating the DOM with Refs - beta.reactjs.org](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs)
