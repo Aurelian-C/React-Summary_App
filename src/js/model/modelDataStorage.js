@@ -779,6 +779,21 @@ const section7 = {
       ],
     },
     {
+      sectionTitle: 'Separating Events from Effects',
+      sectionSource: '/src/markdowns/Separating_Events_from_Effects.html',
+      tooltips: [
+        'Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render.',
+        'Where you write code and you are not sure where to put it (in an event handlers or Effects), every time you need to answer this question <b>"Why the code needs to run?"</b>.',
+        'Event handlers run in response to <b>specific interactions</b> vs Effects run <b>whenever synchronization is needed</b>.',
+        `<i>Reactive <b>values</b> and reactive <b>logic</b></i>: intuitively, you could say that event handlers are always triggered "manually", for example by clicking a button. Effects, on the other hand, are "automatic": they run and re-run as often as it's needed to stay synchronized. <i>Props, state, and variables declared inside your component's body are called <b>reactive values</b> because these  values can <b>change due to a re-render</b></i>.`,
+        `<i>Event handlers and Effects are different in <u>how they respond to changes</u></i>:
+        <br>- <i>logic inside event handlers is <b>not reactive</b></i>. It will not run again unless the user performs the same interaction (for example, a click) again. Event handlers can read reactive values, but they don't "react" to their changes;
+        <br>- <i>logic inside Effects is <b>reactive</b></i>. If your Effect reads a reactive value, you have to specify it as a dependency. Then, if a re-render causes that value to change, React will re-run your Effect's logic again with the new value.
+        `,
+        'You can move non-reactive logic from Effects into <i>Effect Events</i>.',
+      ],
+    },
+    {
       sectionTitle: 'Using the useEffect() Hook',
       sectionSource: '/src/markdowns/Using_the_useEffect_hook.html',
       highlights: {
