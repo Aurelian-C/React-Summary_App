@@ -794,6 +794,11 @@ const section7 = {
       ],
     },
     {
+      sectionTitle: 'Removing Effect dependencies',
+      sectionSource: '/src/markdowns/Removing_Effect_dependencies.html',
+      tooltips: [],
+    },
+    {
       sectionTitle: 'Using the useEffect() Hook',
       sectionSource: '/src/markdowns/Using_the_useEffect_hook.html',
       highlights: {
