@@ -796,7 +796,12 @@ const section7 = {
     {
       sectionTitle: 'Removing Effect dependencies',
       sectionSource: '/src/markdowns/Removing_Effect_dependencies.html',
-      tooltips: [],
+      tooltips: [
+        "When you write an Effect, the linter will verify that you've included every reactive value (like props and state) that the Effect reads in the list of your Effect's dependencies. This ensures that your Effect remains synchronized with the latest props and state of your component. <i>Unnecessary dependencies may cause your Effect to run too often</i>, or even create an infinite loop.",
+        "<i>Dependencies should match the code: if you want to change the dependencies, change the surrounding code first</i>. You can think of the dependency list as a list of all the reactive values used by your Effect's code. You don't intentionally choose what to put on that list. The list describes your code. To change the dependency list, change the code.",
+        `<i>You can't "choose" the dependencies of your Effect. Every <b>reactive value</b> used by your Effect's code must be declared in your dependency list</i>. Reactive values include props and all variables and functions declared directly inside of your component. To remove a dependency, you need to "prove" to the linter that it doesn't need to be a dependency.`,
+        "<i>Avoid objects and functions as Effect dependencies</i>: in JavaScript, each newly created object and function is considered distinct from all the others. It doesn't matter that the contents inside of them may be the same! <i>Object and function dependencies create a risk that your Effect will re-synchronize more often than you need</i>. This is why, whenever possible, you should try to avoid objects and functions as your Effect's dependencies.",
+      ],
     },
     {
       sectionTitle: 'Using the useEffect() Hook',
