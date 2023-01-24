@@ -10,9 +10,9 @@ const section1 = {
         highlight1: ['components'],
       },
       tooltips: [
-        'A component is a piece of the UI (user interface) that has its own logic and appearance. A component can be as small as a button, or as large as an entire page.',
-        'A component in React is just a JavaScript function that returns JSX markup. Components are in the end just a combination of HTML, CSS and JavaScript.',
-        "Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
+        'A component is <i>a piece of the UI (user interface) that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
+        'Conceptually, components are like JavaScript functions. <i>A component in React is just <b>a JavaScript function that returns JSX markup</b>. Components are in the end just a combination of HTML, CSS and JavaScript</i>.',
+        "Components are <i><b>reusable</b> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
         'Components are a handy way to organize UI code and markup, even if some of them are only used once.',
         'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
         'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.',
@@ -33,12 +33,14 @@ const section1 = {
         highlight1: ['"declarative way"'],
       },
       tooltips: [
-        'With just Vanilla JavaScript, we have to write every single line of code that should be taken to build an app (Imperative Way). <i>React uses something which is called a Declarative Way for building components and to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you describe the different states that your component can be in, and switch between them in response to user actions (user events) or computer actions (http events).',
-        "Declarative Way basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the UI, as you would be doing it with Vanilla JavaScript. Instead, <i>with React you will always define different states that your component can be in, and then it's React job to figure out which elements on the UI might need to be added or removed or updated</i>, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
-        `Summary:
-        <br>Declarative programming means <i>describing the UI for each visual state</i> rather than micromanaging the UI (imperative). When developing a component:
+        'With just Vanilla JavaScript, we have to write every single line of code that should be taken to build an app (<b>Imperative Way</b>). <i>React uses something which is called a <b>Declarative Way</b> for building components and to manipulate the UI. Instead of manipulating individual pieces of the UI directly, <b>you describe the different states that your component can be in</b>, and switch between them in response to user actions (user events) or computer actions (http events)</i>.',
+        "Declarative Way basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the UI, as you would be doing it with Vanilla JavaScript. Instead, <i>with React you will always <b>define different states that your component can be in</b>, and then it's React job to figure out which elements on the UI might need to be added or removed or updated</i>, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
+        `With just Vanilla JavaScript, you have to write the exact instructions (every line of code) to manipulate the UI. It's called imperative because you have to "command" each element, from the spinner to the button, telling the computer how to update the UI. <i>In React, you don't directly manipulate the UI</i> — meaning you don't enable, disable, show, or hide components directly. Instead, you declare what you want to show, and React figures out how to update the UI.`,
+        'In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.',
+        '<i>Declarative programming means <u>describing the UI for each visual state</u>, rather than micromanaging the UI (imperative)</i>.',
+        `When developing a component:
         <br>1. Identify all its <i>visual states</i>.
-        <br>2. Determine the human and computer triggers for <i>state changes</i>.
+        <br>2. Determine the human/computer triggers for <i>state changes</i>.
         <br>3. <i>Model the state</i> with <code>useState</code>.
         <br>4. <i>Remove non-essential state</i> to avoid bugs and paradoxes.
         <br>5. Connect the <i>event handlers to set state</i>.`,

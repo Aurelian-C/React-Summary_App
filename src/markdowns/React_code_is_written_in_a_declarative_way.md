@@ -1,16 +1,22 @@
 # React code is written in a "declarative way"
 
-==React uses a _**declarative way** to manipulate the UI_==. Instead of manipulating individual pieces of the UI directly, you _describe the different states that your component can be in_, and switch between them in response to user actions (user events) or computer actions (http events), to manipulate the UI.
+==With just Vanilla JavaScript, we have to write every single step that should be taken to build an app==. We want to create an element, we want to set its content, we want to add classes, we want to add an event (click, scroll etc.), then what should happen on that event. Every single step needs to be described. _This way of programming and bringing something onto the screen, is called an_ ==**Imperative Approach**==. _We simply describe action after action, step after step, and that can reach its limits_.
+
+_React uses something which is called a_ ==**Declarative Approach**== _for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript_. Instead, with React and that's really important, you will **always define the desired end state**, the target state or possibly also different target states depending on different conditions, and it's then React job to figure out which elements on the actual webpage might need to be added, removed or updated, and ==_you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript_, instead with React and React components you just **define these end _states_ and under which _conditions_ which state should be used**==, and then React will do all of the rest under the hood.
+
+![React_and_components](D:/Websites/Projects/Cioloca Aurelian__React Resume/src/img/React_and_components.jpg)
+
+==React uses a _**declarative way** to manipulate the UI_. Instead of manipulating individual pieces of the UI directly, you _describe the different states that your component can be in_, and switch between them in response to user actions (user events) or computer actions (http events), to manipulate the UI==.
 
 >You will learn:
 >
->- How _declarative_ UI programming differs from _imperative_ UI programming
->- How to enumerate the _different visual states_ your component can be in
->- How to _trigger the changes between the different visual states_ from code
+>- How **declarative UI** programming differs from **imperative UI** programming
+>- How to enumerate the **different visual states** your component can be in
+>- How to **trigger the changes between the different visual states** from code
 
 ## How _declarative_ UI compares to _imperative_ 
 
-When you design UI interactions, you probably think about ==how the UI *changes* in response to user actions==. Consider a form that lets the user submit an answer:
+When you design UI interactions, you probably think about ==how the UI _changes in response to user actions_==. Consider a form that lets the user submit an answer:
 
 - When you type something into a form, the “Submit” button **becomes enabled.**
 - When you press “Submit”, both form and the button **become disabled,** and a spinner **appears.**
@@ -23,7 +29,7 @@ In **imperative programming,** the above corresponds directly to how you impleme
 
 ![React_code_is_written_in_a_declarative_way](..\img\React_code_is_written_in_a_declarative_way.png)
 
-They don’t know where you want to go, they just follow your commands. (And if you get the directions wrong, you end up in the wrong place!) ==It’s called *imperative* because you have to “command” each element, from the spinner to the button, telling the computer *how* to update the UI==.
+They don’t know where you want to go, they just follow your commands (and if you get the directions wrong, you end up in the wrong place!). ==It’s called *imperative* because you have to “command” each element, from the spinner to the button, telling the computer *how* to update the UI==.
 
 In this example of imperative UI programming, the form is built *without* React. It uses the built-in browser [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model):
 
@@ -261,4 +267,5 @@ When developing a component:
 ## References
 
 1. [Reacting to Input with State - beta.reactjs.org](https://beta.reactjs.org/learn/reacting-to-input-with-state)
+1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 
