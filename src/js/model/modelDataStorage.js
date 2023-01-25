@@ -148,10 +148,6 @@ const section1 = {
         'You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.',
       ],
     },
-    {
-      sectionTitle: 'Organizing component files',
-      sectionSource: '',
-    },
   ],
 };
 
