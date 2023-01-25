@@ -54,7 +54,7 @@ const section1 = {
       },
       tooltips: [
         'JSX = JavaScript XML.',
-        'JSX is a <i>syntax extension</i> for JavaScript that lets you write <i>HTML-like markup inside a JavaScript file</i>.',
+        'JSX is a <i>syntax extension</i> for JavaScript that lets you write <i>HTML-like markup inside a JavaScript file</i>, keeping rendering logic and content in the same place.',
         'JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.',
         `<i>JSX is stricter than HTML</i>: 
         <br>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>. 
@@ -71,27 +71,30 @@ const section1 = {
         highlight2: ['custom component'],
       },
       tooltips: [
-        'A React custom component is basically just a custom HTML element. The key difference between custom components and built-in HTML elements (tags) is that custom components always start with a capital letter. And indeed your own custom components must start with a capital letter, so that React is able to detect that is a custom component. React custom components names must always start with a capital letter, while HTML tags must be lowercase.',
-        'There are 3 steps to build a custom component: create & export the component, import the component, use the component.',
-        'Is considered a good practice to put new components into new files, so that you have one file per component.',
-        'Components (parent) can render other components (child), but you must never nest their definitions (never define a component inside another component!).',
+        '<i>A React custom component is basically just a <b>custom HTML element</b></i>. The key difference between custom components and built-in HTML elements (tags) is that <i>custom components always start with a capital letter, so that React is able to detect that is a custom component</i>. React custom components names must always start with a capital letter, while HTML tags must be lowercase.',
+        `There are 3 steps to build a custom component:
+        <br>1. <i>Create & export</i> the component;
+        <br>2. <i>Import</i> the component;
+        <br>3. <i>Use</i> the component.`,
+        'You can have <i>multiple components in the same file</i>, but is considered a good practice to put new components into new files, so that you have <i>one file per component</i>.',
+        'Components (parent) can render other components (child), but you must never nest their definitions (<i>never define a component inside another component!</i>).',
       ],
     },
     {
       sectionTitle:
         'Outputting dynamic data & working with expressions in JSX markup',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/Outputting_dynamic_data_&_working_with_expressions.html',
       highlights: {
         highlight1: ['Outputting dynamic data'],
         highlight2: ['expressions in JSX'],
       },
       tooltips: [
-        'JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to open a window to JavaScript.',
-        "JSX is a special way of writing JavaScript. That means it's possible to use JavaScript inside it with curly braces <code>{ }</code>.",
-        'You write expressions in JSX markup with the help of curly brackets <code>{}</code>. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. Any JavaScript expression will work between curly braces, including function calls.',
+        'JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside the JSX markup. In this situation, you can use  <code>{}</code> in your JSX markup to open a window to JavaScript.',
+        '<i>You write expressions in JSX markup with the help of curly brackets <code>{}</code></i>. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. <i>Any JavaScript expression will work between curly braces, including function calls</i>.',
         `You can only use curly braces in two ways inside JSX:
-        <br>- as text directly inside a JSX tag: <<span>h1>{name}'s To Do List<</span>/h1> works, but <{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}> will not.
-        <br>- as attributes immediately following the = sign: src={avatar} will read the avatar variable, but src="{avatar}" will pass the string "{avatar}".`,
+        <br>- <i>as <u>text</u> directly inside a JSX tag<i>: <code><<span>h1>{name}'s To Do List<</span>/h1></code> works, but <code><{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}></code> will not.
+        <br>- <i>as <u>attributes</u> immediately following the <code>=</code> sign<i>: <code>src={avatar}</code> will read the avatar variable, but <code>src="{avatar}"</code> will pass the string "{avatar}".`,
       ],
     },
     {
@@ -124,8 +127,8 @@ const section1 = {
 
       tooltips: [
         'You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.',
-        'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is focused on one core task, and then you build your overall UI by combining these building blocks/components.',
-        'Separation of concerns: React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML code and all the JavaScript logic',
+        'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is <i>focused on <b>one core task</b></i>, and then you build your overall UI by combining these building blocks/components.',
+        '<i>Separation of concerns</i>: React is all about splitting your app into small building blocks (components), where every building block (component) has a <b>clear task</b>, and therefore your <i>code stays <b>maintainable</b> and <b>manageable</b></i>. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML markup and all the JavaScript logic.',
         "If we split our code across multiple files, then we'll have small pieces of code which are easy to manage and maintain.",
         'Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other. If the file gets crowded, you can always split your components to a separate file. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
       ],
