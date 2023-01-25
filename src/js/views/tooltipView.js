@@ -1,8 +1,5 @@
-import { dataStorage } from '../model/modelDataStorage.js';
-const allTitlesAsObjects = dataStorage.map(section => section.sections).flat();
-
 class TooltipView {
-  constructor() {
+  start(data) {
     document.body.addEventListener('mouseover', function (e) {
       const cardArticle = e.target.closest('.card__article');
       if (!cardArticle) return;
@@ -11,7 +8,7 @@ class TooltipView {
         cardArticle.querySelector('.card__article-title') ||
         cardArticle.querySelector('.card__article-anchor');
       const { title } = element.dataset;
-      const obj = allTitlesAsObjects.find(el => el.sectionTitle === title);
+      const obj = data.find(el => el.sectionTitle === title);
 
       if (!obj.tooltips) return;
 
@@ -26,6 +23,7 @@ class TooltipView {
         tooltipContainer.insertAdjacentHTML('afterbegin', tooltipText);
       }
 
+      // Positioning the tooltip box relative to the body width
       const bodyWidth = document.body.getBoundingClientRect().width;
       const tooltipContainerPosition = tooltipContainer.getBoundingClientRect();
       const tooltipContainerOffsetX =

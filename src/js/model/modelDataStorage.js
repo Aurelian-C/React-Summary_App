@@ -380,7 +380,7 @@ const section2 = {
         highlight2: ['useReducer()'],
       },
       tooltips: [
-        '<code>useReducer()</code> is another built-in hook and it will help us with state management.',
+        '<code>useReducer()</code> is another built-in hook and it will help us with <i>state management</i>.',
         "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea, and you can do this with the help of <code>useReducer()</code>.",
         "<code>useReducer()</code> is an alternative to <code>useState()</code>, it's a replacement if you need a more powerful state management.",
       ],
@@ -388,6 +388,18 @@ const section2 = {
     {
       sectionTitle: 'Using the useReducer() Hook',
       sectionSource: '/src/markdowns/Using_the_useReducer_hook.html',
+      tooltips: [
+        'Reducers are a <i>different way to handle state</i>.',
+        `You can migrate from <code>useState</code> to <code>useReducer</code> in three steps:
+        <br>1. Move from <b>setting state</b> to <b>dispatching actions</b>;
+        <br>2. Write a <b>reducer function</b>;
+        <br>3. Use the reducer from your component.`,
+        '<i>Managing state with reducers is slightly different from directly setting state</i>. Instead of telling React "what to do" by setting state, you specify "what the user just did" by <i>dispatching "actions"</i> from your event handlers.',
+        'With <code>useState</code> updating function you set a new state when an event happens. With <code>useReducer</code> the component logic is easier to read because you separate the event handler from how state update is managed: <i>the event handlers only specify <b>what happened</b> by dispatching actions, and the reducer function determines <b>how the state updates</b> in response to them</i>.',
+        `Keep these two tips in mind when writing reducers:
+        <br>- <i>Reducers must be pure</i>, so they shouldn't mutate state (same inputs always result in the same output). They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update objects and arrays without mutations;
+        <br>- <i>Each action describes a single user interaction, even if that leads to multiple changes in the data</i>.`,
+      ],
     },
     {
       sectionTitle: 'useReducer vs useState for state management',
