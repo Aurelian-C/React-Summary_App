@@ -5,7 +5,7 @@ React comes with several built-in Hooks like `useState`, `useContext`, and `useE
 >You will learn:
 >
 >- What custom Hooks are, and how to write your own
->- How to reuse logic between components
+>- How to **reuse logic** between components
 >- How to name and structure your custom Hooks
 >- When and why to extract custom Hooks
 
@@ -21,7 +21,7 @@ With custom hooks you can outsource logic, which you might be using in different
 
 ##  Creating a Custom React Hook function
 
-How do we build a custom hook? Well, typically just as with components, we store every hook in a **standalone file**.
+How do we build a custom hook? Well, typically just as with components, ==we store every hook in a **standalone file**==.
 
 > **Note**: For the file name there is no specific rule, you could name it however you want.
 

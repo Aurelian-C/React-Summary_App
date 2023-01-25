@@ -951,6 +951,8 @@ const section10 = {
         highlight2: ['"custom Hooks"'],
       },
       tooltips: [
+        'Custom hooks are just regular functions, just as the built-in hooks like <code>useState</code>, but they are functions which can contain stateful logic. You can build custom hooks to <i>outsource stateful logic into reusable functions</i>.',
+        'Unlike regular functions, custom hooks can use other React hooks, including other custom hooks, and they can, therefore, also leverage React state managed with <code>useState</code> or <code>useReducer</code>; they can access <code>useEffect</code> and so on.',
         'Custom Hooks are mechanism for <i>reusing logic</i>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks.',
         'Custom Hooks let you <i>share logic between components</i>.',
         "Custom Hooks must be named starting with 'use' followed by a capital letter.",
