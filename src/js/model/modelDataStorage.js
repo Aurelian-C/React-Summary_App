@@ -1191,12 +1191,18 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: '268. Installing React Router',
+      sectionTitle: 'Installing React Router',
       sectionSource: '',
+      tooltips: ['<code>npm install react-router-dom</code>'],
     },
     {
-      sectionTitle: '269. Defining & Using Routes',
-      sectionSource: '',
+      sectionTitle: 'Defining & using Routes',
+      sectionSource: '/src/markdowns/Defining_&_using_routes.html',
+      tooltips: [
+        `There are <i>two ways of defining routes</i>:
+        <br>1. Using <code>createBrowserRouter()</code> and pass as an argument an <i>array with single/multiple JavaScript objects</i>, and that objects will describing the route/s characteristics;
+        <br>2. In older versions of <code>react-router-dom</code> you are defining routes with <code>createRoutesFromElements()</code> function and <code>Route</code> component.`,
+      ],
     },
     {
       sectionTitle: '270. Working with Links',
