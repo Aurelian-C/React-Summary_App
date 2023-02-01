@@ -1202,6 +1202,7 @@ const section20 = {
         `There are <i>two ways of defining routes</i>:
         <br>1. Using <code>createBrowserRouter()</code> and pass as an argument an <i>array with single/multiple JavaScript objects</i>, and that objects will describing the route/s characteristics;
         <br>2. In older versions of <code>react-router-dom</code> you are defining routes with <code>createRoutesFromElements()</code> function and <code>Route</code> component.`,
+        'You can use a router in your JSX markup by importing the <code>RouterProvider</code> component from the <code>react-router-dom</code> package.',
       ],
     },
     {
