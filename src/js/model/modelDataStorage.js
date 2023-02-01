@@ -969,7 +969,7 @@ const section11 = {
   sections: [
     {
       sectionTitle: "What's so complex about Forms?",
-      sectionSource: '/src/markdowns/199__What_is_so_complex_about_forms.html',
+      sectionSource: '/src/markdowns/What_is_so_complex_about_forms.html',
     },
     {
       sectionTitle:
@@ -1182,12 +1182,13 @@ const section20 = {
     '<p class="card__title--1">Section 20</p> <p class="card__title--2">Building a Multi-Page SPA with React Router</p>',
   sections: [
     {
-      sectionTitle: '266. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '267. What is Routing & Why?',
-      sectionSource: '',
+      sectionTitle: 'Routing: multiple pages in single-page applications',
+      sectionSource:
+        '/src/markdowns/Routing_multiple_pages_in_single-page_applications.html',
+      tooltips: [
+        'What Routing is all about: <i>different <b>URL paths</b> load different content on the screen</i>.',
+        'Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <b>watches the URL</b> and then loads a different React component when that URL changes.',
+      ],
     },
     {
       sectionTitle: '268. Installing React Router',
