@@ -1214,11 +1214,23 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Using NavLinks: Layouts & Nested Routes',
+      sectionTitle: 'Using NavLinks: layouts & nested routes',
       sectionSource: '',
       tooltips: [
         '<code>children</code> property for nested routes.',
         '<code><<span>Outlet/</span>></code> component to mark the rendered place of nesting routes (children routes).',
+      ],
+    },
+    {
+      sectionTitle: 'Showing error pages with errorElement',
+      sectionSource:
+        '/src/markdowns/Showing_error_pages_with_errorElement.html',
+      tooltips: [
+        "When we enter a URL that doesn't exist, the <code>react-router-dom</code> package will automatically generate an error.",
+        'With <code>errorElement</code> property in our route definitions, we define <i>which component should be loaded if an error is created</i>.',
+        '<i>When a route does not have an <code>errorElement</code>, errors will bubble up through parent routes</i>.',
+        "Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in one place. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh",
+        'Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, errors will bubble up and be handled by a default <code>errorElement</code> which will print the error message and stack trace</i>.',
       ],
     },
     {
