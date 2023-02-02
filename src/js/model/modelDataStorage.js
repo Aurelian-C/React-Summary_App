@@ -1206,12 +1206,20 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: '270. Working with Links',
-      sectionSource: '',
+      sectionTitle: 'Working with Links',
+      sectionSource: '/src/markdowns/Working_with_links.html',
+      tooltips: [
+        '<code>import { Link } from "react-router-dom"</code>',
+        '<code><<span>Link to</span>></code>',
+      ],
     },
     {
-      sectionTitle: '271. Using NavLinks',
+      sectionTitle: 'Using NavLinks: Layouts & Nested Routes',
       sectionSource: '',
+      tooltips: [
+        '<code>children</code> property for nesting routes.',
+        '<code><<span>Outlet/</span>></code> component to mark the rendered place of nesting routes (children routes).',
+      ],
     },
     {
       sectionTitle: '272. Adding Dynamic Routes with Params',
