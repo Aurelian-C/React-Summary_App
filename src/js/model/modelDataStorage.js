@@ -1217,7 +1217,7 @@ const section20 = {
       sectionTitle: 'Using NavLinks: Layouts & Nested Routes',
       sectionSource: '',
       tooltips: [
-        '<code>children</code> property for nesting routes.',
+        '<code>children</code> property for nested routes.',
         '<code><<span>Outlet/</span>></code> component to mark the rendered place of nesting routes (children routes).',
       ],
     },
