@@ -1198,6 +1198,9 @@ const section20 = {
     {
       sectionTitle: 'Defining & using Routes',
       sectionSource: '/src/markdowns/Defining_&_using_routes.html',
+      highlights: {
+        highlight2: ['Routes'],
+      },
       tooltips: [
         `There are <i>two ways of defining routes</i>:
         <br>1. Using <code>createBrowserRouter()</code> and pass as an argument an <i>array with single/multiple JavaScript objects</i>, and that objects will describing the route/s characteristics;
@@ -1206,16 +1209,34 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Working with Links',
+      sectionTitle: 'Working with links (Link)',
       sectionSource: '/src/markdowns/Working_with_links.html',
+      highlights: {
+        highlight1: ['links'],
+      },
       tooltips: [
         '<code>import { Link } from "react-router-dom"</code>',
         '<code><<span>Link to</span>></code>',
       ],
     },
     {
-      sectionTitle: 'Using NavLinks: layouts & nested routes',
+      sectionTitle: 'Working with navigation links (NavLink)',
+      sectionSource: '/src/markdowns/Working_with_navigation_links.html',
+      highlights: {
+        highlight1: ['navigation links'],
+      },
+      tooltips: [
+        "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show us whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink to</span>></code> component.",
+        'A <code><<span>NavLink to</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".',
+        'With <code><<span>NavLink to</span>></code> you can <i>add classes or inline-styles <b>conditionally</b>, based on whether a link is active or not</i>.',
+      ],
+    },
+    {
+      sectionTitle: 'Layouts & nested routes',
       sectionSource: '',
+      highlights: {
+        highlight1: ['nested routes'],
+      },
       tooltips: [
         '<code>children</code> property for nested routes.',
         '<code><<span>Outlet/</span>></code> component to mark the rendered place of nesting routes (children routes).',
@@ -1225,12 +1246,28 @@ const section20 = {
       sectionTitle: 'Showing error pages with errorElement',
       sectionSource:
         '/src/markdowns/Showing_error_pages_with_errorElement.html',
+      highlights: {
+        highlight1: ['errorElement'],
+      },
       tooltips: [
         "When we enter a URL that doesn't exist, the <code>react-router-dom</code> package will automatically generate an error.",
         'With <code>errorElement</code> property in our route definitions, we define <i>which component should be loaded if an error is created</i>.',
         '<i>When a route does not have an <code>errorElement</code>, errors will bubble up through parent routes</i>.',
         "Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in one place. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh",
         'Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, errors will bubble up and be handled by a default <code>errorElement</code> which will print the error message and stack trace</i>.',
+      ],
+    },
+    {
+      sectionTitle: 'Navigating programmatically with useNavigate hook',
+      sectionSource:
+        '/src/markdowns/Navigating_programmatically_with_useNavigate_hook.html',
+      highlights: {
+        highlight1: ['Navigating programmatically'],
+      },
+      tooltips: [
+        "Up until now we only use <b>imperative routing</b>. We allow users to navigate between our pages by providing links which can be clicked, and I will say right away that this is the default way of providing navigation to users, but it's not the only way.",
+        'In some situations, for example maybe because some form was submitted or because some timer expired, <i>you might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.',
+        'The <code>useNavigate</code> hook helps you to trigger a navigation action, so to <i>switch to a different route from inside your code</i>, so <b>programmatically</b>.',
       ],
     },
     {
