@@ -1231,6 +1231,7 @@ const section20 = {
         "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show us whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.",
         'A <code><<span>NavLink</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".',
         'With <code><<span>NavLink</span>></code> you can <i>add classes or inline-styles <b>conditionally</b>, based on whether a link is active or not</i>.',
+        '<i>By default, an "active" class is added to a <code><<span>NavLink</span>></code> component when it is active.</i>',
       ],
     },
     {
