@@ -8,9 +8,9 @@ The first step is to import the `createBrowserRouter` from `react-router-dom` pa
 import {createBrowserRouter} from 'react-router-dom';
 ```
 
-The `createBrowserRouter` is a function provided by `react-router-dom` package which allows us to ==define our routes== that we wanna support in our application. Routes are simply path<=>component mappings; so for which path (like `/products`) should which component (like `<Products />`) be loaded?
+==The `createBrowserRouter` is a function provided by `react-router-dom` package which allows us to **define our routes** that we wanna support in our application. Routes are simply **path<=>component mappings**; so for which path (`/products`) should which component (`<Products/>`) be loaded?==
 
-To the `createBrowserRouter` function we pass an ==array of **route objects**==, where every object represents one route. _To every object we add some properties to define the route characteristics, so these route objects take a couple of properties with which we configure the routes_.
+To the `createBrowserRouter()` function we pass as an argument an ==array of **routes objects**==, where **every object represents _one_ route**. _To every object we add some properties to define the route characteristics, so these route objects take a couple of properties with which we configure the routes_.
 
 ### The `path` property
 
@@ -27,7 +27,7 @@ const router = createBrowserRouter([{path: "/products"}]);
 
 ### The `element` property
 
-To establish a connection between your path and your component, you add another key property and that's the `element` property. ==The `element` property contains the JSX markup that should be loaded when the path is active==, so for the `element` you now define some JSX markup that should be rendered to the screen when the route is active.
+To establish a connection between your path and your component, you add another key property and that's the `element` property. ==The `element` property contains the JSX markup that should be loaded when the path is active==, so for the `element` property you set some JSX markup that should be rendered to the screen when the route is active.
 
 ```react
 import Home from './components'
@@ -59,9 +59,9 @@ These are the first steps: we created the route object with its path, and we def
 
 ## Step 2. Use the route: the `RouterProvider` component
 
-Another step is to use the router. To use it, we need store the returned value of the `createBrowserRouter` function in a variable. We use that variable to tell React that the router stored in it should be rendered to the screen. To tell React that the stored router should be used, we need to import the `RouterProvider` component from the `react-router-dom` package.
+Another step is to use the router. To use it, we need store the returned value of the `createBrowserRouter()` function in a variable. We use that variable to tell React that the router stored in it should be rendered to the screen. To tell React that the stored router should be used, we need to import the `RouterProvider` component from the `react-router-dom` package.
 
-The `RouterProvider` has a special prop which we must set, and that is the `router` prop. The value we pass to the `router` prop should be a router created with `createBrowserRouter` function.
+==The `RouterProvider` has a special prop which we must set, and that is the **`router`** prop. The value we pass to the `router` prop should be a router created with `createBrowserRouter()` function==.
 
 ![Defining_&_using_routes](..\img\Defining_&_using_routes.jpg)
 
@@ -69,7 +69,7 @@ The `RouterProvider` has a special prop which we must set, and that is the `rout
 
 ![Defining_&_using_routes1](..\img\Defining_&_using_routes1.jpg)
 
-> Note: You don't have to name folder 'pages'. You can use the 'components' folder you already have, you could name it 'routes' or whatever you want. ==Is a good practice to separate pages folder with a name of 'pages' to clearly indicate that the components stored in there, whilst being regular React components, will be loaded with help of Routing==
+> Note: You don't have to name folder 'pages'. You can use the 'components' folder you already know, you could name it 'routes' or whatever you want. ==Is a good practice to separate pages folder with a name of 'pages' to clearly indicate that the components stored in there, whilst being regular React components, will be loaded with help of Routing==
 
 `RouterProvider` is a regular component which we can use in our JSX markup, and we could of course wrap it with other JSX markup or add more JSX markup:
 

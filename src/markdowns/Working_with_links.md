@@ -1,8 +1,12 @@
 # Working with links
 
-==A **`<Link>`** is an **element** that lets the user navigate to another page by clicking or tapping on it==. In `react-router-dom`, a `<Link>` renders an accessible `<a>` element with a real `href` that points to the resource it's linking to. This means that things like right-clicking a `<Link>` work as you'd expect.
+==A **`<Link>`** is an **element** that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request==.
 
-==A relative **`<Link to>`** value (that does not begin with `/`) resolves relative to the parent route, which means that it builds upon the URL path that was matched by the route that rendered that `<Link>`==. It may contain `..` to link to routes further up the hierarchy. In these cases, `..` works exactly like the command-line `cd` function; each `..` removes one segment of the parent path.
+In `react-router-dom`, ==**a** `<Link>` **renders an accessible** `<a>` **element with a real `href`** that points to the resource it's linking to==. This means that things like right-clicking a `<Link>` work as you'd expect.
+
+Instead of setting a path with the `href` attribute (like you do for `<a>` tag),  ==`<Link>` component uses a `to` prop to setting a path==.
+
+> **Note**: A relative `<Link to>` value (that does not begin with `/`) resolves relative to the parent route, which means that it builds upon the URL path that was matched by the route that rendered that `<Link>`. It may contain `..` to link to routes further up the hierarchy. In these cases, `..` works exactly like the command-line `cd` function; each `..` removes one segment of the parent path.
 
 ```react
 import { Link } from "react-router-dom";

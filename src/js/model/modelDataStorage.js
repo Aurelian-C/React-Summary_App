@@ -1186,6 +1186,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/Routing_multiple_pages_in_single-page_applications.html',
       tooltips: [
+        'React Router enables <i><b>"client side routing"</b></i>. Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>.',
         'What Routing is all about: <i>different <b>URL paths</b> load different content on the screen</i>.',
         'Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <b>watches the URL</b> and then loads a different React component when that URL changes.',
       ],
@@ -1204,7 +1205,7 @@ const section20 = {
       tooltips: [
         `There are <i>two ways of defining routes</i>:
         <br>1. Using <code>createBrowserRouter()</code> and pass as an argument an <i>array with single/multiple JavaScript objects</i>, and that objects will describing the route/s characteristics;
-        <br>2. In older versions of <code>react-router-dom</code> you are defining routes with <code>createRoutesFromElements()</code> function and <code>Route</code> component.`,
+        <br>2. In older versions of <code>react-router-dom</code> you are defining routes with <code>createRoutesFromElements()</code> function and <code><<span>Route</span>></code> component.`,
         'You can use a router in your JSX markup by importing the <code>RouterProvider</code> component from the <code>react-router-dom</code> package.',
       ],
     },
@@ -1215,8 +1216,9 @@ const section20 = {
         highlight1: ['links'],
       },
       tooltips: [
-        '<code>import { Link } from "react-router-dom"</code>',
-        '<code><<span>Link to</span>></code>',
+        'A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.',
+        "In <code>react-router-dom</code>, <i>a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to</i>.",
+        'Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path</i>.',
       ],
     },
     {
@@ -1226,9 +1228,9 @@ const section20 = {
         highlight1: ['navigation links'],
       },
       tooltips: [
-        "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show us whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink to</span>></code> component.",
-        'A <code><<span>NavLink to</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".',
-        'With <code><<span>NavLink to</span>></code> you can <i>add classes or inline-styles <b>conditionally</b>, based on whether a link is active or not</i>.',
+        "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show us whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.",
+        'A <code><<span>NavLink</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".',
+        'With <code><<span>NavLink</span>></code> you can <i>add classes or inline-styles <b>conditionally</b>, based on whether a link is active or not</i>.',
       ],
     },
     {
