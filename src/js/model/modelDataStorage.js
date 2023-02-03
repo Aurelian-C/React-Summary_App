@@ -1308,10 +1308,14 @@ const section20 = {
     },
     {
       sectionTitle: 'Working with index Routes',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/Working_with_index_routes.html',
       highlights: {
         highlight1: ['index Routes'],
       },
+      tooltips: [
+        'Index Routes can be used for children routes that have the same path as the parent route.',
+        'Index Routes allows you to define the <i><b>default route</b> that should be loaded for a child route if the parent route path is active</i>.',
+      ],
     },
   ],
 };
