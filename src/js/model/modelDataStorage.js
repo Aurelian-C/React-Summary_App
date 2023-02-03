@@ -1274,89 +1274,44 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: '272. Adding Dynamic Routes with Params',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '273. Extracting Route Params',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '274. Using "Switch" and "exact" For Configuring Routes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '275. Working with Nested Routes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '276. Redirecting The User',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '277. Time to Practice: Onwards to a New Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '278. Practice Redirecting & Extracting Params',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '279. Practicing Nested Routes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '280. Adding a Layout Wrapper Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '281. Adding Dummy Data & More Content',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '282. Outputting Data on the "Details" Page',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '283. Adding a "Not Found" Page',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '284. Implementing Programmatic (Imperative) Navigation',
-      sectionSource: '',
-    },
-    {
       sectionTitle:
-        '285. Preventing Possibly Unwanted Route Transitions with the "Prompt" Component',
+        'Defining & using dynamic routes (dynamic path segments or path parameter)',
+      sectionSource: '/src/markdowns/Defining_&_using_dynamic_routes.html',
+      highlights: {
+        highlight2: ['dynamic routes'],
+      },
+      tooltips: [
+        'Dynamic path segments (path parameters) helps us to always <i>render the same component for different paths (dynamic paths)</i>.',
+        "With <code>useParams</code> hook we can <i>get the dynamic path data that's encoded in the URL</i>.",
+      ],
+    },
+    {
+      sectionTitle: 'Adding links for dynamic Routes',
       sectionSource: '',
     },
     {
-      sectionTitle: '286. Working with Query Parameters',
-      sectionSource: '',
+      sectionTitle: 'Understanding absolute & relative paths',
+      sectionSource:
+        '/src/markdowns/Understanding_absolute_&_relative_paths.html',
+      highlights: {
+        highlight1: ['absolute & relative paths'],
+      },
+      tooltips: [
+        'When defining our <b>routes</b>, we define the <b>paths</b> for which they should be active.',
+        "If a path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths.",
+        'When defining <i>child routes like relative paths</i>, this simply means that the <i>child paths defined like relative paths are appended after the path of the wrapper parent route</i>. So if we have a child route with a relative path, then React Router will take a look at the path of the parent route and <i>append the child route path after the parent route path</i>.',
+        'If a path starts with <code>/</code> then it is an absolute path. The same rule applies to <code><<span>Link</span>></code> or <code><<span>NavLink</span>></code> component.',
+        "<i>An absolute path it's added directly <b>after the domain name</b>, not after the currently active path</i>.",
+        'When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values, to <code>path</code> or <code>route</code>. With these values you control whether the segment defined on <code><<span>Link</span>></code> is <b>added relative</b> to the <i>currently active parent route path</i> or to the <i>currently active path in the URL</i>.',
+        '<code>..</code> is a relative path that goes back.',
+      ],
     },
     {
-      sectionTitle: '287. Getting Creative With Nested Routes',
+      sectionTitle: 'Working with index Routes',
       sectionSource: '',
-    },
-    {
-      sectionTitle: '288. Writing More Flexible Routing Code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '289. Sending & Getting Quote Data via Http',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '290. Adding the "Comments" Features',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '291. Upgrading To React Router v6',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '292. Module Resources',
-      sectionSource: '',
+      highlights: {
+        highlight1: ['index Routes'],
+      },
     },
   ],
 };
