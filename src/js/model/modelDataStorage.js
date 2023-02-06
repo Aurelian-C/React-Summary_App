@@ -1347,6 +1347,7 @@ const section20 = {
         "<i>If a path starts with <code>/</code>, it is an absolute path</i>. Paths that don't start with <code>/</code> are relative paths.",
         '<i>All <b>absolute child route paths</b> must start with the combined path of all its parent routes</i>.',
         'When defining child routes as relative paths, this means that the <i>child paths defined as relative paths are appended after the path of the wrapper parent route path</i>. So if we have a child route with a relative path, then React Router will take a look at the path of the parent route and <i>append the child route path after the parent route path</i>.',
+        '<i>Children relative paths are relative to the path defined in theirs parent route definition</i>.',
         'If a path starts with <code>/</code> then it is an absolute path. The same rule applies to <code><<span>Link</span>></code> and <code><<span>NavLink</span>></code> component.',
         "<i>A link that have an absolute path it's added directly <b>after the domain name</b>, not after the currently active path</i>.",
         '<i>A link relative path can set to be "relative" to the <b>routes definitions</b>, or "relative" to the <b>browser URL</b></i>. By default, a link relative path will be added after the currently active <b>routes definitions</b>.',

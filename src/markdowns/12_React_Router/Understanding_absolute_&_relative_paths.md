@@ -64,6 +64,8 @@ const router = createBrowserRouter([
 
 ==When defining child routes as relative paths, this means that the **child paths defined as relative paths are appended _after_ the path of the wrapper parent route path**. So if we have a child route with a relative path, then React Router will take a look at the path of the parent route and **append the child route path _after_ the parent route path**==.
 
+==**Children relative paths are relative to the path defined in theirs parent route definition**==.
+
 ## `<Link>` and `<NavLink>` with absolute vs relative paths
 
 Routes paths also play an important role if we think about links. ==If a path starts with `/` then it is an absolute path. The same rule applies to `<Link>` and `<NavLink>` component==.
