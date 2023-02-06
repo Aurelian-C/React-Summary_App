@@ -1,8 +1,8 @@
 # Layouts & nested routes
 
-![Layouts_&_nested_routes1](..\img\Layouts_&_nested_routes1.jpg)
+![Layouts_&_nested_routes1](..\..\img\Layouts_&_nested_routes1.jpg)
 
-![Layouts_&_nested_routes](..\img\Layouts_&_nested_routes.jpg)
+![Layouts_&_nested_routes](..\..\img\Layouts_&_nested_routes.jpg)
 
 ## References
 

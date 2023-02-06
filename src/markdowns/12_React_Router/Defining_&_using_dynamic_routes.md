@@ -16,7 +16,7 @@ The `:` signals to `react-router-dom` that the part _after_ the `:` is dynamic. 
 
 ==Dynamic path segments (path parameters) helps us to always **render the same component for different paths (dynamic paths)**==.
 
-![Dynamic_routes1](..\img\Dynamic_routes1.jpg)
+![Dynamic_routes1](..\..\img\Dynamic_routes1.jpg)
 
 Now let's say, that on `<ProductDetailPage>` we of course wanna know for which exact product the page was loaded. We wanna know which `productId` was used so that we could, for example, reach out to backend API and a database to fetch the data for that specific product and display it on the screen.
 
@@ -26,7 +26,7 @@ The `useParams` hook returns a JavaScript object which contains every dynamic pa
 
 ==With `useParams` hook we can get the dynamic path data that's encoded in the URL==.
 
-![Dynamic_routes](..\img\Dynamic_routes.jpg)
+![Dynamic_routes](..\..\img\Dynamic_routes.jpg)
 
 ## References
 

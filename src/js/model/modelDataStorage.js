@@ -1286,7 +1286,8 @@ const section20 = {
       },
       tooltips: [
         '<code>children</code> property for nested routes.',
-        '<code><<span>Outlet/</span>></code> component to mark the rendered place of nesting routes (children routes).',
+        '<code><<span>Outlet/</span>></code> component mark the rendered place of nesting routes (children routes).',
+        '<code><<span>Outlet/</span>></code> component specifies <i>where the content of the child routes should be rendered</i>.',
       ],
     },
     {
