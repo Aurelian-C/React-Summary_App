@@ -4,7 +4,7 @@ React Context can be great for app-wide or component-wide state, so essentially 
 
 ==So props for **configuration**, Context for **state management across components** or possibly across the entire app==.
 
-![React_Context_Limitations](..\img\React_Context_Limitations.jpg)
+![React_Context_Limitations](../../img/React_Context_Limitations.jpg)
 
 ## References
 

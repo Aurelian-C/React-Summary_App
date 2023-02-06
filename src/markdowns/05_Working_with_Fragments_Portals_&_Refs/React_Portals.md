@@ -10,11 +10,11 @@ With Fragments and Portals we had two cool features that help us ==write cleaner
 
 `ReactDOM.createPortal()` lets you ==render some children into a different part of the DOM==.
 
-![React_Portals](..\img\React_Portals.jpg)
+![React_Portals](../../img/React_Portals.jpg)
 
 You can use a Portal to ==keep the structure that you have in your JSX code==, so to keep writing your components the way you want to write them, so that you have no friction when you wanna pass data around and so on, but to still ==render the JSX code differently (in other place) in the real DOM== and to, for example, render the `myModal` HTML content somewhere else than it would normally go to.
 
-![React_Portals1](..\img\React_Portals1.jpg)
+![React_Portals1](../../img/React_Portals1.jpg)
 
 So ==the JSX code structure on the left hasn't changed, but the rendered HTML code is a bit different from our JSX code==. The idea behind Portals is that the rendered HTML content is moved somewhere else that the place where JSX Component is place in your app.
 
@@ -27,7 +27,7 @@ Portals need two things:
 
 Now, to mark that place, you go into the public folder, and there into the HTML file which is being rendered in the end. There you could create multiple roots, for different kinds of components, that should be ported there.
 
-![React_Portals2](..\img\React_Portals2.jpg)
+![React_Portals2](../../img/React_Portals2.jpg)
 
 You use Portals with the help of `ReactDOM.createPortal()`.
 

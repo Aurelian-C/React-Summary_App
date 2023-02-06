@@ -4,13 +4,13 @@ You ==can’t return more than one "root" JSX element== (you also can’t store 
 
 > **Note**: JSX is that code you return in your Components, which in the end will be rendered to the real DOM by React. That's what JSX is and we use it all the time.
 
-![JSX_limitations](..\img\JSX_limitations.jpg)
+![JSX_limitations](../../img/JSX_limitations.jpg)
 
 ## The solution
 
 The solution is to always wrap adjacent elements. You can use as a wrapper any element (`div`, `p`, `header`), or you can also use a custom Component. The main thing that matters is that ==you only have one value which you return or which you store it in a variable==.
 
-![JSX_limitations1](..\img\JSX_limitations1.jpg)
+![JSX_limitations1](../../img/JSX_limitations1.jpg)
 
 ## Creating a Wrapper Component
 
@@ -43,7 +43,7 @@ export default CustomEl;
 
 In bigger apps, you can easily end up with tons of unnecessary `<div>`s (or other elements) which add ==no semantic meaning or structure== to the page, but ==are only there because of React's/ JSX requirement==.
 
-![JSX_limitations2](..\img\JSX_limitations2.jpg)
+![JSX_limitations2](../../img/JSX_limitations2.jpg)
 
 ## References
 

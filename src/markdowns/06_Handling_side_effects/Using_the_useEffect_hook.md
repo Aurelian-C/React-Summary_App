@@ -10,7 +10,7 @@ Therefore, _in that first function you can put any side effect code_, and that c
 
 > **Note**: `useState()` run when the state change vs `useEffect()` run when the dependencies change.
 
-![Using_the_useEffect](..\img\Using_the_useEffect.jpg)
+![Using_the_useEffect](../../img/Using_the_useEffect.jpg)
 
 ==`useEffect()` in general, is a hook that helps you deal with _code_ that should be executed in response to something==, and something could be the component being loaded, it could be the email address being updated, it could be anything. Whenever you have _an action that should be executed in response to some other action_, that is a side effect, and that is where a `useEffect()` is able to help you.
 

@@ -63,11 +63,11 @@ Another step is to use the router. To use it, we need store the returned value o
 
 ==The `RouterProvider` has a special prop which we must set, and that is the **`router`** prop. The value we pass to the `router` prop should be a router created with `createBrowserRouter()` function==.
 
-![Defining_&_using_routes](..\..\img\Defining_&_using_routes.jpg)
+![Defining_&_using_routes](../../img/Defining_&_using_routes.jpg)
 
 ==Typically, you add a folder named 'pages' to hold the _components that will be **loaded as pages** by the router_==:
 
-![Defining_&_using_routes1](..\..\img\Defining_&_using_routes1.jpg)
+![Defining_&_using_routes1](../../img/Defining_&_using_routes1.jpg)
 
 > Note: You don't have to name folder 'pages'. You can use the 'components' folder you already know, you could name it 'routes' or whatever you want. ==Is a good practice to separate pages folder with a name of 'pages' to clearly indicate that the components stored in there, whilst being regular React components, will be loaded with help of Routing==
 
@@ -75,7 +75,7 @@ Another step is to use the router. To use it, we need store the returned value o
 
 ```react
 function App() {
-  return 
+  return
     (<div>
        <p>
           <RouterProvider router={router}>
@@ -88,7 +88,7 @@ function App() {
 
 ## Adding more routes
 
-![Defining_&_using_routes2](..\..\img\Defining_&_using_routes2.jpg)
+![Defining_&_using_routes2](../../img/Defining_&_using_routes2.jpg)
 
 ## Exploring an alternative way of defining routes
 
@@ -96,7 +96,7 @@ If you worked with older versions of `react-router-dom`, you defined all your ro
 
 In older versions of `react-router-dom`, instead of using JavaScript objects in array, you will import a function called `createRoutesFromElements` and a `Route` component for defining your application routes.
 
-![Defining_&_using_routes3](..\..\img\Defining_&_using_routes3.jpg)
+![Defining_&_using_routes3](../../img/Defining_&_using_routes3.jpg)
 
 ## References
 

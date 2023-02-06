@@ -71,7 +71,7 @@ Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card
 
 ==You can think of a component with a `children` prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX markup==. You will often use the `children` prop for visual wrappers: panels, grids, and so on.
 
-![props_children](..\img\props_children.jpg)
+![props_children](../../img/props_children.jpg)
 
 ## References
 

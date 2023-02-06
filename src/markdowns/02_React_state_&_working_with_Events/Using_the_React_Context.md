@@ -2,7 +2,7 @@
 
 ## 1. Create the folder that contains the Context file
 
-![Using_the_React_Context_API](..\img\Using_the_React_Context_API.jpg)
+![Using_the_React_Context_API](../../img/Using_the_React_Context_API.jpg)
 
 > **Note**: You can have _multiple Contexts for multiple global states_ and of course, you can also use just _one Context for a bigger state_, that's all up to you.
 

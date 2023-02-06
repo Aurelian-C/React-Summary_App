@@ -18,7 +18,7 @@ And it returns:
 1. A stateful value
 2. A dispatch function (to “dispatch” user actions to the reducer)
 
-![Using_useReducer](..\img\Using_useReducer.jpg)
+![Using_useReducer](../../img/Using_useReducer.jpg)
 
 `useReducer()`, just like `useState()`, always ==returns an array with exactly two values==. Therefore, you can use array destructuring as you do with `useState()` to pull out these values and store them in separate variables.
 

@@ -13,7 +13,7 @@
 
 Browsers use many tree structures to model UI. The [DOM](https://developer.mozilla.org/docs/Web/API/Document_Object_Model/Introduction) represents HTML elements, the [CSSOM](https://developer.mozilla.org/docs/Web/API/CSS_Object_Model) does the same for CSS. ==React also uses tree structures to manage and model the UI you make. React makes **UI trees** from your JSX==, then React DOM updates the browser DOM elements to match that UI tree.
 
-![React_UI_tree](..\img\React_UI_tree.jpg)
+![React_UI_tree](../../img/React_UI_tree.jpg)
 
 ## State is tied to a position in the tree
 

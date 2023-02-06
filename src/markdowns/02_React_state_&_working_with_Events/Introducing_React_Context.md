@@ -1,50 +1,28 @@
 # Introducing React Context (Context API)
 
+Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components in the middle, or if many components in your app need the same information. _Context_ lets the parent component make some information available to any component in the tree below it—no matter how deep—without passing it explicitly through props.
 
-
-Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components in the middle, or if many components in your app need the same information. *Context* lets the parent component make some information available to any component in the tree below it—no matter how deep—without passing it explicitly through props.
-
-## The problem with passing props 
+## The problem with passing props
 
 [Passing props](https://beta.reactjs.org/learn/passing-props-to-a-component) is a great way to explicitly pipe data through your UI tree to the components that use it. But passing props can become verbose and inconvenient when you need to pass some prop deeply through the tree, or if many components need the same prop. The nearest common ancestor could be far removed from the components that need data, and [lifting state up](https://beta.reactjs.org/learn/sharing-state-between-components) that high can lead to a situation sometimes called “prop drilling”.
 
 Wouldn’t it be great if there were a way to “teleport” data to the components in the tree that need it without passing props? With React’s context feature, there is!
 
-## Context: an alternative to passing props 
+## Context: an alternative to passing props
 
 Context lets a parent component provide data to the entire tree below it.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 I'm talking about a problem, where you are ==passing a lot of data through a lot of components via props==. Now it is quite common that you pass data to components through props, but ==it's always a problem if you **forward state** through multiple components==. In small apps that's not necessarily a problem, but in big apps, the **chain of forwarding** might become longer and longer.
 
 In bigger apps, you could easily build such ==**"props chains"**==, which are ==used to **forward data** through components to other components==. That's something you can do and that's not necessarily bad, but the bigger your app gets, the more inconvenient it is to do that. Instead, it would be nicer if we could use props in a component to only receive the data this component really needs from its parent, and not to forward other data through the parent, which the parent doesn't ever manage, nor need itself.
 
-![121_React_Context1](..\img\121_React_Context1.jpg)
+![121_React_Context1](../../img/121_React_Context1.jpg)
 
 For that we got a ==**component-wide**==, "behind the scenes" State Storage, built into React. We have a concept called ==React Context==, and this then allows us to, for example, ==trigger a action in that component-wide State Storage, and then directly pass that to the component that is interested, without building such a long "prop chain"==. So as I mentioned, we have this React Context Concept, which allows us to ==**manage state**== kind of behind the scenes in React, such that we actually are able to ==directly change state from any component== in our app, and ==directly pass state to any component== in our app, _without building such a "props chain"_.
 
 > **Note**: React Context provides a way to ==pass data through the component tree without having to pass props down manually at every level==.
 
-![React_Context2](..\img\React_Context2.jpg)
+![React_Context2](../../img/React_Context2.jpg)
 
 ## React Context
 

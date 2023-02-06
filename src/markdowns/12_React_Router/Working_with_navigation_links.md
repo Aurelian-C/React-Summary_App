@@ -54,7 +54,7 @@ function MainNavigation() {
 export default MainNavigation;
 ```
 
-==By default, the behavior of `<NavLink` is to treated a link as active when its **descendant paths are matched**==. You can use the `end` prop to ensure that a component isn't matched as "active" when its descendant paths are matched. `end` pros take as a value a boolean: `end={true}` or `end={false}`. You can also just add `end` with no value and this means that `end` is automatically set it to `true`.
+==By default, the behavior of `<NavLink` is to treated a link as active when its **descendant paths are matched**==. You can use the `end` prop to ensure that a component isn't matched as "active" when its descendant paths are matched. `end` pros take as a value a boolean: `end={true}` or `end={false}`. You can also just add `end` with no value and this means that `end` is automatically set to `true`.
 
 ## References
 

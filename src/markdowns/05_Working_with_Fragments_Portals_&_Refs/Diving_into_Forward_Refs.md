@@ -12,7 +12,7 @@
 
 ==A custom component doesn’t expose its DOM nodes by default. You can opt into exposing a DOM node by using `forwardRef` and passing the second `ref` argument down to a specific node==.
 
-## Accessing another component’s DOM nodes 
+## Accessing another component’s DOM nodes
 
 When you put a ref on a built-in component that outputs a HTML element like `<input />`, React will set that ref’s `current` property to the corresponding DOM node (such as the actual `<input />` in the browser). However, if you try to put a ref on **your own** component, like `<MyInput />`, by default you will get `null`. To help you notice the issue, React also prints an error to the console:
 
@@ -40,8 +40,8 @@ const MyInput = React.forwardRef((props, ref) => {
 
 ```react
 import {
-  forwardRef, 
-  useRef, 
+  forwardRef,
+  useRef,
   useImperativeHandle
 } from 'react';
 
@@ -78,9 +78,9 @@ Here, `realInputRef` inside `MyInput` holds the actual input DOM node. However, 
 
 ### Another example
 
-![Diving_into_Forward_Refs1](..\img\Diving_into_Forward_Refs1.jpg)
+![Diving_into_Forward_Refs1](../../img/Diving_into_Forward_Refs1.jpg)
 
-![Diving_into_Forward_Refs2](..\img\Diving_into_Forward_Refs2.jpg)
+![Diving_into_Forward_Refs2](../../img/Diving_into_Forward_Refs2.jpg)
 
 ## References
 

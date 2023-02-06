@@ -22,7 +22,7 @@ React is all about components because all user interfaces in the end are made up
 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 
-![Why_components](..\img\Why_components.jpg)
+![Why_components](../../img/Why_components.jpg)
 
 ### Components & separation of concerns
 
@@ -34,7 +34,7 @@ These of course are **not concepts or ideas React invented**. If we take a step 
 
 ==Components are **reusable building blocks** in your user interface==. Components are in the end just a combination of **HTML** markup, **CSS** code for styling and possibly **JavaScript** code for some logic. Mostly React components are about combining HTML and JavaScript and then of course, you also can add CSS, but _CSS is not the focus of React_.
 
-![Component_build](..\img\Component_build.jpg)
+![Component_build](../../img/Component_build.jpg)
 
 ## References
 

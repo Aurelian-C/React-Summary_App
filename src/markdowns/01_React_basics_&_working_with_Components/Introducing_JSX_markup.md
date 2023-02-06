@@ -29,7 +29,7 @@ React.createElement(
 )
 ```
 
-![What_is_JSX](D:/Websites/Projects/Cioloca Aurelian__React Resume/src/img/What_is_JSX.jpg)
+![What_is_JSX](../../img/What_is_JSX.jpg)
 
 Since JSX compiles into calls to `React.createElement`, the `React` library must also always be in scope from your JSX code. For example, both of the imports are necessary in this code, even though `React` and `CustomButton` are not directly referenced from JavaScript:
 
@@ -64,13 +64,13 @@ const expensesContent = filteredExpenses.map((item) => (
 
 ## The Rules of JSX
 
-#### 1. Return a single root element 
+#### 1. Return a single root element
 
-==To return multiple elements from a component, **wrap them with a single parent tag** or you can write `<>` and `</>` instead==. The `<></>` is a empty tag called  *[Fragment.](https://beta.reactjs.org/reference/react/Fragment)* Fragments let you group things without leaving any trace in the browser HTML tree.
+==To return multiple elements from a component, **wrap them with a single parent tag** or you can write `<>` and `</>` instead==. The `<></>` is a empty tag called _[Fragment.](https://beta.reactjs.org/reference/react/Fragment)_ Fragments let you group things without leaving any trace in the browser HTML tree.
 
 > Why do multiple JSX tags need to be wrapped? JSX looks like HTML, but under the hood it is transformed into plain JavaScript objects. You can’t return two objects from a function without wrapping them into an array. This explains why you also can’t return two JSX tags without wrapping them into another tag or a Fragment.
 
-#### 2. Close all the tags 
+#### 2. Close all the tags
 
 ==JSX requires tags to be explicitly closed==: self-closing tags like `<img>` must become `<img />`, and wrapping tags like `<li>oranges` must be written as `<li>oranges</li>`.
 

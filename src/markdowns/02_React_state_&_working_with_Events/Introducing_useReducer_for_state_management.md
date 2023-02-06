@@ -31,7 +31,7 @@ This is a scenario where `useReducer()` is always a good choice. ==**If you upda
 
 > **Note**: `useReducer()` is an alternative to `useState()`, it's a replacement if you need a more powerful state management. Now, this does _not mean that you should always use `useReducer()` because it's more powerful, so it's always better_. No, because `useReducer()` is also a bit more complex to use, it requires a bit more setup. For a lot of scenarios, for the majority I would argue, you probably use `useState()`, but there are cases where the extra work of getting `useReducer()` to work is just worth it.
 >
-> ![useReducer](..\img\useReducer.jpg)
+> ![useReducer](../../img/useReducer.jpg)
 
 ## References
 

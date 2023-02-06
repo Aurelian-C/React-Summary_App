@@ -14,7 +14,7 @@ You should absolutely not always `useReducer()`, because often that will be over
 
 ## Summary
 
-![useReducer_vs_useState](..\img\useReducer_vs_useState.jpg)
+![useReducer_vs_useState](../../img/useReducer_vs_useState.jpg)
 
 ## Comparing `useState` and `useReducer`
 

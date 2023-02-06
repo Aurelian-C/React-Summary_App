@@ -2,7 +2,7 @@
 
 Forms might seem simple and trivial, but they are not. Forms can actually be complex from a developer's point of view because forms and their inputs can assume a broad variety of different states. One or more inputs could be invalid or valid and these are only two states, it's even possible that you could have forms where the state is unknown because maybe you have some asynchronous validation where you need to send a request to a server behind the scenes to check something, to find out if a certain value is available, let's say an email address, to then find out whether the input is valid or not.
 
-![Complex_forms](..\img\Complex_forms.jpg)
+![Complex_forms](../../img/Complex_forms.jpg)
 
 You must not forget that these states valid and invalid, don't just apply to the overall form, but to every individual input in the form, and is then the sum off the states of those inputs that make up the overall form state.
 
@@ -12,7 +12,7 @@ Now, when a form and its inputs are invalid you might want to output input speci
 
 Now, when we dive into showing error messages and highlighting invalid inputs things get even more complex because the question then is "When to validate?" or "When should you check the user input?". You can validate the user input when the _form is submitted as a whole_, you can also check the value entered by a user once an _input loses focus_, to then check what the user did enter in the input and find out if it is valid, and you can of course also do that on every _keystroke_ or on every _change_ to user makes to an input.
 
-![Complex_forms1](..\img\Complex_forms1.jpg)
+![Complex_forms1](../../img/Complex_forms1.jpg)
 
 ### Validation when form is submitted as a whole
 

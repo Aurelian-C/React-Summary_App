@@ -68,7 +68,7 @@ const OtherComponent = () => {
 
 ## An Alternative Way Of Building Components
 
-![Alternative_way_of_building_components](..\img\Alternative_way_of_building_components.jpg)
+![Alternative_way_of_building_components](../../img/Alternative_way_of_building_components.jpg)
 
 ## References
 

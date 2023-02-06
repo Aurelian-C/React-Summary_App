@@ -15,21 +15,21 @@ React.js only cares about:
 
 ==Whenever props, state or context changes, components that use these concepts are updated by React, and React checks whether that component now wants to draw something new onto the screen, and if that should be the case, React will let ReactDOM know about that, so that ReactDOM is able to bring that new screen, that new component, that new output to the screen==.
 
-![How_React_really_works](..\img\How_React_really_works.jpg)
+![How_React_really_works](../../img/How_React_really_works.jpg)
 
 If we have a closer look at that components real DOM communication, the question of course is, how exactly does this work? As I mentioned, ==React is concerned about components and what React in the end does is, it uses a concept called the **virtual DOM**. It determines how the component tree, which your app is building in the end (and every component itself, of course, has a subtree), how the component tree currently looks like and what it should look like, for example, after a state update. And that information is then handed off to ReactDOM, which now knows about the differences and which then knows how it should manipulate the real DOM to match that virtual DOM, that virtual snapshot React derived for your component trees==.
 
-![How_React_really_works1](..\img\How_React_really_works1.jpg)
+![How_React_really_works1](../../img/How_React_really_works1.jpg)
 
 Related to that concept of virtual DOM, there's one important thing to note. Throughout this course I often said that React would re-run a component function, that it would re-evaluate a component. And indeed, as I mentioned before, ==whenever state, props or a context of a component changes, that component function is re-executed, that component is re-evaluated by React. But it is worth noting that **re-evaluating a component is not the same as re-rendering the DOM**. So just because a component function is re-executed by React does not mean that the respective part of the actual real DOM is re-rendered or re-evaluated. Instead **we have to differentiate between our component part (our React part) and the real DOM**==.
 
 ==Our components, as I just said, are re-evaluated whenever props, state or context changes, so React then executes that component function again. Now the real DOM on the other hand is only updated in the places where it needs to be changed based on that difference React derived between the previous state of a component and its tree and the current state after the state, props or context change. So the real DOM is not changed all the time, it's changed rarely and only when needed==. That's important for performance, because making a virtual comparison between the previous state and the current state, that's fairly cheap and easy to do, that happens only in memory. Reaching out to the real DOM that's rendered in the browser is pretty expensive from a performance perspective, because working with the real DOM just turns out to be a performance intensive task. That's why React has this structure of doing virtual comparisons with that virtual DOM and then only passing the changes between your last snapshot and the current snapshot to the real DOM. That's how React works, it does this virtual DOM diffing, finding out the difference between two snapshots.
 
-![How_React_really_works2](..\img\How_React_really_works2.jpg)
+![How_React_really_works2](../../img/How_React_really_works2.jpg)
 
 To see a real example, it could look like this image below.
 
-![How_React_really_works3](..\img\How_React_really_works3.jpg)
+![How_React_really_works3](../../img/How_React_really_works3.jpg)
 
 For the start we have the Previous Evaluation Result above, so when the component function run for the first time the result is Previous Evaluation Result above. Now some state changes and all of a sudden we wanna show a new `<p>This is new!</p>`, so that's our Current Evaluation Result. In this case, React would determine that the difference between both snapshots is this `<p>This is new!</p>`, and it would report this change to ReactDOM so that ReactDOM can update the real DOM and insert this `<p>This is new!</p>`. ReactDOM would not re-render the entire DOM, it would not touch this existing `<h1>` or `<div>` element. It would only insert the `<p>This is new!</p>` after the `<h1>` element, inside of the `<div>`.
 
@@ -41,7 +41,7 @@ Before your components are displayed on screen, they must be rendered by React. 
 2. **Rendering** the component (preparing the order in the kitchen)
 3. **Committing** to the DOM (placing the order on the table)
 
-### Step 1: **Trigger** a render 
+### Step 1: **Trigger** a render
 
 There are two reasons for a component to render:
 
@@ -57,16 +57,16 @@ root.render(<Image />);
 
 Once the component has been initially rendered, you can trigger further renders by updating its state with the [`set` function.](https://beta.reactjs.org/reference/react/useState#setstate) Updating your component’s state automatically queues a render.
 
-### Step 2: React **renders** your components 
+### Step 2: React **renders** your components
 
 After you trigger a render, React calls your components to figure out what to display on screen. **“Rendering” is React calling your components.**
 
 - **On initial render,** React will call the root component.
 - **For subsequent renders,** React will call the function component whose state update triggered the render.
 
-This process is recursive: if the updated component returns some other component, React will render *that* component next, and if that component also returns something, it will render *that* component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.
+This process is recursive: if the updated component returns some other component, React will render _that_ component next, and if that component also returns something, it will render _that_ component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.
 
-### Step 3: React **commits** changes to the DOM 
+### Step 3: React **commits** changes to the DOM
 
 After rendering (calling) your components, React will modify the DOM.
 

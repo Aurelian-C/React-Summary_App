@@ -32,7 +32,7 @@ const App = () => {
 > <Header onShowModal={showModalHandler} />
 > ```
 
-![Passing_data_via_props](..\img\Passing_data_via_props.jpg)
+![Passing_data_via_props](../../img/Passing_data_via_props.jpg)
 
 ## Props let you think about parent and child components independently
 
@@ -199,7 +199,7 @@ Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card
 
 ==You can think of a component with a `children` prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX markup==. You will often use the `children` prop for visual wrappers: panels, grids, and so on.
 
-![props_children](..\img\props_children.jpg)
+![props_children](../../img/props_children.jpg)
 
 ## How props change over time
 

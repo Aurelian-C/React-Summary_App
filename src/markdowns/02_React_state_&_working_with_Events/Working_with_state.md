@@ -52,7 +52,7 @@ The `useState` always return an array that has exactly two items:
 1. ==A **state variable** to retain the data between renders==. _With `useState` we basically create a special kind of variable, you could say, a variable where changes will lead a component function to be called again_;
 2. ==A **state setter function** to update the variable and trigger React to render the component again==. We can call the state setter function to assign a new value to a state variable, so we'll not be assigning values with the equal sign, instead, we will be _assigning new values by calling a function_.
 
-![Updating_data_via_state](..\img\Updating_data_via_state.jpg)
+![Updating_data_via_state](../../img/Updating_data_via_state.jpg)
 
 In React, `useState`, as well as any other function starting with ”`use`”, is called a Hook. All Hooks—functions starting with `use` — _can only be called at the top level of your components or [your own custom Hooks](https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks)_.
 

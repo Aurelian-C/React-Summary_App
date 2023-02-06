@@ -6,7 +6,7 @@ In this lecture we gonna learn a concept called ==**Lifting The Data/State Up**=
 
 ==You "lift the data up" by utilizing props in the child component to **receive a function from its parent component**==, and when you will call this prop function in your child component, you will pass as a argument the data that you wanna lift up to the parent component.
 
-![Lifting_the_state_up](..\img\Lifting_the_state_up.jpg)
+![Lifting_the_state_up](../../img/Lifting_the_state_up.jpg)
 
 Consider this basic Component Tree which is roughly what we have in this demo app, where we have an `<App/>` component which in turn renders and `<Expenses/>` and a `<NewExpense/>` component. Now, in this case, the `<NewExpense/>` component is a component which generates some data.
 

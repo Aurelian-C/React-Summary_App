@@ -42,9 +42,9 @@ const router = createBrowserRouter([
 
 If a open the browser developer tools, I see an error:
 
-![Absolute_vs_relative_paths](..\..\img\Absolute_vs_relative_paths.jpg)
+![Absolute_vs_relative_paths](../../img/Absolute_vs_relative_paths.jpg)
 
-==We have this error because we are **clashing route definitions**. We're saying that the parent route  should handle all pages that start with `/root`, but then the child pages actually don't start with `/root`. To solve this error we can _remove the leading slashes on the child routes and that turns the child route definitions paths to relative paths_==:
+==We have this error because we are **clashing route definitions**. We're saying that the parent route should handle all pages that start with `/root`, but then the child pages actually don't start with `/root`. To solve this error we can _remove the leading slashes on the child routes and that turns the child route definitions paths to relative paths_==:
 
 ```react
 // All children routes are defined as relative paths because they don't start with /

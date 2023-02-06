@@ -44,7 +44,7 @@ export default Modal;
 
 ==Is considered a good and best practice to put new components into new files, so that you have **one file per component**==, and that will mean that in a React project you will end up with dozens or hundreds of files, because on React project you'll have dozens or hundreds of components, and that's absolutely normal.
 
-![Component_tree](..\img\Component_tree.jpg)
+![Component_tree](../../img/Component_tree.jpg)
 
 ## References
 

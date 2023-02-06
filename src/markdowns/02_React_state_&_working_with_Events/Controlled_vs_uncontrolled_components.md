@@ -2,7 +2,7 @@
 
 You wanna split up your application into small reusable pieces and most pieces, most components indeed will only focus on outputting something, on having some JSX code, maybe some transformation logic and maybe some CSS code, but it's only a couple of components which typically do manage state, and then this state is spread out and distributed through props in the end.
 
-![Stateless_vs_stateful_components](..\img\Stateless_vs_stateful_components.jpg)
+![Stateless_vs_stateful_components](../../img/Stateless_vs_stateful_components.jpg)
 
 ==It is common to call a component with some _local state_ "uncontrolled". For example, a child component that have a state variable that can be changed by its parent component is called an uncontrolled component==.
 
