@@ -1366,6 +1366,23 @@ const section20 = {
         'Index Routes allows you to define the <i><b>default route</b> that should be loaded for a child route if the parent route path is active</i>.',
       ],
     },
+    {
+      sectionTitle: 'Data fetching with a "loader" function',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Data_fetching_with_a_loader.html',
+      highlights: {
+        highlight2: ['"loader" function'],
+      },
+      tooltips: [
+        'Each route can define a "loader" function to <i><b>provide data</b> to the route element <b>before it renders</b></i>.',
+        'With the help of a "loader" function you move all the fetch logic that you have in a component in that "loader" function, and this process make the component way leaner and easier to reason about.',
+        'To get access to the data returned by a "loader" function for a specific page, you can import <code>useLoaderData</code> from <code>react-router-dom</code>.',
+        '<i><code>useLoaderData</code> always get the final data returned by the "loader" function</i>, even if "loader" function is an async function.',
+        `You can access "loader" function data with the help of <code>useLoaderData</code> in <i>any component on the same level or lower level than the component where you added the "loader" function</i>, so the route on which you added the "loader" function. <i>You can use <code>useLoaderData</code> in the element that's assigned to a route and in all components that might be used inside that element</i>.`,
+        'Where should "loader" function code be stored? Is common pattern that you actually put the "loader" function code into your component file where you need it, so to the page component file where you want to add the "loader" function to be precise.',
+        'When are "loader" functions executed? Data fetching is initiated as soon as we initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered with that fetched data</i>.',
+      ],
+    },
   ],
 };
 
