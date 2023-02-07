@@ -1381,6 +1381,25 @@ const section20 = {
         `You can access "loader" function data with the help of <code>useLoaderData</code> in <i>any component on the same level or lower level than the component where you added the "loader" function</i>, so the route on which you added the "loader" function. <i>You can use <code>useLoaderData</code> in the element that's assigned to a route and in all components that might be used inside that element</i>.`,
         'Where should "loader" function code be stored? Is common pattern that you actually put the "loader" function code into your component file where you need it, so to the page component file where you want to add the "loader" function to be precise.',
         'When are "loader" functions executed? Data fetching is initiated as soon as we initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered with that fetched data</i>.',
+        `Returning responses in a "loader" function:  you don't need to manually extract the data from the response, instead <i>you can just return your response and <code>useLoaderData</code> will automatically give you the data that's part of the response</i>.`,
+        `Which kind of code goes into a "loader" function? <i>You can use any browser APIs or vanilla JavaScript code in your "loader" function</i>. What you can't use in your "loader" function is, for example, React Hooks like <code>useState</code>. That doesn't work because those Hooks are only available in React components and the "loader" function is not a React component, but that's the only limitation.`,
+      ],
+    },
+    {
+      sectionTitle: 'Error handling with a "loader" function',
+      sectionSource: '',
+    },
+    {
+      sectionTitle:
+        'Reflecting the current navigation state in the UI with useNavigation hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Reflecting_the_current_navigation_state_in_the_UI_with_useNavigation_hook.html',
+      highlights: {
+        highlight2: ['useNavigation'],
+      },
+      tooltips: [
+        "React Router gives us a <code>useNavigation</code> hook which we can use to <i>check the current route transitions state</i>, so to find out if a transition has been initiated and we're currently still waiting for data to arrive, or if we're done.",
+        "It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.",
       ],
     },
   ],
