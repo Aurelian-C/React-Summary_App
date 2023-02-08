@@ -258,10 +258,6 @@ body {
   color: black;
 }
 
-a > code {
-  color: #ffb7b7;
-}
-
 code {
   font-size: 1.3rem;
   background-color: #303233;

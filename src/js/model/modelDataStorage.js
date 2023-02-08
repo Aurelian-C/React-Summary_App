@@ -137,7 +137,7 @@ const section1 = {
       ],
     },
     {
-      sectionTitle: 'The concept of "composition": <code>props.children</code>',
+      sectionTitle: 'The concept of "composition": props.children',
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/The_concept_of_composition_props_children.html',
       highlights: {
