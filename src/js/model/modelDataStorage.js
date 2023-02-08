@@ -1429,6 +1429,15 @@ const section20 = {
         "It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.",
       ],
     },
+    {
+      sectionTitle: 'Dynamic Routes & loader()s',
+      sectionSource: '',
+    },
+    {
+      sectionTitle:
+        'The useRouteLoaderData() hook & accessing data from other Routes',
+      sectionSource: '',
+    },
   ],
 };
 
