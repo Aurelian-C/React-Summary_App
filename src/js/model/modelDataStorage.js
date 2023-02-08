@@ -1367,10 +1367,11 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Data fetching with a "loader" function',
+      sectionTitle: 'Data fetching with a "loader" function & useLoaderData',
       sectionSource:
         '/src/markdowns/12_React_Router/Data_fetching_with_a_loader.html',
       highlights: {
+        highlight1: ['useLoaderData'],
         highlight2: ['"loader" function'],
       },
       tooltips: [
@@ -1381,13 +1382,30 @@ const section20 = {
         `You can access "loader" function data with the help of <code>useLoaderData</code> in <i>any component on the same level or lower level than the component where you added the "loader" function</i>, so the route on which you added the "loader" function. <i>You can use <code>useLoaderData</code> in the element that's assigned to a route and in all components that might be used inside that element</i>.`,
         'Where should "loader" function code be stored? Is common pattern that you actually put the "loader" function code into your component file where you need it, so to the page component file where you want to add the "loader" function to be precise.',
         'When are "loader" functions executed? Data fetching is initiated as soon as we initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered with that fetched data</i>.',
-        `Returning responses in a "loader" function:  you don't need to manually extract the data from the response, instead <i>you can just return your response and <code>useLoaderData</code> will automatically give you the data that's part of the response</i>.`,
+        `Returning Responses in a "loader" function:  you don't need to manually extract the data from the Response, instead <i>you can just return your Response and <code>useLoaderData</code> will automatically give you the data that's part of the Response</i>.`,
         `Which kind of code goes into a "loader" function? <i>You can use any browser APIs or vanilla JavaScript code in your "loader" function</i>. What you can't use in your "loader" function is, for example, React Hooks like <code>useState</code>. That doesn't work because those Hooks are only available in React components and the "loader" function is not a React component, but that's the only limitation.`,
       ],
     },
     {
-      sectionTitle: 'Error handling with a "loader" function',
-      sectionSource: '',
+      sectionTitle:
+        'Error handling within a "loader" function: useRouteError & json()',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Error_handling_within_a_loader_function.html',
+      highlights: {
+        highlight1: ['useRouteError', 'json()'],
+      },
+      tooltips: [
+        'In your "loader" function you can throw an error. <i>When an error gets thrown in a "loader" function something special happens: React Router will simply render the closest <code>errorElement</code></i>. The <code>errorElement</code></i> page component will be shown to the screen whenever an error is generated in any route related code, including "loader" functions.',
+        'You can add an <code>errorElement</code></i> to every route definition or you can add a single <code>errorElement</code></i> to the parent route because <b>errors bubbles up to the route chain</b>.',
+        `<b>Extracting error data with <code>useRouteError</code> & throwing <code>Response</code>s</b>
+        <br>- To differentiate between different errors like <code>404</code> or <code>500</code>, you can throw in your "loader" function a <code>Response</code> object and you can include some data into that <code>Response</code>. You thrown an <code>Response</code> object with some data attached to it because <i>you can actually get hold of the data that's being thrown as an error inside of the component that's being rendered as an <code>errorElement</code></i> and for that <code>react-router-dom</code> gives you a hook called <code>useRouteError</code> hook.
+        <br>- The <code>useRouteError</code> return a object, and the returned object depends on whether you threw a <code>Response</code> or any other kind of object or data.
+        `,
+        `<b>The <code>json()</code> utility function</b>
+        <br>- Instead of creating your <code>Response</code> manually and return it, you can return the result of calling <code>json</code>. <i><code>json</code> is a function that creates a <code>Response</code> object that includes data in the json format</i>.
+        <br>- With the <code>json</code> function you don't just have to type less code, but in the place where you use that <code>Response</code> data you also <i>don't have to parse the <code>json</code> format manually</i>. Instead, you can simplify the code because the parsing will now be done by React Router for you.
+        `,
+      ],
     },
     {
       sectionTitle:
