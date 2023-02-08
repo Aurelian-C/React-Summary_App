@@ -36,6 +36,10 @@ Now with the `json` function you don't just have to type less code, but in the p
 
 ![Errors_with_loader_function4](../../img/Errors_with_loader_function4.jpg)
 
+### Final code example
+
+![Errors_with_loader_function5](../../img/Errors_with_loader_function5.jpg)
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
