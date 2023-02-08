@@ -1238,11 +1238,17 @@ const section20 = {
       tooltips: ['<code>npm install react-router-dom</code>'],
     },
     {
-      sectionTitle: 'Defining & using Routes',
+      sectionTitle:
+        'Defining & using Routes: createBrowserRouter(), RouterProvider component, path & element property',
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_routes.html',
       highlights: {
-        highlight2: ['Routes'],
+        highlight2: [
+          'createBrowserRouter()',
+          'RouterProvider',
+          'path',
+          'element',
+        ],
       },
       tooltips: [
         `There are <i>two ways of defining routes</i>:
@@ -1252,10 +1258,10 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Working with links (Link)',
+      sectionTitle: 'Working with links (Link component)',
       sectionSource: '/src/markdowns/12_React_Router/Working_with_links.html',
       highlights: {
-        highlight1: ['links'],
+        highlight2: ['Link'],
       },
       tooltips: [
         'A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.',
@@ -1264,11 +1270,11 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Working with navigation links (NavLink)',
+      sectionTitle: 'Working with navigation links (NavLink component)',
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_navigation_links.html',
       highlights: {
-        highlight1: ['navigation links'],
+        highlight2: ['NavLink'],
       },
       tooltips: [
         "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show us whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.",
@@ -1282,7 +1288,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Layouts_&_nested_routes.html',
       highlights: {
-        highlight1: ['nested routes'],
+        highlight1: ['Layouts & nested routes'],
       },
       tooltips: [
         '<code>children</code> property for nested routes.',
@@ -1291,11 +1297,11 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Showing error pages with errorElement',
+      sectionTitle: 'Showing error pages with errorElement property',
       sectionSource:
         '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement.html',
       highlights: {
-        highlight1: ['errorElement'],
+        highlight2: ['errorElement'],
       },
       tooltips: [
         "When we enter a URL that doesn't exist, the <code>react-router-dom</code> package will automatically generate an error.",
@@ -1310,7 +1316,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Navigating_programmatically_with_useNavigate_hook.html',
       highlights: {
-        highlight1: ['Navigating programmatically'],
+        highlight2: ['useNavigate'],
       },
       tooltips: [
         "Up until now we only use <b>imperative routing</b>. We allow users to navigate between our pages by providing links which can be clicked, and I will say right away that this is the default way of providing navigation to users, but it's not the only way.",
@@ -1371,8 +1377,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Data_fetching_with_a_loader.html',
       highlights: {
-        highlight1: ['useLoaderData'],
-        highlight2: ['"loader" function'],
+        highlight2: ['"loader" function', 'useLoaderData'],
       },
       tooltips: [
         'Each route can define a "loader" function to <i><b>provide data</b> to the route element <b>before it renders</b></i>.',
@@ -1392,7 +1397,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Error_handling_within_a_loader_function.html',
       highlights: {
-        highlight1: ['useRouteError', 'json()'],
+        highlight2: ['useRouteError', 'json()'],
       },
       tooltips: [
         'In your "loader" function you can throw an error. <i>When an error gets thrown in a "loader" function something special happens: React Router will simply render the closest <code>errorElement</code></i>. The <code>errorElement</code></i> page component will be shown to the screen whenever an error is generated in any route related code, including "loader" functions.',
