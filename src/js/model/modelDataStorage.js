@@ -1445,7 +1445,16 @@ const section20 = {
     {
       sectionTitle:
         'The useRouteLoaderData() hook & accessing data from other Routes',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/12_React_Router/useRouteLoaderData_&_accessing_data_from_other_Routes.html',
+      highlights: {
+        highlight2: ['useRouteLoaderData()'],
+      },
+      tooltips: [
+        `You can use the <b>nested routes</b> feature not just to use a wrapper layout component, but also to use a <i><u>shared "loader" function</u></i>. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.`,
+        'To access the data returned by the "loader" function, instead of using <code>useLoaderData</code> you need to use a different hook which is called <code>useRouteLoaderData</code>. This hook works almost like <code>useLoaderData</code> but it takes a <i>route ID as an argument</i> (the ID you assign to the parent route).',
+        `<i>With the <code>useRouteLoaderData</code> you can get access to the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across <u>multiple routes which all need the same data</u></i>.`,
+      ],
     },
   ],
 };
