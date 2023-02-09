@@ -1377,11 +1377,11 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Data fetching with a "loader" function & useLoaderData',
+      sectionTitle: 'Data fetching with a "loader" function & useLoaderData()',
       sectionSource:
         '/src/markdowns/12_React_Router/Data_fetching_with_a_loader.html',
       highlights: {
-        highlight2: ['"loader" function', 'useLoaderData'],
+        highlight2: ['"loader" function', 'useLoaderData()'],
       },
       tooltips: [
         'Each route can define a "loader" function to <i><b>provide data</b> to the route element <b>before it renders</b></i>.',
@@ -1454,6 +1454,8 @@ const section20 = {
         `You can use the <b>nested routes</b> feature not just to use a wrapper layout component, but also to use a <i><u>shared "loader" function</u></i>. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.`,
         'To access the data returned by the "loader" function, instead of using <code>useLoaderData</code> you need to use a different hook which is called <code>useRouteLoaderData</code>. This hook works almost like <code>useLoaderData</code> but it takes a <i>route ID as an argument</i> (the ID you assign to the parent route).',
         `<i>With the <code>useRouteLoaderData</code> you can get access to the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across <u>multiple routes which all need the same data</u></i>.`,
+        'The <code>useRouteLoaderData</code> hook makes the data at any currently rendered route available <i>anywhere in the tree</i>. This is useful for components deep in the tree needing data from routes much farther up, as well as parent routes needing the data of child routes deeper in the tree.',
+        'The only data available is the routes that are currently rendered. If you ask for data from a route that is not currently rendered, the hook will return <code>undefined</code>.',
       ],
     },
   ],

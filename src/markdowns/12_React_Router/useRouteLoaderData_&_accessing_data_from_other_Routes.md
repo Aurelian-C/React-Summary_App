@@ -14,8 +14,15 @@ Instead of defining the same "loader" function twice for each sibling route, you
 
 To access the data returned by the "loader" function, instead of using `useLoaderData` you need to use a different hook which is called `useRouteLoaderData`. This hook works almost like `useLoaderData` but it takes a route ID as an argument (the ID you assign to the parent route).
 
+> Note: The `useLoaderData` doesn't work in this case because this hook **provides the value returned from your route "loader"**, but you want the get the data from the parent route.
+
 ==So with the `useRouteLoaderData` you can get access to  the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across **multiple routes which all need the same data**==.
+
+> **Note**: The `useRouteLoaderData` hook makes the data at any currently rendered route available anywhere in the tree. This is useful for components deep in the tree needing data from routes much farther up, as well as parent routes needing the data of child routes deeper in the tree.
+>
+> The only data available is the routes that are currently rendered. If you ask for data from a route that is not currently rendered, the hook will return `undefined`.
 
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [`useRouteLoaderData` - reactrouter.com](https://reactrouter.com/en/main/hooks/use-route-loader-data)

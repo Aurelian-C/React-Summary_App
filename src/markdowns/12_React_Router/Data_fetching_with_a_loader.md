@@ -1,16 +1,16 @@
 # Data fetching with a "loader" function
 
-==Each route can define a "loader" function to **_provide data_ to the route element _before it renders_**==.
+==On each route you can define a "loader" function to **_provide data_ to the route element _before it renders_**==.
 
 ![Loader_function](../../img/Loader_function.jpg)
 
-When you define a "loader" function, React Router will automatically take any value you return in that "loader" function and will make that data available in the page that's being rendered, as well as any other components where you need it.
+When you define a "loader" function, React Router will automatically take any value you return in that "loader" function and will _make that data available in the page that's being rendered_, as well as any other components where you need it.
 
 With the help of a "loader" function you move all the fetch logic that you have in a component in that "loader" function, and this process make the component way leaner and easier to reason about.
 
 ## Use the returned data from a "loader" function with the help of `useLoaderData` hook
 
-To get access to the data returned by a "loader" function for a specific page, we can import `useLoaderData` from `react-router-dom`. 
+To get access to the data returned by a "loader" function for a specific page, you can import `useLoaderData` from `react-router-dom`. This hook provides the value returned from your route "loader".
 
 > **Note**: ==`useLoaderData` always get the final data returned by the "loader" function==, even if "loader" function is an async function. If the "loader" function is an async function, the `useLoaderData` won't return a Promise from the "loader" function, but will return the resolved/rejected value of that async "loader" function.
 
@@ -19,6 +19,8 @@ To get access to the data returned by a "loader" function for a specific page, w
 The `useLoaderData` is a hook which we can execute to get access to the closest "loader" data. So ==you can access "loader" function data with the help of `useLoaderData` in _any component on the same level or lower level than the component where you added the "loader" function_==, so the route on which you added the "loader" function.
 
 > **Note**: ==**You can use `useLoaderData` in the element that's assigned to a route _and_ in all components that might be used inside that element**==. You just have to be careful that you're not allowed to use `useLoaderData` on a higher level than you're fetching the data.
+
+You can use this hook in any component or any custom hook, not just the Route element. It will return the data from the nearest route on context.
 
 ## Where should "loader" function code be stored?
 
