@@ -1430,8 +1430,17 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Dynamic Routes & loader()s',
-      sectionSource: '',
+      sectionTitle: 'Dynamic Routes & "loader" function object parameter',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Dynamic_Routes_&_loader_function.html',
+      highlights: {
+        highlight1: ['"loader" function object parameter'],
+      },
+      tooltips: [
+        'With a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object: <code>function loader({request, params}) { ... }</code>.',
+        '<b>The <code>request</code> object</b> parameter in a "loader" function could be used to <i>access the URL</i> to, for example, extract query parameters or anything like that.',
+        '<b>The <code>params</code> object</b> <i>contains all your route parameters</i>. With it, you can get access to all the route parameter values as you could do it with help of <code>useParams</code> hooks, but <code>useParams</code> hook could only be used inside a component function, not inside a "loader" function.',
+      ],
     },
     {
       sectionTitle:
