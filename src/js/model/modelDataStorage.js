@@ -1430,11 +1430,13 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Dynamic Routes & "loader" function object parameter',
+      sectionTitle:
+        'Dynamic Routes & "loader" function object parameter with request & params properties',
       sectionSource:
         '/src/markdowns/12_React_Router/Dynamic_Routes_&_loader_function.html',
       highlights: {
         highlight1: ['"loader" function object parameter'],
+        highlight2: ['request & params'],
       },
       tooltips: [
         'With a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object: <code>function loader({request, params}) { ... }</code>.',

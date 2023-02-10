@@ -40,6 +40,8 @@ The `index` property turns the `<HomePage>` route into a so-called index route, 
 
 With `{ index: true, element: <HomePage/> }` we get the same behavior as before when we have `{ path: '', element: <HomePage/> }`. ==You should be aware of this feature called index routes which allows you to define the default route that should be loaded if the parent routes path is active==.
 
+![Working_with_index_routes](../../img/Working_with_index_routes.jpg)
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)

@@ -12,47 +12,7 @@ Sometimes you might want to see which link is currently active when you're on a 
 
 This object with the `isActive` property is provided by `react-router-dom`, and `isActive` has a boolean value, `true` if the link is currently active (if it led to the currently active route) or `false` (if it did not lead to the currently active route). So therefore ==we can use `isActive` to conditionally return CSS class name or inline-styles==.
 
-```react
-import { NavLink } from 'react-router-dom';
-import classes from './MainNavigation.module.css';
-
-function MainNavigation() {
-  return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }
-              // style={({ isActive }) => ({
-              //   textAlign: isActive ? 'center' : 'left',
-              // })}
-              end
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/products"
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }
-            >
-              Products
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-    </header>
-  );
-}
-
-export default MainNavigation;
-```
+![Working_with_NavLink](../../img/Working_with_NavLink.jpg)
 
 ==By default, the behavior of `<NavLink` is to treated a link as active when its **descendant paths are matched**==. You can use the `end` prop to ensure that a component isn't matched as "active" when its descendant paths are matched. `end` pros take as a value a boolean: `end={true}` or `end={false}`. You can also just add `end` with no value and this means that `end` is automatically set to `true`.
 
