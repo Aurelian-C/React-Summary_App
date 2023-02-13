@@ -1476,6 +1476,7 @@ const section20 = {
         `,
         'When the form is submitted, the <b><<span>Form</span>> component will <u>trigger the "action" function</u></b>.',
         'To extract and use the data from your <<span>Form</span>> component in you "action" function you need to use the <code>request</code> object and its methods <code>.formData()</code> and <code>.get()</code>.',
+        'The <code>.formData()</code> method return a Promise, so you need to use <code>await</code> keyword.',
         'The <code>.get()</code> method is called to get access to the different input field values that were submitted.',
         'Typically, when submitting a form what you want to happen is that you navigate the user away to a different page after successfully submitting the form. To do that, you can return in your "action" function the result of calling <code>redirect()</code>.',
       ],

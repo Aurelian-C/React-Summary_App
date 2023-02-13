@@ -14,6 +14,8 @@ To extract and use the data from your `<Form>` component in you "action" functio
 
 > **Note**: Just as a "loader" function, the "action" function is executed by React Router and it receives an object that includes a couple of helpful properties, to be precise the `request` and `params` properties.
 
+The `.formData()` method return a Promise, so you need to use `await` keyword.
+
 The `.get()` method is called to get access to the different input field values that were submitted. To `.get()` method you pass a string with the different identifiers of your input fields, so that would be the values you chose as names for the input fields.
 
 ![Working_with_action_function](../../img/Working_with_action_function.jpg)
