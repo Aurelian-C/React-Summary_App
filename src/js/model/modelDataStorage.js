@@ -1460,6 +1460,43 @@ const section20 = {
         'The only data available is the routes that are currently rendered. If you ask for data from a route that is not currently rendered, the hook will return <code>undefined</code>.',
       ],
     },
+    {
+      sectionTitle: 'Working with "action" function',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Working_with_action_function.html',
+      highlights: {
+        highlight2: ['"action" function'],
+      },
+      tooltips: [
+        'Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants an arrow function or a regular function.',
+        `The great thing about React Router is that it makes <i>handling form submissions</i> a brace and it helps with <i>extracting data from that form</i>. For that, you should go to the component that holds the form and make some changes to it:
+        <br>- all your form inputs must have the <code>name</code> attribute;
+        <br>- replace the <<span>form</span>> element with the special <<span>Form</span>> component which is provided by <code>react-router-dom</code>;
+        <br>- add to the <<span>Form</span>> component the <code>method</code> property and set this to "post" for example.
+        `,
+        'When the form is submitted, the <b><<span>Form</span>> component will <u>trigger the "action" function</u></b>.',
+        'To extract and use the data from your <<span>Form</span>> component in you "action" function you need to use the <code>request</code> object and its methods <code>.formData()</code> and <code>.get()</code>.',
+        'The <code>.get()</code> method is called to get access to the different input field values that were submitted.',
+        'Typically, when submitting a form what you want to happen is that you navigate the user away to a different page after successfully submitting the form. To do that, you can return in your "action" function the result of calling <code>redirect()</code>.',
+      ],
+    },
+    {
+      sectionTitle: 'Submitting data programmatically with useSubmit hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Submitting_data_programmatically_with_useSubmit.html',
+      highlights: {
+        highlight2: ['useSubmit'],
+      },
+      tooltips: [
+        'The typical and <i>default way</i> of triggering an "action" function is by using the <<span>Form</span>> component',
+        'You can trigger an "action" function <i>programatically</i> with <code>useSubmit</code> hook.',
+        'Just as we can navigate programmatically, we can also <i><u>submit data</u> and <u>trigger an "action" function</u> <b>programmatically</b></i> with the special <code>useSubmit</code> hook imported from <code>react-router-dom</code>.',
+        "The <code>useSubmit()</code> function is the <i>imperative version of <<span>Form</span>> component</i> that let's you, the programmer, submit a form instead of the user.",
+        `To the <code>useSubmit</code> function you can pass two arguments:
+        <br>- 1. The first argument is the <i>data that you wanna submit</i>, and that data will automatically be wrapped in a <<span>Form</span>> data object, which you then could extract with the <code>.formData()</code> method;
+        <br>- 2. The second argument allows you to basically set <i>the same values you could set on a <<span>Form</span>> component</i>, for example the <code>method</code> or the <code>action</code> if your "action" function would be defined on a different route path.`,
+      ],
+    },
   ],
 };
 
