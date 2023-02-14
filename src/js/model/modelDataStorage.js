@@ -1506,6 +1506,19 @@ const section20 = {
         'You can use the <code>useNavigation</code> hook to <i>update the UI based on different navigation state</i>.',
       ],
     },
+    {
+      sectionTitle:
+        'Validating user input & outputting validation errors with useActionData hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Validating_user_input_&_outputting_validation_errors_with_useActionData.html',
+      highlights: {
+        highlight2: ['useActionData'],
+      },
+      tooltips: [
+        "<code>useActionData</code> hook does the same thing that <code>useLoaderData</code> hook. The most common use-case for this hook is <i>form validation errors</i>. If the form isn't right, you can return the errors and let the user try again.",
+        'Like in "loader" function, the Response that you return from your "action" function will be automatically parsed by the <code>useActionData</code> for you.',
+      ],
+    },
   ],
 };
 
