@@ -1461,11 +1461,12 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Working with "action" function',
+      sectionTitle:
+        'Submitting forms & send data with "action" function and Form component',
       sectionSource:
-        '/src/markdowns/12_React_Router/Working_with_action_function.html',
+        '/src/markdowns/12_React_Router/Submitting_forms_and_send_data_with_action_function_and_Form_component.html',
       highlights: {
-        highlight2: ['"action" function'],
+        highlight2: ['"action" function', 'Form'],
       },
       tooltips: [
         'Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants an arrow function or a regular function.',

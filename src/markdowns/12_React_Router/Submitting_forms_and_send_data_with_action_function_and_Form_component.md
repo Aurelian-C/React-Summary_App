@@ -1,4 +1,4 @@
-# Working with "action" function
+# Submitting `<form>`s and send data with "action" function and `<Form>` component
 
 Just as you can add =="loader" functions to _load_ data==, you can also add =="action" functions to _send_ data==. Like the "loader" property, "action" property wants an arrow function or a regular function. 
 
