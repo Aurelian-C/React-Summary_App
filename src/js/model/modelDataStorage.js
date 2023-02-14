@@ -1520,9 +1520,9 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Reusing "action" functions via Request Methods',
+      sectionTitle: 'Reusing "action" functions via request.method',
       sectionSource:
-        '/src/markdowns/12_React_Router/Reusing_action_functions_via_Request_Methods.html',
+        '/src/markdowns/12_React_Router/Reusing_action_functions_via_request_method.html',
       highlights: {
         highlight1: ['Reusing "action" functions'],
       },

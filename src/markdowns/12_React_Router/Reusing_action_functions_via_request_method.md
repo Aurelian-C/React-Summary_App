@@ -1,4 +1,4 @@
-# Reusing "action" functions via Request Methods
+# Reusing "action" functions via `request.method`
 
 ![Reusing_action_functions_via_request_methods](../../img/Reusing_action_functions_via_request_methods.jpg)
 
