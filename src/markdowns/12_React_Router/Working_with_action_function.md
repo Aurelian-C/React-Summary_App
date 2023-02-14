@@ -22,6 +22,14 @@ The `.get()` method is called to get access to the different input field values 
 
 Typically, when submitting a form what you want to happen is that you navigate the user away to a different page after successfully submitting the form. To do that, you can return in your "action" function the result of calling `redirect()`. `redirect()`, like `json()`, is a special function you can import from `react-router-dom` and like `json()`, ==`redirect()` creates a Response object==. However, it's a special Response object that simply redirects the user to a different page. ==For the `redirect()` function you just specify as parameter a path to which you wanna redirect the user and React Router will take care about the rest==.
 
+## An alternative to `.get` method: spread operator & `Object.fromEntries()`
+
+![Working_with_action_function1](../../img/Working_with_action_function1.jpg)
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [`action` - reactrouter.com](https://reactrouter.com/en/main/route/action)
+1. [`<Form> component` - reactrouter.com](https://reactrouter.com/en/main/components/form)
+1. [Working with `FormData` - reactrouter.com](https://reactrouter.com/en/main/guides/form-data)
+1. [`redirect` - reactrouter.com](https://reactrouter.com/en/main/fetch/redirect)

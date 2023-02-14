@@ -1498,6 +1498,14 @@ const section20 = {
         <br>- 2. The second argument allows you to basically set <i>the same values you could set on a <<span>Form</span>> component</i>, for example the <code>method</code> or the <code>action</code> if your "action" function would be defined on a different route path.`,
       ],
     },
+    {
+      sectionTitle: 'Updating the UI state based on the submission status',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Updating_the_UI_state_based_on_the_submission_status.html',
+      tooltips: [
+        'You can use the <code>useNavigation</code> hook to <i>update the UI based on different navigation state</i>.',
+      ],
+    },
   ],
 };
 
