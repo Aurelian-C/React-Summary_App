@@ -1519,6 +1519,14 @@ const section20 = {
         'Like in "loader" function, the Response that you return from your "action" function will be automatically parsed by the <code>useActionData</code> for you.',
       ],
     },
+    {
+      sectionTitle: 'Reusing "action" functions via Request Methods',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Reusing_action_functions_via_Request_Methods.html',
+      highlights: {
+        highlight1: ['Reusing "action" functions'],
+      },
+    },
   ],
 };
 
