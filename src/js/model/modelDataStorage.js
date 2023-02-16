@@ -1528,6 +1528,40 @@ const section20 = {
         highlight1: ['Reusing "action" functions'],
       },
     },
+    {
+      sectionTitle: 'Working with useFetcher()',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Working_with_useFetcher.html',
+      highlights: {
+        highlight2: ['useFetcher()'],
+      },
+      tooltips: [
+        'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation (without changing the URL)</u></i>.',
+        `Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>.`,
+        'The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.',
+        `<b><code><<span>fetcher.Form</span>></code></b> component: <<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>. So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <<span>fetcher.load()</span>> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.`,
+        `<b><code>fetcher.data</code></b>: the returned data from the "action"/"loader" function is stored in <code>fetcher.data</code>. Once the data is set, it persists on the fetcher even through reloads and resubmissions`,
+        `<b><code>fetcher.state</code></b>: You can know the state of the fetcher with <code>fetcher.state</code>. It will be one of:
+        <br>- idle;
+        <br>- submitting;
+        <br>- loading.
+        `,
+        `<b><code>fetcher.load()</code></b>: loads data from a route "loader" function.`,
+        `<b><code>fetcher.submit()</code></b>: the imperative version of <<span>fetcher.Form</span>>. If a user interaction should initiate the fetch, you should use <<span>fetcher.Form</span>>. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.`,
+        `The <code>useFetcher</code> hook is the tool you should use if you wanna <i>interact with some "action"/"loader" function <u>without transitioning</u></i>, so if you wanna send your requests behind the scenes without triggering any route changes. Use it if you wanna <i>trigger a "loader"/"action" function without actually loading the route's element to which that "loader"/"action" function belongs</i>.`,
+      ],
+    },
+    {
+      sectionTitle: 'Deferring data fetching with defer()',
+      sectionSource: '/src/markdowns/12_React_Router/.html',
+      highlights: {
+        highlight2: ['defer()'],
+      },
+    },
+    {
+      sectionTitle: 'Controlling which data should be deferred',
+      sectionSource: '/src/markdowns/12_React_Router/.html',
+    },
   ],
 };
 
