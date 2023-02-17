@@ -2,7 +2,7 @@
 
 So how does this `defer` feature shine if you have multiple requests with different speeds? You can use `defer` and `await` keyword to control which data is loaded before navigation and which data is deferred before navigation and loaded after the page component was rendered to the screen.
 
-![Deferring_data_fetching_with_defer1](D:/Websites/Projects/Cioloca Aurelian__React Resume/src/img/Deferring_data_fetching_with_defer1.jpg)
+![Deferring_data_fetching_with_defer1](../../img/Deferring_data_fetching_with_defer1.jpg)
 
 ## References
 
