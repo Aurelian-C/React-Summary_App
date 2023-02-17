@@ -1536,7 +1536,7 @@ const section20 = {
         highlight2: ['useFetcher()'],
       },
       tooltips: [
-        'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation (without changing the URL)</u></i>.',
+        'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <b>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</b>.',
         `Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>.`,
         'The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.',
         `<b><code><<span>fetcher.Form</span>></code></b> component: <<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>. So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <<span>fetcher.load()</span>> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.`,
@@ -1556,8 +1556,13 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Deferring_data_fetching_with_defer.html',
       highlights: {
+        highlight1: ['Deferring data fetching'],
         highlight2: ['defer()'],
       },
+      tooltips: [
+        'React Router provides a feature that allows you to <i>defer when data is loaded</i>.',
+        'Sometimes you wanna <i>load a page component with some data <u>before fetching the data</u></i>, and show some parts of the that page component already until all the data is fetched. We can defer data loading and tell React Router that we actually wanna render a page component already, even though the data is not fully there yet.',
+      ],
     },
     {
       sectionTitle:
