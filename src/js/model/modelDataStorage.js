@@ -1553,14 +1553,17 @@ const section20 = {
     },
     {
       sectionTitle: 'Deferring data fetching with defer()',
-      sectionSource: '/src/markdowns/12_React_Router/.html',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Deferring_data_fetching_with_defer.html',
       highlights: {
         highlight2: ['defer()'],
       },
     },
     {
-      sectionTitle: 'Controlling which data should be deferred',
-      sectionSource: '/src/markdowns/12_React_Router/.html',
+      sectionTitle:
+        'Controlling which data should be deferred and which data should be loaded before navigation',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Controlling_which_data_should_be_deferred.html',
     },
   ],
 };
