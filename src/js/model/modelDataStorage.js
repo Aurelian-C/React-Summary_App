@@ -1239,10 +1239,11 @@ const section20 = {
     },
     {
       sectionTitle:
-        'Defining & using Routes: createBrowserRouter(), RouterProvider component, path & element property',
+        'Defining & using routes: createBrowserRouter(), RouterProvider component, path & element property',
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_routes.html',
       highlights: {
+        highlight1: ['Defining & using routes'],
         highlight2: [
           'createBrowserRouter()',
           'RouterProvider',
@@ -1258,9 +1259,11 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Working with links (Link component)',
-      sectionSource: '/src/markdowns/12_React_Router/Working_with_links.html',
+      sectionTitle: 'Navigating between pages with links (Link component)',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Navigating_between_pages_with_links.html',
       highlights: {
+        highlight1: ['Navigating between pages'],
         highlight2: ['Link'],
       },
       tooltips: [
@@ -1303,6 +1306,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement.html',
       highlights: {
+        highlight1: ['error pages'],
         highlight2: ['errorElement'],
       },
       tooltips: [
@@ -1318,6 +1322,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Navigating_programmatically_with_useNavigate_hook.html',
       highlights: {
+        highlight1: ['Navigating programmatically'],
         highlight2: ['useNavigate'],
       },
       tooltips: [
@@ -1381,6 +1386,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Data_fetching_with_a_loader.html',
       highlights: {
+        highlight1: ['Data fetching'],
         highlight2: ['"loader" function', 'useLoaderData()'],
       },
       tooltips: [
@@ -1466,6 +1472,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Submitting_forms_and_send_data_with_action_function_and_Form_component.html',
       highlights: {
+        highlight1: ['Submitting forms & send data'],
         highlight2: ['"action" function', 'Form'],
       },
       tooltips: [
@@ -1487,6 +1494,7 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Submitting_data_programmatically_with_useSubmit.html',
       highlights: {
+        highlight1: ['Submitting data programmatically'],
         highlight2: ['useSubmit'],
       },
       tooltips: [
