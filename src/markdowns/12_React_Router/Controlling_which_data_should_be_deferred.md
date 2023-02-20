@@ -2,6 +2,8 @@
 
 So how does this `defer` feature shine if you have multiple requests with different speeds? You can use `defer` and `await` keyword to control which data is loaded before navigation and which data is deferred before navigation and loaded after the page component was rendered to the screen.
 
+>**Note**: ==Every `<Await>` block must be wrapped with its own `<Suspense>` component, otherwise `<Suspense>` will wait for all `<Await>` components to complete before showing anything==, which is not what we want.
+
 ![Deferring_data_fetching_with_defer1](../../img/Deferring_data_fetching_with_defer1.jpg)
 
 ## References

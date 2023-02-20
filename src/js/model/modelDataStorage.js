@@ -1223,7 +1223,7 @@ const section20 = {
     '<p class="card__title--1">Section 20</p> <p class="card__title--2">Building a Multi-Page SPA with React Router</p>',
   sections: [
     {
-      sectionTitle: 'Routing: multiple pages in single-page applications',
+      sectionTitle: 'Routing: Multiple Pages in Single-Page Applications',
       sectionSource:
         '/src/markdowns/12_React_Router/Routing_multiple_pages_in_single-page_applications.html',
       tooltips: [
