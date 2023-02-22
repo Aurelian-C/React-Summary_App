@@ -136,6 +136,8 @@ const router = createBrowserRouter([
 
 If you have a relative path, like `..` path which simply goes back, then ==the `relative` prop can be used to control the behavior of React Router. **A link can set to be "relative" to the _routes definitions_, or "relative" to the _browser URL_**==.
 
+By default, the `..` in relative links traverse the route hierarchy, not the URL segments. Adding `relative="path"` allows you to traverse the path segments instead.
+
 ```react
 function ProductDetailPage() {
   return <Link to=".." relative="route">Go back!</Link> //remove one segment from the currently active parent route path. This path is resolved relative to the route definitions, so goes up one level to the parent route "/", because <ProductDetailPage> is a children of a parent route "/"

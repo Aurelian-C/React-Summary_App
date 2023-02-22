@@ -1369,6 +1369,7 @@ const section20 = {
         "<i>A <b>link that have an absolute path</b> it's added directly <u>after the domain name</u>, not after the currently active path</i>.",
         '<i>A <b>link relative path</b> can set to be "relative" to the <u>parent route path</u>, or "relative" to the <u>browser URL</u></i>. By default, a link relative path will be added after the currently active <i>parent route path</i>.',
         'When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values, to <code>path</code> or <code>route</code>. With these values you control whether the segment defined on <code><<span>Link</span>></code> is <u>added relative</u> to the <i>currently active parent route path</i> or to the <i>currently active path in the browser URL</i>.',
+        'By default, the <code>..</code> in relative links traverse the route hierarchy, not the URL segments. Adding <code><<span>Link to=".." relative="path"</span>></code> allows you to traverse the path segments instead.',
         '<code><<span>Link to=".."</span>></code> is a relative path that goes back <i>one level</i> to the <i>previously</i> active route/URL path.',
       ],
     },
