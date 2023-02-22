@@ -88,6 +88,8 @@ function ProductsPage() {
 
 We can transform a absolute path to a relative path by removing the `/`. Now the `<Link>` in the example below has a relative path, which means that, ==_by default_, its path will be added after the currently active _routes path_==.
 
+==**Relative links are always relative to the route path they are *rendered in*, not to the full URL**==.
+
 ```react
 import { Link } from 'react-router-dom';
 
