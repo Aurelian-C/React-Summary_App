@@ -4,17 +4,11 @@ To understand Routing, it's important to keep in mind how the web generally work
 
 ![Routing_multiple_pages_in_SPA1](../../img/Routing_multiple_pages_in_SPA1.jpg)
 
-In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page.
-
-Traditionally, you would implement Routing by simply loading different content, different HTML files for different paths, and that is how you would build a multi-page application which you typically would build without ReactJS. Now, with that, you get different content for different paths, but the disadvantage is that you always have to request from the server a new HTML document (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.
+In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page. The disadvantage is that you always have to request from the server a new HTML document (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.
 
 ## Client Side Routing
 
-React Router enables "client side routing".
-
-==Client side routing allows your app to **update the URL** from a link click **without making another request for another document from the server**==. Instead, your app can immediately render some new UI and make data requests with `fetch` to update the page with new information.
-
-This enables faster user experiences because the ==browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page==. It also enables more dynamic user experiences with things like animation.
+React Router enables "client side routing". ==Client side routing allows your app to **update the URL** from a link click **without making another request for another document from the server**==. Instead, your app can immediately render some new UI and make data requests with `fetch` to update the page with new information. This enables faster user experiences because the ==browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page==. It also enables more dynamic user experiences with things like animation.
 
 ![Routing_multiple_pages_in_SPA](../../img/Routing_multiple_pages_in_SPA.jpg)
 

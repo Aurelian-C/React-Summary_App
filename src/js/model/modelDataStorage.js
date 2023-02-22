@@ -1227,9 +1227,11 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Routing_multiple_pages_in_single-page_applications.html',
       tooltips: [
-        'React Router enables <b>"client side routing"</b>. Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>.',
-        'What Routing is all about: <i>different <u>URL paths</u> load different content on the screen</i>.',
-        'Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.',
+        'In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page.',
+        `React Router enables <b>"client side routing"</b>. Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
+        <br>This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.`,
+        'What Routing is all about: <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.',
+        'Client side routing is enabled by creating a Router and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.',
       ],
     },
     {
@@ -1547,6 +1549,7 @@ const section20 = {
       tooltips: [
         'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <b>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</b>.',
         `Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>.`,
+        '<code>useFetcher</code> interacts with route "action"/"loader" function without causing a navigation. It is great for any interaction that stays on the same page.',
         'The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.',
         `<b><code><<span>fetcher.Form</span>></code></b> component: <<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>. So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <<span>fetcher.load()</span>> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.`,
         `<b><code>fetcher.data</code></b>: the returned data from the "action"/"loader" function is stored in <code>fetcher.data</code>. Once the data is set, it persists on the fetcher even through reloads and resubmissions`,
