@@ -1356,13 +1356,6 @@ const section20 = {
       },
     },
     {
-      sectionTitle: 'Adding links for dynamic routes',
-      sectionSource: '',
-      tooltips: [
-        'Relative links are always <i>relative to the route path they are <u>rendered in</u></i>, not to the full URL.',
-      ],
-    },
-    {
       sectionTitle:
         'Understanding absolute & relative paths: links "relative" prop',
       sectionSource:
