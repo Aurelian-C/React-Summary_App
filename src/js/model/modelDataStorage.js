@@ -1044,181 +1044,7 @@ const section11 = {
   ],
 };
 
-const section18 = {
-  title:
-    '<p class="card__title--1">Section 18</p> <p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
-  sections: [
-    {
-      sectionTitle: '226. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '227. Another Look At State In React Apps',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '228. Redux vs React Context',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '229. How Redux Works',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '230. Exploring The Core Redux Concepts',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '231. More Redux Basics',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '232. Preparing a new Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '233. Creating a Redux Store for React',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '234. Providing the Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '235. Using Redux Data in React Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '236. Dispatching Actions From Inside Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '237. Redux with Class-based Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '238. Attaching Payloads to Actions',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '239. Working with Multiple State Properties',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '240. How To Work With Redux State Correctly',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '241. Redux Challenges & Introducing Redux Toolkit',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '242. Adding State Slices',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '243. Connecting Redux Toolkit State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '244. Migrating Everything To Redux Toolkit',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '245. Working with Multiple Slices',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '246. Reading & Dispatching From A New Slice',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '247. Splitting Our Code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '248. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '249. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section19 = {
-  title:
-    '<p class="card__title--1">Section 19</p> <p class="card__title--2">Advanced Redux</p>',
-  sections: [
-    {
-      sectionTitle: '250. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '251. Redux & Side Effects (and Asynchronous Code)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '252. Refresher / Practice: Part 1/2',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '253. Refresher / Practice: Part 2/2',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '254. Redux & Async Code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '255. Frontend Code vs Backend Code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '256. Where To Put Our Logic',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '257. Using useEffect with Redux',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '258. A Problem with useEffect()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '259. Handling Http States & Feedback with Redux',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '260. Using an Action Creator Thunk',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '261. Getting Started with Fetching Data',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '262. Finalizing the Fetching Logic',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '263. Exploring the Redux DevTools',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '264. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '265. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section20 = {
+const section12 = {
   title:
     '<p class="card__title--1">Section 20</p> <p class="card__title--2">Building a Multi-Page SPA with React Router</p>',
   sections: [
@@ -1590,6 +1416,249 @@ const section20 = {
   ],
 };
 
+const section18 = {
+  title:
+    '<p class="card__title--1">Section 18</p> <p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
+  sections: [
+    {
+      sectionTitle: '226. Module Introduction',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '227. Another Look At State In React Apps',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '228. Redux vs React Context',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '229. How Redux Works',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '230. Exploring The Core Redux Concepts',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '231. More Redux Basics',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '232. Preparing a new Project',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '233. Creating a Redux Store for React',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '234. Providing the Store',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '235. Using Redux Data in React Components',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '236. Dispatching Actions From Inside Components',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '237. Redux with Class-based Components',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '238. Attaching Payloads to Actions',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '239. Working with Multiple State Properties',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '240. How To Work With Redux State Correctly',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '241. Redux Challenges & Introducing Redux Toolkit',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '242. Adding State Slices',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '243. Connecting Redux Toolkit State',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '244. Migrating Everything To Redux Toolkit',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '245. Working with Multiple Slices',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '246. Reading & Dispatching From A New Slice',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '247. Splitting Our Code',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '248. Summary',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '249. Module Resources',
+      sectionSource: '',
+    },
+  ],
+};
+
+const section19 = {
+  title:
+    '<p class="card__title--1">Section 19</p> <p class="card__title--2">Advanced Redux</p>',
+  sections: [
+    {
+      sectionTitle: '250. Module Introduction',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '251. Redux & Side Effects (and Asynchronous Code)',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '252. Refresher / Practice: Part 1/2',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '253. Refresher / Practice: Part 2/2',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '254. Redux & Async Code',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '255. Frontend Code vs Backend Code',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '256. Where To Put Our Logic',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '257. Using useEffect with Redux',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '258. A Problem with useEffect()',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '259. Handling Http States & Feedback with Redux',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '260. Using an Action Creator Thunk',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '261. Getting Started with Fetching Data',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '262. Finalizing the Fetching Logic',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '263. Exploring the Redux DevTools',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '264. Summary',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '265. Module Resources',
+      sectionSource: '',
+    },
+  ],
+};
+
+const section20 = {
+  title:
+    '<p class="card__title--1">Section 25</p> <p class="card__title--2">Replacing Redux with React Hooks</p>',
+  sections: [
+    {
+      sectionTitle: '367. Module Introduction',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '368. React 18 & This Section',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '369. Starting Project & Why You Would Replace Redux',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '370. Alternative: Using the Context API',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '371. Toggling Favorites with the Context API',
+      sectionSource: '',
+    },
+    {
+      sectionTitle:
+        '372. Context API Summary (and why NOT to use it instead of Redux)',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '373. Getting Started with a Custom Hook as a Store',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '374. Finishing the Store Hook',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '375. Creating a Concrete Store',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '376. Using the Custom Store',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '377. Custom Hook Store Summary',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '378. Optimizing the Custom Hook Store',
+      sectionSource: '',
+    },
+    {
+      sectionTitle:
+        '379. Bonus: Managing Multiple State Slices with the Custom Store Hook',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '380. Wrap Up',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '381. Module Resources',
+      sectionSource: '',
+    },
+  ],
+};
+
 const section21 = {
   title:
     '<p class="card__title--1">Section 21</p> <p class="card__title--2">Deploying React apps</p>',
@@ -1913,75 +1982,6 @@ const section24 = {
     },
     {
       sectionTitle: '366. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section25 = {
-  title:
-    '<p class="card__title--1">Section 25</p> <p class="card__title--2">Replacing Redux with React Hooks</p>',
-  sections: [
-    {
-      sectionTitle: '367. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '368. React 18 & This Section',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '369. Starting Project & Why You Would Replace Redux',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '370. Alternative: Using the Context API',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '371. Toggling Favorites with the Context API',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '372. Context API Summary (and why NOT to use it instead of Redux)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '373. Getting Started with a Custom Hook as a Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '374. Finishing the Store Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '375. Creating a Concrete Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '376. Using the Custom Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '377. Custom Hook Store Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '378. Optimizing the Custom Hook Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '379. Bonus: Managing Multiple State Slices with the Custom Store Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '380. Wrap Up',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '381. Module Resources',
       sectionSource: '',
     },
   ],
@@ -2475,6 +2475,7 @@ export const dataStorage = [
   section9,
   section10,
   section11,
+  section12,
   section18,
   section19,
   section20,
@@ -2482,7 +2483,6 @@ export const dataStorage = [
   section22,
   section23,
   section24,
-  section25,
   section26,
   section27,
   section28,
