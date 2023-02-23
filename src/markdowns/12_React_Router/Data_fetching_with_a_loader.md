@@ -1,6 +1,6 @@
 # Data fetching with a "loader" function
 
-==On each route you can define a "loader" function to **_provide data_ to the route element _before it renders_**==.
+==On each route you can define a "loader" function to **_provide data_ to the route element _before it renders_**==. The route loader is called before the route renders and provides data for the element through [`useLoaderData`](https://reactrouter.com/en/main/hooks/use-loader-data).
 
 ![Loader_function](../../img/Loader_function.jpg)
 

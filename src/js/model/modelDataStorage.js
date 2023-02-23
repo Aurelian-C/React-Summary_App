@@ -1245,7 +1245,6 @@ const section20 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_routes.html',
       highlights: {
-        highlight1: ['Defining & using routes'],
         highlight2: [
           'createBrowserRouter()',
           'RouterProvider',
@@ -1290,6 +1289,20 @@ const section20 = {
       ],
     },
     {
+      sectionTitle: 'Navigating programmatically with useNavigate hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Navigating_programmatically_with_useNavigate_hook.html',
+      highlights: {
+        highlight1: ['Navigating programmatically'],
+        highlight2: ['useNavigate'],
+      },
+      tooltips: [
+        "Up until now we only use <b>imperative routing</b>. We allow users to navigate between our pages by providing links which can be clicked, and I will say right away that this is the default way of providing navigation to users, but it's not the only way.",
+        'In some situations, for example maybe because some form was submitted or because some timer expired, <i>you might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.',
+        'The <code>useNavigate</code> hook helps you to trigger a navigation action, so to <i>switch to a different route from inside your code</i>, so <b>programmatically</b>.',
+      ],
+    },
+    {
       sectionTitle:
         'Layouts & nested routes: children property & Outlet component',
       sectionSource:
@@ -1318,20 +1331,6 @@ const section20 = {
         '<i>When a child route does not have an <code>errorElement</code>, errors will bubble up to parent route</i> through routes chain.',
         "<i><b>Put an <code>errorElement</code> at the top of your route tree</b> and handle nearly every error in your app in <b>one place</b></i>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh.",
         'Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, <u>errors will bubble up</u> and be handled by a default <code>errorElement</code> which will print the error message and stack trace</i>.',
-      ],
-    },
-    {
-      sectionTitle: 'Navigating programmatically with useNavigate hook',
-      sectionSource:
-        '/src/markdowns/12_React_Router/Navigating_programmatically_with_useNavigate_hook.html',
-      highlights: {
-        highlight1: ['Navigating programmatically'],
-        highlight2: ['useNavigate'],
-      },
-      tooltips: [
-        "Up until now we only use <b>imperative routing</b>. We allow users to navigate between our pages by providing links which can be clicked, and I will say right away that this is the default way of providing navigation to users, but it's not the only way.",
-        'In some situations, for example maybe because some form was submitted or because some timer expired, <i>you might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.',
-        'The <code>useNavigate</code> hook helps you to trigger a navigation action, so to <i>switch to a different route from inside your code</i>, so <b>programmatically</b>.',
       ],
     },
     {
