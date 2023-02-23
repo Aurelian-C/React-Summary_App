@@ -1,20 +1,36 @@
-# Defining & using Routes
+# Defining & using routes
 
-## Step 1. Define the route: import the `createBrowserRouter` function
+## Step 1. Defining the routes by importing the `createBrowserRouter` function
 
-The first step is to import the `createBrowserRouter` from `react-router-dom` package:
+The first step is to import the [`createBrowserRouter`](https://reactrouter.com/en/main/routers/create-browser-router) from `react-router-dom` package:
 
 ```react
 import {createBrowserRouter} from 'react-router-dom';
 ```
 
-==The `createBrowserRouter` is a function provided by `react-router-dom` package which allows us to **define our routes** that we wanna support in our application. Routes are simply **path<=>component mappings**; so for which path (`/products`) should which component (`<Products/>`) be loaded?==
+> **Note**: The `createBrowserRouter` is the recommended router for all React Router web projects. It uses the [DOM History API](https://developer.mozilla.org/en-US/docs/Web/API/History) to update the URL and manage the history stack.
 
-To the `createBrowserRouter()` function we pass as an argument an ==array of **routes objects**==, where **every object represents _one_ route**. _To every object we add some properties to define the route characteristics, so these route objects take a couple of properties with which we configure the routes_.
+![Defining_&_using_routes3](../../img/Defining_&_using_routes3.jpg)
+
+==The `createBrowserRouter` is a function provided by `react-router-dom` package which allows you to **define your routes** that you wanna support in your application. Routes are simply **path<=>component mappings**; so for which path (`/products`) should which component (`<Products/>`) be loaded?==
+
+To the `createBrowserRouter()` function you pass as an argument an ==array of **routes objects**==, where **every object represents _one_ route**. _To every object you add some properties to define the route characteristics, so these route objects take a couple of properties with which you configure every route_.
+
+Routes are perhaps the most important part of a React Router app. They couple URL segments to components, data loading and data mutations. Through route nesting, complex application layouts and data dependencies become simple and declarative.
+
+Routes are objects passed to the router creation functions:
+
+![Defining_&_using_routes4](../../img/Defining_&_using_routes4.jpg)
+
+> **Note**: You can also declare your routes with JSX markup and [`createRoutesFromElements`](https://reactrouter.com/en/main/utils/create-routes-from-elements) and `<Route>` component, the props to the element are identical to the properties of the route objects:
+>
+> ![Defining_&_using_routes2](../../img/Defining_&_using_routes2.jpg)
+>
+> Neither style is discouraged and behavior is identical.
 
 ### The `path` property
 
-==One key property, which you will almost always add, is the `path` property. With `path` you **define the path for which the route should be active**==:
+==One key property which you will almost always add is the `path` property. With `path` you **define the path for which the route should be active**==:
 
 ```react
 const router = createBrowserRouter([{path: "/"}]);
@@ -88,14 +104,8 @@ function App() {
 
 ![Defining_&_using_routes2](../../img/Defining_&_using_routes1.jpg)
 
-## Exploring an alternative way of defining routes
-
-If you worked with older versions of `react-router-dom`, you defined all your routes with help of components and JSX markup instead of JavaScript objects in array.
-
-In older versions of `react-router-dom`, instead of using JavaScript objects in array, you will import a function called `createRoutesFromElements` and a `Route` component for defining your application routes.
-
-![Defining_&_using_routes2](../../img/Defining_&_using_routes2.jpg)
-
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [`createBrowserRouter` - reactrouter.com](https://reactrouter.com/en/main/routers/create-browser-router)
+1. [`Route` - reactrouter.com](https://reactrouter.com/en/main/route/route)

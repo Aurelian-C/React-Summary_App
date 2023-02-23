@@ -1349,6 +1349,14 @@ const section20 = {
       ],
     },
     {
+      sectionTitle: 'Defining & using optional path segments',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Defining_&_using_optional_path_segments.html',
+      highlights: {
+        highlight1: ['optional path segments'],
+      },
+    },
+    {
       sectionTitle: 'Adding links for dynamic routes',
       sectionSource: '',
       tooltips: [

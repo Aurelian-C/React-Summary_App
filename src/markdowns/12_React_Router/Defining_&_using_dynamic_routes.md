@@ -5,14 +5,22 @@
 You add a parameter to a path by adding a `:` and then any identifier of you choice:
 
 ```react
-{path: "/products/:productId"}
+{ path: "/products/:productId" }
 ```
 
-The `:` signals to `react-router-dom` that the part _after_ the `:` is dynamic. You could thereafter have more hard coded segments if you needed to, but the segment with the `:` is dynamic:
+If a path segment starts with `:` then it becomes a "dynamic segment". The `:` signals to `react-router-dom` that the part _after_ the `:` is dynamic. You could thereafter have more hard coded segments if you needed to, but the segment with the `:` is dynamic:
 
 ```react
-{path: "/products/:productId/newseg"} // only the :productId is a dynamic path segment, newseg is a hardcoded segment path
+{ path: "/products/:productId/newseg" } // only the :productId is a dynamic path segment, newseg is a hardcoded segment path
 ```
+
+You can have multiple dynamic segments in one route path:
+
+```react
+{ path="/c/:categoryId/p/:productId" }
+```
+
+
 
 ==Dynamic path segments (path parameters) helps us to always **render the same component for different paths (dynamic paths)**==.
 
@@ -31,4 +39,5 @@ The `useParams` hook returns a JavaScript object which contains every dynamic pa
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
-2. [`useParams` - reactrouter.com](https://reactrouter.com/en/main/hooks/use-params)
+2. [Dynamic segments - reactrouter.com](https://reactrouter.com/en/main/route/route#dynamic-segments)
+3. [`useParams` - reactrouter.com](https://reactrouter.com/en/main/hooks/use-params)
