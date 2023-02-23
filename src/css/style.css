@@ -75,7 +75,7 @@ body {
 }
 
 .card {
-  flex: 0 0 34rem;
+  flex: 0 0 max-content;
   height: fit-content;
   background: #19191940;
   border: 2px solid #50505040;

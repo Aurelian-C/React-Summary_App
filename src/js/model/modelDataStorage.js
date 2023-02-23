@@ -1,6 +1,6 @@
 const section1 = {
   title:
-    '<p class="card__title--1">Section 1</p> <p class="card__title--2">React Basics & Working With Components</p>',
+    '<p class="card__title--1">Section 1</p> <p class="card__title--2">React basics & working with components</p>',
   sections: [
     {
       sectionTitle: 'What are components and why is React all about them?',
@@ -156,7 +156,7 @@ const section1 = {
 
 const section2 = {
   title:
-    '<p class="card__title--1">Section 2</p> <p class="card__title--2">React State & Working with Events</p>',
+    '<p class="card__title--1">Section 2</p> <p class="card__title--2">React state & working with events</p>',
   sections: [
     {
       sectionTitle: 'Listening to events & working with event handlers',
@@ -494,7 +494,7 @@ const section2 = {
 
 const section3 = {
   title:
-    '<p class="card__title--1">Section 3</p> <p class="card__title--2">Rendering Lists & Conditional Content</p>',
+    '<p class="card__title--1">Section 3</p> <p class="card__title--2">Rendering lists & conditional content</p>',
   sections: [
     {
       sectionTitle: 'Rendering lists of data',
@@ -541,7 +541,7 @@ const section3 = {
 
 const section4 = {
   title:
-    '<p class="card__title--1">Section 4</p> <p class="card__title--2">Styling React Components</p>',
+    '<p class="card__title--1">Section 4</p> <p class="card__title--2">Styling React components</p>',
   sections: [
     {
       sectionTitle: 'Introduction to styling React components',
@@ -612,7 +612,7 @@ const section4 = {
 
 const section5 = {
   title:
-    '<p class="card__title--1">Section 5</p> <p class="card__title--2">Debugging React Apps</p>',
+    '<p class="card__title--1">Section 5</p> <p class="card__title--2">Debugging React apps</p>',
   sections: [
     {
       sectionTitle: 'Understanding React error messages',
@@ -654,7 +654,7 @@ const section5 = {
 
 const section6 = {
   title:
-    '<p class="card__title--1">Section 6</p> <p class="card__title--2">Working with Fragments, Portals & "Refs"</p>',
+    '<p class="card__title--1">Section 6</p> <p class="card__title--2">Fragments, Portals & "Refs"</p>',
   sections: [
     {
       sectionTitle: 'JSX limitations & workarounds',
@@ -765,7 +765,7 @@ const section6 = {
 
 const section7 = {
   title:
-    '<p class="card__title--1">Section 7</p> <p class="card__title--2">Handling Side Effects</p>',
+    '<p class="card__title--1">Section 7</p> <p class="card__title--2">Handling side effects</p>',
   sections: [
     {
       sectionTitle: 'Synchronizing with Effects',
@@ -891,7 +891,7 @@ const section7 = {
 
 const section8 = {
   title:
-    '<p class="card__title--1">Section 8</p> <p class="card__title--2">A Look Behind The Scenes Of React & Optimization Techniques</p>',
+    '<p class="card__title--1">Section 8</p> <p class="card__title--2">Behind the scenes of React & <br>optimization techniques</p>',
   sections: [
     {
       sectionTitle: 'How React really works',
@@ -961,7 +961,7 @@ const section8 = {
 
 const section9 = {
   title:
-    '<p class="card__title--1">Section 9</p> <p class="card__title--2">An Alternative Way Of Building Components: Class-based Components</p>',
+    '<p class="card__title--1">Section 9</p> <p class="card__title--2">An alternative way Of building components: <br>Class-based components</p>',
   sections: [
     {
       sectionTitle: 'Introducing error boundaries',
@@ -981,7 +981,7 @@ const section9 = {
 
 const section10 = {
   title:
-    '<p class="card__title--1">Section 10</p> <p class="card__title--2">Building Custom React Hooks</p>',
+    '<p class="card__title--1">Section 10</p> <p class="card__title--2">Building custom React Hooks</p>',
   sections: [
     {
       sectionTitle: 'What are "custom Hooks"?',
@@ -1005,7 +1005,7 @@ const section10 = {
 
 const section11 = {
   title:
-    '<p class="card__title--1">Section 11</p> <p class="card__title--2">Working with Forms & User Input</p>',
+    '<p class="card__title--1">Section 11</p> <p class="card__title--2">Working with forms & user inputs</p>',
   sections: [
     {
       sectionTitle: "What's so complex about Forms?",
@@ -1046,7 +1046,7 @@ const section11 = {
 
 const section18 = {
   title:
-    '<p class="card__title--1">Section 18</p> <p class="card__title--2">Diving into Redux (An Alternative To The Context API)</p>',
+    '<p class="card__title--1">Section 18</p> <p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
   sections: [
     {
       sectionTitle: '226. Module Introduction',
@@ -1349,8 +1349,11 @@ const section20 = {
       ],
     },
     {
-      sectionTitle: 'Adding links for dynamic Routes',
+      sectionTitle: 'Adding links for dynamic routes',
       sectionSource: '',
+      tooltips: [
+        'Relative links are always <i>relative to the route path they are <u>rendered in</u></i>, not to the full URL.',
+      ],
     },
     {
       sectionTitle:
@@ -1588,7 +1591,7 @@ const section20 = {
 
 const section21 = {
   title:
-    '<p class="card__title--1">Section 21</p> <p class="card__title--2">Deploying React Apps</p>',
+    '<p class="card__title--1">Section 21</p> <p class="card__title--2">Deploying React apps</p>',
   sections: [
     {
       sectionTitle: '293. Module Introduction',
@@ -1623,7 +1626,7 @@ const section21 = {
 
 const section22 = {
   title:
-    '<p class="card__title--1">Section 22</p> <p class="card__title--2">Adding Authentication To React Apps</p>',
+    '<p class="card__title--1">Section 22</p> <p class="card__title--2">Adding authentication to React apps</p>',
   sections: [
     {
       sectionTitle: '300. Module Introduction',

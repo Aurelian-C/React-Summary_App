@@ -21,7 +21,7 @@ Fetchers have a lot of _built-in behavior_:
 - Handles uncaught errors by rendering the nearest `errorElement` (just like a normal navigation from `<Link>` or `<Form>`)
 - Will redirect the app if your "action"/"loader" function being called returns a redirect (just like a normal navigation from `<Link>` or `<Form>`)
 
-## `useFetcher` returns an object
+## `useFetcher()` returns an object
 
 ==The `useFetcher` hook, when executed, **returns an object** that includes a bunch of useful properties and methods==. For example, it gives you a `fetcher.Form` component which is different from the `<Form>` component you used before. It also gives you a `fetcher.submit` function which is different from the submit function you got from `useSubmit` hook, which you used before.
 
@@ -77,6 +77,32 @@ If you find yourself calling this function inside of click handlers, you can pro
 ### `fetcher.submit()`
 
 ==The imperative version of `<fetcher.Form>`==. If a user interaction should initiate the fetch, you should use `<fetcher.Form>`. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.
+
+### `fetcher.formData`
+
+When using `<fetcher.Form>` or `fetcher.submit()`, the form data is available to build optimistic UI.
+
+### `fetcher.formAction`
+
+Tells you the action url the form is being submitted to.
+
+```react
+<fetcher.Form action="/mark-as-read" />;
+
+// when the form is submitting
+fetcher.formAction; // "mark-as-read"
+```
+
+### `fetcher.formMethod`
+
+Tells you the method of the form being submitted: get, post, put, patch, or delete.
+
+```react
+<fetcher.Form method="post" />;
+
+// when the form is submitting
+fetcher.formMethod; // "post"
+```
 
 ## Summary
 
