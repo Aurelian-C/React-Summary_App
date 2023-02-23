@@ -1268,9 +1268,15 @@ const section20 = {
         highlight2: ['Link'],
       },
       tooltips: [
+        `When the URL changes we call that a "navigation". There are two ways to navigate in React Router:
+        <br>- <code><<span>Link</span>></code> component
+        <br>- <code>usenNavigate</code> hook`,
         'A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.',
         "In <code>react-router-dom</code>, <i>a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to</i>.",
         'Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.',
+        "If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths. <i>A link that have an absolute path it's added directly after the domain name</i>, not after the currently active path (the route path they are rendered in). <i>Relative links are always relative to the route path they are <u>rendered in</u></i>, not to the full URL.",
+        'When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values: <code>path</code> or <code>route</code>. <i>With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <u>the route path they are rendered in</u> or to the <u>currently active path in the browser URL</u></i>.',
+        'If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router. By default, the <code>..</code> in relative links <u>traverse the route hierarchy</u>, not the URL segments. Adding <code>relative="path"</code> allows you to <u>traverse the path segments</u> instead</i>.',
       ],
     },
     {
@@ -1356,8 +1362,7 @@ const section20 = {
       },
     },
     {
-      sectionTitle:
-        'Understanding absolute & relative paths: links "relative" prop',
+      sectionTitle: 'Understanding absolute & relative paths',
       sectionSource:
         '/src/markdowns/12_React_Router/Understanding_absolute_&_relative_paths.html',
       highlights: {
@@ -1368,12 +1373,6 @@ const section20 = {
         "When we defining <u>routes</u>, we define the <u>paths</u> for which that routes should be active. <i>If a path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths</i>.",
         'All <b>absolute child route paths</b> must start with the combined path of all its parent routes.',
         'When defining <b>child routes as relative paths</b>, this means that the <i>child routes paths defined as relative paths are <u>appended after the path of the wrapper parent route path</u></i>. So if we have a child route with a relative path, then React Router will take a look at the path of the parent route and append the child route path after the parent route path. <i>Children relative route paths are relative to the path defined in theirs parent route definition</i>.',
-        'If a path starts with <code>/</code> then it is an absolute path. The same rule applies to <code><<span>Link</span>></code> and <code><<span>NavLink</span>></code> component.',
-        "A <b>link that have an absolute path</b> it's added directly <u>after the domain name</u>, not after the currently active path.",
-        '<b>Relative links</b> are always relative to the route path they are <u>rendered in</u>, not to the full URL.',
-        'When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values, to <code>path</code> or <code>route</code>. With these values you control whether the segment defined on <code><<span>Link</span>></code> is <u>added relative</u> to the <i>currently active parent route path</i> or to the <i>currently active path in the browser URL</i>.',
-        'By default, the <code>..</code> in relative links traverse the route hierarchy, not the URL segments. Adding <code><<span>Link to=".." relative="path"</span>></code> allows you to traverse the path segments instead.',
-        '<code><<span>Link to=".."</span>></code> is a relative path that goes back <i>one level</i> to the <i>previously</i> active route/URL path.',
       ],
     },
     {
