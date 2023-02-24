@@ -1151,7 +1151,7 @@ const section12 = {
       },
       tooltips: [
         'You can nest routes in other route with the help of <code>children</code> property.',
-        'The <code><<span>Outlet/</span>></code> component mark the rendered place of nesting routes (children routes), so it specifies <i>where the content of the child routes should be rendered</i>.',
+        'The <code><<span>Outlet/</span>></code> component specifies <i>where the content of the child routes should be rendered</i>.',
         '<i>An <code><<span>Outlet/</span>></code> should be used in parent route elements to render their child route elements</i>. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.',
       ],
     },

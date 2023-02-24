@@ -6,6 +6,7 @@
 <style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
@@ -86,12 +87,14 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -168,7 +171,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -2256,6 +2259,6 @@ li {
 </style><title>Layouts_&amp;_nested_routes</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='layouts--nested-routes'><span>Layouts &amp; nested routes</span></h1><p><span>The </span><code>&lt;Outlet/&gt;</code><span> component specifies </span><mark><span>where the content of the child routes should be rendered</span></mark><span>.</span></p><p><img src="../../img/Layouts_&amp;_nested_routes.jpg" referrerpolicy="no-referrer" alt="Layouts_&amp;_nested_routes"></p><h2 id='references'><span>References</span></h2><ol start='' ><li><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></li></ol></div></div>
+<div id='write'  class=''><h1 id='layouts--nested-routes'><span>Layouts &amp; nested routes</span></h1><p><span>You can nest routes in other route with the help of </span><code><span>children</span></code><span> property.</span></p><p><span>The </span><code>&lt;Outlet&gt;</code><span> component specifies </span><mark><span>where the content of the child routes should be rendered</span></mark><span>.</span></p><p><mark><span>An </span><code>&lt;Outlet&gt;</code><span> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered</span></mark><span>. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.</span></p><p><img src="../../img/Layouts_&amp;_nested_routes.jpg" referrerpolicy="no-referrer" alt="Layouts_&amp;_nested_routes"></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/components/outlet'><code>&lt;Outlet&gt;</code><span> - reactrouter.com</span></a></p></li></ol></div></div>
 </body>
 </html>
