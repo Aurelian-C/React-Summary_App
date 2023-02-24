@@ -1,24 +1,17 @@
 # Navigating programmatically with `useNavigate` hook
 
-Up until now we only use **imperative routing**. We allow users to navigate between our pages by providing links which can be clicked, and I will say right away that this is the default way of providing navigation to users, but it's not the only way.
+Up until now you only use **imperative routing**. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it's not the only way.
 
-When the [URL](https://reactrouter.com/en/main/start/concepts#url) changes we call that a "navigation". There are two ways to navigate in React Router:
+When the [URL](https://reactrouter.com/en/main/start/concepts#url) changes we call that a "navigation". There are ==two ways to navigate in React Router==:
 
 - [`Link`](https://reactrouter.com/en/main/components/link)
 - [`navigate`](https://reactrouter.com/en/main/hooks/use-navigate) hook
 
-In some situations, for example maybe because some form was submitted or because some timer expired, ==you might want to trigger a navigation action from inside your React code==, and you can do this by using another special feature provided by `react-router-dom`. To trigger a navigation action from inside your React code, you can import the `useNavigate` hook and use it in your components to get access to a navigate function. ==This navigate function can be called to trigger a navigation action, so to **switch to a different route from inside your code**==, so **programmatically**.
+In some situations, for example maybe because some form was submitted or because some timer expired, ==you as a programmer (not the user) might want to trigger a navigation action from inside your React code==, and you can do this by using a hook provided by `react-router-dom`. To trigger a navigation action from inside your React code, you can import the `useNavigate` hook and use it in your components to get access to a navigate function. ==This navigate function can be called to trigger a navigation action, so to **switch to a different route from inside your code**==, so **programmatically**.
 
-==The `useNavigate` hook returns a function that allows you, the programmer, to change the URL whenever you want==. You could do it on a timeout:
+==**The `useNavigate` hook returns a function that allows you, the programmer, to change the URL whenever you want**==. You could do it on a timeout:
 
-```react
-let navigate = useNavigate();
-useEffect(() => {
-  setTimeout(() => {
-    navigate("/logout");
-  }, 30000);
-}, []);
-```
+![useNavigate_hook](../../img/useNavigate_hook.jpg)
 
 > **Important**: You should have a good reason to use `navigate` instead of `<Link>`. This makes us very sad:
 >
@@ -30,31 +23,7 @@ Aside from links and forms, very few interactions should change the URL because 
 
 ## Example
 
-```react
-import { Link, useNavigate } from 'react-router-dom';
-
-function HomePage() {
-  const navigate = useNavigate();
-
-  function navigateHandler() {
-    navigate('/products');
-  }
-
-  return (
-    <>
-      <h1>My Home Page</h1>
-      <p>
-        Go to <Link to="/products">the list of products</Link>.
-      </p>
-      <p>
-        <button onClick={navigateHandler}>Navigate</button>
-      </p>
-    </>
-  );
-}
-
-export default HomePage;
-```
+![useNavigate_hook1](../../img/useNavigate_hook1.jpg)
 
 > **Note**: You should not create buttons and then navigate programmatically, simply use a links instead. I only use a button to show you how `useNavigate` function generally works.
 >

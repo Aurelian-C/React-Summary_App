@@ -1086,17 +1086,17 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Navigating between pages with links (Link component)',
+      sectionTitle: 'Navigating between pages with Link component',
       sectionSource:
-        '/src/markdowns/12_React_Router/Navigating_between_pages_with_links.html',
+        '/src/markdowns/12_React_Router/Navigating_between_pages_with_link_component.html',
       highlights: {
         highlight1: ['Navigating between pages'],
         highlight2: ['Link'],
       },
       tooltips: [
-        `When the URL changes we call that a "navigation". There are two ways to navigate in React Router:
-        <br>- <code><<span>Link</span>></code> component
-        <br>- <code>usenNavigate</code> hook`,
+        `When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
+        <br>- <b><code><<span>Link</span>></code></b> component
+        <br>- <b><code>useNavigate</code></b> hook`,
         'A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.',
         `In <code>react-router-dom</code>, a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to. Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.`,
         `<b>Absolute & relative links path</b>
@@ -1108,9 +1108,9 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Working with navigation links (NavLink component)',
+      sectionTitle: 'Working with NavLink component',
       sectionSource:
-        '/src/markdowns/12_React_Router/Working_with_navigation_links.html',
+        '/src/markdowns/12_React_Router/Working_with_NavLink_component.html',
       highlights: {
         highlight2: ['NavLink'],
       },
@@ -1131,9 +1131,13 @@ const section12 = {
         highlight2: ['useNavigate'],
       },
       tooltips: [
-        "Up until now we only use <b>imperative routing</b>. We allow users to navigate between our pages by providing links which can be clicked, and I will say right away that this is the default way of providing navigation to users, but it's not the only way.",
-        'In some situations, for example maybe because some form was submitted or because some timer expired, <i>you might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.',
-        'The <code>useNavigate</code> hook helps you to trigger a navigation action, so to <i>switch to a different route from inside your code</i>, so <b>programmatically</b>.',
+        "Up until now you only use <b>imperative routing</b>. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it's not the only way.",
+        `When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
+        <br>- <b><code><<span>Link</span>></code></b> component
+        <br>- <b><code>useNavigate</code></b> hook`,
+        'In some situations, for example maybe because some form was submitted or because some timer expired, <i>you as a programmer (not the user) might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.',
+        'The <code>useNavigate</code> hook <i>returns a function that allows you, the programmer, to change the URL whenever you want, so <u>programmatically</u></i>.',
+        'You should have a good reason to use <code>useNavigate</code> instead of <code><<span>Link</span>></code>.',
       ],
     },
     {
