@@ -1218,15 +1218,16 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Working with index Routes',
+      sectionTitle: 'Working with index routes',
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_index_routes.html',
       highlights: {
         highlight1: ['index Routes'],
       },
       tooltips: [
-        'Index Routes can be used for children routes that have the same path as the parent route.',
-        'Index Routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.',
+        'Index routes can be used for children routes that have the same path as the parent route.',
+        "It is quite common that you might have a wrapping layout route and then <i>you have one child route that should be loaded for the parent's route path. Index routes render in their parent route's <code><<span>Outlet/</span>></code> at the parent route's path</i>.",
+        'Index routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.',
       ],
     },
     {
