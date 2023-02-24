@@ -1180,16 +1180,19 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Defining & using dynamic routes (dynamic path segments or path parameter) with useParams hook',
+        'Defining dynamic path segments (path parameter) & using them with useParams hook',
       sectionSource:
-        '/src/markdowns/12_React_Router/Defining_&_using_dynamic_routes.html',
+        '/src/markdowns/12_React_Router/Defining_&_using_dynamic_path_segments.html',
       highlights: {
-        highlight1: ['dynamic routes'],
+        highlight1: ['dynamic path segments'],
         highlight2: ['useParams'],
       },
       tooltips: [
         'Dynamic path segments <code>:</code> (path parameters) helps us to always <i>render the same component for different paths (dynamic paths)</i>.',
+        'You add a path parameter by adding a <code>:</code> and then any identifier of you choice.',
+        "The <code>:</code> signals to 'react-router-dom' that the part after the <code>:</code> is dynamic. You could thereafter have more hard coded segments if you needed to, or you can have multiple dynamic segments in one route path.",
         "With <code>useParams</code> hook we can <i>get the dynamic path data that's encoded in the URL</i>.",
+        'The <code>useParams</code> hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <code><<span>Route path</span>></code>. Child routes inherit all params from their parent routes',
       ],
     },
     {
