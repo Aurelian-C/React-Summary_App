@@ -1156,19 +1156,26 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Showing error pages with errorElement property',
+      sectionTitle:
+        'Showing error pages with errorElement property & useRouteError hook',
       sectionSource:
-        '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement.html',
+        '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement_and_useRouteError.html',
       highlights: {
         highlight1: ['error pages'],
-        highlight2: ['errorElement'],
+        highlight2: ['errorElement', 'useRouteError'],
       },
       tooltips: [
-        "When we enter a URL that doesn't exist, the <code>react-router-dom</code> package will automatically generate a <code>404</code> error.",
-        'With <code>errorElement</code> property in our route definitions, we specify a <i>fallback component that will be rendered if an error is created</i>.',
-        '<i>When a child route does not have an <code>errorElement</code>, errors will bubble up to parent route</i> through routes chain.',
-        "<i><b>Put an <code>errorElement</code> at the top of your route tree</b> and handle nearly every error in your app in <b>one place</b></i>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh.",
-        'Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, <u>errors will bubble up</u> and be handled by a default <code>errorElement</code> which will print the error message and stack trace</i>.',
+        `When you enter a URL that doesn't exist or when exceptions/errors are thrown in "loader"/"action" functions or component rendering, the <code>react-router-dom</code> package will automatically generate an error.`,
+        'With the <code>errorElement</code> property in your route definitions, you can specify a <i><b>fallback page component</b> that will be rendered if an error is created</i>.',
+        '<i>When a route does not have an <code>errorElement</code>, errors will <b>bubble up</b> through parent routes</i>.',
+        "<i>Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in <b>one place</b></i>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh.",
+        `<b>Throwing errors manually</b>
+        <br>While <code>errorElement</code> handles unexpected errors, it can also be used to handle exceptions you expect. Particularly in "loader"/"action" function, where you work with external data not in your control, you can't always plan on the data existing, the service being available, or the user having access to it. <i>You can throw anything from a "loader"/"action" function just like you can return anything: responses, errors, or plain objects</i>.
+        `,
+        `<b>Throwing Responses</b>
+        <br>While you can throw anything and it will be provided back to you through <code>useRouteError</code>, if you throw a <code>Response</code>, <i>React Router will automatically parse the response data before returning it to your components</i>. Coupled with <code>json</code>, you can easily throw responses with some data and render different cases in your boundary. This makes it possible to create a general error boundary, usually on your root route, that handles many cases.
+        `,
+        '<i>Inside of an <code>errorElement</code>, the <code>useRouteError</code> hook returns anything thrown during a "loader"/"action" function or rendering</i>.',
       ],
     },
     {
@@ -1245,7 +1252,7 @@ const section12 = {
       sectionSource:
         '/src/markdowns/12_React_Router/Error_handling_within_a_loader_function.html',
       highlights: {
-        highlight2: ['useRouteError', 'json()'],
+        highlight2: ['json()'],
       },
       tooltips: [
         'In your "loader" function you can throw an error. <i>When an error gets thrown in a "loader" function something special happens: React Router will simply render the closest <code>errorElement</code></i>. The <code>errorElement</code></i> page component will be shown to the screen whenever an error is generated in any route related code, including "loader" functions.',
