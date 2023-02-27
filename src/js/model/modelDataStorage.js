@@ -1327,16 +1327,21 @@ const section12 = {
         highlight2: ['"action" function', 'Form'],
       },
       tooltips: [
-        'Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants an arrow function or a regular function.',
+        'Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants a function as a value.',
+        `Just like "loader" function, "action" functions:
+        <br>- receives an object as parameter with <code>params</code> & <code>request</code> properties;
+        <br>- you can return anything from your "action" functions, even Responses;
+        <br>- you can <code>throw</code> in your "action" function to break out of the current call stack
+        `,
         `The great thing about React Router is that it makes <i>handling form submissions</i> a brace and it helps with <i>extracting data from that form</i>. For that, you should go to the component that holds the form and make some changes to it:
         <br>- all your form inputs must have the <code>name</code> attribute;
         <br>- replace the <<span>form</span>> element with the special <<span>Form</span>> component which is provided by <code>react-router-dom</code>;
-        <br>- add to the <<span>Form</span>> component the <code>method</code> property and set this to "post" for example.
+        <br>- add to the <<span>Form</span>> component the <code>method</code> attribute and optionally the <code>action</code> attribute.
         `,
         'When the form is submitted, the <b><<span>Form</span>> component will <u>trigger the "action" function</u></b>.',
-        'To extract and use the data from your <<span>Form</span>> component in you "action" function you need to use the <code>request</code> object and its methods <code>.formData()</code> and <code>.get()</code>.',
-        'The <code>.formData()</code> method return a Promise, so you need to use <code>await</code> keyword.',
-        'The <code>.get()</code> method is called to get access to the different input field values that were submitted.',
+        `To extract and use the data from your <<span>Form</span>> component in you "action" function you need to use the <code>request</code> object with it <code>.formData()</code> method and then the <code>.get()</code> method.
+        <br>- <i>The <code>.formData()</code> method return a Promise, so you need to use the <code>await</code> keyword</i>;
+        <br>- The <code>.get()</code> method is called to get access to the different input field values that were submitted.`,
         'Typically, when submitting a form what you want to happen is that you navigate the user away to a different page after successfully submitting the form. To do that, you can return in your "action" function the result of calling <code>redirect()</code>.',
       ],
     },
