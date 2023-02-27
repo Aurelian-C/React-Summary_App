@@ -57,6 +57,14 @@ You _optionally_ add to the `<Form>` component the `action` attribute. ==The `ac
 >
 > The method will be available on [`request.method`](https://developer.mozilla.org/en-US/docs/Web/API/Request/method) inside the route "action" function that is called.
 
+You could send the request to a different route by adding the `action` prop to the `<Form>` component and setting it to any other path, then in that case the "action" function of another path of another route definition object would be triggered.
+
+```react
+<Form method="post" action="/any-other-path"></Form>
+```
+
+So if you had an "action" function on some other route, you could point at that "action" function by simply setting the `<Form>` component `action` prop value to the path of the route for which you wanna trigger the "action" function, but if you wanna trigger the "action" function of the currently active route you don't need the `action` prop.
+
 ## Extracting data from the `FormData`
 
 To extract and use the data from your `<Form>` component in you "action" function, you need to use the `request` object with it [`.formData()`](https://developer.mozilla.org/en-US/docs/Web/API/Request/formData) method and then the `.get()` method.

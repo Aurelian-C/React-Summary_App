@@ -1354,21 +1354,26 @@ const section12 = {
         highlight2: ['useSubmit'],
       },
       tooltips: [
-        'The typical and <i>default way</i> of triggering an "action" function is by using the <<span>Form</span>> component',
-        'You can trigger an "action" function <i>programatically</i> with <code>useSubmit</code> hook.',
-        'Just as we can navigate programmatically, we can also <i><u>submit data</u> and <u>trigger an "action" function</u> <b>programmatically</b></i> with the special <code>useSubmit</code> hook imported from <code>react-router-dom</code>.',
+        'The typical and <i>default way</i> of triggering an "action" function is by using the <<span>Form</span>> component, but you can trigger an "action" function <i>programatically</i> with <code>useSubmit</code> hook.',
+        'Just as we can navigate programmatically, we can also <i><u>submit data</u> and <u>trigger an "action" function</u> programmatically</i> with the <code>useSubmit</code> hook imported from <code>react-router-dom</code>.',
         "The <code>useSubmit()</code> function is the <i>imperative version of <<span>Form</span>> component</i> that let's you, the programmer, submit a form instead of the user.",
         `To the <code>useSubmit</code> function you can pass two arguments:
-        <br>- 1. The first argument is the <i>data that you wanna submit</i>, and that data will automatically be wrapped in a <<span>Form</span>> data object, which you then could extract with the <code>.formData()</code> method;
-        <br>- 2. The second argument allows you to basically set <i>the same values you could set on a <<span>Form</span>> component</i>, for example the <code>method</code> or the <code>action</code> if your "action" function would be defined on a different route path.`,
+        <br>- submit <i>target</i>;
+        <br>- submit <i>options</i>;`,
+        `<b>The submit target</b>
+        <br>The first argument to submit accepts many different values. You can submit any form or form input element, or you can submit <code>FormData</code>. The first argument may be the <i>data that you wanna submit</i>, and that data will automatically be wrapped in a <<span>Form</span>> data object, which you then could extract with the <code>.formData()</code> method.`,
+        `<b>The submit options</b>
+        <br>The second argument is a set of options that map directly to <i>form submission attributes</i>. This argument allows you to basically set <i>the same values you could set on a <<span>Form</span>> component</i>, for example the <code>method</code> or the <code>action</code> if your "action" function would be defined on a different route path.`,
       ],
     },
     {
-      sectionTitle: 'Updating the UI state based on the submission status',
+      sectionTitle:
+        'Updating the UI state based on the submission status with useNavigation hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Updating_the_UI_state_based_on_the_submission_status.html',
       tooltips: [
         'You can use the <code>useNavigation</code> hook to <i>update the UI based on different navigation state</i>.',
+        "It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.",
       ],
     },
     {
@@ -1381,7 +1386,7 @@ const section12 = {
       },
       tooltips: [
         "<code>useActionData</code> hook does the same thing that <code>useLoaderData</code> hook. The most common use-case for this hook is <i>form validation errors</i>. If the form isn't right, you can return the errors and let the user try again.",
-        'Like in "loader" function, the Response that you return from your "action" function will be automatically parsed by the <code>useActionData</code> for you.',
+        'Like in a "loader" function, the Response that you return from your "action" function will be automatically parsed by the <code>useActionData</code> for you.',
       ],
     },
     {

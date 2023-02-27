@@ -8,7 +8,7 @@ The `useActionData` hook provides the returned value from the previous navigatio
 
 ![useActionData](../../img/useActionData.jpg)
 
-==Like in "loader" function, the response that you return from your "action" function will be automatically parsed by the `useActionData` for you==.
+==Like in a "loader" function, the response that you return from your "action" function will be automatically parsed by the `useActionData` for you==.
 
 ## References
 
