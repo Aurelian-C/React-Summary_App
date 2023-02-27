@@ -41,4 +41,4 @@ It's just important to recognize that ==the loading indicator won't be added on 
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
-2. [`useNavigator` - reactrouter.com](https://reactrouter.com/en/main/hooks/use-navigation)
+2. [`useNavigation` - reactrouter.com](https://reactrouter.com/en/main/hooks/use-navigation)

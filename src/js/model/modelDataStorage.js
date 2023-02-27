@@ -1239,30 +1239,63 @@ const section12 = {
         highlight2: ['"loader" function', 'useLoaderData()'],
       },
       tooltips: [
-        'Each route can define a "loader" function to <i><b>provide data</b> to the route element <b>before it renders</b></i>.',
+        'On each route you can define a "loader" function to <i><u>provide data</u> to the route element <u>before it renders</u></i>.',
         'With the help of a "loader" function you move all the fetch logic that you have in a component in that "loader" function, and this process make the component way leaner and easier to reason about.',
-        'To get access to the data returned by a "loader" function for a specific page, you can import <code>useLoaderData</code> from <code>react-router-dom</code>.',
-        '<i><code>useLoaderData</code> always get the final data returned by the "loader" function</i>, even if "loader" function is an async function.',
+        'To get access to the data returned by a "loader" function for a specific page, you can import <code>useLoaderData</code> from <code>react-router-dom</code>. <i><code>useLoaderData</code> always get the final data returned by the "loader" function</i>, even if that "loader" function is an async function.',
         `You can access "loader" function data with the help of <code>useLoaderData</code> in <i>any component on the <u>same level or lower level</u> than the component where you added the "loader" function</i>, so the route on which you added the "loader" function. <i>You can use <code>useLoaderData</code> in the element that's assigned to a route and in all components that might be used inside that element</i>.`,
-        'Where should "loader" function code be stored? <i>Is common pattern that you actually put the "loader" function code into your component file where you need it</i>, so to the page component file where you want to add the "loader" function to be precise.',
-        'When are "loader" functions executed? Data fetching is initiated as soon as we initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered.</i>.',
-        `Returning Responses in a "loader" function:  you don't need to manually extract the data from a Response, instead <i>you can just return your Response and <code>useLoaderData</code> will automatically give you the data that's part of the Response</i>.`,
-        `Which kind of code goes into a "loader" function? <i>You can use any browser APIs or vanilla JavaScript code in your "loader" function</i>. What you can't use in your "loader" function is, for example, React Hooks like <code>useState</code>. That doesn't work because those Hooks are only available in React components and the "loader" function is not a React component, but that's the only limitation.`,
+        `<b>Where should "loader" function code be stored?</b>
+        <br><i>Is common pattern that you actually put the "loader" function code into your component file where you need it</i>, to be more precise in the page component file where you want to add the "loader" function.`,
+        `<b>When are "loader" functions executed?</b>
+        <br>Data fetching is initiated as soon as you initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered.</i>.`,
+        `<b>Returning Responses in a "loader" function</b>
+        <br>You don't need to manually extract the data from a Response, instead <i>you can just return your Response and <code>useLoaderData</code> will automatically give you the data that's part of the Response</i>.`,
+        `<b>Which kind of code goes into a "loader" function?</b>
+        <br><i>You can use any browser APIs or vanilla JavaScript code in your "loader" function</i>. What you can't use in your "loader" function is, for example, React Hooks like <code>useState</code>. That doesn't work because those Hooks are only available in React components and the "loader" function is not a React component, but that's the only limitation.`,
       ],
     },
     {
       sectionTitle:
-        'Error handling within a "loader" function: useRouteError & json()',
+        'Dynamic routes & "loader" function object parameter with request & params properties',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Dynamic_Routes_&_loader_function.html',
+      highlights: {
+        highlight1: ['"loader" function object parameter'],
+        highlight2: ['request & params'],
+      },
+      tooltips: [
+        'Within a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object: <code>function loader({request, params}) { ... }</code>.',
+        '<b>The <code>request</code> object</b> parameter in a "loader" function could be used to <i>access the URL</i> to, for example, extract query parameters or anything like that.',
+        '<b>The <code>params</code> object</b> <i>contains all your route parameters</i>. With it, you can get access to all the route parameter values as you could do it with help of <code>useParams</code> hook, but <code>useParams</code> hook could only be used inside a component function, not inside a "loader" function.',
+      ],
+    },
+    {
+      sectionTitle:
+        'The useRouteLoaderData() hook & accessing data from other routes',
+      sectionSource:
+        '/src/markdowns/12_React_Router/useRouteLoaderData_&_accessing_data_from_other_Routes.html',
+      highlights: {
+        highlight2: ['useRouteLoaderData()'],
+      },
+      tooltips: [
+        `You can use the <i><u>nested routes</u></i> feature not just as a wrapper layout component, but also to <i><u>share a "loader" function</u></i> to parent/child routes. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.`,
+        'To access the data returned by the "loader" function, instead of using <code>useLoaderData</code> you need to use a different hook which is called <code>useRouteLoaderData</code>. This hook works almost like <code>useLoaderData</code> but it takes a <i>route ID as an argument</i> (the ID you assign to the parent route).',
+        `<i>With the <code>useRouteLoaderData</code> you can get access to the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across <u>multiple routes which all need the same data</u></i>.`,
+        'The <code>useRouteLoaderData</code> hook makes the data at any currently rendered route available <i>anywhere in the tree</i>. This is useful for components deep in the tree needing data from routes much farther up, as well as parent routes needing the data of child routes deeper in the tree.',
+        '<i>The only data available is the routes that are <u>currently rendered</u></i>. If you ask for data from a route that is not currently rendered, the hook will return <code>undefined</code>.',
+      ],
+    },
+    {
+      sectionTitle:
+        'Error handling within a "loader" function: json() & useRouteError',
       sectionSource:
         '/src/markdowns/12_React_Router/Error_handling_within_a_loader_function.html',
       highlights: {
         highlight2: ['json()'],
       },
       tooltips: [
-        'In your "loader" function you can throw an error. <i>When an error gets thrown in a "loader" function something special happens: React Router will simply render the closest <code>errorElement</code></i>. The <code>errorElement</code></i> page component will be shown to the screen whenever an error is generated in any route related code, including "loader" functions.',
-        'You can add an <code>errorElement</code></i> to every route definition or you can add a single <code>errorElement</code></i> to the parent route because <b>errors bubbles up to the route chain</b>.',
-        `<b>Extracting error data with <code>useRouteError</code> & throwing <code>Response</code>s</b>
-        <br>- To differentiate between different errors like <code>404</code> or <code>500</code>, you can throw in your "loader" function a <code>Response</code> object and you can include some data into that <code>Response</code>. You thrown an <code>Response</code> object with some data attached to it because <i>you can actually get hold of the data that's being thrown as an error inside of the component that's being rendered as an <code>errorElement</code></i> and for that <code>react-router-dom</code> gives you a hook called <code>useRouteError</code> hook.
+        'You can <code>throw</code> in your "loader" function to break out of the current call stack (stop running the current code) and React Router will start over down the "error path". <i>When you <code>throw</code> in a "loader" function something special happens: React Router will simply render the closest <code>errorElement</code></i>.',
+        `<b>Throwing <code>Response</code> and extracting error data with <code>useRouteError</code> hook</b>
+        <br>- To differentiate between different errors like <code>404</code> or <code>500</code>, you can throw in your "loader" function a <code>Response</code> object and you can include some data into that <code>Response</code>. You thrown an <code>Response</code> object with some data attached to it because <i>you can actually get hold of the data that's being thrown as an error inside of the component that's being rendered as an <code>errorElement</code></i> and for that <code>react-router-dom</code> gives you a hook called <code>useRouteError</code>. <i>Inside of an <code>errorElement</code>, this hook returns anything thrown during an "loader"/"action" function or rendering</i>.
         <br>- The <code>useRouteError</code> return a object, and the returned object depends on whether you threw a <code>Response</code> or any other kind of object or data.
         `,
         `<b>The <code>json()</code> utility function</b>
@@ -1282,37 +1315,6 @@ const section12 = {
       tooltips: [
         "React Router gives us a <code>useNavigation</code> hook which we can use to <i>check the current route transitions state</i>, so to find out if a transition has been initiated and we're currently still waiting for data to arrive, or if we're done.",
         "It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.",
-      ],
-    },
-    {
-      sectionTitle:
-        'Dynamic Routes & "loader" function object parameter with request & params properties',
-      sectionSource:
-        '/src/markdowns/12_React_Router/Dynamic_Routes_&_loader_function.html',
-      highlights: {
-        highlight1: ['"loader" function object parameter'],
-        highlight2: ['request & params'],
-      },
-      tooltips: [
-        'With a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object: <code>function loader({request, params}) { ... }</code>.',
-        '<b>The <code>request</code> object</b> parameter in a "loader" function could be used to <i>access the URL</i> to, for example, extract query parameters or anything like that.',
-        '<b>The <code>params</code> object</b> <i>contains all your route parameters</i>. With it, you can get access to all the route parameter values as you could do it with help of <code>useParams</code> hooks, but <code>useParams</code> hook could only be used inside a component function, not inside a "loader" function.',
-      ],
-    },
-    {
-      sectionTitle:
-        'The useRouteLoaderData() hook & accessing data from other Routes',
-      sectionSource:
-        '/src/markdowns/12_React_Router/useRouteLoaderData_&_accessing_data_from_other_Routes.html',
-      highlights: {
-        highlight2: ['useRouteLoaderData()'],
-      },
-      tooltips: [
-        `You can use the <b>nested routes</b> feature not just to use a wrapper layout component, but also to use a <i><u>shared "loader" function</u></i>. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.`,
-        'To access the data returned by the "loader" function, instead of using <code>useLoaderData</code> you need to use a different hook which is called <code>useRouteLoaderData</code>. This hook works almost like <code>useLoaderData</code> but it takes a <i>route ID as an argument</i> (the ID you assign to the parent route).',
-        `<i>With the <code>useRouteLoaderData</code> you can get access to the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across <u>multiple routes which all need the same data</u></i>.`,
-        'The <code>useRouteLoaderData</code> hook makes the data at any currently rendered route available <i>anywhere in the tree</i>. This is useful for components deep in the tree needing data from routes much farther up, as well as parent routes needing the data of child routes deeper in the tree.',
-        'The only data available is the routes that are currently rendered. If you ask for data from a route that is not currently rendered, the hook will return <code>undefined</code>.',
       ],
     },
     {
