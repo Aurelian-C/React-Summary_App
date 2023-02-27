@@ -23,7 +23,7 @@ Fetchers have a lot of _built-in behavior_:
 
 ## `useFetcher()` returns an object
 
-==The `useFetcher` hook, when executed, **returns an object** that includes a bunch of useful properties and methods==. For example, it gives you a `fetcher.Form` component which is different from the `<Form>` component you used before. It also gives you a `fetcher.submit` function which is different from the submit function you got from `useSubmit` hook, which you used before.
+==The `useFetcher` hook, when executed, **returns an object** that includes a bunch of useful properties and methods==. For example, it gives you a `fetcher.Form` component which is different from the [`<Form>`](https://reactrouter.com/en/main/components/form) component you used before. It also gives you a `fetcher.submit` function which is different from the submit function you got from [`useSubmit`](https://reactrouter.com/en/main/hooks/use-submit) hook, which you used before.
 
 ```react
 import { useFetcher } from 'react-router-dom';
@@ -48,7 +48,9 @@ function Component() {
 
 ### The `action` attribute
 
-On the `fetcher.Form` you can add the `action` attribute and for example, point at `/newsletter` because you wanna trigger the "action" function off the `/newsletter` route, but you wanna make sure that you don't load the `newsletter` route's element component; you don't wanna load the `NewsletterPage` element that belongs to the `newsletter` route. ==With the default `<Form>` component you will trigger the `newsletter` route's "action" function BUT you also load the `NewsletterPage` element. With `fetcher.Form` you ONLY trigger the "action" function WITHOUT loading the element, because with `fetcher.Form` you don't transition, you don't move to a different route==.
+As on the `<Form>` component, onthe `fetcher.Form` you can add the `action` attribute and for example, point at `/newsletter` because you wanna trigger the "action" function off the `/newsletter` route, but you wanna make sure that you don't load the `newsletter` route's element component; you don't wanna load the `NewsletterPage` element that belongs to the `newsletter` route.
+
+==With the default `<Form>` component you will trigger the `newsletter` route's "action" function BUT you also load the `NewsletterPage` element. With `fetcher.Form` you ONLY trigger the "action" function WITHOUT loading the element, because with `fetcher.Form` you don't transition, you don't move to a different route==.
 
 ==The `useFetcher` hook is the tool you should use if you wanna **interact with some "action"/"loader" function _without transitioning_**, so if you wanna send your requests behind the scenes without triggering any route changes==.
 

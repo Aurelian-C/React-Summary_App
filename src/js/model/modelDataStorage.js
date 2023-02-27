@@ -1405,11 +1405,13 @@ const section12 = {
         highlight2: ['useFetcher()'],
       },
       tooltips: [
-        'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <b>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</b>.',
+        'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</i>.',
         `Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>.`,
-        '<code>useFetcher</code> interacts with route "action"/"loader" function without causing a navigation. It is great for any interaction that stays on the same page.',
+        `<code>useFetcher</code> interacts with route "action"/"loader" function without causing a navigation. It is great for any interaction that stays on the same page.
+        <br>The <code>useFetcher</code> hook is the tool you should use if you wanna <i>interact with some "action"/"loader" function <u>without transitioning</u></i>, so if you wanna send your requests behind the scenes without triggering any route changes. Use it if you wanna <i>trigger a "loader"/"action" function without actually loading the route's <code>element</code> to which that "loader"/"action" function belongs</i>.`,
         'The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.',
-        `<b><code><<span>fetcher.Form</span>></code></b> component: <<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>. So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <<span>fetcher.load()</span>> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.`,
+        `<b><code><<span>fetcher.Form</span>></code></b> component: <<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>. So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <code>fetcher.load()</code> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.
+        <br>With the default <<span>Form</span>> component you will trigger the route "action" function BUT you also load the route element component. With <<span>fetcher.Form</span>> you ONLY trigger the "action" function WITHOUT loading the route element component, because with <<span>fetcher.Form</span>> you don't transition, you don't move to a different route.`,
         `<b><code>fetcher.data</code></b>: the returned data from the "action"/"loader" function is stored in <code>fetcher.data</code>. Once the data is set, it persists on the fetcher even through reloads and resubmissions`,
         `<b><code>fetcher.state</code></b>: You can know the state of the fetcher with <code>fetcher.state</code>. It will be one of:
         <br>- idle;
@@ -1418,7 +1420,6 @@ const section12 = {
         `,
         `<b><code>fetcher.load()</code></b>: loads data from a route "loader" function.`,
         `<b><code>fetcher.submit()</code></b>: the imperative version of <<span>fetcher.Form</span>>. If a user interaction should initiate the fetch, you should use <<span>fetcher.Form</span>>. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.`,
-        `The <code>useFetcher</code> hook is the tool you should use if you wanna <i>interact with some "action"/"loader" function <u>without transitioning</u></i>, so if you wanna send your requests behind the scenes without triggering any route changes. Use it if you wanna <i>trigger a "loader"/"action" function without actually loading the route's element to which that "loader"/"action" function belongs</i>.`,
       ],
     },
     {
