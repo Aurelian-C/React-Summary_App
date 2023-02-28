@@ -16,7 +16,7 @@ I'm talking about a problem, where you are ==passing a lot of data through a lot
 
 In bigger apps, you could easily build such ==**"props chains"**==, which are ==used to **forward data** through components to other components==. That's something you can do and that's not necessarily bad, but the bigger your app gets, the more inconvenient it is to do that. Instead, it would be nicer if we could use props in a component to only receive the data this component really needs from its parent, and not to forward other data through the parent, which the parent doesn't ever manage, nor need itself.
 
-![121_React_Context1](../../img/121_React_Context1.jpg)
+![React_Context1](../../img/React_Context1.jpg)
 
 For that we got a ==**component-wide**==, "behind the scenes" State Storage, built into React. We have a concept called ==React Context==, and this then allows us to, for example, ==trigger a action in that component-wide State Storage, and then directly pass that to the component that is interested, without building such a long "prop chain"==. So as I mentioned, we have this React Context Concept, which allows us to ==**manage state**== kind of behind the scenes in React, such that we actually are able to ==directly change state from any component== in our app, and ==directly pass state to any component== in our app, _without building such a "props chain"_.
 

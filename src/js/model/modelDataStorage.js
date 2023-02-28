@@ -100,11 +100,11 @@ const section1 = {
       ],
     },
     {
-      sectionTitle: 'Passing data via props',
+      sectionTitle: 'Passing data via <code>props</code>',
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/Passing_data_via_props.html',
       highlights: {
-        highlight2: ['props'],
+        highlight2: ['<code>props</code>'],
       },
       tooltips: [
         '<i>React components use props to communicate with each other</i>. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup! <i>To pass props, add them to the JSX markup, just like you would with HTML attributes</i>.',
@@ -137,12 +137,12 @@ const section1 = {
       ],
     },
     {
-      sectionTitle: 'The concept of "composition": props.children',
+      sectionTitle: 'The concept of "composition": <code>props.children</code>',
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/The_concept_of_composition_props_children.html',
       highlights: {
         highlight1: ['"composition"'],
-        highlight2: ['props.children'],
+        highlight2: ['<code>props.children</code>'],
       },
       tooltips: [
         "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. <i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
@@ -383,11 +383,12 @@ const section2 = {
       ],
     },
     {
-      sectionTitle: 'Introducing useReducer() for state management',
+      sectionTitle:
+        'Introducing <code>useReducer()</code> for state management',
       sectionSource:
         '/src/markdowns/02_React_state_&_working_with_Events/Introducing_useReducer_for_state_management.html',
       highlights: {
-        highlight2: ['useReducer()'],
+        highlight2: ['<code>useReducer()</code>'],
       },
       tooltips: [
         '<code>useReducer()</code> is another built-in hook and it will help us with <i>state management</i>.',
@@ -396,7 +397,7 @@ const section2 = {
       ],
     },
     {
-      sectionTitle: 'Using the useReducer() Hook',
+      sectionTitle: 'Using the <code>useReducer</code> hook',
       sectionSource:
         '/src/markdowns/02_React_state_&_working_with_Events/Using_the_useReducer_hook.html',
       tooltips: [
@@ -413,7 +414,8 @@ const section2 = {
       ],
     },
     {
-      sectionTitle: 'useReducer vs useState for state management',
+      sectionTitle:
+        '<code>useReducer</code> vs <code>useState</code> for state management',
       sectionSource:
         '/src/markdowns/02_React_state_&_working_with_Events/useReducer_vs_useState_for_state_management.html',
     },
@@ -510,11 +512,11 @@ const section3 = {
       ],
     },
     {
-      sectionTitle: 'Understanding "keys"',
+      sectionTitle: 'Understanding <code>key</code>',
       sectionSource:
         '/src/markdowns/03_Rendering_list_&_conditional_content/Understanding_Keys.html',
       highlights: {
-        highlight2: ['"keys"'],
+        highlight2: ['<code>key</code>'],
       },
       tooltips: [
         'React has a special concept when it comes to rendering lists of data, a concept which exists to ensure that React is able to update and render such lists efficiently, without performance losses or bugs which may occur.',
@@ -680,11 +682,12 @@ const section6 = {
       ],
     },
     {
-      sectionTitle: 'React Fragments',
+      sectionTitle:
+        '<code>React.Fragment</code> or shorthand <code><><span><</span>/></code>',
       sectionSource:
         '/src/markdowns/05_Working_with_Fragments_Portals_&_Refs/React_Fragments.html',
       highlights: {
-        highlight2: ['Fragments'],
+        highlight2: ['<code>React.Fragment</code>'],
       },
       tooltips: [
         'Fragments let you group a list of children without adding extra nodes to the DOM.',
@@ -725,7 +728,7 @@ const section6 = {
       ],
     },
     {
-      sectionTitle: 'Manipulating the DOM with ref',
+      sectionTitle: 'Manipulating the DOM with <code>ref</code> prop',
       sectionSource:
         '/src/markdowns/05_Working_with_Fragments_Portals_&_Refs/Manipulating_the_DOM_with_ref.html',
       tooltips: [
@@ -747,11 +750,11 @@ const section6 = {
       ],
     },
     {
-      sectionTitle: 'Diving into "forward Refs"',
+      sectionTitle: 'Diving into "forward refs"',
       sectionSource:
         '/src/markdowns/05_Working_with_Fragments_Portals_&_Refs/Diving_into_Forward_Refs.html',
       highlights: {
-        highlight2: ['"forward Refs"'],
+        highlight2: ['"forward refs"'],
       },
       tooltips: [
         "The <code>ref</code> prop is supported on all built-in HTML elements, but by default you can't use <code>ref</code> prop on your custom components!",
@@ -851,11 +854,11 @@ const section7 = {
       ],
     },
     {
-      sectionTitle: 'Using the useEffect() Hook',
+      sectionTitle: 'Using the <code>useEffect</code> hook',
       sectionSource:
         '/src/markdowns/06_Handling_side_effects/Using_the_useEffect_hook.html',
       highlights: {
-        highlight2: ['useEffect()'],
+        highlight2: ['<code>useEffect</code>'],
       },
       tooltips: [
         'Sometimes, we want to run some additional code after React has updated the DOM. What does <code>useEffect()</code> do? By using this hook, you tell React that your component needs to do something after render.',
@@ -866,7 +869,8 @@ const section7 = {
       ],
     },
     {
-      sectionTitle: 'What to add & not to add as dependencies to useEffect()',
+      sectionTitle:
+        'What to add & not to add as dependencies to <code>useEffect()</code>',
       sectionSource:
         '/src/markdowns/06_Handling_side_effects/What_to_add_&_not_to_add_as_dependencies_to_useEffect.html',
       tooltips: [
@@ -875,7 +879,8 @@ const section7 = {
       ],
     },
     {
-      sectionTitle: 'Adding nested properties as dependencies to useEffect',
+      sectionTitle:
+        'Adding nested properties as dependencies to <code>useEffect()</code>',
       sectionSource:
         '/src/markdowns/06_Handling_side_effects/Adding_nested_properties_as_dependencies_to_useEffect.html',
       highlights: {
@@ -906,11 +911,12 @@ const section8 = {
       ],
     },
     {
-      sectionTitle: 'Preventing unnecessary re-evaluations with React.memo()',
+      sectionTitle:
+        'Preventing unnecessary re-evaluations with <code>React.memo()</code>',
       sectionSource:
         '/src/markdowns/07_React_&_optimization_techniques/Preventing_unnecessary_reevaluations_with_React_memo.html',
       highlights: {
-        highlight2: ['React.memo()'],
+        highlight2: ['<code>React.memo()</code>'],
       },
       tooltips: [
         '<code>React.memo()</code> lets you skip re-rendering a component when its props are unchanged. It help you optimize functional components to avoids unnecessary components re-rendering.',
@@ -923,11 +929,12 @@ const section8 = {
       ],
     },
     {
-      sectionTitle: 'Preventing function re-creation with useCallback()',
+      sectionTitle:
+        'Preventing function re-creation with <code>useCallback()</code>',
       sectionSource:
         '/src/markdowns/07_React_&_optimization_techniques/Preventing_function_recreation_with_useCallback.html',
       highlights: {
-        highlight2: ['useCallback()'],
+        highlight2: ['<code>useCallback()</code>'],
       },
       tooltips: [
         'When you optimize rendering performance, you will sometimes need to cache the functions that you pass to child components. To cache a function between re-renders of your component, wrap its definition into the <code>useCallback</code> hook.',
@@ -936,7 +943,7 @@ const section8 = {
       ],
     },
     {
-      sectionTitle: 'useCallback() and its dependencies',
+      sectionTitle: '<code>useCallback()</code> and its dependencies',
       sectionSource: '',
     },
     {
@@ -945,11 +952,11 @@ const section8 = {
         '/src/markdowns/07_React_&_optimization_techniques/A_first_summary.html',
     },
     {
-      sectionTitle: 'Optimizing with useMemo()',
+      sectionTitle: 'Optimizing with <code>useMemo()</code>',
       sectionSource:
         '/src/markdowns/07_React_&_optimization_techniques/Optimizing_with_useMemo.html',
       highlights: {
-        highlight2: ['useMemo()'],
+        highlight2: ['<code>useMemo()</code>'],
       },
       tooltips: [
         '<code>useMemo</code> is a React hook that lets you cache the result of a calculation between re-renders until its dependencies change.',
@@ -1067,15 +1074,15 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Defining & using routes: createBrowserRouter(), RouterProvider component, path & element property',
+        'Defining & using routes: <code>createBrowserRouter()</code>, <code><<span>RouterProvider</span>></code> component, <code>path</code> & <code>element</code> property',
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_routes.html',
       highlights: {
         highlight2: [
-          'createBrowserRouter()',
-          'RouterProvider',
-          'path',
-          'element',
+          '<code>createBrowserRouter()</code>',
+          '<code><<span>RouterProvider</span>></code>',
+          '<code>path</code>',
+          '<code>element</code>',
         ],
       },
       tooltips: [
@@ -1086,12 +1093,13 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Navigating between pages with Link component',
+      sectionTitle:
+        'Navigating between pages with <code><<span>Link</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/Navigating_between_pages_with_link_component.html',
       highlights: {
         highlight1: ['Navigating between pages'],
-        highlight2: ['Link'],
+        highlight2: ['<code><<span>Link</span>></code>'],
       },
       tooltips: [
         `When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
@@ -1108,11 +1116,12 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Working with NavLink component',
+      sectionTitle:
+        'Working with <code><<span>NavLink</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_NavLink_component.html',
       highlights: {
-        highlight2: ['NavLink'],
+        highlight2: ['<code><<span>NavLink</span>></code>'],
       },
       tooltips: [
         "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show you whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.",
@@ -1123,12 +1132,13 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Navigating programmatically with useNavigate hook',
+      sectionTitle:
+        'Navigating programmatically with <code>useNavigate</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Navigating_programmatically_with_useNavigate_hook.html',
       highlights: {
         highlight1: ['Navigating programmatically'],
-        highlight2: ['useNavigate'],
+        highlight2: ['<code>useNavigate</code>'],
       },
       tooltips: [
         "Up until now you only use <b>imperative routing</b>. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it's not the only way.",
@@ -1142,12 +1152,15 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Layouts & nested routes: children property & Outlet component',
+        'Layouts & nested routes: <code>children</code> property & <code><<span>Outlet</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/Layouts_&_nested_routes.html',
       highlights: {
         highlight1: ['Layouts & nested routes'],
-        highlight2: ['children', 'Outlet'],
+        highlight2: [
+          '<code>children</code>',
+          '<code><<span>Outlet</span>></code>',
+        ],
       },
       tooltips: [
         'You can nest routes in other route with the help of <code>children</code> property.',
@@ -1157,12 +1170,12 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Showing error pages with errorElement property & useRouteError hook',
+        'Showing error pages with <code>errorElement</code> property & <code>useRouteError</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement_and_useRouteError.html',
       highlights: {
         highlight1: ['error pages'],
-        highlight2: ['errorElement', 'useRouteError'],
+        highlight2: ['<code>errorElement</code>', '<code>useRouteError</code>'],
       },
       tooltips: [
         `When you enter a URL that doesn't exist or when exceptions/errors are thrown in "loader"/"action" functions or component rendering, the <code>react-router-dom</code> package will automatically generate an error.`,
@@ -1180,12 +1193,12 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Defining dynamic path segments (path parameter) & using them with useParams hook',
+        'Defining dynamic path segments (path parameter) & using them with <code>useParams</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_dynamic_path_segments.html',
       highlights: {
         highlight1: ['dynamic path segments'],
-        highlight2: ['useParams'],
+        highlight2: ['<code>useParams</code>'],
       },
       tooltips: [
         'Dynamic path segments <code>:</code> (path parameters) helps us to always <i>render the same component for different paths (dynamic paths)</i>.',
@@ -1231,12 +1244,13 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Data fetching with a "loader" function & useLoaderData()',
+      sectionTitle:
+        'Data fetching with a "loader" function & <code>useLoaderData()</code>',
       sectionSource:
         '/src/markdowns/12_React_Router/Data_fetching_with_a_loader.html',
       highlights: {
         highlight1: ['Data fetching'],
-        highlight2: ['"loader" function', 'useLoaderData()'],
+        highlight2: ['"loader" function', '<code>useLoaderData()</code>'],
       },
       tooltips: [
         'On each route you can define a "loader" function to <i><u>provide data</u> to the route element <u>before it renders</u></i>.',
@@ -1255,12 +1269,12 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Dynamic routes & "loader" function object parameter with request & params properties',
+        'Dynamic routes & "loader" function object parameter with <code>request</code> & <code>params</code> properties',
       sectionSource:
         '/src/markdowns/12_React_Router/Dynamic_Routes_&_loader_function.html',
       highlights: {
         highlight1: ['"loader" function object parameter'],
-        highlight2: ['request & params'],
+        highlight2: ['<code>request</code> & <code>params</code>'],
       },
       tooltips: [
         'Within a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object: <code>function loader({request, params}) { ... }</code>.',
@@ -1270,11 +1284,11 @@ const section12 = {
     },
     {
       sectionTitle:
-        'The useRouteLoaderData() hook & accessing data from other routes',
+        'The <code>useRouteLoaderData()</code> hook & accessing data from other routes',
       sectionSource:
         '/src/markdowns/12_React_Router/useRouteLoaderData_&_accessing_data_from_other_Routes.html',
       highlights: {
-        highlight2: ['useRouteLoaderData()'],
+        highlight2: ['<code>useRouteLoaderData()</code>'],
       },
       tooltips: [
         `You can use the <i><u>nested routes</u></i> feature not just as a wrapper layout component, but also to <i><u>share a "loader" function</u></i> to parent/child routes. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.`,
@@ -1286,11 +1300,11 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Error handling within a "loader" function: json() & useRouteError',
+        'Error handling within a "loader" function: <code>json()</code> & <code>useRouteError</code>',
       sectionSource:
         '/src/markdowns/12_React_Router/Error_handling_within_a_loader_function.html',
       highlights: {
-        highlight2: ['json()'],
+        highlight2: ['<code>json()</code>'],
       },
       tooltips: [
         'You can <code>throw</code> in your "loader" function to break out of the current call stack (stop running the current code) and React Router will start over down the "error path". <i>When you <code>throw</code> in a "loader" function something special happens: React Router will simply render the closest <code>errorElement</code></i>.',
@@ -1306,11 +1320,11 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Reflecting the current navigation state in the UI with useNavigation hook',
+        'Reflecting the current navigation state in the UI with <code>useNavigation</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Reflecting_the_current_navigation_state_in_the_UI_with_useNavigation_hook.html',
       highlights: {
-        highlight2: ['useNavigation'],
+        highlight2: ['<code>useNavigation</code>'],
       },
       tooltips: [
         "React Router gives us a <code>useNavigation</code> hook which we can use to <i>check the current route transitions state</i>, so to find out if a transition has been initiated and we're currently still waiting for data to arrive, or if we're done.",
@@ -1319,12 +1333,12 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Submitting forms & send data with "action" function and Form component',
+        'Submitting forms & send data with "action" function and <code><<span>Form</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/Submitting_forms_and_send_data_with_action_function_and_Form_component.html',
       highlights: {
         highlight1: ['Submitting forms & send data'],
-        highlight2: ['"action" function', 'Form'],
+        highlight2: ['"action" function', '<code><<span>Form</span>></code>'],
       },
       tooltips: [
         'Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants a function as a value.',
@@ -1346,12 +1360,13 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Submitting data programmatically with useSubmit hook',
+      sectionTitle:
+        'Submitting data programmatically with <code>useSubmit</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Submitting_data_programmatically_with_useSubmit.html',
       highlights: {
         highlight1: ['Submitting data programmatically'],
-        highlight2: ['useSubmit'],
+        highlight2: ['<code>useSubmit</code>'],
       },
       tooltips: [
         'The typical and <i>default way</i> of triggering an "action" function is by using the <<span>Form</span>> component, but you can trigger an "action" function <i>programatically</i> with <code>useSubmit</code> hook.',
@@ -1368,7 +1383,7 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Updating the UI state based on the submission status with useNavigation hook',
+        'Updating the UI state based on the submission status with <code>useNavigation</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Updating_the_UI_state_based_on_the_submission_status.html',
       tooltips: [
@@ -1378,11 +1393,11 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Validating user input & outputting validation errors with useActionData hook',
+        'Validating user input & outputting validation errors with <code>useActionData</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Validating_user_input_&_outputting_validation_errors_with_useActionData.html',
       highlights: {
-        highlight2: ['useActionData'],
+        highlight2: ['<code>useActionData</code>'],
       },
       tooltips: [
         "<code>useActionData</code> hook does the same thing that <code>useLoaderData</code> hook. The most common use-case for this hook is <i>form validation errors</i>. If the form isn't right, you can return the errors and let the user try again.",
@@ -1390,7 +1405,8 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Reusing "action" functions via request.method',
+      sectionTitle:
+        'Reusing "action" functions via <code>request.method</code>',
       sectionSource:
         '/src/markdowns/12_React_Router/Reusing_action_functions_via_request_method.html',
       highlights: {
@@ -1398,11 +1414,11 @@ const section12 = {
       },
     },
     {
-      sectionTitle: 'Working with useFetcher()',
+      sectionTitle: 'Working with <code>useFetcher()</code>',
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_useFetcher.html',
       highlights: {
-        highlight2: ['useFetcher()'],
+        highlight2: ['<code>useFetcher()</code>'],
       },
       tooltips: [
         'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</i>.',
@@ -1424,12 +1440,16 @@ const section12 = {
     },
     {
       sectionTitle:
-        'Deferring data fetching with defer() function, Suspense & Await components',
+        'Deferring data fetching with <code>defer()</code> function, <code><<span>React.Suspense</span>></code> & <code><<span>Await</span>></code> components',
       sectionSource:
         '/src/markdowns/12_React_Router/Deferring_data_fetching_with_defer.html',
       highlights: {
         highlight1: ['Deferring data fetching'],
-        highlight2: ['defer()', 'Suspense', 'Await'],
+        highlight2: [
+          '<code>defer()</code>',
+          '<code><<span>React.Suspense</span>></code>',
+          '<code><<span>Await</span>></code>',
+        ],
       },
       tooltips: [
         'React Router provides a feature that allows you to <i>defer when data is loaded</i>.',
@@ -1455,12 +1475,14 @@ const section12 = {
         '/src/markdowns/12_React_Router/Controlling_which_data_should_be_deferred.html',
     },
     {
-      sectionTitle: 'More about the Await component',
+      sectionTitle:
+        'More about the <code><<span>Await</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/More_about_the_Await_component.html',
     },
     {
-      sectionTitle: 'More about the Suspense component',
+      sectionTitle:
+        'More about the <code><<span>Suspense</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/More_about_the_Suspense_component.html',
     },
