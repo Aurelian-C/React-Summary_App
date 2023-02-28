@@ -240,31 +240,37 @@ body {
   color: rgb(255, 125, 125);
 }
 
-.highlight--1 {
-  background-color: var(--highlight-color-1);
-  padding: 1px 4px;
-  border-radius: 5px;
+.highlight--1,
+.highlight--2 {
+  padding: 1px 2px;
   font-weight: bold;
   font-size: var(--highlight-font-size);
+}
+
+.highlight--1 {
+  background-color: var(--highlight-color-1);
   color: black;
 }
 
 .highlight--2 {
   background-color: var(--highlight-color-2);
-  padding: 1px 4px;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: var(--highlight-font-size);
-  color: black;
+  color: var(--has-content-color);
 }
 
 code {
-  font-size: 1.3rem;
+  font-size: var(--article-title--font-size);
   background-color: #303233;
-  padding: 0.1rem;
+  padding: 1px 2px;
   border: 2px solid #666;
-  border-radius: 0.25rem;
+  border-radius: 5px;
   color: #e6e6e6;
+}
+
+.highlight--2 code {
+  background-color: inherit;
+  border: none;
+  color: var(--has-content-color);
+  font-size: var(--highlight-font-size);
 }
 
 /* --------------------- Tooltip functionality --------------------- */
