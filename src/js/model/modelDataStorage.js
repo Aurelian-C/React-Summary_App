@@ -1423,16 +1423,29 @@ const section12 = {
       ],
     },
     {
-      sectionTitle: 'Deferring data fetching with defer()',
+      sectionTitle:
+        'Deferring data fetching with defer() function, Suspense & Await components',
       sectionSource:
         '/src/markdowns/12_React_Router/Deferring_data_fetching_with_defer.html',
       highlights: {
         highlight1: ['Deferring data fetching'],
-        highlight2: ['defer()'],
+        highlight2: ['defer()', 'Suspense', 'Await'],
       },
       tooltips: [
         'React Router provides a feature that allows you to <i>defer when data is loaded</i>.',
         'Sometimes you wanna <i>load a page component with some data <u>before fetching the data</u></i>, and show some parts of the that page component already until all the data is fetched. We can defer data loading and tell React Router that we actually wanna render a page component already, even though the data is not fully there yet.',
+        `<b>The <code>defer()</code> function</b>
+        <br>- allows you to <i>defer values returned from "loader" functions by passing promises instead of resolved values</i>
+        <br>- to <code>defer()</code> function you <i>pass an <u>object</u></i>. In that object you bundle all the different HTTP requests you might have going on a page component
+        `,
+        `<b>The <code><<span>Await</span>></code> component</b>
+        <br>- used to <i>render <u>deferred values</u> with <u>automatic error handling</u></i>
+        <br>- <code><<span>Await</span>></code> children can either be React elements or a function
+        <br>- <code><<span>Await</span>></code> expects to be rendered inside of a <code><<span>React.Suspense</span>></code> or <code><<span>React.SuspenseList</span>></code> parent to enable the fallback UI
+        `,
+        `<b>The <code><<span>Suspense</span>></code> component</b>
+        <br>- lets you <i>display a fallback until its children have finished loading</i>
+        `,
       ],
     },
     {
@@ -1440,6 +1453,16 @@ const section12 = {
         'Controlling which data should be deferred and which data should be loaded before navigation',
       sectionSource:
         '/src/markdowns/12_React_Router/Controlling_which_data_should_be_deferred.html',
+    },
+    {
+      sectionTitle: 'More about the Await component',
+      sectionSource:
+        '/src/markdowns/12_React_Router/More_about_the_Await_component.html',
+    },
+    {
+      sectionTitle: 'More about the Suspense component',
+      sectionSource:
+        '/src/markdowns/12_React_Router/More_about_the_Suspense_component.html',
     },
   ],
 };
