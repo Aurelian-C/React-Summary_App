@@ -1668,65 +1668,20 @@ const section20 = {
     '<p class="card__title--1">Section 25</p> <p class="card__title--2">Replacing Redux with React Hooks</p>',
   sections: [
     {
-      sectionTitle: '367. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '368. React 18 & This Section',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '369. Starting Project & Why You Would Replace Redux',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '370. Alternative: Using the Context API',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '371. Toggling Favorites with the Context API',
+      sectionTitle: 'Alternative 1: Using the Context API',
       sectionSource: '',
     },
     {
       sectionTitle:
-        '372. Context API Summary (and why NOT to use it instead of Redux)',
+        'Context API Summary (and why NOT to use it instead of Redux)',
       sectionSource: '',
     },
     {
-      sectionTitle: '373. Getting Started with a Custom Hook as a Store',
+      sectionTitle: 'Alternative 2: Using a Custom Hook',
       sectionSource: '',
     },
     {
-      sectionTitle: '374. Finishing the Store Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '375. Creating a Concrete Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '376. Using the Custom Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '377. Custom Hook Store Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '378. Optimizing the Custom Hook Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '379. Bonus: Managing Multiple State Slices with the Custom Store Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '380. Wrap Up',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '381. Module Resources',
+      sectionTitle: 'Managing Multiple State Slices with the Custom Store Hook',
       sectionSource: '',
     },
   ],

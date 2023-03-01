@@ -6,6 +6,18 @@ class ApplicationView {
       .insertAdjacentHTML('afterbegin', markup);
   }
 
+  // _generateMarkupColumns(card) {
+  //   const markupString = card
+  //     .map(card => {
+  //       return `
+  //           <h2 class="card__title">${card.title}</h2>
+  //           ${card.sections.map(this._generateMarkupArticle).join('')}
+  //   `;
+  //     })
+  //     .join('');
+  //   return markupString;
+  // }
+
   _generateMarkup(card) {
     const markupString = card
       .map(card => {
