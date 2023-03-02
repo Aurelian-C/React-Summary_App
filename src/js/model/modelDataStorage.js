@@ -1021,32 +1021,31 @@ const Working_with_forms_and_user_inputs = {
         '/src/markdowns/10_Working_with_forms_&_user_inputs/What_is_so_complex_about_forms.html',
     },
     {
-      sectionTitle:
-        '200. Dealing with form submission & getting user input values',
+      sectionTitle: 'Dealing with form submission & getting user input values',
       sectionSource: '',
     },
     {
-      sectionTitle: '201. Adding basic validation',
+      sectionTitle: 'Adding basic validation',
       sectionSource: '',
     },
     {
-      sectionTitle: '202. Providing validation feedback',
+      sectionTitle: 'Providing validation feedback',
       sectionSource: '',
     },
     {
-      sectionTitle: '204. React to lost focus',
+      sectionTitle: 'React to lost focus',
       sectionSource: '',
     },
     {
-      sectionTitle: '206. Managing The overall form validity',
+      sectionTitle: 'Managing The overall form validity',
       sectionSource: '',
     },
     {
-      sectionTitle: '207. Adding a custom input Hook',
+      sectionTitle: 'Adding a custom input Hook',
       sectionSource: '',
     },
     {
-      sectionTitle: '208. Re-using the custom Hook',
+      sectionTitle: 'Re-using the custom Hook',
       sectionSource: '',
     },
   ],

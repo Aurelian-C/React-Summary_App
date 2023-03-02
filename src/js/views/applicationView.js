@@ -34,7 +34,7 @@ class ApplicationView {
     return markupString;
   }
 
-  _generateMarkupArticle(article) {
+  _generateMarkupArticle(article, idx) {
     const tooltipMarkup =
       article.tooltips?.length > 0 ? '<div class="tooltip"></div>' : '';
     let title = article.sectionTitle;
@@ -63,8 +63,14 @@ class ApplicationView {
       <div class="card__article">
           ${
             article.sectionSource
-              ? `<a class="card__article-anchor" href="${article.sectionSource}" target="_blank" data-title='${article.sectionTitle}'><i class="fa-solid fa-check content__icon"></i>${title}</a>`
-              : `<p class="card__article-title" data-title='${article.sectionTitle}'>${title}</p>`
+              ? `<a class="card__article-anchor" href="${
+                  article.sectionSource
+                }" target="_blank" data-title='${article.sectionTitle}'>${
+                  idx + 1
+                }. ${title}</a>`
+              : `<p class="card__article-title" data-title='${
+                  article.sectionTitle
+                }'>${idx + 1}. ${title}</p>`
           }
        ${tooltipMarkup}
       </div>
