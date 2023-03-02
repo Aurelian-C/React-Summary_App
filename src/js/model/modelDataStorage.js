@@ -1005,6 +1005,7 @@ const section10 = {
         "Custom Hooks must be named starting with 'use' followed by a capital letter.",
         'Custom Hooks only <i>share stateful logic, not state itself</i>.',
         'All Hooks re-run every time your component re-renders.',
+        'If a component uses a custom hook and that custom hook uses <code>useState</code>, <i>the component that uses the custom hook will re-render when the state in that custom hook will trigger a re-render</i>.',
       ],
     },
   ],
