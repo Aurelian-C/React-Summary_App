@@ -1,4 +1,4 @@
-# Alternative 2: Using a custom Hook - creating a concrete store & using the custom store
+# Optimizing the custom store hook
 
 ## References
 

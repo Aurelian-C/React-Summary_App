@@ -1682,12 +1682,18 @@ const section20 = {
         'Alternative 2: Using a custom Hook - create an custom store hook that manage the wide-state data',
       sectionSource:
         '/src/markdowns/13_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part1.html',
+      highlights: {
+        highlight1: ['custom store'],
+      },
     },
     {
       sectionTitle:
         'Alternative 2: Using a custom Hook - creating a concrete store & using the custom store',
       sectionSource:
         '/src/markdowns/13_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part2.html',
+      highlights: {
+        highlight1: ['concrete store'],
+      },
     },
     {
       sectionTitle: 'Optimizing the custom store hook',
