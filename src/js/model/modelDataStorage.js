@@ -1678,8 +1678,21 @@ const section20 = {
       sectionSource: '',
     },
     {
-      sectionTitle: 'Alternative 2: Using a Custom Hook',
-      sectionSource: '',
+      sectionTitle:
+        'Alternative 2: Using a custom Hook - create an custom store hook that manage the wide-state data',
+      sectionSource:
+        '/src/markdowns/13_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part1.html',
+    },
+    {
+      sectionTitle:
+        'Alternative 2: Using a custom Hook - creating a concrete store & using the custom store',
+      sectionSource:
+        '/src/markdowns/13_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part2.html',
+    },
+    {
+      sectionTitle: 'Optimizing the custom store hook',
+      sectionSource:
+        '/src/markdowns/13_Replacing_Redux_with_React_hooks/Optimizing_the_custom_store_hook.html',
     },
     {
       sectionTitle: 'Managing Multiple State Slices with the Custom Store Hook',
