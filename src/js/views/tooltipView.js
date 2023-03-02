@@ -24,7 +24,8 @@ class TooltipView {
       }
 
       // Positioning the tooltip box relative to the body width
-      const bodyWidth = document.body.getBoundingClientRect().width;
+      const bodyDimensions = document.body.getBoundingClientRect();
+      const { width: bodyWidth } = bodyDimensions;
       const tooltipContainerPosition = tooltipContainer.getBoundingClientRect();
       const tooltipContainerOffsetX =
         tooltipContainerPosition.left + tooltipContainerPosition.width;
@@ -33,6 +34,14 @@ class TooltipView {
         const moveX = tooltipContainerOffsetX + 10 - bodyWidth;
         tooltipContainer.style.transform = `translateX(-${moveX}px)`;
       }
+
+      // Modify the tooltip height & width if the tooltip height is bigger than viewport height
+      // const viewportHeight = window.innerHeight;
+      // const tooltipContainerHeight =
+      //   tooltipContainerPosition.top + tooltipContainerPosition.height;
+      // if (tooltipContainerHeight > viewportHeight) {
+      //   tooltipContainer.style.width = `850px`;
+      // }
     });
   }
 }
