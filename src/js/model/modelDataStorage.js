@@ -1,4 +1,4 @@
-const section1 = {
+const React_basics_and_working_with_components = {
   title:
     '<p class="card__title--1">Section 1</p> <p class="card__title--2">React basics & working with components</p>',
   sections: [
@@ -154,7 +154,7 @@ const section1 = {
   ],
 };
 
-const section2 = {
+const React_state_and_working_with_events = {
   title:
     '<p class="card__title--1">Section 2</p> <p class="card__title--2">React state & working with events</p>',
   sections: [
@@ -494,7 +494,7 @@ const section2 = {
   ],
 };
 
-const section3 = {
+const Rendering_lists_and_conditional_content = {
   title:
     '<p class="card__title--1">Section 3</p> <p class="card__title--2">Rendering lists & conditional content</p>',
   sections: [
@@ -541,7 +541,7 @@ const section3 = {
   ],
 };
 
-const section4 = {
+const Styling_React_components = {
   title:
     '<p class="card__title--1">Section 4</p> <p class="card__title--2">Styling React components</p>',
   sections: [
@@ -612,7 +612,7 @@ const section4 = {
   ],
 };
 
-const section5 = {
+const Debugging_React_apps = {
   title:
     '<p class="card__title--1">Section 5</p> <p class="card__title--2">Debugging React apps</p>',
   sections: [
@@ -654,7 +654,7 @@ const section5 = {
   ],
 };
 
-const section6 = {
+const Fragments_Portals_and_Refs = {
   title:
     '<p class="card__title--1">Section 6</p> <p class="card__title--2">Fragments, Portals & "Refs"</p>',
   sections: [
@@ -766,7 +766,7 @@ const section6 = {
   ],
 };
 
-const section7 = {
+const Handling_side_effects = {
   title:
     '<p class="card__title--1">Section 7</p> <p class="card__title--2">Handling side effects</p>',
   sections: [
@@ -894,7 +894,7 @@ const section7 = {
   ],
 };
 
-const section8 = {
+const Behind_the_scenes_of_React_and_optimization_techniques = {
   title:
     '<p class="card__title--1">Section 8</p> <p class="card__title--2">Behind the scenes of React & <br>optimization techniques</p>',
   sections: [
@@ -966,9 +966,9 @@ const section8 = {
   ],
 };
 
-const section9 = {
+const An_alternative_way_of_building_components_Class_based_components = {
   title:
-    '<p class="card__title--1">Section 9</p> <p class="card__title--2">An alternative way Of building components: <br>Class-based components</p>',
+    '<p class="card__title--1">Section 9</p> <p class="card__title--2">An alternative way of building components: <br>Class-based components</p>',
   sections: [
     {
       sectionTitle: 'Introducing error boundaries',
@@ -986,7 +986,7 @@ const section9 = {
   ],
 };
 
-const section10 = {
+const Building_custom_React_Hooks = {
   title:
     '<p class="card__title--1">Section 10</p> <p class="card__title--2">Building custom React Hooks</p>',
   sections: [
@@ -1011,7 +1011,7 @@ const section10 = {
   ],
 };
 
-const section11 = {
+const Working_with_forms_and_user_inputs = {
   title:
     '<p class="card__title--1">Section 11</p> <p class="card__title--2">Working with forms & user inputs</p>',
   sections: [
@@ -1052,9 +1052,9 @@ const section11 = {
   ],
 };
 
-const section12 = {
+const Building_a_Multi_Page_SPA_with_React_Router = {
   title:
-    '<p class="card__title--1">Section 20</p> <p class="card__title--2">Building a Multi-Page SPA with React Router</p>',
+    '<p class="card__title--1">Section 12</p> <p class="card__title--2">Building a Multi-Page SPA with React Router</p>',
   sections: [
     {
       sectionTitle: 'Routing: Multiple Pages in Single-Page Applications',
@@ -1490,9 +1490,9 @@ const section12 = {
   ],
 };
 
-const section18 = {
+const Diving_into_Redux = {
   title:
-    '<p class="card__title--1">Section 18</p> <p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
+    '<p class="card__title--1">Section 13</p> <p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
   sections: [
     {
       sectionTitle: '226. Module Introduction',
@@ -1593,9 +1593,9 @@ const section18 = {
   ],
 };
 
-const section19 = {
+const Advanced_Redux = {
   title:
-    '<p class="card__title--1">Section 19</p> <p class="card__title--2">Advanced Redux</p>',
+    '<p class="card__title--1">Section 14</p> <p class="card__title--2">Advanced Redux</p>',
   sections: [
     {
       sectionTitle: '250. Module Introduction',
@@ -1664,9 +1664,9 @@ const section19 = {
   ],
 };
 
-const section20 = {
+const Replacing_Redux_with_React_Hooks = {
   title:
-    '<p class="card__title--1">Section 25</p> <p class="card__title--2">Replacing Redux with React Hooks</p>',
+    '<p class="card__title--1">Section 15</p> <p class="card__title--2">Replacing Redux with React Hooks</p>',
   sections: [
     {
       sectionTitle: 'Alternative 1: Using the Context API',
@@ -1707,9 +1707,9 @@ const section20 = {
   ],
 };
 
-const section21 = {
+const Deploying_React_apps = {
   title:
-    '<p class="card__title--1">Section 21</p> <p class="card__title--2">Deploying React apps</p>',
+    '<p class="card__title--1">Section 16</p> <p class="card__title--2">Deploying React apps</p>',
   sections: [
     {
       sectionTitle: '293. Module Introduction',
@@ -1742,9 +1742,143 @@ const section21 = {
   ],
 };
 
-const section22 = {
+const Animating_React_Apps = {
   title:
-    '<p class="card__title--1">Section 22</p> <p class="card__title--2">Adding authentication to React apps</p>',
+    '<p class="card__title--1">Section 17</p> <p class="card__title--2">Animating React Apps</p>',
+  sections: [
+    {
+      sectionTitle: '351. Module Introduction',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '352. Preparing the Demo Project',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '353. Using CSS Transitions',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '354. Using CSS Animations',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '355. CSS  Transition & Animations Limitations',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '356. Using ReactTransitionGroup',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '357. Using the Transition Component',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '358. Wrapping the Transition Component',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '359. Animation Timings',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '360. Transition Events',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '361. The CSSTransition Component',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '362. Customizing CSS Classnames',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '363. Animating Lists',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '364. Alternative Animation Packages',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '365. Wrap Up',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '366. Module Resources',
+      sectionSource: '',
+    },
+  ],
+};
+
+const Testing_React_Apps = {
+  title:
+    '<p class="card__title--1">Section 18</p> <p class="card__title--2">Testing React Apps (Unit Tests)</p>',
+  sections: [
+    {
+      sectionTitle: '382. Module Introduction',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '383. What & Why?',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '384. Understanding Different Kinds Of Tests',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '385. What To Test & How To Test',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '386. Understanding the Technical Setup & Involved Tools',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '387. Running a First Test',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '388. Writing Our First Test',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '389. Grouping Tests Together With Test Suites',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '390. Testing User Interaction & State',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '391. Testing Connected Components',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '392. Testing Asynchronous Code',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '393. Working With Mocks',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '394. Summary & Further Resources',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '395. Module Resources',
+      sectionSource: '',
+    },
+  ],
+};
+
+const Adding_authentication_to_React_apps = {
+  title:
+    '<p class="card__title--1">Section 19</p> <p class="card__title--2">Adding authentication to React apps</p>',
   sections: [
     {
       sectionTitle: '300. Module Introduction',
@@ -1813,9 +1947,120 @@ const section22 = {
   ],
 };
 
-const section23 = {
+const React_and_TypeScript = {
   title:
-    '<p class="card__title--1">Section 23</p> <p class="card__title--2">A (Pretty Deep Dive) Introduction to Next.js</p>',
+    '<p class="card__title--1">Section 20</p> <p class="card__title--2">React + TypeScript</p>',
+  sections: [
+    {
+      sectionTitle: '396. Module Introduction',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '397. What & Why?',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '398. Installing & Using TypeScript',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '399. Exploring the Base Types',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '400. Working with Array & Object Types',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '401. Understanding Type Inference',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '402. Using Union Types',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '403. Understanding Type Aliases',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '404. Functions & Function Types',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '405. Diving Into Generics',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '406. A Closer Look At Generics',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '407. Creating a React + TypeScript Project',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '408. Working with Components & TypeScript',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '409. Working with Props & TypeScript',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '410. Adding a Data Model',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '411. Time to Practice: Exercise Time!',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '412. Form Submissions In TypeScript Projects',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '413. Working with refs & useRef',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '414. Working with "Function Props"',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '415. Managing State & TypeScript',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '416. Adding Styling',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '417. Time to Practice: Removing a Todo',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '418. The Context API & TypeScript',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '419. Summary',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '420. Bonus: Exploring tsconfig.json',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '421. Module Resources',
+      sectionSource: '',
+    },
+  ],
+};
+
+const Introduction_to_NextJS = {
+  title:
+    '<p class="card__title--1">Section 21</p> <p class="card__title--2">A (Pretty Deep Dive) Introduction to Next.js</p>',
   sections: [
     {
       sectionTitle: '316. Module Introduction',
@@ -1964,254 +2209,9 @@ const section23 = {
   ],
 };
 
-const section24 = {
+const Optional_React_Hooks_introduction_and_summary = {
   title:
-    '<p class="card__title--1">Section 24</p> <p class="card__title--2">Animating React Apps</p>',
-  sections: [
-    {
-      sectionTitle: '351. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '352. Preparing the Demo Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '353. Using CSS Transitions',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '354. Using CSS Animations',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '355. CSS  Transition & Animations Limitations',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '356. Using ReactTransitionGroup',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '357. Using the Transition Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '358. Wrapping the Transition Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '359. Animation Timings',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '360. Transition Events',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '361. The CSSTransition Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '362. Customizing CSS Classnames',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '363. Animating Lists',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '364. Alternative Animation Packages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '365. Wrap Up',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '366. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section26 = {
-  title:
-    '<p class="card__title--1">Section 26</p> <p class="card__title--2">Testing React Apps (Unit Tests)</p>',
-  sections: [
-    {
-      sectionTitle: '382. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '383. What & Why?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '384. Understanding Different Kinds Of Tests',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '385. What To Test & How To Test',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '386. Understanding the Technical Setup & Involved Tools',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '387. Running a First Test',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '388. Writing Our First Test',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '389. Grouping Tests Together With Test Suites',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '390. Testing User Interaction & State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '391. Testing Connected Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '392. Testing Asynchronous Code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '393. Working With Mocks',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '394. Summary & Further Resources',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '395. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section27 = {
-  title:
-    '<p class="card__title--1">Section 27</p> <p class="card__title--2">React + TypeScript</p>',
-  sections: [
-    {
-      sectionTitle: '396. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '397. What & Why?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '398. Installing & Using TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '399. Exploring the Base Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '400. Working with Array & Object Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '401. Understanding Type Inference',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '402. Using Union Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '403. Understanding Type Aliases',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '404. Functions & Function Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '405. Diving Into Generics',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '406. A Closer Look At Generics',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '407. Creating a React + TypeScript Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '408. Working with Components & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '409. Working with Props & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '410. Adding a Data Model',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '411. Time to Practice: Exercise Time!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '412. Form Submissions In TypeScript Projects',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '413. Working with refs & useRef',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '414. Working with "Function Props"',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '415. Managing State & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '416. Adding Styling',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '417. Time to Practice: Removing a Todo',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '418. The Context API & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '419. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '420. Bonus: Exploring tsconfig.json',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '421. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const section28 = {
-  title:
-    '<p class="card__title--1">Section 28</p> <p class="card__title--2">Optional: React Hooks Introduction & Summary</p>',
+    '<p class="card__title--1">Section 22</p> <p class="card__title--2">Optional: React Hooks Introduction & Summary</p>',
   sections: [
     {
       sectionTitle: '422. Module Introduction',
@@ -2332,9 +2332,9 @@ const section28 = {
   ],
 };
 
-const section29 = {
+const Optional_React_summary_and_core_feature_walkthrough = {
   title:
-    '<p class="card__title--1">Section 29</p> <p class="card__title--2">Optional: React Summary & Core Feature Walkthrough</p>',
+    '<p class="card__title--1">Section 23</p> <p class="card__title--2">Optional: React Summary & Core Feature Walkthrough</p>',
   sections: [
     {
       sectionTitle: '451. Module Introduction',
@@ -2488,9 +2488,9 @@ const section29 = {
   ],
 };
 
-const section30 = {
+const Course_Roundup = {
   title:
-    '<p class="card__title--1">Section 30</p> <p class="card__title--2">Course Roundup</p>',
+    '<p class="card__title--1">Section 24</p> <p class="card__title--2">Course Roundup</p>',
   sections: [
     {
       sectionTitle: '488. What Now? Next Steps You Could Take!',
@@ -2512,28 +2512,28 @@ const section30 = {
 };
 
 export const dataStorage = [
-  section1,
-  section2,
-  section3,
-  section4,
-  section5,
-  section6,
-  section7,
-  section8,
-  section9,
-  section10,
-  section11,
-  section12,
-  section18,
-  section19,
-  section20,
-  section21,
-  section22,
-  section23,
-  section24,
-  section26,
-  section27,
-  section28,
-  section29,
-  section30,
+  React_basics_and_working_with_components,
+  React_state_and_working_with_events,
+  Rendering_lists_and_conditional_content,
+  Styling_React_components,
+  Debugging_React_apps,
+  Fragments_Portals_and_Refs,
+  Handling_side_effects,
+  Behind_the_scenes_of_React_and_optimization_techniques,
+  An_alternative_way_of_building_components_Class_based_components,
+  Building_custom_React_Hooks,
+  Working_with_forms_and_user_inputs,
+  Building_a_Multi_Page_SPA_with_React_Router,
+  Diving_into_Redux,
+  Advanced_Redux,
+  Replacing_Redux_with_React_Hooks,
+  Deploying_React_apps,
+  Animating_React_Apps,
+  Testing_React_Apps,
+  Adding_authentication_to_React_apps,
+  React_and_TypeScript,
+  Introduction_to_NextJS,
+  Optional_React_Hooks_introduction_and_summary,
+  Optional_React_summary_and_core_feature_walkthrough,
+  Course_Roundup,
 ];
