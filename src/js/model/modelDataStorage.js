@@ -1700,8 +1700,9 @@ const Replacing_Redux_with_React_Hooks = {
         '/src/markdowns/13_Replacing_Redux_with_React_hooks/Optimizing_the_custom_store_hook.html',
     },
     {
-      sectionTitle: 'Managing Multiple State Slices with the Custom Store Hook',
-      sectionSource: '',
+      sectionTitle: 'Managing multiple state slices with the custom store hook',
+      sectionSource:
+        '/src/markdowns/13_Replacing_Redux_with_React_hooks/Managing_multiple_state_slices_with_the_custom_store_hook.html',
     },
   ],
 };
