@@ -1494,99 +1494,99 @@ const Diving_into_Redux = {
     '<p class="card__title--1">Section 13</p> <p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
   sections: [
     {
-      sectionTitle: '226. Module Introduction',
+      sectionTitle: 'Module Introduction',
       sectionSource: '',
     },
     {
-      sectionTitle: '227. Another Look At State In React Apps',
+      sectionTitle: 'Another Look At State In React Apps',
       sectionSource: '',
     },
     {
-      sectionTitle: '228. Redux vs React Context',
+      sectionTitle: 'Redux vs React Context',
       sectionSource: '',
     },
     {
-      sectionTitle: '229. How Redux Works',
+      sectionTitle: 'How Redux Works',
       sectionSource: '',
     },
     {
-      sectionTitle: '230. Exploring The Core Redux Concepts',
+      sectionTitle: 'Exploring The Core Redux Concepts',
       sectionSource: '',
     },
     {
-      sectionTitle: '231. More Redux Basics',
+      sectionTitle: 'More Redux Basics',
       sectionSource: '',
     },
     {
-      sectionTitle: '232. Preparing a new Project',
+      sectionTitle: 'Preparing a new Project',
       sectionSource: '',
     },
     {
-      sectionTitle: '233. Creating a Redux Store for React',
+      sectionTitle: 'Creating a Redux Store for React',
       sectionSource: '',
     },
     {
-      sectionTitle: '234. Providing the Store',
+      sectionTitle: 'Providing the Store',
       sectionSource: '',
     },
     {
-      sectionTitle: '235. Using Redux Data in React Components',
+      sectionTitle: 'Using Redux Data in React Components',
       sectionSource: '',
     },
     {
-      sectionTitle: '236. Dispatching Actions From Inside Components',
+      sectionTitle: 'Dispatching Actions From Inside Components',
       sectionSource: '',
     },
     {
-      sectionTitle: '237. Redux with Class-based Components',
+      sectionTitle: 'Redux with Class-based Components',
       sectionSource: '',
     },
     {
-      sectionTitle: '238. Attaching Payloads to Actions',
+      sectionTitle: 'Attaching Payloads to Actions',
       sectionSource: '',
     },
     {
-      sectionTitle: '239. Working with Multiple State Properties',
+      sectionTitle: 'Working with Multiple State Properties',
       sectionSource: '',
     },
     {
-      sectionTitle: '240. How To Work With Redux State Correctly',
+      sectionTitle: 'How To Work With Redux State Correctly',
       sectionSource: '',
     },
     {
-      sectionTitle: '241. Redux Challenges & Introducing Redux Toolkit',
+      sectionTitle: 'Redux Challenges & Introducing Redux Toolkit',
       sectionSource: '',
     },
     {
-      sectionTitle: '242. Adding State Slices',
+      sectionTitle: 'Adding State Slices',
       sectionSource: '',
     },
     {
-      sectionTitle: '243. Connecting Redux Toolkit State',
+      sectionTitle: 'Connecting Redux Toolkit State',
       sectionSource: '',
     },
     {
-      sectionTitle: '244. Migrating Everything To Redux Toolkit',
+      sectionTitle: 'Migrating Everything To Redux Toolkit',
       sectionSource: '',
     },
     {
-      sectionTitle: '245. Working with Multiple Slices',
+      sectionTitle: 'Working with Multiple Slices',
       sectionSource: '',
     },
     {
-      sectionTitle: '246. Reading & Dispatching From A New Slice',
+      sectionTitle: 'Reading & Dispatching From A New Slice',
       sectionSource: '',
     },
     {
-      sectionTitle: '247. Splitting Our Code',
+      sectionTitle: 'Splitting Our Code',
       sectionSource: '',
     },
     {
-      sectionTitle: '248. Summary',
+      sectionTitle: 'Summary',
       sectionSource: '',
     },
     {
-      sectionTitle: '249. Module Resources',
+      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
@@ -1597,67 +1597,67 @@ const Advanced_Redux = {
     '<p class="card__title--1">Section 14</p> <p class="card__title--2">Advanced Redux</p>',
   sections: [
     {
-      sectionTitle: '250. Module Introduction',
+      sectionTitle: 'Module Introduction',
       sectionSource: '',
     },
     {
-      sectionTitle: '251. Redux & Side Effects (and Asynchronous Code)',
+      sectionTitle: 'Redux & Side Effects (and Asynchronous Code)',
       sectionSource: '',
     },
     {
-      sectionTitle: '252. Refresher / Practice: Part 1/2',
+      sectionTitle: 'Refresher / Practice: Part 1/2',
       sectionSource: '',
     },
     {
-      sectionTitle: '253. Refresher / Practice: Part 2/2',
+      sectionTitle: 'Refresher / Practice: Part 2/2',
       sectionSource: '',
     },
     {
-      sectionTitle: '254. Redux & Async Code',
+      sectionTitle: 'Redux & Async Code',
       sectionSource: '',
     },
     {
-      sectionTitle: '255. Frontend Code vs Backend Code',
+      sectionTitle: 'Frontend Code vs Backend Code',
       sectionSource: '',
     },
     {
-      sectionTitle: '256. Where To Put Our Logic',
+      sectionTitle: 'Where To Put Our Logic',
       sectionSource: '',
     },
     {
-      sectionTitle: '257. Using useEffect with Redux',
+      sectionTitle: 'Using useEffect with Redux',
       sectionSource: '',
     },
     {
-      sectionTitle: '258. A Problem with useEffect()',
+      sectionTitle: 'A Problem with useEffect()',
       sectionSource: '',
     },
     {
-      sectionTitle: '259. Handling Http States & Feedback with Redux',
+      sectionTitle: 'Handling Http States & Feedback with Redux',
       sectionSource: '',
     },
     {
-      sectionTitle: '260. Using an Action Creator Thunk',
+      sectionTitle: 'Using an Action Creator Thunk',
       sectionSource: '',
     },
     {
-      sectionTitle: '261. Getting Started with Fetching Data',
+      sectionTitle: 'Getting Started with Fetching Data',
       sectionSource: '',
     },
     {
-      sectionTitle: '262. Finalizing the Fetching Logic',
+      sectionTitle: 'Finalizing the Fetching Logic',
       sectionSource: '',
     },
     {
-      sectionTitle: '263. Exploring the Redux DevTools',
+      sectionTitle: 'Exploring the Redux DevTools',
       sectionSource: '',
     },
     {
-      sectionTitle: '264. Summary',
+      sectionTitle: 'Summary',
       sectionSource: '',
     },
     {
-      sectionTitle: '265. Module Resources',
+      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
@@ -1708,31 +1708,31 @@ const Deploying_React_apps = {
     '<p class="card__title--1">Section 16</p> <p class="card__title--2">Deploying React apps</p>',
   sections: [
     {
-      sectionTitle: '293. Module Introduction',
+      sectionTitle: 'Module Introduction',
       sectionSource: '',
     },
     {
-      sectionTitle: '294. Deployment Steps',
+      sectionTitle: 'Deployment Steps',
       sectionSource: '',
     },
     {
-      sectionTitle: '295. Adding Lazy Loading',
+      sectionTitle: 'Adding Lazy Loading',
       sectionSource: '',
     },
     {
-      sectionTitle: '296. Building The Code For Production',
+      sectionTitle: 'Building The Code For Production',
       sectionSource: '',
     },
     {
-      sectionTitle: '297. Getting Started With Deployment (Uploading Files)',
+      sectionTitle: 'Getting Started With Deployment (Uploading Files)',
       sectionSource: '',
     },
     {
-      sectionTitle: '298. Exploring Routing Issues & Finishing Deployment',
+      sectionTitle: 'Exploring Routing Issues & Finishing Deployment',
       sectionSource: '',
     },
     {
-      sectionTitle: '299. Module Resources',
+      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
@@ -1743,67 +1743,67 @@ const Animating_React_Apps = {
     '<p class="card__title--1">Section 17</p> <p class="card__title--2">Animating React Apps</p>',
   sections: [
     {
-      sectionTitle: '351. Module Introduction',
+      sectionTitle: 'Module Introduction',
       sectionSource: '',
     },
     {
-      sectionTitle: '352. Preparing the Demo Project',
+      sectionTitle: 'Preparing the Demo Project',
       sectionSource: '',
     },
     {
-      sectionTitle: '353. Using CSS Transitions',
+      sectionTitle: 'Using CSS Transitions',
       sectionSource: '',
     },
     {
-      sectionTitle: '354. Using CSS Animations',
+      sectionTitle: 'Using CSS Animations',
       sectionSource: '',
     },
     {
-      sectionTitle: '355. CSS  Transition & Animations Limitations',
+      sectionTitle: 'CSS Transition & Animations Limitations',
       sectionSource: '',
     },
     {
-      sectionTitle: '356. Using ReactTransitionGroup',
+      sectionTitle: 'Using ReactTransitionGroup',
       sectionSource: '',
     },
     {
-      sectionTitle: '357. Using the Transition Component',
+      sectionTitle: 'Using the Transition Component',
       sectionSource: '',
     },
     {
-      sectionTitle: '358. Wrapping the Transition Component',
+      sectionTitle: 'Wrapping the Transition Component',
       sectionSource: '',
     },
     {
-      sectionTitle: '359. Animation Timings',
+      sectionTitle: 'Animation Timings',
       sectionSource: '',
     },
     {
-      sectionTitle: '360. Transition Events',
+      sectionTitle: 'Transition Events',
       sectionSource: '',
     },
     {
-      sectionTitle: '361. The CSSTransition Component',
+      sectionTitle: 'The CSSTransition Component',
       sectionSource: '',
     },
     {
-      sectionTitle: '362. Customizing CSS Classnames',
+      sectionTitle: 'Customizing CSS Classnames',
       sectionSource: '',
     },
     {
-      sectionTitle: '363. Animating Lists',
+      sectionTitle: 'Animating Lists',
       sectionSource: '',
     },
     {
-      sectionTitle: '364. Alternative Animation Packages',
+      sectionTitle: 'Alternative Animation Packages',
       sectionSource: '',
     },
     {
-      sectionTitle: '365. Wrap Up',
+      sectionTitle: 'Wrap Up',
       sectionSource: '',
     },
     {
-      sectionTitle: '366. Module Resources',
+      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
@@ -1814,59 +1814,59 @@ const Testing_React_Apps = {
     '<p class="card__title--1">Section 18</p> <p class="card__title--2">Testing React Apps (Unit Tests)</p>',
   sections: [
     {
-      sectionTitle: '382. Module Introduction',
+      sectionTitle: 'Module Introduction',
       sectionSource: '',
     },
     {
-      sectionTitle: '383. What & Why?',
+      sectionTitle: 'What & Why?',
       sectionSource: '',
     },
     {
-      sectionTitle: '384. Understanding Different Kinds Of Tests',
+      sectionTitle: 'Understanding Different Kinds Of Tests',
       sectionSource: '',
     },
     {
-      sectionTitle: '385. What To Test & How To Test',
+      sectionTitle: 'What To Test & How To Test',
       sectionSource: '',
     },
     {
-      sectionTitle: '386. Understanding the Technical Setup & Involved Tools',
+      sectionTitle: 'Understanding the Technical Setup & Involved Tools',
       sectionSource: '',
     },
     {
-      sectionTitle: '387. Running a First Test',
+      sectionTitle: 'Running a First Test',
       sectionSource: '',
     },
     {
-      sectionTitle: '388. Writing Our First Test',
+      sectionTitle: 'Writing Our First Test',
       sectionSource: '',
     },
     {
-      sectionTitle: '389. Grouping Tests Together With Test Suites',
+      sectionTitle: 'Grouping Tests Together With Test Suites',
       sectionSource: '',
     },
     {
-      sectionTitle: '390. Testing User Interaction & State',
+      sectionTitle: 'Testing User Interaction & State',
       sectionSource: '',
     },
     {
-      sectionTitle: '391. Testing Connected Components',
+      sectionTitle: 'Testing Connected Components',
       sectionSource: '',
     },
     {
-      sectionTitle: '392. Testing Asynchronous Code',
+      sectionTitle: 'Testing Asynchronous Code',
       sectionSource: '',
     },
     {
-      sectionTitle: '393. Working With Mocks',
+      sectionTitle: 'Working With Mocks',
       sectionSource: '',
     },
     {
-      sectionTitle: '394. Summary & Further Resources',
+      sectionTitle: 'Summary & Further Resources',
       sectionSource: '',
     },
     {
-      sectionTitle: '395. Module Resources',
+      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
@@ -1877,67 +1877,67 @@ const Adding_authentication_to_React_apps = {
     '<p class="card__title--1">Section 19</p> <p class="card__title--2">Adding authentication to React apps</p>',
   sections: [
     {
-      sectionTitle: '300. Module Introduction',
+      sectionTitle: 'Module Introduction',
       sectionSource: '',
     },
     {
-      sectionTitle: '301. What, How & Why?',
+      sectionTitle: 'What, How & Why?',
       sectionSource: '',
     },
     {
-      sectionTitle: '302. More on "Authentication Tokens"',
+      sectionTitle: 'More on "Authentication Tokens"',
       sectionSource: '',
     },
     {
-      sectionTitle: '303. Starting Setup & First Steps',
+      sectionTitle: 'Starting Setup & First Steps',
       sectionSource: '',
     },
     {
-      sectionTitle: '304. Adding User Signup',
+      sectionTitle: 'Adding User Signup',
       sectionSource: '',
     },
     {
-      sectionTitle: '305. Showing Feedback To The User',
+      sectionTitle: 'Showing Feedback To The User',
       sectionSource: '',
     },
     {
-      sectionTitle: '306. Adding User Login',
+      sectionTitle: 'Adding User Login',
       sectionSource: '',
     },
     {
-      sectionTitle: '307. Managing The Auth State With Context',
+      sectionTitle: 'Managing The Auth State With Context',
       sectionSource: '',
     },
     {
-      sectionTitle: '308. Using The Token For Requests To Protected Resources',
+      sectionTitle: 'Using The Token For Requests To Protected Resources',
       sectionSource: '',
     },
     {
-      sectionTitle: '309. Redirecting The User',
+      sectionTitle: 'Redirecting The User',
       sectionSource: '',
     },
     {
-      sectionTitle: '310. Adding Logout',
+      sectionTitle: 'Adding Logout',
       sectionSource: '',
     },
     {
-      sectionTitle: '311. Protecting Frontend Pages',
+      sectionTitle: 'Protecting Frontend Pages',
       sectionSource: '',
     },
     {
-      sectionTitle: '312. Persisting The User Authentication Status',
+      sectionTitle: 'Persisting The User Authentication Status',
       sectionSource: '',
     },
     {
-      sectionTitle: '313. Adding Auto-Logout',
+      sectionTitle: 'Adding Auto-Logout',
       sectionSource: '',
     },
     {
-      sectionTitle: '314. Finishing Steps',
+      sectionTitle: 'Finishing Steps',
       sectionSource: '',
     },
     {
-      sectionTitle: '315. Module Resources',
+      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
