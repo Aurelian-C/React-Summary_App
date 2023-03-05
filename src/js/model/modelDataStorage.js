@@ -1668,12 +1668,8 @@ const Replacing_Redux_with_React_Hooks = {
     '<p class="card__title--1">Section 15</p> <p class="card__title--2">Replacing Redux with React Hooks</p>',
   sections: [
     {
-      sectionTitle: 'Alternative 1: Using the Context API',
-      sectionSource: '',
-    },
-    {
       sectionTitle:
-        'Context API Summary (and why NOT to use it instead of Redux)',
+        'Alternative 1: Using the Context API (and why NOT to use it instead of Redux)',
       sectionSource: '',
     },
     {
