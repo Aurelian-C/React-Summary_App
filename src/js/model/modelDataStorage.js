@@ -2527,9 +2527,9 @@ export const dataStorage = [
   Animating_React_Apps,
   Testing_React_Apps,
   Adding_authentication_to_React_apps,
-  React_and_TypeScript,
-  Introduction_to_NextJS,
+  // React_and_TypeScript,
+  // Introduction_to_NextJS,
   Optional_React_Hooks_introduction_and_summary,
   Optional_React_summary_and_core_feature_walkthrough,
-  Course_Roundup,
+  // Course_Roundup,
 ];
