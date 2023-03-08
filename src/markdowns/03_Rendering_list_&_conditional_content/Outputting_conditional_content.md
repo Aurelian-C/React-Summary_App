@@ -9,12 +9,14 @@ In React, there is no special syntax for writing conditions. Instead, you’ll u
 ```react
 function Component() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  let content;
+    
+  let content;    
   if (isLoggedIn) {
      content = <AdminPanel/>;
   } else {
      content = <LoginForm/>;
-  } 
+  }
+    
   return (
      <div>
         {content}
@@ -29,11 +31,7 @@ If you prefer more compact code, you can use the [conditional `?` operator.](htt
 
 ```react
 <div>
-  {isLoggedIn ? (
-    <AdminPanel/>
-  ) : (
-    <LoginForm/>
-  )}
+  {isLoggedIn ? (<AdminPanel/>) : (<LoginForm/>)}
 </div>
 ```
 

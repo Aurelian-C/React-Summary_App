@@ -10,15 +10,20 @@ const React_basics_and_working_with_components = {
         highlight1: ['components'],
       },
       tooltips: [
-        'A component is <i>a piece of the UI (user interface) that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
-        'Conceptually, components are like JavaScript functions. <i>A component in React is just <b>a JavaScript function that returns JSX markup</b>. Components are in the end just a combination of HTML, CSS and JavaScript</i>.',
-        "Components are <i><b>reusable</b> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
-        'Components are a handy way to organize UI code and markup, even if some of them are only used once.',
-        'React is all about splitting your app into small building blocks (components), where every building block (component) has a clear task, and therefore your code stays maintainable and manageable, and React, the library, will do the heavy lifting of rendering something onto the screen and of combining all your code.',
-        'Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.',
-        `React components are regular JavaScript functions except:
+        'React is a JavaScript library for <i>building user interfaces (UI)</i>.',
+        'React apps are made out of components. A component is <i>a piece of the UI that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
+        `<h3>What is a component?</h3>
+        <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <u>props</u>) and return <u>JSX markup</u> describing what should appear on the screen. So a component in React is just <i>a JavaScript function that returns JSX markup</i>.</p>
+        <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
+        <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
+        <p>React components are regular JavaScript functions except:
         <br>- their names always begin with a capital letter;
-        <br>- they return JSX markup.`,
+        <br>- they return JSX markup.</p>`,
+        `<h3>Why components?</h3>
+        <p>React is all about components because <i>the UI in the end is made up of components</i>.</p>
+        <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a clear task</i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your code.</p>
+        <p>Components let you <i>split the UI into <u>independent</u>, <u>reusable</u> pieces, and think about each piece in isolation</i>.</p>
+        `,
       ],
     },
     {
@@ -149,6 +154,24 @@ const React_basics_and_working_with_components = {
         "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
         '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
         'You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.',
+      ],
+    },
+    {
+      sectionTitle: 'Thinking in React',
+      sectionSource:
+        '/src/markdowns/01_React_basics_&_working_with_Components/Thinking_in_React.html',
+      tooltips: [
+        `React can change how you think about the designs you look at and the apps you build. When you build a UI with React:
+        <br>- <i>you will first break it apart into pieces called components</i>
+        <br>- then you will <i>describe the different visual states for each of your components</i>
+        <br>- finally you will <i>connect your components together so that the data flows through them</i>.`,
+        `Start with the mockup: imagine that you already have a JSON API and a mockup from a designer. To implement a UI in React, you will usually follow the same five steps:
+        <br>1. Break the UI into a component hierarchy
+        <br>2. Build a static version in React
+        <br>3. Find the minimal but complete representation of UI state
+        <br>4. Identify where your state should live
+        <br>5. Add inverse data flow 
+        `,
       ],
     },
   ],

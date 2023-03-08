@@ -290,6 +290,10 @@ code {
   margin-bottom: 15px;
 }
 
+.tooltip_paragraph p {
+  margin-bottom: 2px;
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover {
   visibility: visible;

@@ -12,6 +12,8 @@ The web has been built on HTML, CSS, and JavaScript. ==For many years, web devel
 
 ==**Each React component is a JavaScript function** that may contain some markup that React renders into the browser. React components use a _syntax extension_ called JSX to represent that markup==. JSX looks a lot like HTML, but it is a bit stricter, has a few more rules than HTML and can display dynamic information.
 
+JSX lets you put markup into JavaScript.
+
 ## JSX is only syntactic sugar for the `React.createElement()`
 
 ==Fundamentally, JSX just provides _syntactic sugar_ for the `React.createElement(component, props, ...children)` function==:
@@ -63,6 +65,8 @@ const expensesContent = filteredExpenses.map((item) => (
 ```
 
 ## The Rules of JSX
+
+JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can’t return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper.
 
 #### 1. Return a single root element
 

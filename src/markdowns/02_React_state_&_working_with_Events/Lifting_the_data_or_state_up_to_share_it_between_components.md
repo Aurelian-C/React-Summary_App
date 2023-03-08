@@ -51,7 +51,9 @@ Now, it's not always that root `<App/>` component to which you wanna lift your d
 
 ## Lifting the _state_ up
 
-==Sometimes, you want the state of two components to always change together. To do it, remove state from both of them, move it to their closest common parent, and then pass it down to them via props==. This is known as _lifting state up_, and it’s one of the most common things you will do writing React code.
+==Sometimes, you want the state of two or multiple components to always change/update together. To do that, move the state and the functions that manipulate that state from each individual component “upwards” to the closest component containing all of them (closest parent component), and from the closest parent component pass the state/functions down to them via props==. In this way the parent component contains the state and the functions that manipulate that state, and *passes them down to its child components as props*. This is known as _lifting state up_, and it’s one of the most common things you will do writing React code.
+
+In this way the state/functions is _only in one place_ (parent component), and each child components have access to that state/functions via props. The child components don't have their own state/functions, the state/functions is only in the parent component and pass to them via props. This is called “lifting state up”. By moving state up, you’ve **shared it between components**.
 
 For more information, visit [Sharing State Between Components - beta.reactjs.org](https://beta.reactjs.org/learn/sharing-state-between-components)
 

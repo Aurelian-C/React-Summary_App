@@ -10,10 +10,10 @@ function Welcome(props) {
 }
 ```
 
-==A **React component** is basically just a **custom HTML element**. The key difference between custom and built-in HTML elements is that _custom elements (components) NOT start with a lowercase character, but with an uppercase character_. And indeed **your own custom components must start with an uppercase character**==, so that React is able to detect that is a custom Component. Because _the simple rule which React applies is that lowercase elements are built-in HTML elements, so it will look for them as built-in elements, whereas elements starting with an uppercase character are elements defined by you or some other developer_.
+==A **React component** is basically just a **custom HTML element**. The key difference between custom and built-in HTML elements is that _custom components names must always start with a capital letter while HTML tags must be lowercase_. And indeed **your own custom components must always start with a capital letter**==, so that React is able to detect that is a custom component. Because _the simple rule which React applies is that lowercase elements are built-in HTML elements, so it will look for them as built-in elements, whereas elements starting with an uppercase character are elements defined by you or some other developer_.
 
 ```react
-// Custom components start with a uppercase character
+// Custom components names must always start with a capital letter while HTML tags must be lowercase
 function MyButton() {
   return (
     <button>
@@ -43,7 +43,7 @@ const CustomComponent = () => {
   // code here
 };
 
-export default CustomComponent;
+export default CustomComponent; // the "export default" keywords specify the main component in the file.
 ```
 
 #### 2. _Import_ the custom component in the file where you wanna use it

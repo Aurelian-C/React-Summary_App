@@ -17,7 +17,7 @@ class TooltipView {
         tooltipContainer.querySelector('.tooltip_paragraph');
       if (tooltipContainer && !tooltipHasChildren) {
         const tooltipText = obj.tooltips
-          .map(string => `<p class="tooltip_paragraph">${string}</p>`)
+          .map(string => `<div class="tooltip_paragraph">${string}</div>`)
           .join('');
 
         tooltipContainer.insertAdjacentHTML('afterbegin', tooltipText);

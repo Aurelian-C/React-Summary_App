@@ -1,7 +1,18 @@
 # Outputting dynamic data & working with expressions in JSX markup
 
 ==JSX lets you write HTML-like markup inside a JavaScript file==, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside the JSX markup. In this situation, you can use  <code>{}</code> in your JSX markup to open a window to JavaScript.
-        ==You write expressions in JSX markup with the help of **curly brackets `{}`**==. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. Any JavaScript expression will work between curly braces, including function calls.
+
+> **Note**: JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
+>
+> ```react
+> return (
+>   <h1>
+>     {user.name}
+>   </h1>
+> );
+> ```
+
+==You write expressions in JSX markup with the help of **curly brackets `{}`**==. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. Any JavaScript expression will work between curly braces, including function calls.
         You can only use curly braces in two ways inside JSX:
 
 - ==as text directly inside a JSX tag==: `<<span>h1>{name}'s To Do List<</span>/h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}>` will not.
@@ -38,14 +49,12 @@ function App(props) {
 ==You can also “escape into JavaScript” from JSX attributes==, but you have to use curly braces _instead of_ quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
 
 ```react
-function Image = {
-  return (
-  	<img
-       className="avatar"
-       src={user.imageUrl}
-    />
-  );
-}
+return (
+  <img
+    className="avatar"
+    src={user.imageUrl}
+  />
+);
 ```
 
 ==You can put more complex expressions inside the JSX curly braces too==, for example, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
