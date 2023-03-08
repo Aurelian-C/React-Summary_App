@@ -10,7 +10,7 @@ const React_basics_and_working_with_components = {
         highlight1: ['components'],
       },
       tooltips: [
-        'A component is <i>a piece of the UI (user interface) that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
+        'A component is <i>a piece of UI (user interface) that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
         'Conceptually, components are like JavaScript functions. <i>A component in React is just <b>a JavaScript function that returns JSX markup</b>. Components are in the end just a combination of HTML, CSS and JavaScript</i>.',
         "Components are <i><b>reusable</b> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable.",
         'Components are a handy way to organize UI code and markup, even if some of them are only used once.',
