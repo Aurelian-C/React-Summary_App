@@ -139,16 +139,27 @@ const React_basics_and_working_with_components = {
       sectionSource: '',
     },
     {
-      sectionTitle: 'Splitting components into multiple components',
+      sectionTitle: 'Splitting a component into multiple components',
       sectionSource:
-        '/src/markdowns/01_React_basics_&_working_with_Components/Splitting_components_into_multiple_components.html',
+        '/src/markdowns/01_React_basics_&_working_with_Components/Splitting_a_component_into_multiple_components.html',
 
       tooltips: [
-        'You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.',
-        'This concept of components that React have allows you to split your application into smaller building blocks, where every building block/component is <i>focused on <b>one core task</b></i>, and then you build your overall UI by combining these building blocks/components.',
-        '<i>Separation of concerns</i>: React is all about splitting your app into small building blocks (components), where every building block (component) has a <b>clear task</b>, and therefore your <i>code stays <b>maintainable</b> and <b>manageable</b></i>. Having a separation of concerns helps us with keeping our code base small and manageable, instead of having one large file which holds all the HTML markup and all the JavaScript logic.',
-        "If we split our code across multiple files, then we'll have small pieces of code which are easy to manage and maintain.",
-        'Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other. If the file gets crowded, you can always split your components to a separate file. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.',
+        `<h3>One component per one file</h3>
+        <p>You can declare many components in one file, but large files can get difficult to navigate.</p>
+        <p><i>The magic of components lies in their <u>reusability</u>: you can create components that are composed of other components</i>. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you <i>keep your files easy to scan and <u>reuse</u> components in more places</i>.</p>
+        `,
+        `<h3>Separation of concerns</h3>
+        <p>React is all about splitting your app into small building blocks (components), where every building block (component) is <i>focused on <u>one core task</u></i>, and therefore your <i>code stays <u>maintainable</u> and <u>manageable</u></i>. You build your overall UI by combining these building blocks (components).`,
+        `<h3>Multiple components per one file</h3>
+        <p>Components are regular JavaScript functions, so you can keep multiple components in the same file. This is <i>convenient when components are relatively <u>small</u> or tightly <u>related to each other</u></i>. If the file gets crowded, you can always split your components to a separate file.</p>
+        <p>Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.</p>`,
+        `<h3>Importing and exporting components</h3>
+        <p>You can move a component into another file in three steps:</p>
+        <p>1. <i>Make a new JS file</i> to put the components in;</p>
+        <p>2. <i>Export your function component</i> from that file using either <u>default</u> or <u>named</u> exports;</p>
+        <p>3. <i>Import it</i> in the file where you'll use the component using the corresponding technique for importing default or named exports.</p>
+        <p><i>How you export your component dictates how you must import it</i>.</p>
+        `,
       ],
     },
     {
