@@ -18,7 +18,9 @@ Conceptually, ==components are just JavaScript functions== that accept arbitrary
 
 ## Why components?
 
-React is all about components because the UI in the end is made up of components. ==React is all about **splitting your UI into small building blocks (components)**, where every building block (component) has a **clear task**, and therefore your **code stays _maintainable_ and _manageable_**==, and React will do the heavy lifting of rendering something onto the screen and of combining all your components.
+React is all about components because the UI in the end is made up of components. UI is built from small units like buttons, text, and images. React lets you combine them into reusable, nestable components. From web sites to phone apps, everything on the screen can be broken down into components.
+
+ ==React is all about **splitting your UI into small building blocks (components)**, where every building block (component) has a **clear task**, and therefore your **code stays _maintainable_ and _manageable_**==, and React will do the heavy lifting of rendering something onto the screen and of combining all your components.
 
 Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
 

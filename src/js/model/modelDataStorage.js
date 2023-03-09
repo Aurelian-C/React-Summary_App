@@ -78,13 +78,23 @@ const React_basics_and_working_with_components = {
         highlight2: ['custom component'],
       },
       tooltips: [
-        '<i>A React custom component is basically just a <b>custom HTML element</b></i>. The key difference between custom components and built-in HTML elements (tags) is that <i>custom components always start with a capital letter, so that React is able to detect that is a custom component</i>. React custom components names must always start with a capital letter, while HTML tags must be lowercase.',
-        `There are 3 steps to build a custom component:
-        <br>1. <i>Create & export</i> the component;
-        <br>2. <i>Import</i> the component;
-        <br>3. <i>Use</i> the component.`,
-        'You can have <i>multiple components in the same file</i>, but is considered a good practice to put new components into new files, so that you have <i>one file per component</i>.',
-        'Components (parent) can render other components (child), but you must never nest their definitions (<i>never define a component inside another component!</i>).',
+        `<h3>There are always 3 steps to build a custom component:</h3>
+        <p>1. <i>Create & export</i> the component;</p>
+        <p>2. <i>Import</i> the component;</p>
+        <p>3. <i>Use</i> the component.</p>`,
+        `<h3>Components: UI building blocks</h3>
+        <p><i>A React custom component is basically just a <b>custom HTML element</b></i>. The key difference between custom components and built-in HTML elements (tags) is that <i>custom components names must always start with a capital letter while HTML tags must be lowercase</i>.</p>
+        <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
+        `,
+        `<h3>React component & return statements</h3>
+        <p>In a React component return statements can be written all on one line but if your markup isn't all on the same line as the <code>return</code> keyword, you must wrap it in a pair of parentheses. Without parentheses, any code on the lines after <code>return</code> will be ignored!</p>`,
+        `<h3>Nesting components</h3>
+        <p>Components can render other components, but you must never nest their definitions. Instead, <i>define every component at the top level</i>. When a child component needs some data from a parent, pass it by props instead of nesting definitions.</p>
+        <p>Components (parent) can render other components (child), but you must never nest their definitions (<i>never define a component inside another component!</i>).</p>
+        `,
+        `<h3>Splitting components in separate files</h3>
+        <p>You can have <i>multiple components in the same file</i>, but is considered a good practice to put new components into new files, so that you have <i>one file per component</i>.</p>
+        `,
       ],
     },
     {

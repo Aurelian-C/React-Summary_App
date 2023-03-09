@@ -8,6 +8,8 @@ Now, there is no rule when to build a new component, whereas as adding more to a
 
 ## Multiple components per one file
 
+Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other. If this file gets crowded, you can always move your custom components to separate files.
+
 ==You can have multiple components per one file==, and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have ==a component that is really only getting used by the other component in that file==, having both components in the same file can make sense too.
 
 ```react
