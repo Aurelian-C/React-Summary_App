@@ -114,8 +114,8 @@ const React_basics_and_working_with_components = {
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/JavaScript_in_JSX_with_Curly_Braces.html',
       highlights: {
-        highlight1: ['Outputting dynamic data'],
-        highlight2: ['expressions in JSX'],
+        highlight1: ['Outputting dynamic data', 'expressions in JSX'],
+        highlight2: ['JavaScript in JSX'],
       },
       tooltips: [
         `<h3>JavaScript in JSX with Curly Braces</h3>
