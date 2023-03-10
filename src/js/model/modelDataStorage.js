@@ -211,16 +211,18 @@ const React_basics_and_working_with_components = {
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/Thinking_in_React.html',
       tooltips: [
-        `React can change how you think about the designs you look at and the apps you build. When you build a UI with React:
-        <br>- <i>you will first break it apart into pieces called components</i>
-        <br>- then you will <i>describe the different visual states for each of your components</i>
-        <br>- finally you will <i>connect your components together so that the data flows through them</i>.`,
-        `Start with the mockup: imagine that you already have a JSON API and a mockup from a designer. To implement a UI in React, you will usually follow the same five steps:
-        <br>1. Break the UI into a component hierarchy
-        <br>2. Build a static version in React
-        <br>3. Find the minimal but complete representation of UI state
-        <br>4. Identify where your state should live
-        <br>5. Add inverse data flow 
+        `<h3>React & user interfaces (UI)</h3>
+        <p>React can change how you think about the designs you look at and the apps you build. When you build a UI with React:</p>
+        <p>- <i>you will first break it apart into pieces called components</i></p>
+        <p>- then you will <i>describe the different visual states for each of your components</i></p>
+        <p>- finally you will <i>connect your components together so that the data flows through them</i>.</p>`,
+        `<h3>Start with the mockup</h3>
+        <p>Imagine that you already have a JSON API and a mockup from a designer. To implement a UI in React, you will usually follow the same five steps:</p>
+        <p>1. <i>Break the UI</i> into a <i><u>component hierarchy</u></i></p>
+        <p>2. <i>Build a static version</i> in React</p>
+        <p>3. Find the <i>minimal but complete representation of UI state</i></p>
+        <p>4. Identify <i>where your state should live</i></p>
+        <p>5. Add <i>inverse data flow</i></p>
         `,
       ],
     },
