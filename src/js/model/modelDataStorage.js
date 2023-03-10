@@ -168,10 +168,6 @@ const React_basics_and_working_with_components = {
       ],
     },
     {
-      sectionTitle: 'Adding "normal" JavaScript logic to components',
-      sectionSource: '',
-    },
-    {
       sectionTitle: 'Splitting a component into multiple components',
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/Splitting_a_component_into_multiple_components.html',
