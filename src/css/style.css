@@ -250,13 +250,13 @@ code {
 /* Tooltip container */
 .tooltip {
   visibility: hidden;
-  min-width: 60rem;
+  min-width: 70rem;
   background-color: rgb(43, 43, 43);
   color: #fff;
   border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
   padding: 10px;
-  text-indent: 20px;
+
   font-size: 1.3rem;
   font-style: normal;
   top: 110%;
@@ -286,8 +286,22 @@ code {
   border-color: #555 transparent transparent transparent;
 } */
 
+.tooltip_paragraph {
+  text-indent: 20px;
+}
+
 .tooltip_paragraph:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.tooltip_paragraph h3 {
+  width: fit-content;
+  background-color: white;
+  color: black;
+  padding: 0 3px;
+  border-radius: 5px;
+  margin-left: 20px;
+  text-indent: 0px;
 }
 
 .tooltip_paragraph p {
