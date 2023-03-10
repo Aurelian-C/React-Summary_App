@@ -118,11 +118,33 @@ const React_basics_and_working_with_components = {
         highlight2: ['expressions in JSX'],
       },
       tooltips: [
-        'JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside the JSX markup. In this situation, you can use  <code>{}</code> in your JSX markup to open a window to JavaScript.',
-        '<i>You write expressions in JSX markup with the help of curly brackets <code>{}</code></i>. Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user. <i>Any JavaScript expression will work between curly braces, including function calls</i>.',
-        `You can only use curly braces in two ways inside JSX:
-        <br>- <i>as <u>text</u> directly inside a JSX tag<i>: <code><<span>h1>{name}'s To Do List<</span>/h1></code> works, but <code><{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}></code> will not.
-        <br>- <i>as <u>attributes</u> immediately following the <code>=</code> sign<i>: <code>src={avatar}</code> will read the avatar variable, but <code>src="{avatar}"</code> will pass the string "{avatar}".`,
+        `<h3>JavaScript in JSX with Curly Braces</h3>
+        <p><i>Curly braces <code>{}</code> let you <u>bring JavaScript logic and variables into your markup</u>!</i></p>
+        <p>Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user or to write some expressions. <i>Any JavaScript expression will work between curly braces, including function calls</i>.</p>
+        <p><i>JSX is very minimal as a templating language</i> because it lets you organize data and logic using JavaScript.</p>
+        `,
+        `<h3>JSX curly braces & JSX attributes</h3>
+        <p>With curly braces you can also "escape into JavaScript" from JSX attributes.</p>
+        `,
+        `<h3>Using "double curlies": CSS and other objects in JSX</h3>
+        <p>In addition to strings, numbers, and other JavaScript expressions, <i>you can even pass objects in JSX</i>. To pass a JS object in JSX, <i>you must wrap the object in another pair of curly braces</i>.</p>
+        <p>You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.</p>
+        <p><i>The next time you see <code>{{ ... }}</code> in JSX, know that it's nothing more than an object inside the JSX curlies!</i></p>
+        `,
+        `<h3>Write any expression inside JSX curly braces</h3>
+        <p>You can put more complex expressions inside the JSX curly braces too, for example:</p>
+        <p>- string concatenation</p>
+        <p>- function calls</p>
+        <p>- JavaScript objects</p>
+        `,
+        `<h3>You can only use curly braces in two ways inside JSX:</h3>
+        <p>- as <i>text</i> directly inside a JSX tag<p>
+        <p>- as <i>attributes</i> immediately following the <code>=</code> sign<p>`,
+        `<h3>Summary:</h3>
+        <p>- JSX attributes inside quotes are passed as strings;</p>
+        <p>- <i>Curly braces let you bring JavaScript logic and variables into your markup</i>;</p>
+        <p>- They work inside the JSX tag content or immediately after <code>=</code> in attributes;</p>
+        <p>- <code>{{ ... }}</code> is not special syntax: it's a JavaScript object tucked inside JSX curly braces.</p>`,
       ],
     },
     {
