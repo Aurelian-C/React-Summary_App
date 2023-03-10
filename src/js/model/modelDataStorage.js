@@ -110,7 +110,7 @@ const React_basics_and_working_with_components = {
     },
     {
       sectionTitle:
-        'JavaScript in JSX with Curly Braces: Outputting dynamic data & working with expressions in JSX markup',
+        'JavaScript in JSX with Curly Braces: Outputting dynamic data & working with expressions in JSX',
       sectionSource:
         '/src/markdowns/01_React_basics_&_working_with_Components/JavaScript_in_JSX_with_Curly_Braces.html',
       highlights: {
