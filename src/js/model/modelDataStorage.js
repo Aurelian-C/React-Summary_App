@@ -52,9 +52,9 @@ const React_basics_and_working_with_components = {
       ],
     },
     {
-      sectionTitle: 'Introducing JSX markup',
+      sectionTitle: 'Writing markup with JSX',
       sectionSource:
-        '/src/markdowns/01_React_basics_&_working_with_Components/Introducing_JSX_markup.html',
+        '/src/markdowns/01_React_basics_&_working_with_Components/Writing_markup_with_JSX.html',
       highlights: {
         highlight2: ['JSX'],
       },

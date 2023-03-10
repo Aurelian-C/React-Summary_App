@@ -1,4 +1,4 @@
-# Introducing JSX markup
+# Writing markup with JSX
 
 JSX is a ==**syntax extension** for JavaScript that lets you **write HTML-like markup inside a JavaScript file**.== JSX produces React “elements”.
 
