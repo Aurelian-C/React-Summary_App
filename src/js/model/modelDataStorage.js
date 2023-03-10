@@ -59,15 +59,26 @@ const React_basics_and_working_with_components = {
         highlight2: ['JSX'],
       },
       tooltips: [
-        'JSX = JavaScript XML.',
-        'JSX is a <i>syntax extension</i> for JavaScript that lets you write <i>HTML-like markup inside a JavaScript file</i>, keeping rendering logic and content in the same place.',
-        'JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.',
-        `<i>JSX is stricter than HTML</i>: 
-        <br>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>. 
-        <br>2. <i>Return a single root element</i>: Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or an empty <>...<</span>/></span> wrapper.
-        <br>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.
+        `<h3>Why React mixes markup with rendering logic?</h3>
+        <p>The web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript — often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript. But as the Web became more interactive, <i>logic increasingly determined content. JavaScript was in charge of the HTML!</i> This is why <i>in React, rendering logic and markup live together in the same place — components</i>.</p>
+        <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a <i><u>syntax extension</u> called <u>JSX</u> to represent that markup</i>.</p>
         `,
-        '<i>You can store JSX markup in variables</i>: you are not limited to using JSX only if you return it from your custom component, you can also use it to create a value, which is stored in a variable.',
+        `<h3>JSX: Putting markup into JavaScript</h3>
+        <p>JSX is a <i>syntax extension</i> for JavaScript that lets you <i>write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place</i>. JSX looks a lot like HTML, but it is a bit stricter, has a few more rules than HTML and can display dynamic information.</p>
+        <p>JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.</p>
+        `,
+        `<h3>You can store JSX markup in variables</h3>
+        <p>You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable</p>
+        `,
+        `<h3>How JSX is different from HTML (rules of JSX)</h3>
+        <p>JSX is stricter than HTML:</p> 
+        <p>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>.</p> 
+        <p>2. <i>Return a single root element</i>: Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or if you don't want to add an extra parent tag to your markup you can write an empty <>...<</span>/></span> wrapper.</p>
+        <p>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.</p>
+        `,
+        `<h3>Why do multiple JSX tags need to be wrapped?</h3>
+        <p>JSX markup looks like HTML markup, but under the hood it is transformed into plain JavaScript objects. You can't return two objects from a function without wrapping them into an array. This explains why you also can't return two JSX tags without wrapping them into another tag or a <code>React.Fragment</code>.</p>
+        `,
       ],
     },
     {
