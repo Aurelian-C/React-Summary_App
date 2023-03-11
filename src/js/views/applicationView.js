@@ -20,10 +20,13 @@ class ApplicationView {
 
   _generateMarkup(card) {
     const markupString = card
-      .map(card => {
+      .map((card, idx) => {
         return `
           <div class="card">
-            <h2 class="card__title">${card.title}</h2>
+            <h2 class="card__title">
+              <p class="card__title--1">Section ${idx + 1}</p>
+              ${card.title}
+            </h2>
             <div class="card__articles">
               ${card.sections.map(this._generateMarkupArticle).join('')}
             </div>
