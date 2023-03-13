@@ -1,29 +1,32 @@
-# Passing Data via props
+# Passing data to a component via props
 
-==React components use **_props_ to communicate** with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup! Props are the information that you pass to a JSX tag, or you can see them as the **"attributes"** of your custom HTML elements==.
+==React components use **_props_ to communicate** with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup! Props are the information that you pass to a JSX tag and you can see props as the **"attributes"** of your custom HTML elements==.
 
-React will ensure that we get **one parameter in every component** which we use as a component, and that one parameter will be an **object** which holds all the received **attributes as properties**, hence the name props for the overall concept. Therefore, we get one parameter, and you can name that parameter whatever you want. Typically, _it's named props to make it clear that is the object which holds all the values we get for the attributes on our custom element_.
-
-props is a super important concept because it allows you to ==make your components _reusable_==, and it ==allows you to _pass data_ from a component to another component==.
-
-_props are not limited to **dynamically** set values. We can do that, but we don't have to. We also **hard coded** value in props_. ==The main idea behind props is always the same though: we wanna make sure that **we can pass data into our components** to make them **configurable** and **reusable**==.
-
-props are our way of **passing data** from component A to B, and it's also totally fine to have a **component which just passes data on**. We pass data from a component to a direct child component, so to a component which is used in that other components JSX code, and we can't skip such a component.
+==Props are the information that you pass to a JSX tag==. For example, `className`, `src`, `alt`, `width`, and `height` are some of the props you can pass to an `<img>`:
 
 ```react
-const Component = (props) => {
-    return <div>
-    	<h1>Hello!</h1>
-        <span>{props.introduction}</span>
-    </div>
-}
-
-const App = () => {
-    return <div>
-    	<Component introduction='My name is Tom and I like football!' />
-    </div>
+function Avatar() {
+  return <img className="avatar" src="/image.jpg" alt="Photo" width={100} height={100} />
 }
 ```
+
+## Passing props to a child component
+
+![Passing_data_via_props](../../img/Passing_data_via_props.jpg)
+
+Now you can read these props inside the `Avatar` component:
+
+![Passing_data_via_props1](../../img/Passing_data_via_props1.jpg)
+
+==Props let you think about parent and child components independently.== Props serve the same role as arguments serve for functions — in fact, ==props are the only argument to your component! React component functions accept a single argument, a `props` object==. Usually you don’t need the whole `props` object itself, so you destructure it into individual props.
+
+> **Note**: _React will ensure that you get **one parameter in every component** which you use as a component, and that one parameter will be an **object** which holds all the received **attributes as properties**, hence the name props for the overall concept_. Therefore, you get one parameter, and you can name that parameter whatever you want. Typically, _it's named props to make it clear that is the object which holds all the values you get for the attributes on our custom element_.
+
+Props is a super important concept because it allows you to ==make your components _reusable_== and it ==allows you to _pass data_ from a parent component to a child component==.
+
+> **IMPORTANT**: Components can't just use data stored in other components.
+
+_Props are not limited to **dynamically** set values. You can do that, but you don't have to. You can also **hard coded** values in props_. Props are your way of **passing data** from component A to B, and ==it's also totally fine to have a **component which just passes data on**==.
 
 > **Note**: The convention for props _which hold functions_ is to start their name with **"on"**:
 >
@@ -32,124 +35,27 @@ const App = () => {
 > <Header onShowModal={showModalHandler} />
 > ```
 
-![Passing_data_via_props](../../img/Passing_data_via_props.jpg)
-
-## Props let you think about parent and child components independently
-
-```react
-function Avatar({ person, size }) {
-  // person and size are available here
-}
-
-function Profile() {
-  return (
-    <Avatar
-      person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
-      size={100}
-    />
-  );
-}
-```
-
-==Props let you think about parent and child components independently==. For example, you can change the `person` or the `size` props inside `Profile` without having to think about how `Avatar` uses them. Similarly, you can change how the `Avatar` uses these props, without looking at the `Profile`.
-
-You can think of props like “knobs” that you can adjust. They serve the same role as arguments serve for functions — in fact, props _are_ the only argument to your component! React component functions accept a single argument, a `props` object:
-
-```react
-function Avatar(props) {
-  let person = props.person;
-  let size = props.size;
-  // ...
-}
-```
-
-==Usually you don’t need the whole `props` object itself, so you can **destructure** it into individual props==:
-
-```react
-function Avatar({ person, size }) {
-  // ...
-}
-```
-
 ## Specifying a default value for a prop
 
 If you want to give a prop a default value to fall back on when no value is specified, you can do it with the destructuring by putting `=` and the default value right after the parameter:
 
-```react
-function Avatar({ person, size = 100 }) {
-  // ...
-}
-```
+![Passing_data_via_props2](../../img/Passing_data_via_props2.jpg)
 
 Now, if `<Avatar person={...} />` is rendered with no `size` prop, the `size` will be set to `100`. The default value is only used if the `size` prop is missing or if you pass `size={undefined}`. But if you pass `size={null}` or `size={0}`, the default value will **not** be used.
 
 ## Forwarding props with the spread syntax
 
-Sometimes, passing props gets very repetitive:
+Sometimes, passing props gets very repetitive. There’s nothing wrong with repetitive code — it can be more legible. But at times you may value conciseness. ==Some components forward all of their props to their children==, like how this `Profile` does with `Avatar`. Because they don’t use any of their props directly, it can make sense to use a more concise “spread” syntax:
 
-```react
-function Profile({ person, size, isSepia, thickBorder }) {
-  return (
-    <div className="card">
-      <Avatar
-        person={person}
-        size={size}
-        isSepia={isSepia}
-        thickBorder={thickBorder}
-      />
-    </div>
-  );
-}
-```
+![Passing_data_via_props3](../../img/Passing_data_via_props3.jpg)
 
-There’s nothing wrong with repetitive code — it can be more legible. But at times you may value conciseness. ==Some components forward all of their props to their children==, like how this `Profile` does with `Avatar`. Because they don’t use any of their props directly, it can make sense to use a more concise “spread” syntax:
-
-```react
-function Profile(props) {
-  return (
-    <div className="card">
-      <Avatar {...props} />
-    </div>
-  );
-}
-```
-
-This forwards all of `Profile`’s props to the `Avatar` without listing each of their names. **Use spread syntax with restraint.** If you’re using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX.
+This forwards all of `Profile`’s props to the `Avatar` without listing each of their names. ==**Use spread syntax with restraint.** If you’re using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX==.
 
 #### Another example
 
-```react
-const Input = (props) => {
-  return (
-    <div>
-      <label htmlFor={props.input.id}>{props.label}</label>
-      <input {...props.input} />
-    </div>
-  );
-};
-// props.input will be an object
+![Passing_data_via_props4](../../img/Passing_data_via_props4.jpg)
 
-const MealItemForm = (props) => {
-  return (
-    <form>
-      <Input
-        label='Amount'
-        input={{ // this object will be spread to the <input {...props.input} />
-          id: 'amount_' + props.id,
-          type: 'number',
-          min: '1',
-          max: '5',
-          step: '1',
-          defaultValue: '1',
-        }}
-      />
-      <button>+ Add</button>
-    </form>
-  );
-};
-```
-
-## Passing JSX as children: `props.children`
+## Props and passing JSX as children: `props.children`
 
 It is common to nest built-in browser tags:
 
@@ -167,37 +73,13 @@ Sometimes you’ll want to nest your own custom components the same way:
 </Card>
 ```
 
-When you nest content inside a JSX tag, the parent component will receive that content in a prop called `children`. For example, the `Card` component below will receive a `children` prop set to `<Avatar />` and render it in a wrapper div:
+==When you nest content inside a JSX tag, the parent component will receive that content in a prop called `children`==. For example, the `Card` component below will receive a `children` prop set to `<Avatar />` and render it in a wrapper div:
 
-```react
-import Avatar from './Avatar.js';
+![Passing_data_via_props5](../../img/Passing_data_via_props5.jpg)
 
-function Card({ children }) {
-  return (
-    <div className="card">
-      {children}
-    </div>
-  );
-}
+Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card` component ==can wrap any nested content. It doesn’t need to “know” what’s being rendered inside of it==. You will see this flexible pattern in many places.
 
-export default function Profile() {
-  return (
-    <Card>
-      <Avatar
-        size={100}
-        person={{
-          name: 'Katsuko Saruhashi',
-          imageId: 'YfeOqp2'
-        }}
-      />
-    </Card>
-  );
-}
-```
-
-Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card` component can wrap any nested content. It doesn’t need to “know” what’s being rendered inside of it. You will see this flexible pattern in many places.
-
-==You can think of a component with a `children` prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX markup==. You will often use the `children` prop for visual wrappers: panels, grids, and so on.
+==You can think of a component with a `children` prop as having a “hole” that can be "filled in" by its parent components with arbitrary JSX markup==. You will often use the `children` prop for visual wrappers: panels, grids, and so on.
 
 ![props_children](../../img/props_children.jpg)
 
@@ -205,15 +87,7 @@ Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card
 
 The `Clock` component below receives two props from its parent component: `color` and `time`. (The parent component’s code is omitted because it uses [state](https://beta.reactjs.org/learn/state-a-components-memory), which we won’t dive into just yet).
 
-```react
-export default function Clock({ color, time }) {
-  return (
-    <h1 style={{ color: color }}>
-      {time}
-    </h1>
-  );
-}
-```
+![Passing_data_via_props6](../../img/Passing_data_via_props6.jpg)
 
 This example illustrates that ==**a component may receive different props over time**. Props are not always static!== Here, the `time` prop changes every second, and the `color` prop changes when you select another color. ==Props reflect a component’s data at any point in time, rather than only in the beginning==.
 

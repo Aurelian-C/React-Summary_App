@@ -147,23 +147,43 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'Passing data to a component via <code>props</code>',
+      sectionTitle: 'Passing data to a component via props',
       sectionSource:
         '/src/markdowns/01_React_basics/Passing_data_to_a_component_via_props.html',
       highlights: {
-        highlight2: ['<code>props</code>'],
+        highlight2: ['props'],
       },
       tooltips: [
-        '<i>React components use props to communicate with each other</i>. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup! <i>To pass props, add them to the JSX markup, just like you would with HTML attributes</i>.',
-        'Props let you think about parent and child components independently.',
-        'The convention for props which hold functions is to start their name with "on".',
-        '<i>To read props, you can use the function destructuring syntax</i>: <code>Avatar({ person, size })</code>.',
-        'You can specify a default value like <code>size = 100</code>, which is used for missing and <code>undefined</code> props.',
-        "<i>You can forward all props with JSX spread syntax</i>, but don't overuse it! When you receive an object through props, you can use the spread operator: <<span>input {...props.object}</span> />",
-        'Props are <i>read-only snapshots in time</i>: every render receives a new version of props.',
-        "<i>You can't change props</i>. When you need interactivity, you'll need to set state.",
-        "<i>props allows you to make your components reusable</i>, and it allows you to pass data from a component to another component. props are our way of passing data from component A to B, and it's also totally fine to have a component which just passes data on.",
-        "When we pass props from parent to child we can't skip intermediate child components in between.",
+        `<h3>Components comunicate with each other via props</h3>
+        <p>React components use props to communicate with each other. <i>Every <u>parent component</u> can pass some information to its <u>child components</u> by giving them props</i>. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup!</p>
+        <p>Props is a super important concept because it allows you to <i>make your components <u>reusable</u></i> and it <i>allows you to <u>pass data</u></i> from a parent component to a child component.</p>
+        `,
+        `<h3>Passing props to a child component</h3>
+        <p>Props let you think about parent and child components independently.</p>
+        <p>Props serve the same role as arguments serve for functions — in fact, <i>props are the only argument to your component! React component functions accept a single argument, a <code>props</code> object</i>.</p>
+        <p>When we pass props from parent to child we can't skip intermediate child components in between, so it's also totally fine to have a <i>component which just passes data on</i>.</p>
+        `,
+        `<h3>Destructuring props</h3>
+        <p>Usually you don't need the whole <code>props</code> object itself, so you destructure it into individual props. <i>To read props, you can use the function destructuring syntax</i>: <code>Avatar({ person, size })</code>.</p>
+        `,
+        `<h3>Specifying a default value for a prop</h3>
+        <p>You can specify a default value like <code>size = 100</code>, which is used for missing and <code>undefined</code> props.</p>
+        `,
+        `<h3>Naming conventions</h3>
+        <p>The convention for props which hold functions is to start their name with "on".</p>
+        `,
+        `<h3>Forwarding props with the spread syntax</h3>
+        <p>Sometimes, passing props gets very repetitive. Some components forward all of their props to their children, so <i>you can forward all props with the spread syntax</i>: <<span>input {...props}</span> /> or <<span>input {...props.object}</span> /></p>
+        <p>Use spread syntax with restraint. If you're using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX.</p>
+        `,
+        `<h3>Passing JSX as children: <code>props.children</code></h3>
+        <p><i>When you nest content inside a JSX tag, the parent component will receive that content in a prop called <code>children</code></i>.</p>
+        <p>With the help of <code>children</code> prop you can build wrapper components. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it.</p>
+        `,
+        `<h3>How props change over time</h3>
+        <p>Props are <i>read-only snapshots in time</i>: every render receives a new version of props.</p>
+        <p><i>You can't change props</i>. When you need interactivity, you'll need to set state.</p>
+        `,
       ],
     },
     {
