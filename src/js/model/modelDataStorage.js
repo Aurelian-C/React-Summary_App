@@ -594,31 +594,39 @@ const Rendering_lists_and_conditional_content = {
   title: '<p class="card__title--2">Rendering lists & conditional content</p>',
   sections: [
     {
-      sectionTitle: 'Rendering lists of data',
+      sectionTitle: 'Rendering lists of data & key prop',
       sectionSource:
         '/src/markdowns/04_Rendering_list_&_conditional_content/Rendering_lists_of_data.html',
       highlights: {
         highlight1: ['lists of data'],
+        highlight2: ['key'],
       },
       tooltips: [
-        "You will often want to display multiple similar components from a collection of data. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an array of components</i>. For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. Keys let React keep track of each item's place in the list even if the list changes.",
-        'With React you can output arrays of JSX elements on your page.',
-        'If you do output an array of JSX elements, then React is capable of rendering on the UI that array of JSX elements. So if you had an array of JSX elements as part of your JSX markup, React would simply render that elements side by side.',
-      ],
-    },
-    {
-      sectionTitle: 'Understanding <code>key</code>',
-      sectionSource:
-        '/src/markdowns/04_Rendering_list_&_conditional_content/Understanding_Keys.html',
-      highlights: {
-        highlight2: ['<code>key</code>'],
-      },
-      tooltips: [
-        'React has a special concept when it comes to rendering lists of data, a concept which exists to ensure that React is able to update and render such lists efficiently, without performance losses or bugs which may occur.',
-        `The <code>key</code> prop is a prop you can add to any component, no matter if it's a custom component or if it's a built-in HTML element.`,
-        'The <code>key</code> prop helps React to correctly identify and update (if needed) the list of JSX elements.',
-        '<code>key</code> should be unique so that components maintain their identity across updates.',
-        `Whenever you're working with an array of JSX elements React wants a <code>key</code> on every element.`,
+        `<h3>Rendering data from arrays</h3>
+        <p>You will often want to <i>display multiple <u>similar components</u> from a <u>collection of data</u></i>. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an <u>array of components</u></i>.</p>
+        <p>If you do <i>output an <u>array of JSX elements</u>, then React is capable of rendering on the UI that JSX elements</i>. So if you had <i>an array of JSX elements as part of your JSX markup</i>, React would simply render that elements side by side.</p>
+        `,
+        `<h3>Keeping list items in order with <code>key</code></h3>
+        <p>You need to give each array item a <code>key</code> — a string or a number that <i><u>uniquely</u> identifies it among other items in that array</i>.</p>
+        <p>JSX elements directly inside a <code>map()</code> call always need keys!</p>
+        <p><i>Keys tell React which array item each component corresponds to</i>, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen <codekey</code helps React infer what exactly has happened, and make the correct updates to the DOM tree.</p>
+        <p>The <code>key</code> prop is a prop you <i>can add to any component, no matter if it's a custom component or if it's a built-in HTML element</i>.</p>
+        `,
+        `<h3>Displaying several DOM nodes for each list item</h3>
+        <p>What do you do when each item needs to render not one, but several DOM nodes? The short <code><><span><</span>/></code> Fragment syntax won't let you pass a key, so you need to either group them into a single <<span>div</span>>, or use the slightly longer and more explicit <code><<span>Fragment key={id}</span>></code> syntax.</p>
+        `,
+        `<h3>Where to get your <code>key</code></h3>
+        <p>Rather than generating keys on the fly, you should include them in your data.</p>
+        <p>You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a <code>key</code> at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.</p>
+        `,
+        `<h3>Rules of keys</h3> 
+        <p>- <i>Keys must be <u>unique</u> among siblings</i>. However, it's okay to use the same keys for JSX nodes in different arrays.<p>
+        <p>- <i>Keys must <u>not change</u></i> or that defeats their purpose! Don't generate them while rendering.</p>
+        `,
+        `<h3>Why does React need keys?</h3>
+        <p>Why should you add the special <code>key</code> prop to list JSX elements? It's required for React to <i>correctly <u>identify</u> and update (if needed) the list of JSX elements</i>.</p>
+        <p><i>Keys let us <u>uniquely</u> identify an item between its siblings</i>. A well-chosen key provides more information than the position within the array. Even if the position changes due to reordering, the <code>key</code> lets React identify the item throughout its lifetime.</p>
+        `,
       ],
     },
     {
