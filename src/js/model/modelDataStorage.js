@@ -244,6 +244,46 @@ const React_basics = {
         `,
       ],
     },
+    {
+      sectionTitle: 'Keeping components pure',
+      sectionSource:
+        '/src/markdowns/01_React_basics/Keeping_components_pure.html',
+      tooltips: [
+        `<h3>Purity: Components as formulas</h3>
+        <p>Some JavaScript functions are pure. <i>Pure functions only perform a calculation and nothing more</i>.</p>
+        <p>In computer science (and especially the world of functional programming), a pure function is a function with the following characteristics:</p>
+        <p>- <i>It minds its own business</i>. It does <i><u>not change</u> any objects or variables that existed before it was called</i>;</p>
+        <p>- <i>Same inputs, same output</i>. Given the <u>same inputs</u>, a pure function should always return the <u>same result</u>.</p>
+        <p>React assumes that every component you write is a pure function. This means that <i>React components you write <u>must always return the same JSX given the same inputs</u></i>.</p>
+        `,
+        `<h3>Side Effects: (un)intended consequences</h3>
+        <p>React's <i><u>rendering</u> process must always be pure</i>. Components should <i>only return their JSX</i>, and <i>not change any objects or variables that existed <u>before rendering</u></i> — that would make them impure!</p>
+        <p>In general, you should not expect your components to be rendered in any particular order. <i>Each component should only "think for itself", and not attempt to coordinate with or depend upon others during rendering</i>. Rendering is like a school exam: <i>each component should calculate JSX on their own!</i>.</p>
+        <p>Rendering can happen at any time, so <i>components should not depend on each others rendering sequence</i>.</p>
+        `,
+        `<h3>Detecting impure calculations with StrictMode</h3>
+        <p>In React there are three kinds of inputs that you can read while rendering: <i>props</i>, <i>state</i>, and <i>context</i>. You should always treat these inputs as <u>read-only</u>.</p>
+        <p>When you want to change something in response to user input, you should <i>set state instead of writing to a variable</i>. You should <i>never change preexisting variables or objects while your component is rendering</i>.</p>
+        <p>React offers a "Strict Mode" in which it calls each component's function twice during development. By calling the component functions twice, Strict Mode helps find components that break these rules. <i>Pure functions only calculate, so calling them twice won't change anything</i>.</p>
+        <p>You should <i>not mutate any of the inputs that your components use for rendering</i>. That includes props, state, and context. To update the screen, “set” state instead of mutating preexisting objects.</p>
+        `,
+        `<h3>Local mutation: Your component's little secret </h3>
+        <p>Pure functions <i>don't mutate variables outside of the function's scope or objects that were created <u>before the call</u></i> — that makes them impure!</p>
+        <p>However, <i>it's completely fine to change variables and objects that you've just <u>created while rendering</u></i>.</p>
+        `,
+        `<h3>Where you can cause side effects</h3>
+        <p>Side effects are things that <i>happen “on the side”, <u>not during rendering</u></i>.</p>
+        <p>In React, <i>side effects usually belong inside <u>event handlers</u></i>. Even though event handlers are defined inside your component, <u>they don't run during rendering</u>! So <i>event handlers don't need to be pure</i>.</p>
+        <p>If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a <code>useEffect</code> call in your component. This tells React to execute it later, <u>after rendering</u>, when side effects are allowed. However, this approach should be your last resort.</p>
+        <p>Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can <code>useEffect</code>.</p>
+        `,
+        `<h3>Why does React care about purity?</h3>
+        <p>- your components could run in a <i>different environment</i> — for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.</p>
+        <p>- you can improve performance by <i>skipping rendering components whose inputs have not changed</i>. This is safe because pure functions always return the same results, so they are safe to cache.</p>
+        <p>- if some data changes in the middle of rendering a deep component tree, React can restart rendering without wasting time to finish the outdated render. Purity makes it safe to stop calculating at any time.</p>
+        `,
+      ],
+    },
   ],
 };
 
