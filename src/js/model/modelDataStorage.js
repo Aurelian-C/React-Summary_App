@@ -445,21 +445,37 @@ const Adding_interactivity_to_a_component = {
         highlight1: ['render', 'commit'],
       },
       tooltips: [
-        `<h3>How React updates the UI in two phases</h3>`,
-        'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX markup.',
-        `Before your components are displayed on screen, they must be rendered by React. The process of rendering a component to UI has three steps:
-        <br>1. <i>Triggering</i> a render;
-        <br>2. <i>Rendering</i> the component;
-        <br>3. <i>Committing</i> to the DOM.
+        `<p>Since a component is a function, someone has to call it, and you might notice that you never called your component functions, instead you just used them like HTML element in your JSX markup.</p>
+        <p>Before your components are displayed on screen, they must be rendered by React.</p>
         `,
-        `There are two reasons when a component trigger a render:
-        <br>1. It's the component's <i>initial render</i>.
-        <br>2. The component's (or one of its ancestors) <i>state has been updated</i>.
+        `<h3>The steps involved in displaying a component on screen</h3>
+        <ul> The process of rendering a component to UI has three steps:
+        <li>1. <i>Triggering</i> a render</li>
+        <li>2. <i>Rendering</i> the component</li>
+        <li>3. <i>Committing</i> to the DOM</li>
+        </ul>
         `,
-        `<i>After you trigger a render, React calls your components to figure out what to display on screen</i> (<b>"rendering" is React calling your components</b>):
-        <br>- on <i>initial render</i>, React will call the root component.
-        <br>- for <i>subsequent renders</i>, React will call the function component whose state update triggered the render.`,
-        "After rendering (calling) your components, React will modify the DOM. <i>React only changes the DOM nodes if there's a difference between renders</i>.",
+        `<h3><u>Trigger</u> a render: when and why React renders a component</h3>
+        <ul> There are two reasons when a component trigger a render:
+        <li>1. It's the component's <i>initial render</i>.</li>
+        <li>2. The component's (or one of its ancestors) <i>state has been updated</i>.</li>
+        </ul>
+        <p>Once the component has been initially rendered, you can trigger further renders by updating its state with the state setter function provided by <code>useState</code> Hook. <i>Updating your component's state automatically trigger a render</i>.</p>
+        `,
+        `<h3>React <u>renders</u> your components: what rendering means in React</h3>
+        <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <i>"Rendering" is React <u>calling</u> your components.</i></p>
+        <p>- <i>On initial render</i>, React will call the root component.</p>
+        <p>- <i>For subsequent renders</i>, React will call the component whose state update triggered the render.</p>
+        <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.</p>
+        `,
+        `<h3>React <u>commits</u> changes to the DOM</h3>
+        <p>After rendering (calling) your components, React will modify the DOM.</p>
+        <p>- For the <i>initial render</i>, React will use the <code>appendChild()</code> DOM API to put all the DOM nodes it has created on screen.</p>
+        <p>- For <i>re-renders</i>, React will apply the <u>minimal necessary operations</u> (calculated while rendering!) to make the DOM match the latest rendering output. <i>React only changes the DOM nodes if there's a difference between renders</i>.</p>
+        `,
+        `<h3>Why rendering does not always produce a DOM update</h3>
+        <p>React does not touch the DOM <i>if the rendering result is the same as last time</i>. React only changes the DOM nodes if there's a difference between renders.</p>
+        `,
       ],
     },
     {
