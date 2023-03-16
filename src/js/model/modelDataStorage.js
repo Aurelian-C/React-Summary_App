@@ -368,7 +368,6 @@ const Adding_interactivity_to_a_component = {
       sectionTitle: 'Listening to events & working with event handlers',
       sectionSource:
         '/src/markdowns/02_Adding_interactivity_to_a_component/Listening_to_events_&_working_with_event_handlers.html',
-
       tooltips: [
         `<h3>How to write components that handle interactions</h3>
         <p>React lets you <i>add event handlers to your JSX</i>. Event handlers are your own <i>functions that will be triggered in response to interactions</i>.</p>
@@ -399,10 +398,44 @@ const Adding_interactivity_to_a_component = {
       ],
     },
     {
-      sectionTitle: "State: a component's memory",
-      sectionSource: '',
-
-      tooltips: [],
+      sectionTitle: 'State: a component’s memory',
+      sectionSource:
+        '/src/markdowns/02_Adding_interactivity_to_a_component/State_is_a_component_memory.html',
+      tooltips: [
+        `<p>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things.</p>`,
+        `<h3>When a regular variable isn't enough</h3>
+        <p>- <i>Local variables don't persist between renders</i>. When React renders a component a second time, it renders it from scratch — it doesn't consider any changes to the local variables.</p>
+        <p>- <i>Changes to local variables won't trigger renders</i>. React doesn't realize it needs to render the component again with the new data.</p>
+        `,
+        `<h3>Adding a state variable with <code>useState</code> Hook</h3>
+        <ul>To update a component with new data, two things need to happen:</p>
+        <li>1. <i><u>Retain</u> the data between renders.</i></li>
+        <li>2. <i><u>Trigger</u> React to render the component with new data (re-rendering).</i></li></ul>
+        <ul>The <code>useState</code> Hook provides those two things:
+        <li>1. A <i>state variable</i> to <u>retain the data between renders</u>.</li>
+        <li>2. A <i>state setter function</i> to <u>update the variable</u> and <u>trigger React to render the component again</u>.</li></ul>
+        <p>Use a state variable when a component needs to "remember" some information between renders.</p>
+        `,
+        `<h3>Anatomy of <code>useState</code></h3>
+        <p>When you call <code>useState</code>, you are telling React that you want this component to remember something.</p>
+        <p>The only argument to <code>useState</code> is the <i>initial value</i> of your state variable.</p>
+        <ul>Every time your component renders, <i><code>useState</code> gives you an array containing two values</i>:</p>
+        <li>1. The <i>state <u>variable</u></i> with the value you stored.</li>
+        <li>2. The <i>state setter <u>function</u></i> which can update the state variable and trigger React to render the component again.</li></ul>
+        <p>You can use array destructuring to read values from the array that <code>useState</code> gives you.</p>
+        `,
+        `<h3>Giving a component multiple state variables</h3>
+        <p><i>You can have as many state variables of as many types as you like in one component</i>.</p>
+        <p>It is a good idea to <i>have multiple state variables if their <u>state is unrelated</u></i>, but if you find that you often change two state variables together, it might be better to combine them into a single one.</p>
+        `,
+        `<h3>State is isolated and private</h3>
+        <p><i>State is <u>local to a component instance</u> on the screen. In other words, if you render the same component multiple times, each copy will have completely isolated state! Changing one of them will not affect the other</i>.</p>
+        <p>This is what makes state different from regular variables that you might declare at the top of your module. State is not tied to a particular function call or a place in the code, but it's "local" to the specific place on the screen. You can rendered a component multiple times and <i>each component's state is stored separately</i>.</p>
+        <p>Also <i>parent components doesn't "know" anything about their child component's state or even whether it has any. Unlike props, <u>state is fully private to the component declaring it</u></i>. The parent component can't change it. This lets you add state to any component or remove it without impacting the rest of the components.</p>`,
+        `<h3>Keep child component's state in sync</h3>
+        <p>What if you wanted some child components to keep their states in sync? The right way to do it in React is to remove state from child components and add it to their closest shared parent.</p>
+        `,
+      ],
     },
     {
       sectionTitle: 'How component functions are executed: render & commit',
