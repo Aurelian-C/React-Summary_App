@@ -86,6 +86,124 @@ Writing pure functions takes some habit and discipline. But it also unlocks marv
 - You should not mutate any of the inputs that your components use for rendering. That includes props, state, and context. To update the screen, [“set” state](https://beta.reactjs.org/learn/state-a-components-memory) instead of mutating preexisting objects.
 - Strive to express your component’s logic in the JSX you return. When you need to “change things”, you’ll usually want to do it in an event handler. As a last resort, you can `useEffect`.
 
+## Examples
+
+### Example 1
+
+The below component tries to set the `<h1>`’s CSS class to `"night"` during the time from midnight to six hours in the morning, and `"day"` at all other times. However, it doesn’t work. Can you fix this component?
+
+```react
+export default function Clock({ time }) {
+  let hours = time.getHours();
+    
+  if (hours >= 0 && hours <= 6) {
+    document.getElementById('time').className = 'night';
+  } else {
+    document.getElementById('time').className = 'day';
+  }
+    
+  return (
+    <h1 id="time">
+      {time.toLocaleTimeString()}
+    </h1>
+  );
+}
+```
+
+> **HINT**: Rendering is a *calculation*, it shouldn’t try to “do” things. Can you express the same idea differently?
+
+ou can fix this component by calculating the `className` and including it in the render output:
+
+```react
+export default function Clock({ time }) {
+  let hours = time.getHours();
+    
+  let className;
+  if (hours >= 0 && hours <= 6) {
+    className = 'night';
+  } else {
+    className = 'day';
+  }
+    
+  return (
+    <h1 className={className}>
+      {time.toLocaleTimeString()}
+    </h1>
+  );
+}
+```
+
+In this example, the side effect (modifying the DOM) was not necessary at all. You only needed to return JSX.
+
+### Example 2
+
+The CEO of your company is asking you to add “stories” to your online clock app, and you can’t say no. You’ve written a `StoryTray` component that accepts a list of `stories`, followed by a “Create Story” placeholder.
+
+You implemented the “Create Story” placeholder by pushing one more fake story at the end of the `stories` array that you receive as a prop. But for some reason, “Create Story” appears more than once. Fix the issue.
+
+```react
+export default function StoryTray({ stories }) {
+  stories.push({
+    id: 'create',
+    label: 'Create Story'
+  });
+
+  return (
+    <ul>
+      {stories.map(story => (
+        <li key={story.id}>
+          {story.label}
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+`StoryTray` function is not pure. By calling `push` on the received `stories` array (a prop!), it is mutating an object that was created *before* `StoryTray` started rendering. This makes it buggy and very difficult to predict.
+
+The simplest fix is to not touch the array at all, and render “Create Story” separately:
+
+```react
+export default function StoryTray({ stories }) {
+  return (
+    <ul>
+      {stories.map(story => (
+        <li key={story.id}>
+          {story.label}
+        </li>
+      ))}
+      <li>Create Story</li>
+    </ul>
+  );
+}
+```
+
+Alternatively, you could create a *new* array (by copying the existing one) before you push an item into it:
+
+```react
+export default function StoryTray({ stories }) {
+  // Copy the array!
+  let storiesToDisplay = stories.slice();
+
+  // Does not affect the original array:
+  storiesToDisplay.push({
+    id: 'create',
+    label: 'Create Story'
+  });
+
+  return (
+    <ul>
+      {storiesToDisplay.map(story => (
+        <li key={story.id}>
+          {story.label}
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
 ## References
 
 1. [Keeping Components Pure - beta.reactjs.org](https://beta.reactjs.org/learn/keeping-components-pure)

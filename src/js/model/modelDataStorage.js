@@ -296,14 +296,32 @@ const Responding_to_events = {
         '/src/markdowns/02_Responding_to_events/Listening_to_events_&_working_with_event_handlers.html',
 
       tooltips: [
-        "On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, we have full access to all the native DOM events, which we can listen to. <i>React exposes all native DOM events as props which start with 'on'</i>.",
-        "When you're building your own components, you can name their event handler props any way that you like. By convention, event handler props should start with 'on', followed by a capital letter.",
-        '<i>React lets you add event handlers to your JSX markup</i>. You can respond to events in React by declaring event handler functions inside your custom components.',
-        `Event handler functions:
-      <br> - are usually <i>defined inside your components</i>;
-      <br> - <i>have names that start with 'handle'</i>, followed by the name of the event.`,
-        "Because event handlers are declared inside of a component, they have access to the component's props",
-        'You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props</i>.',
+        `<h3>How to write components that handle interactions</h3>
+        <p>React lets you <i>add event handlers to your JSX</i>. Event handlers are your own <i>functions that will be triggered in response to interactions</i>.</p>
+        `,
+        `<h3>Adding event handlers</h3>
+        <p>To add an event handler, you will first <i>define a function</i> and then <i>pass it as a prop</i> to the appropriate JSX tag. Functions passed to event handlers must be passed, not called.</p>
+        <p>On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, you have full access to all the native DOM events, which you can listen to. <i>React exposes all native DOM events as props which start with "on"</i>.</p>
+        `,
+        `<h3>Naming convention</h3>
+        <p>By convention, it is common to name event handlers as <i>"handle"</i> followed by the event name: <code>onClick={handleClick}</code>.</p>
+        <p>React exposes all <i>native DOM events</i> as props which start with <i>"on"</i>: <code>onClick={}</code>. <i>Custom event handler props</i> should also start with <i>"on"</i>, followed by a capital letter: <code>onRun={}</code>.</p>
+        `,
+        `<h3>Reading props in event handlers</h3>
+        <p>Because event handlers are declared inside of a component, they have access to the component's props.</p>
+        `,
+        `<h3>Passing event handlers as props</h3>
+        <p>Often you'll want <i>the parent component to specify a child's event handler</i>. You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props to the child component</i>.</p>
+        `,
+        `<h3>Event propagation: how events propagate and how to stop them</h3>
+        <p>Event handlers will also catch events from any children your component might have. We say that an event <i>"bubbles" or "propagates" up the tree: it starts with where the event happened, and then goes up the tree</i>.</p>
+        <p>All events propagate in React except <code>onScroll</code>, which only works on the JSX tag you attach it to.</p>
+        <p>Event handlers receive an <i>event object</i> as their only argument. If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</p>
+        `,
+        `<h3>Can event handlers have side effects?</h3>
+        <p>Absolutely! <i>Event handlers are the best place for side effects</i>.</p>
+        <p>Unlike rendering functions, event handlers don't need to be pure, so it's a great place to change something. <i>However, in order to change some information, you first need some way to store it. In React, this is done by using state</i>.</p>
+        `,
       ],
     },
   ],
@@ -320,6 +338,7 @@ const React_state = {
         highlight1: ['render', 'commit'],
       },
       tooltips: [
+        `<h3>How React updates the UI in two phases</h3>`,
         'Since a component is a function, someone has to call it, and you might notice that we never called our component function, instead we just used that function like HTML element in the JSX markup.',
         `Before your components are displayed on screen, they must be rendered by React. The process of rendering a component to UI has three steps:
         <br>1. <i>Triggering</i> a render;
@@ -343,6 +362,7 @@ const React_state = {
         highlight1: ['state'],
       },
       tooltips: [
+        `<h3>How to make components "remember" information with state</h3>`,
         "If you have a regular variable in your component function and that variable changes, that code executes, but the overall component function doesn't re-execute just because a regular variable changed. By default, React doesn't care about chainges of regular variables inside of components. It doesn't re-evaluate the component's JSX markup.",
         `<i>Changes to regular variable isn't enough to trigger re-renders</i> because:
         <br>- <i>Local variables don't persist between renders</i>;
@@ -372,8 +392,8 @@ const React_state = {
     {
       sectionTitle: 'State as a snapshot',
       sectionSource: '/src/markdowns/03_React_state/State_as_a_snapshot.html',
-
       tooltips: [
+        `<h3>Why state doesn't update right after you change it</h3>`,
         '<i>State behaves more like a snapshot</i>. Setting it does not change the state variable you already have, but instead trigger React to rendering the component again.',
         '"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like a snapshot of the UI in time. Its props, event handlers and local variables were all calculated <i>using its state at the time of the render</i>.',
         `State behaves like a <i>component's memory</i>, so is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function</i>.`,
@@ -397,6 +417,7 @@ const React_state = {
         highlight1: ['state scheduling', 'batching'],
       },
       tooltips: [
+        `<h3>How to queue multiple state updates</h3>`,
         'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
         "<i>Setting state does not change the variable in the existing render, but it requests a new render. Setting state only changes it for the next render! A state variable's value never changes within a render</i>.",
         "<i>Each render's state values are fixed</i>. React waits until all code in the event handlers has run before processing your state updates. So setting a state variable will queue another render.",
