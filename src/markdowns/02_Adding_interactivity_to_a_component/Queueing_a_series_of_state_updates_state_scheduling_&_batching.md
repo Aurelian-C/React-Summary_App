@@ -1,67 +1,31 @@
 # Queueing a series of state updates: state scheduling & batching
 
-State updates are _scheduled_ by React, they are _not processed immediately_. Setting a state variable will queue another render. But sometimes you might want to _perform multiple operations on the value before queueing the next render_. To do this, it helps to understand how React batches state updates.
+==Setting a state variable will queue another render. But sometimes you might want to **perform multiple operations on the value _before queueing the next render_**==. To do this, it helps to understand how React batches state updates. State updates are _scheduled_ by React, they are _not processed immediately_. 
 
->You will learn:
->
->- What "batching" is and how React uses it to process multiple state updates
->- How to apply several updates to the same state variable in a row
+You will learn:
+
+- What "batching" is and how React uses it to process multiple state updates
+- How to apply several updates to the same state variable in a row
 
 ## React batches state updates
 
 You might expect that clicking the “+3” button will increment the counter three times because it calls `setNumber(number + 1)` three times:
 
-```react
-import { useState } from 'react';
+![State_as_a_snapshot2](../../img/State_as_a_snapshot2.jpg)
 
-export default function Counter() {
-  const [number, setNumber] = useState(0);
-  return (
-    <>
-      <h1>{number}</h1>
-      <button onClick={() => {
-        setNumber(number + 1);
-        setNumber(number + 1);
-        setNumber(number + 1);
-      }}>+3</button>
-    </>
-  )
-}
-```
-
-However, as you might recall from the previous lecture, ==each render’s state values are fixed==, so the value of `number` inside the first render’s event handler is always `0`, no matter how many times you call `setNumber(number + 1)`.
+However, as you might know, ==each **render’s state values are fixed**==, so the value of `number` inside the first render’s event handler is always `0`, no matter how many times you call `setNumber(number + 1)`.
 
 ==**React waits until _all_ code in the event handlers has run before processing your state updates**. This is why the re-render only happens *after* all these `setNumber()` calls==.
-
-## State batching
 
 ==React lets you update multiple state variables — even from multiple components — without triggering too many [re-renders](https://beta.reactjs.org/learn/render-and-commit#re-renders-when-state-updates)==. But this also means that the UI won’t be updated until *after* your event handler, and any code in it, completes. This behavior, also known as **batching,** makes your React app run much faster. It also avoids dealing with confusing “half-finished” renders where only some of the variables have been updated.
 
 **React does not batch across _multiple_ intentional events like clicks** — each click is handled separately. Rest assured that React only does batching when it’s generally safe to do. This ensures that, for example, if the first button click disables a form, the second click would not submit it again.
 
-## Updating the same state variable multiple times before the next render
+## Updating the same state variable multiple times _before the next render_
 
-It is an uncommon use case, but if you would like to update the same state variable multiple times before the next render, instead of passing the *next state value* like `setNumber(number + 1)`, you can ==pass as argument an **updater function** that calculates the next state based on the previous one in the queue, like `setNumber(n => n + 1)`. It is a way to tell React to “do something with the state value” instead of just replacing it==.
+It is an uncommon use case, but ==if you would like to update the same state variable multiple times **before the next render**, instead of passing the *next state value* like `setNumber(number + 1)`, you can pass as argument an **updater function** that _calculates the next state based on the previous one in the queue_, like `setNumber(n => n + 1)`. It is a way to tell React to “do something with the state value” instead of just replacing it==.
 
-```react
-import { useState } from 'react';
-
-export default function Counter() {
-  const [number, setNumber] = useState(0);
-  return (
-    <>
-      <h1>{number}</h1>
-      <button onClick={() => {
-        setNumber(n => n + 1); // n => n + 1 is an updater function
-        setNumber(n => n + 1); // n => n + 1 is an updater function
-        setNumber(n => n + 1); // n => n + 1 is an updater function
-      }}>+3</button>
-    </>
-  )
-}
-
-// This updater function is the safe way of ensuring that state changes are processed in order and for every state change where you depend on the previous state, you get the latest state.
-```
+![Queueing_a_series_of_state_updates](../../img/Queueing_a_series_of_state_updates.jpg)
 
 Here, `n => n + 1` is called an **updater function.** When you pass it to a state setter:
 
@@ -89,20 +53,10 @@ React stores `3` as the final result and returns it from `useState`. This is why
 What about this event handler? What do you think `number` will be in the next render?
 
 ```react
-import { useState } from 'react';
-
-export default function Counter() {
-  const [number, setNumber] = useState(0);
-  return (
-    <>
-      <h1>{number}</h1>
-      <button onClick={() => {
-        setNumber(number + 5);
-        setNumber(n => n + 1);
-      }}>Increase the number</button>
-    </>
-  )
-}
+<button onClick={() => {
+  setNumber(number + 5);
+  setNumber(n => n + 1);
+}}>
 ```
 
 Here’s what this event handler tells React to do:
@@ -126,21 +80,11 @@ React stores `6` as the final result and returns it from `useState`.
 Let’s try one more example. What do you think `number` will be in the next render?
 
 ```react
-import { useState } from 'react';
-
-export default function Counter() {
-  const [number, setNumber] = useState(0);
-  return (
-    <>
-      <h1>{number}</h1>
-      <button onClick={() => {
-        setNumber(number + 5);
-        setNumber(n => n + 1);
-        setNumber(42);
-      }}>Increase the number</button>
-    </>
-  )
-}
+<button onClick={() => {
+  setNumber(number + 5);
+  setNumber(n => n + 1);
+  setNumber(42);
+}}>
 ```
 
 Here’s how React works through these lines of code while executing this event handler:
@@ -164,7 +108,7 @@ To summarize, here’s how you can think of what you’re passing to the `setNum
 - **An updater function** (e.g. `n => n + 1`) gets added to the queue.
 - **Any other value** (e.g. number `5`) adds “replace with `5`” to the queue, ignoring what’s already queued.
 
-After the event handler completes, React will trigger a re-render. During the re-render, React will process the queue. Updater functions run during rendering, so **updater functions must be pure** and only *return* the result. Don’t try to set state from inside of them or run other side effects.
+==After the event handler completes, React will trigger a re-render. During the re-render, React will process the queue. Updater functions run during rendering, so **updater functions must be pure** and only *return* the result. Don’t try to set state from inside of them or run other side effects==.
 
 ### Naming conventions 
 
