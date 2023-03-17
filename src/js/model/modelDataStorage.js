@@ -15,9 +15,10 @@ const React_basics = {
         <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <u>props</u>) and return <u>JSX markup</u> describing what should appear on the screen. So a component in React is just <i>a JavaScript function that returns JSX markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
         <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
-        <p>React components are regular JavaScript functions except:
-        <br>- their names always begin with a capital letter;
-        <br>- they return JSX markup.</p>`,
+        <ul>React components are regular JavaScript functions except:
+        <li>- their names always begin with a capital letter;</li>
+        <li>- they return JSX markup.</li>
+        </ul>`,
         `<h3>Why components?</h3>
         <p>React is all about components because <i>the UI in the end is made up of components</i>.</p>
         <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a clear task</i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your code.</p>
@@ -70,10 +71,11 @@ const React_basics = {
         <p>You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable</p>
         `,
         `<h3>How JSX is different from HTML (rules of JSX)</h3>
-        <p>JSX is stricter than HTML:</p> 
-        <p>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>.</p> 
-        <p>2. <i>Return a single root element</i>: Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or if you don't want to add an extra parent tag to your markup you can write an empty <>...<</span>/></span> wrapper.</p>
-        <p>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.</p>
+        <ul>JSX is stricter than HTML: 
+        <li>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>.</li> 
+        <li>2. <i>Return a single root element</i>: Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or if you don't want to add an extra parent tag to your markup you can write an empty <>...<</span>/></span> wrapper.</li>
+        <li>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.</li>
+        </ul>
         `,
         `<h3>Why do multiple JSX tags need to be wrapped?</h3>
         <p>JSX markup looks like HTML markup, but under the hood it is transformed into plain JavaScript objects. You can't return two objects from a function without wrapping them into an array. This explains why you also can't return two JSX tags without wrapping them into another tag or a <code>React.Fragment</code>.</p>
@@ -131,10 +133,11 @@ const React_basics = {
         <p><i>The next time you see <code>{{ ... }}</code> in JSX, know that it's nothing more than an object inside the JSX curlies!</i></p>
         `,
         `<h3>Write any expression inside JSX curly braces</h3>
-        <p>You can put more complex expressions inside the JSX curly braces too, for example:</p>
-        <p>- string concatenation</p>
-        <p>- function calls</p>
-        <p>- JavaScript objects</p>
+        <ul>You can put more complex expressions inside the JSX curly braces too, for example:
+        <li>- string concatenation</li>
+        <li>- function calls</li>
+        <li>- JavaScript objects</li>
+        </ul>
         `,
         `<h3>You can only use curly braces in two ways inside JSX:</h3>
         <p>- as <i>text</i> directly inside a JSX tag<p>
@@ -202,10 +205,11 @@ const React_basics = {
         <p>Components are regular JavaScript functions, so you can keep multiple components in the same file. This is <i>convenient when components are relatively <u>small</u> or tightly <u>related to each other</u></i>. If the file gets crowded, you can always split your components to a separate file.</p>
         <p>Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.</p>`,
         `<h3>Importing and exporting components</h3>
-        <p>You can move a component into another file in three steps:</p>
-        <p>1. <i>Make a new JS file</i> to put the components in;</p>
-        <p>2. <i>Export your function component</i> from that file using either <u>default</u> or <u>named</u> exports;</p>
-        <p>3. <i>Import it</i> in the file where you'll use the component using the corresponding technique for importing default or named exports.</p>
+        <ul>You can move a component into another file in three steps:
+        <li>1. <i>Make a new JS file</i> to put the components in;</li>
+        <li>2. <i>Export your function component</i> from that file using either <u>default</u> or <u>named</u> exports;</li>
+        <li>3. <i>Import it</i> in the file where you'll use the component using the corresponding technique for importing default or named exports.</li>
+        </ul>
         <p><i>How you export your component dictates how you must import it</i>.</p>
         `,
       ],
@@ -251,9 +255,10 @@ const React_basics = {
       tooltips: [
         `<h3>Purity: Components as formulas</h3>
         <p>Some JavaScript functions are pure. <i>Pure functions only perform a calculation and nothing more</i>.</p>
-        <p>In computer science (and especially the world of functional programming), a pure function is a function with the following characteristics:</p>
-        <p>- <i>It minds its own business</i>. It does <i><u>not change</u> any objects or variables that existed before it was called</i>;</p>
-        <p>- <i>Same inputs, same output</i>. Given the <u>same inputs</u>, a pure function should always return the <u>same result</u>.</p>
+        <ul>In computer science (and especially the world of functional programming), a pure function is a function with the following characteristics:
+        <li>- <i>It minds its own business</i>. It does <i><u>not change</u> any objects or variables that existed before it was called</i>;</li>
+        <li>- <i>Same inputs, same output</i>. Given the <u>same inputs</u>, a pure function should always return the <u>same result</u>.</li>
+        </ul>
         <p>React assumes that every component you write is a pure function. This means that <i>React components you write <u>must always return the same JSX given the same inputs</u></i>.</p>
         `,
         `<h3>Side Effects: (un)intended consequences</h3>
