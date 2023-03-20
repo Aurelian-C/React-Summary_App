@@ -52,9 +52,9 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'Writing markup with JSX',
+      sectionTitle: 'How to add markup to JavaScript with JSX',
       sectionSource:
-        '/src/markdowns/01_React_basics/Writing_markup_with_JSX.html',
+        '/src/markdowns/01_React_basics/How_to_add_markup_to_JavaScript_with_JSX.html',
       highlights: {
         highlight2: ['JSX'],
       },
@@ -150,7 +150,8 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'Passing data to a component via props',
+      sectionTitle:
+        'How to configure components with props: Passing data to a component via props',
       sectionSource:
         '/src/markdowns/01_React_basics/Passing_data_to_a_component_via_props.html',
       highlights: {
@@ -190,7 +191,8 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'Splitting a component into multiple components',
+      sectionTitle:
+        'When and how to create multi-component files: Splitting a component into multiple components',
       sectionSource:
         '/src/markdowns/01_React_basics/Splitting_a_component_into_multiple_components.html',
 
@@ -296,7 +298,7 @@ const Rendering_lists_and_conditional_content = {
   title: '<p class="card__title--2">Rendering lists & conditional content</p>',
   sections: [
     {
-      sectionTitle: 'Rendering lists of data & key prop',
+      sectionTitle: 'Rendering lists of data: the key prop',
       sectionSource:
         '/src/markdowns/04_Rendering_list_&_conditional_content/Rendering_lists_of_data.html',
       highlights: {
@@ -662,9 +664,9 @@ const Managing_state = {
       ],
     },
     {
-      sectionTitle: 'Preserving and resetting state',
+      sectionTitle: 'How to control whether the state gets preserved or reset',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Preserving_and_resetting_state.html',
+        '/src/markdowns/03_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
       tooltips: [
         '<i>State is isolated between components</i>. In React, each component on the screen has fully isolated state. React keeps track of which state belongs to which component <i>based on their place in the UI tree</i>. You can control when to preserve state and when to reset it between re-renders.',
         'React uses tree structures to manage and model the UI you make. React makes UI trees from your JSX.',
@@ -680,12 +682,11 @@ const Managing_state = {
       ],
     },
     {
-      sectionTitle:
-        '"Lifting the data/state up" to share data/state between components',
+      sectionTitle: '"How to “lift state up” to share it between components',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Lifting_the_data_or_state_up_to_share_it_between_components.html',
+        '/src/markdowns/03_Managing_state/How_to_lift_state_up_to_share_it_between_components.html',
       highlights: {
-        highlight1: ['"Lifting the data/state up"'],
+        highlight1: ['“lift state up”'],
       },
       tooltips: [
         'In React is a concept called "Lifting The Data/State Up". "Lifting The Data Up" means <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component.',
@@ -755,11 +756,12 @@ const Managing_state = {
         '/src/markdowns/03_Managing_state/useReducer_vs_useState_for_state_management.html',
     },
     {
-      sectionTitle: 'Introducing React Context (Context API)',
+      sectionTitle:
+        'How to pass information without “prop drilling”: Passing Data Deeply with Context',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Introducing_React_Context.html',
+        '/src/markdowns/03_Managing_state/Passing_Data_Deeply_with_Context.html',
       highlights: {
-        highlight2: ['React Context (Context API)'],
+        highlight2: ['Context'],
       },
       tooltips: [
         `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
@@ -808,9 +810,10 @@ const Managing_state = {
         '/src/markdowns/03_Managing_state/React_Context_limitations.html',
     },
     {
-      sectionTitle: 'Scaling state with <code>useReducer</code> and context',
+      sectionTitle:
+        'How to scale state management as your app grows: Scaling state with <code>useReducer</code> and Context',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Scaling_state_with_useReducer_and_context.html',
+        '/src/markdowns/03_Managing_state/Scaling_state_with_useReducer_and_Context.html',
       tooltips: [
         'You can combine reducer with context to let any component read and update state above it.',
       ],
@@ -994,7 +997,8 @@ const Fragments_Portals_and_Refs = {
       ],
     },
     {
-      sectionTitle: 'Referencing values with refs',
+      sectionTitle:
+        'How to “remember” information without re-rendering: Referencing values with refs',
       sectionSource:
         '/src/markdowns/06_Fragments_Portals_&_Refs/Referencing_values_with_ref.html',
       highlights: {
@@ -1013,7 +1017,8 @@ const Fragments_Portals_and_Refs = {
       ],
     },
     {
-      sectionTitle: 'Manipulating the DOM with <code>ref</code> prop',
+      sectionTitle:
+        'How to access DOM elements managed by React: Manipulating the DOM with <code>ref</code> prop',
       sectionSource:
         '/src/markdowns/06_Fragments_Portals_&_Refs/Manipulating_the_DOM_with_ref.html',
       tooltips: [
@@ -1055,7 +1060,8 @@ const Handling_side_effects = {
   title: '<p class="card__title--2">Handling side effects</p>',
   sections: [
     {
-      sectionTitle: 'Synchronizing with Effects',
+      sectionTitle:
+        'How to synchronize components with external systems: Synchronizing with Effects',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Synchronizing_with_effects.html',
       highlights: {
@@ -1079,7 +1085,8 @@ const Handling_side_effects = {
       ],
     },
     {
-      sectionTitle: 'You might not need an Effect',
+      sectionTitle:
+        'How to remove unnecessary Effects from your components: You might not need an Effect',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/You_might_not_need_an_effect.html',
       tooltips: [
@@ -1092,7 +1099,8 @@ const Handling_side_effects = {
       ],
     },
     {
-      sectionTitle: 'Lifecycle of reactive Effects',
+      sectionTitle:
+        'How an Effect’s lifecycle is different from a component’s: Lifecycle of reactive Effects',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Lifecycle_of_reactive_effects.html',
       tooltips: [
@@ -1111,7 +1119,8 @@ const Handling_side_effects = {
       ],
     },
     {
-      sectionTitle: 'Separating Events from Effects',
+      sectionTitle:
+        'How to prevent some values from re-triggering Effects: Separating Events from Effects',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Separating_Events_from_Effects.html',
       tooltips: [
@@ -1127,7 +1136,8 @@ const Handling_side_effects = {
       ],
     },
     {
-      sectionTitle: 'Removing Effect dependencies',
+      sectionTitle:
+        'How to make your Effect re-run less often: Removing Effect dependencies',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Removing_Effect_dependencies.html',
       tooltips: [
@@ -1274,7 +1284,8 @@ const Custom_React_Hooks = {
   title: '<p class="card__title--2">Custom React Hooks</p>',
   sections: [
     {
-      sectionTitle: 'Reusing logic with "custom Hooks"?',
+      sectionTitle:
+        'How to share logic between components: Reusing logic with "custom Hooks"?',
       sectionSource:
         '/src/markdowns/10_React_custom_Hooks/Reusing_logic_with_Custom_Hooks.html',
       highlights: {
