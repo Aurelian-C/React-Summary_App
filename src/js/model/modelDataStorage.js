@@ -546,7 +546,7 @@ const Adding_interactivity_to_a_component = {
         <p>With the spread syntax you <i>don't need to copy every property separately</i>.</p>
         <p>You can use the <code>{...obj, something: 'newValue'}</code> object spread syntax to create copies of objects.</p>
         `,
-        `<h3>Copying nested objects</h3>
+        `<h3>Copying nested objects: shallow vs deep</h3>
         <p><i>The <code>...</code> spread syntax is "shallow" — it only copies things one level deep</i>. This makes it fast, but it also means that if you want to update a nested property, you'll have to use it more than once.</p>
         <p>To update a nested object, you need to <i>create copies all the way up from the place you're updating</i>.</p>
         `,
@@ -586,11 +586,12 @@ const Adding_interactivity_to_a_component = {
         <p>Sometimes, you may want to insert an item at a particular position that's neither at the beginning nor at the end. To do this, you can use the <i><code>...</code> array spread syntax together with the <code>slice()</code> method</i>.</p>
         `,
         `<h3>Making other changes to an array</h3>
-        <p>There are some things you can't do with the spread syntax and non-mutating methods like <code>map()</code> and <code>filter()</code> alone. For example, you may want to reverse or sort an array. The JavaScript <code>reverse()</code> and <code>sort()</code> methods are mutating the original array, so you can't use them directly. However, <i>you can copy the array first, and then make changes to it</i>.</p>
-        <p><i>However, even if you copy an array, you can't mutate existing items inside of it directly. This is because copying is shallow — the new array will contain the same items as the original one. So if you modify an object inside the copied array, you are mutating the existing state</i>.</p>
+        <p>There are some things you can't do with the spread syntax and non-mutating methods like <code>map()</code> and <code>filter()</code> alone. For example, you may want to reverse or sort an array. The JavaScript <code>reverse()</code> and <code>sort()</code> methods are mutating the original array, so you can't use them directly. However, <i>you can copy the array first, and then make changes to it</i>.</p>`,
+        `<h3>Copying an array: shallow vs deep</h3>
+        <p><i>However, even if you copy an array, you can't mutate existing items inside of it directly. This is because copying is "shallow" — the new array will contain the same items as the original one. So if you modify an object inside the copied array, you are mutating the existing state</i>.</p>
         `,
         `<h3>Updating objects inside arrays</h3>
-        <p><i>Objects are not really located "inside" arrays. They might appear to be “inside” in code, but each object in an array is a separate value, to which the array "points"</i>.</p>
+        <p><i>Objects are not really located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points"</i>.</p>
         <p><i>When updating nested state, you need to create copies from the point where you want to update, and all the way up to the top level</i>.</p>
         <p><i>In general, you should only mutate objects that you have just created</i>. If you were inserting a new property to an object that you have just created, you could mutate it, but if you're dealing with something that's already in state, you need to make a copy.</p>
         `,
