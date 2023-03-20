@@ -569,15 +569,18 @@ const Adding_interactivity_to_a_component = {
         <p>Instead, every time you want to update an array, you'll want to <i>pass a new array to your state setting function</i>. To do that, you can <i>create a new array from the original array</i> in your state by calling its non-mutating methods like <code>filter()</code> and <code>map()</code>. Then you can set your state to the resulting new array.</p>
         <p>You can use the <code>[...arr, newItem]</code> array spread syntax to create arrays with new items.</p>
         `,
-        `<h3>Adding to an array</h3>
+        `<h3>Adding to an array with <code>concat()</code> or <code>[...arr]</code></h3>
         <p><code>push()</code> will mutate an array, which you don't want. Instead, create a new array which contains the existing items and a new item at the end. There are multiple ways to do this, but the easiest one is to use the <i><code>...</code> array spread syntax</i>.</p>
         <p>The array spread syntax also lets you prepend an item by placing it before the original array. In this way, spread can do the job of both <code>push()</code> by adding to the end of an array and <code>unshift()</code> by adding to the beginning of an array.</p>
         `,
-        `<h3>Removing from an array</h3>
+        `<h3>Removing from an array with <code>filter()</code> or <code>slice()</code></h3>
         <p>The easiest way to remove an item from an array is to filter it out. In other words, you will produce a new array that will not contain that item. To do this, use the <i><code>filter()</code> method</i>.</p>
         `,
-        `<h3>Transforming an array</h3>
+        `<h3>Transforming an array with <code>map()</code></h3>
         <p>If you want to change some or all items of the array, you can use <i><code>map()</code></i> to create a new array. The function you will pass to <code>map()</code> can decide what to do with each item, based on its data or its index (or both).</p>
+        `,
+        `<h3>Replacing items in an array with <code>map()</code></h3>
+        <p>To replace an item, create a new array with <code>map()</code>. Inside your <code>map(</code> call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else.</p>
         `,
         `<h3>Inserting into an array</h3>
         <p>Sometimes, you may want to insert an item at a particular position that's neither at the beginning nor at the end. To do this, you can use the <i><code>...</code> array spread syntax together with the <code>slice()</code> method</i>.</p>
