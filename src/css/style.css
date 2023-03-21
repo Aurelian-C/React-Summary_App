@@ -312,6 +312,10 @@ code {
   text-indent: 40px;
 }
 
+ul {
+  list-style: none;
+}
+
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover {
   visibility: visible;
