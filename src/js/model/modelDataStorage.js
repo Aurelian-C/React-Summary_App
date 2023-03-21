@@ -637,6 +637,20 @@ const Managing_state = {
       ],
     },
     {
+      sectionTitle: 'How to “lift state up” to share it between components',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/How_to_lift_state_up_to_share_it_between_components.html',
+      highlights: {
+        highlight1: ['“lift state up”'],
+      },
+      tooltips: [
+        'In React is a concept called "Lifting The Data/State Up". "Lifting The Data Up" means <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component.',
+        'You will hear the term Lifting The Data/State Up quite a bit when you were working with React and whenever you hear that, it is about moving data/state from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
+        `<i>A single source of truth for each state</i>: in a React application, many components will have their own state. For each unique piece of state, you will choose the component that "owns" it. For each piece of state, there is a specific component that holds that piece of information. Instead of duplicating shared state between components, you will lift it up to their common shared parent, and pass it down to the children that need it.
+        `,
+      ],
+    },
+    {
       sectionTitle: 'How to control whether the state gets preserved or reset',
       sectionSource:
         '/src/markdowns/03_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
@@ -651,20 +665,6 @@ const Managing_state = {
         `<i>Resetting state at the same position</i>:
         <br>1. Render components in different positions;
         <br>2. Give each component an explicit identity with <code>key</code>.
-        `,
-      ],
-    },
-    {
-      sectionTitle: '"How to “lift state up” to share it between components',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/How_to_lift_state_up_to_share_it_between_components.html',
-      highlights: {
-        highlight1: ['“lift state up”'],
-      },
-      tooltips: [
-        'In React is a concept called "Lifting The Data/State Up". "Lifting The Data Up" means <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component.',
-        'You will hear the term Lifting The Data/State Up quite a bit when you were working with React and whenever you hear that, it is about moving data/state from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
-        `<i>A single source of truth for each state</i>: in a React application, many components will have their own state. For each unique piece of state, you will choose the component that "owns" it. For each piece of state, there is a specific component that holds that piece of information. Instead of duplicating shared state between components, you will lift it up to their common shared parent, and pass it down to the children that need it.
         `,
       ],
     },
