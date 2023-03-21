@@ -82,6 +82,7 @@ body {
   font-size: var(--card-title--font-size);
   text-align: center;
   margin: 1rem 3rem;
+  position: relative;
 }
 
 .card__title--1 {
@@ -269,22 +270,14 @@ code {
   z-index: 1;
   bottom: 0;
 
-  /* Fade in tooltip */
-  /* opacity: 0; */
   transition: opacity 0.3s;
 }
 
-/* Tooltip arrow */
-/* .tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-} */
+.card__title .tooltip {
+  left: -30%;
+  min-width: 50rem;
+  text-align: left;
+}
 
 .tooltip_paragraph {
   text-indent: 20px;
@@ -322,6 +315,7 @@ ul {
   opacity: 1;
 }
 
+.card__title:hover .tooltip,
 .card__article-title:hover + .tooltip,
 .card__article-anchor:hover + .tooltip {
   opacity: 1;

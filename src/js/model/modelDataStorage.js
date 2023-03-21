@@ -1,5 +1,10 @@
 const React_basics = {
   title: '<p class="card__title--2">React basics & working with components</p>',
+  tooltips: [
+    `<p>React is a <i>JavaScript library for <u>rendering user interfaces</u> (UI)</i>. UI is built from small units like buttons, text, and images. <i>React lets you combine them into <u>reusable, nestable components</u></i>.</p>
+    <p>From web sites to phone apps, <i>everything on the screen can be broken down into components</i>.</p>
+    <p>In this section, you'll learn to create and customize React components.</p>`,
+  ],
   sections: [
     {
       sectionTitle: 'What are components and why is React all about them?',
@@ -130,7 +135,7 @@ const React_basics = {
     },
     {
       sectionTitle:
-        'How to configure components with props: Passing data to a component via props',
+        'How to configure components with props: passing data to a component via props',
       sectionSource:
         '/src/markdowns/01_React_basics/Passing_data_to_a_component_via_props.html',
       highlights: {
@@ -171,7 +176,23 @@ const React_basics = {
     },
     {
       sectionTitle:
-        'When and how to create multi-component files: Splitting a component into multiple components',
+        'The concept of "composition": passing JSX as children via <code>props.children</code>',
+      sectionSource:
+        '/src/markdowns/01_React_basics/The_concept_of_composition_props_children.html',
+      highlights: {
+        highlight1: ['"composition"'],
+        highlight2: ['<code>props.children</code>'],
+      },
+      tooltips: [
+        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. <i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
+        "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
+        '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
+        'You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.',
+      ],
+    },
+    {
+      sectionTitle:
+        'When and how to create multi-component files: splitting a component into multiple components',
       sectionSource:
         '/src/markdowns/01_React_basics/Splitting_a_component_into_multiple_components.html',
 
@@ -193,21 +214,6 @@ const React_basics = {
         </ul>
         <p><i>How you export your component dictates how you must import it</i>.</p>
         `,
-      ],
-    },
-    {
-      sectionTitle: 'The concept of "composition": <code>props.children</code>',
-      sectionSource:
-        '/src/markdowns/01_React_basics/The_concept_of_composition_props_children.html',
-      highlights: {
-        highlight1: ['"composition"'],
-        highlight2: ['<code>props.children</code>'],
-      },
-      tooltips: [
-        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. <i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
-        "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
-        '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
-        'You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.',
       ],
     },
     {
@@ -349,6 +355,10 @@ const Rendering_lists_and_conditional_content = {
 
 const Adding_interactivity_to_a_component = {
   title: '<p class="card__title--2">Adding interactivity to a component</p>',
+  tooltips: [
+    `<p>Some things on the screen update in response to user input. <i>In React, data that changes over time is called state</i>. You can add state to any component, and update it as needed.</p>
+    <p>In this section, you'll learn <i>how to write components that handle <u>interactions</u></i>, <i>update their <u>state</u></i>, and <i>display <u>different output</u> over time</i>.</p>`,
+  ],
   sections: [
     {
       sectionTitle: 'Listening to events & working with event handlers',
@@ -591,6 +601,10 @@ const Adding_interactivity_to_a_component = {
 
 const Managing_state = {
   title: '<p class="card__title--2">Managing state</p>',
+  tooltips: [
+    `<p>As your application grows, it helps to be more intentional about <i>how your state is organized</i> and <i>how the data flows between your components</i>. Redundant or duplicate state is a common source of bugs.</p>
+    <p>In this section, you'll learn how to <i>structure your state well</i>, how to <i>keep your state update logic maintainable</i>, and how to <i>share state between distant components</i>.</p>`,
+  ],
   sections: [
     {
       sectionTitle: 'React uses a declarative way to manipulate the UI',

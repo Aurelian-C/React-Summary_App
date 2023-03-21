@@ -21,12 +21,29 @@ class ApplicationView {
   _generateMarkup(card) {
     const markupString = card
       .map((card, idx) => {
+        let tooltipMarkup = '';
+
+        if (card.tooltips?.length > 0) {
+          tooltipMarkup = `
+            <div class="tooltip">
+              ${card.tooltips
+                .map(
+                  tooltip => `<div class="tooltip_paragraph">${tooltip}</div>`
+                )
+                .join('')}
+            </div>
+          `;
+        }
+
         return `
           <div class="card">
-            <h2 class="card__title">
-              <p class="card__title--1">Section ${idx + 1}</p>
-              ${card.title}
-            </h2>
+            <div class="card__title">
+              <h2>
+                <p class="card__title--1">Section ${idx + 1}</p>
+                ${card.title}
+              </h2>
+              ${tooltipMarkup}
+            </div>
             <div class="card__articles">
               ${card.sections.map(this._generateMarkupArticle).join('')}
             </div>
