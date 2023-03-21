@@ -1,22 +1,22 @@
-# React code is written in a "declarative way"
+# Reacting to Input with State
 
-==With just Vanilla JavaScript, we have to write every single step that should be taken to build an app==. We want to create an element, we want to set its content, we want to add classes, we want to add an event (click, scroll etc.), then what should happen on that event. Every single step needs to be described. _This way of programming and bringing something onto the screen, is called an_ ==**Imperative Approach**==. _We simply describe action after action, step after step, and that can reach its limits_.
+==With just Vanilla JavaScript, you have to write every single step that should be taken to build an app==. You want to create an element, you want to set its content, you want to add classes, you want to add an event (click, scroll etc.), then what should happen on that event. Every single step needs to be described. _This way of programming and bringing something onto the screen, is called an_ ==**Imperative Approach**==. _You simply describe action after action, step after step, and that can reach its limits_.
 
-_React uses something which is called a_ ==**Declarative Approach**== _for building components. This basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the user interface, as you would be doing it with Vanilla JavaScript_. Instead, with React and that's really important, you will **always define the desired end state**, the target state or possibly also different target states depending on different conditions, and it's then React job to figure out which elements on the actual webpage might need to be added, removed or updated, and ==_you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript_, instead with React and React components you just **define these end _states_ and under which _conditions_ which state should be used**==, and then React will do all of the rest under the hood.
+==With React, you won’t modify the UI from code directly== like you use to do with Vanilla JavaScript. For example, you won’t write commands like “disable the button”, “enable the button”, “show the success message”, etc. Instead, you will ==describe the UI you want to see for the different visual states of your component (“initial state”, “typing state”, “success state”), and then trigger the state changes in response to user input==.
+
+==React uses a **declarative way to manipulate the UI**. Instead of manipulating individual pieces of the UI directly, you **describe the different states that your component can be in**, and switch between them in response to the user input==.
+
+You will learn:
+
+- How **declarative UI** programming differs from **imperative UI** programming
+- How to enumerate the **different visual states** your component can be in
+- How to **trigger the changes between the different visual states** from code
 
 ![React_and_components](../../img/React_and_components.jpg)
 
-==React uses a _**declarative way** to manipulate the UI_. Instead of manipulating individual pieces of the UI directly, you _describe the different states that your component can be in_, and switch between them in response to user actions (user events) or computer actions (http events), to manipulate the UI==.
-
-> You will learn:
->
-> - How **declarative UI** programming differs from **imperative UI** programming
-> - How to enumerate the **different visual states** your component can be in
-> - How to **trigger the changes between the different visual states** from code
-
 ## How _declarative_ UI compares to _imperative_
 
-When you design UI interactions, you probably think about ==how the UI _changes in response to user actions_==. Consider a form that lets the user submit an answer:
+==When you design UI interactions, you probably think about **how the UI changes in response to user actions**==. Consider a form that lets the user submit an answer:
 
 - When you type something into a form, the “Submit” button **becomes enabled.**
 - When you press “Submit”, both form and the button **become disabled,** and a spinner **appears.**
@@ -27,7 +27,7 @@ When you design UI interactions, you probably think about ==how the UI _changes 
 
 In **imperative programming,** the above corresponds directly to how you implement interaction. ==You have to write the exact instructions to manipulate the UI depending on what just happened==. Here’s another way to think about this: imagine riding next to someone in a car and telling them turn by turn where to go.
 
-![React_code_is_written_in_a_declarative_way](../../img/React_code_is_written_in_a_declarative_way.png)
+![React_code_is_written_in_a_declarative_way](../../img/React_code_is_written_in_a_declarative_way.jpg)
 
 They don’t know where you want to go, they just follow your commands (and if you get the directions wrong, you end up in the wrong place!). ==It’s called _imperative_ because you have to “command” each element, from the spinner to the button, telling the computer _how_ to update the UI==.
 
@@ -109,21 +109,21 @@ React was built to solve this problem.
 
 ==In React, you **don’t directly manipulate the UI** — meaning you don’t enable, disable, show, or hide components directly. Instead, you **declare what you want to show,** and React figures out how to update the UI==. Think of getting into a taxi and telling the driver where you want to go instead of telling them exactly where to turn. It’s the driver’s job to get you there, and they might even know some shortcuts you haven’t considered!
 
-![React_code_is_written_in_a_declarative_way1](../../img/React_code_is_written_in_a_declarative_way1.png)
+![React_code_is_written_in_a_declarative_way1](../../img/React_code_is_written_in_a_declarative_way1.jpg)
 
 ## Thinking about UI declaratively: how to think about _UI changes_ as _state changes_
 
 You’ve seen how to implement a form imperatively above. To better understand how to think in React, you’ll walk through reimplementing this UI in React. There are some steps you need to folow when you build an app in React:
 
-1. Identify your component’s _different visual states_
-2. Determine what triggers those _state changes_
-3. Represent the _state in memory_ using `useState`
-4. Remove any _non-essential state variables_
-5. Connect the _event handlers_ to set the state
+1. ==Identify your component’s **different visual states**==
+2. ==Determine what triggers those **state changes**==
+3. ==Represent the **state in memory** using `useState`==
+4. ==Remove any **non-essential state variables**==
+5. ==Connect the **event handlers** to set the state==
 
 ### Step 1: Identify your component’s **different visual states**
 
-==First, you need to visualize all the **different “states” of the UI** the user might see==. In our example they can be:
+If you work with a designer, you may have seen mockups for different “visual states”. ==First, you need to visualize all the **different “states” of the UI** the user might see==. In our example they can be:
 
 - _Empty_: Form has a disabled “Submit” button.
 - _Typing_: Form has an enabled “Submit” button.
@@ -133,36 +133,52 @@ You’ve seen how to implement a form imperatively above. To better understand h
 
 ==Just like a designer, you’ll want to “mock up” or create “mocks” for the different states _before_ you add logic. Mocking lets you quickly iterate on the UI _before_ you wire up any logic==.
 
+> **Note**: If a component has a lot of visual states, it can be convenient to show them all on one page.
+
 ### Step 2: Determine what triggers those **state changes**
 
 ==You can _trigger state updates_ in response to two kinds of inputs:==
 
-- ==**Human inputs**==, like clicking a button, typing in a field, navigating a link (Notice that human inputs often require [event handlers](https://beta.reactjs.org/learn/responding-to-events)!)
+- ==**Human inputs**==, like clicking a button, typing in a field, navigating a link (notice that human inputs often require [event handlers](https://beta.reactjs.org/learn/responding-to-events)!)
 - ==**Computer inputs**==, like a network response arriving, a timeout completing, an image loading.
 
-==In both cases, **you must set [state variables](https://beta.reactjs.org/learn/state-a-components-memory#anatomy-of-usestate) to update the UI**==.
+==In both cases, **you must set [state variables](https://beta.reactjs.org/learn/state-a-components-memory#anatomy-of-usestate) to update the UI**==. For the form you’re developing, you will need to change state in response to a few different inputs:
+
+- **Changing the text input** (human) should switch it from the *Empty* state to the *Typing* state or back, depending on whether the text box is empty or not.
+- **Clicking the Submit button** (human) should switch it to the *Submitting* state.
+- **Successful network response** (computer) should switch it to the *Success* state.
+- **Failed network response** (computer) should switch it to the *Error* state with the matching error message.
+
+To help visualize this flow, try drawing each state on paper as a labeled circle, and each change between two states as an arrow. You can sketch out many flows this way and sort out bugs long before implementation.
+
+![React_code_is_written_in_a_declarative_way2](../../img/React_code_is_written_in_a_declarative_way2.jpg)
 
 ### Step 3: Represent the **state in memory** with `useState`
 
 ==Next you’ll need to _represent the visual states of your component in memory_ with [`useState`.](https://beta.reactjs.org/reference/react/useState)== Simplicity is key: each piece of state is a “moving piece”, and _you want as few “moving pieces” as possible_. More complexity leads to more bugs!
 
-==Start with the state that _absolutely must_ be there==. Your first idea likely won’t be the best, but that’s ok — refactoring state is a part of the process!
+==Start with the state that _absolutely must_ be there==. For example, you’ll need to store the `answer` for the input, and the `error` (if it exists) to store the last error:
 
-#### Find the minimal but complete representation of UI state
+```react
+const [answer, setAnswer] = useState('');
+const [error, setError] = useState(null);
+```
 
-To make the UI interactive, you need to let users change your underlying data model. You will use _state_ for this. ==Think of state as the minimal set of changing data that your app needs to remember==. The most important principle for structuring state is to keep it DRY (Don’t Repeat Yourself). ==Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand==. For example, if you’re building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don’t store the number of items as another state value — instead, read the length of your array.
+Then, ==you’ll need a state variable representing which one of the visual states that you want to display==. There’s usually more than a single way to represent that in memory, so you’ll need to experiment with it. If you struggle to think of the best way immediately, start by adding enough state that you’re *definitely* sure that all the possible visual states are covered:
 
-Which pieces of data are state? Identify the ones that are not:
+```react
+const [isEmpty, setIsEmpty] = useState(true);
+const [isTyping, setIsTyping] = useState(false);
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [isSuccess, setIsSuccess] = useState(false);
+const [isError, setIsError] = useState(false);
+```
 
-- Does data **remain unchanged** over time? If so, it isn’t state.
-- Is data **passed in from a parent** via props? If so, it isn’t state.
-- **Can you compute data** based on existing state or props in your component? If so, it _definitely_ isn’t state!
-
-What’s left is probably state.
+Your first idea likely won’t be the best, but that’s ok — refactoring state is a part of the process!
 
 ### Step 4: Remove any **non-essential state variables**
 
-You want to avoid duplication in the state content so ==you’re only tracking what is essential==. Spending a little time on refactoring your state structure will make your components easier to understand, reduce duplication, and avoid unintended meanings. Your goal is to ==prevent the cases where the state in memory doesn’t represent any valid UI that you’d want a user to see== (for example, you never want to show an error message and disable the input at the same time, or the user won’t be able to correct the error!).
+==You want to **avoid duplication** in the state content so you’re **only tracking what is essential**==. Spending a little time on refactoring your state structure will make your components easier to understand, reduce duplication, and avoid unintended meanings. Your goal is to ==prevent the cases where the state in memory doesn’t represent any valid UI that you’d want a user to see== (for example, you never want to show an error message and disable the input at the same time, or the user won’t be able to correct the error!).
 
 Here are some questions you can ask about your state variables:
 
@@ -170,9 +186,17 @@ Here are some questions you can ask about your state variables:
 - ==Is the same information available in another state variable already?== Another paradox: `isEmpty` and `isTyping` can’t be `true` at the same time. By making them separate state variables, you risk them going out of sync and causing bugs. Fortunately, you can remove `isEmpty` and instead check `answer.length === 0`.
 - ==Can you get the same information from the inverse of another state variable?== `isError` is not needed because you can check `error !== null` instead.
 
+After this clean-up, you’re left with 3 (down from 7!) *essential* state variables:
+
+```react
+const [answer, setAnswer] = useState('');
+const [error, setError] = useState(null);
+const [status, setStatus] = useState('typing'); // 'typing', 'submitting', or 'success'
+```
+
 ==You know when some state are essential, because you can’t remove any of them without breaking the functionality==.
 
-==To model the state more precisely, you can [extract it into a reducer.](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer) Reducers let you unify multiple state variables into a single object and consolidate all the related logic!==
+> **Eliminating “impossible” states with a reducer**: These three variables are a good enough representation of this form’s state. However, there are still some intermediate states that don’t fully make sense. For example, a non-null `error` doesn’t make sense when `status` is `'success'`. To model the state more precisely, you can [extract it into a reducer.](https://react.dev/learn/extracting-state-logic-into-a-reducer) Reducers let you unify multiple state variables into a single object and consolidate all the related logic!
 
 ### Step 5: Connect the **event handlers** to set state
 
@@ -250,7 +274,7 @@ function submitForm(answer) {
 }
 ```
 
-Although this code is longer than the original imperative example, it is much _less fragile_. Expressing all interactions as state changes lets you later introduce new visual states without breaking existing ones. It also lets you change what should be displayed in each state without changing the logic of the interaction itself.
+Although this code is longer than the original imperative example, it is much _less fragile_. ==Expressing all interactions as state changes lets you later introduce new visual states without breaking existing ones. It also lets you change what should be displayed in each state without changing the logic of the interaction itself==.
 
 ## Summary
 

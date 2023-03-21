@@ -42,6 +42,8 @@ In React, `useState`, as well as any other function starting with ”`use`”, i
 
 > **IMPORTANT**: **Hooks — functions starting with `use` — can only be called at the top level of your components or [your own Hooks.](https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks)** You can’t call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs. You “use” React features at the top of your component similar to how you “import” modules at the top of your file.
 
+![Updating_data_via_state](../../img/Updating_data_via_state.jpg)
+
 ## Anatomy of `useState` 
 
 ==When you call `useState`, you are telling React that you want this component to remember something==:
@@ -93,6 +95,15 @@ Internally, React holds an array of state pairs for every component. It also mai
 ==Also parent components doesn’t “know” anything about their child component's state or even whether it has any. Unlike props, **state is fully private to the component declaring it.** The parent component can’t change it. This lets you add state to any component or remove it without impacting the rest of the components.==
 
 ==What if you wanted some child components to keep their states in sync? The right way to do it in React is to *remove* state from child components and add it to their closest shared parent==.
+
+## Props vs State
+
+There are two types of “model” data in React: props and state. The two are very different:
+
+- ==**Props** are like arguments you pass to a function==. They let a parent component pass data to a child component and customize its appearance. For example, a `Form` can pass a `color` prop to a `Button`.
+- ==**State** is like a component’s memory==. It lets a component keep track of some information and change it in response to interactions. For example, a `Button` might keep track of `isHovered` state.
+
+Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and _pass it down_ to child components as their props.
 
 ## Summary
 

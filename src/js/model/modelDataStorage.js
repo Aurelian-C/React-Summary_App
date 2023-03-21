@@ -31,27 +31,6 @@ const React_basics = {
       sectionSource: '',
     },
     {
-      sectionTitle: 'React code is written in a "declarative way"!',
-      sectionSource:
-        '/src/markdowns/01_React_basics/React_code_is_written_in_a_declarative_way.html',
-      highlights: {
-        highlight1: ['"declarative way"'],
-      },
-      tooltips: [
-        'With just Vanilla JavaScript, we have to write every single line of code that should be taken to build an app (<b>Imperative Way</b>). <i>React uses something which is called a <b>Declarative Way</b> for building components and to manipulate the UI. Instead of manipulating individual pieces of the UI directly, <b>you describe the different states that your component can be in</b>, and switch between them in response to user actions (user events) or computer actions (http events)</i>.',
-        "Declarative Way basically means that with React you will not tell React that a certain HTML element should be created and inserted in a specific place on the UI, as you would be doing it with Vanilla JavaScript. Instead, <i>with React you will always <b>define different states that your component can be in</b>, and then it's React job to figure out which elements on the UI might need to be added or removed or updated</i>, and you don't write these concrete DOM updating instructions on your own, as you would be doing it with just Vanilla JavaScript.",
-        `With just Vanilla JavaScript, you have to write the exact instructions (every line of code) to manipulate the UI. It's called imperative because you have to "command" each element, from the spinner to the button, telling the computer how to update the UI. <i>In React, you don't directly manipulate the UI</i> — meaning you don't enable, disable, show, or hide components directly. Instead, you declare what you want to show, and React figures out how to update the UI.`,
-        'In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.',
-        '<i>Declarative programming means <u>describing the UI for each visual state</u>, rather than micromanaging the UI (imperative)</i>.',
-        `When developing a component:
-        <br>1. Identify all its <i>visual states</i>.
-        <br>2. Determine the human/computer triggers for <i>state changes</i>.
-        <br>3. <i>Model the state</i> with <code>useState</code>.
-        <br>4. <i>Remove non-essential state</i> to avoid bugs and paradoxes.
-        <br>5. Connect the <i>event handlers to set state</i>.`,
-      ],
-    },
-    {
       sectionTitle: 'How to add markup to JavaScript with JSX',
       sectionSource:
         '/src/markdowns/01_React_basics/How_to_add_markup_to_JavaScript_with_JSX.html',
@@ -422,6 +401,7 @@ const Adding_interactivity_to_a_component = {
         <li>1. A <i>state variable</i> to <u>retain the data between renders</u>.</li>
         <li>2. A <i>state setter function</i> to <u>update the variable</u> and <u>trigger React to render the component again</u>.</li></ul>
         <p>Use a state variable when a component needs to "remember" some information between renders.</p>
+        <p>The <code>useState</code> Hook allows you to <i>define values as state</i>, where changes to these values should reflect in a component function being called again, which is a key difference to a value stored in a regular variable.</p>
         `,
         `<h3>Anatomy of <code>useState</code></h3>
         <p>When you call <code>useState</code>, you are telling React that you want this component to remember something.</p>
@@ -441,6 +421,12 @@ const Adding_interactivity_to_a_component = {
         <p>Also <i>parent components doesn't "know" anything about their child component's state or even whether it has any. Unlike props, <u>state is fully private to the component declaring it</u></i>. The parent component can't change it. This lets you add state to any component or remove it without impacting the rest of the components.</p>`,
         `<h3>Keep child component's state in sync</h3>
         <p>What if you wanted some child components to keep their states in sync? The right way to do it in React is to remove state from child components and add it to their closest shared parent.</p>
+        `,
+        `<h3>There are two types of "model" data in React</h3>
+        <ul>There are two types of "model" data in React: <i>props</i> and <i>state</i>. The two are very different:
+        <li>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance.</li>
+        <li>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions.</li>
+        </ul>
         `,
       ],
     },
@@ -468,6 +454,7 @@ const Adding_interactivity_to_a_component = {
         <li>2. The component's (or one of its ancestors) <i>state has been updated</i>.</li>
         </ul>
         <p>Once the component has been initially rendered, you can trigger further renders by updating its state with the state setter function provided by <code>useState</code> Hook. <i>Updating your component's state automatically trigger a render</i>.</p>
+        <p>Only the component where the <code>useState()</code> was registered and its child components will be updated, not any other components.</p>
         `,
         `<h3>React <u>renders</u> your components: what rendering means in React</h3>
         <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <i>"Rendering" is React <u>calling</u> your components.</i></p>
@@ -606,37 +593,32 @@ const Managing_state = {
   title: '<p class="card__title--2">Managing state</p>',
   sections: [
     {
-      sectionTitle: 'Working with state',
-      sectionSource: '/src/markdowns/03_Managing_state/Working_with_state.html',
+      sectionTitle: 'React uses a declarative way to manipulate the UI',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/React_uses_a_declarative_way_to_manipulate_the_UI.html',
       highlights: {
-        highlight1: ['state'],
+        highlight1: ['declarative way'],
       },
       tooltips: [
-        `<h3>How to make components "remember" information with state</h3>`,
-        "If you have a regular variable in your component function and that variable changes, that code executes, but the overall component function doesn't re-execute just because a regular variable changed. By default, React doesn't care about chainges of regular variables inside of components. It doesn't re-evaluate the component's JSX markup.",
-        `<i>Changes to regular variable isn't enough to trigger re-renders</i> because:
-        <br>- <i>Local variables don't persist between renders</i>;
-        <br>- <i>Changes to local variables won't trigger renders</i>; React doesn't realize it needs to render the component again with the new data.
+        `<h3>Reacting to Input with State</h3>
+        <p>With just Vanilla JavaScript, you have to write every single line of code that should be taken to build an app (Imperative Way).</p>
+        <p><i>React uses a declarative way to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you <i>describe the different states that your component can be in</i>, and <i>switch between them</i> in response to user actions (user events) or computer actions (http events).</p>
+        <p>With React, you won't modify the UI from code directly. With React you will <i>describe the UI you want to see for the <u>different visual states</u> of your component</i>, and then trigger the state changes in response to user input.</p>
         `,
-        `To update a component with data that was changed (new data), two things need to happen:
-        <br>1. <i>Retain the data between renders</i>;
-        <br>2. <i>Trigger React to render the component with the new data (re-rendering)</i>.
+        `<h3>How imperative UI compares to declarative UI </h3>
+        <p>With just Vanilla JavaScript you have to write the exact instructions to manipulate the UI depending on what just happened. <i>It's called imperative because you have to "command" each element, telling the computer <u>how</u> to update the UI</i>.</p>
+        <p>In React, you don't directly manipulate the UI. Instead, you declare what you want to show, and React figures out how to update the UI. When you design UI interactions, you probably think about <i>how the UI changes in response to user actions</i>.</p>
+        <p>Declarative programming means <b>describing the UI for each <u>visual state</u></b> rather than micromanaging the UI (imperative).</p>
         `,
-        `We need a way of telling React that something changed and that a certain component should be re-executed, and that's where React introduces a special concept called "state". To tell React that it should run a component function again, we need to store a variable by adding it like a state variable.`,
-        'To make the UI interactive, you need to let users change your underlying data model. You will use state for this.',
-        `The <code>useState</code> always return an array that has exactly two items:
-        <br>1. A <i>state variable</i> to retain the data between renders;
-        <br>2. A <i>state setter function</i> to update the variable and trigger React to render the component again.
-        `,
-        'The <code>useState</code> hook allows us to <i>define values as state</i>, where changes to these values should reflect in the component function being called again, which is a key difference to a value stored in a regular variable.',
-        '<i>The state variable is changed when you use the state setter function</i> provided by <code>useState</code> hook.',
-        'Only the component where the <code>useState()</code> was registered will be updated, not any other components.',
-        '<i><code>useState()</code> adds reactivity to our application. Without <code>useState()</code>, our UI would never change</i>, but with <code>useState()</code> and with listening to events, we can make sure that we can react to user actions/events and that user actions/events can result in a visible change on our screen.',
-        'You can have as many state variables of as many types as you like in one component, so you can call <code>useState()</code> more than once in a component function. All of the states inside of the same component will be totally separated from each other.',
-        '<i>State is local to a component instance</i> on the screen. In other words, if you render the same component twice, each copy will have completely isolated state! Changing one of them will not affect the other.',
-        `<i>There are two types of "model" data in React: props and state</i>. The two are very different:
-        <br>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance.
-        <br>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions`,
+        `<h3>Thinking about UI declaratively</h3>
+        <p>In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.</p>
+        <ul>When developing a component:
+        <li>1. Identify your component's all <i>visual states</i></li>
+        <li>2. Determine what triggers those <i>state changes</i>: human or computer</li>
+        <li>3. Represent the <i>state in memory</i> using <code>useState</code></li>
+        <li>4. Remove any <i>non-essential state variables</i></li>
+        <li>5. Connect the <i>event handlers to set state</i></li>
+        <ul/>`,
       ],
     },
     {
@@ -652,15 +634,6 @@ const Managing_state = {
         "<i>Avoid redundant state</i>: if you can calculate some information from the component's props or its existing state variables during rendering, you should not put that information into that component's state.",
         '<i>Avoid duplication in state</i>: when the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.',
         '<i>Avoid deeply nested state</i>: deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.',
-      ],
-    },
-    {
-      sectionTitle: 'Updating state that depends on the previous state',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/Updating_state_that_depends_on_the_previous_state.html',
-      tooltips: [
-        'State updates are <i>scheduled</i> by React, they are <i>not processed immediately</i>.',
-        `The best pratice to update state that depends on the previous state is to pass a function as argument to the state updating function provided by the <code>useState</code> hook. The function which you pass as argument to the state updating function will automatically be executed by React and it will receive the previous state snapshot for that state for which you're calling the state updating function.`,
       ],
     },
     {
