@@ -618,7 +618,7 @@ const Managing_state = {
         <li>3. Represent the <i>state in memory</i> using <code>useState</code></li>
         <li>4. Remove any <i>non-essential state variables</i></li>
         <li>5. Connect the <i>event handlers to set state</i></li>
-        <ul/>`,
+        </ul>`,
       ],
     },
     {
