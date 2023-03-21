@@ -637,6 +637,7 @@ const Managing_state = {
         <li>4. Avoid duplication in state</li>
         <li>5. Avoid deeply nested state</li>
         </ul>
+        <p>The goal behind these principles is to make state easy to update without introducing mistakes. Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync.</p>
         `,
         `<h3>Group related state</h3>
         <p>If you always <i>update two or more state variables at the same time</i>, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>

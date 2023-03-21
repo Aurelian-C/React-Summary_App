@@ -16,7 +16,7 @@ You will learn:
 4. ==**Avoid duplication in state**==. When _the same data is duplicated between multiple state variables_, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.
 5. ==**Avoid deeply nested state**==. _Deeply hierarchical state is not very convenient to update_. When possible, prefer to structure state in a flat way.
 
-The goal behind these principles is to *make state easy to update without introducing mistakes*. Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync.
+The goal behind these principles is to *make state easy to update without introducing mistakes*. ==Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync==.
 
 ## Group related state
 
