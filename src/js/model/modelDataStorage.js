@@ -639,7 +639,7 @@ const Managing_state = {
         </ul>
         `,
         `<h3>Group related state</h3>
-        <p>If you always update two or more state variables at the same time, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
+        <p>If you always <i>update two or more state variables at the same time</i>, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
         <p>Another case where you'll group data into an object or an array is when you don't know how many different pieces of state you'll need. For example, it's helpful when you have a form where the user can add custom fields.</p>
         `,
         `<h3>Avoid contradictions in state</h3>
@@ -650,7 +650,7 @@ const Managing_state = {
         <p><i>Don't mirror props in state!</i> "Mirroring" props into state only makes sense when you want to ignore all updates for a specific prop. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
         `,
         `<h3>Avoid duplication in state</h3>
-        <p>When the same data is <i>duplicated between multiple state variables, or within nested objects</i>, it is difficult to keep them in sync. Reduce duplication when you can.</p>
+        <p>When <i>the same data is duplicated between multiple state variables, or within nested objects</i>, it is difficult to keep them in sync. Reduce duplication when you can.</p>
         `,
         `<h3>Avoid deeply nested state</h3>
         <p>Deeply hierarchical state is not very convenient to update. When possible, prefer to <i>structure state in a flat way</i>.</p>
