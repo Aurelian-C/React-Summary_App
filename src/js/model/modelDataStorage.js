@@ -629,11 +629,32 @@ const Managing_state = {
         highlight1: ['state structure'],
       },
       tooltips: [
-        '<i>Group related state</i>: if you always update two or more state variables at the same time, consider merging them into a single state variable.',
-        '<i>Avoid contradictions in state</i>: when the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.',
-        "<i>Avoid redundant state</i>: if you can calculate some information from the component's props or its existing state variables during rendering, you should not put that information into that component's state.",
-        '<i>Avoid duplication in state</i>: when the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.',
-        '<i>Avoid deeply nested state</i>: deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.',
+        `<h3>Principles for structuring state</h3>
+        <ul>When you write a component that holds some state, you'll have to make choices about how many state variables to use and what the shape of their data should be:
+        <li>1. Group related state</li>
+        <li>2. Avoid contradictions in state</li>
+        <li>3. Avoid redundant state</li>
+        <li>4. Avoid duplication in state</li>
+        <li>5. Avoid deeply nested state</li>
+        </ul>
+        `,
+        `<h3>Group related state</h3>
+        <p>If you always update two or more state variables at the same time, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
+        <p>Another case where you'll group data into an object or an array is when you don't know how many different pieces of state you'll need. For example, it's helpful when you have a form where the user can add custom fields.</p>
+        `,
+        `<h3>Avoid contradictions in state</h3>
+        <p>When the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.</p>
+        `,
+        `<h3>Avoid redundant state</h3>
+        <p>If you can <i>calculate some information from the component's props or its existing state variables during rendering</i>, you should not put that information into that component's state.</p>
+        <p><i>Don't mirror props in state!</i> "Mirroring" props into state only makes sense when you want to ignore all updates for a specific prop. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
+        `,
+        `<h3>Avoid duplication in state</h3>
+        <p>When the same data is <i>duplicated between multiple state variables, or within nested objects</i>, it is difficult to keep them in sync. Reduce duplication when you can.</p>
+        `,
+        `<h3>Avoid deeply nested state</h3>
+        <p>Deeply hierarchical state is not very convenient to update. When possible, prefer to <i>structure state in a flat way</i>.</p>
+        `,
       ],
     },
     {
