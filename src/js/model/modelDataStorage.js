@@ -662,7 +662,7 @@ const Managing_state = {
         `,
         `<h3>Avoid redundant state</h3>
         <p>If you can <i>calculate some information from the component's props or its existing state variables during rendering</i>, you should not put that information into that component's state.</p>
-        <p><i>Don't mirror props in state!</i> "Mirroring" props into state only makes sense when you want to ignore all updates for a specific prop. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
+        <p><i>Don't mirror props in state!</i> If you initialize a state variable with a prop, if the parent component passes a different value for that prop, that state variable would not be updated! That's because <i>the state is only initialized during the <u>first render</u></i>. "Mirroring" props into state only makes sense when you want to <i>ignore all updates for a specific prop</i>. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
         `,
         `<h3>Avoid duplication in state</h3>
         <p>When <i>the same data is duplicated between multiple state variables, or within nested objects</i>, it is difficult to keep them in sync. Reduce duplication when you can.</p>
