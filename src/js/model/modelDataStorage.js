@@ -669,6 +669,7 @@ const Managing_state = {
         `,
         `<h3>Avoid deeply nested state</h3>
         <p>Deeply hierarchical state is not very convenient to update. When possible, prefer to <i>structure state in a flat way</i>.</p>
+        <p>Updating nested state involves making copies of objects all the way up from the part that changed. If the state is too nested to update easily, consider making it "flat" (restructure its data).</p>
         `,
       ],
     },
