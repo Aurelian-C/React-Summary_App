@@ -665,12 +665,13 @@ const Managing_state = {
         <p><i>Don't mirror props in state!</i> If you initialize a state variable with a prop, if the parent component passes a different value for that prop, that state variable would not be updated! That's because <i>the state is only initialized during the <u>first render</u></i>. "Mirroring" props into state only makes sense when you want to <i>ignore all updates for a specific prop</i>. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
         `,
         `<h3>Avoid duplication in state</h3>
-        <p>When <i>the same data is duplicated between multiple state variables, or within nested objects</i>, it is difficult to keep them in sync. Reduce duplication when you can.</p>
+        <p>When <i>the same data is duplicated between multiple state variables, or within nested objects, it is <u>difficult to keep them in sync</u></i>. Reduce duplication when you can.</p>
         `,
         `<h3>Avoid deeply nested state</h3>
         <p>Deeply hierarchical state is not very convenient to update. When possible, prefer to <i>structure state in a flat way</i>.</p>
         <p>Updating nested state involves making copies of objects all the way up from the part that changed. If the state is too nested to update easily, consider making it "flat" (restructure its data).</p>
-        <p>You can nest state as much as you like, but making it "flat" can solve numerous problems. It makes state easier to update, and it helps ensure you don't have duplication in different parts of a nested object.</p>
+        <p>You can nest state as much as you like, but making it "flat" can solve numerous problems. It makes state <i>easier to update</i>, and <i>it helps ensure you don't have duplication in different parts of a nested object</i>.</p>
+        <p>Sometimes, you can also reduce state nesting by <i>moving some of the nested state into the child components</i>. This works well for ephemeral UI state that doesn't need to be stored, like whether an item is hovered.</p>
         `,
       ],
     },
