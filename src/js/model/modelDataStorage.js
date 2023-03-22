@@ -651,11 +651,11 @@ const Managing_state = {
         <li>4. Avoid duplication in state</li>
         <li>5. Avoid deeply nested state</li>
         </ul>
-        <p>The goal behind these principles is to make state easy to update without introducing mistakes. Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync.</p>
+        <p>The goal behind these principles is to make state easy to update without introducing mistakes. <i>Removing redundant and duplicate data from state helps ensure that all its pieces <u>stay in sync</u></i>.</p>
         `,
         `<h3>Group related state</h3>
         <p>If you always <i>update two or more state variables at the same time</i>, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
-        <p>Another case where you'll group data into an object or an array is when you don't know how many different pieces of state you'll need. For example, it's helpful when you have a form where the user can add custom fields.</p>
+        <p>Another case where you'll group data into an object or an array is when <i>you don't know how many different pieces of state you'll need</i>. For example, it's helpful when you have a form where the user can add custom fields.</p>
         `,
         `<h3>Avoid contradictions in state</h3>
         <p>When the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.</p>
