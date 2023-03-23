@@ -43,7 +43,7 @@ In this example, there are two different `<Counter />` tags.
 
 ![Preserving_and_resetting_state2](../../img/Preserving_and_resetting_state2.jpg)
 
-It’s the same component at the same position, so from React’s perspective, it’s the same counter.
+==It’s the **same component** at the **same position**==, so from React’s perspective, it’s the same counter.
 
 > **IMPORTANT**: Remember that ==it’s the position in the UI tree — not in the JSX markup — that matters to React!==
 
