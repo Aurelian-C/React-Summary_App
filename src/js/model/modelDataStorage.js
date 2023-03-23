@@ -719,18 +719,6 @@ const Managing_state = {
       ],
     },
     {
-      sectionTitle:
-        'Controlled (stateless) vs Uncontrolled (stateful) components',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/Controlled_vs_uncontrolled_components.html',
-      tooltips: [
-        '<i>It is common to call a component with some local state "uncontrolled"</i>. For example, a child component that have a state variable that can be changed by its parent component is called an uncontrolled component.',
-        '<i>A component is "controlled" when the important data in it is driven by props rather than its own local state. This lets the parent component fully specify its behavior</i>.',
-        "Uncontrolled components are easier to use within their parents because they require less configuration. But they're less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.",
-        'When writing a component, consider which information in it should be <i>controlled (via props)</i>, and which information should be <i>uncontrolled (via state)</i>',
-      ],
-    },
-    {
       sectionTitle: 'Adding two-way binding',
       sectionSource:
         '/src/markdowns/03_Managing_state/Adding_two_way_binding.html',
