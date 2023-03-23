@@ -737,6 +737,30 @@ const Managing_state = {
       ],
     },
     {
+      sectionTitle:
+        'Extracting state logic into a Reducer with the <code>useReducer</code> hook',
+      sectionSource: '',
+      tooltips: [],
+    },
+    {
+      sectionTitle:
+        'How to pass information without “prop drilling”: passing data deeply with Context',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/Passing_Data_Deeply_with_Context.html',
+      highlights: {
+        highlight2: ['Context'],
+      },
+      tooltips: [
+        `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
+        'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
+        'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
+        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass props down manually at every level ("props chain").',
+        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing props through intermediate elements.',
+        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
+        "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
+      ],
+    },
+    {
       sectionTitle: 'Adding two-way binding',
       sectionSource:
         '/src/markdowns/03_Managing_state/Adding_two_way_binding.html',
@@ -783,24 +807,6 @@ const Managing_state = {
         '<code>useReducer</code> vs <code>useState</code> for state management',
       sectionSource:
         '/src/markdowns/03_Managing_state/useReducer_vs_useState_for_state_management.html',
-    },
-    {
-      sectionTitle:
-        'How to pass information without “prop drilling”: Passing Data Deeply with Context',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/Passing_Data_Deeply_with_Context.html',
-      highlights: {
-        highlight2: ['Context'],
-      },
-      tooltips: [
-        `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
-        'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
-        'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
-        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass props down manually at every level ("props chain").',
-        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing props through intermediate elements.',
-        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
-        "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
-      ],
     },
     {
       sectionTitle: 'Using the React Context API',
