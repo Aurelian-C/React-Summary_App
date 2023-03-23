@@ -676,16 +676,27 @@ const Managing_state = {
       ],
     },
     {
-      sectionTitle: 'How to “lift state up” to share it between components',
+      sectionTitle: 'Sharing state between components: lifting state up',
       sectionSource:
-        '/src/markdowns/03_Managing_state/How_to_lift_state_up_to_share_it_between_components.html',
+        '/src/markdowns/03_Managing_state/Sharing_state_between_components_lifting_state_up.html',
       highlights: {
-        highlight1: ['“lift state up”'],
+        highlight1: ['lifting state up'],
       },
       tooltips: [
-        'In React is a concept called "Lifting The Data/State Up". "Lifting The Data Up" means <i>moving data from a child to a parent component</i> by utilizing props to receive a function from the parent component, which we call in the child component.',
-        'You will hear the term Lifting The Data/State Up quite a bit when you were working with React and whenever you hear that, it is about moving data/state from a child component to some parent component, to either use it there or to then pass it down to some other child component.',
-        `<i>A single source of truth for each state</i>: in a React application, many components will have their own state. For each unique piece of state, you will choose the component that "owns" it. For each piece of state, there is a specific component that holds that piece of information. Instead of duplicating shared state between components, you will lift it up to their common shared parent, and pass it down to the children that need it.
+        `<h3>Lifting state up</h3>
+        <p>Sometimes, you want <i>the state of two or multiple components to always change together</i>. To do it, <i>remove state from them, move it to their <u>closest common parent</u>, and then pass it down to them via props</i>. This is known as lifting state up.</p>
+        <p>To change the state in the parent component, you need to pass down to the to the child components an <i>event handler that allow the child components to <u>change the parent's state</u></i>.</p>
+        <p><i>Moving state of some components into the common parent component allow you to coordinate that components</i>, and passing down an event handler to the child allow the child to change the parent's state. Lifting state up often changes the nature of what you're storing as state.</p>
+        `,
+        `<h3>Controlled and uncontrolled components</h3>
+        <p>It is common to call <i>a component with some <u>local state</u> "uncontrolled". A child component that have a state variable that can't be changed by its parent component is called an uncontrolled component</i>.</p>
+        <p>In contrast, you might say <i>a component is "controlled" when the important <u>data in it is driven by props</u> rather than its own local state</i>. This lets the parent component fully specify its behavior.</p>
+        <p>Uncontrolled components are easier to use within their parents because they require less configuration. But they're less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.</p>
+        <p>When writing a component, consider which information in it should be <i>controlled (via props)</i>, and which information should be <i>uncontrolled (via state)</i>.</p>
+        `,
+        `<h3>A single source of truth for each state</h3>
+        <p>In a React application, many components will have their own state. Some state may "live" close to the leaf components (components at the bottom of the tree) like inputs. Other state may "live" closer to the top of the app.</p>
+        <p><i>For each unique piece of state, you will choose the component that "owns" it</i>. This principle is also known as having a "single source of truth". It doesn't mean that all state lives in one place — but that <i>for each piece of state, there is a specific component that holds that piece of information</i>. Instead of duplicating shared state between components, <i>lift it up</i> to their common shared parent, and <i>pass it down</i> to the children that need it.</p>
         `,
       ],
     },
