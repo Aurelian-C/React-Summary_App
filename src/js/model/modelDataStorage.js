@@ -705,16 +705,32 @@ const Managing_state = {
       sectionSource:
         '/src/markdowns/03_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
       tooltips: [
-        '<i>State is isolated between components</i>. In React, each component on the screen has fully isolated state. React keeps track of which state belongs to which component <i>based on their place in the UI tree</i>. You can control when to preserve state and when to reset it between re-renders.',
-        'React uses tree structures to manage and model the UI you make. React makes UI trees from your JSX.',
-        "<i>State is tied to a position in the tree</i>: React associates each piece of state it's holding with the correct component by where that component sits in the UI tree.",
-        '<i>React will keep the state around for as long as you render the same component at the same position in the UI tree. When React removes a component or a different component gets rendered at the same position in the UI tree, it destroys its state. When you add that component again to the DOM, its state is initialized from scratch.</i>',
-        'Same component at the same position preserves state. Different components at the same position reset state.',
-        'When you render a different component in the same position, it resets the state of its entire subtree.',
-        'If you want to preserve the state between re-renders, the structure of your tree needs to "match up" from one render to another. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree.',
-        `<i>Resetting state at the same position</i>:
-        <br>1. Render components in different positions;
-        <br>2. Give each component an explicit identity with <code>key</code>.
+        `<h3>The UI tree</h3>
+        <p>Browsers use many tree structures to model UI. The DOM represents HTML elements, the CSSOM does the same for CSS. React also uses tree structures to manage and model the UI you make. React makes UI trees from your JSX.</p>
+        `,
+        `<h3>State is tied to a position in the UI tree</h3>
+        <p>State is isolated between components. <i>React keeps track of which state belongs to which component based on their place in the UI tree</i>.</p>
+        <p>When you give a component state, you might think the state "lives" inside the component. But the <i>state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the UI tree</i>.</p>
+        <p>State is not kept in JSX tags, it's associated with the tree position in which you put that JSX.</p>
+        <p>In React, each component on the screen has fully isolated state.</p>
+        `,
+        `<h3>Same component at the same position preserves state</h3>
+        <p><i>React will keep the state around for as long as you render the <u>same component</u> at the <u>same position</u></i>.</p>
+        <p><i>When React removes a component, it destroys its state. When you add that component again to the DOM, its state is initialized from scratch</i>.</p>
+        <p>React preserves a component's state for as long as it's being rendered at its position in the UI tree. If it gets removed, or a different component gets rendered at the same position, React discards its state.</p>
+        <p><i>Same component at the same position preserves state. Different components at the same position reset state</i>. Remember that it's the position in the UI tree — not in the JSX markup — that matters to React!</p>
+        `,
+        `<h3>Different components at the same position reset state</h3>
+        <p><i>When you render a <u>different component</u> in the <u>same position</u>, it resets the state of its entire subtree.</i></p>
+        <p>As a rule of thumb, <i>if you want to preserve the state between re-renders, the structure of your tree needs to "match up" from one render to another</i>. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree.</p>
+        `,
+        `<h3>Resetting state at the same position</h3>
+        <p><i>By default, React preserves state of a component while it stays at the same position</i>. Usually, this is exactly what you want, so it makes sense as the default behavior. But sometimes, you may want to reset a component's state.</p>
+        <ul>There are <i>two ways to reset state when <u>switching between them</u></i>:
+        <li>1. Render components in <i>different positions</i></li>
+        <li>2. Resetting state with a <i><code>key</code></i></li>
+        </ul>
+        <p>You might have seen <code>key</code>s when rendering lists. <i>Keys aren't just for lists! You can use keys to make React distinguish between any components. Specifying a <code>key</code> tells React to use the <code>key</code> itself as part of the position, instead of their order within the parent.</i> You can force a subtree to reset its state by giving it a different key.</p>
         `,
       ],
     },
