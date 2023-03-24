@@ -738,8 +738,15 @@ const Managing_state = {
     {
       sectionTitle:
         'Extracting state logic into a Reducer with the <code>useReducer</code> hook',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/Extracting_state_logic_into_a_Reducer.html',
       tooltips: [],
+    },
+    {
+      sectionTitle:
+        '<code>useReducer</code> vs <code>useState</code> for state management',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/useReducer_vs_useState_for_state_management.html',
     },
     {
       sectionTitle:
@@ -800,12 +807,6 @@ const Managing_state = {
         <br>- <i>Reducers must be pure</i>, so they shouldn't mutate state (same inputs always result in the same output). They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update objects and arrays without mutations;
         <br>- <i>Each action describes a single user interaction, even if that leads to multiple changes in the data</i>.`,
       ],
-    },
-    {
-      sectionTitle:
-        '<code>useReducer</code> vs <code>useState</code> for state management',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/useReducer_vs_useState_for_state_management.html',
     },
     {
       sectionTitle: 'Using the React Context API',
