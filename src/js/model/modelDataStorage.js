@@ -713,9 +713,6 @@ const Managing_state = {
         <p>When you give a component state, you might think the state "lives" inside the component. But the <i>state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the UI tree</i>.</p>
         <p>State is not kept in JSX tags, it's associated with the tree position in which you put that JSX.</p>
         <p>In React, each component on the screen has fully isolated state.</p>`,
-        `<h3>Same component at different positions will keep state isolated between components</h3>
-        <p><i>When you render the <u>same component</u> but in <u>different positions</u> in the UI tree, each component will have its own state, isolated from the others.</i></p>
-        `,
         `<h3>Same component at the same position preserves state</h3>
         <p><i>React will keep the state around for as long as you render the <u>same component</u> at the <u>same position</u></i>.</p>
         <p><i>When React removes a component, it destroys its state. When you add that component again to the DOM, its state is initialized from scratch</i>.</p>
