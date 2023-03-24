@@ -733,6 +733,7 @@ const Managing_state = {
         <li>2. Resetting state with a <i><code>key</code></i></li>
         </ul>
         <p>You might have seen <code>key</code>s when rendering lists. <i>Keys aren't just for lists! You can use keys to make React distinguish between any components. Specifying a <code>key</code> tells React to use the <code>key</code> itself as part of the position, instead of their order within the parent.</i> You can force a subtree to reset its state by giving it a different key.</p>
+        <p>You can provide a <code>key</code> to a JSX tag and when that <code>key</code> changes, <i>React will re-create the DOM node from scratch, instead of reusing it</i>.</p>
         `,
       ],
     },
