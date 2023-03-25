@@ -785,9 +785,6 @@ const Managing_state = {
         'Introducing <code>useReducer()</code> for state management',
       sectionSource:
         '/src/markdowns/03_Managing_state/Introducing_useReducer_for_state_management.html',
-      highlights: {
-        highlight2: ['<code>useReducer()</code>'],
-      },
       tooltips: [
         '<code>useReducer()</code> is another built-in hook and it will help us with <i>state management</i>.',
         "If you update a state which depends on another state, and/or if you set a state that's depends of the another previous state, then merging that two states into one state could be a good idea, and you can do this with the help of <code>useReducer()</code>.",
