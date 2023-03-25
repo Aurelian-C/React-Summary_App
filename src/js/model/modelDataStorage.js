@@ -740,6 +740,9 @@ const Managing_state = {
         'Extracting state logic into a Reducer with the <code>useReducer</code> hook',
       sectionSource:
         '/src/markdowns/03_Managing_state/Extracting_state_logic_into_a_Reducer.html',
+      highlights: {
+        highlight2: ['useReducer'],
+      },
       tooltips: [],
     },
     {
