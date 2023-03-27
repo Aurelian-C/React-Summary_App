@@ -73,7 +73,7 @@ Here is all the state setting logic migrated to a reducer function:
 
 ![Extracting_state_logic_into_a_reducer3](../../img/Extracting_state_logic_into_a_reducer3.jpg)
 
-Because the reducer function takes state (`tasks`) as an argument, you can **declare it outside of your component.** This decreases the indentation level and can make your code easier to read.
+==Because the reducer function takes state (`tasks`) as an argument, you can **declare it outside of your component.** This decreases the indentation level and can make your code easier to read.==
 
 > **Note**: The code above uses if/else statements, but it’s a convention to use [switch statements](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) inside reducers. The result is the same, but it can be easier to read switch statements at a glance.
 >

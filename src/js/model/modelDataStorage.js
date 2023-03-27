@@ -743,7 +743,49 @@ const Managing_state = {
       highlights: {
         highlight2: ['useReducer'],
       },
-      tooltips: [],
+      tooltips: [
+        `<h3>Consolidate state logic with a reducer</h3>
+        <p>Components with <i>many state updates spread across many event handlers</i> can get overwhelming. For these cases, you can <i>consolidate all the state update logic <i>outside your component</i> in a single function</i>, called a reducer.</p>
+        <ul>Reducers are <i>a different way to handle state</i>. You can migrate from <code>useState</code> to <code>useReducer</code> in three steps:
+        <li>1. Move from <i>setting state</i> to <i>dispatching actions</i>.</li>
+        <li>2. Write a <i>reducer function</i>.</li>
+        <li>3. Use the reducer from your component.</li>
+        </ul>
+        `,
+        `<h3>Move from <u>setting state</u> to <u>dispatching actions</u></h3>
+        <p>Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the user just did” by <i>dispatching “actions” from your event handlers</i>.</p>
+        <p>The state update logic will live elsewhere! So <i>instead of “setting” state via an event handler, you're dispatching an “action”.</i> This is more descriptive of the user's intent.</p>
+        <p><i>The object you pass to dispatch function is called an “action” and is a regular JavaScript object</i>. You decide what to put in it, but generally it should contain the minimal information about what happened.</p>
+        <p><i>An "action" object can have any shape. By convention, it is common to give it a string <code>type</code> that describes what happened</i>, and pass any additional information in other fields.</p>
+        `,
+        `<h3>Write a reducer function</h3>
+        <p>A reducer function is <i>where you will put your state logic</i>. It takes two arguments, the <i>current state</i> and the <i>"action" object</i>, and it <i>returns the next state</i>.</p>
+        <p><i>React will set the state to what you return from the reducer</i>.</p>
+        <p>Because the reducer function takes state as an argument, you can <i>declare it outside of your component</i>. This decreases the indentation level and can make your code easier to read.</p>
+        <p>You can use if/else statements to manipulate the state inside reducers, but it's a convention to use switch statements. The result is the same, but it can be easier to read switch statements at a glance.</p>
+        <p>If you want, you can even move the reducer to a different file.</p>
+        `,
+        `<h3>Use the reducer from your component</h3>
+        <p>The <code>useReducer</code> Hook is similar to <code>useState</code> — you must pass it an initial state and it returns a stateful value and a way to set state (in this case, the dispatch function). But it's a little different.</p>
+        <ul>The <code>useReducer</code> Hook takes two arguments:
+        <li>1. A reducer function</li>
+        <li>2. An initial state</li>
+        </ul>
+        <ul>And it returns:
+        <li>1. A stateful value</li>
+        <li>2. A dispatch function (to “dispatch” user actions to the reducer)</li>
+        </ul>
+        `,
+        `<h3><code>useReducer</code> vs <code>useState</code></h3>
+        <p>Component logic can be easier to read when you separate concerns. By consolidate state logic with a reducer the event handlers <i>only specify what happened by dispatching actions</i>, and <i>the reducer function determines how the state updates in response to them</i>.</p>
+        `,
+        `<h3>Writing reducers well</h3>
+        <ul>Keep these two tips in mind when writing reducers:
+        <li>- <i>reducers must be pure</i>. Similar to state updater functions, reducers run during rendering! (Actions are queued until the next render.) This means that reducers must be pure — <i>same inputs always result in the same output</i>. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should <i>update objects and arrays without mutations</i>.</li>
+        <li>- <i>each action describes a single user interaction</i>, even if that leads to multiple changes in the data.</li>
+        </ul>
+        `,
+      ],
     },
     {
       sectionTitle:
