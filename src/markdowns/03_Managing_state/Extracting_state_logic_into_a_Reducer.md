@@ -141,6 +141,8 @@ Keep these two tips in mind when writing reducers:
 - Reducers must be pure.
 - Each action describes a single user interaction.
 
+![Using_useReducer](../../img/Using_useReducer.jpg)
+
 ## References
 
 1. [Extracting State Logic into a Reducer - react.dev](https://react.dev/learn/extracting-state-logic-into-a-reducer)
