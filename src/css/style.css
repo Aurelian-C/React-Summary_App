@@ -256,7 +256,7 @@ code {
 /* Tooltip container */
 .tooltip {
   visibility: hidden;
-  min-width: 70rem;
+  min-width: 50vw;
   background-color: rgb(43, 43, 43);
   color: #fff;
   border: 1px solid rgb(107, 107, 107);
@@ -265,13 +265,13 @@ code {
 
   font-size: 1.3rem;
   font-style: normal;
-  top: 110%;
-  left: 0;
   height: fit-content;
   opacity: 0;
 
   /* Position the tooltip text */
   position: absolute;
+  top: 110%;
+  left: 0;
   z-index: 1;
   bottom: 0;
 

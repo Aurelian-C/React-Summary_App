@@ -822,10 +822,27 @@ const Managing_state = {
         `<h3>Step 2: <u>Use</u> the context</h3>
         <p>Import the  <code>createContext</code> Hook from React and your context in the component that you want to use context.</p>
         `,
-        `<h3>Step 3: Provide the context</h3>
+        `<h3>Step 3: <u>Provide</u> the context</h3>
         <p>If you don't provide the context, React will use the default value specified when you creating the context</p>
         <p>To provide the context you need to wrap all components that you want to use that context with a context provider. This tells React: "if any child component inside the parent component asks for context, give them the context value.”</p>
         <p>The child component will use the value of the nearest context provider in the UI tree above it.</p>
+        `,
+        `<h3>Context passes through intermediate components</h3>
+        <p>You can insert as many components as you like between the component that provides context and the one that uses it. This includes both built-in components like <<span>div</span>> and components you might build yourself.</p>
+        <p>Context lets you write components that "adapt to their surroundings" and display themselves differently depending on <u>where</u> (or, in other words, <u>in which context</u>) they are being rendered.</p>`,
+        `<h3>Context work similar as CSS property inheritance</h3>
+        <p>How context works might remind you of CSS property inheritance. In CSS, you can specify <code>color: blue</code> for a <<span>div</span>>, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with <code>color: green</code>. Similarly, <i>in React, the only way to override some context coming from above is to wrap children into a context provider with a different value</i>.</p>
+        <p>In CSS, different properties like <code>color</code> and <code>background-color</code> don't override each other. You can set all  <<span>div</span>>'s <code>color</code> to red without impacting <code>background-color</code>. Similarly, <i>different React contexts don't override each other. Each context that you make with <code>createContext()</code> is completely separate from other ones, and ties together components using and providing that particular context</i>. One component may use or provide many different contexts without a problem.</p>
+        `,
+        `<h3>Before you use context</h3>
+        <p>Just because you need to pass some props several levels deep doesn't mean you should put that information into context.</p>
+        <ul>Here's a few alternatives you should consider before using context:
+        <li>- <i>Start by passing props</i>. If your components are not trivial, it's not unusual to pass a dozen props down through a dozen components.</li>
+        <li>- <i>Extract components and pass JSX as <code>children</code> to them</i>. If you pass some data through many layers of intermediate components that don't use that data (and only pass it further down), this often means that you forgot to extract some components along the way.</li>
+        </ul>
+        <p>In general, if some information is needed by distant components in different parts of the tree, it's a good indication that context will help you.</p>
+        <p>Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.</p>
+        <p>Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!!</p>
         `,
       ],
     },
