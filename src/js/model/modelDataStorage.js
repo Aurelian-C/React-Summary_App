@@ -802,13 +802,31 @@ const Managing_state = {
         highlight2: ['Context'],
       },
       tooltips: [
-        `I'm talking about a problem, where you are passing a lot of data through a lot of components via props. Now it is quite common that you pass data to components through props, but it's always a problem if you forward state through multiple components. In bigger apps, you could easily build such "props chains", which are used to forward data through components to other components.`,
-        'React Context provides a way to pass data through the component tree without having to pass props down manually at every level.',
-        'With React Context your are able to directly change state from any component in our app, and directly pass state to any component in our app, without building such a "props chain".',
-        'React Context allows us to manage wide state and provides a way to pass data through the component tree without having to pass props down manually at every level ("props chain").',
-        'Context is designed to share data that can be considered "global" for a tree of React components. Context is primarily used when some data needs to be accessible by many components at different nesting levels. Using Context, we can avoid passing props through intermediate elements.',
-        'Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!! If you would use Context instead of props, every Component would do the same thing, it would be bound to the same Context, so it might be less reusable.',
-        "You can have multiple Contexts for multiple global states and of course, you can also use just one Context for a bigger state, that's all up to you.",
+        `<h3>The problem with passing props</h3>
+        <p>Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components in the middle, or if many components in your app need the same information.</p>
+        <p><i>Context lets the parent component make some information available to any component in the tree below it — no matter how deep — without passing it explicitly through props</i>.</p>
+        `,
+        `<h3>Context: an alternative to passing props</h3>
+        <p>Context lets <i>a parent component provide data to the entire tree below it</i>.</p>
+        <ul>You will implement context in three steps:
+        <li>1. <i>Create</i> a context</li>
+        <li>2. <i>Use</i> that context from the component that needs the data</li>
+        <li>3. <i>Provide</i> that context from the component that specifies the data</li>
+        </ul>
+        <p>Context lets you read information from a component above.</p>
+        `,
+        `<h3>Step 1: <u>Create</u> the context</h3>
+        <p>First, you need to create the context. You'll need to export it from a file so that your components can use it</p>
+        <p>The only argument to <code>createContext</code> is the default value.</p>
+        `,
+        `<h3>Step 2: <u>Use</u> the context</h3>
+        <p>Import the  <code>createContext</code> Hook from React and your context in the component that you want to use context.</p>
+        `,
+        `<h3>Step 3: Provide the context</h3>
+        <p>If you don't provide the context, React will use the default value specified when you creating the context</p>
+        <p>To provide the context you need to wrap all components that you want to use that context with a context provider. This tells React: "if any child component inside the parent component asks for context, give them the context value.”</p>
+        <p>The child component will use the value of the nearest context provider in the UI tree above it.</p>
+        `,
       ],
     },
     {
