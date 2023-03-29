@@ -49,6 +49,8 @@ But how can the `<Heading>` component know the level of its closest `<Section>`?
 
 ==The only argument to `createContext` is the **default value**.== Here, `1` refers to the biggest heading level, but you could pass any kind of value (even an object). You will see the significance of the default value in the next step.
 
+> **Note**: `createContext`'s argument is **only used** when a component does not have a matching Provider above it in the tree. This argument can be helpful for testing components in isolation without wrapping components with a Provider. If you don’t provide the context, React will use the value that you pass as an argument to `createContext`.
+
 > **Note**: You can have _multiple Contexts for multiple global states_ and of course, you can also use just _one Context for a bigger state_, that's all up to you.
 
 ## Step 2: Use the context
@@ -76,7 +78,19 @@ Notice this example doesn’t quite work, yet! All the headings have the same si
 
 ==If you don’t provide the context, React will use the default value== you’ve specified in the previous step. In this example, you specified `1` as the argument to `createContext`, so `useContext(LevelContext)` returns `1`, setting all those headings to `<h1>`. Let’s fix this problem by having each `Section` provide its own context.
 
+> **Note**: Now by using use/consuming the context, ==the component that use the context will be re-evaluated by React whenever the context changes!==
+
 ## Step 3: Provide the context
+
+==Every context object comes with a Provider React component, that **allows consuming** components to subscribe to context changes. You need to **provide the context**, which basically tells React "Hey, here's my context! *All components that are wrapped by it should have access to it*".== Providing means that you wrap in JSX markup all the components that should be able to tap into that context, so that should be able to listen/subscribe to that context. ==Any component that's not wrapped will not be able to listen/subscribe to the context==.
+
+The Provider component accepts a `value` prop to be passed to consuming components that are descendants of that Provider. One Provider can be connected to many consumers. Providers can be nested to override values deeper within the tree. ==All consumers that are descendants of a Provider will re-render whenever the Provider’s `value` prop changes.==
+
+> **Note**: Technically, you don't need a Provider component if you had passed a default value to `createContext`, but in reality, you will use context to have a value which can change and that will only be possible with a Provider component.
+>
+> Passing `undefined` as a `Context.Provider` "value" prop does not cause consuming components to use the value passed as an argument to `createContext`.
+>
+> The good thing is ==you can set up a **dynamic Context** where we don't just pass **data** to other components but also **functions**.==
 
 The `Section` component currently renders its children:
 

@@ -847,6 +847,25 @@ const Managing_state = {
       ],
     },
     {
+      sectionTitle:
+        'Making Context dynamic: scaling up with <code>useState</code> or <code>useReducer</code>',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/Making_Context_dynamic.html',
+      highlights: {
+        highlight1: ['Context dynamic'],
+      },
+      tooltips: [
+        "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
+        'Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.',
+        'You can combine reducer with context to let any component read and update state above it.',
+      ],
+    },
+    {
+      sectionTitle: 'React Context limitations',
+      sectionSource:
+        '/src/markdowns/03_Managing_state/React_Context_limitations.html',
+    },
+    {
       sectionTitle: 'Adding two-way binding',
       sectionSource:
         '/src/markdowns/03_Managing_state/Adding_two_way_binding.html',
@@ -855,51 +874,6 @@ const Managing_state = {
       },
       tooltips: [
         `Two-way binding is very useful when you're working with html <<span>form</span>> or <<span>input</span>> tags, because it allows you to gather user input, but then also change it.`,
-      ],
-    },
-    {
-      sectionTitle: 'Using the React Context API',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/Using_the_React_Context.html',
-
-      tooltips: [
-        '<code>React.createContext()</code> return an Context object that contains components.',
-        'When React renders a component that subscribes to the Context object, it will read the current Context value from the closest matching Provider above it in the tree.',
-        "Every Context object comes with a Provider React component, that allows consuming components to subscribe to Context changes. Any component that's not wrapped by the Provider will not be able to listen/subscribe to the Context.",
-        'The Provider component accepts a <code>value</code> prop to be passed to consuming components that are descendants of that Provider. One Provider can be connected to many consumers.',
-        "All consumers that are descendants of a Provider will re-render whenever the Provider's <code>value</code> prop changes.",
-        'Now, providing is always the first step. Besides providing, you then need to consume it. <code>useContext()</code> hook allows us to use a Context, it allows us to tap into a Context and listen to it. <code>useContext()</code> return the wide-state of that Context that you point in the `useContext()` function.',
-        'The component that use the Context will be re-evaluated by React whenever the Context changes!',
-      ],
-    },
-    {
-      sectionTitle: 'Making Context dynamic',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['Context dynamic'],
-      },
-      tooltips: [
-        "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
-        'Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.',
-      ],
-    },
-    {
-      sectionTitle: 'Building & using a custom Context Provider component',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/Building_&_using_a_Custom_Context_Provider_Component.html',
-    },
-    {
-      sectionTitle: 'React Context limitations',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/React_Context_limitations.html',
-    },
-    {
-      sectionTitle:
-        'How to scale state management as your app grows: Scaling state with <code>useReducer</code> and Context',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/Scaling_state_with_useReducer_and_Context.html',
-      tooltips: [
-        'You can combine reducer with context to let any component read and update state above it.',
       ],
     },
     {
