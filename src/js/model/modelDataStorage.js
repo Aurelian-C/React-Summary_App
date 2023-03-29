@@ -844,6 +844,9 @@ const Managing_state = {
         <p>Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.</p>
         <p>Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!!</p>
         `,
+        `<h3>React Context Limitations</h3>
+        <p>React Context can be great forcomponent wide state, so essentially states that affects multiple components, but it's not a replacement for component configuration. So props for configuration, context for state management across components or possibly across the entire app.</p>
+        `,
       ],
     },
     {
