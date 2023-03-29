@@ -855,9 +855,10 @@ const Managing_state = {
         highlight1: ['Context dynamic'],
       },
       tooltips: [
-        "The good thing is we can set up a dynamic context, where we don't just pass data to other components, but also functions. Therefore, we're can using this app-wide or component-wide Context object, to manage our state and to manage the function/functions that changes the state.",
-        'Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.',
-        'You can combine reducer with context to let any component read and update state above it.',
+        `<h3>Combining a reducer with context</h3>
+        <p>The good thing is you can set up a dynamic context, where you don't just pass data to other components, but also functions. Therefore, you can build and using a component context to manage your state and functions that changes the state. You can combine reducer with context to let any component read and update state above it.</p>
+        <p>Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.</p>
+        `,
       ],
     },
     {
