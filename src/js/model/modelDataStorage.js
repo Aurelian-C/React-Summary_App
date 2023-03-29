@@ -865,11 +865,6 @@ const Managing_state = {
       ],
     },
     {
-      sectionTitle: 'React Context limitations',
-      sectionSource:
-        '/src/markdowns/03_Managing_state/React_Context_limitations.html',
-    },
-    {
       sectionTitle: 'Adding two-way binding',
       sectionSource:
         '/src/markdowns/03_Managing_state/Adding_two_way_binding.html',
