@@ -928,6 +928,93 @@ const Managing_state = {
   ],
 };
 
+const Refs = {
+  title: '<p class="card__title--2">Refs</p>',
+  sections: [
+    {
+      sectionTitle:
+        'How to “remember” information without re-rendering: referencing values with refs',
+      sectionSource: '/src/markdowns/06_Refs/Referencing_values_with_ref.html',
+      highlights: {
+        highlight2: ['refs'],
+      },
+      tooltips: [
+        `<h3>Referencing values with refs</h3>
+        <p>When you want a component to <i>"remember" some information, but you don't want that information to trigger new renders</i>, you can use a ref.<p>
+        <p>Like state, <i>refs let you retain information between re-renders of a component</i>. However, setting state re-renders a component; changing a ref does not!</p>
+        `,
+        `<h3>Adding a ref to your component</h3>
+        <p>You can access the current value of that ref through the <i><code>ref.current</code> property</i>. This value is intentionally <u>mutable</u>, meaning you can both read and write to it.</p>
+        `,
+        `<h3>Differences between refs and state</h3>
+        <p>A component doesn't re-render when you modify the <code>ref.current</code> value.</p>
+        <p>You shouldn't read (or write) the <code>ref.current</code> value during rendering but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
+        <p><i>Limitations of React state don't apply to refs</i>. For example, state acts like a snapshot for every render and doesn't update synchronously, but when you mutate the current value of a ref, it changes immediately.</p>
+        <p>You also don't need to worry about avoiding mutation when you work with a ref. <i>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</i>. Refs are an escape hatch to <i>hold onto values that <u>aren't used for rendering</u></i>.</p>
+        <p><i>When a piece of information is <u>used for rendering</u>, keep it in state</i>. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.</p>
+        `,
+        `<h3>When to use refs</h3>
+        <ul>Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs — often a browser API <i>that won't impact the appearance of the component</i>:
+        <li>- Storing timeout IDs</li>
+        <li>- Storing and manipulating DOM elements</li>
+        <li>- Storing other objects <i>that aren't necessary to calculate the JSX</i>.</li>
+        </ul>
+        <p><i>If your component needs to store some value, <u>but it doesn't impact the rendering logic</u>, choose refs</i>.</p>
+        `,
+        `<h3>Best practices for refs</h3>
+        <p><i>Treat refs as an escape hatch</i>. Refs are useful when you work with external systems or browser APIs.</p>
+        <p><i>Don't read or write <code>ref.current</code> during rendering</i>. If some information is needed during rendering, use state instead.</p>
+        <p>You can use refs to store timeout IDs, DOM elements, and other objects <i>that don't impact the component's rendering output</i>.</p>
+        `,
+        `<h3>Refs and the DOM</h3>
+        <p><i>You can point a ref to any value</i>. However, the most common use case for a ref is to <i>access a DOM element</i>. For example, this is handy if you want to focus an input programmatically. When you pass a ref to a <i><code>ref</code> attribute in JSX</i>, like <code><<span>div ref={myRef}</span>></code>, React will put the corresponding DOM element into <code>myRef.current</code>.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle:
+        'How to access DOM elements managed by React with the <code>ref</code> attribute',
+      sectionSource:
+        '/src/markdowns/06_Refs/Manipulating_the_DOM_with_ref.html',
+      highlights: {
+        highlight2: ['<code>ref</code> attribute'],
+      },
+      tooltips: [
+        'In their most basic form, <code>ref</code> allow you to get access to a DOM nodes and work with it.',
+        'With <code>ref</code> you can set up a connection between a DOM node and your JavaScript code.',
+        'You can have more than a single ref in a component.',
+        'The <code>useRef</code> hook returns an object with a single property called <code>current</code>. The <code>current</code> property stores the actual DOM node.',
+        `<i>Rarely use <code>ref</code> to manipulate the DOM. Use <code>ref</code> only to read the DOM node</i>: refs are an escape hatch. You should only use them when you have to "step outside React". Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose. If you stick to <i>non-destructive actions</i> like focusing and scrolling, you shouldn't encounter any problems. However, <i>if you try to modify the DOM manually, you can risk conflicting with the changes React is making</i>.`,
+        "<i>Avoid changing DOM nodes managed by React</i>: modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes. However, this doesn't mean that you can't do it at all. It requires caution. <i>You can safely modify parts of the DOM that React has no reason to update</i>. For example, if some <<span>div</span>> is always empty in the JSX, React won't have a reason to touch its children list. Therefore, it is safe to manually add or remove elements there.",
+        'Usually, you will use refs for <i>non-destructive actions</i> like focusing, scrolling, or measuring DOM elements.',
+      ],
+    },
+    {
+      sectionTitle:
+        'Accessing another component’s DOM nodes: <code>React.forwardRef()</code>',
+      sectionSource:
+        '/src/markdowns/06_Refs/Accessing_another_component_DOM_node.html',
+      highlights: {
+        highlight2: ['<code>React.forwardRef()</code>'],
+      },
+      tooltips: [
+        "The <code>ref</code> prop is supported on all built-in HTML elements, but by default you can't use <code>ref</code> prop on your custom components!",
+        "<i>A custom component doesn't expose its DOM nodes by default</i>. You can opt into exposing a DOM node by using <code>forwardRef</code> and passing the second <code>ref</code> argument down to a specific node.",
+        '<i>React does not let a component access the DOM nodes of other components</i>. Not even for its own children!',
+        'In uncommon cases, you may want to <i>restrict the exposed functionality</i> of a DOM node. You can do that with <code>useImperativeHandle()</code> hook. <code>useImperativeHandle</code> instructs React to provide <i>your own special object</i> as the value of a ref to the parent component. In this case, <i>the ref "handle" is not the DOM node</i>, but the custom object you create inside <code>useImperativeHandle</code> call.',
+      ],
+    },
+    {
+      sectionTitle: '<code>useRef</code> & uncontrolled components',
+      sectionSource:
+        '/src/markdowns/06_Refs/useRef_and_uncontrolled_components.html',
+      tooltips: [
+        "When we use ref's for inputs, we have uncontrolled input components.",
+      ],
+    },
+  ],
+};
+
 const Styling_React_components = {
   title: '<p class="card__title--2">Styling React components</p>',
   sections: [
@@ -1034,88 +1121,6 @@ const Debugging_React_apps = {
       tooltips: [
         "Let's have a look at a dedicated tool, which is available for React Development, which can help us with React specific problems and which can help us with understanding our React Application better and that would be the React Dev Tools.",
         'In the Components tab (Google Chrome) we see the actual React Components and the Components structure that is responsible for the UI output.',
-      ],
-    },
-  ],
-};
-
-const Refs = {
-  title: '<p class="card__title--2">Refs</p>',
-  sections: [
-    {
-      sectionTitle:
-        'How to “remember” information without re-rendering: referencing values with refs',
-      sectionSource: '/src/markdowns/06_Refs/Referencing_values_with_ref.html',
-      highlights: {
-        highlight2: ['refs'],
-      },
-      tooltips: [
-        `<h3>Referencing values with refs</h3>
-        <p>When you want a component to <i>"remember" some information, but you don't want that information to trigger new renders</i>, you can use a ref.<p>
-        <p>Like state, <i>refs let you retain information between re-renders of a component</i>. However, setting state re-renders a component; changing a ref does not!</p>
-        `,
-        `<h3>Adding a ref to your component</h3>
-        <p>You can access the current value of that ref through the <i><code>ref.current</code> property</i>. This value is intentionally <u>mutable</u>, meaning you can both read and write to it.</p>
-        `,
-        `<h3>Differences between refs and state</h3>
-        <p>A component doesn't re-render when you modify the <code>ref.current</code> value.</p>
-        <p>You shouldn't read (or write) the <code>ref.current</code> value during rendering but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
-        <p><i>Limitations of React state don't apply to refs</i>. For example, state acts like a snapshot for every render and doesn't update synchronously, but when you mutate the current value of a ref, it changes immediately.</p>
-        <p>You also don't need to worry about avoiding mutation when you work with a ref. <i>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</i>. Refs are an escape hatch to <i>hold onto values that <u>aren't used for rendering</u></i>.</p>
-        <p><i>When a piece of information is <u>used for rendering</u>, keep it in state</i>. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.</p>
-        `,
-        `<h3>When to use refs</h3>
-        <ul>Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs — often a browser API <i>that won't impact the appearance of the component</i>:
-        <li>- Storing timeout IDs</li>
-        <li>- Storing and manipulating DOM elements</li>
-        <li>- Storing other objects <i>that aren't necessary to calculate the JSX</i>.</li>
-        </ul>
-        <p><i>If your component needs to store some value, <u>but it doesn't impact the rendering logic</u>, choose refs</i>.</p>
-        `,
-        `<h3>Best practices for refs</h3>
-        <p><i>Treat refs as an escape hatch</i>. Refs are useful when you work with external systems or browser APIs.</p>
-        <p><i>Don't read or write <code>ref.current</code> during rendering</i>. If some information is needed during rendering, use state instead.</p>
-        <p>You can use refs to store timeout IDs, DOM elements, and other objects <i>that don't impact the component's rendering output</i>.</p>
-        `,
-        `<h3>Refs and the DOM</h3>
-        <p><i>You can point a ref to any value</i>. However, the most common use case for a ref is to <i>access a DOM element</i>. For example, this is handy if you want to focus an input programmatically. When you pass a ref to a <i><code>ref</code> attribute in JSX</i>, like <code><<span>div ref={myRef}</span>></code>, React will put the corresponding DOM element into <code>myRef.current</code>.</p>
-        `,
-      ],
-    },
-    {
-      sectionTitle:
-        'How to access DOM elements managed by React: Manipulating the DOM with <code>ref</code> prop',
-      sectionSource:
-        '/src/markdowns/06_Refs/Manipulating_the_DOM_with_ref.html',
-      tooltips: [
-        'In their most basic form, <code>ref</code> allow you to get access to a DOM nodes and work with it.',
-        'With <code>ref</code> you can set up a connection between a DOM node and your JavaScript code.',
-        'You can have more than a single ref in a component.',
-        'The <code>useRef</code> hook returns an object with a single property called <code>current</code>. The <code>current</code> property stores the actual DOM node.',
-        `<i>Rarely use <code>ref</code> to manipulate the DOM. Use <code>ref</code> only to read the DOM node</i>: refs are an escape hatch. You should only use them when you have to "step outside React". Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose. If you stick to <i>non-destructive actions</i> like focusing and scrolling, you shouldn't encounter any problems. However, <i>if you try to modify the DOM manually, you can risk conflicting with the changes React is making</i>.`,
-        "<i>Avoid changing DOM nodes managed by React</i>: modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes. However, this doesn't mean that you can't do it at all. It requires caution. <i>You can safely modify parts of the DOM that React has no reason to update</i>. For example, if some <<span>div</span>> is always empty in the JSX, React won't have a reason to touch its children list. Therefore, it is safe to manually add or remove elements there.",
-        'Usually, you will use refs for <i>non-destructive actions</i> like focusing, scrolling, or measuring DOM elements.',
-      ],
-    },
-    {
-      sectionTitle: '<code>useRef</code> & uncontrolled components',
-      sectionSource:
-        '/src/markdowns/06_Refs/useRef_and_uncontrolled_components.html',
-      tooltips: [
-        "When we use ref's for inputs, we have uncontrolled input components.",
-      ],
-    },
-    {
-      sectionTitle: 'Diving into "forward refs"',
-      sectionSource: '/src/markdowns/06_Refs/Diving_into_Forward_Refs.html',
-      highlights: {
-        highlight2: ['"forward refs"'],
-      },
-      tooltips: [
-        "The <code>ref</code> prop is supported on all built-in HTML elements, but by default you can't use <code>ref</code> prop on your custom components!",
-        "<i>A custom component doesn't expose its DOM nodes by default</i>. You can opt into exposing a DOM node by using <code>forwardRef</code> and passing the second <code>ref</code> argument down to a specific node.",
-        '<i>React does not let a component access the DOM nodes of other components</i>. Not even for its own children!',
-        'In uncommon cases, you may want to <i>restrict the exposed functionality</i> of a DOM node. You can do that with <code>useImperativeHandle()</code> hook. <code>useImperativeHandle</code> instructs React to provide <i>your own special object</i> as the value of a ref to the parent component. In this case, <i>the ref "handle" is not the DOM node</i>, but the custom object you create inside <code>useImperativeHandle</code> call.',
       ],
     },
   ],
@@ -2862,9 +2867,9 @@ export const dataStorage = [
   Rendering_lists_and_conditional_content,
   Adding_interactivity_to_a_component,
   Managing_state,
+  Refs,
   Styling_React_components,
   Debugging_React_apps,
-  Refs,
   Handling_side_effects,
   Behind_the_scenes_of_React_and_optimization_techniques,
   Class_based_components,
