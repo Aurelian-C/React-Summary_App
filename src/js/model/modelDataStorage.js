@@ -1044,21 +1044,42 @@ const Refs = {
   sections: [
     {
       sectionTitle:
-        'How to “remember” information without re-rendering: Referencing values with refs',
+        'How to “remember” information without re-rendering: referencing values with refs',
       sectionSource: '/src/markdowns/06_Refs/Referencing_values_with_ref.html',
       highlights: {
         highlight2: ['refs'],
       },
       tooltips: [
-        `When you want a component to <i>"remember" some information, but you don't want that information to trigger new renders</i>, you can use a ref.`,
-        "<code>useRef</code> always returns an object like <code>{current: 'value'}</code>.",
-        'You can access the <code>current</code> value of that ref through the <code>ref.current</code> property. <i>This value is intentionally mutable, meaning you can both read and write to it</i>.',
-        "Unlike state, ref is a plain JavaScript object with the <code>current</code> property that you can read and modify. Note that <i>the component doesn't re-render when you modify the <code>ref.current</code> value</i>.",
-        'Like state, <i>refs are retained by React between re-renders</i>. However, <i>setting state re-renders a component but changing a ref does not!</i>',
-        "When a piece of information is used for rendering, keep it in state. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.",
-        `Typically, you will use a ref when your component needs to "step outside" React and communicate with external APIs — often a browser API that won't impact the appearance of the component.`,
-        "<i>If your component needs to store some value, but it doesn't impact the rendering logic, choose refs.</i>",
-        '<i>You can point a ref to any value</i>. However, the most common use case for a ref is to access a DOM element.',
+        `<h3>Referencing values with refs</h3>
+        <p>When you want a component to <i>"remember" some information, but you don't want that information to trigger new renders</i>, you can use a ref.<p>
+        <p>Like state, <i>refs let you retain information between re-renders of a component</i>. However, setting state re-renders a component; changing a ref does not!</p>
+        `,
+        `<h3>Adding a ref to your component</h3>
+        <p>You can access the current value of that ref through the <i><code>ref.current</code> property</i>. This value is intentionally <u>mutable</u>, meaning you can both read and write to it.</p>
+        `,
+        `<h3>Differences between refs and state</h3>
+        <p>A component doesn't re-render when you modify the <code>ref.current</code> value.</p>
+        <p>You shouldn't read (or write) the <code>ref.current</code> value during rendering but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
+        <p><i>Limitations of React state don't apply to refs</i>. For example, state acts like a snapshot for every render and doesn't update synchronously, but when you mutate the current value of a ref, it changes immediately.</p>
+        <p>You also don't need to worry about avoiding mutation when you work with a ref. <i>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</i>. Refs are an escape hatch to <i>hold onto values that <u>aren't used for rendering</u></i>.</p>
+        <p><i>When a piece of information is <u>used for rendering</u>, keep it in state</i>. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.</p>
+        `,
+        `<h3>When to use refs</h3>
+        <ul>Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs — often a browser API <i>that won't impact the appearance of the component</i>:
+        <li>- Storing timeout IDs</li>
+        <li>- Storing and manipulating DOM elements</li>
+        <li>- Storing other objects <i>that aren't necessary to calculate the JSX</i>.</li>
+        </ul>
+        <p><i>If your component needs to store some value, <u>but it doesn't impact the rendering logic</u>, choose refs</i>.</p>
+        `,
+        `<h3>Best practices for refs</h3>
+        <p><i>Treat refs as an escape hatch</i>. Refs are useful when you work with external systems or browser APIs.</p>
+        <p><i>Don't read or write <code>ref.current</code> during rendering</i>. If some information is needed during rendering, use state instead.</p>
+        <p>You can use refs to store timeout IDs, DOM elements, and other objects <i>that don't impact the component's rendering output</i>.</p>
+        `,
+        `<h3>Refs and the DOM</h3>
+        <p><i>You can point a ref to any value</i>. However, the most common use case for a ref is to <i>access a DOM element</i>. For example, this is handy if you want to focus an input programmatically. When you pass a ref to a <i><code>ref</code> attribute in JSX</i>, like <code><<span>div ref={myRef}</span>></code>, React will put the corresponding DOM element into <code>myRef.current</code>.</p>
+        `,
       ],
     },
     {
