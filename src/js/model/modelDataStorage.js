@@ -276,6 +276,45 @@ const React_basics = {
         `,
       ],
     },
+    {
+      sectionTitle:
+        'JSX limitations & workarounds: <code>React.Fragment</code> or shorthand <code><><span><</span>/></code>',
+      sectionSource:
+        '/src/markdowns/01_React_basics/JSX_limitations_&_workarounds.html',
+      highlights: {
+        highlight1: ['JSX limitations'],
+        highlight2: ['<code>React.Fragment</code>'],
+      },
+      tooltips: [
+        `<h3>JSX limitations</h3>
+        <p><i>You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable)</i>.</p>
+        <p>The solution: <i>always wrap adjacent elements!</i> You can use as a wrapper any element (<<span>div</span>>, <<span>p</span>>, <<span>header</span>>), or you can also use a custom component. The main thing that matters is that you only have one value which you return or which you store it in a variable.</p>
+        `,
+        `<h3>Creating a wrapper component</h3>
+        <p>A wrapping element it's an element which <i>won't render anything to the DOM</i>, but the requirement is not that there must be one root component being rendered to the DOM, the requirement just is that there must be <i>one root element that you return or that you store in a variable</i>.</p>
+        `,
+        `<h3>The problem with wrapper components: the <<span>div</span>> soup</h3>
+        <p>In bigger apps, you can easily end up with tons of unnecessary <<span>div</span>>s (or other elements) which add <i>no semantic meaning or structure to the page</i>, but <i>are only there because of React's/JSX requirement</i>.</p>
+        `,
+        `<h3>React.Fragment</h3>
+        <p>Fragments let you <i>group a list of children without adding extra nodes to the DOM</i>.</p>
+        <p>Fragments allow you to write cleaner code, to end up with less unnecessary HTML elements on the final page.</p>
+        <p>You can access the Fragment component with <code>React.Fragment</code>, or in some projects you can also use the shortcut syntax. These two syntaxes <i>render empty wrappers</i>, which don't render any actual HTML element to the DOM.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'React Portals',
+      sectionSource: '/src/markdowns/01_React_basics/React_Portals.html',
+      highlights: {
+        highlight2: ['Portals'],
+      },
+      tooltips: [
+        'You can use a Portal to keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM.',
+        'Portals let your components render some of their children into a different place in the DOM.',
+        'A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.',
+      ],
+    },
   ],
 };
 
@@ -1000,64 +1039,13 @@ const Debugging_React_apps = {
   ],
 };
 
-const Fragments_Portals_and_Refs = {
-  title: '<p class="card__title--2">Fragments, Portals & "Refs"</p>',
+const Refs = {
+  title: '<p class="card__title--2">Refs</p>',
   sections: [
-    {
-      sectionTitle: 'JSX limitations & workarounds',
-      sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/JSX_limitations_&_workarounds.html',
-      highlights: {
-        highlight1: ['JSX limitations'],
-      },
-      tooltips: [
-        `You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable).`,
-        'The solution: always wrap adjacent elements!',
-        `<<span>div</span>> soup problem: in bigger apps, you can easily end up with tons of unnecessary <<span>div</span>>s (or other elements) which add no semantic meaning or structure to the page, but are only there because of React's/JSX requirement.`,
-      ],
-    },
-    {
-      sectionTitle: 'Creating a wrapper component',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['wrapper component'],
-      },
-      tooltips: [
-        "A wrapping element it's an element which won't render anything to the DOM, but the requirement is not that there must be one root component being rendered to the DOM, the requirement just is that there must be one root element that you return or that you store in a variable.",
-      ],
-    },
-    {
-      sectionTitle:
-        '<code>React.Fragment</code> or shorthand <code><><span><</span>/></code>',
-      sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/React_Fragments.html',
-      highlights: {
-        highlight2: ['<code>React.Fragment</code>'],
-      },
-      tooltips: [
-        'Fragments let you group a list of children without adding extra nodes to the DOM.',
-        'Fragments allow us to write cleaner code, to end up with less unnecessary HTML elements on the final page.',
-        "You can access the Fragment component with <code>React.Fragment</code>, or in some projects you can also use the shortcut syntax. These two syntaxes render empty wrappers, which don't render any actual HTML element to the DOM.",
-      ],
-    },
-    {
-      sectionTitle: 'Introducing React Portals',
-      sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/React_Portals.html',
-      highlights: {
-        highlight2: ['Portals'],
-      },
-      tooltips: [
-        'You can use a Portal to keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM.',
-        'Portals let your components render some of their children into a different place in the DOM.',
-        'A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.',
-      ],
-    },
     {
       sectionTitle:
         'How to “remember” information without re-rendering: Referencing values with refs',
-      sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/Referencing_values_with_ref.html',
+      sectionSource: '/src/markdowns/06_Refs/Referencing_values_with_ref.html',
       highlights: {
         highlight2: ['refs'],
       },
@@ -1077,7 +1065,7 @@ const Fragments_Portals_and_Refs = {
       sectionTitle:
         'How to access DOM elements managed by React: Manipulating the DOM with <code>ref</code> prop',
       sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/Manipulating_the_DOM_with_ref.html',
+        '/src/markdowns/06_Refs/Manipulating_the_DOM_with_ref.html',
       tooltips: [
         'In their most basic form, <code>ref</code> allow you to get access to a DOM nodes and work with it.',
         'With <code>ref</code> you can set up a connection between a DOM node and your JavaScript code.',
@@ -1091,15 +1079,14 @@ const Fragments_Portals_and_Refs = {
     {
       sectionTitle: '<code>useRef</code> & uncontrolled components',
       sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/useRef_and_uncontrolled_components.html',
+        '/src/markdowns/06_Refs/useRef_and_uncontrolled_components.html',
       tooltips: [
         "When we use ref's for inputs, we have uncontrolled input components.",
       ],
     },
     {
       sectionTitle: 'Diving into "forward refs"',
-      sectionSource:
-        '/src/markdowns/06_Fragments_Portals_&_Refs/Diving_into_Forward_Refs.html',
+      sectionSource: '/src/markdowns/06_Refs/Diving_into_Forward_Refs.html',
       highlights: {
         highlight2: ['"forward refs"'],
       },
@@ -2856,7 +2843,7 @@ export const dataStorage = [
   Managing_state,
   Styling_React_components,
   Debugging_React_apps,
-  Fragments_Portals_and_Refs,
+  Refs,
   Handling_side_effects,
   Behind_the_scenes_of_React_and_optimization_techniques,
   Class_based_components,
