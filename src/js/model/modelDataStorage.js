@@ -980,28 +980,47 @@ const Refs = {
         highlight2: ['<code>ref</code> attribute'],
       },
       tooltips: [
-        'In their most basic form, <code>ref</code> allow you to get access to a DOM nodes and work with it.',
-        'With <code>ref</code> you can set up a connection between a DOM node and your JavaScript code.',
-        'You can have more than a single ref in a component.',
-        'The <code>useRef</code> hook returns an object with a single property called <code>current</code>. The <code>current</code> property stores the actual DOM node.',
-        `<i>Rarely use <code>ref</code> to manipulate the DOM. Use <code>ref</code> only to read the DOM node</i>: refs are an escape hatch. You should only use them when you have to "step outside React". Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose. If you stick to <i>non-destructive actions</i> like focusing and scrolling, you shouldn't encounter any problems. However, <i>if you try to modify the DOM manually, you can risk conflicting with the changes React is making</i>.`,
-        "<i>Avoid changing DOM nodes managed by React</i>: modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes. However, this doesn't mean that you can't do it at all. It requires caution. <i>You can safely modify parts of the DOM that React has no reason to update</i>. For example, if some <<span>div</span>> is always empty in the JSX, React won't have a reason to touch its children list. Therefore, it is safe to manually add or remove elements there.",
-        'Usually, you will use refs for <i>non-destructive actions</i> like focusing, scrolling, or measuring DOM elements.',
+        `<h3>Manipulating the DOM with Refs</h3>
+        <p>React automatically updates the DOM to match your render output, so your components won't often need to manipulate it. However, sometimes you might need access to the DOM elements managed by React.</p>
+        <p><code>ref</code> allow you to get <i>access to a DOM node</i> and work with it. With <code>ref</code> you can <i>set up a connection between a DOM node and your JavaScript code</i>.</p>
+        <p>You can add <code>ref</code> to any <i>build-in HTML element</i>.</p>
+        <p>You can have more than a single <code>ref</code> in a component.</p>
+        `,
+        `<h3>The <code>useRef</code> hook</h3>
+        <p>The <code>useRef</code> hook <i>returns an object</i> with a single property called <i><code>current</code></i>. The <code>current</code> property <i>stores the actual DOM node</i>.</p>
+        `,
+        `<h3>When React attaches the refs</h3>
+        <p>In general, <i>you don't want to access refs during rendering</i>. That goes for refs holding DOM nodes as well. During the first render, the DOM nodes have not yet been created, so <code>ref.current</code> will be <code>null</code>. And during the rendering of updates, the DOM nodes haven't been updated yet. So it's too early to read them.</p>
+        <p><i>React sets <code>ref.current</code> during the commit</i>. Before updating the DOM, React sets the affected <code>ref.current</code> values to <code>null</code>. After updating the DOM, React immediately sets them to the corresponding DOM nodes.</p>
+        <p><i>Usually, you will access refs from event handlers</i>. If you want to do something with a ref, but there is no particular event to do it in, you might need an Effect.</p>
+        `,
+        `<h3>Best practices for DOM manipulation with refs</h3>
+        <p>Refs are an escape hatch. You should only use them when you have to “step outside React”. Common examples of this include managing focus, scroll position, or calling browser APIs that React does not expose. If you stick to <i>non-destructive actions</i> like focusing and scrolling, you shouldn't encounter any problems. However, <i>if you try to modify the DOM manually, you can risk conflicting with the changes React is making</i>.</p>
+        <p><i>Avoid changing DOM nodes managed by React</i>: modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes. However, this doesn't mean that you can't do it at all. It requires caution. <i>You can safely modify parts of the DOM that React has no reason to update</i>. For example, if some <<span>div</span>> is always empty in the JSX, React won't have a reason to touch its children list. Therefore, it is safe to manually add or remove elements there.</p>
+        <p>Usually, you will use refs for <i>non-destructive actions</i> like focusing, scrolling, or measuring DOM elements. <i>Rarely use <code>ref</code> to manipulate the DOM. Use <code>ref</code> only to read the DOM node</i>.</p>
+        `,
       ],
     },
     {
       sectionTitle:
-        'Accessing another component’s DOM nodes: <code>React.forwardRef()</code>',
+        'Accessing another component’s DOM nodes: <code>React.forwardRef()</code> and <code>useImperativeHandle</code> hook',
       sectionSource:
         '/src/markdowns/06_Refs/Accessing_another_component_DOM_node.html',
       highlights: {
-        highlight2: ['<code>React.forwardRef()</code>'],
+        highlight2: [
+          '<code>React.forwardRef()</code>',
+          '<code>useImperativeHandle</code>',
+        ],
       },
       tooltips: [
-        "The <code>ref</code> prop is supported on all built-in HTML elements, but by default you can't use <code>ref</code> prop on your custom components!",
-        "<i>A custom component doesn't expose its DOM nodes by default</i>. You can opt into exposing a DOM node by using <code>forwardRef</code> and passing the second <code>ref</code> argument down to a specific node.",
-        '<i>React does not let a component access the DOM nodes of other components</i>. Not even for its own children!',
-        'In uncommon cases, you may want to <i>restrict the exposed functionality</i> of a DOM node. You can do that with <code>useImperativeHandle()</code> hook. <code>useImperativeHandle</code> instructs React to provide <i>your own special object</i> as the value of a ref to the parent component. In this case, <i>the ref "handle" is not the DOM node</i>, but the custom object you create inside <code>useImperativeHandle</code> call.',
+        `<h3>Accessing another component's DOM nodes</h3>
+        <p>The <code>ref</code> attribute is <i>supported on all built-in HTML elements</i>, but <i>by default you can't use <code>ref</code> attribute on your custom components</i>!</p>
+        <p><i>A custom component doesn't expose its DOM nodes by default</i>. You can opt into exposing a DOM node by using <code>forwardRef</code> and passing the second <code>ref</code> argument down to a specific node.</p>
+        <p><i>React does not let a component access the DOM nodes of other components</i>. Not even for its own children! Instead, custom components that want to expose their DOM nodes have to <u>opt in to that behavior</u>. A component can specify that it “forwards” its ref to one of its children.</p>
+        `,
+        `<h3>Exposing a subset of the API with an imperative handle</h3>
+        <p>In uncommon cases, you may want to <i>restrict the exposed functionality</i> of a DOM node. You can do that with <code>useImperativeHandle</code> hook. <code>useImperativeHandle</code> instructs React to provide <i>your own special object</i> as the value of a ref to the parent component. In this case, <i>the ref "handle" is not the DOM node</i>, but the custom object you create inside <code>useImperativeHandle</code> call.</p>
+        `,
       ],
     },
     {
@@ -1009,7 +1028,9 @@ const Refs = {
       sectionSource:
         '/src/markdowns/06_Refs/useRef_and_uncontrolled_components.html',
       tooltips: [
-        "When we use ref's for inputs, we have uncontrolled input components.",
+        `<p>The approach of using <code>ref</code> to interact with DOM elements, specifically with <<span>input/</span>> elements, also has a special name. We're talking about <i>uncontrolled components, if you access values with a <code>ref</code>. Why uncontrolled? Because they're internal state, so the value which is reflected in them is not controlled by React</i>. You rely on the default behavior of the input, where a user is able to enter something, and that entered value is reflected. And you then just fetch it with a React feature (<code>ref</code>), but you don't feed data back into the <<span>input/</span>> like you do with <code>useState</code> and <code>value</code> attribute. So that's why is called uncontrolled, because you're not controlling the state off the <<span>input/</span>> element with React.</p>
+        <p>Now, you can talk about uncontrolled and controlled components, also in the context of other components, but most commonly you have this scenario when you talk about input components, about form components in general, because those components tend to have some internal state, natively by the browser, an input element is configured to take user input and save and reflect it, and when you then work with those components in a React app, you wanna connect your React state to that. That's why you typically have this controlled/uncontrolled thing when you work with input components in React.</p>
+        <p>When you use <code>ref</code> for inputs, you have uncontrolled input components.</p>`,
       ],
     },
   ],
