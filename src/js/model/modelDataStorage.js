@@ -1383,14 +1383,32 @@ const Custom_React_Hooks = {
         highlight2: ['"custom Hooks"'],
       },
       tooltips: [
-        'Custom hooks are just regular functions, just as the built-in hooks like <code>useState</code>, but they are functions which can contain stateful logic. You can build custom hooks to <i>outsource stateful logic into reusable functions</i>.',
-        'Unlike regular functions, custom hooks can use other React hooks, including other custom hooks, and they can, therefore, also leverage React state managed with <code>useState</code> or <code>useReducer</code>; they can access <code>useEffect</code> and so on.',
-        'Custom Hooks are mechanism for <i>reusing logic</i>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks.',
-        'Custom Hooks let you <i>share logic between components</i>.',
-        "Custom Hooks must be named starting with 'use' followed by a capital letter.",
-        'Custom Hooks only <i>share stateful logic, not state itself</i>.',
-        'All Hooks re-run every time your component re-renders.',
-        'If a component uses a custom hook and that custom hook uses <code>useState</code>, <i>the component that uses the custom hook will re-render when the state in that custom hook will trigger a re-render</i>.',
+        `<h3>Custom Hooks: Sharing logic between components</h3>
+        <p>Custom hooks are just <i>regular functions</i>, just as the built-in hooks like <code>useState</code>, but they are functions which can contain stateful logic. You can build custom hooks to <i>outsource stateful logic into reusable functions</i>.</p>
+        <p>Unlike regular functions, <i>custom hooks can use other React hooks, including other custom hooks</i>, and they can, therefore, also leverage React state managed with <code>useState</code> or <code>useReducer</code>; they can access <code>useEffect</code> and so on.</p>
+        <p>Custom Hooks let you <i>share logic between components</i>.</p>
+        `,
+        `<h3>Creating a Custom React Hook function</h3>
+        <p>As with components, you store every hook in a standalone file.</p>
+        <p><i>Custom Hook names always start with "use" followed by a capital letter.</i></p>
+        <p>Hooks may return arbitrary values.</p>
+        `,
+        `<h3>Using Custom Hook functions</h3>
+        <p>You are going to use a custom hook just as you use to build-in hooks.</p>
+        <p>Custom Hooks let you <i>share stateful logic but <u>not state itself</u>. Each call to a Hook is completely independent from every other call to the same Hook</i>.</p>
+        <p>If you call a custom hook in one of your components and that custom hook registers a state or an effect, then the state and the effect that you have in your custom hook will be tied to the component in which you use your custom hook. <i>If you use that custom hook in multiple components every component will receive its own separate state</i>.</p>
+        <p><i>So just because you use a custom hook does not mean that you share state or effects across components</i>. Instead for every component the custom hook is executed again and every component instance then receives its own state, so it's just the logic which is shared, not the concrete state.</p>
+        `,
+        `<h3>Passing reactive values between Hooks</h3>
+        <p><i>The code inside your custom Hooks will re-run during every re-render of your component</i>. This is why, like components, custom Hooks need to be pure. <i>Think of custom Hooks’ code as part of your component's body!</i></p>
+        <p>Because custom Hooks re-render together with your component, they always receive the latest props and state.</p>
+        <p>If a component uses a custom hook and that custom hook uses <code>useState</code>, <i>the component that uses the custom hook will re-render when the state in that custom hook will trigger a re-render</i>.</p>
+        `,
+        `<h3>Should all functions called during rendering start with the use prefix?</h3>
+        <p>No. <i>Functions that don't call Hooks don't need to be Hooks</i>. If your function doesn't call any Hooks, avoid the "use" prefix. Instead, write it as a regular function without the "use" prefix. This ensures that your code can call that regular function anywhere, including conditions.</p>
+        <p><i>You should give "use" prefix to a function (and thus make it a Hook) if it uses at least one Hook inside of it.</i></p>
+        <p>In principle, you could make a Hook that doesn't call other Hooks. This is often confusing and limiting so it's best to avoid that pattern. However, there may be rare cases where it is helpful.</p>
+        `,
       ],
     },
   ],

@@ -2,47 +2,27 @@
 
 ==When you write an Effect, the linter will verify that you’ve included every reactive value (like props and state) that the Effect reads in the list of your Effect’s dependencies. This ensures that your Effect remains synchronized with the latest props and state of your component. _Unnecessary dependencies may cause your Effect to run too often_, or even create an infinite loop==.
 
-> You will learn:
->
-> - How to fix infinite Effect dependency loops
-> - What to do when you want to remove a dependency
-> - How to read a value from your Effect without “reacting” to it
-> - How and why to avoid object and function dependencies
-> - Why suppressing the dependency linter is dangerous, and what to do instead
+You will learn:
+
+- How to fix infinite Effect dependency loops
+- What to do when you want to remove a dependency
+- How to read a value from your Effect without “reacting” to it
+- How and why to avoid object and function dependencies
+- Why suppressing the dependency linter is dangerous, and what to do instead
 
 ## Dependencies should match the code
 
 When you write an Effect, you first specify how to [start and stop](https://beta.reactjs.org/learn/lifecycle-of-reactive-effects#the-lifecycle-of-an-effect) whatever you want your Effect to be doing:
 
-```react
-const serverUrl = 'https://localhost:1234';
-
-function ChatRoom({ roomId }) {
-  useEffect(() => {
-    const connection = createConnection(serverUrl, roomId);
-    connection.connect();
-
-    return () => connection.disconnect();
-  }, []); // <-- Fix the mistake here!
-  // ...
-}
-```
+![Removing_Effect_dependencies00](../../img/Removing_Effect_dependencies00.jpg)
 
 Then, if you leave the Effect dependencies empty (`[]`), the linter will suggest the correct dependencies. Fill them in according to what the linter says:
 
-```react
-function ChatRoom({ roomId }) {
-  useEffect(() => {
-    const connection = createConnection(serverUrl, roomId);
-    connection.connect();
+![Removing_Effect_dependencies01](../../img/Removing_Effect_dependencies01.jpg)
 
-    return () => connection.disconnect();
-  }, [roomId]); // ✅ All dependencies declared
-  // ...
-}
-```
+==**Effects “react” to [reactive values**. Since `roomId` is a reactive value (it can change due to a re-render), the linter verifies that you’ve specified it as a dependency==.
 
-==**Effects “react” to [reactive values](https://beta.reactjs.org/learn/lifecycle-of-reactive-effects#effects-react-to-reactive-values)**. Since `roomId` is a reactive value (it can change due to a re-render), the linter verifies that you’ve specified it as a dependency==.
+![Removing_Effect_dependencies02](../../img/Removing_Effect_dependencies02.jpg)
 
 ## To remove a dependency, prove that it’s not a dependency
 
@@ -50,15 +30,17 @@ function ChatRoom({ roomId }) {
 
 ![Removing_Effect_dependencies](../../img/Removing_Effect_dependencies.jpg)
 
-==[Reactive values](https://beta.reactjs.org/learn/lifecycle-of-reactive-effects#all-variables-declared-in-the-component-body-are-reactive) include props and all variables and functions declared directly inside of your component==. Since `roomId` is a reactive value, you can’t remove it from the dependency list. The linter wouldn’t allow it:
+==Reactive values include props and all variables and functions declared directly inside of your component==. Since `roomId` is a reactive value, you can’t remove it from the dependency list. The linter wouldn’t allow it:
 
 ![Removing_Effect_dependencies1](../../img/Removing_Effect_dependencies1.jpg)
 
-And the linter would be right! Since `roomId` may change over time, this would introduce a bug in your code. ==To remove a dependency, you need to “prove” to the linter that it doesn’t need to be a dependency==. For example, you can move `roomId` out of your component to prove that it’s not reactive and won’t change on re-renders:
+And the linter would be right! Since `roomId` may change over time, this would introduce a bug in your code.
+
+==To remove a dependency, you need to “prove” to the linter that it doesn’t need to be a dependency==. For example, you can move `roomId` out of your component to prove that it’s not reactive and won’t change on re-renders:
 
 ![Removing_Effect_dependencies2](../../img/Removing_Effect_dependencies2.jpg)
 
-Now that `roomId` is not a reactive value (and can’t change on a re-render), it doesn’t need to be a dependency.
+Now that `roomId` is not a reactive value (and can’t change on a re-render), it doesn’t need to be a dependency. This is why you could now specify an empty (`[]`) dependency list. Your Effect *really doesn’t* depend on any reactive value anymore, so it *really doesn’t* need to re-run when any of the component’s props or state change.
 
 ## To change the dependencies, change the code
 
@@ -68,31 +50,37 @@ You might have noticed a pattern in your workflow:
 2. Then, you follow the linter and adjust the dependencies to **match the code you have changed.**
 3. If you’re not happy with the list of dependencies, you **go back to the first step** (and change the code again).
 
-The last part is important. ==If you want to change the dependencies, change the surrounding code first. You can think of the dependency list as [a list of all the reactive values used by your Effect’s code.](https://beta.reactjs.org/learn/lifecycle-of-reactive-effects#react-verifies-that-you-specified-every-reactive-value-as-a-dependency) **You don’t intentionally _choose_ what to put on that list. The list _describes_ your code**. To change the dependency list, change the code==.
+The last part is important. ==If you want to change the dependencies, change the surrounding code first. You can think of the dependency list as a list of all the reactive values used by your Effect’s code. **You don’t intentionally _choose_ what to put on that list. The list _describes_ your code**. To change the dependency list, change the code==.
 
 ## Removing unnecessary dependencies
 
-Every time you adjust the Effect’s dependencies to reflect the code, look at the dependency list. Does it make sense for the Effect to re-run when any of these dependencies change? Sometimes, the answer is “no”:
+==Every time you adjust the Effect’s dependencies to reflect the code, look at the dependency list. Does it make sense for the Effect to re-run when any of these dependencies change? Sometimes, the answer is “no”:==
 
-- Sometimes, you want to re-execute _different parts_ of your Effect under different conditions.
-- Sometimes, you want to only read the _latest value_ of some dependency instead of “reacting” to its changes.
-- Sometimes, a dependency may change too often _unintentionally_ because it’s an object or a function.
+- You might want to re-execute *different parts* of your Effect under different conditions.
+- You might want to only read the *latest value* of some dependency instead of “reacting” to its changes.
+- A dependency may change too often *unintentionally* because it’s an object or a function.
 
 To find the right solution, you’ll need to answer a few questions about your Effect:
 
-- Should this code move to an event handler?
-- Is your Effect doing several unrelated things?
-- Are you reading some state to calculate the next state?
-- Do you want to read a value without “reacting” to its changes?
-- Does some reactive value change unintentionally?
+- [Should this code move to an event handler?](https://react.dev/learn/removing-effect-dependencies#should-this-code-move-to-an-event-handler)
+- [Is your Effect doing several unrelated things?](https://react.dev/learn/removing-effect-dependencies#is-your-effect-doing-several-unrelated-things)
+- [Are you reading some state to calculate the next state?](https://react.dev/learn/removing-effect-dependencies#are-you-reading-some-state-to-calculate-the-next-state)
+- [Do you want to read a value without “reacting” to its changes?](https://react.dev/learn/removing-effect-dependencies#do-you-want-to-read-a-value-without-reacting-to-its-changes)
+- [Does some reactive value change unintentionally?](https://react.dev/learn/removing-effect-dependencies#does-some-reactive-value-change-unintentionally)
 
 ## Avoid objects and functions as Effect dependencies
 
-==In JavaScript, each newly created object and function is considered distinct from all the others. It doesn’t matter that the contents inside of them may be the same! **Object and function dependencies create a risk that your Effect will re-synchronize more often than you need**. This is why, whenever possible, you should try to avoid objects and functions as your Effect’s dependencies==. Instead, try moving them outside the component, inside the Effect, or extracting primitive values out of them.
+Object and function dependencies can make your Effect re-synchronize more often than you need. ==In JavaScript, each newly created object and function is considered distinct from all the others. It doesn’t matter that the content inside of them may be the same! **Object and function dependencies create a risk that your Effect will re-synchronize more often than you need**. This is why, whenever possible, you should try to avoid objects and functions as your Effect’s dependencies==.
+
+Instead, try:
+
+- moving them outside the component
+- moving them inside the Effect
+- extracting primitive values out of them.
 
 ### Move static objects and functions outside your component
 
-If the object does not depend on any props and state, you can move that object outside your component:
+==If the object does not depend on any props and state, you can move that object outside your component:==
 
 ![Removing_Effect_dependencies3](../../img/Removing_Effect_dependencies3.jpg)
 
@@ -104,11 +92,19 @@ This works for functions too:
 
 ### Move dynamic objects and functions inside your Effect
 
-If your object depends on some reactive value that may change as a result of a re-render, like a `roomId` prop, you can’t pull it _outside_ your component. You can, however, move its creation _inside_ of your Effect’s code:
+==If your object depends on some reactive value that may change as a result of a re-render, like a `roomId` prop, you can’t pull it _outside_ your component. You can, however, move its creation _inside_ of your Effect’s code:==
 
 ![Removing_Effect_dependencies5](../../img/Removing_Effect_dependencies5.jpg)
 
 Now that `options` is declared inside of your Effect, it is no longer a dependency of your Effect. Instead, the only reactive value used by your Effect is `roomId`. Since `roomId` is not an object or function, you can be sure that it won’t be _unintentionally_ different.
+
+This works for functions, too:
+
+![Removing_Effect_dependencies5a](../../img/Removing_Effect_dependencies5a.jpg)
+
+In JavaScript, numbers and strings are compared by their content:
+
+![Removing_Effect_dependencies11](../../img/Removing_Effect_dependencies11.jpg)
 
 ### Read primitive values from objects
 
