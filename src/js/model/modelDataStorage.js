@@ -1250,7 +1250,7 @@ const Handling_side_effects = {
         <p>Effects are <i>reactive blocks of code</i>. They re-synchronize when the values you read inside of them change. Unlike event handlers, which only run once per interaction, Effects run whenever synchronization is necessary.</p>
         <p>Effects "react" to reactive values: <i>props, state, and other values declared inside the component are reactive because they're calculated during rendering and participate in the React data flow. Reactive values must be included in dependencies</i>. After all, dependencies only do something when they change over time!</p>
         <p><i>All variables declared in the component body are reactive</i>: props and state aren't the only reactive values. Values that you calculate from them are also reactive. If the props or state change, your component will re-render, and the values calculated from them will also change. This is why all variables from the component body used by the Effect should also be in the Effect dependency list.</p>
-        <p>Can global or mutable values be dependencies? Mutable values (including global variables) aren’t reactive.</p>
+        <p>Can global or mutable values be dependencies? Mutable values (including global variables) aren't reactive.</p>
         `,
         `<h3>Each Effect represents a separate synchronization process</h3>
         <p>Each Effect in your code should represent a <i>separate and independent synchronization process</i>.</p>
