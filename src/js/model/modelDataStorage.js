@@ -1266,15 +1266,21 @@ const Handling_side_effects = {
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Separating_Events_from_Effects.html',
       tooltips: [
-        'Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render.',
-        'Where you write code and you are not sure where to put it (in an event handlers or Effects), every time you need to answer this question <b>"Why the code needs to run?"</b>.',
-        'Event handlers run in response to <b>specific interactions</b> vs Effects run <b>whenever synchronization is needed</b>.',
-        `<i>Reactive <b>values</b> and reactive <b>logic</b></i>: intuitively, you could say that event handlers are always triggered "manually", for example by clicking a button. Effects, on the other hand, are "automatic": they run and re-run as often as it's needed to stay synchronized. <i>Props, state, and variables declared inside your component's body are called <b>reactive values</b> because these  values can <b>change due to a re-render</b></i>.`,
-        `<i>Event handlers and Effects are different in <u>how they respond to changes</u></i>:
-        <br>- <i>logic inside event handlers is <b>not reactive</b></i>. It will not run again unless the user performs the same interaction (for example, a click) again. Event handlers can read reactive values, but they don't "react" to their changes;
-        <br>- <i>logic inside Effects is <b>reactive</b></i>. If your Effect reads a reactive value, you have to specify it as a dependency. Then, if a re-render causes that value to change, React will re-run your Effect's logic again with the new value.
+        `<h3>Why Effects are reactive, and event handlers are not</h3>
+        <p>Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render.</p>
+        <p>Event handlers run in response to <i>specific interactions</i> but Effects run <i>whenever synchronization is needed</i>.</p>
         `,
-        'You can move non-reactive logic from Effects into <i>Effect Events</i>.',
+        `<h3>Reactive <u>values</u> and reactive <u>logic</u></h3>
+        <p>Intuitively, you could say that event handlers are always triggered "manually", for example by clicking a button. Effects, on the other hand, are "automatic": they run and re-run as often as it's needed to stay synchronized. <i>Props, state, and variables declared inside your component's body are called <u>reactive values</u> because they participate in the rendering data flow and these values can <u>change due to a re-render</u></i>.</p>
+        <ul><i>Event handlers and Effects are different in <u>how they respond to changes</u></i>:
+        <li>- <i>logic inside event handlers is <u>not reactive</u></i>. It will not run again unless the user performs the same interaction (for example, a click) again. Event handlers can read reactive values, but they don't "react" to their changes;</li>
+        <li>- <i>logic inside Effects is <u>reactive</u></i>. If your Effect reads a reactive value, you have to specify it as a dependency. Then, if a re-render causes that value to change, React will re-run your Effect's logic again with the new value.</li>
+        </ul>
+        <p>You can move non-reactive logic from Effects into <i>Effect Events</i>.</p>
+        `,
+        `<h3>Choosing between event handlers and Effects</h3>
+        <p>When you write code and you are not sure where to put it (in an event handlers or Effects), every time you need to answer this question <i>"Why the code needs to run?"</i>.</p>
+        `,
       ],
     },
     {
