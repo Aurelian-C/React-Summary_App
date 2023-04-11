@@ -144,7 +144,7 @@ The `useEffect()` will be re-executed only if the dependencies changes or the co
 
 > **Note**: ==React will call your cleanup function each time before the Effect runs again, and one final time when the component unmounts from DOM (gets removed from DOM)==.
 
-When you implement the cleanup well, there should be no user-visible difference between running the Effect once vs running it, cleaning it up, and running it again.
+==When you implement the cleanup well, there should be no user-visible difference between running the Effect once vs running it, cleaning it up, and running it again.==
 
 #### Add cleanup if needed - a little example:
 
@@ -180,7 +180,7 @@ Now you get three console logs in development:
 
 ==React intentionally remounts your components in development to help you find bugs like in the last example. **The right question isn’t “how to run an Effect once”, but “how to fix my Effect so that it works after remounting”.** Usually, the answer is to implement the cleanup function.==
 
-The cleanup function should stop or undo whatever the Effect was doing. The rule of thumb is that the user shouldn’t be able to distinguish between the Effect running once (as in production) and a *setup → cleanup → setup* sequence (as you’d see in development).
+==The cleanup function should stop or undo whatever the Effect was doing.== The rule of thumb is that the user shouldn’t be able to distinguish between the Effect running once (as in production) and a *setup → cleanup → setup* sequence (as you’d see in development).
 
 Most of the Effects you’ll write will fit into one of the common patterns below.
 

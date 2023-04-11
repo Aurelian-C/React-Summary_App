@@ -46,11 +46,26 @@ This convention guarantees that you can always look at a component and know wher
 
 ==You are going to use a custom hook just as you use to build-in hooks.== You are just calling it like a function because it is just a function. So therefore you need to import your custom hook in the component that you want to use it.
 
-> **IMPORTANT**: ==Custom Hooks let you share **stateful logic** but not **state itself**. Each call to a Hook is completely independent from every other call to the same Hook.== If you call a custom hook in one of your components and that custom hook registers a state or an effect, then the state and the effect that you have in your custom hook will be tied to the component in which you use your custom hook. If you use that custom hook in multiple components every component will receive its own separate state.
->
-> So just because you use a custom hook does not mean that you share state or effects across components. Instead for every component the custom hook is executed again and every component instance then receives its own state, so ==it's just the logic which is shared, not the concrete state==.
-
 ![What_are_Custom_Hooks2](../../img/What_are_Custom_Hooks2.jpg)
+
+## Custom Hooks let you share _stateful logic_ but not _state itself_
+
+==Custom Hooks let you share **stateful logic** but not **state itself**. Each call to a Hook is completely independent from every other call to the same Hook.== If you call a custom hook in one of your components and that custom hook registers a state or an effect, then the state and the effect that you have in your custom hook will be tied to the component in which you use your custom hook. If you use that custom hook in multiple components every component will receive its own separate state.
+
+So just because you use a custom hook does not mean that you share state or effects across components. Instead for every component the custom hook is executed again and every component instance then receives its own state, so ==it's just the logic which is shared, not the concrete state==.
+
+![What_are_Custom_Hooks3](../../img/What_are_Custom_Hooks3.jpg)
+
+Notice that it only declares *one* state variable called `value`. However, the `Form` component calls `useFormInput` *two times:*
+
+```react
+function Form() {
+  const firstNameProps = useFormInput('Mary');
+  const lastNameProps = useFormInput('Poppins');
+  // ...
+```
+
+This is why it works like declaring two separate state variables!
 
 ## Passing reactive values between Hooks
 
