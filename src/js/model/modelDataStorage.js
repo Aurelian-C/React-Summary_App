@@ -1221,18 +1221,43 @@ const Handling_side_effects = {
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Lifecycle_of_reactive_effects.html',
       tooltips: [
-        '<i>Effects have a different lifecycle from components</i>. Components may mount, update, or unmount. An Effect can only do two things: to <i>start synchronizing</i> something, and later to <i>stop synchronizing</i> it. This cycle can happen multiple times if your Effect depends on <i>props and state that change over time</i>.',
-        "Try to think about each Effect <u>independently</u> from your component's lifecycle. An Effect describes <i>how to synchronize an external system to the current props and state</i>. As your code changes, this synchronization will need to happen more or less often.",
-        'Intuitively, you might think that React would <u>start synchronizing when your component mounts</u> and <u>stop synchronizing when your component unmounts</u>. Sometimes, it may also be necessary to <i>start and stop synchronizing multiple times while the component remains mounted</i>.',
-        "<i>Your Effect's <b>body</b> specifies how to <b>start</b> synchronizing, and your <b>cleanup function</b> specifies how to <b>stop</b> synchronizing</i>.",
-        "When you write an Effect, it shouldn't matter whether a component is mounting, updating, or unmounting. All you need to do is to <i>describe how to start synchronization and how to stop it</i>.",
-        'The main reason your Effect will re-synchronize in practice is <i>if some data it uses has changed</i>. Every time <b>after</b> your component re-renders, React will look at the array of dependencies that you have passed. If any of the values in the array is different from the value at the same spot that you passed during the previous render, React will re-synchronize your Effect.',
-        "<i>In development, React always <b>remounts</b> each component once</i>. In other words, React verifies that your Effect can re-synchronize by forcing it to do that immediately in development. React starts and stops your Effect one extra time in development to check you've implemented its cleanup well.",
-        'Each Effect in your code should represent a <i>separate and independent synchronization process</i>.',
-        '<i>Effects are <b>reactive blocks of code</b></i>.',
-        `<i>Effects "react" to reactive values</i>: props, state, and other values declared inside the component are reactive because they're calculated during rendering and participate in the React data flow. <i>Reactive values must be included in dependencies</i>.`,
-        "<i>All variables declared in the component body are reactive</i>: props and state aren't the only reactive values. Values that you calculate from them are also reactive. If the props or state change, your component will re-render, and the values calculated from them will also change.",
-        "<i>What an Effect with empty dependencies means</i>: if you think from the component's perspective, the empty <code>[]</code> dependency array means that Effect <b>run only when the component mounts</b>, and <b>run only when the component unmounts</b> (keep in mind that React would still run it an extra time in development to stress-test your Effect's logic).",
+        `<h3>How an Effect's lifecycle is different from a component's lifecycle</h3>
+        <p><i>Effects have a different lifecycle from components</i>. Components may mount, update, or unmount. An Effect can only do two things: to <i>start synchronizing</i> something, and later to <i>stop synchronizing</i> it. This cycle can happen multiple times if your Effect depends on <i>props and state that change over time</i>.</p>
+        `,
+        `<h3>How to think about each individual Effect in isolation</h3>
+        <ul>Every React component goes through the same lifecycle:
+        <li>- A component <u>mounts</u> when it's added to the screen.</li>
+        <li>- A component <u>updates</u> when it receives new props or state. This usually happens in response to an interaction.</li>
+        <li>- A component <u>unmounts</u> when it's removed from the screen.</li>
+        </ul>
+        <p>It's a good way to think about components, but not about Effects. Instead, try to think about each Effect <i><u>independently</u> from your component's lifecycle</i>. An Effect describes <i>how to synchronize an external system to the current props and state</i>. As your code changes, this synchronization will need to happen more or less often.</p>
+        <p>When you write an Effect, it shouldn't matter whether a component is mounting, updating, or unmounting. All you need to do is to <i>describe how to start synchronization and how to stop it</i>.</p>
+        <p><i>Your Effect's <u>body</u> specifies how to <u>start synchronizing</u>, and your <u>cleanup function</u> specifies how to <u>stop synchronizing</u></i>.</p>
+        `,
+        `<h3>When your Effect needs to re-synchronize, and why</h3>
+        <p>Intuitively, you might think that React would start synchronizing when your component mounts and stop synchronizing when your component unmounts. Sometimes, it may also be necessary to <i>start and stop synchronizing multiple times while the component remains mounted</i>.</p>
+        <p>The main reason your Effect will re-synchronize in practice is <i>if some data it uses has changed</i>.</p>
+        `,
+        `<h3>How React verifies that your Effect can re-synchronize</h3>
+        <p><i>In development, React always <u>remounts</u> each component once</i>. In other words, React verifies that your Effect can re-synchronize by forcing it to do that immediately in development. React starts and stops your Effect one extra time in development to check you've implemented its cleanup well.</p>
+        <p>The main reason your Effect will re-synchronize in practice is if some data it uses has changed.</p>
+        `,
+        `<h3>How React knows that it needs to re-synchronize the Effect</h3>
+        <p>Every time <i>after your component re-renders</i>, React will look at the array of dependencies that you have passed. If any of the values in the array is different from the value at the same spot that you passed during the previous render, React will re-synchronize your Effect.</p>
+        <p>What to do when you don't want to re-synchronize? You could “prove” to the linter that a value isn't a reactive value (that it can't change as a result of a re-render) by move it outside the component.</p>
+        `,
+        `<h3>Effects “react” to reactive values: what it means for a value to be reactive</h3>
+        <p>Effects are <i>reactive blocks of code</i>. They re-synchronize when the values you read inside of them change. Unlike event handlers, which only run once per interaction, Effects run whenever synchronization is necessary.</p>
+        <p>Effects "react" to reactive values: <i>props, state, and other values declared inside the component are reactive because they're calculated during rendering and participate in the React data flow. Reactive values must be included in dependencies</i>. After all, dependencies only do something when they change over time!</p>
+        <p><i>All variables declared in the component body are reactive</i>: props and state aren't the only reactive values. Values that you calculate from them are also reactive. If the props or state change, your component will re-render, and the values calculated from them will also change. This is why all variables from the component body used by the Effect should also be in the Effect dependency list.</p>
+        <p>Can global or mutable values be dependencies? Mutable values (including global variables) aren’t reactive.</p>
+        `,
+        `<h3>Each Effect represents a separate synchronization process</h3>
+        <p>Each Effect in your code should represent a <i>separate and independent synchronization process</i>.</p>
+        <p>If an Effect synchronize different things, it made sense to split it up. On the other hand, if you split up a cohesive piece of logic into separate Effects, the code may look “cleaner” but will be more difficult to maintain. This is why you should think whether <i>the processes are same or separate, not whether the code looks cleaner</i>.</p>
+        `,
+        `<h3>What an Effect with empty dependencies means</h3>
+        <p>If you think from the component's perspective, the empty <code>[]</code> dependency array means that Effect <i>run only when the component mounts</i>, and <i>run only when the component unmounts</i> (keep in mind that React would still run it an extra time in development to stress-test your Effect's logic).</p>`,
       ],
     },
     {

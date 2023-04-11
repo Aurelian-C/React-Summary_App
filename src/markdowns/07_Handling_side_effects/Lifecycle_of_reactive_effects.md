@@ -61,7 +61,7 @@ The first two logs are development-only. ==**In development, React always remoun
 
 ==The main reason your Effect will re-synchronize in practice is **if some data it uses has changed**==.
 
-## How React knows that it needs to re-synchronize the Effect 
+## How React knows that it needs to re-synchronize the Effect
 
 You might be wondering how React knew that your Effect needed to re-synchronize after `roomId` changes. It’s because *you told React* that this Effect’s code depends on `roomId` by including it in the list of dependencies:
 
