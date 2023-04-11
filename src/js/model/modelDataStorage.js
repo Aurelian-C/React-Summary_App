@@ -1204,12 +1204,15 @@ const Handling_side_effects = {
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/You_might_not_need_an_effect.html',
       tooltips: [
-        `Effects are an escape hatch from the React paradigm. They let you "step outside" of React and synchronize your components with some external system. <i>If there is no external system involved (for example, if you want to update a component's state when some props or state change), you shouldn't need an Effect</i>. Removing unnecessary Effects will make your code easier to follow, faster to run, and less error-prone.`,
-        `There are two common cases in which you don't need Effects:
-        <br>- You don't need Effects to <i>transform data for rendering</i>;
-        <br>- You don't need Effects to <i>handle user events</i>.
+        `<h3>Why to remove unnecessary Effects from your components</h3>
+        <p>Effects are an escape hatch from the React paradigm. They let you "step outside" of React and synchronize your components with some external system. <i>If there is no external system involved (for example, if you want to update a component's state when some props or state change), you shouldn't need an Effect</i>. Removing unnecessary Effects will make your code easier to follow, faster to run, and less error-prone.</p>`,
+        `<h3>How to remove unnecessary Effects</h3>
+        <ul>There are two common cases in which you don't need Effects:
+        <li>- You don't need Effects to <i>transform data for rendering</i>;</li>
+        <li>- You don't need Effects to <i>handle user events</i>.</li>
+        </ul>
+        <p>You do need Effects to <i>synchronize with external systems</i>.</p>
         `,
-        'You do need Effects to <i>synchronize with external systems</i>.',
       ],
     },
     {
