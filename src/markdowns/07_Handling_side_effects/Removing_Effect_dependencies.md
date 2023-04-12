@@ -20,13 +20,13 @@ Then, if you leave the Effect dependencies empty (`[]`), the linter will suggest
 
 ![Removing_Effect_dependencies01](../../img/Removing_Effect_dependencies01.jpg)
 
-==**Effects “react” to [reactive values**. Since `roomId` is a reactive value (it can change due to a re-render), the linter verifies that you’ve specified it as a dependency==.
+==**Effects “react” to reactive values**. Since `roomId` is a reactive value (it can change due to a re-render), the linter verifies that you’ve specified it as a dependency==.
 
 ![Removing_Effect_dependencies02](../../img/Removing_Effect_dependencies02.jpg)
 
 ## To remove a dependency, prove that it’s not a dependency
 
-==Notice that you can’t “choose” the dependencies of your Effect. Every _reactive value_ used by your Effect’s code must be declared in your dependency list==. Your Effect’s dependency list is determined by the surrounding code:
+==Notice that you can’t “choose” the dependencies of your Effect. Every _reactive value_ used by your Effect’s code must be declared in your dependency list. Your Effect’s dependency list is determined by the surrounding code==:
 
 ![Removing_Effect_dependencies](../../img/Removing_Effect_dependencies.jpg)
 

@@ -35,6 +35,8 @@ To write an Effect, follow these three steps:
 2. ==Specify the **Effect dependencies**. Most Effects should only re-run *when needed*, rather than after every render.== For example, a fade-in animation should only trigger when a component appears. Connecting and disconnecting to a chat room should only happen when the component appears and disappears, or when the chat room changes. You will learn how to control this by specifying **dependencies**.
 3. ==Add **cleanup** if needed. Some Effects need to specify how to stop, undo, or clean up whatever they were doing==. For example, “connect” needs “disconnect”, “subscribe” needs “unsubscribe”, and “fetch” needs either “cancel” or “ignore”. You will learn how to do this by returning a **_cleanup_ function**.
 
+![Using_the_useEffect](../../img/Using_the_useEffect.jpg)
+
 ### Step 1: Declare an Effect 
 
 To declare an Effect in your component, import the [`useEffect` hook](https://beta.reactjs.org/reference/react/useEffect) from React. Then, call it at the top level of your component and put some code inside your Effect:

@@ -257,15 +257,17 @@ code {
 .tooltip {
   visibility: hidden;
   min-width: 50vw;
+  height: fit-content;
   background-color: rgb(43, 43, 43);
   color: #fff;
   border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
   padding: 10px;
+  column-count: auto;
+  column-width: 25rem;
 
   font-size: 1.3rem;
   font-style: normal;
-  height: fit-content;
   opacity: 0;
 
   /* Position the tooltip text */
