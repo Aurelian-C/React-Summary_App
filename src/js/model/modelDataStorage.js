@@ -1337,8 +1337,14 @@ const Handling_side_effects = {
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/What_to_add_&_not_to_add_as_dependencies_to_useEffect.html',
       tooltips: [
-        "You add as dependencies what you're using in your <code>useEffect</code> function.",
-        "Does <code>useEffect()</code> run after every render? Yes! By default, if you don't pass an array of dependencies, <code>useEffect()</code> runs both after the first render and after every component render cycle.",
+        `<p>You add as dependencies what you're using in your <code>useEffect</code> function.<p>`,
+        `<ul>You learned, that you should add "everything" you use in the effect function as a dependency - i.e. all state variables and functions you use in there. That is correct, but there are a <u>few exceptions</u> you should be aware of:
+        <li>- You don't need to add <i>state updating functions</i>. React guarantees that those functions never change, hence you don't need to add them as dependencies (you could though).</li>
+        <li>- You don't need to add <i>"built-in" APIs</i> or functions like <code>fetch()</code>, <code>localStorage</code> etc (functions and features built-into the browser and hence available globally). These browser APIs / global functions are not related to the React component render cycle and they also never change.</li>
+        <li>- You don't need to add <i>variables or functions you might've defined <u>outside of your components</u></i>.</li>
+        </ul>
+        `,
+        `<p>You must add all "things" you use in your effect function <i>if those "things" could change because your component (or some parent component) re-rendered.</i></p>`,
       ],
     },
     {
@@ -1350,8 +1356,10 @@ const Handling_side_effects = {
         highlight1: ['nested properties as dependencies'],
       },
       tooltips: [
-        'We used object destructuring to add object properties as dependencies to <code>useEffect()</code>.',
-        'The key thing is NOT that we use destructuring, but that we pass specific properties instead of the entire object as a dependency.',
+        `<h3>Add object properties as dependencies to <code>useEffect()</code></h3>
+        <p>You can use object destructuring to add object properties as dependencies to <code>useEffect()</code>.</p>
+        <p>The key thing is NOT that you use destructuring, but that you <i>pass specific properties instead of the entire object as a dependency</i>.</p>
+        `,
       ],
     },
   ],
