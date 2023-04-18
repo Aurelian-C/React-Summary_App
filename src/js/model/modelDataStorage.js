@@ -331,6 +331,7 @@ const Rendering_lists_and_conditional_content = {
       },
       tooltips: [
         `<h3>Rendering data from arrays</h3>
+        <p>You will rely on JavaScript features like <code>for</code> loop and the array <code>map()</code> function to <i>render lists of components</i>.</p>
         <p>You will often want to <i>display multiple <u>similar components</u> from a <u>collection of data</u></i>. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an <u>array of components</u></i>.</p>
         <p>If you do <i>output an <u>array of JSX elements</u>, then React is capable of rendering on the UI that JSX elements</i>. So if you had <i>an array of JSX elements as part of your JSX markup</i>, React would simply render that elements side by side.</p>
         `,
