@@ -438,7 +438,9 @@ const Adding_interactivity_to_a_component = {
       sectionSource:
         '/src/markdowns/02_Adding_interactivity_to_a_component/State_is_a_component_memory.html',
       tooltips: [
-        `<p>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things.</p>`,
+        `<p>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things.</p>
+        <p>Often, you'll want your component to “remember” some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add state to your component.</p>
+        `,
         `<h3>When a regular variable isn't enough</h3>
         <p>- <i>Local variables don't persist between renders</i>. When React renders a component a second time, it renders it from scratch — it doesn't consider any changes to the local variables.</p>
         <p>- <i>Changes to local variables won't trigger renders</i>. React doesn't realize it needs to render the component again with the new data.</p>
