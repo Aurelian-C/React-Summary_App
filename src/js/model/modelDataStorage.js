@@ -32,10 +32,6 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'How to create a new React project',
-      sectionSource: '',
-    },
-    {
       sectionTitle: 'How to add markup to JavaScript with JSX',
       sectionSource:
         '/src/markdowns/01_React_basics/How_to_add_markup_to_JavaScript_with_JSX.html',
