@@ -233,6 +233,42 @@ const React_basics = {
         <p>4. Identify <i>where your state should live</i></p>
         <p>5. Add <i>inverse data flow</i></p>
         `,
+        `<h3>Step 1: Break the UI into a component hierarchy</h3>
+        <ul>Depending on your background, you can think about splitting up a design into components in different ways:
+        <li>- <i>programming</i>: use the same techniques for deciding if you should create a new function or object. One such technique is the <i>single responsibility principle</i>, that is, <i>a component should ideally only do one thing</i>. If it ends up growing, it should be decomposed into smaller subcomponents.</li>
+        <li>- CSS</li>
+        <li>- design</li>
+        </ul>
+        <p><i>If your JSON is well-structured, you'll often find that it naturally maps to the component structure of your UI. That's because UI and data models often have the same information architecture—that is, the same shape.</i> Separate your UI into components, where <i>each component matches one piece of your data model</i>.</p>
+        <p>When you finish to idenitfy the components in the mockup, arrange them into a hierarchy. <i>Components that appear within another component in the mockup should appear as a child in the hierarchy.</i></p>
+        `,
+        `<h3>Step 2: Build a static version in React</h3>
+        <p>Now that you have your component hierarchy, it's time to implement your app. The most straightforward approach is to <i>build a version that renders the UI from your data model without adding any interactivity… yet!</i></p>
+        <p>It's often easier to <i>build the static version first and add interactivity later</i>. Building a static version requires a lot of typing and no thinking, but adding interactivity requires a lot of thinking and not a lot of typing.</p>
+        <p>To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using props. Props are a way of passing data from parent to child. If you're familiar with the concept of state, <i>don't use state at all to build this static version</i>. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.</p>
+        <p>You can either build “top down” by starting with building the components higher up in the hierarchy or “bottom up” by working from components lower down. In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up.</p>
+        `,
+        `<h3>Step 3: Find the minimal but complete representation of UI state</h3>
+        <p>To make the UI interactive, you need to let users change your underlying data model. You will use state for this.</p>
+        <p><i>Think of state as the minimal set of changing data that your app needs to remember.</i> The most important principle for structuring state is to keep it DRY (Don't Repeat Yourself). <i>Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand.</i></p>
+        <ul>Which of the data that your application has are state? Identify the ones that are not:
+        <li>- Does it <u>remain unchanged</u> over time? If so, it isn't state.</li>
+        <li>- Is it <u>passed in from a parent</u> via props? If so, it isn't state.</li>
+        <li>- <u>Can you compute it</u> based on existing state or props in your component? If so, it *definitely* isn't state!</li>
+        <li>What's left is probably state.</li>
+        </ul>
+        `,
+        `<h3>Step 4: Identify where your state should live</h3>
+        <p>After identifying your app's minimal state data, you need to <i>identify which component is responsible for <u>changing</u> this state, or <u>owns</u> the state</i>.</p>
+        <ul>For each piece of state in your application:
+        <li>1. Identify every component that renders something based on that state.</li>
+        <li>2. Find their closest common parent component — a component above them all in the hierarchy.</li>
+        <li>3. Decide where the state should live.</li>
+        </ul>
+        `,
+        `<h3>Step 4: Identify where your state should live</h3>
+        <p>Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user interaction, you will need to support data flowing the other way: the components deep in the hierarchy need to update the state in their parent components. For that, you need to <i>pass the state updating functions from parent components down to the child components, so child components can change the parent's state</i>.</p>
+        `,
       ],
     },
     {
