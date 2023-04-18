@@ -925,7 +925,10 @@ const Managing_state = {
         highlight1: ['rules of Hooks'],
       },
       tooltips: [
-        "Hooks — functions starting with 'use' — can only be <i>called at the top level of your components or your own Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.",
+        `<h3>Hooks are more restrictive than other functions</h3>
+        <p>Hooks — functions starting with 'use' — can only be <i>called at the top level of your components or your own custom Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. If you want to use a Hook like <code>useState</code> in a condition or a loop, extract a new component and put it there.</p>
+        <p>Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.</p>
+        `,
       ],
     },
   ],
