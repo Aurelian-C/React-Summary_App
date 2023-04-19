@@ -157,26 +157,31 @@ const React_basics = {
         <p>Props serve the same role as arguments serve for functions — in fact, <i>props are the only argument to your component! React component functions accept a single argument, a <code>props</code> object</i>.</p>
         <p>When we pass props from parent to child we can't skip intermediate child components in between, so it's also totally fine to have a <i>component which just passes data on</i>.</p>
         `,
-        `<h3>Destructuring props</h3>
+        `<h3>Reading props by destructuring them</h3>
         <p>Usually you don't need the whole <code>props</code> object itself, so you destructure it into individual props. <i>To read props, you can use the function destructuring syntax</i>: <code>Avatar({ person, size })</code>.</p>
         `,
         `<h3>Specifying a default value for a prop</h3>
-        <p>You can specify a default value like <code>size = 100</code>, which is used for missing and <code>undefined</code> props.</p>
+        <p>If you want to give a prop a default value to fall back on when no value is specified, you can do it with the destructuring by putting <code>=</code> and the default value right after the parameter <code>function Avatar({ person, size = 100 })</code>.</p>
+        <p>The default value is only used if the <code>size</code> prop is missing or if you pass <code>size={undefined}</code>. But if you pass <code>size={null}</code> or <code>size={0}</code>, the default value will not be used.</p>
         `,
         `<h3>Naming conventions</h3>
         <p>The convention for props which hold functions is to start their name with "on".</p>
         `,
         `<h3>Forwarding props with the spread syntax</h3>
-        <p>Sometimes, passing props gets very repetitive. Some components forward all of their props to their children, so <i>you can forward all props with the spread syntax</i>: <<span>input {...props}</span> /> or <<span>input {...props.object}</span> /></p>
+        <p>Sometimes, passing props gets very repetitive. Some components forward all of their props to their children, so <i>you can forward all props with the spread syntax</i>: <code><<span>input {...props}</span> /></code> or <code><<span>input {...props.object}</span> /></code></p>
         <p>Use spread syntax with restraint. If you're using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX.</p>
         `,
         `<h3>Passing JSX as children: <code>props.children</code></h3>
+        <p>It is common to nest built-in browser tags. Sometimes you’ll want to nest your own components the same way.</p>
         <p><i>When you nest content inside a JSX tag, the parent component will receive that content in a prop called <code>children</code></i>.</p>
         <p>With the help of <code>children</code> prop you can build wrapper components. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it.</p>
+        <p>You can think of a component with a children prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX.</p>
         `,
         `<h3>How props change over time</h3>
+        <p>A component may receive different props over time. <i>Props are not always static!</i> Props reflect a component's data at any point in time, rather than only in the beginning.</p>
+        <p>However, props are immutable — a term from computer science meaning “unchangeable”. When a component needs to change its props (for example, in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props—a new object! Its old props will then be cast aside, and eventually the JavaScript engine will reclaim the memory taken by them.</p>
         <p>Props are <i>read-only snapshots in time</i>: every render receives a new version of props.</p>
-        <p><i>You can't change props</i>. When you need interactivity, you'll need to set state.</p>
+        <p><i>Don't try to “change props”.</i>. When you need to respond to the user interaction, you will need to “set state”.</p>
         `,
       ],
     },
