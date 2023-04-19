@@ -390,7 +390,7 @@ const Rendering_lists_and_conditional_content = {
         `<h3>Keeping list items in order with <code>key</code></h3>
         <p>You need to give each array item a <code>key</code> — a string or a number that <i><u>uniquely</u> identifies that item among other items in that array, in other words among its siblings.</i>.</p>
         <p>JSX elements directly inside a <code>map()</code> call always need keys!</p>
-        <p><i>Keys tell React which array item each component corresponds to</i>, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen <codekey</code helps React infer what exactly has happened, and make the correct updates to the DOM tree.</p>
+        <p><i>Keys tell React which array item each component corresponds to</i>, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen <code>key</code> helps React infer what exactly has happened, and make the correct updates to the DOM tree.</p>
         <p>The <code>key</code> prop is a prop you <i>can add to any component, no matter if it's a custom component or if it's a built-in HTML element</i>.</p>
         `,
         `<h3>Displaying several DOM nodes for each list item</h3>
