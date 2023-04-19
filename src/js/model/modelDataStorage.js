@@ -15,9 +15,9 @@ const React_basics = {
       },
       tooltips: [
         'React is a JavaScript library for <i>building user interfaces (UI)</i>.',
-        'React apps are made out of components. A component is <i>a piece of the UI that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
+        'React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
         `<h3>What is a component?</h3>
-        <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <u>props</u>) and return <u>JSX markup</u> describing what should appear on the screen. So a component in React is just <i>a JavaScript function that returns JSX markup</i>.</p>
+        <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
         <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
         <ul>React components are regular JavaScript functions except:
@@ -39,6 +39,9 @@ const React_basics = {
         highlight2: ['JSX'],
       },
       tooltips: [
+        `<h3>Writing markup with JSX</h3>
+        <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
+        `,
         `<h3>Why React mixes markup with rendering logic?</h3>
         <p>The web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript — often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript. But as the Web became more interactive, <i>logic increasingly determined content. JavaScript was in charge of the HTML!</i> This is why <i>in React, rendering logic and markup live together in the same place — components</i>.</p>
         <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a <i><u>syntax extension</u> called <u>JSX</u> to represent that markup</i>.</p>
@@ -63,35 +66,8 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'Building a first custom component',
-      sectionSource:
-        '/src/markdowns/01_React_basics/Building_a_first_custom_component.html',
-      highlights: {
-        highlight2: ['custom component'],
-      },
-      tooltips: [
-        `<h3>There are always 3 steps to build a custom component:</h3>
-        <p>1. <i>Create & export</i> the component;</p>
-        <p>2. <i>Import</i> the component;</p>
-        <p>3. <i>Use</i> the component.</p>`,
-        `<h3>Components: UI building blocks</h3>
-        <p><i>A React custom component is basically just a <b>custom HTML element</b></i>. The key difference between custom components and built-in HTML elements (tags) is that <i>custom components names must always start with a capital letter while HTML tags must be lowercase</i>.</p>
-        <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
-        `,
-        `<h3>React component & return statements</h3>
-        <p>In a React component return statements can be written all on one line but if your markup isn't all on the same line as the <code>return</code> keyword, you must wrap it in a pair of parentheses. Without parentheses, any code on the lines after <code>return</code> will be ignored!</p>`,
-        `<h3>Nesting components</h3>
-        <p>Components can render other components, but you must never nest their definitions. Instead, <i>define every component at the top level</i>. When a child component needs some data from a parent, pass it by props instead of nesting definitions.</p>
-        <p>Components (parent) can render other components (child), but you must never nest their definitions (<i>never define a component inside another component!</i>).</p>
-        `,
-        `<h3>Splitting components in separate files</h3>
-        <p>You can have <i>multiple components in the same file</i>, but is considered a good practice to put new components into new files, so that you have <i>one file per component</i>.</p>
-        `,
-      ],
-    },
-    {
       sectionTitle:
-        'JavaScript in JSX with Curly Braces: Outputting dynamic data & working with expressions in JSX',
+        'JavaScript in JSX with curly braces: outputting dynamic data & working with expressions in JSX',
       sectionSource:
         '/src/markdowns/01_React_basics/JavaScript_in_JSX_with_Curly_Braces.html',
       highlights: {
@@ -99,6 +75,7 @@ const React_basics = {
         highlight2: ['JavaScript in JSX'],
       },
       tooltips: [
+        `<p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript</p>`,
         `<h3>JavaScript in JSX with Curly Braces</h3>
         <p><i>Curly braces <code>{}</code> let you <u>bring JavaScript logic and variables into your markup</u>!</i></p>
         <p>Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user or to write some expressions. <i>Any JavaScript expression will work between curly braces, including function calls</i>.</p>
@@ -127,6 +104,33 @@ const React_basics = {
         <p>- <i>Curly braces let you bring JavaScript logic and variables into your markup</i>;</p>
         <p>- They work inside the JSX tag content or immediately after <code>=</code> in attributes;</p>
         <p>- <code>{{ ... }}</code> is not special syntax: it's a JavaScript object tucked inside JSX curly braces.</p>`,
+      ],
+    },
+    {
+      sectionTitle: 'Building a first custom component',
+      sectionSource:
+        '/src/markdowns/01_React_basics/Building_a_first_custom_component.html',
+      highlights: {
+        highlight2: ['custom component'],
+      },
+      tooltips: [
+        `<h3>There are always 3 steps to build a custom component:</h3>
+        <p>1. <i>Create & export</i> the component;</p>
+        <p>2. <i>Import</i> the component;</p>
+        <p>3. <i>Use</i> the component.</p>`,
+        `<h3>Components: UI building blocks</h3>
+        <p><i>A React custom component is basically just a <b>custom HTML element</b></i>. The key difference between custom components and built-in HTML elements (tags) is that <i>custom components names must always start with a capital letter while HTML tags must be lowercase</i>.</p>
+        <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
+        `,
+        `<h3>React component & return statements</h3>
+        <p>In a React component return statements can be written all on one line but if your markup isn't all on the same line as the <code>return</code> keyword, you must wrap it in a pair of parentheses. Without parentheses, any code on the lines after <code>return</code> will be ignored!</p>`,
+        `<h3>Nesting components</h3>
+        <p>Components can render other components, but you must never nest their definitions. Instead, <i>define every component at the top level</i>. When a child component needs some data from a parent, pass it by props instead of nesting definitions.</p>
+        <p>Components (parent) can render other components (child), but you must never nest their definitions (<i>never define a component inside another component!</i>).</p>
+        `,
+        `<h3>Splitting components in separate files</h3>
+        <p>You can have <i>multiple components in the same file</i>, but is considered a good practice to put new components into new files, so that you have <i>one file per component</i>.</p>
+        `,
       ],
     },
     {
@@ -194,7 +198,7 @@ const React_basics = {
 
       tooltips: [
         `<h3>One component per one file</h3>
-        <p>You can declare many components in one file, but large files can get difficult to navigate.</p>
+        <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.</p>
         <p><i>The magic of components lies in their <u>reusability</u>: you can create components that are composed of other components</i>. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you <i>keep your files easy to scan and <u>reuse</u> components in more places</i>.</p>
         `,
         `<h3>Separation of concerns</h3>
@@ -365,6 +369,7 @@ const Rendering_lists_and_conditional_content = {
         `<h3>Rendering data from arrays</h3>
         <p>You will rely on JavaScript features like <code>for</code> loop and the array <code>map()</code> function to <i>render lists of components</i>.</p>
         <p>You will often want to <i>display multiple <u>similar components</u> from a <u>collection of data</u></i>. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an <u>array of components</u></i>.</p>
+        <p>For each array item, you will need to specify a key. Usually, you will want to use an ID from the database as a key. Keys let React keep track of each item’s place in the list even if the list changes.</p>
         <p>If you do <i>output an <u>array of JSX elements</u>, then React is capable of rendering on the UI that JSX elements</i>. So if you had <i>an array of JSX elements as part of your JSX markup</i>, React would simply render that elements side by side.</p>
         `,
         `<h3>Keeping list items in order with <code>key</code></h3>
