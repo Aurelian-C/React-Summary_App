@@ -14,8 +14,11 @@ const React_basics = {
         highlight1: ['components'],
       },
       tooltips: [
-        'React is a JavaScript library for <i>building user interfaces (UI)</i>.',
-        'React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.',
+        `<h3>Components: UI building blocks</h3>
+        <p>React is a JavaScript library for <i>building user interfaces (UI)</i>.</p>
+        <p>React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.</p>
+        <p>React lets you combine your <i>markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom “components”, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
+        `,
         `<h3>What is a component?</h3>
         <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
@@ -41,9 +44,11 @@ const React_basics = {
       tooltips: [
         `<h3>Writing markup with JSX</h3>
         <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
+        <p>JSX markup is written like HTML, but it is actually JavaScript under the hood! JSX lets you embed markup inside JavaScript.</p>
         `,
         `<h3>Why React mixes markup with rendering logic?</h3>
-        <p>The web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript — often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript. But as the Web became more interactive, <i>logic increasingly determined content. JavaScript was in charge of the HTML!</i> This is why <i>in React, rendering logic and markup live together in the same place — components</i>.</p>
+        <p>The web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript — often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript.</p>
+        <p>But as the Web became more interactive, <i>logic increasingly determined content. JavaScript was in charge of the HTML!</i> This is why <i>in React, rendering logic and markup live together in the same place — components</i>.</p>
         <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a <i><u>syntax extension</u> called <u>JSX</u> to represent that markup</i>.</p>
         `,
         `<h3>JSX: Putting markup into JavaScript</h3>
@@ -75,14 +80,15 @@ const React_basics = {
         highlight2: ['JavaScript in JSX'],
       },
       tooltips: [
-        `<p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript</p>`,
+        `<p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript.</p>`,
         `<h3>JavaScript in JSX with Curly Braces</h3>
+        <p>JSX is a special way of writing JavaScript. That means it's possible to use JavaScript inside it — with curly braces <code>{}</code>.</p>
         <p><i>Curly braces <code>{}</code> let you <u>bring JavaScript logic and variables into your markup</u>!</i></p>
         <p>Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user or to write some expressions. <i>Any JavaScript expression will work between curly braces, including function calls</i>.</p>
         <p><i>JSX is very minimal as a templating language</i> because it lets you organize data and logic using JavaScript.</p>
         `,
         `<h3>JSX curly braces & JSX attributes</h3>
-        <p>With curly braces you can also "escape into JavaScript" from JSX attributes.</p>
+        <p>JSX attributes inside quotes are passed as strings but with curly braces you can also "escape into JavaScript" from JSX attributes.</p>
         `,
         `<h3>Using "double curlies": CSS and other objects in JSX</h3>
         <p>In addition to strings, numbers, and other JavaScript expressions, <i>you can even pass objects in JSX</i>. To pass a JS object in JSX, <i>you must wrap the object in another pair of curly braces</i>.</p>
@@ -119,7 +125,7 @@ const React_basics = {
         <p>2. <i>Import</i> the component;</p>
         <p>3. <i>Use</i> the component.</p>`,
         `<h3>Components: UI building blocks</h3>
-        <p><i>A React custom component is basically just a <b>custom HTML element</b></i>. The key difference between custom components and built-in HTML elements (tags) is that <i>custom components names must always start with a capital letter while HTML tags must be lowercase</i>.</p>
+        <p>The key difference between React components and built-in HTML tags is that <i>React components names must always start with a capital letter while HTML tags must be lowercase</i>. React components are regular JavaScript functions, but their names must start with a capital letter or they won't work!</p>
         <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
         `,
         `<h3>React component & return statements</h3>
@@ -197,6 +203,7 @@ const React_basics = {
         '/src/markdowns/01_React_basics/Splitting_a_component_into_multiple_components.html',
 
       tooltips: [
+        `<p>The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you keep your files easy to scan and reuse components in more places.</p>`,
         `<h3>One component per one file</h3>
         <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.</p>
         <p><i>The magic of components lies in their <u>reusability</u>: you can create components that are composed of other components</i>. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you <i>keep your files easy to scan and <u>reuse</u> components in more places</i>.</p>
@@ -213,6 +220,9 @@ const React_basics = {
         <li>3. <i>Import it</i> in the file where you'll use the component using the corresponding technique for importing default or named exports.</li>
         </ul>
         <p><i>How you export your component dictates how you must import it</i>.</p>
+        `,
+        `<h3>When to use default and named imports and exports</h3>
+        <p>People often use default exports if the file exports only one component, and use named exports if it exports multiple components and values. Regardless of which coding style you prefer, always give meaningful names to your component functions and the files that contain them. Components without names, like <code>export default () => {}</code>, are discouraged because they make debugging harder.</p>
         `,
       ],
     },
@@ -1106,7 +1116,8 @@ const Styling_React_components = {
       tooltips: [
         'You can set the style of an element dynamically by adding the <code>style</code> prop.',
         `In React <code>style</code> prop doesn't want a string as a value, instead <code>style</code> want as a value an object.`,
-        'This object you should use have the CSS property names as key names, and the values as key values.',
+        'This object you should use have the CSS property names as key names, and the values as key values. Inline style properties are written in camelCase.',
+        'React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.',
       ],
     },
     {
