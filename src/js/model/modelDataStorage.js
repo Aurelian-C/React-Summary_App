@@ -423,21 +423,29 @@ const Rendering_lists_and_conditional_content = {
         <p><i>Conditional content</i> is about rendering <i>different output</i> under <i>different conditions</i>.</p>
         <p>When it comes to output content conditionally, <i>long statements like <code>if..else</code> or <code>for</code> loops are not allowed between curly braces, in JSX markup</i>. So, for achive your results, you need to use Ternary Operator <code>? :</code> or Logical AND operator <code>&&</code>.</p>
         `,
-        `<h3>Conditionally returning JSX</h3>
+        `<h3>How to return different JSX depending on a condition</h3>
         <p>In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code.  For example, <i>you can use an <code>if</code> statement to conditionally <u>return</u> JSX markup</i>.</p>
         `,
         `<h3>Conditionally returning nothing with <code>null</code></h3>
         <p>In some situations, you won't want to render anything at all. A component must return something. In this case, you can return <code>null</code>.</p>
-        <p>In practice, returning <code>null</code> from a component isn't common because it might surprise a developer trying to render it. More often, you would conditionally include or exclude the component in the parent component's JSX.</p>
+        <p>In practice, returning <code>null</code> from a component isn't common because it might surprise a developer trying to render it. More often, you would <i>conditionally include or exclude the component in the parent component's JSX</i>.</p>
+        `,
+        `<h3>How to conditionally include or exclude a piece of JSX</h3>
+        <ul>You can conditionally include or exclude a piece of JSX with the help of:
+        <li>- Conditional (ternary) operator <code>? :</code></li>
+        <li>- Logical AND operator <code>&&</code></li>
+        </ul>
+        <p>Long statements like <code>if..else</code> are not allowed between curly braces, in JSX markup.</p>
+        `,
+        `<h3>Conditionally assigning JSX to a variable</h3>
+        <p>You can use an <code>if</code> or <code>if..else</code> statement to conditionally assign JSX to a variable and then <i>include</i> it in your returned JSX tree.</p>
+        <p>You can <i>store JSX markup in variables</i>. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.</p>
+        <p>In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.</p>
         `,
         `<h3>Common conditional syntax shortcuts you'll encounter in React codebases</h3>
         <p>If you prefer more compact code, you can use the <i><b>conditional <code>? :</code></b> operator</i>. Unlike <code>if</code>, it <i>works inside JSX markup</i>.</p>
         <p>When you don't need the <code>else</code> branch or conditional (ternary) operator, you can also use the <i><b>Logical AND <code>&&</code></b> operator</i>. Inside React components, it often comes up when you want to render some JSX when the condition is true, <u>or render nothing otherwise</u>.</p>
         <p>In JSX, <code>{cond && <<span>A /</span>>}</code> means: if <code>cond</code>, render <code><<span>A /</span>></code>, otherwise nothing.</p>
-        `,
-        `<h3>Conditionally assigning JSX to a variable</h3>
-        <p>You can use an <code>if</code> or <code>if..else</code> statement to conditionally assign JSX to a variable and then <i>include</i> it in your returned JSX tree.</p>
-        <p>You can <i>store JSX markup in variables</i>. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.</p>
         `,
         `<p><b>All above approaches also work for <u>conditionally specifying attributes</u>.</b></p>`,
       ],
