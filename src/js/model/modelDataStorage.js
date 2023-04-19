@@ -443,8 +443,8 @@ const Rendering_lists_and_conditional_content = {
         <p>In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.</p>
         `,
         `<h3>Common conditional syntax shortcuts you'll encounter in React codebases</h3>
-        <p>If you prefer more compact code, you can use the <i><b>conditional <code>? :</code></b> operator</i>. Unlike <code>if</code>, it <i>works inside JSX markup</i>.</p>
-        <p>When you don't need the <code>else</code> branch or conditional (ternary) operator, you can also use the <i><b>Logical AND <code>&&</code></b> operator</i>. Inside React components, it often comes up when you want to render some JSX when the condition is true, <u>or render nothing otherwise</u>.</p>
+        <p>If you prefer more compact code, you can use the <i>conditional <code>? :</code> operator</i>. Unlike <code>if</code>, it <i>works inside JSX markup</i>.</p>
+        <p>When you don't need the <code>else</code> branch or conditional (ternary) operator, you can also use the <i>Logical AND <code>&&</code> operator</i>. Inside React components, it often comes up when you want to render some JSX when the condition is true, <u>or render nothing otherwise</u>.</p>
         <p>In JSX, <code>{cond && <<span>A /</span>>}</code> means: if <code>cond</code>, render <code><<span>A /</span>></code>, otherwise nothing.</p>
         `,
         `<p><b>All above approaches also work for <u>conditionally specifying attributes</u>.</b></p>`,
@@ -724,7 +724,7 @@ const Managing_state = {
         `<h3>How imperative UI compares to declarative UI </h3>
         <p>With just Vanilla JavaScript you have to write the exact instructions to manipulate the UI depending on what just happened. <i>It's called imperative because you have to "command" each element, telling the computer <u>how</u> to update the UI</i>.</p>
         <p>In React, you don't directly manipulate the UI. Instead, you declare what you want to show, and React figures out how to update the UI. When you design UI interactions, you probably think about <i>how the UI changes in response to user actions</i>.</p>
-        <p>Declarative programming means <b>describing the UI for each <u>visual state</u></b> rather than micromanaging the UI (imperative).</p>
+        <p>Declarative programming means <i>describing the UI for each <u>visual state</u></i> rather than micromanaging the UI (imperative).</p>
         `,
         `<h3>Thinking about UI declaratively</h3>
         <p>In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.</p>
