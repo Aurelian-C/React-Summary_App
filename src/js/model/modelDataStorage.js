@@ -1190,47 +1190,6 @@ const Refs = {
   ],
 };
 
-const Debugging_React_apps = {
-  title: '<p class="card__title--2">Debugging React apps</p>',
-  sections: [
-    {
-      sectionTitle: 'Understanding React error messages',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['error messages'],
-      },
-      tooltips: [
-        'As a side note, you can have errors  that your IDE (VSCode) able to detect, but sometimes you get a React error which is not showing up in your IDE.',
-      ],
-    },
-    {
-      sectionTitle: 'Analyzing code flow & warnings',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['code flow', 'warnings'],
-      },
-    },
-    {
-      sectionTitle: 'Working with breakpoints',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['breakpoints'],
-      },
-    },
-    {
-      sectionTitle: 'Using the React DevTools',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['React DevTools'],
-      },
-      tooltips: [
-        "Let's have a look at a dedicated tool, which is available for React Development, which can help us with React specific problems and which can help us with understanding our React Application better and that would be the React Dev Tools.",
-        'In the Components tab (Google Chrome) we see the actual React Components and the Components structure that is responsible for the UI output.',
-      ],
-    },
-  ],
-};
-
 const Handling_side_effects = {
   title: '<p class="card__title--2">Handling side effects</p>',
   sections: [
@@ -1619,6 +1578,47 @@ const Working_with_forms_and_user_inputs = {
     {
       sectionTitle: 'Re-using the custom Hook',
       sectionSource: '',
+    },
+  ],
+};
+
+const Debugging_React_apps = {
+  title: '<p class="card__title--2">Debugging React apps</p>',
+  sections: [
+    {
+      sectionTitle: 'Understanding React error messages',
+      sectionSource: '',
+      highlights: {
+        highlight1: ['error messages'],
+      },
+      tooltips: [
+        'As a side note, you can have errors  that your IDE (VSCode) able to detect, but sometimes you get a React error which is not showing up in your IDE.',
+      ],
+    },
+    {
+      sectionTitle: 'Analyzing code flow & warnings',
+      sectionSource: '',
+      highlights: {
+        highlight1: ['code flow', 'warnings'],
+      },
+    },
+    {
+      sectionTitle: 'Working with breakpoints',
+      sectionSource: '',
+      highlights: {
+        highlight1: ['breakpoints'],
+      },
+    },
+    {
+      sectionTitle: 'Using the React DevTools',
+      sectionSource: '',
+      highlights: {
+        highlight1: ['React DevTools'],
+      },
+      tooltips: [
+        "Let's have a look at a dedicated tool, which is available for React Development, which can help us with React specific problems and which can help us with understanding our React Application better and that would be the React Dev Tools.",
+        'In the Components tab (Google Chrome) we see the actual React Components and the Components structure that is responsible for the UI output.',
+      ],
     },
   ],
 };
@@ -3078,12 +3078,12 @@ export const dataStorage = [
   Adding_interactivity_to_a_component,
   Managing_state,
   Refs,
-  Debugging_React_apps,
   Handling_side_effects,
   Behind_the_scenes_of_React_and_optimization_techniques,
   Class_based_components,
   Custom_React_Hooks,
   Working_with_forms_and_user_inputs,
+  Debugging_React_apps,
   React_Router,
   Redux,
   Advanced_Redux,
