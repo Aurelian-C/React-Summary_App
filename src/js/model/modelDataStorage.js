@@ -369,6 +369,77 @@ const React_basics = {
   ],
 };
 
+const Styling_React_components = {
+  title: '<p class="card__title--2">Styling React components</p>',
+  sections: [
+    {
+      sectionTitle: 'Introduction to styling React components',
+      sectionSource:
+        '/src/markdowns/05_Styling_React_Components/Introduction_to_styling_React_components.html',
+    },
+    {
+      sectionTitle: 'Adding basic CSS styling',
+      sectionSource:
+        '/src/markdowns/05_Styling_React_Components/Adding_basic_CSS_styling.html',
+
+      tooltips: [
+        'In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.',
+      ],
+    },
+    {
+      sectionTitle: 'Adding dynamic inline styles',
+      sectionSource:
+        '/src/markdowns/05_Styling_React_Components/Adding_dynamic_inline_styles.html',
+      highlights: {
+        highlight1: ['dynamic inline styles'],
+      },
+      tooltips: [
+        'You can set the style of an element dynamically by adding the <code>style</code> prop.',
+        `In React <code>style</code> prop doesn't want a string as a value, instead <code>style</code> want as a value an object.`,
+        'This object you should use have the CSS property names as key names, and the values as key values. Inline style properties are written in camelCase.',
+        'React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.',
+      ],
+    },
+    {
+      sectionTitle: 'Setting CSS classes dynamically',
+      sectionSource: '',
+      highlights: {
+        highlight1: ['CSS classes dynamically'],
+      },
+    },
+    {
+      sectionTitle: 'Introducing styled components',
+      sectionSource:
+        '/src/markdowns/05_Styling_React_Components/Introducing_styled_components.html',
+      highlights: {
+        highlight1: ['styled components'],
+      },
+      tooltips: [
+        'Styled components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
+        'Styled components & dynamic props',
+        'Styled components & media queries',
+      ],
+    },
+    {
+      sectionTitle: 'Using CSS modules',
+      sectionSource:
+        '/src/markdowns/05_Styling_React_Components/Using_CSS_modules.html',
+      highlights: {
+        highlight2: ['CSS modules'],
+      },
+      tooltips: [
+        'CSS Modules is a feature which is only available in projects that are configured to support it.',
+        "What CSS Modules does under the hood is it takes CSS classes that are in the CSS file that you are importing, and changes the name of that classes to be unique. That's the core thing it does, for every component it changes the classes names off the classes that are in the CSS file that you're importing, it generates new classes names to be unique.",
+        'CSS Modules concept ensures that the CSS styles we set up in a CSS file are scoped to the component we import that file into.',
+      ],
+    },
+    {
+      sectionTitle: 'Dynamic styles with CSS modules',
+      sectionSource: '',
+    },
+  ],
+};
+
 const Rendering_lists_and_conditional_content = {
   title: '<p class="card__title--2">Rendering lists & conditional content</p>',
   sections: [
@@ -1098,77 +1169,6 @@ const Refs = {
         <p>Now, you can talk about uncontrolled and controlled components, also in the context of other components, but most commonly you have this scenario when you talk about input components, about form components in general, because those components tend to have some internal state, natively by the browser, an input element is configured to take user input and save and reflect it, and when you then work with those components in a React app, you wanna connect your React state to that. That's why you typically have this controlled/uncontrolled thing when you work with input components in React.</p>
         <p>When you use <code>ref</code> for inputs, you have uncontrolled input components.</p>`,
       ],
-    },
-  ],
-};
-
-const Styling_React_components = {
-  title: '<p class="card__title--2">Styling React components</p>',
-  sections: [
-    {
-      sectionTitle: 'Introduction to styling React components',
-      sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Introduction_to_styling_React_components.html',
-    },
-    {
-      sectionTitle: 'Adding basic CSS styling',
-      sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Adding_basic_CSS_styling.html',
-
-      tooltips: [
-        'In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.',
-      ],
-    },
-    {
-      sectionTitle: 'Adding dynamic inline styles',
-      sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Adding_dynamic_inline_styles.html',
-      highlights: {
-        highlight1: ['dynamic inline styles'],
-      },
-      tooltips: [
-        'You can set the style of an element dynamically by adding the <code>style</code> prop.',
-        `In React <code>style</code> prop doesn't want a string as a value, instead <code>style</code> want as a value an object.`,
-        'This object you should use have the CSS property names as key names, and the values as key values. Inline style properties are written in camelCase.',
-        'React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.',
-      ],
-    },
-    {
-      sectionTitle: 'Setting CSS classes dynamically',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['CSS classes dynamically'],
-      },
-    },
-    {
-      sectionTitle: 'Introducing styled components',
-      sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Introducing_styled_components.html',
-      highlights: {
-        highlight1: ['styled components'],
-      },
-      tooltips: [
-        'Styled components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
-        'Styled components & dynamic props',
-        'Styled components & media queries',
-      ],
-    },
-    {
-      sectionTitle: 'Using CSS modules',
-      sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Using_CSS_modules.html',
-      highlights: {
-        highlight2: ['CSS modules'],
-      },
-      tooltips: [
-        'CSS Modules is a feature which is only available in projects that are configured to support it.',
-        "What CSS Modules does under the hood is it takes CSS classes that are in the CSS file that you are importing, and changes the name of that classes to be unique. That's the core thing it does, for every component it changes the classes names off the classes that are in the CSS file that you're importing, it generates new classes names to be unique.",
-        'CSS Modules concept ensures that the CSS styles we set up in a CSS file are scoped to the component we import that file into.',
-      ],
-    },
-    {
-      sectionTitle: 'Dynamic styles with CSS modules',
-      sectionSource: '',
     },
   ],
 };
@@ -3056,11 +3056,11 @@ const Course_Roundup = {
 
 export const dataStorage = [
   React_basics,
+  Styling_React_components,
   Rendering_lists_and_conditional_content,
   Adding_interactivity_to_a_component,
   Managing_state,
   Refs,
-  Styling_React_components,
   Debugging_React_apps,
   Handling_side_effects,
   Behind_the_scenes_of_React_and_optimization_techniques,
