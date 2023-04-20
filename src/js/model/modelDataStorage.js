@@ -187,7 +187,7 @@ const React_basics = {
     },
     {
       sectionTitle:
-        'The concept of "composition": passing JSX as children via <code>props.children</code>',
+        'The concept of "composition": pass components as data to other components via <code>props.children</code>',
       sectionSource:
         '/src/markdowns/01_React_basics/The_concept_of_composition_props_children.html',
       highlights: {
@@ -195,10 +195,13 @@ const React_basics = {
         highlight2: ['<code>props.children</code>'],
       },
       tooltips: [
-        "Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to pass content between the opening and closing tags of that component. <i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.",
-        "If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.",
-        '<code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.',
-        'You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.',
+        `<h3>Pass components as data to other components: <code>props.children</code></h3>
+        <p>Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to <i>pass content (JSX markup) between the opening and closing tags of that component</i>.</p>
+        <p><i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.</p>
+        <p>If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.</p>
+        <p><code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.</p>
+        <p><i>You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.</i></p>
+        `,
       ],
     },
     {
