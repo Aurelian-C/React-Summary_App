@@ -301,7 +301,7 @@ const React_basics = {
         `,
         `<h3>Side Effects: (un)intended consequences</h3>
         <p>React's <i><u>rendering</u> process must always be pure</i>. Components should <i>only return their JSX</i>, and <i>not change any objects or variables that existed <u>before rendering</u></i> — that would make them impure!</p>
-        <p>In general, you should not expect your components to be rendered in any particular order. <i>Each component should only "think for itself", and not attempt to coordinate with or depend upon others during rendering</i>. Rendering is like a school exam: <i>each component should calculate JSX on their own!</i>.</p>
+        <p>In general, you should not expect your components to be rendered in any particular order. <i>Each component should only "think for itself", and not attempt to coordinate with or depend upon others during rendering</i>. Rendering is like a school exam: <i>each component should calculate JSX on their own!</i></p>
         <p>Rendering can happen at any time, so <i>components should not depend on each others rendering sequence</i>.</p>
         `,
         `<h3>Detecting impure calculations with StrictMode</h3>
@@ -315,7 +315,7 @@ const React_basics = {
         <p>However, <i>it's completely fine to change variables and objects that you've just <u>created while rendering</u></i>.</p>
         `,
         `<h3>Where you can cause side effects</h3>
-        <p>Side effects are things that <i>happen “on the side”, <u>not during rendering</u></i>.</p>
+        <p>While functional programming relies heavily on purity, at some point, somewhere, something has to change. That's kind of the point of programming! These changes — updating the screen, starting an animation, changing the data — are called side effects. They're things that happen “on the side”, <u>not during rendering</u></i>.</p>
         <p>In React, <i>side effects usually belong inside <u>event handlers</u></i>. Even though event handlers are defined inside your component, <u>they don't run during rendering</u>! So <i>event handlers don't need to be pure</i>.</p>
         <p>If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a <code>useEffect</code> call in your component. This tells React to execute it later, <u>after rendering</u>, when side effects are allowed. However, this approach should be your last resort.</p>
         <p>Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can <code>useEffect</code>.</p>
