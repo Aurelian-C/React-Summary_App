@@ -361,9 +361,26 @@ const React_basics = {
         highlight2: ['Portals'],
       },
       tooltips: [
-        'You can use a Portal to keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM.',
-        'Portals let your components render some of their children into a different place in the DOM.',
-        'A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.',
+        `<h3>Rendering to a different part of the DOM</h3>
+        <p>You can use a Portal to keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM.</p>
+        <p>With Portals you end up with semantically more correct HTML markup.</p>
+        <ul>Portals need two things:
+        <li>- you need a <i>place</i> you wanna port the component to;</li>
+        <li>- you need to let the component know that it should have <i>a portal to that place</i>.</li>
+        </ul>
+        <ul><code>ReactDOM.createPortal()</code> method takes two arguments:
+        <li>1. The first argument need to be <i>a component that return JSX markup or only some JSX markup</i></li>
+        <li>2. The second argument is <i>a pointer to the container in the real DOM</i> where the JSX markup in your component should be rendered in</li>
+        </ul>
+        <p>A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.</p>
+        `,
+        `<h3>React vs ReactDOM libraries</h3>
+        <p>The <code>ReactDOM.createPortal()</code> method is actually not defined on React, but on another library that comes together with React, the ReactDOM library. You can <i>imagine React being the library that has all the React features, state management etc</i>, and <i>ReactDOM uses React to bring that logic and these features into the web browser</i>.</p>
+        <p>Put in other words, the React library itself doesn't care whether you run it in an environment that has a DOM, or if you would use it to build a native app.</p>
+        `,
+        `<h3>Event bubbling through Portals</h3>
+        <p>Even though a portal can be anywhere in the DOM tree, it behaves like a normal React child in every other way. Features like context work exactly the same regardless of whether the child is a portal, as the portal still exists in the <u>React tree</u> regardless of position in the <u>DOM tree</u>.</p>
+        <p>This includes event bubbling. <i>An event fired from inside a portal will propagate to ancestors in the containing React tree, even if those elements are not ancestors in the DOM tree</i>.</p>`,
       ],
     },
   ],
