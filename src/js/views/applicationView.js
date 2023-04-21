@@ -2,21 +2,9 @@ class ApplicationView {
   startApplication(data) {
     const markup = this._generateMarkup(data);
     document
-      .querySelector('.container')
+      .querySelector('.container__content')
       .insertAdjacentHTML('afterbegin', markup);
   }
-
-  // _generateMarkupColumns(card) {
-  //   const markupString = card
-  //     .map(card => {
-  //       return `
-  //           <h2 class="card__title">${card.title}</h2>
-  //           ${card.sections.map(this._generateMarkupArticle).join('')}
-  //   `;
-  //     })
-  //     .join('');
-  //   return markupString;
-  // }
 
   _generateMarkup(card) {
     const markupString = card
@@ -55,8 +43,6 @@ class ApplicationView {
   }
 
   _generateMarkupArticle(article, idx) {
-    const tooltipMarkup =
-      article.tooltips?.length > 0 ? '<div class="tooltip"></div>' : '';
     let title = article.sectionTitle;
 
     const createHighlight1 = highlight => {
@@ -92,28 +78,9 @@ class ApplicationView {
                   article.sectionTitle
                 }'>${idx + 1}. ${title}</p>`
           }
-       ${tooltipMarkup}
       </div>
     `;
-  }
-
-  _generateMarkupTooltip(article) {
-    return `<div class={tooltip}></div>`;
   }
 }
 
 export default new ApplicationView();
-
-/*
-const title = article.highlights
-? article.sectionTitle
-    .replace(
-      `${article.highlights.highlight1}`,
-      `<span class="tooltip highlight--1">${article.highlights.highlight1}</span>`
-    )
-    .replace(
-      `${article.highlights.highlight2}`,
-      `<span class="tooltip highlight--2">${article.highlights.highlight2}</span>`
-    )
-: article.sectionTitle;
-*/
