@@ -411,10 +411,13 @@ const Styling_React_components = {
         highlight1: ['dynamic inline styles'],
       },
       tooltips: [
-        'You can set the style of an element dynamically by adding the <code>style</code> prop.',
-        `In React <code>style</code> prop doesn't want a string as a value, instead <code>style</code> want as a value an object.`,
-        'This object you should use have the CSS property names as key names, and the values as key values. Inline style properties are written in camelCase.',
-        'React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.',
+        `<h3>The <code>style</code> attribute</h3>
+        <p>You can set the style of an element dynamically by adding the <code>style</code> attribute.</p>
+        <p><i>In React <code>style</code> attribute doesn't want a string as a value, instead <code>style</code> want as a value an <u>object</u>.</i> This object you should use have the CSS property names as key names, and the values as key values.</p>
+        <p><i>Inline style properties are written in camelCase.</i></p>
+        <p>React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.</p>
+        <p></p>
+        `,
       ],
     },
     {
@@ -432,9 +435,10 @@ const Styling_React_components = {
         highlight1: ['styled components'],
       },
       tooltips: [
-        'Styled components is a package that helps you build components which have certain styles attached to them, where the styles really only affect the components to which they were attached and not any other components.',
-        'Styled components & dynamic props',
-        'Styled components & media queries',
+        `<h3>Styled components package</h3>
+        <p>Styled components is <i>a package that helps you build components which have certain styles attached to them</i>, where <i>the styles really only affect the components to which they were attached and not any other components</i>.</p>`,
+        `<h3>Styled components & dynamic props</h3>`,
+        `<h3>Styled components & media queries</h3>`,
       ],
     },
     {
@@ -445,9 +449,11 @@ const Styling_React_components = {
         highlight2: ['CSS modules'],
       },
       tooltips: [
-        'CSS Modules is a feature which is only available in projects that are configured to support it.',
-        "What CSS Modules does under the hood is it takes CSS classes that are in the CSS file that you are importing, and changes the name of that classes to be unique. That's the core thing it does, for every component it changes the classes names off the classes that are in the CSS file that you're importing, it generates new classes names to be unique.",
-        'CSS Modules concept ensures that the CSS styles we set up in a CSS file are scoped to the component we import that file into.',
+        `<h3>CSS modules</h3>
+        <p>CSS Modules is a feature which is only available in projects that are configured to support it.</p>
+        <p>What CSS Modules does under the hood is it takes CSS classes that are in the CSS file that you are importing, and changes the name of that classes to be unique. That's the core thing it does, for every component it changes the classes names off the classes that are in the CSS file that you're importing, it <i>generates new classes names to be unique</i>.</p>
+        <p>CSS Modules concept ensures that the <i>CSS styles we set up in a CSS file are scoped to the component we import that file into</i>.</p>
+        `,
       ],
     },
     {
@@ -472,14 +478,14 @@ const Rendering_lists_and_conditional_content = {
         `<h3>Rendering data from arrays</h3>
         <p>You will rely on JavaScript features like <code>for</code> loop and the array <code>map()</code> function to <i>render lists of components</i>.</p>
         <p>You will often want to <i>display multiple <u>similar components</u> from a <u>collection of data</u></i>. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to filter and <i>transform your array of data into an <u>array of components</u></i>.</p>
-        <p>For each array item, you will need to specify a key. Usually, you will want to use an ID from the database as a key. Keys let React keep track of each item’s place in the list even if the list changes.</p>
-        <p>If you do <i>output an <u>array of JSX elements</u>, then React is capable of rendering on the UI that JSX elements</i>. So if you had <i>an array of JSX elements as part of your JSX markup</i>, React would simply render that elements side by side.</p>
+        <p>For each array item, you will need to specify a key. Usually, you will want to use an ID from the database as a key. Keys let React keep track of each item's place in the list even if the list changes.</p>
+        <p>If you do <i>output an <u>array of JSX elements</u>, then React is capable of rendering on the UI that array of JSX elements</i>. So if you had <i>an array of JSX elements as part of your JSX markup</i>, React would simply render that array of JSX elements side by side.</p>
         `,
         `<h3>Keeping list items in order with <code>key</code></h3>
-        <p>You need to give each array item a <code>key</code> — a string or a number that <i><u>uniquely</u> identifies that item among other items in that array, in other words among its siblings.</i>.</p>
+        <p>You need to give each array item a <code>key</code> — a string or a number that <i><u>uniquely</u> identifies that item among other items in that array, in other words among its siblings</i>.</p>
         <p>JSX elements directly inside a <code>map()</code> call always need keys!</p>
         <p><i>Keys tell React which array item each component corresponds to</i>, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen <code>key</code> helps React infer what exactly has happened, and make the correct updates to the DOM tree.</p>
-        <p>The <code>key</code> prop is a prop you <i>can add to any component, no matter if it's a custom component or if it's a built-in HTML element</i>.</p>
+        <p>The <code>key</code> atrribute <i>can be added to any component, no matter if it's a custom component or if it's a built-in HTML tag</i>.</p>
         `,
         `<h3>Displaying several DOM nodes for each list item</h3>
         <p>What do you do when each item needs to render not one, but several DOM nodes? The short <code><><span><</span>/></code> Fragment syntax won't let you pass a key, so you need to either group them into a single <<span>div</span>>, or use the slightly longer and more explicit <code><<span>Fragment key={id}</span>></code> syntax.</p>
