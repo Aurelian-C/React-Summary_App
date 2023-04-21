@@ -403,7 +403,9 @@ const Styling_React_components = {
         '/src/markdowns/05_Styling_React_Components/Adding_basic_CSS_styling.html',
 
       tooltips: [
-        'In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.',
+        `<h3>CSS <code>class</code> vs React <code>className</code> attribute</h3>
+        <p>In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.</p>
+        `,
       ],
     },
     {

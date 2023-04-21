@@ -13,6 +13,16 @@ class TooltipView {
       if (!obj.tooltips) return;
 
       const tooltipContainer = cardArticle.querySelector('.tooltip');
+
+      if (obj.tooltips.length === 1) {
+        tooltipContainer.style.columnCount = 1;
+        tooltipContainer.style.minWidth = 'auto';
+      }
+
+      if (obj.tooltips.length > 1 && obj.tooltips.length < 5) {
+        tooltipContainer.style.columnCount = 2;
+      }
+
       const tooltipHasChildren =
         tooltipContainer.querySelector('.tooltip_paragraph');
       if (tooltipContainer && !tooltipHasChildren) {
