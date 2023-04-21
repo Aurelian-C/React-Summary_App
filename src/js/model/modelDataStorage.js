@@ -16,21 +16,21 @@ const React_basics = {
       tooltips: [
         `<h3>Components: UI building blocks</h3>
         <p>React is a JavaScript library for <i>building user interfaces (UI)</i>.</p>
-        <p>React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its own logic and appearance</i>. A component can be as small as a button, or as large as an entire page.</p>
-        <p>React lets you combine your <i>markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom “components”, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
+        <p>React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its <u>own logic</u> and <u>appearance</u></i>. A component can be as small as a button, or as large as an entire page.</p>
+        <p>React lets you combine your <i>markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom components, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
         `,
         `<h3>What is a component?</h3>
         <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
         <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
         <ul>React components are regular JavaScript functions except:
-        <li>- their names always begin with a capital letter;</li>
-        <li>- they return JSX markup.</li>
+        <li>- their names always begin with a <i>capital letter</i>;</li>
+        <li>- they <i>return JSX markup</i>.</li>
         </ul>`,
         `<h3>Why components?</h3>
         <p>React is all about components because <i>the UI in the end is made up of components</i>.</p>
-        <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a clear task</i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your code.</p>
-        <p>Components let you <i>split the UI into <u>independent</u>, <u>reusable</u> pieces, and think about each piece in isolation</i>.</p>
+        <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a <u>clear task</u></i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your code.</p>
+        <p>Components let you <i>split the UI into <u>independent</u>, <u>reusable</u> pieces, and <u>think about each piece in isolation</u></i>.</p>
         `,
       ],
     },
@@ -42,26 +42,22 @@ const React_basics = {
         highlight2: ['JSX'],
       },
       tooltips: [
-        `<h3>Writing markup with JSX</h3>
-        <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a syntax extension called JSX to represent that markup. JSX looks a lot like HTML, but it is a bit stricter and can display dynamic information.</p>
-        <p>JSX markup is written like HTML, but it is actually JavaScript under the hood! JSX lets you embed markup inside JavaScript.</p>
-        `,
         `<h3>Why React mixes markup with rendering logic?</h3>
         <p>The web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript — often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript.</p>
         <p>But as the Web became more interactive, <i>logic increasingly determined content. JavaScript was in charge of the HTML!</i> This is why <i>in React, rendering logic and markup live together in the same place — components</i>.</p>
-        <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a <i><u>syntax extension</u> called <u>JSX</u> to represent that markup</i>.</p>
         `,
         `<h3>JSX: Putting markup into JavaScript</h3>
-        <p>JSX is a <i>syntax extension</i> for JavaScript that lets you <i>write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place</i>. JSX looks a lot like HTML, but it is a bit stricter, has a few more rules than HTML and can display dynamic information.</p>
-        <p>JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.</p>
+        <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a <i>syntax extension called JSX</i> to represent that markup. JSX looks a lot like HTML, but it is a bit stricter, has a few more rules than HTML and can display dynamic information.</p>
+        <p><i>JSX markup is written like HTML, but it is actually JavaScript under the hood!</i> JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.</p>
+        <p>JSX lets you <i>write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place</i>.</p>
         `,
         `<h3>You can store JSX markup in variables</h3>
-        <p>You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable</p>
+        <p>You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.</p>
         `,
         `<h3>How JSX is different from HTML (rules of JSX)</h3>
-        <ul>JSX is stricter than HTML: 
-        <li>1. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>.</li> 
-        <li>2. <i>Return a single root element</i>: Your component also can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or if you don't want to add an extra parent tag to your markup you can write an empty <>...<</span>/></span> wrapper.</li>
+        <ul>JSX is stricter than HTML:
+        <li>1. <i>Return a single root element</i>: Your component can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or if you don't want to add an extra parent tag to your markup you can write an empty <>...<</span>/></span> wrapper.</li>
+        <li>2. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>.</li> 
         <li>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.</li>
         </ul>
         `,
@@ -80,15 +76,15 @@ const React_basics = {
         highlight2: ['JavaScript in JSX'],
       },
       tooltips: [
-        `<p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript.</p>`,
-        `<h3>JavaScript in JSX with Curly Braces</h3>
+        `<h3>JavaScript in JSX with curly braces</h3>
+        <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript.</p>
         <p>JSX is a special way of writing JavaScript. That means it's possible to use JavaScript inside it — with curly braces <code>{}</code>.</p>
         <p><i>Curly braces <code>{}</code> let you <u>bring JavaScript logic and variables into your markup</u>!</i></p>
         <p>Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user or to write some expressions. <i>Any JavaScript expression will work between curly braces, including function calls</i>.</p>
         <p><i>JSX is very minimal as a templating language</i> because it lets you organize data and logic using JavaScript.</p>
         `,
         `<h3>JSX curly braces & JSX attributes</h3>
-        <p>JSX attributes inside quotes are passed as strings but with curly braces you can also "escape into JavaScript" from JSX attributes.</p>
+        <p>JSX attributes inside quotes are passed as strings, but with curly braces you can also "escape into JavaScript" from JSX attributes.</p>
         `,
         `<h3>Using "double curlies": CSS and other objects in JSX</h3>
         <p>In addition to strings, numbers, and other JavaScript expressions, <i>you can even pass objects in JSX</i>. To pass a JS object in JSX, <i>you must wrap the object in another pair of curly braces</i>.</p>
@@ -96,7 +92,7 @@ const React_basics = {
         <p><i>The next time you see <code>{{ ... }}</code> in JSX, know that it's nothing more than an object inside the JSX curlies!</i></p>
         `,
         `<h3>Write any expression inside JSX curly braces</h3>
-        <ul>You can put more complex expressions inside the JSX curly braces too, for example:
+        <ul>You can put more complex expressions inside the JSX curly braces, for example:
         <li>- string concatenation</li>
         <li>- function calls</li>
         <li>- JavaScript objects</li>
@@ -105,11 +101,6 @@ const React_basics = {
         `<h3>You can only use curly braces in two ways inside JSX:</h3>
         <p>- as <i>text</i> directly inside a JSX tag<p>
         <p>- as <i>attributes</i> immediately following the <code>=</code> sign<p>`,
-        `<h3>Summary:</h3>
-        <p>- JSX attributes inside quotes are passed as strings;</p>
-        <p>- <i>Curly braces let you bring JavaScript logic and variables into your markup</i>;</p>
-        <p>- They work inside the JSX tag content or immediately after <code>=</code> in attributes;</p>
-        <p>- <code>{{ ... }}</code> is not special syntax: it's a JavaScript object tucked inside JSX curly braces.</p>`,
       ],
     },
     {
@@ -125,14 +116,16 @@ const React_basics = {
         <p>2. <i>Import</i> the component;</p>
         <p>3. <i>Use</i> the component.</p>`,
         `<h3>Components: UI building blocks</h3>
-        <p>The key difference between React components and built-in HTML tags is that <i>React components names must always start with a capital letter while HTML tags must be lowercase</i>. React components are regular JavaScript functions, but their names must start with a capital letter or they won't work!</p>
+        <p>The key difference between React components and built-in HTML tags is that <i>React components names must always start with a capital letter, while HTML tags must be lowercase</i>.</p>
+        <p>React components are regular JavaScript functions, but their names must start with a capital letter or they won't work!</p>
         <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
         `,
         `<h3>React component & return statements</h3>
-        <p>In a React component return statements can be written all on one line but if your markup isn't all on the same line as the <code>return</code> keyword, you must wrap it in a pair of parentheses. Without parentheses, any code on the lines after <code>return</code> will be ignored!</p>`,
+        <p>In a React component return statements can be written all on <i>one line</i> but if your markup isn't all on the same line as the <code>return</code> keyword, you must wrap it in <i>a pair of parentheses</i>.</p>
+        <p>Without parentheses, any code on the lines after <code>return</code> will be ignored!</p>`,
         `<h3>Nesting components</h3>
-        <p>Components can render other components, but you must never nest their definitions. Instead, <i>define every component at the top level</i>. When a child component needs some data from a parent, pass it by props instead of nesting definitions.</p>
-        <p>Components (parent) can render other components (child), but you must never nest their definitions (<i>never define a component inside another component!</i>).</p>
+        <p><i>Components (parent) can render other components (child)</i>, but you must never nest their definitions (<i>never define a component inside another component!</i>). Instead, <i>define every component at the top level</i>.</p>
+        <p>When a child component needs some data from a parent, pass it by props instead of nesting definitions.</p>
         `,
         `<h3>Splitting components in separate files</h3>
         <p>You can have <i>multiple components in the same file</i>, but is considered a good practice to put new components into new files, so that you have <i>one file per component</i>.</p>
@@ -150,19 +143,19 @@ const React_basics = {
       tooltips: [
         `<h3>Components comunicate with each other via props</h3>
         <p>React components use props to communicate with each other. <i>Every <u>parent component</u> can pass some information to its <u>child components</u> by giving them props</i>. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup!</p>
-        <p>Props is a super important concept because it allows you to <i>make your components <u>reusable</u></i> and it <i>allows you to <u>pass data</u></i> from a parent component to a child component.</p>
+        <p>Props is a super important concept because it allows you to <i>make your components <u>reusable</u></i> and it <i>allows you to <u>pass data</u> or/and <u>functions</u></i> from a parent component to a child component.</p>
         `,
         `<h3>Passing props to a child component</h3>
         <p>Props let you think about parent and child components independently.</p>
         <p>Props serve the same role as arguments serve for functions — in fact, <i>props are the only argument to your component! React component functions accept a single argument, a <code>props</code> object</i>.</p>
-        <p>When we pass props from parent to child we can't skip intermediate child components in between, so it's also totally fine to have a <i>component which just passes data on</i>.</p>
+        <p>When you pass props from parent to child you can't skip intermediate child components in between, so it's also totally fine to have a <i>component which just passes data on</i>.</p>
         `,
         `<h3>Reading props by destructuring them</h3>
-        <p>Usually you don't need the whole <code>props</code> object itself, so you destructure it into individual props. <i>To read props, you can use the function destructuring syntax</i>: <code>Avatar({ person, size })</code>.</p>
+        <p>Usually you don't need the whole <code>props</code> object itself, so you can destructure it into individual props. <i>To read props, you can use the function destructuring syntax</i>: <code>Avatar({ person, size })</code>.</p>
         `,
         `<h3>Specifying a default value for a prop</h3>
         <p>If you want to give a prop a default value to fall back on when no value is specified, you can do it with the destructuring by putting <code>=</code> and the default value right after the parameter <code>function Avatar({ person, size = 100 })</code>.</p>
-        <p>The default value is only used if the <code>size</code> prop is missing or if you pass <code>size={undefined}</code>. But if you pass <code>size={null}</code> or <code>size={0}</code>, the default value will not be used.</p>
+        <p><i>The default value is only used if the <code>size</code> prop is missing or if you pass <code>size={undefined}</code>. But if you pass <code>size={null}</code> or <code>size={0}</code>, the default value will not be used.</i></p>
         `,
         `<h3>Naming conventions</h3>
         <p>The convention for props which hold functions is to start their name with "on".</p>
@@ -172,16 +165,16 @@ const React_basics = {
         <p>Use spread syntax with restraint. If you're using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX.</p>
         `,
         `<h3>Passing JSX as children: <code>props.children</code></h3>
-        <p>It is common to nest built-in browser tags. Sometimes you’ll want to nest your own components the same way.</p>
+        <p>It is common to nest built-in browser tags. Sometimes you'll want to nest your own components the same way.</p>
         <p><i>When you nest content inside a JSX tag, the parent component will receive that content in a prop called <code>children</code></i>.</p>
-        <p>With the help of <code>children</code> prop you can build wrapper components. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it.</p>
+        <p>With the help of <code>children</code> prop you can build <i>wrapper components</i>. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it.</p>
         <p>You can think of a component with a children prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX.</p>
         `,
         `<h3>How props change over time</h3>
-        <p>A component may receive different props over time. <i>Props are not always static!</i> Props reflect a component's data at any point in time, rather than only in the beginning.</p>
-        <p>However, props are immutable — a term from computer science meaning “unchangeable”. When a component needs to change its props (for example, in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props—a new object! Its old props will then be cast aside, and eventually the JavaScript engine will reclaim the memory taken by them.</p>
-        <p>Props are <i>read-only snapshots in time</i>: every render receives a new version of props.</p>
-        <p><i>Don't try to “change props”.</i>. When you need to respond to the user interaction, you will need to “set state”.</p>
+        <p><i>A component may receive different props over time. Props are not always static!</i> Props reflect a component's data at any point in time, rather than only in the beginning.</p>
+        <p>However, props are immutable — a term from computer science meaning “unchangeable”. When a component needs to change its props (for example, in response to a user interaction or new data), it will have to “ask” its parent component to pass it different props — a new object! Its old props will then be cast aside, and eventually the JavaScript engine will reclaim the memory taken by them.</p>
+        <p>Props are <i><u>read-only</u> snapshots in time: every render receives a new version of props</i>.</p>
+        <p><i>Don't try to “change props”</i>. When you need to respond to the user interaction, you will need to “set state”.</p>
         `,
       ],
     },
@@ -199,8 +192,9 @@ const React_basics = {
         <p>Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to <i>pass content (JSX markup) between the opening and closing tags of that component</i>.</p>
         <p><i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.</p>
         <p>If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.</p>
-        <p><code>props.children</code> is a reserved name, and the value of this special children prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.</p>
-        <p><i>You can think of a component with a <code>children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.</i></p>
+        <p>With the help of <code>props.children</code> prop you can build <i>wrapper components</i>. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it. <i>You can think of a component with a <code>props.children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.</i></p>
+        <p><code>props.children</code> is a reserved name, and the value of this special <code>children</code> prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.</p>
+        
         `,
       ],
     },
@@ -211,7 +205,6 @@ const React_basics = {
         '/src/markdowns/01_React_basics/Splitting_a_component_into_multiple_components.html',
 
       tooltips: [
-        `<p>The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you keep your files easy to scan and reuse components in more places.</p>`,
         `<h3>One component per one file</h3>
         <p>You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can export a component into its own file, and then import that component from another file.</p>
         <p><i>The magic of components lies in their <u>reusability</u>: you can create components that are composed of other components</i>. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you <i>keep your files easy to scan and <u>reuse</u> components in more places</i>.</p>
@@ -230,7 +223,8 @@ const React_basics = {
         <p><i>How you export your component dictates how you must import it</i>.</p>
         `,
         `<h3>When to use default and named imports and exports</h3>
-        <p>People often use default exports if the file exports only one component, and use named exports if it exports multiple components and values. Regardless of which coding style you prefer, always give meaningful names to your component functions and the files that contain them. Components without names, like <code>export default () => {}</code>, are discouraged because they make debugging harder.</p>
+        <p>People often use default exports if the file exports only one component, and use named exports if it exports multiple components and values.</p>
+        <p>Regardless of which coding style you prefer, <i>always give meaningful names to your component functions and the files that contain them</i>. Components without names, like <code>export default () => {}</code>, are discouraged because they make debugging harder.</p>
         `,
       ],
     },
@@ -257,7 +251,7 @@ const React_basics = {
         <li>- CSS</li>
         <li>- design</li>
         </ul>
-        <p><i>If your JSON is well-structured, you'll often find that it naturally maps to the component structure of your UI. That's because UI and data models often have the same information architecture—that is, the same shape.</i> Separate your UI into components, where <i>each component matches one piece of your data model</i>.</p>
+        <p><i>If your JSON is well-structured, you'll often find that it naturally maps to the component structure of your UI. That's because UI and data models often have the same information architecture — that is, the same shape.</i> Separate your UI into components, where <i>each component matches one piece of your data model</i>.</p>
         <p>When you finish to idenitfy the components in the mockup, arrange them into a hierarchy. <i>Components that appear within another component in the mockup should appear as a child in the hierarchy.</i></p>
         `,
         `<h3>Step 2: Build a static version in React</h3>
@@ -268,11 +262,11 @@ const React_basics = {
         `,
         `<h3>Step 3: Find the minimal but complete representation of UI state</h3>
         <p>To make the UI interactive, you need to let users change your underlying data model. You will use state for this.</p>
-        <p><i>Think of state as the minimal set of changing data that your app needs to remember.</i> The most important principle for structuring state is to keep it DRY (Don't Repeat Yourself). <i>Figure out the absolute minimal representation of the state your application needs and compute everything else on-demand.</i></p>
+        <p><i>Think of state as the minimal set of changing data that your app needs to remember.</i> The most important principle for structuring state is to keep it DRY (Don't Repeat Yourself). <i>Figure out the absolute minimal representation of the state your application needs and <u>compute everything else on-demand</u>.</i></p>
         <ul>Which of the data that your application has are state? Identify the ones that are not:
         <li>- Does it <u>remain unchanged</u> over time? If so, it isn't state.</li>
         <li>- Is it <u>passed in from a parent</u> via props? If so, it isn't state.</li>
-        <li>- <u>Can you compute it</u> based on existing state or props in your component? If so, it *definitely* isn't state!</li>
+        <li>- <u>Can you compute it</u> based on existing state or props in your component? If so, it definitely isn't state!</li>
         <li>What's left is probably state.</li>
         </ul>
         `,
@@ -285,7 +279,8 @@ const React_basics = {
         </ul>
         `,
         `<h3>Step 4: Identify where your state should live</h3>
-        <p>Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user interaction, you will need to support data flowing the other way: the components deep in the hierarchy need to update the state in their parent components. For that, you need to <i>pass the state updating functions from parent components down to the child components, so child components can change the parent's state</i>.</p>
+        <p>Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user interaction, you will need to support data flowing the other way: the components deep in the hierarchy need to update the state in their parent components.</p>
+        <p>For that, you need to <i>pass the state updating functions from parent components down to the child components, so child components can change the parent's state</i>.</p>
         `,
       ],
     },
@@ -297,8 +292,8 @@ const React_basics = {
         `<h3>Purity: Components as formulas</h3>
         <p>Some JavaScript functions are pure. <i>Pure functions only perform a calculation and nothing more</i>.</p>
         <ul>In computer science (and especially the world of functional programming), a pure function is a function with the following characteristics:
-        <li>- <i>It minds its own business</i>. It does <i><u>not change</u> any objects or variables that existed before it was called</i>;</li>
-        <li>- <i>Same inputs, same output</i>. Given the <u>same inputs</u>, a pure function should always return the <u>same result</u>.</li>
+        <li>- <i><u>It minds its own business</u></i>. It does <i>not change any objects or variables that existed before it was called</i>;</li>
+        <li>- <i><u>Same inputs, same output</u></i>. Given the <u>same inputs</u>, a pure function should always return the <u>same result</u>.</li>
         </ul>
         <p>React assumes that every component you write is a pure function. This means that <i>React components you write <u>must always return the same JSX given the same inputs</u></i>.</p>
         `,
@@ -342,7 +337,7 @@ const React_basics = {
       tooltips: [
         `<h3>JSX limitations</h3>
         <p><i>You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable)</i>.</p>
-        <p>The solution: <i>always wrap adjacent elements!</i> You can use as a wrapper any element (<<span>div</span>>, <<span>p</span>>, <<span>header</span>>), or you can also use a custom component. The main thing that matters is that you only have one value which you return or which you store it in a variable.</p>
+        <p>The solution: <i>always wrap adjacent elements!</i> You can use as a wrapper any element (<<span>div</span>>, <<span>p</span>>, <<span>header</span>>), or you can also use a custom component.</p>
         `,
         `<h3>Creating a wrapper component</h3>
         <p>A wrapping element it's an element which <i>won't render anything to the DOM</i>, but the requirement is not that there must be one root component being rendered to the DOM, the requirement just is that there must be <i>one root element that you return or that you store in a variable</i>.</p>
@@ -352,8 +347,8 @@ const React_basics = {
         `,
         `<h3>React.Fragment</h3>
         <p>Fragments let you <i>group a list of children without adding extra nodes to the DOM</i>.</p>
-        <p>Fragments allow you to write cleaner code, to end up with less unnecessary HTML elements on the final page.</p>
-        <p>You can access the Fragment component with <code>React.Fragment</code>, or in some projects you can also use the shortcut syntax. These two syntaxes <i>render empty wrappers</i>, which don't render any actual HTML element to the DOM.</p>
+        <p>Fragments allow you to write cleaner code, to end up with less unnecessary HTML elements on the browser.</p>
+        <p>You can access the Fragment component with <code>React.Fragment</code>, or in some projects you can also use the shortcut syntax. These two syntaxes <i>render empty wrappers</i>, which don't render any actual HTML tag to the DOM.</p>
         `,
       ],
     },
@@ -365,7 +360,7 @@ const React_basics = {
       },
       tooltips: [
         `<h3>Rendering to a different part of the DOM</h3>
-        <p>You can use a Portal to keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM.</p>
+        <p>You can use a Portal to <i>keep the structure that you have in your JSX markup, but to render the JSX markup differently (in other place) in the real DOM</i>.</p>
         <p>With Portals you end up with semantically more correct HTML markup.</p>
         <ul>Portals need two things:
         <li>- you need a <i>place</i> you wanna port the component to;</li>
@@ -375,14 +370,14 @@ const React_basics = {
         <li>1. The first argument need to be <i>a component that return JSX markup or only some JSX markup</i></li>
         <li>2. The second argument is <i>a pointer to the container in the real DOM</i> where the JSX markup in your component should be rendered in</li>
         </ul>
-        <p>A Portal only changes the physical placement of the DOM node. In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.</p>
+        <p><i>A Portal only changes the physical placement of the DOM node.</i> In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.</p>
         `,
         `<h3>React vs ReactDOM libraries</h3>
         <p>The <code>ReactDOM.createPortal()</code> method is actually not defined on React, but on another library that comes together with React, the ReactDOM library. You can <i>imagine React being the library that has all the React features, state management etc</i>, and <i>ReactDOM uses React to bring that logic and these features into the web browser</i>.</p>
         <p>Put in other words, the React library itself doesn't care whether you run it in an environment that has a DOM, or if you would use it to build a native app.</p>
         `,
         `<h3>Event bubbling through Portals</h3>
-        <p>Even though a portal can be anywhere in the DOM tree, it behaves like a normal React child in every other way. Features like context work exactly the same regardless of whether the child is a portal, as the portal still exists in the <u>React tree</u> regardless of position in the <u>DOM tree</u>.</p>
+        <p><i>Even though a portal can be anywhere in the DOM tree, it behaves like a normal React child in every other way.</i> Features like context work exactly the same regardless of whether the child is a portal, as the portal still exists in the <u>React tree</u> regardless of position in the <u>DOM tree</u>.</p>
         <p>This includes event bubbling. <i>An event fired from inside a portal will propagate to ancestors in the containing React tree, even if those elements are not ancestors in the DOM tree</i>.</p>`,
       ],
     },
