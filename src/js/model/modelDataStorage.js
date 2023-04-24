@@ -555,9 +555,9 @@ const Adding_interactivity_to_a_component = {
   ],
   sections: [
     {
-      sectionTitle: 'Listening to events & working with event handlers',
+      sectionTitle: 'Responding to events & working with event handlers',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/Listening_to_events_&_working_with_event_handlers.html',
+        '/src/markdowns/02_Adding_interactivity_to_a_component/Responding_to_events_&_working_with_event_handlers.html',
       tooltips: [
         `<h3>How to write components that handle interactions</h3>
         <p>React lets you <i>add event handlers to your JSX</i>. Event handlers are your own <i>functions that will be triggered in response to interactions</i>.</p>
