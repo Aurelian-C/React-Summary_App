@@ -561,25 +561,39 @@ const Adding_interactivity_to_a_component = {
       tooltips: [
         `<h3>How to write components that handle interactions</h3>
         <p>React lets you <i>add event handlers to your JSX</i>. Event handlers are your own <i>functions that will be triggered in response to interactions</i>.</p>
+        <p>Built-in components like <<span>button</span>> only support built-in browser events like <code>onClick</code>. However, you can also create your own components, and give their event handler props any application-specific names that you like.</p>
         `,
-        `<h3>Adding event handlers</h3>
-        <p>To add an event handler, you will first <i>define a function</i> and then <i>pass it as a prop</i> to the appropriate JSX tag. Functions passed to event handlers must be passed, not called.</p>
+        `<h3>Different ways to write an event handler</h3>
+        <p>You can define an event handler function <u>separately</u> or <u>inline</u>.</p>
+        <ul>To add an event handler, you need to follow these three steps:
+        <li>1. <i>Define a function</i> inside your component</li>
+        <li>2. Implement the logic inside that function</li>
+        <li>3. <i>Pass that function as a prop</i> to the appropriate JSX tag. Functions passed to event handlers must be passed, not called.</li>
+        </ul>
+        <p>Alternatively, you can <i>define an event handler inline in the JSX</i>. Inline event handlers are convenient for short functions.</p>
         <p>On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, you have full access to all the native DOM events, which you can listen to. <i>React exposes all native DOM events as props which start with "on"</i>.</p>
         `,
-        `<h3>Naming convention</h3>
+        `<h3>Event handlers naming convention</h3>
         <p>By convention, it is common to name event handlers as <i>"handle"</i> followed by the event name: <code>onClick={handleClick}</code>.</p>
-        <p>React exposes all <i>native DOM events</i> as props which start with <i>"on"</i>: <code>onClick={}</code>. <i>Custom event handler props</i> should also start with <i>"on"</i>, followed by a capital letter: <code>onRun={}</code>.</p>
         `,
         `<h3>Reading props in event handlers</h3>
         <p>Because event handlers are declared inside of a component, they have access to the component's props.</p>
         `,
         `<h3>How to pass event handling logic from a parent component: passing event handlers as props</h3>
-        <p>Often you'll want <i>the parent component to specify a child's event handler</i>. You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props to the child component</i>.</p>
+        <p>Often you'll want <i>the parent component to specify a child's event handler</i>. Consider buttons: depending on where you're using a Button component, you might want to execute a different function — perhaps one plays a movie and another uploads an image.</p>
+        <p>You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props to the child component</i>.</p>
+        `,
+        `<h3>Naming event handler props</h3>
+        <p>Built-in components like <<span>button</span>> and <<span>div</span>> only support browser event names like <code>onClick</code>. However, when you're building your own components, you can name their event handler props any way that you like.</p>
+        <p>By convention, event handler props should also start with <i>"on"</i>, followed by a capital letter: <code>onRun={}</code>.</p>
+        <p>On built-in components React exposes all <i>native DOM events</i> as props which start with <i>"on"</i>: <code>onClick={}</code>.</p>
+        <p>When your component supports multiple interactions, you might name event handler props for app-specific concepts.</p>
         `,
         `<h3>Event propagation: how events propagate and how to stop them</h3>
-        <p>Event handlers will also catch events from any children your component might have. We say that an event <i>"bubbles" or "propagates" up the tree: it starts with where the event happened, and then goes up the tree</i>.</p>
+        <p>Event handlers will also catch events from any children your component might have. We say that an event <i>"bubbles" or "propagates" up the tree: it starts with where the event happened, and then goes up the tree</i> (events propagate upwards).</p>
         <p>All events propagate in React except <code>onScroll</code>, which only works on the JSX tag you attach it to.</p>
-        <p>Event handlers receive an <i>event object</i> as their only argument. If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</p>
+        <p>Event handlers receive an <i>event object</i> as their only argument. By convention, it's usually called <code>e</code>, which stands for "event". <i>You can use this object to read information about the event</i>. That event object also lets you stop the propagation. If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</p>
+        <p>Events may have <i>unwanted default browser behavior</i>. Call <code>e.preventDefault()</code> to prevent that.</p>
         `,
         `<h3>Can event handlers have side effects?</h3>
         <p>Absolutely! <i>Event handlers are the best place for side effects</i>.</p>

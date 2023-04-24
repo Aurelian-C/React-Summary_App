@@ -15,6 +15,9 @@
   --highlight-color-2: rgb(255, 0, 245);
 
   --highlight-font-size: 1.4rem;
+
+  --container-side-1: 40%;
+  --container-side-2: calc(100% - var(--container-side-1));
 }
 
 *,
@@ -46,7 +49,7 @@ body {
 }
 
 .container__content {
-  flex: 0 1 55%;
+  flex: 0 1 var(--container-side-1);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -54,11 +57,12 @@ body {
 }
 
 .container__tooltip {
-  flex: 0 1 45%;
+  flex: 0 1 var(--container-side-2);
   color: #fff;
   padding: 10px;
   font-size: 1.3rem;
   font-style: normal;
+  overflow-y: scroll;
 }
 
 .container__tooltip h2 {
