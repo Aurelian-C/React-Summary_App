@@ -573,7 +573,7 @@ const Adding_interactivity_to_a_component = {
         `<h3>Reading props in event handlers</h3>
         <p>Because event handlers are declared inside of a component, they have access to the component's props.</p>
         `,
-        `<h3>Passing event handlers as props</h3>
+        `<h3>How to pass event handling logic from a parent component: passing event handlers as props</h3>
         <p>Often you'll want <i>the parent component to specify a child's event handler</i>. You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props to the child component</i>.</p>
         `,
         `<h3>Event propagation: how events propagate and how to stop them</h3>

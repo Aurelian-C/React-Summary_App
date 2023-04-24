@@ -67,17 +67,9 @@ class ApplicationView {
 
     return `
       <div class="card__article">
-          ${
-            article.sectionSource
-              ? `<a class="card__article-anchor" href="${
-                  article.sectionSource
-                }" target="_blank" data-title='${article.sectionTitle}'>${
-                  idx + 1
-                }. ${title}</a>`
-              : `<p class="card__article-title" data-title='${
-                  article.sectionTitle
-                }'>${idx + 1}. ${title}</p>`
-          }
+          ${`<p class="card__article-title" data-title='${
+            article.sectionTitle
+          }'>${idx + 1}. ${title}</p>`}
       </div>
     `;
   }

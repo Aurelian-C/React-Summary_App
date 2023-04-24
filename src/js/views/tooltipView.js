@@ -2,7 +2,7 @@ class TooltipView {
   _containerTooltip = document.querySelector('.container__tooltip');
 
   start(data) {
-    document.body.addEventListener('mouseover', e => {
+    document.body.addEventListener('click', e => {
       const cardArticle = e.target.closest('.card__article');
       if (!cardArticle) return;
 
@@ -11,6 +11,7 @@ class TooltipView {
         cardArticle.querySelector('.card__article-anchor');
       const { title } = element.dataset;
       const obj = data.find(el => el.sectionTitle === title);
+      console.log(obj);
 
       if (!obj.tooltips) return;
 
@@ -19,7 +20,9 @@ class TooltipView {
         .join('');
 
       this._containerTooltip.innerHTML =
-        `<h2>${obj.sectionTitle}</h2>` + markup;
+        `<h2>${obj.sectionTitle}</h2>` +
+        markup +
+        `<a href=${obj.sectionSource} class="paragraph__article-anchor" target="_blank" data-title=${obj.sectionTitle}>Read more about this article!</a>`;
     });
   }
 }
