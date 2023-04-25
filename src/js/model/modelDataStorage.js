@@ -651,7 +651,7 @@ const Adding_interactivity_to_a_component = {
         <p>What if you wanted some child components to keep their states in sync? The right way to do it in React is to remove state from child components and add it to their closest shared parent.</p>
         `,
         `<h3>Regular variable vs state variable<h3>
-        <p>A state variable is only necessary to keep information between re-renders of a component. Within a single event handler, a regular variable will do fine. <i>Don't introduce state variables when a regular variable works well.</i></p>
+        <p><i>A state variable is only necessary to keep information between re-renders of a component</i>. Within a single event handler, a regular variable will do fine. <i>Don't introduce state variables when a regular variable works well.</i></p>
         `,
         `<h3>There are two types of "model" data in React</h3>
         <ul>There are two types of "model" data in React: <i>props</i> and <i>state</i>. The two are very different:
