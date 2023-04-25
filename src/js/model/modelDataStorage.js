@@ -609,11 +609,11 @@ const Adding_interactivity_to_a_component = {
         `<p>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things.</p>
         <p>Often, you'll want your component to “remember” some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add state to your component.</p>
         `,
-        `<h3>When a regular variable isn't enough</h3>
+        `<h3>When a <u>regular variable</u> isn't enough</h3>
         <p>- <i>Local variables don't persist between renders</i>. When React renders a component a second time, it renders it from scratch — it doesn't consider any changes to the local variables.</p>
         <p>- <i>Changes to local variables won't trigger renders</i>. React doesn't realize it needs to render the component again with the new data.</p>
         `,
-        `<h3>Adding a state variable with <code>useState</code> Hook</h3>
+        `<h3>Adding a <u>state variable</u> with <code>useState</code> Hook</h3>
         <ul>To update a component with new data, two things need to happen:</p>
         <li>1. <i><u>Retain</u> the data between renders.</i></li>
         <li>2. <i><u>Trigger</u> React to render the component with new data (re-rendering).</i></li></ul>
@@ -623,6 +623,11 @@ const Adding_interactivity_to_a_component = {
         <p>Use a state variable when a component needs to "remember" some information between renders.</p>
         <p>The <code>useState</code> Hook allows you to <i>define values as state</i>, where changes to these values should reflect in a component function being called again, which is a key difference to a value stored in a regular variable.</p>
         `,
+        `<h3>Your first Hook</h3>
+        <p>In React, <code>useState</code>, as well as any other <i>function starting with 'use'</i>, is called a Hook.</p>
+        <p>Hooks are special functions that are <i>only available while React is rendering</i>. They let you <i>“hook into” different React features</i>.</p>
+        <p>State is just one of those features, but you will meet the other Hooks later.</p>
+        `,
         `<h3>Anatomy of <code>useState</code></h3>
         <p>When you call <code>useState</code>, you are telling React that you want this component to remember something.</p>
         <p>The only argument to <code>useState</code> is the <i>initial value</i> of your state variable.</p>
@@ -630,6 +635,9 @@ const Adding_interactivity_to_a_component = {
         <li>1. The <i>state <u>variable</u></i> with the value you stored.</li>
         <li>2. The <i>state setter <u>function</u></i> which can update the state variable and trigger React to render the component again.</li></ul>
         <p>You can use array destructuring to read values from the array that <code>useState</code> gives you.</p>
+        `,
+        `<h3>Naming convention</h3>
+        <p>The convention is to name this pair like <code>const [something, setSomething]</code>. You could name it anything you like, but conventions make things easier to understand across projects.</p>
         `,
         `<h3>Giving a component multiple state variables</h3>
         <p><i>You can have as many state variables of as many types as you like in one component</i>.</p>
@@ -1094,7 +1102,8 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>Hooks are more restrictive than other functions</h3>
-        <p>Hooks — functions starting with 'use' — can only be <i>called at the top level of your components or your own custom Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. If you want to use a Hook like <code>useState</code> in a condition or a loop, extract a new component and put it there.</p>
+        <p>Hooks — <i>functions starting with 'use'</i> — can only be <i>called at the top level of your components or your own custom Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. If you want to use a Hook like <code>useState</code> in a condition or a loop, extract a new component and put it there.</p>
+        <p>Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features.</p>
         <p>Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.</p>
         `,
       ],
