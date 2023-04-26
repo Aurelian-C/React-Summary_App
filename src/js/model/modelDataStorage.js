@@ -650,7 +650,7 @@ const Adding_interactivity_to_a_component = {
         `<h3>Keep child component's state in sync</h3>
         <p>What if you wanted some child components to keep their states in sync? The right way to do it in React is to remove state from child components and add it to their closest shared parent.</p>
         `,
-        `<h3>Regular variable vs state variable<h3>
+        `<h3>Regular variable vs state variable</h3>
         <p><i>A state variable is only necessary to keep information between re-renders of a component</i>. Within a single event handler, a regular variable will do fine. <i>Don't introduce state variables when a regular variable works well.</i></p>
         `,
         `<h3>There are two types of "model" data in React</h3>
@@ -674,32 +674,41 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>The steps involved in displaying a component on screen</h3>
         <ul> The process of rendering a component to UI has three steps:
-        <li>1. <i>Triggering</i> a render</li>
-        <li>2. <i>Rendering</i> the component</li>
-        <li>3. <i>Committing</i> to the DOM</li>
+        <li>Step 1. <i>Triggering</i> a render</li>
+        <li>Step 2. <i>Rendering</i> the component</li>
+        <li>Step 3. <i>Committing</i> to the DOM</li>
         </ul>
         `,
-        `<h3><u>Trigger</u> a render: when and why React renders a component</h3>
+        `<h3>Step 1. <u>Trigger</u> a render. When and why React renders a component?</h3>
         <ul> There are two reasons when a component trigger a render:
         <li>1. It's the component's <i>initial render</i>.</li>
         <li>2. The component's (or one of its ancestors) <i>state has been updated</i>.</li>
         </ul>
-        <p>Once the component has been initially rendered, you can trigger further renders by updating its state with the state setter function provided by <code>useState</code> Hook. <i>Updating your component's state automatically trigger a render</i>.</p>
+        <p><u>Initial render:</u> when your app starts, you need to trigger the initial render. Frameworks and sandboxes sometimes hide this code, but it's done by calling <code>createRoot</code> with the target DOM node, and then calling its <code>render</code> method with your component.</p>
+        <p><u>Re-renders when state updates:</u> once the component has been initially rendered, you can trigger further renders by updating its state with the state setter function provided by <code>useState</code> Hook. <i>Updating your component's state automatically trigger a render</i>.</p>
         <p>Only the component where the <code>useState()</code> was registered and its child components will be updated, not any other components.</p>
         `,
-        `<h3>React <u>renders</u> your components: what rendering means in React</h3>
+        `<h3>Step 2. React <u>renders</u> your components. What rendering means in React?</h3>
         <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <i>"Rendering" is React <u>calling</u> your components.</i></p>
         <p>- <i>On initial render</i>, React will call the root component.</p>
-        <p>- <i>For subsequent renders</i>, React will call the component whose state update triggered the render.</p>
+        <p>- <i>For subsequent renders</i>, React will call the component whose state update triggered the render. During a re-render, React will calculate which of component's properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.</p>
         <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.</p>
+        <ul><i>Rendering must always be a pure calculation</i>:
+        <li>- <i>Same inputs, same output.</i> Given the same inputs, a component should always return the same JSX.</li>
+        <li>- <i>It minds its own business.</i> It should not change any objects or variables that existed before rendering.</li>
+        </ul>
+        <p>When developing in “Strict Mode”, React calls each component's function twice, which can help surface mistakes caused by impure functions.</p>
         `,
-        `<h3>React <u>commits</u> changes to the DOM</h3>
+        `<h3>Step 3. React <u>commits</u> changes to the DOM</h3>
         <p>After rendering (calling) your components, React will modify the DOM.</p>
         <p>- For the <i>initial render</i>, React will use the <code>appendChild()</code> DOM API to put all the DOM nodes it has created on screen.</p>
         <p>- For <i>re-renders</i>, React will apply the <u>minimal necessary operations</u> (calculated while rendering!) to make the DOM match the latest rendering output. <i>React only changes the DOM nodes if there's a difference between renders</i>.</p>
         `,
         `<h3>Why rendering does not always produce a DOM update</h3>
         <p>React does not touch the DOM <i>if the rendering result is the same as last time</i>. React only changes the DOM nodes if there's a difference between renders.</p>
+        `,
+        `<h3>Optimizing performance</h3>
+        <p>The default behavior of rendering all components nested within the updated component is not optimal for performance if the updated component is very high in the tree. If you run into a performance issue, there are several opt-in ways to solve it. <i>Don't optimize prematurely!</i></p>
         `,
       ],
     },

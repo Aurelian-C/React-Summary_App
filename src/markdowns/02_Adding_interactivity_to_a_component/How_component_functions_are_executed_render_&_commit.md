@@ -56,6 +56,10 @@ Once the component has been initially rendered, ==**you can trigger further rend
 >- **Same inputs, same output.** Given the same inputs, a component should always return the same JSX.
 >- **It minds its own business.** It should not change any objects or variables that existed before rendering.
 
+#### Optimizing performance
+
+The default behavior of rendering all components nested within the updated component is not optimal for performance if the updated component is very high in the tree. If you run into a performance issue, there are several opt-in ways to solve it described in the [Performance](https://reactjs.org/docs/optimizing-performance.html) section. ==**Don’t optimize prematurely!**==
+
 ## Step 3: React _commits_ changes to the DOM
 
 ==After rendering (calling) your components, React will modify the DOM==.
