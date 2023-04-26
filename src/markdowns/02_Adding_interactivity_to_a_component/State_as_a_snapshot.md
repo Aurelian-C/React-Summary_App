@@ -72,7 +72,7 @@ const handleClick = () => {
 
 This is why clicking the button again will set the counter to `2`, then to `3` on the next click, and so on. 
 
-### Example with a timer
+### State over time: example with a timer
 
 If you put a timer on the alert, it only fires *after* the component re-rendered? Would it say will alert “0” or “5”? It would be "0". Why?
 
