@@ -148,9 +148,14 @@ body {
   letter-spacing: 0.2px;
   word-spacing: 1px;
   cursor: pointer;
-  font-size: var(--article-title--font-size);
+  /* font-size: var(--article-title--font-size); */
+  font-size: 1.7rem;
   font-weight: 400;
   text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin: auto;
+  border-bottom: 1px solid white;
 }
 
 .card__article-title {
