@@ -2326,31 +2326,18 @@ const Deploying_React_apps = {
   title: '<p class="card__title--2">Deploying React apps</p>',
   sections: [
     {
-      sectionTitle: 'Module Introduction',
+      sectionTitle: 'Deployment steps',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Deployment Steps',
+      sectionTitle: 'Understanding & adding Lazy Loading',
       sectionSource: '',
+      highlights: {
+        highlight1: ['Lazy Loading'],
+      },
     },
     {
-      sectionTitle: 'Adding Lazy Loading',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Building The Code For Production',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Getting Started With Deployment (Uploading Files)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Exploring Routing Issues & Finishing Deployment',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Module Resources',
+      sectionTitle: 'Server-side Routing & Required Configuration',
       sectionSource: '',
     },
   ],
