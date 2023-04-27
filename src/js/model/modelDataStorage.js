@@ -713,16 +713,19 @@ const Adding_interactivity_to_a_component = {
       ],
     },
     {
-      sectionTitle: 'State as a snapshot',
+      sectionTitle: 'State as a snapshot in time',
       sectionSource:
         '/src/markdowns/02_Adding_interactivity_to_a_component/State_as_a_snapshot.html',
+      highlights: {
+        highlight1: ['snapshot in time'],
+      },
       tooltips: [
         `<h3>Relationship between state and rendering: setting state triggers renders</h3>
         <p><u>State variables</u> might look like <u>regular JavaScript variables</u> that you can read and write to. However, <i>state behaves more like a snapshot. Setting it does not change the state variable you already have</i>, but instead triggers a re-render.</p>
         <p>You might think of your UI as changing directly in response to the user event like a click. In React, it works a little differently from this mental model. You know that <i>setting state requests a re-render from React</i>. This means that <i>for an interface to react to the event, you need to <u>update the state</u></i>.</p>
         `,
-        `<h3>When and how state updates? Rendering takes a snapshot in time</h3>
-        <p>"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like <i>a snapshot of the UI in time</i>. Its props, event handlers and local variables were all <i>calculated using its state at <u>the time of the render</u></i>.</p>
+        `<h3>When and how state updates? Rendering takes <u>a snapshot in time</u></h3>
+        <p>"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like <i>a snapshot of the UI <u>in time</u></i>. Its props, event handlers and local variables were all <i>calculated using its state <u>at the time of the render</u></i>.</p>
         <p>State behaves like a <i>component's memory</i>, so is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function. When React calls your component, it gives you <u>a snapshot of the state for that particular render</u></i>. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, <i>all calculated using the state values from that render</i>!</p>
         <p>When you call <code>useState</code>, React gives you <i>a snapshot of the state for that render</i>. Every render (and functions inside it) will always "see" the snapshot of the state that React gave to that render.</p>
         <p>Variables and event handlers don't "survive" re-renders. <i>Every render has its own event handlers</i>. Event handlers created in the past have the state values from the render in which they were created.</p>
