@@ -57,13 +57,9 @@ In this way, ==spread can do the job of both `push()` by adding to the end of an
 
 ==The easiest way to remove an item from an array is to *filter it out*. In other words, you will produce a new array that will not contain that item.== To do this, use the `filter` method:
 
-```react
-setArray(
-  originalArray.filter(a => a.id !== item.id)
-);
-```
+![Updating_arrays_in_state1](../../img/Updating_arrays_in_state1.jpg)
 
-Here, `originalArray.filter(a => a.id !== item.id)` means “create an array that consists of those `item` whose IDs are different from `item.id`”, then request a re-render with the resulting array. Note that `filter` does not modify the original array.
+Here, `artists.filter(a => a.id !== artist.id)` means “create an array that consists of those `artists` whose IDs are different from `artist.id`”. In other words, each artist’s “Delete” button will filter *that* artist out of the array, and then request a re-render with the resulting array. Note that `filter` does not modify the original array.
 
 ### Transforming an array 
 
@@ -75,53 +71,23 @@ It is particularly common to want to replace one or more items in an array. Assi
 
 ==To replace an item, create a new array with `map()`. Inside your `map()` call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else==:
 
-```react
-function handleIncrementClick(index) {
-  const nextCounters = counters.map((c, i) => {
-    if (i === index) {
-      return c + 1; // Increment the clicked counter
-    } else {
-      return c; // The rest haven't changed
-    }
-  });
-    
-  setCounters(nextCounters);
-};
-```
+![Updating_arrays_in_state2](../../img/Updating_arrays_in_state2.jpg)
 
 ### Inserting into an array 
 
-==Sometimes, you may want to insert an item at a particular position that’s neither at the beginning nor at the end. To do this, you can use the `...` array spread syntax together with the `slice()` method==. The `slice()` method lets you cut a “slice” of the array. To insert an item, you will create an array that spreads the slice *before* the insertion point, then the new item, and then the rest of the original array:
+==Sometimes, you may want to insert an item at a particular position that’s neither at the beginning nor at the end. To do this, you can use the `...` array spread syntax together with the `slice()` method==. The `slice()` method lets you cut a “slice” of the array. To insert an item, you will create an array that spreads the slice *before* the insertion point, then the new item, and then the rest of the original array.
 
-```react
-function handleClick() {
-  const insertAt = 1; // Could be any index
-  const nextArtists = [
-    // Items before the insertion point:
-    ...artists.slice(0, insertAt),
-      
-    // New item:
-    { id: nextId++, name: name },
-      
-    // Items after the insertion point:
-    ...artists.slice(insertAt)
-  ];
-    
-  setArtists(nextArtists);
-};
-```
+In this example, the Insert button always inserts at the index `1`:
+
+![Updating_arrays_in_state3](../../img/Updating_arrays_in_state3.jpg)
 
 ### Making other changes to an array 
 
 ==There are some things you can’t do with the spread syntax and non-mutating methods like `map()` and `filter()` alone. For example, you may want to reverse or sort an array. The JavaScript `reverse()` and `sort()` methods are mutating the original array, so you can’t use them directly. **However, you can copy the array first, and then make changes to it.**==
 
-```react
-function handleClick() {
-  const nextList = [...list];
-  nextList.reverse();
-  setList(nextList);
-}
-```
+![Updating_arrays_in_state4](../../img/Updating_arrays_in_state4.jpg)
+
+Here, you use the `[...list]` spread syntax to create a copy of the original array first. Now that you have a copy, you can use mutating methods like `nextList.reverse()` or `nextList.sort()`, or even assign individual items with `nextList[0] = "something"`.
 
 ==However, **even if you copy an array, you can’t mutate existing items _inside_ of it directly.** This is because copying is shallow — the new array will contain the same items as the original one. So if you modify an object inside the copied array, you are mutating the existing state.== For example, code like this is a problem.
 
@@ -135,7 +101,7 @@ setList(nextList);
 
 ## Updating objects inside arrays 
 
-==Objects are not *really* located “inside” arrays. They might appear to be “inside” in code, but each object in an array is a separate value, to which the array “points”.==
+==Objects are not *really* located “inside” arrays. They might appear to be “inside” in code, but each object in an array is a separate value, to which the array “points”.== This is why you need to be careful when changing nested fields like `list[0]`. Another person’s artwork list may point to the same element of the array!
 
 ==**When updating nested state, you need to create copies from the point where you want to update, and all the way up to the top level.**==
 
@@ -143,7 +109,7 @@ The problem is in code like this:
 
 ![Updating_arrays_in_state](../../img/Updating_arrays_in_state.jpg)
 
-==Although the `myNextList` array itself is new, the *items themselves* are the same as in the original `myList` array. So changing `artwork.seen` changes the *original* artwork item==. That artwork item is also in `yourArtworks`, which causes the bug. Bugs like this can be difficult to think about, but thankfully they disappear if you **avoid mutating state**.
+==Although the `myNextList` array itself is new, the *items themselves* are the same as in the original `myList` array. So changing `artwork.seen` changes the *original* artwork item==. That artwork item is also in `yourList`, which causes the bug. Bugs like this can be difficult to think about, but thankfully they disappear if you **avoid mutating state**.
 
 **You can use `map()` to substitute an old item with its updated version without mutation.**
 
@@ -159,7 +125,9 @@ setMyList(myList.map(artwork => {
 
 Here, `...` is the object spread syntax used to [create a copy of an object.](https://react.dev/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax) With this approach, none of the existing state items are being mutated, and the bug is fixed.
 
-==In general, **you should only mutate objects that you have just created.** If you were inserting a *new* artwork, you could mutate it, but if you’re dealing with something that’s already in state, you need to make a copy==.
+![Updating_arrays_in_state5](../../img/Updating_arrays_in_state5.jpg)
+
+==In general, **you should only mutate objects that you have just created.** If you were inserting a *new* artwork, you could mutate it, but if you’re **dealing with something that’s already in state, you need to make a copy**==.
 
 ## Summary
 

@@ -822,7 +822,7 @@ const Adding_interactivity_to_a_component = {
         <p>If you want to change some or all items of the array, you can use <i><code>map()</code></i> to create a new array. The function you will pass to <code>map()</code> can decide what to do with each item, based on its data or its index (or both).</p>
         `,
         `<h3>Replacing items in an array with <code>map()</code></h3>
-        <p>To replace an item, create a new array with <code>map()</code>. Inside your <code>map(</code> call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else.</p>
+        <p>To replace an item, create a new array with <code>map()</code>. Inside your <code>map()</code> call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else.</p>
         `,
         `<h3>Inserting into an array</h3>
         <p>Sometimes, you may want to insert an item at a particular position that's neither at the beginning nor at the end. To do this, you can use the <i><code>...</code> array spread syntax together with the <code>slice()</code> method</i>.</p>
