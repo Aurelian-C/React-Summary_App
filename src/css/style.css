@@ -320,9 +320,11 @@ b code {
 }
 
 .fa-xmark {
+  display: block;
+  width: fit-content;
+  margin: 0 1rem 1rem auto;
+  font-size: 4rem;
   cursor: pointer;
-  margin: 0 0 1rem auto;
-  font-size: 3rem;
 }
 
 @media only screen and (max-width: 900px) {
