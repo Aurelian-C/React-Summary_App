@@ -771,11 +771,11 @@ const Adding_interactivity_to_a_component = {
         `<h3>Treat state as read-only</h3>
         <p>State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>.</p>
         <p>You should <i>treat object in React as if they were immutable (unchangeable or "read-only")</i>, so treat any JavaScript object that you put into state as read-only.</p>
-        <p><i>When you store objects in state, mutating them will not trigger renders and will change the state in previous render "snapshots"</i>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
-        <p>In React, you treat all state as immutable!</p>
+        <p><i>When you <u>store objects in state</u>, mutating them will not trigger renders and will change the state in previous render "snapshots"</i>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
+        <p><i>In React, you treat all state as immutable!</i></p>
         `,
         `<h3>Local mutation is fine</h3>
-        <p><i>Mutation is only a problem when you change existing objects that are already in state</i>, so mutating an object you've just created is okay because no other code references it yet. Changing it isn't going to accidentally impact something that depends on it. This is called a local mutation.</p>
+        <p><i>Mutation is only a problem when you change <u>existing objects that are already in state</u></i>, so mutating an object you've just created is okay because no other code references it yet. Changing it isn't going to accidentally impact something that depends on it. This is called a local mutation.</p>
         <p><i>You can even do local mutation <u>while rendering</u></i>.</p>
         `,
         `<h3>Copying objects with the spread syntax</h3>
@@ -785,10 +785,15 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>Copying nested objects: shallow vs deep</h3>
         <p><i>The <code>...</code> spread syntax is "shallow" — it only copies things one level deep</i>. This makes it fast, but it also means that if you want to update a nested property, you'll have to use it more than once.</p>
+        `,
+        `<h3>How to update a nested object without mutating it</h3>
         <p>To update a nested object, you need to <i>create copies all the way up from the place you're updating</i>.</p>
         `,
         `<h3>Objects are not really nested</h3>
         <p>"Nesting" is an inaccurate way to think about how objects behave. When the code executes, <i>there is no such thing as a "nested" object</i>. Every object is a separate object "pointing" at a different address in memory.</p>
+        `,
+        `<h3>Write concise update nested objects logic with Immer</h3>
+        <p><i>If your state is deeply nested, you might want to consider flattening it</i>. But, if you don't want to change your state structure, you might prefer a shortcut to nested spreads. <i>Immer</i> is a popular library that lets you write using the convenient but mutating syntax and takes care of producing the copies for you.</p>
         `,
       ],
     },

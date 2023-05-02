@@ -55,7 +55,7 @@ With `setPosition`, you’re telling React:
 
 ### Local mutation is fine
 
-==Mutation is only a problem when you change *existing* objects that are already in state==. Mutating an object you’ve just created is okay because *no other code references it yet.* Changing it isn’t going to accidentally impact something that depends on it. This is called a "local mutation". ==You can even do local mutation _while rendering_==. Very convenient and completely okay!
+==Mutation is only a problem when you change _existing objects that are already in state_==. Mutating an object you’ve just created is okay because *no other code references it yet.* Changing it isn’t going to accidentally impact something that depends on it. This is called a "local mutation". ==You can even do local mutation _while rendering_==. Very convenient and completely okay!
 
 Code like this is a problem because it modifies an *existing* object in state:
 
@@ -99,6 +99,20 @@ setItem({
 ```
 
 ==Note that the `...` spread syntax is "shallow" — it only copies things one level deep==. This makes it fast, but it also means that if you want to update a nested property, you’ll have to use it more than once.
+
+### Store large form data in one object
+
+In the example below, notice how you didn’t declare a separate state variable for each input field. ==For large forms, keeping all data grouped in an object is very convenient — as long as you update it correctly!==
+
+![Updating_objects_in_state2](../../img/Updating_objects_in_state2.jpg)
+
+### Using a single event handler for multiple fields
+
+You can also use the `[]` braces inside your object definition to specify a property with dynamic name. Here is the same example, but with a single event handler instead of three different ones:
+
+![Updating_objects_in_state3](../../img/Updating_objects_in_state3.jpg)
+
+Here, `e.target.name` refers to the `name` property given to the `<input>` DOM element.
 
 ### Updating a nested object 
 
