@@ -2,7 +2,7 @@ class ApplicationView {
   startApplication(data) {
     const markup = this._generateMarkup(data);
     document
-      .querySelector('.container__content')
+      .querySelector('.container')
       .insertAdjacentHTML('afterbegin', markup);
   }
 

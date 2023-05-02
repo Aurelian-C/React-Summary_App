@@ -1,9 +1,15 @@
 class TooltipView {
-  _containerTooltip = document.querySelector('.container__tooltip');
+  _containerTooltip = document.querySelector('.tooltip');
 
   start(data) {
     document.body.addEventListener('click', e => {
       const cardArticle = e.target.closest('.card__article');
+      const closeButton = e.target.closest('.fa-xmark');
+
+      if (closeButton) {
+        this._containerTooltip.classList.remove('show');
+      }
+
       if (!cardArticle) return;
 
       const element =
@@ -20,9 +26,12 @@ class TooltipView {
         .join('');
 
       this._containerTooltip.innerHTML =
+        '<i class="fa-solid fa-xmark"></i>' +
         `<h2>${obj.sectionTitle}</h2>` +
         markup +
         `<a href=${obj.sectionSource} class="paragraph__article-anchor" target="_blank" data-title=${obj.sectionTitle}>Read more about this article!</a>`;
+
+      this._containerTooltip.classList.add('show');
     });
   }
 }

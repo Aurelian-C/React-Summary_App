@@ -45,29 +45,8 @@ body {
 
 .container {
   display: flex;
-  height: 100vh;
-}
-
-.container__content {
-  flex: 0 1 var(--container-side-1);
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  overflow-y: scroll;
-}
-
-.container__tooltip {
-  flex: 0 1 var(--container-side-2);
-  color: #fff;
-  padding: 10px;
-  font-size: 1.3rem;
-  font-style: normal;
-  overflow-y: scroll;
-}
-
-.container__tooltip h2 {
-  text-align: center;
-  margin-bottom: 2rem;
 }
 
 .card {
@@ -246,29 +225,35 @@ code {
 
 /* Tooltip container */
 .tooltip {
-  visibility: hidden;
-  min-width: 50vw;
-  height: fit-content;
+  max-width: 70vw;
+  height: 100vh;
   background-color: rgb(43, 43, 43);
   color: #fff;
   border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
   padding: 10px;
-  column-count: auto;
-  column-width: 25rem;
-
   font-size: 1.3rem;
   font-style: normal;
-  opacity: 0;
+  overflow-y: scroll;
+  /* column-count: auto;
+  column-width: 25rem; */
 
-  /* Position the tooltip text */
-  position: absolute;
-  top: 110%;
+  position: fixed;
+  top: 0;
   left: 0;
-  z-index: 1;
-  bottom: 0;
+  z-index: 9999;
+  transform: translateX(-100%);
 
-  transition: opacity 0.3s;
+  transition: transform 0.3s ease-in-out;
+}
+
+.show {
+  transform: translateX(0%);
+}
+
+.tooltip h2 {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .card__title .tooltip {
@@ -307,20 +292,6 @@ ul {
   list-style: none;
 }
 
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover {
-  visibility: visible;
-  opacity: 1;
-}
-
-.card__title:hover .tooltip,
-.card__article-title:hover + .tooltip,
-.card__article-anchor:hover + .tooltip {
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.5s;
-}
-
 /* Tooltip box style marked word */
 i,
 i code {
@@ -342,4 +313,20 @@ b code {
 .many__words--4500 {
   column-count: auto;
   min-width: 70vw;
+}
+
+.container2 {
+  position: relative;
+}
+
+.fa-xmark {
+  cursor: pointer;
+  margin: 0 0 1rem auto;
+  font-size: 3rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .tooltip {
+    max-width: 100%;
+  }
 }
