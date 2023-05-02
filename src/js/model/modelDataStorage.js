@@ -771,7 +771,7 @@ const Adding_interactivity_to_a_component = {
         `<h3>Treat state as read-only</h3>
         <p>State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>.</p>
         <p>You should <i>treat object in React as if they were immutable (unchangeable or "read-only")</i>, so treat any JavaScript object that you put into state as read-only.</p>
-        <p><i>When you <u>store objects in state</u>, mutating them will not trigger renders and will change the state in previous render "snapshots"</i>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
+        <p><i>When you <u>store objects in state</u>, <u>mutating them will not trigger renders</u> and <u>will change the state in previous render "snapshots"</u></i>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
         <p><i>In React, you treat all state as immutable!</i></p>
         `,
         `<h3>Local mutation is fine</h3>
