@@ -1688,11 +1688,11 @@ const React_Router = {
       sectionSource:
         '/src/markdowns/12_React_Router/Routing_multiple_pages_in_single-page_applications.html',
       tooltips: [
-        'In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page.',
-        `React Router enables <b>"client side routing"</b>. Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
-        <br>This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.`,
-        'What Routing is all about: <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.',
-        'Client side routing is enabled by creating a Router and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.',
+        '<p>In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page.</p>',
+        `<p>React Router enables <b>"client side routing"</b>. Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
+        <p>This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.</p>`,
+        '<p>What Routing is all about: <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>',
+        '<p>Client side routing is enabled by creating a Router and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.</p>',
       ],
     },
     {
@@ -1714,10 +1714,11 @@ const React_Router = {
         ],
       },
       tooltips: [
-        `There are <b>two ways of defining routes</b>:
-        <br>1. Using <i><code>createBrowserRouter()</code></i> and pass as an argument an array with single/multiple JavaScript objects, and that objects will describing the route/s characteristics;
-        <br>2. In older versions of <code>react-router-dom</code> you are defining routes with <i><code>createRoutesFromElements()</code></i> function and <i><code><<span>Route</span>></code></i> component.`,
-        'You can use a router in your JSX markup by importing the <i><code>RouterProvider</code> component</i> from the <code>react-router-dom</code> package.',
+        `<ul>There are <b>two ways of defining routes</b>:
+        <li>1. Using <i><code>createBrowserRouter()</code></i> and pass as an argument an array with single/multiple JavaScript objects, and that objects will describing the route/s characteristics;</li>
+        <li>2. In older versions of <code>react-router-dom</code> you are defining routes with <i><code>createRoutesFromElements()</code></i> function and <i><code><<span>Route</span>></code></i> component.</li>
+        </ul>`,
+        '<p>You can use a router in your JSX markup by importing the <i><code>RouterProvider</code> component</i> from the <code>react-router-dom</code> package.</p>',
       ],
     },
     {
@@ -1730,17 +1731,18 @@ const React_Router = {
         highlight2: ['<code><<span>Link</span>></code>'],
       },
       tooltips: [
-        `When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
-        <br>- <b><code><<span>Link</span>></code></b> component
-        <br>- <b><code>useNavigate</code></b> hook`,
-        'A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.',
-        `In <code>react-router-dom</code>, a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to. Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.`,
-        `<b>Absolute & relative links path</b>
-        <br>If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths. <i>A link that have an absolute path it's added directly after the domain name</i>, not after the currently active path (the route path they are rendered in). <i>Relative links are always relative to the route path they are <u>rendered in</u></i>, not to the full URL.`,
-        `<b>The <code>relative</code> prop</b>
-        <br>When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values: <code>path</code> or <code>route</code>. <i>With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <u>the route path they are rendered in</u> or to the <u>currently active path in the browser URL</u></i>.`,
-        `<b>The <code>..</code> relative path</b>
-        <br>If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router. By default, the <code>..</code> in relative links <u>traverse the route hierarchy</u>, not the URL segments. Adding <code>relative="path"</code> allows you to <u>traverse the path segments</u> instead</i>.`,
+        `<ul>When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
+        <li>- <b><code><<span>Link</span>></code></b> component</li>
+        <li>- <b><code>useNavigate</code></b> hook</li>
+        </ul>`,
+        '<p>A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.</p>',
+        `<p>In <code>react-router-dom</code>, a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to. Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.</p>`,
+        `<h3>Absolute & relative links path</h3>
+        <p>If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths. <i>A link that have an absolute path it's added directly after the domain name</i>, not after the currently active path (the route path they are rendered in). <i>Relative links are always relative to the route path they are <u>rendered in</u></i>, not to the full URL.</p>`,
+        `<h3>The <code>relative</code> prop</h3>
+        <p>When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values: <code>path</code> or <code>route</code>. <i>With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <u>the route path they are rendered in</u> or to the <u>currently active path in the browser URL</u></i>.</p>`,
+        `<h3>The <code>..</code> relative path</h3>
+        <p>If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router. By default, the <code>..</code> in relative links <u>traverse the route hierarchy</u>, not the URL segments. Adding <code>relative="path"</code> allows you to <u>traverse the path segments</u> instead</i>.</p>`,
       ],
     },
     {
