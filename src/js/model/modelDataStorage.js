@@ -862,10 +862,11 @@ const Managing_state = {
         <p><i>React uses a declarative way to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you <i>describe the different states that your component can be in</i>, and <i>switch between them</i> in response to user actions (user events) or computer actions (http events).</p>
         <p>With React, you won't modify the UI from code directly. With React you will <i>describe the UI you want to see for the <u>different visual states</u> of your component</i>, and then trigger the state changes in response to user input.</p>
         `,
-        `<h3>How imperative UI compares to declarative UI </h3>
+        `<h3>How So you need to calculate both CSS classes based on the current state. UI compares to declarative UI </h3>
         <p>With just Vanilla JavaScript you have to write the exact instructions to manipulate the UI depending on what just happened. <i>It's called imperative because you have to "command" each element, telling the computer <u>how</u> to update the UI</i>.</p>
         <p>In React, you don't directly manipulate the UI. Instead, you declare what you want to show, and React figures out how to update the UI. When you design UI interactions, you probably think about <i>how the UI changes in response to user actions</i>.</p>
         <p>Declarative programming means <i>describing the UI for each <u>visual state</u></i> rather than micromanaging the UI (imperative).</p>
+        <p>In React you need to describe what you want to see rather than manipulate the UI elements. For example, if you want to add or remove a class from a DOM element, you need to calculate the CSS class based on a state variable, rather than select that DOM element and change it's class directly like you use to do imperatively with Vanilla Javascript.</p>
         `,
         `<h3>Thinking about UI declaratively</h3>
         <p>In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.</p>

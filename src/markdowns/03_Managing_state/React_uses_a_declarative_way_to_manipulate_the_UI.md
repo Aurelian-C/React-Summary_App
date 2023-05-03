@@ -113,7 +113,7 @@ React was built to solve this problem.
 
 ## Thinking about UI declaratively: how to think about _UI changes_ as _state changes_
 
-You’ve seen how to implement a form imperatively above. To better understand how to think in React, you’ll walk through reimplementing this UI in React. There are some steps you need to folow when you build an app in React:
+You’ve seen how to implement a form imperatively above. To better understand how to think in React, you’ll walk through reimplementing this UI in React. There are some steps you need to follow when you build an app in React:
 
 1. ==Identify your component’s **different visual states**==
 2. ==Determine what triggers those **state changes**==
@@ -123,7 +123,9 @@ You’ve seen how to implement a form imperatively above. To better understand h
 
 ### Step 1: Identify your component’s **different visual states**
 
-If you work with a designer, you may have seen mockups for different “visual states”. ==First, you need to visualize all the **different “states” of the UI** the user might see==. In our example they can be:
+In computer science, you may hear about a “state machine” being in one of several “states”. If you work with a designer, you may have seen mockups for different “visual states”. React stands at the intersection of design and computer science, so both of these ideas are sources of inspiration.
+
+==First, you need to visualize all the **different “states” of the UI** the user might see==. In our example they can be:
 
 - _Empty_: Form has a disabled “Submit” button.
 - _Typing_: Form has an enabled “Submit” button.
@@ -131,9 +133,15 @@ If you work with a designer, you may have seen mockups for different “visual s
 - _Success_: “Thank you” message is shown instead of a form.
 - _Error_: Same as Typing state, but with an extra error message.
 
+For example, here is a mock for just the visual part of the form. This mock is controlled by a prop called `status` with a default value of `'empty'` (you could call that prop anything you like, the naming is not important):
+
+![React_code_is_written_in_a_declarative_way3](../../img/React_code_is_written_in_a_declarative_way3.jpg)
+
 ==Just like a designer, you’ll want to “mock up” or create “mocks” for the different states _before_ you add logic. Mocking lets you quickly iterate on the UI _before_ you wire up any logic==.
 
-> **Note**: If a component has a lot of visual states, it can be convenient to show them all on one page.
+> **Note**: If a component has a lot of visual states, it can be convenient to show them all on one page:
+>
+> ![React_code_is_written_in_a_declarative_way4](../../img/React_code_is_written_in_a_declarative_way4.jpg)
 
 ### Step 2: Determine what triggers those **state changes**
 
