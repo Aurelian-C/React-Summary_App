@@ -2,6 +2,13 @@
 
 JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. ==Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside the JSX markup. In this situation, you can use  <code>{}</code> in your JSX markup to open a window to JavaScript==.
 
+You will learn:
+
+- How to pass strings with quotes
+- How to reference a JavaScript variable inside JSX with curly braces
+- How to call a JavaScript function inside JSX with curly braces
+- How to use a JavaScript object inside JSX with curly braces
+
 ## JavaScript in JSX with Curly Braces
 
 JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user or to write some expressions. For example, this will display `user.name`:
@@ -15,6 +22,11 @@ return <h1>{user.name}</h1>
  ==JSX is a special way of writing JavaScript. That means it’s possible to use JavaScript inside it — with curly braces `{}`==.
 
 ## Using curly braces: a window into the JavaScript world
+
+==You can only use curly braces in **two ways** inside JSX:==
+
+1. ==**As text** directly inside a JSX tag:== `<h1>{name}'s To Do List</h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List</{tag}>` will not.
+2. ==**As attributes** immediately following the `=` sign:== `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string `"{avatar}"`.
 
 ### JSX curly braces & JSX attributes
 
@@ -60,8 +72,8 @@ You can move several expressions into one object, and reference them in your JSX
 
 You can only use curly braces in two ways inside JSX:
 
-- ==as text directly inside a JSX tag==: `<<span>h1>{name}'s To Do List<</span>/h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}>` will not.
-- ==as attributes immediately following the `=` sign==: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string "{avatar}".
+- ==**as text** directly inside a JSX tag==: `<<span>h1>{name}'s To Do List<</span>/h1>` works, but `<{tag}>Gregorio Y. Zara's To Do List<span><</span>/{tag}>` will not.
+- ==**as attributes** immediately following the `=` sign==: `src={avatar}` will read the `avatar` variable, but `src="{avatar}"` will pass the string "{avatar}".
 
 Now you know almost everything about JSX:
 

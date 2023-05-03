@@ -10,6 +10,14 @@ function Avatar() {
 }
 ```
 
+You will learn:
+
+- How to pass props to a component
+- How to read props from a component
+- How to specify default values for props
+- How to pass some JSX to a component
+- How props change over time
+
 ## Passing props to a child component
 
 ![Passing_data_via_props](../../img/Passing_data_via_props.jpg)
