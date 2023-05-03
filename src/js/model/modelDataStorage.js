@@ -593,6 +593,7 @@ const Adding_interactivity_to_a_component = {
         <p>Event handlers will also catch events from any children your component might have. We say that an event <i>"bubbles" or "propagates" up the tree: it starts with where the event happened, and then goes up the tree</i> (events propagate upwards).</p>
         <p>All events propagate in React except <code>onScroll</code>, which only works on the JSX tag you attach it to.</p>
         <p>Event handlers receive an <i>event object</i> as their only argument. By convention, it's usually called <code>e</code>, which stands for "event". <i>You can use this object to read information about the event</i>. That event object also lets you stop the propagation. If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</p>
+        <p>For example, if you have register two click events, one on a child DOM element and another one on it's parent, <code>e.stopPropagation()</code> stop the propagation so that <u>clicking the child DOM element doesn't register as a click on the parent</u>.</p>
         <p>Events may have <i>unwanted default browser behavior</i>. Call <code>e.preventDefault()</code> to prevent that.</p>
         `,
         `<h3>Can event handlers have side effects?</h3>
