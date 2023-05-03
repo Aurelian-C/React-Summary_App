@@ -1,6 +1,11 @@
 # Keeping components pure
 
-Some JavaScript functions are *pure.* ==Pure functions only perform a calculation and nothing more==. By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. To get these benefits, though, there are a few rules you must follow.
+Some JavaScript functions are *pure.* A pure function:
+
+- **Minds its own business.** It does not change any objects or variables that existed before it was called.
+- **Same inputs, same output.** Given the same inputs, a pure function should always return the same result.
+
+==Pure functions only perform a calculation and nothing more==. By strictly only writing your components as pure functions, you can avoid an entire class of baffling bugs and unpredictable behavior as your codebase grows. To get these benefits, though, there are a few rules you must follow.
 
 You will learn:
 

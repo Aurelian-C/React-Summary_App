@@ -2,6 +2,10 @@
 
 ==Some components need to synchronize with external systems==. For example, you might want to control a non-React component based on the React state, set up a server connection, or send an analytics log when a component appears on the screen. ==Effects let you run some code **after rendering** so that you can synchronize your component with some system outside of React==.
 
+Many Effects also “clean up” after themselves. For example, an Effect that sets up a connection to a chat server should return a *cleanup function* that tells React how to disconnect your component from that server.
+
+In development, React will immediately run and clean up your Effect one extra time. This ensures that you don’t forget to implement the cleanup function.
+
 You will learn:
 
 - What Effects are

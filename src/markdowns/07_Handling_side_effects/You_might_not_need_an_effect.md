@@ -2,6 +2,11 @@
 
 Effects are an escape hatch from the React paradigm. They let you “step outside” of React and synchronize your components with some external system like a non-React widget, network, or the browser DOM. If there is no external system involved (for example, if you want to update a component’s state when some props or state change), you shouldn’t need an Effect. Removing unnecessary Effects will make your code easier to follow, faster to run, and less error-prone.
 
+There are two common cases in which you don’t need Effects:
+
+- **You don’t need Effects to transform data for rendering.** For example, you don’t need an Effect to adjust some state based on other state. Instead, calculate as much as you can while rendering.
+- **You don’t need Effects to handle user events.**
+
 You will learn:
 
 - Why and how to remove unnecessary Effects from your components

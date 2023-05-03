@@ -1,5 +1,7 @@
 # Preserving and resetting state
 
+When you re-render a component, React needs to decide which parts of the tree to keep (and update), and which parts to discard or re-create from scratch. In most cases, React’s automatic behavior works well enough. By default, React preserves the parts of the tree that “match up” with the previously rendered component tree. However, sometimes this is not what you want.
+
 ==State is isolated between components. React keeps track of which state belongs to which component based on their place in the UI tree==. You can control when to preserve state and when to reset it between re-renders.
 
 You will learn:

@@ -1,6 +1,8 @@
 # Removing Effect Dependencies
 
-==When you write an Effect, the linter will verify that you’ve included every reactive value (like props and state) that the Effect reads in the list of your Effect’s dependencies. This ensures that your Effect remains synchronized with the latest props and state of your component. _Unnecessary dependencies may cause your Effect to run too often_, or even create an infinite loop==.
+==When you write an Effect, the linter will verify that you’ve included every reactive value (like props and state) that the Effect reads in the list of your Effect’s dependencies. This ensures that your Effect remains synchronized with the latest props and state of your component. _Unnecessary dependencies may cause your Effect to run too often_, or even create an infinite loop==. The way you remove them depends on the case.
+
+Think of the dependency list as a list of all the reactive values used by your Effect’s code. You don’t intentionally choose what to put on that list. The list describes your code. To change the dependency list, change the code.
 
 You will learn:
 

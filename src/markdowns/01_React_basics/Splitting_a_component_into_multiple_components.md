@@ -4,7 +4,7 @@ As you work on your React app and React components, you will notice in any proje
 
 This concept of components that React have allows you to ==split your application into smaller building blocks==, where every building block/component is focused on ==one core task==, you could say, and then you build your overall UI by ==combining these building blocks/components==. By doing that, you ==keep every component on its own relatively _small_ and _manageable_==, you keep its code base small and manageable, and you still can build a complex UI.
 
-Now, there is no rule when to build a new component, whereas as adding more to an existing component.
+You can declare many components in one file, but large files can get difficult to navigate. To solve this, you can *export* a component into its own file, and then *import* that component from another file. Now, there is no rule when to build a new component, whereas as adding more to an existing component.
 
 ## Importing and exporting components
 

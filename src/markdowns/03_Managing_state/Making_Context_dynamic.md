@@ -2,6 +2,8 @@
 
 Reducers let you consolidate a component’s state update logic. Context lets you pass information deep down to other components. You can combine reducers and context together to manage state of a complex screen.
 
+With this approach, a parent component with complex state manages it with a reducer. Other components anywhere deep in the tree can read its state via context. They can also dispatch actions to update that state.
+
 ## Combining a reducer with context 
 
 Let say that you have an app with a top-level component that have inside some state and that state is managed by a reducer. The reducer function inside of it contains all of the state update logic. ==A reducer helps keep the event handlers short and concise==. However, as your app grows, you might run into another difficulty.

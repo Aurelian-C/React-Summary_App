@@ -1,5 +1,7 @@
 # Choosing the state structure
 
+Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. The most important principle is that state shouldn’t contain redundant or duplicated information. If there’s unnecessary state, it’s easy to forget to update it, and introduce bugs!
+
 You will learn:
 
 - When to use a single vs multiple state variables

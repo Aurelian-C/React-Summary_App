@@ -1,6 +1,8 @@
 # Queueing a series of state updates: state scheduling & batching
 
-==Setting a state variable will queue another render. But sometimes you might want to **perform multiple operations on the value _before queueing the next render_**==. To do this, it helps to understand how React batches state updates. State updates are _scheduled_ by React, they are _not processed immediately_. 
+==Setting a state variable will requests a new re-render, but does not change it in the already running code. But sometimes you might want to **perform multiple operations on the value _before request the next render_**==. To do this, it helps to understand how React batches state updates. State updates are _scheduled_ by React, they are _not processed immediately_.
+
+You can do this by passing an *updater function* when setting state. This lets you queue multiple state updates.
 
 You will learn:
 

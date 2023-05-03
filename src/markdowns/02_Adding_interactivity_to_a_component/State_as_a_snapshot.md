@@ -1,6 +1,6 @@
 # State as a snapshot
 
-==State variables might look like regular JavaScript variables that you can read and write to. However, _state behaves more like a snapshot_. **Setting it does not change the state variable you already have, but instead triggers a re-render**==.
+==State variables might look like regular JavaScript variables that you can read and write to. However, _state behaves more like a snapshot_. **Setting it does not change the state variable you already have, but instead triggers a re-render**==. This can be surprising at first! This behavior help you avoid subtle bugs.
 
 You will learn:
 

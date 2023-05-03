@@ -8,7 +8,7 @@ The web has been built on HTML, CSS, and JavaScript. ==For many years, web devel
 
 ==**Each React component is a JavaScript function** that may contain some markup that React renders into the browser. React components use a _syntax extension_ called JSX to represent that markup==. JSX looks a lot like HTML, but it is a bit stricter, has a few more rules than HTML and can display dynamic information. JSX lets you put markup into JavaScript.
 
-If you have some (perfectly valid) HTML and you want to put it into your component by copy and paste it as is, it will not work. This is because JSX is stricter and has a few more rules than HTML!
+If you have some (perfectly valid) HTML markup and you want to put it into your component by copy and paste it as is, it won’t always work. This is because JSX is stricter and has a few more rules than HTML!
 
 ![Writing_markup_with_JSX](../../img/Writing_markup_with_JSX.jpg)
 

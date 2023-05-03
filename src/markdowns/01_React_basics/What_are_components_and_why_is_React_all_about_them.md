@@ -8,7 +8,7 @@ If you use React you ==won't have to focus on all the nitty-gritty details== and
 
 ## What is a component?
 
-React apps are made out of components. ==A component is a piece of the UI that has its own logic and appearance==. A component can be as small as a button, or as large as an entire page.
+React applications are built from isolated pieces of UI called *components*. ==A React component is a JavaScript function that you can sprinkle with markup.== ==In other words, a React component is a piece of the UI that has its own logic and appearance==. Components can be as small as a button, or as large as an entire page.
 
 Conceptually, ==components are just JavaScript functions== that accept arbitrary inputs (called **props**) and return **JSX markup ** describing what should appear on the screen. A component in React is just a JavaScript function, a special kind of function, special regarding what it returns (_it does return JSX markup_), but other than that it's just a JavaScript function.
 

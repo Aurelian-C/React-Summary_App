@@ -2,6 +2,8 @@
 
 State can hold any kind of JavaScript value, including objects. But ==you shouldn’t change objects that you hold in the React state directly. Instead, when you want to update an object, you need to create a new one (or make a copy of an existing one), and then set the state to use that copy==.
 
+Usually, you will use the `...` spread syntax to copy objects and arrays that you want to change. If copying objects in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code.
+
 You will learn:
 
 - How to correctly update an object in React state

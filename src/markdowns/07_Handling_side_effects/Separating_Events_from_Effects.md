@@ -2,6 +2,8 @@
 
 ==Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render==. Sometimes, you also want a mix of both behaviors: an Effect that re-runs in response to some values but not others.
 
+All code inside Effects is *reactive.* It will run again if some reactive value it reads has changed due to a re-render.
+
 You will learn:
 
 - How to choose between an event handler and an Effect

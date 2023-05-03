@@ -1,6 +1,6 @@
 # Updating arrays in state
 
-==Arrays are mutable in JavaScript, but you should **treat arrays as immutable when you store them in state**. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array==.
+==Arrays are mutable in JavaScript, but you should **treat arrays as immutable when you store them in state**. Just like with objects, when you want to update an array stored in state, you need to create a new one (or make a copy of an existing one), and then set state to use the new array==. If copying arrays in code gets tedious, you can use a library like [Immer](https://github.com/immerjs/use-immer) to reduce repetitive code.
 
 You will learn:
 
