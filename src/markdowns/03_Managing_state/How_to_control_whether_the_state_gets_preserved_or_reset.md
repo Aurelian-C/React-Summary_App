@@ -1,8 +1,8 @@
 # Preserving and resetting state
 
-When you re-render a component, React needs to decide which parts of the tree to keep (and update), and which parts to discard or re-create from scratch. In most cases, React’s automatic behavior works well enough. By default, React preserves the parts of the tree that “match up” with the previously rendered component tree. However, sometimes this is not what you want.
+When you re-render a component, React needs to decide which parts of the tree to keep (and update), and which parts to discard or re-create from scratch. In most cases, React’s automatic behavior works well enough. ==By default, React preserves the parts of the tree that “match up” with the previously rendered component tree==. However, sometimes this is not what you want.
 
-==State is isolated between components. React keeps track of which state belongs to which component based on their place in the UI tree==. You can control when to preserve state and when to reset it between re-renders.
+==State is isolated between components. React keeps track of which state belongs to which component **based on their place in the UI tree**==. You can control when to **preserve state** and when to **reset it** between re-renders.
 
 You will learn:
 
@@ -21,7 +21,7 @@ Browsers use many tree structures to model UI. The [DOM](https://developer.mozil
 
 ## State is tied to a position in the tree
 
-==When you give a component state, you might think the state "lives" inside the component. But the state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the UI tree==.
+==When you give a component state, you might think the state "lives" inside the component. But the state is actually held inside React. **React associates each piece of state it's holding with the correct component by where that component sits in the UI tree**==.
 
 Here, there is only one `<Input />` JSX tag, but it’s rendered at two different positions:
 
@@ -57,15 +57,19 @@ In this example, ticking the checkbox will replace `<Counter>` with a `<p>`:
 
 Here, you switch between *different* component types at the same position. Initially, the first child of the `<div>` contained a `Counter`. But when you swapped in a `p`, React removed the `Counter` from the UI tree and destroyed its state.
 
-==When you render a different component in the same position, it resets the state of its entire subtree==.
+![Preserving_and_resetting_state3A](../../img/Preserving_and_resetting_state3A.jpg)
 
 #### Another example
+
+Also, ==when you render a different component in the same position, it resets the state of its entire subtree==.
 
 ![Preserving_and_resetting_state4](../../img/Preserving_and_resetting_state4.jpg)
 
 Although you render a `Counter`, the first child of the `div` changes from a `div` to a `section`. When the child `div` was removed from the DOM, the whole tree below it (including the `Counter` and its state) was destroyed as well.
 
-As a rule of thumb, ==if you want to preserve the state between re-renders, the structure of your tree needs to “match up” from one render to another. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree==.
+![Preserving_and_resetting_state4A](../../img/Preserving_and_resetting_state4A.jpg)
+
+As a rule of thumb, ==if you want to preserve the state between re-renders, **the structure of your tree needs to “match up” from one render to another**. If the structure is different, the state gets destroyed because React destroys state when it removes a component from the tree==.
 
 ## Resetting state at the same position
 
@@ -79,11 +83,18 @@ Currently, when you change the player, the score is preserved. The two `Counter`
 
 ==There are two ways to reset state when switching between them:==
 
+1. Render components in different positions
+2. Give each component an explicit identity with `key`
+
 ### 1. Render components in different positions
 
 If you want these two `Counter`s to be independent, you can render them in two different positions. This solution is convenient when you only have a few independent components rendered in the same place.
 
 ![Preserving_and_resetting_state6](../../img/Preserving_and_resetting_state6.jpg)
+
+Each `Counter`’s state gets destroyed each time its removed from the DOM. This is why they reset every time you click the button.
+
+![Preserving_and_resetting_state6A](../../img/Preserving_and_resetting_state6A.jpg)
 
 ### 2. Resetting state with a `key`
 

@@ -49,7 +49,7 @@ In practice, “controlled” and “uncontrolled” aren’t strict technical t
 
 ==When writing a component, consider which information in it should be **controlled (via props)**, and which information should be **uncontrolled (via state)**==. But you can always change your mind and refactor later.
 
-![Stateless_vs_stateful_components](D:/Websites/Projects/Cioloca Aurelian__React Resume/src/img/Stateless_vs_stateful_components.jpg)
+![Stateless_vs_stateful_components](../../img/Stateless_vs_stateful_components.jpg)
 
 ## A single source of truth for each state
 

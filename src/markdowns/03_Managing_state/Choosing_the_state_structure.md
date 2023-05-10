@@ -1,6 +1,6 @@
 # Choosing the state structure
 
-Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. The most important principle is that state shouldn’t contain redundant or duplicated information. If there’s unnecessary state, it’s easy to forget to update it, and introduce bugs!
+Structuring state well can make a difference between a component that is pleasant to modify and debug, and one that is a constant source of bugs. The most important principle is that state shouldn’t contain **redundant** _or_ **duplicated** information. If there’s **unnecessary state**, it’s easy to forget to update it, and introduce bugs!
 
 You will learn:
 
@@ -8,9 +8,9 @@ You will learn:
 - What to avoid when organizing state
 - How to fix common issues with the state structure
 
-## Principles for structuring state 
+## Principles for structuring state
 
-==When you write a component that holds some state, you’ll have to make choices about how many state variables to use and what the shape of their data should be==. While it’s possible to write correct programs even with a suboptimal state structure, there are a few principles that can guide you to make better choices:
+==When you write a component that holds some state, you’ll have to make choices about **how many state variables to use** and what the shape of their data should be==. While it’s possible to write correct programs even with a suboptimal state structure, there are a few principles that can guide you to make better choices:
 
 1. ==**Group related state**==. If you always _update two or more state variables at the same time_, consider merging them into a single state variable.
 2. ==**Avoid contradictions in state**==. When the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.
@@ -33,9 +33,9 @@ const [y, setY] = useState(0);
 const [position, setPosition] = useState({ x: 0, y: 0 });
 ```
 
-==If some two state variables **always change together**, it might be a good idea to unify them into a single state variable. Then you won’t forget to always _keep them in sync_==.
+==If some two state variables **always change together**, it might be a good idea to unify them into a single state variable. Then you won’t forget to always **keep them in sync**==.
 
-Another case where you’ll group data into an object or an array is when _you don’t know how many different pieces of state you’ll need_. For example, it’s helpful when you have a form where the user can add custom fields.
+==Another case where you’ll group data into an object or an array is when **you don’t know how many different pieces of state you’ll need**.== For example, it’s helpful when you have a form where the user can add custom fields.
 
 > **Note**: If your state variable is an object, remember that [you can’t update only one field in it](https://react.dev/learn/updating-objects-in-state) without explicitly copying the other fields. For example, you can’t do `setPosition({ x: 100 })` in the above example because it would not have the `y` property at all! Instead, if you wanted to set `x` alone, you would either do `setPosition({ ...position, x: 100 })`, or split them into two state variables and do `setX(100)`.
 
@@ -98,6 +98,8 @@ function Message({ initialColor }) {
 ## Avoid duplication in state
 
 This menu list component lets you choose a single travel snack out of several. Currently, it stores the selected item as an object in the `selectedItem` state variable. However, this is not great: **the contents of the `selectedItem` is the same object as one of the items inside the `items` list.** This means that the information about the item itself is duplicated in two places.
+
+Why is this a problem? You can edit each item by pressing the 'Choose' button. Notice how if you first click “Choose” on an item and *then* edit it, **the input updates but the label at the bottom does not reflect the edits.** This is because you have duplicated state, and you forgot to update `selectedItem`. Although you could update `selectedItem` too, an easier fix is to remove duplication.
 
 ![Choosing_state_structure2](../../img/Choosing_state_structure2.jpg)
 

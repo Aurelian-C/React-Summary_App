@@ -18,12 +18,12 @@ You will learn:
 
 Before getting to Effects, you need to be familiar with ==two types of logic inside React components==:
 
-- ==**Rendering code**== lives at the top level of your component. This is where you take the props and state, transform them, and return the JSX you want to see on the screen. [Rendering code must be pure.](https://beta.reactjs.org/learn/keeping-components-pure) Like a math formula, it should only *calculate* the result, but not do anything else.
-- ==**Event handlers**== are nested functions inside your components that *do* things rather than just calculate them. An event handler might update an input field, submit an HTTP POST request to buy a product, or navigate the user to another screen. ==Event handlers contain ["side effects"](https://en.wikipedia.org/wiki/Side_effect_(computer_science)) (they change the program's state) and are caused by a specific user action== (for example, a button click or typing).
+- ==**Rendering code**== lives at the top level of your component. This is where you take the props and state, transform them, and return the JSX you want to see on the screen. **Rendering code must be pure**. Like a math formula, it should only *calculate* the result, but not do anything else.
+- ==**Event handlers**== are nested functions inside your components that **_do_ things rather than just calculate them**. An event handler might update an input field, submit an HTTP POST request to buy a product, or navigate the user to another screen. **Event handlers contain "side effects"** (they change the program's state) and are **caused by a specific user action** (for example, a button click or typing).
 
 Sometimes this isn't enough. Consider a `ChatRoom` component that must connect to the chat server _whenever it’s visible on the screen_. Connecting to a server is not a pure calculation (it’s a side effect) so _it can’t happen during rendering_. However, there is no single particular event like a click that causes `ChatRoom` to be displayed.
 
-==Effects let you specify **side effects that are caused by rendering itself, rather than by a particular event**==. Sending a message in the chat is an *event* because it is directly caused by the user clicking a specific button. However, setting up a server connection is an *Effect* because it needs to happen regardless of which interaction caused the component to appear. ==**Effects run at the end of a [commit](https://react.dev/learn/render-and-commit) _after_ the screen updates**==. This is a good time to synchronize the React components with some external system (like network or a third-party library).
+==Effects let you specify **side effects that are caused by rendering itself, rather than by a particular event**==. Sending a message in the chat is an *event* because it is directly caused by the user clicking a specific button. However, setting up a server connection is an *Effect* because it should happen no matter which interaction caused the component to appear. ==**Effects run at the end of a [commit](https://react.dev/learn/render-and-commit) _after_ the screen updates**==. This is a good time to synchronize the React components with some external system (like network or a third-party library).
 
 > **Note**: Here and later in this text, capitalized “Effect” refers to the React-specific definition above, i.e. _a side effect caused by rendering_. To refer to the broader programming concept, we’ll say “side effect”.
 
@@ -70,7 +70,7 @@ We’ll need to first [get a ref](https://beta.reactjs.org/learn/manipulating-th
 
 ![Synchronizing_with_effects1](../../img/Synchronizing_with_effects1.jpg)
 
-==The reason this code isn’t correct is that it **tries to do something with the DOM node during rendering. In React, [rendering should be a pure calculation](https://beta.reactjs.org/learn/keeping-components-pure) of JSX and should not contain side effects like modifying the DOM**==. Moreover, when `VideoPlayer` is called for the first time, its DOM does not exist yet! There isn’t a DOM node yet to call `play()` or `pause()` on, because React doesn’t know what DOM to create until after you return the JSX.
+==The reason this code isn’t correct is that it **tries to do something with the DOM node during rendering. In React, rendering should be a pure calculation of JSX and should not contain side effects like modifying the DOM**==. Moreover, when `VideoPlayer` is called for the first time, its DOM does not exist yet! There isn’t a DOM node yet to call `play()` or `pause()` on, because React doesn’t know what DOM to create until after you return the JSX.
 
 The solution here is to **wrap the side effect with `useEffect` to move it out of the rendering calculation:**
 
@@ -89,7 +89,7 @@ In this example above, the “external system” you synchronized to React state
 >});
 >```
 >
->Effects run as a *result* of rendering. Setting state *triggers* rendering. Setting state immediately in an Effect is like plugging a power outlet into itself. The Effect runs, it sets the state, which causes a re-render, which causes the Effect to run, it sets the state again, this causes another re-render, and so on.
+>==**Effects run as a _result_ of rendering**. Setting state *triggers* rendering.== Setting state immediately in an Effect is like plugging a power outlet into itself. The Effect runs, it sets the state, which causes a re-render, which causes the Effect to run, it sets the state again, this causes another re-render, and so on.
 >
 >==Effects should usually synchronize your components with an *external* system. If there’s no external system and you only want to adjust some state based on other state, [you might not need an Effect](https://beta.reactjs.org/learn/you-might-not-need-an-effect)==.
 
@@ -112,7 +112,7 @@ useEffect(() => {
 
 Specifying `[isPlaying]` as the dependency array tells React that it ==should skip re-running your Effect **if `isPlaying` is the same as it was during the previous render**==.
 
-> **Note**: ==The dependency array can contain multiple dependencies. React will only skip re-running the Effect **if _all_** of the dependencies you specify have exactly the same values as they had during the previous render==. React compares the dependency values using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison.
+> **Note**: ==The dependency array can contain multiple dependencies. **React will only skip re-running the Effect _if all_ of the dependencies you specify have exactly the same values as they had during the previous render**==. React compares the dependency values using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison.
 
 Notice that ==**you can’t "choose" your dependencies**. You will get a lint error _if the dependencies you specified don’t match what React expects based on the code inside your Effect_. This helps catch many bugs in your code. If your Effect uses some value but you _don’t_ want to re-run the Effect when it changes, you’ll need to [*edit the Effect code itself* to not “need” that dependency](https://beta.reactjs.org/learn/lifecycle-of-reactive-effects#what-to-do-when-you-dont-want-to-re-synchronize)==. If the linter lets you omit a dependency without errors, that means it is safe to do.
 
@@ -120,7 +120,7 @@ Notice that ==**you can’t "choose" your dependencies**. You will get a lint er
 
 ![Synchronizing_with_effects4](../../img/Synchronizing_with_effects4.jpg)
 
-This is because the `ref` object has a ==**stable identity**==: React guarantees [you’ll always get the same object](https://beta.reactjs.org/reference/react/useRef#returns) from the same `useRef` call on every render. It never changes, so it will never by itself cause the Effect to re-run. Therefore, it does not matter whether you include it or not. Including it is fine too.
+This is because the `ref` object has a ==**stable identity**==: React guarantees you’ll always get the same object from the same `useRef` call on every render. It never changes, so it will never by itself cause the Effect to re-run. Therefore, it does not matter whether you include it or not. Including it is fine too.
 
 Omitting always-stable dependencies only works when the linter can “see” that the object is stable. For example, if `ref` was passed from a parent component, you would have to specify it in the dependency array. However, this is good because you can’t know whether the parent component always passes the same ref, or passes one of several refs conditionally. So your Effect *would* depend on which ref is passed.
 

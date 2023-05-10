@@ -1,6 +1,8 @@
 # Extracting state logic into a Reducer
 
-==Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can _consolidate all the state update logic outside your component in a single function_, called a **reducer**.== Your event handlers become concise because they only specify the user “actions”. At the bottom of the file, the reducer function specifies how the state should update in response to each action!
+==Components with **many state updates spread across many event handlers** can get overwhelming. For these cases, you can **consolidate all the state update logic outside your component in a single function**, called a **reducer**.==
+
+Your event handlers become concise because they only specify the user “actions”. At the bottom of the file, the reducer function specifies **how the state should update in response to each action**!
 
 You will learn:
 
@@ -17,7 +19,7 @@ As your components grow in complexity, it can get harder to see at a glance all 
 
 ==Each of its event handlers calls `setTasks` in order to update the state==. As this component grows, so does the amount of state logic sprinkled throughout it. To reduce this complexity and ==**keep all your logic in one easy-to-access place**, you can _move that state logic into a single function **outside** your component_, called a "reducer"==.
 
-==Reducers are a different way to handle state. You can migrate from `useState` to `useReducer` in three steps:==
+==**Reducers are a different way to handle state**. You can migrate from `useState` to `useReducer` in three steps:==
 
 1. ==Move from **setting state** to **dispatching actions**.==
 2. ==Write a **reducer function**.==
@@ -39,17 +41,19 @@ Your event handlers currently specify *what to do* by setting state: Remove all 
 
 ![Extracting_state_logic_into_a_reducer2](../../img/Extracting_state_logic_into_a_reducer2.jpg)
 
-==It is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about *what happened*.==
+==It is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about *what happened*== (you will add the `dispatch` function itself in a later step).
 
 > **Note**: An action object can have any shape. By convention, it is common to give it a string `type` that describes what happened, and pass any additional information in other fields. The `type` is specific to a component, so in this example either `'added'` or `'added_task'` would be fine. Choose a name that says what happened!
 >
 > ```react
 > dispatch({
->   // specific to component
->   type: 'what_happened',
->   // other fields go here
+>  // specific to component
+>  type: 'what_happened',
+>  // other fields go here
 > });
 > ```
+>
+> Keep in mind that action types should ideally describe “what the user did” rather than “how you want the state to change”. This makes it easier to later add more features.
 
 ## Step 2: Write a reducer function 
 
@@ -121,13 +125,15 @@ If you want, ==you can even move the reducer to a different file==:
 
 ![Extracting_state_logic_into_a_reducer6](../../img/Extracting_state_logic_into_a_reducer6.jpg)
 
-==Component logic can be easier to read when you separate concerns like this. Now the event handlers only specify *what happened* by dispatching actions, and the reducer function determines *how the state updates* in response to them==.
+==Component logic can be easier to read when you separate concerns like this. Now the **event handlers only specify *what happened* by dispatching actions, and the reducer function determines *how the state updates* in response to them**==.
 
-## Writing reducers well 
+## Writing reducers well
 
 Keep these two tips in mind when writing reducers:
 
-- ==Reducers must be pure==. Similar to [state updater functions](https://react.dev/learn/queueing-a-series-of-state-updates), reducers run during rendering! (Actions are queued until the next render.) This means that reducers [must be pure](https://react.dev/learn/keeping-components-pure) — same inputs always result in the same output. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should update [objects](https://react.dev/learn/updating-objects-in-state) and [arrays](https://react.dev/learn/updating-arrays-in-state) without mutations.
+- ==Reducers must be pure==. Similar to [state updater functions](https://react.dev/learn/queueing-a-series-of-state-updates), reducers run during rendering! (Actions are queued until the next render.) This means that reducers [must be pure](https://react.dev/learn/keeping-components-pure) — same inputs always result in the same output. They should not send requests, schedule timeouts, show alerts or perform any side effects (operations that impact things outside the component). They should update [objects](https://react.dev/learn/updating-objects-in-state) and [arrays](https://react.dev/learn/updating-arrays-in-state) without mutations. 
+
+  Reducers should only calculate the next state. It should not “do” anything, including displaying alert messages to the user. Side effects should only happen in an event handler. To help catch mistakes like this, React will call your reducers multiple times in Strict Mode. This is why, if you put an alert in a reducer, it fires twice.
 - ==Each action describes a single user interaction, even if that leads to multiple changes in the data==. For example, if a user presses “Reset” on a form with five fields managed by a reducer, it makes more sense to dispatch one `reset_form` action rather than five separate `set_field` actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!
 
 ## Summary
