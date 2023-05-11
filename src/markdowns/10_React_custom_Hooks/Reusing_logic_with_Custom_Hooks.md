@@ -1,8 +1,8 @@
-# What are "Custom Hooks"?
+# Reusing Logic with Custom Hooks
 
 React comes with several built-in Hooks like `useState`, `useContext`, and `useEffect`. Sometimes, you’ll wish that there was a Hook for some more specific purpose: for example, to fetch data, to keep track of whether the user is online, or to connect to a chat room. You might not find these Hooks in React, but you can create your own Hooks for your application’s needs.
 
-You can create custom Hooks, compose them together, pass data between them, and reuse them between components. As your app grows, you will write fewer Effects by hand because you’ll be able to reuse custom Hooks you already wrote. There are also many excellent custom Hooks maintained by the React community.
+==You can create custom Hooks, compose them together, pass data between them, and reuse them between components. As your app grows, you will write fewer Effects by hand because you’ll be able to reuse custom Hooks you already wrote.== There are also many excellent custom Hooks maintained by the React community.
 
 You will learn:
 
@@ -13,48 +13,70 @@ You will learn:
 
 ## Custom Hooks: _Sharing logic_ between components
 
+Imagine you’re developing an app that heavily relies on the network (as most apps do). You want to warn the user if their network connection has accidentally gone off while they were using your app. How would you go about it? It seems like you’ll need two things in your component:
+
+1. A piece of state that tracks whether the network is online.
+2. An Effect that subscribes to the global [`online`](https://developer.mozilla.org/en-US/docs/Web/API/Window/online_event) and [`offline`](https://developer.mozilla.org/en-US/docs/Web/API/Window/offline_event) events, and updates that state.
+
+This will keep your component synchronized with the network status. You might start with something like this:
+
+![What_are_Custom_Hooks1](../../img/What_are_Custom_Hooks4.jpg)
+
+Now imagine you *also* want to use the same logic in a different component. You want to implement a "Save" button that will become disabled and show “Reconnecting…” instead of “Save” while the network is off.
+
+To start, you can copy and paste the `isOnline` state and the Effect into `SaveButton`:
+
+![What_are_Custom_Hooks5](../../img/What_are_Custom_Hooks5.jpg)
+
+These two components work fine, but ==the duplication in logic between them is unfortunate. It seems like even though they have _different visual appearance_, you want to reuse the logic between them==.
+
+## Extracting your own custom Hook from a component
+
+Imagine for a moment that, similar to [`useState`](https://react.dev/reference/react/useState) and [`useEffect`](https://react.dev/reference/react/useEffect), there was a built-in `useOnlineStatus` Hook. Then both of these components could be simplified and you could remove the duplication between them:
+
+![What_are_Custom_Hooks6](../../img/What_are_Custom_Hooks6.jpg)
+
+Although there is no such built-in Hook, you can write it yourself. Declare a function called `useOnlineStatus` and move all the duplicated code into it from the components you wrote earlier:
+
+![What_are_Custom_Hooks7](../../img/What_are_Custom_Hooks7.jpg)
+
+At the end of the function, return `isOnline`. This lets your components read that value. Now when you switching the network on and off updates both components.
+
+Now your components don’t have as much repetitive logic. ==More importantly, the code inside them describes **what they want to do** (use the online status!) rather than **how to do it** (by subscribing to the browser events).== When you extract logic into custom Hooks, you can hide the gnarly details of how you deal with some external system or a browser API. The code of your components expresses your intent, not the implementation.
+
+> #### Hook names always start with `use`
+>
+> React applications are built from components. Components are built from Hooks, whether built-in or custom. You’ll likely often use custom Hooks created by others, but occasionally you might write one yourself!
+>
+> You must follow these naming conventions:
+>
+> 1. ==_React component_ names must start with a capital letter==, like `StatusBar` and `SaveButton`. React components also need to return something that React knows how to display, like a piece of JSX.
+>
+> 2. ==_Hook names_ must start with `use` followed by a capital letter==, like `useState` (built-in) or `useOnlineStatus` (custom, like earlier on the page). Hooks may return arbitrary values.
+>
+> This convention guarantees that you can always look at a component and know where its state, effects, and other React features might “hide”. For example, if you see a `getColor()` function call inside your component, you can be sure that it can’t possibly contain React state inside because its name doesn’t start with `use`. However, a function call like `useHttp()` will most likely contain calls to other Hooks inside!
+>
+> If your linter is [configured for React,](https://beta.reactjs.org/learn/editor-setup#linting) it will enforce this naming convention.
+
 ==Custom hooks are just regular functions, just as the built-in hooks like `useState`, but they are functions which can contain **stateful logic**. You can build custom hooks to **outsource stateful logic into reusable functions**==.
 
 _Unlike regular functions, custom hooks can use other React hooks, including other custom hooks_, and they can, therefore, also leverage React state managed with `useState` or `useReducer`; they can access `useEffect` and so on.
 
 With custom hooks you can ==outsource logic, which you might be using in different components==, into a custom hook, which you can then call from all these various components. So, it is simply ==a mechanism of **reusing logic**, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks==.
 
-## Creating a Custom React Hook function
-
-How do you build a custom hook? Well, typically just as with components, ==you store every hook in a **standalone file**==. For the file name there is no specific rule, you could name it however you want:
-
-![What_are_Custom_Hooks1](../../img/What_are_Custom_Hooks1.jpg)
-
-==The function which you do create in that file has to start with a **'use'** in its name==, that is a must do, that is a hard rule which you have to follow. It will be a normal function in the end but the 'use' at their beginning signals to React that it will be a custom hook and it gives React the guarantee that you will use that function by respecting the rules of hooks, so that you will use this custom hook function just as you use to build-in hooks.
-
-And that is a guarantee React needs because otherwise if you start using React hooks in your custom hook and you would use your custom hook in a wrong, in a forbidden place, you would implicitly also use to build-in hooks in a wrong place. That's why you started with 'use' because React can look out for that and actually this project set up will give you a warning if you have a function starting with 'use' and you then start violating some of rules of hooks.
-
-==Only Hooks and components can call other Hooks!==
-
-### Hook names always start with `use`
-
-React applications are built from components. Components are built from Hooks, whether built-in or custom. You’ll likely often use custom Hooks created by others, but occasionally you might write one yourself!
-
-You must follow these naming conventions:
-
-1. ==_React component_ names must start with a capital letter==, like `Header` and `Button`. React components also need to return something that React knows how to display, like a piece of JSX.
-2. ==_Hook names_ must start with `use` followed by a capital letter==, like `useState` (built-in) or `useHttp` (custom). Hooks may return arbitrary values.
-
-> **Note**: If your linter is [configured for React,](https://beta.reactjs.org/learn/editor-setup#linting) it will enforce this naming convention.
-
-This convention guarantees that you can always look at a component and know where its state, effects, and other React features might “hide”. For example, if you see a `getColor()` function call inside your component, you can be sure that it can’t possibly contain React state inside because its name doesn’t start with `use`. However, a function call like `useHttp()` will most likely contain calls to other Hooks inside!
-
-## Using Custom Hooks
-
-==You are going to use a custom hook just as you use to build-in hooks.== You are just calling it like a function because it is just a function. So therefore you need to import your custom hook in the component that you want to use it.
-
-![What_are_Custom_Hooks2](../../img/What_are_Custom_Hooks2.jpg)
-
 ## Custom Hooks let you share _stateful logic_ but not _state itself_
 
-==Custom Hooks let you share **stateful logic** but not **state itself**. Each call to a Hook is completely independent from every other call to the same Hook.== If you call a custom hook in one of your components and that custom hook registers a state or an effect, then the state and the effect that you have in your custom hook will be tied to the component in which you use your custom hook. If you use that custom hook in multiple components every component will receive its own separate state.
+In the earlier example, when you turned the network on and off, both components updated together. However, it’s wrong to think that a single `isOnline` state variable is shared between them. Look at this code:
 
-So just because you use a custom hook does not mean that you share state or effects across components. Instead for every component the custom hook is executed again and every component instance then receives its own state, so ==it's just the logic which is shared, not the concrete state==.
+![What_are_Custom_Hooks8](../../img/What_are_Custom_Hooks8.jpg)
+
+It works the same way as before you extracted the duplication:
+
+![What_are_Custom_Hooks9](../../img/What_are_Custom_Hooks9.jpg)
+
+==These are two completely independent state variables and Effects! They happened to have the same value at the same time _because you synchronized them with the same external value_ (whether the network is on).==
+
+To better illustrate this, we’ll need a different example. Consider this `Form` component:
 
 ![What_are_Custom_Hooks3](../../img/What_are_Custom_Hooks3.jpg)
 
@@ -69,9 +91,15 @@ function Form() {
 
 This is why it works like declaring two separate state variables!
 
+==Custom Hooks let you share **stateful logic** but not **state itself**. Each call to a Hook is completely independent from every other call to the same Hook.== If you call a custom hook in one of your components and that custom hook registers a state or an effect, then the state and the effect that you have in your custom hook will be tied to the component in which you use your custom hook. If you use that custom hook in multiple components every component will receive its own separate state.
+
+So just because you use a custom hook does not mean that you share state or effects across components. Instead for every component the custom hook is executed again and every component instance then receives its own state, so ==it's just the logic which is shared, not the concrete state==.
+
+When you need to share the state itself between multiple components, [lift it up and pass it down](https://react.dev/learn/sharing-state-between-components) instead.
+
 ## Passing reactive values between Hooks
 
-==The code inside your custom Hooks will re-run during every re-render of your component.== This is why, like components, custom Hooks need to be pure. ==Think of custom Hooks’ code as part of your component’s body!==
+==The code inside your custom Hooks will re-run during every re-render of your component.== This is why, like components, custom Hooks need to be pure. ==Think of custom Hooks’ code **as part of your component’s body**!==
 
 ==Because custom Hooks re-render together with your component, they always receive the latest props and state.==
 
@@ -127,6 +155,48 @@ function useAuth() {
 ```
 
 Then components won’t be able to call it conditionally. This will become important when you actually add Hook calls inside. If you don’t plan to use Hooks inside it (now or later), don’t make it a Hook.
+
+## When to use custom Hooks 
+
+You don’t need to extract a custom Hook for every little duplicated bit of code. Some duplication is fine. For example, extracting a `useFormInput` Hook to wrap a single `useState` call like earlier is probably unnecessary.
+
+However, whenever you write an Effect, consider whether it would be clearer to also wrap it in a custom Hook. [You shouldn’t need Effects very often,](https://react.dev/learn/you-might-not-need-an-effect) so if you’re writing one, it means that you need to “step outside React” to synchronize with some external system or to do something that React doesn’t have a built-in API for. Wrapping it into a custom Hook lets you precisely communicate your intent and how the data flows through it.
+
+## Keep your custom Hooks focused on concrete high-level use cases
+
+Start by choosing your custom Hook’s name. If you struggle to pick a clear name, it might mean that your Effect is too coupled to the rest of your component’s logic, and is not yet ready to be extracted.
+
+Ideally, your custom Hook’s name should be clear enough that even a person who doesn’t write code often could have a good guess about what your custom Hook does, what it takes, and what it returns:
+
+- ✅ `useData(url)`
+- ✅ `useImpressionLog(eventName, extraData)`
+- ✅ `useChatRoom(options)`
+
+When you synchronize with an external system, your custom Hook name may be more technical and use jargon specific to that system. It’s good as long as it would be clear to a person familiar with that system:
+
+- ✅ `useMediaQuery(query)`
+- ✅ `useSocket(url)`
+- ✅ `useIntersectionObserver(ref, options)`
+
+## Custom Hooks help you migrate to better patterns 
+
+Effects are an [“escape hatch”](https://react.dev/learn/escape-hatches): you use them when you need to “step outside React” and when there is no better built-in solution for your use case. With time, the React team’s goal is to reduce the number of the Effects in your app to the minimum by providing more specific solutions to more specific problems. Wrapping your Effects in custom Hooks makes it easier to upgrade your code when these solutions become available.
+
+Let’s return to this example:
+
+![What_are_Custom_Hooks10](../../img/What_are_Custom_Hooks10.jpg)
+
+In the above example, `useOnlineStatus` is implemented with a pair of [`useState`](https://react.dev/reference/react/useState) and [`useEffect`.](https://react.dev/reference/react/useEffect) However, this isn’t the best possible solution. There is a number of edge cases it doesn’t consider. For example, it assumes that when the component mounts, `isOnline` is already `true`, but this may be wrong if the network already went offline. You can use the browser [`navigator.onLine`](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/onLine) API to check for that, but using it directly would not work on the server for generating the initial HTML. In short, this code could be improved.
+
+Luckily, React 18 includes a dedicated API called [`useSyncExternalStore`](https://react.dev/reference/react/useSyncExternalStore) which takes care of all of these problems for you. Here is how your `useOnlineStatus` Hook, rewritten to take advantage of this new API:
+
+![What_are_Custom_Hooks11](../../img/What_are_Custom_Hooks11.jpg)
+
+Notice how **you didn’t need to change any of the components** to make this migration. This is another reason for why wrapping Effects in custom Hooks is often beneficial:
+
+1. You make the data flow to and from your Effects very explicit.
+2. You let your components focus on the intent rather than on the exact implementation of your Effects.
+3. When React adds new features, you can remove those Effects without changing any of your components.
 
 ## Summary
 

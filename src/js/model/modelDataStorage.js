@@ -1568,17 +1568,19 @@ const Custom_React_Hooks = {
         highlight2: ['"custom Hooks"'],
       },
       tooltips: [
-        `<h3>Custom Hooks: Sharing logic between components</h3>
+        `<p>You can create custom Hooks, compose them together, pass data between them, and reuse them between components. As your app grows, you will write fewer Effects by hand because you’ll be able to reuse custom Hooks you already wrote.</p>`,
+        `<h3>Custom Hooks: <u>sharing logic</u> between components</h3>
         <p>Custom hooks are just <i>regular functions</i>, just as the built-in hooks like <code>useState</code>, but they are functions which can contain stateful logic. You can build custom hooks to <i>outsource stateful logic into reusable functions</i>.</p>
         <p>Unlike regular functions, <i>custom hooks can use other React hooks, including other custom hooks</i>, and they can, therefore, also leverage React state managed with <code>useState</code> or <code>useReducer</code>; they can access <code>useEffect</code> and so on.</p>
         <p>Custom Hooks let you <i>share logic between components</i>.</p>
+        <p>With custom hooks you can <i>outsource logic, which you might be using in different components</i>, into a custom hook, which you can then call from all these various components. So, it is simply <i>a mechanism of <u>reusing logic</u>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks</i>.</p>
         `,
         `<h3>Creating a Custom React Hook function</h3>
         <p>As with components, you store every hook in a standalone file.</p>
         <p><i>Custom Hook names always start with "use" followed by a capital letter.</i></p>
         <p>Hooks may return arbitrary values.</p>
         `,
-        `<h3>Using Custom Hook functions</h3>
+        `<h3>Custom Hooks let you share <u>stateful logic</u> but not <u>state itself</u></h3>
         <p>You are going to use a custom hook just as you use to build-in hooks.</p>
         <p>Custom Hooks let you <i>share stateful logic but <u>not state itself</u>. Each call to a Hook is completely independent from every other call to the same Hook</i>.</p>
         <p>If you call a custom hook in one of your components and that custom hook registers a state or an effect, then the state and the effect that you have in your custom hook will be tied to the component in which you use your custom hook. <i>If you use that custom hook in multiple components every component will receive its own separate state</i>.</p>
@@ -1593,6 +1595,13 @@ const Custom_React_Hooks = {
         <p>No. <i>Functions that don't call Hooks don't need to be Hooks</i>. If your function doesn't call any Hooks, avoid the "use" prefix. Instead, write it as a regular function without the "use" prefix. This ensures that your code can call that regular function anywhere, including conditions.</p>
         <p><i>You should give "use" prefix to a function (and thus make it a Hook) if it uses at least one Hook inside of it.</i></p>
         <p>In principle, you could make a Hook that doesn't call other Hooks. This is often confusing and limiting so it's best to avoid that pattern. However, there may be rare cases where it is helpful.</p>
+        `,
+        `<h3>When to use custom Hooks</h3>
+        <p>You don't need to extract a custom Hook for every little duplicated bit of code. Some duplication is fine.</p>
+        <p>However, whenever you write an Effect, consider whether it would be clearer to also wrap it in a custom Hook.</p>
+        `,
+        `<h3>Custom Hooks help you migrate to better patterns</h3>
+        <p>Effects are an “escape hatch”: you use them when you need to “step outside React” and when there is no better built-in solution for your use case. With time, the React team’s goal is to reduce the number of the Effects in your app to the minimum by providing more specific solutions to more specific problems. Wrapping your Effects in custom Hooks makes it easier to upgrade your code when these solutions become available.</p>
         `,
       ],
     },
