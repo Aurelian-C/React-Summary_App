@@ -2355,7 +2355,7 @@ const Deploying_React_apps = {
       },
     },
     {
-      sectionTitle: 'Server-side Routing & Required Configuration',
+      sectionTitle: 'Server-side Routing vs Client-side Routing',
       sectionSource: '',
     },
   ],
