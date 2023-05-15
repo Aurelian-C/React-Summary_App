@@ -2344,12 +2344,9 @@ const Deploying_React_apps = {
   title: '<p class="card__title--2">Deploying React apps</p>',
   sections: [
     {
-      sectionTitle: 'Deployment steps',
-      sectionSource: '',
-    },
-    {
       sectionTitle: 'Understanding & adding Lazy Loading',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/15_Deploying_React_apps/Understanding_&_adding_lazy_loading.html',
       highlights: {
         highlight1: ['Lazy Loading'],
       },
