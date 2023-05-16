@@ -6,7 +6,7 @@ class TooltipView {
       const cardArticle = e.target.closest('.card__article');
       const closeButton = e.target.closest('.fa-xmark');
 
-      if (closeButton) {
+      if (closeButton || !this._containerTooltip.contains(e.target)) {
         this._containerTooltip.classList.remove('show');
       }
 
@@ -17,7 +17,6 @@ class TooltipView {
         cardArticle.querySelector('.card__article-anchor');
       const { title } = element.dataset;
       const obj = data.find(el => el.sectionTitle === title);
-      console.log(obj);
 
       if (!obj.tooltips) return;
 
@@ -29,7 +28,7 @@ class TooltipView {
         '<i class="fa-solid fa-xmark"></i>' +
         `<h2>${obj.sectionTitle}</h2>` +
         markup +
-        `<a href=${obj.sectionSource} class="paragraph__article-anchor" target="_blank" data-title=${obj.sectionTitle}>Read more about this article!</a>`;
+        `<a href=${obj.sectionSource} class="paragraph__article-anchor" target="_blank">Read more about this article!</a>`;
 
       this._containerTooltip.classList.add('show');
     });

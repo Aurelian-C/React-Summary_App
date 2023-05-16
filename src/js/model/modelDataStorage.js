@@ -1697,11 +1697,18 @@ const React_Router = {
       sectionSource:
         '/src/markdowns/12_React_Router/Routing_multiple_pages_in_single-page_applications.html',
       tooltips: [
-        '<p>In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server. When the user clicks a link, it starts the process all over again for a new page.</p>',
-        `<p>React Router enables <b>"client side routing"</b>. Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
-        <p>This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.</p>`,
-        '<p>What Routing is all about: <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>',
-        '<p>Client side routing is enabled by creating a Router and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.</p>',
+        `<h3>Routing in traditional websites</h3>
+        <p><i>In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server.</i></p>
+        <p>When the user clicks a link, it starts the process all over again for a new page. The disadvantage is that you always have to request from the server a new HTML document (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.</p>`,
+        `<h3>Client Side Routing</h3>
+        <p>React Router enables "client side routing". Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
+        <p>This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.</p>
+        <p>Instead of loading new HTML files from the backend, we could add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>
+        `,
+        `<h3>What Routing is all about?</h3>
+        <p>Routing means that <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>`,
+        `<h3>Enable client side routing</h3>
+        <p>Client side routing is enabled by creating a <code>router</code> and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.</p>`,
       ],
     },
     {
@@ -1711,7 +1718,7 @@ const React_Router = {
     },
     {
       sectionTitle:
-        'Defining & using routes: <code>createBrowserRouter()</code>, <code><<span>RouterProvider</span>></code> component, <code>path</code> & <code>element</code> property',
+        'Defining & using: routes <code>createBrowserRouter()</code>, <code><<span>RouterProvider</span>></code> component, <code>path</code> & <code>element</code> property',
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_routes.html',
       highlights: {
@@ -1723,11 +1730,35 @@ const React_Router = {
         ],
       },
       tooltips: [
-        `<ul>There are <b>two ways of defining routes</b>:
+        `<h3>First step: defining routes</h3>
+        <ul>There are two ways of defining routes:
         <li>1. Using <i><code>createBrowserRouter()</code></i> and pass as an argument an array with single/multiple JavaScript objects, and that objects will describing the route/s characteristics;</li>
         <li>2. In older versions of <code>react-router-dom</code> you are defining routes with <i><code>createRoutesFromElements()</code></i> function and <i><code><<span>Route</span>></code></i> component.</li>
-        </ul>`,
-        '<p>You can use a router in your JSX markup by importing the <i><code>RouterProvider</code> component</i> from the <code>react-router-dom</code> package.</p>',
+        </ul>
+        <p>You can use a router in your JSX markup by importing the <i><code>RouterProvider</code> component</i> from the <code>react-router-dom</code> package.</p>
+        `,
+        `<h3>The recommended router: <code>createBrowserRouter</code></h3>
+        <p>The <code>createBrowserRouter</code> is the recommended router for all React Router web projects. It uses the DOM History API to update the URL and manage the history stack.</p>
+        <p>The <code>createBrowserRouter</code> is a function provided by <code>react-router-dom</code> package which allows you to define your routes that you wanna support in your application. Routes are simply <i>path<=>component mappings</i>; so for which path (<code>/products</code>) should which component (<code><<span>Products/</span>></code>) be loaded?</p>
+        <p>To the <code>createBrowserRouter()</code> function you pass as an argument an <i>array of <u>routes objects</u></i>, where <i>every object represents <u>one route</u></i>. To every object you add some properties to define the route characteristics, so these route objects take a couple of properties with which you configure every route.</p>
+        <p>Routes are perhaps the most important part of a React Router app. They <i>couple URL segments to components, data loading and data mutations</i>.</p>
+        `,
+        `<h3>The <code>path</code> property</h3>
+        <p>One key property which you will almost always add is the <code>path</code> property. With <code>path</code> you <i>define the path for which the route should be active</i>.</p>
+        `,
+        `<h3>The <code>element</code> property</h3>
+        <p><i>To establish a connection between your route path and your component</i>, you add another key property and that's the <code>element</code> property. <i>The <code>element</code> property contains the JSX markup that should be loaded when the route path is active</i>, so for the <code>element</code> property you set some JSX markup that should be rendered to the screen when the route is active.</p>
+        <p><i>You could have any JSX markup in the <code>element</code> property</i>, but very often you will simply render a single component that then represents the entire page that should be rendered on the screen.</p>
+        `,
+        `<h3>Second step: using the route object with the help of <code>RouterProvider</code> component</h3>
+        <p>Another step is to use the router object. To use it, you need store the returned value of the <code>createBrowserRouter()</code> function in a variable. You use that variable to tell React that the router stored in it should be rendered to the screen.</p>
+        <p>To tell React that the stored router should be used, you need to import the <code>RouterProvider</code> component from the <code>react-router-dom</code> package. All router objects are passed to <code>RouterProvider</code> component to render your app and enable the rest of the APIs.</p>
+        <p><i>The <code>RouterProvider</code> has a special prop which you must set, and that is the <code>router</code> prop. The value you pass to the <code>router</code> prop should be a router created with <code>createBrowserRouter()</code> function.</i></p>
+        <p><i><code>RouterProvider</code> is a regular component which you can use in our JSX markup, and you could of course wrap it with other JSX markup or add more JSX markup.</i></p>
+        `,
+        `<h3>Separate components render by React Router from other components</h3>
+        <p>Typically, you add a folder named 'pages' to hold the <i>components that will be <u>loaded as pages</u> by the router</i>. You don't have to name folder 'pages'. You can use the 'components' folder you already know, you could name it 'routes' or whatever you want. Is a good practice to separate pages folder with a name of 'pages' to clearly indicate that the components stored in there, <i>whilst being regular React components</i>, will be loaded with help of React Router.</p>
+        `,
       ],
     },
     {

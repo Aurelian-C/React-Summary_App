@@ -1,8 +1,8 @@
 # Defining & using routes: `createBrowserRouter` function & `RouterProvider` component
 
-## Step 1. Defining the routes by importing the `createBrowserRouter` function
+## Step 1. Defining routes by importing the [`createBrowserRouter`](https://reactrouter.com/en/main/routers/create-browser-router) function
 
-The first step is to import the [`createBrowserRouter`](https://reactrouter.com/en/main/routers/create-browser-router) from `react-router-dom` package:
+The first step is to import the `createBrowserRouter` from `react-router-dom` package:
 
 ```react
 import {createBrowserRouter} from 'react-router-dom';
