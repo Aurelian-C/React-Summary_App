@@ -1831,13 +1831,18 @@ const React_Router = {
         highlight2: ['<code>useNavigate</code>'],
       },
       tooltips: [
-        "Up until now you only use <b>imperative routing</b>. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it's not the only way.",
-        `When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
-        <br>- <b><code><<span>Link</span>></code></b> component
-        <br>- <b><code>useNavigate</code></b> hook`,
-        'In some situations, for example maybe because some form was submitted or because some timer expired, <i>you as a programmer (not the user) might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.',
-        'The <code>useNavigate</code> hook <i>returns a function that allows you, the programmer, to change the URL whenever you want, so <u>programmatically</u></i>.',
-        'You should have a good reason to use <code>useNavigate</code> instead of <code><<span>Link</span>></code>.',
+        `<h3>Imperative routing vs navigating programmatically</h3>
+        <p>Up until now you only use <b>imperative routing</b>. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it's not the only way.</p>
+        <ul>When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
+        <li>- <b><code><<span>Link</span>></code></b> component</li>
+        <li>- <b><code>useNavigate</code></b> hook</li>
+        </ul>
+        <p>In some situations, for example maybe because some form was submitted or because some timer expired, <i>you as a programmer (not the user) might want to trigger a navigation action from inside your React code</i>, and you can do this by using the <code>useNavigate</code> hook provided by <code>react-router-dom</code>.</p>
+        `,
+        `<h3><code>useNavigate</code> hook</h3>
+        <p>The <code>useNavigate</code> hook <i>returns a function that allows you, the programmer, to change the URL whenever you want, so <u>programmatically</u></i>.</p>
+        <p>You should have a good reason to use <code>useNavigate</code> instead of <code><<span>Link</span>></code>. Aside from links and forms, very few interactions should change the URL because it introduces complexity around accessibility and user expectations.</p>
+        `,
       ],
     },
     {
