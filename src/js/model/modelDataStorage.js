@@ -1771,18 +1771,28 @@ const React_Router = {
         highlight2: ['<code><<span>Link</span>></code>'],
       },
       tooltips: [
-        `<ul>When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
+        `<h3>Two ways to navigate in React Router</h3>
+        <ul>When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
         <li>- <b><code><<span>Link</span>></code></b> component</li>
         <li>- <b><code>useNavigate</code></b> hook</li>
         </ul>`,
-        '<p>A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.</p>',
-        `<p>In <code>react-router-dom</code>, a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to. Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.</p>`,
+        `<h3>About <<span>Link</span>></code> component</h3>
+        <p><<span>Link</span>></code> is the <i>primary means of navigation</i>. Rendering a <<span>Link</span>></code> <i>allows the user to change the URL when they click it</i>. React Router will <i>prevent the browser's default behavior</i> and tell the History API to push a new entry into the History stack. The location changes and the new matches will render.</p>
+        <p>A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.</p>
+        <p>In <code>react-router-dom</code>, a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to. Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.</p>`,
         `<h3>Absolute & relative links path</h3>
-        <p>If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths. <i>A link that have an absolute path it's added directly after the domain name</i>, not after the currently active path (the route path they are rendered in). <i>Relative links are always relative to the route path they are <u>rendered in</u></i>, not to the full URL.</p>`,
-        `<h3>The <code>relative</code> prop</h3>
-        <p>When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values: <code>path</code> or <code>route</code>. <i>With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <u>the route path they are rendered in</u> or to the <u>currently active path in the browser URL</u></i>.</p>`,
+        <p>If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths.</p>
+        <p><i>A link that have an absolute path it's added directly after the domain name</i>, not after the currently active path (the route path they are rendered in).</p>
+        <p><i>Relative links are always relative to the route path they are <u>rendered in</u></i>, not to the full URL. Relative links inherit the route within which they are rendered. This makes it so your route components don't have to really know anything about the rest of the routes in the app.</p>`,
+        `<h3>Relative links & theirs <code>relative</code> prop</h3>
+        <p>When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values: <code>path</code> or <code>route</code>. <i>With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <u>the route path they are rendered in</u> or to the <u>currently active path in the browser URL</u></i>.</p>
+        <p>The <code>relative</code> prop does not matter if you have an absolute path, always that absolute path is added after the domain name.</p>
+        `,
         `<h3>The <code>..</code> relative path</h3>
-        <p>If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router. By default, the <code>..</code> in relative links <u>traverse the route hierarchy</u>, not the URL segments. Adding <code>relative="path"</code> allows you to <u>traverse the path segments</u> instead</i>.</p>`,
+        <p>If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router</i>. A link can set to be "relative" to the <u>routes definitions</u>, or "relative" to the <u>browser URL</u>.</p>
+        <p><i>By default, the <code>..</code> in relative links <u>traverse the route hierarchy</u>, not the URL segments. Adding <code>relative="path"</code> allows you to <u>traverse the path segments</u> instead</i>.</p>
+        <p><code>..</code> is a relative path that goes back <u>one level</u> to the <u>previously</u> active route/URL path. By default, links are relative to the route hierarchy, so <code>..</code> will go up one route level. Occasionally, you may find that you have matching URL patterns that do not make sense to be nested, and you'd prefer to use <code>relative="path"</code> routing.</p>
+        `,
       ],
     },
     {
@@ -1794,11 +1804,21 @@ const React_Router = {
         highlight2: ['<code><<span>NavLink</span>></code>'],
       },
       tooltips: [
-        "Sometimes you might want to see which link is currently active when you're on a page. To support links that should show you whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.",
-        'A <code><<span>NavLink</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".',
-        'With <code><<span>NavLink</span>></code> you can <i>add classes or inline-styles <u>conditionally</u>, based on whether a link is active or not</i>.',
-        'The <code>className</code> prop in <code><<span>NavLink</span>></code> is different from the regular <code>className</code> prop. The <code>className</code> in <code><<span>NavLink</span>></code> receives a function, and with that function you can set conditionally a class or inline-style on the <code><<span>NavLink</span>></code> element.',
-        '<i>By default, an "active" class is added to a <code><<span>NavLink</span>></code> component when it is active.</i>',
+        `<p>Sometimes you might want to see which link is currently active when you're on a page. To support links that should show you whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.</p>`,
+        `<h3>Add classes or inline-styles to a link <u>conditionally</u></h3>
+        <p>A <code><<span>NavLink</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".</p>
+        <p><i>By default, an "active" class is added to a <code><<span>NavLink</span>></code> component when it is active.</i></p>
+        <p>With <code><<span>NavLink</span>></code> you can <i>add classes or inline-styles <u>conditionally</u>, based on whether a link is active or not</i>.</p>
+        <p>With <code><<span>NavLink</span>></code> you can pass a function to either <code>style</code> or <code>className</code> that will allow you to customize the inline styling or the class string based on the component's active state. You can also pass a function as children to customize the content of the <code><<span>NavLink</span>></code> component based on their active state, specially useful to change styles on internal elements.</p>
+        `,
+        `<h3>The <code>isActive</code> property</h3>
+        <p><code><<span>NavLink</span>></code> has one special behavior. The <code>className</code> prop in <code><<span>NavLink</span>></code> is different from the regular <code>className</code> prop. The <code>className</code> in <code><<span>NavLink</span>></code> receives a function, and with that function you can set conditionally a class or inline-style on the <code><<span>NavLink</span>></code> element.</p>
+        <p>Now that function also receives automatically an object from which you can destructure the <code>isActive</code> property. Base on the <code>isActive</code> property, you can set classes or inline-style conditionally.</p>
+        `,
+        `<h3>The <code>end</code> prop</h3>
+        <p>By default, the behavior of <code><<span>NavLink</span>></code> is to <i>treated a link as active when its <u>descendant paths are matched</u></i>. You can use the <code>end</code> prop to ensure that a component isn't matched as "active" when its descendant paths are matched.</p>
+        <p><code>end</code> pros take as a value a boolean: <code>end={true}</code> or <code>end={false}</code>. You can also just add <code>end</code> with no value and this means that <code>end</code> is automatically set to <code>true</code>.</p>
+        `,
       ],
     },
     {

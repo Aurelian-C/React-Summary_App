@@ -93,10 +93,8 @@ body {
 }
 
 .card__article {
-  flex-direction: column;
   margin-top: 9px;
-  display: flex;
-  position: relative;
+  max-width: fit-content;
 }
 
 .card__article-title {
@@ -231,7 +229,7 @@ code {
   color: #fff;
   border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
-  padding: 10px;
+  padding: 10px 25px;
   font-size: 1.3rem;
   font-style: normal;
   overflow-y: scroll;
@@ -267,7 +265,7 @@ code {
 }
 
 .tooltip_paragraph:not(:last-child) {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .tooltip_paragraph h3 {
@@ -276,12 +274,15 @@ code {
   color: black;
   padding: 0 3px;
   border-radius: 5px;
-  margin-left: 20px;
+  margin: 0 auto 3px auto;
   text-indent: 0px;
+  font-size: 1.7rem;
 }
 
 .tooltip_paragraph p {
-  margin-bottom: 3px;
+  margin-bottom: 8px;
+  line-height: 19px;
+  text-align: justify;
 }
 
 .tooltip_paragraph li {

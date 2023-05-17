@@ -5,7 +5,7 @@ When the [URL](https://reactrouter.com/en/main/start/concepts#url) changes we ca
 - [`Link`](https://reactrouter.com/en/main/components/link)
 - [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) hook
 
-`<Link>` is the primary means of navigation. Rendering a `<Link>` allows the user to change the URL when they click it. React Router will prevent the browser's default behavior and tell the [history](https://reactrouter.com/en/main/start/concepts#history) to push a new entry into the [history stack](https://reactrouter.com/en/main/start/concepts#history-stack). The [location](https://reactrouter.com/en/main/start/concepts#location) changes and the new [matches](https://reactrouter.com/en/main/start/concepts#match) will render.
+==`<Link>` is the primary means of navigation. Rendering a `<Link>` allows the user to change the URL when they click it. React Router will prevent the browser's default behavior and tell the [history](https://reactrouter.com/en/main/start/concepts#history) to push a new entry into the [history stack](https://reactrouter.com/en/main/start/concepts#history-stack). The [location](https://reactrouter.com/en/main/start/concepts#location) changes and the new [matches](https://reactrouter.com/en/main/start/concepts#match) will render.==
 
 However, links are accessible in that they:
 
@@ -52,7 +52,7 @@ export default HomePage;
 
 ## Absolute & relative links paths
 
-If a `<Link>` path starts with `/`, it is an absolute path. Paths that don't start with `/` are relative paths.
+==If a `<Link>` path starts with `/`, it is an absolute path. Paths that don't start with `/` are relative paths.==
 
 ### Absolute links
 
@@ -99,7 +99,7 @@ The full path it links to will be `/teams/psg` and `/teams/new`. ==Relative link
 
 ### Relative links & theirs `relative` prop
 
-==When using the `<Link>` component, you also have a special `relative` prop which you can add to it. The `relative` prop can be set to one of two values, to `path` or `route`. With these values you control whether the segment defined on `<Link>` (in our case `products`) is _added relative_ to the **currently active _parent route path (the route path they are rendered in)**_ _or_ to the **currently active path in the _browser URL_**==.
+==When using the `<Link>` component, you also have a special `relative` prop which you can add to it. The `relative` prop can be set to one of two values, to `path` or `route`. With these values you control whether the segment defined on `<Link>` (in our case `products`) is _added relative_ to the **currently active parent route path (the route path they are rendered in)** or to the **currently active path in the _browser URL_**==.
 
 ```react
 <Link to="products" relative="route" />	//the route path they are rendered in (default)
