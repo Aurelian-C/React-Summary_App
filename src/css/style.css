@@ -274,7 +274,7 @@ code {
   color: black;
   padding: 0 3px;
   border-radius: 5px;
-  margin: 0 auto 3px auto;
+  margin: 0 0 3px 20px;
   text-indent: 0px;
   font-size: 1.7rem;
 }

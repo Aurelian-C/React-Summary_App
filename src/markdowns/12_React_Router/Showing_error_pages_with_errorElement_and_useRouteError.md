@@ -24,11 +24,11 @@ When a route does not have an `errorElement`, errors will bubble up through pare
 
 ==While `errorElement` handles unexpected errors, it can also be used to handle exceptions you expect==. Particularly in "loader"/"action" function, where you work with external data not in your control, you can't always plan on the data existing, the service being available, or the user having access to it. In these cases you can `throw` your own exceptions. As soon as you know you can't render the route with the data you're loading, you can throw to break the call stack.
 
-==You can throw anything from a "loader"/"action" function just like you can return anything: responses, errors, or plain objects==.
+==You can throw anything from a "loader"/"action" function, just like you can return anything: responses, errors, or plain objects==.
 
 ### Throwing Responses
 
-==While you can throw anything and it will be provided back to you through `useRouteError`, if you throw a [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response), React Router will automatically parse the response data before returning it to your components. Coupled with [`json`](https://reactrouter.com/en/main/fetch/json), you can easily throw responses with some data and render different cases in your boundary. This makes it possible to create a general error boundary, usually on your root route, that handles many cases==.
+==While you can throw anything and it will be provided back to you through `useRouteError`, if you throw a [`Response`](https://developer.mozilla.org/en-US/docs/Web/API/Response), React Router will automatically parse the response data before returning it to your components. Coupled with [`json`](https://reactrouter.com/en/main/fetch/json), you can easily throw responses with some data and render different cases in your boundary. This makes it possible to create a general error boundary, usually on your root route, that handles many cases==.
 
 ## The `useRouteError` hook
 
