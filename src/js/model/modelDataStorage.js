@@ -1908,11 +1908,21 @@ const React_Router = {
         highlight2: ['<code>useParams</code>'],
       },
       tooltips: [
-        'Dynamic path segments <code>:</code> (path parameters) helps us to always <i>render the same component for different paths (dynamic paths)</i>.',
-        'You add a path parameter by adding a <code>:</code> and then any identifier of you choice.',
-        "The <code>:</code> signals to 'react-router-dom' that the part after the <code>:</code> is dynamic. You could thereafter have more hard coded segments if you needed to, or you can have multiple dynamic segments in one route path.",
-        "With <code>useParams</code> hook we can <i>get the dynamic path data that's encoded in the URL</i>.",
-        'The <code>useParams</code> hook returns an object of key/value pairs of the dynamic params from the current URL that were matched by the <code><<span>Route path</span>></code>. Child routes inherit all params from their parent routes',
+        `<h3>Dynamic paths</h3>
+        <p><code>react-router-dom</code> supports dynamic path segments or path parameters. <i>In your routes definitions, if a path segment starts with <code>:</code> then it becomes a "dynamic segment".</i> When the route matches the URL, the dynamic segment will be parsed from the URL and provided as <code>params</code> to other router APIs.</p>
+        <p>Dynamic path segments helps you to always <i>render the <u>same component</u> for <u>different paths</u> (dynamic paths)</i>.</p>
+        <p>You add a path parameter by adding a <code>:</code> and then any identifier of you choice: <code>{path: "/products/:productId"}</code></p>
+        <p>The <code>:</code> signals to <code>react-router-dom</code> that the part after the <code>:</code> is dynamic. You could thereafter have more hard coded segments if you needed to, but <i>the segment with the <code>:</code> is dynamic</i>. You can also have <i>multiple dynamic segments in one route path</i>.</p>
+        <ul>Examples:
+        <li><code>{path: "/products/:productId/newseg"}</code></li>
+        <li><code>{path="/c/:categoryId/p/:productId"}</code></li>
+        </ul>
+        `,
+        `<h3>The <code>useParams</code> hook</h3>
+        <p>With <code>useParams</code> hook you can <i>get the <u>dynamic path data</u> that's encoded in the URL</i>.</p>
+        <p>The <code>useParams</code> hook <i>returns an object</i> of key/value pairs of the dynamic params from the current URL that were matched by the <code><<span>Route path</span>></code>. Child routes inherit all params from their parent routes.</p>
+        <p>The <code>useParams</code> hook returns a JavaScript object which <i>contains <u>every dynamic path segment</u> you defined in our route definition as a property</i>.</p>
+        `,
       ],
     },
     {
@@ -1922,19 +1932,25 @@ const React_Router = {
       highlights: {
         highlight1: ['optional path segments'],
       },
+      tooltips: [
+        `<p>You can make a route segment optional by adding a <code>?</code> to the end of the segment.</p>`,
+      ],
     },
     {
-      sectionTitle: 'Understanding absolute & relative paths',
+      sectionTitle: 'Understanding absolute & relative routes paths',
       sectionSource:
-        '/src/markdowns/12_React_Router/Understanding_absolute_&_relative_paths.html',
+        '/src/markdowns/12_React_Router/Understanding_absolute_&_relative_routes_paths.html',
       highlights: {
-        highlight1: ['absolute & relative paths'],
-        highlight2: ['"relative"'],
+        highlight1: ['absolute & relative routes paths'],
       },
       tooltips: [
-        "When we defining <u>routes</u>, we define the <u>paths</u> for which that routes should be active. <i>If a path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths</i>.",
-        'All <b>absolute child route paths</b> must start with the combined path of all its parent routes.',
-        'When defining <b>child routes as relative paths</b>, this means that the <i>child routes paths defined as relative paths are <u>appended after the path of the wrapper parent route path</u></i>. So if we have a child route with a relative path, then React Router will take a look at the path of the parent route and append the child route path after the parent route path. <i>Children relative route paths are relative to the path defined in theirs parent route definition</i>.',
+        `<h3>Absolute vs relative routes paths</h3>
+        <p>When you defining <u>routes</u>, you define the <u>paths</u> for which that routes should be active. <i>If a route path starts with <code>/</code>, it is an absolute route path. Routes paths that don't start with <code>/</code> are relative routes paths</i>.</p>
+        <p>When you are defining <i><u>child routes</u> as relative paths</i>, this means that the <i>child routes paths defined as relative paths are <u>appended after the path of the wrapper parent route path</u></i>. So if you have a child route with a relative path, then React Router will take a look at the path of the parent route and append the child route path after the parent route path. <i>Children relative route paths are relative to the path defined in theirs parent route definition</i>.</p>
+        `,
+        `<h3>Clashing route definitions</h3>
+        <p>All <i>absolute child route</i> paths must start with the combined path of all its parent routes.</p>
+        `,
       ],
     },
     {
@@ -1945,9 +1961,11 @@ const React_Router = {
         highlight1: ['index Routes'],
       },
       tooltips: [
-        'Index routes can be used for children routes that have the same path as the parent route.',
-        "It is quite common that you might have a wrapping layout route and then <i>you have one child route that should be loaded for the parent's route path. Index routes render in their parent route's <code><<span>Outlet/</span>></code> at the parent route's path</i>.",
-        'Index routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.',
+        `<h3>Index routes</h3>
+        <p>Index routes can be used for <i>children routes that have the same path as the parent route</i>.</p>
+        <p>It is quite common that you might have a wrapping layout route and then <i>you have one child route that should be loaded for the parent's route path. Index routes render in their parent route's <code><<span>Outlet/</span>></code> at the parent route's path</i>.</p>
+        <p>Index routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.</p>
+        `,
       ],
     },
     {
