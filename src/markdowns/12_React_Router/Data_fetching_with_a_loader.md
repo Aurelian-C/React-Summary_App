@@ -4,7 +4,7 @@
 
 ![Loader_function](../../img/Loader_function.jpg)
 
-When you define a "loader" function, React Router will automatically take any value you return in that "loader" function and will _make that data available in the page that's being rendered_, as well as any other components where you need it.
+==When you define a "loader" function, React Router will automatically take any value you return in that "loader" function and will _make that data available in the page that's being rendered_, as well as any other components where you need it.==
 
 With the help of a "loader" function you move all the fetch logic that you have in a component in that "loader" function, and this process make the component way leaner and easier to reason about.
 
@@ -40,11 +40,11 @@ One important aspect of a "loader" function is to understand that you can return
 
 Well, in the browser you can create a new `Response` object, by instantiating the built-in `Response` constructor function. ==Whenever you return such a `Response` object in your "loader" function, the **React Router will automatically extract the data from your `Response` object when using `useLoaderData` hook**==. So the data returned by `useLoaderData` will still be the response data that was part of the `Response` you returned in your "loader" function.
 
-Because React Router's support `Response` objects and automatically extract data from them, that simply means that you can simply return the response in your "loader" function. You don't need to manually extract the data from the response, instead ==you can just return your response and `useLoaderData` will automatically give you the data that's part of the response==. With the behavior of `useLoaderData` you can reduce your "loader" function code and leverage this built-in support for `Response` objects.
+Because React Router's support `Response` objects and automatically extract data from them, that simply means that you can simply return the response in your "loader" function. You don't need to manually extract the data from the response, instead ==you can just return your response and `useLoaderData` will automatically give you the data that's part of the `Response`==. With the behavior of `useLoaderData` you can reduce your "loader" function code and leverage this built-in support for `Response` objects.
 
 ![Loader_function3](../../img/Loader_function3.jpg)
 
-> **Note**: While you can return anything you want from a loader and get access to it from `useLoaderData`, you can also return a web Response. This might not seem immediately useful, but consider `fetch`. Since the return value of `fetch` is a Response, and "loader" functions understand responses, many "loader" functions can return a simple fetch!
+> **Note**: While you can return anything you want from a loader and get access to it from `useLoaderData`, you can also return a web Response. This might not seem immediately useful, but consider `fetch`. Since the return value of `fetch` is a Response, and "loader" functions understand Responses, many "loader" functions can return a simple fetch!
 
 ## Which kind of code goes into a "loader" function?
 

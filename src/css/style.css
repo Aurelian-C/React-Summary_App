@@ -279,7 +279,8 @@ code {
   font-size: 1.7rem;
 }
 
-.tooltip_paragraph p {
+.tooltip_paragraph p,
+.tooltip_paragraph ul {
   margin-bottom: 8px;
   line-height: 19px;
   text-align: justify;

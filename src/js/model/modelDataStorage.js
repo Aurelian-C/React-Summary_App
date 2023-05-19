@@ -1978,18 +1978,27 @@ const React_Router = {
         highlight2: ['"loader" function', '<code>useLoaderData()</code>'],
       },
       tooltips: [
-        'On each route you can define a "loader" function to <i><u>provide data</u> to the route element <u>before it renders</u></i>.',
-        'With the help of a "loader" function you move all the fetch logic that you have in a component in that "loader" function, and this process make the component way leaner and easier to reason about.',
-        'To get access to the data returned by a "loader" function for a specific page, you can import <code>useLoaderData</code> from <code>react-router-dom</code>. <i><code>useLoaderData</code> always get the final data returned by the "loader" function</i>, even if that "loader" function is an async function.',
-        `You can access "loader" function data with the help of <code>useLoaderData</code> in <i>any component on the <u>same level or lower level</u> than the component where you added the "loader" function</i>, so the route on which you added the "loader" function. <i>You can use <code>useLoaderData</code> in the element that's assigned to a route and in all components that might be used inside that element</i>.`,
-        `<b>Where should "loader" function code be stored?</b>
-        <br><i>Is common pattern that you actually put the "loader" function code into your component file where you need it</i>, to be more precise in the page component file where you want to add the "loader" function.`,
-        `<b>When are "loader" functions executed?</b>
-        <br>Data fetching is initiated as soon as you initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered.</i>.`,
-        `<b>Returning Responses in a "loader" function</b>
-        <br>You don't need to manually extract the data from a Response, instead <i>you can just return your Response and <code>useLoaderData</code> will automatically give you the data that's part of the Response</i>.`,
-        `<b>Which kind of code goes into a "loader" function?</b>
-        <br><i>You can use any browser APIs or vanilla JavaScript code in your "loader" function</i>. What you can't use in your "loader" function is, for example, React Hooks like <code>useState</code>. That doesn't work because those Hooks are only available in React components and the "loader" function is not a React component, but that's the only limitation.`,
+        `<p>On each route you can define a "loader" function to <i><u>provide data</u> to the route element <u>before it renders</u></i>. The route <i>"loader" function is called before the route component is render</i> and provides data for the component through <code>useLoaderData</code>.</p>
+        <p>When you define a "loader" function, React Router will automatically take any value you return in that "loader" function and will make that data available in the page that's being rendered, as well as any other components where you need it.</p>
+        <p>With the help of a "loader" function you <i>move all the fetch logic that you have in a component in that "loader" function</i>, and this process make the component way leaner and easier to reason about.</p>
+        `,
+        `<h3>Use the returned data from a "loader" function with the help of <code>useLoaderData</code> hook</h3>
+        <p>To get access to the data returned by a "loader" function for a specific page, you can import <code>useLoaderData</code> from <code>react-router-dom</code>. This hook <i>provides the value returned from your route "loader" function</i>.</p>
+        <p><code>useLoaderData</code> <i>always get the final data returned by the "loader" function</i>, even if that "loader" function is an async function. If the "loader" function is an async function, the <code>useLoaderData</code> won't return a Promise from the "loader" function, but will return the resolved/rejected value of that async "loader" function.</p>
+        <p>The <code>useLoaderData</code> is a hook which you can execute to get access to the closest "loader" function data. So you can access "loader" function data with the help of <code>useLoaderData</code> in <i>any component on the <u>same level or lower level</u> than the component where you added the "loader" function</i>, so the route on which you added the "loader" function. <i>You can use <code>useLoaderData</code> in the element that's assigned to a route and in all components that might be used inside that element</i>.</p>
+        <p><i>You can use this hook in any component or any custom hook, not just the Route element. It will return the data from the nearest route on context</i>. To get data from any active route on the page, see <code>useRouteLoaderData</code>.</p>
+        `,
+        `<h3>Where should "loader" function code be stored?</h3>
+        <p><i>Is common pattern that you actually put the "loader" function code into your component file where you need it</i>, to be more precise in the page component file where you want to add the "loader" function.</p>`,
+        `<h3>When are "loader" functions executed?</h3>
+        <p>The "loader" function for a page will be called right when you start navigating to that page, so NOT AFTER the page component has been rendered, but BEFORE you actually navigate to that page.</p>
+        <p>Data fetching is initiated as soon as you initiate the route transition (URL changes). By default, React Router will wait for the data to be fetched, so for the "loader" function to be finished, and <i>only when the "loader" function is finished the page component will be rendered with that fetched data</i>.</p>`,
+        `<h3>Returning Responses in a "loader" function</h3>
+        <p>One important aspect of a "loader" function is to understand that <i>you can return any kind of data</i> in that "loader" function. You can return an array, object, number, string etc, but what you can also return is a <code>Response</code> object.</p>
+        <p>Whenever you return such a <code>Response</code> object in your "loader" function, the <i>React Router will automatically extract the data from your <code>Response</code> object when using <code>useLoaderData</code> hook</i>, so you don't need to manually extract the data from a Response.</p>
+        `,
+        `<h3>Which kind of code goes into a "loader" function?</h3>
+        <p><i>You can use any browser APIs or vanilla JavaScript code in your "loader" function</i>. What you can't use in your "loader" function is, for example, React Hooks like <code>useState</code>. That doesn't work because those Hooks are only available in React components and the "loader" function is not a React component, but that's the only limitation.</p>`,
       ],
     },
     {
@@ -2002,9 +2011,14 @@ const React_Router = {
         highlight2: ['<code>request</code> & <code>params</code>'],
       },
       tooltips: [
-        'Within a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object: <code>function loader({request, params}) { ... }</code>.',
-        '<b>The <code>request</code> object</b> parameter in a "loader" function could be used to <i>access the URL</i> to, for example, extract query parameters or anything like that.',
-        '<b>The <code>params</code> object</b> <i>contains all your route parameters</i>. With it, you can get access to all the route parameter values as you could do it with help of <code>useParams</code> hook, but <code>useParams</code> hook could only be used inside a component function, not inside a "loader" function.',
+        `<ul>Within a "loader" function you can <i>get access to the route parameters</i> because when the React Router will call the "loader" function passes to it an <u>object parameter</u> that contains two important pieces of data which contains a <code>request</code> object and a <code>params</code> object:
+        <li>- Example: <code>function loader({request, params}) { ... }</code>.</li>
+        </ul>`,
+        `<h3>The <code>params</code> object</h3>
+        <p>Route params are parsed from dynamic segments and passed to your "loader" function via <code>params</code> object.</p>
+        <p>The <code>params</code> object <i>contains all your route parameters</i>. With it, you can get access to all the route parameter values as you could do it with help of <code>useParams</code> hook, but <code>useParams</code> hook could only be used inside a component function, not inside a "loader" function.</p>`,
+        `<h3>The <code>request</code> object</h3>
+        <p>The <code>request</code> object parameter in a "loader" function could be used to <i>access the URL</i> to, for example, extract query parameters or anything like that.</p>`,
       ],
     },
     {
@@ -2016,11 +2030,17 @@ const React_Router = {
         highlight2: ['<code>useRouteLoaderData()</code>'],
       },
       tooltips: [
-        `You can use the <i><u>nested routes</u></i> feature not just as a wrapper layout component, but also to <i><u>share a "loader" function</u></i> to parent/child routes. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.`,
-        'To access the data returned by the "loader" function, instead of using <code>useLoaderData</code> you need to use a different hook which is called <code>useRouteLoaderData</code>. This hook works almost like <code>useLoaderData</code> but it takes a <i>route ID as an argument</i> (the ID you assign to the parent route).',
-        `<i>With the <code>useRouteLoaderData</code> you can get access to the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across <u>multiple routes which all need the same data</u></i>.`,
-        'The <code>useRouteLoaderData</code> hook makes the data at any currently rendered route available <i>anywhere in the tree</i>. This is useful for components deep in the tree needing data from routes much farther up, as well as parent routes needing the data of child routes deeper in the tree.',
-        '<i>The only data available is the routes that are <u>currently rendered</u></i>. If you ask for data from a route that is not currently rendered, the hook will return <code>undefined</code>.',
+        `<h3>Fetch the same data for different children routes by adding a parent route with a "loader" function</h3>
+        <p>You can use the <i><u>nested routes</u></i> feature not just as a wrapper layout component, but also to <i><u>share a "loader" function</u></i> from parent to child routes. Because as you learned, you can access "loader" function data in any component that's on the same level or a lower level than the route where the "loader" function is added.</p>
+        <p>Instead of defining the same "loader" function twice for each sibling route, you can add a route parent that does not render an element. Now in that parent route you don't need an element because you don't want to have any shared layout or anything like that. Instead, you will using this approach because you want to add a "loader" function to the parent route so its child routes can have access to the returned data of its "loader" function. This is also how you can use nested routes to construct a URL, with the parent route URL and the child routes URLs.</p>
+        `,
+        `<h3><code>useLoaderData</code> vs <code>useRouteLoaderData</code></h3>
+        <p>To access the data returned by the shared "loader" function, instead of using <code>useLoaderData</code> you need to use a different hook which is called <code>useRouteLoaderData</code>. This hook works almost like <code>useLoaderData</code> but it takes a <i>route ID as an argument</i> (the ID you assign to the parent route).</p>
+        <p>The <code>useLoaderData</code> doesn't work in this case because this hook <i>provides the value returned from your route "loader" function</i>, but you want the get the data from the parent route.</p>
+        <p>With the <code>useRouteLoaderData</code> you can <i>get access to the data of a higher level "loader" function from a route that doesn't have a "loader" function. Now you can reuse the same "loader" function across <u>multiple routes which all need the same data</u></i>.</p>
+        <p>The <code>useRouteLoaderData</code> hook makes the data at any currently rendered route available <i>anywhere in the tree</i>. This is useful for components deep in the tree needing data from routes much farther up, as well as parent routes needing the data of child routes deeper in the tree.</p>
+        <p><i>The only data available is the routes that are <u>currently rendered</u></i>. If you ask for data from a route that is not currently rendered, the hook will return <code>undefined</code>.</p>
+        `,
       ],
     },
     {

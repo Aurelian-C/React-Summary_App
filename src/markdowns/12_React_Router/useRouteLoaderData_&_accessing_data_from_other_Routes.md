@@ -1,6 +1,6 @@
 # `useRouteLoaderData` hook & accessing data from other routes
 
-Let's say that in the `<EditEventPage>` component you need the **same data** that you fetched in the `<EventDetailPage` component. These are two different route definitions (sibling routes), and therefore the same "loader" function would be needed for each route. ==`<EditEventPage>` route couldn't access the "loader" function of `<EventDetailPage>` route because they are siblings routes; only a child route could access the data returned by a "loader" function that is defined in the parent route==.
+Let's say that in the `<EditEventPage>` component you need the **same data** that you fetched in the `<EventDetailPage` component. These are two different route definitions (sibling routes), and therefore the same "loader" function would be needed for each route. ==`<EditEventPage>` route couldn't access the "loader" function of `<EventDetailPage>` route because they are siblings routes; **only a child route could access the data returned by a "loader" function that is defined in the parent route**==.
 
 ![useRouteLoaderData](../../img/useRouteLoaderData.jpg)
 
