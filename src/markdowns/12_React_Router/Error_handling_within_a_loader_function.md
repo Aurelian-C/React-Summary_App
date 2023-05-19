@@ -16,7 +16,7 @@ You can add a single `errorElement` to the parent route because **errors bubbles
 
 To differentiate between different errors like `404` or `500`, you can `throw` in your "loader" function a `Response` object and you can include some data into that `Response`.
 
-You thrown an `Response` object with some data attached to it because ==you can actually get hold of the data that's being thrown as an error inside of the component that's being rendered as an `errorElement`== and for that `react-router-dom` gives you an hook called `useRouteError`. ==Inside of an `errorElement`], this hook returns anything thrown during an "loader"/"action" function or rendering==.
+You thrown an `Response` object with some data attached to it because ==you can actually get hold of the data that's being thrown as an error inside of the component that's being rendered as an `errorElement`== and for that `react-router-dom` gives you an hook called `useRouteError`. ==Inside of an `errorElement`, this hook returns anything thrown during an "loader"/"action" function or rendering==.
 
 ==The `useRouteError` returns an object, and the returned object depends on whether you threw a `Response` or any other kind of object or data==. If you threw a `Response` in your "loader" function, the `useRouteError` return an object that include a `status` property. This `status` property reflects the status of the `Response` you threw in the "loader" function.
 
