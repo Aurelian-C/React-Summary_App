@@ -2078,8 +2078,18 @@ const React_Router = {
         highlight2: ['<code>useNavigation</code>'],
       },
       tooltips: [
-        "React Router gives us a <code>useNavigation</code> hook which we can use to <i>check the current route transitions state</i>, so to find out if a transition has been initiated and we're currently still waiting for data to arrive, or if we're done.",
-        "It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.",
+        `<p>React Router gives us a <code>useNavigation</code> hook which we can use to <i>check the current route transitions state</i>, so to find out if a transition has been initiated and we're currently still waiting for data to arrive, or if we're done.</p>
+        <p><code>useNavigation</code> let you show/dispay a feedback when a user navigate to a page.</p>
+        <ul>This hook tells you everything you need to know about a page navigation to build pending navigation indicators and optimistic UI on data mutations. Things like:
+        <li>- Global loading indicators</li>
+        <li>- Disabling forms while a mutation is happening</li>
+        <li>- Adding busy indicators to submit buttons</li>
+        <li>- Optimistically showing a new record while it's being created on the server</li>
+        <li>- Optimistically showing the new state of a record while it's being updated</li>
+        </ul>
+        <p><i>We get an object when we call <code>useNavigation</code> and that object has a couple of properties</i>, but for us the <code>state</code> property is the most important one.</p>
+        <p>It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.</p>
+        `,
       ],
     },
     {
