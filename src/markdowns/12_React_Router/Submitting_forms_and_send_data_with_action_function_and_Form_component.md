@@ -6,7 +6,7 @@ Just as you can add =="loader" functions to **load** data==, you can also add ==
 
 Just like "loader" function, "action" functions:
 
-- receives an object as parameter with `params` & `request` properties. Route params are parsed from [dynamic segments](https://reactrouter.com/en/main/route/route#dynamic-segments) and passed to your "action" function via `params`; this is useful for figuring out which resource to mutate. The`request` is a [Fetch Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) instance being sent to your route; the most common use case is to parse the [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) from the request:
+- receives an object as parameter with `params` & `request` properties. Route params are parsed from [dynamic segments](https://reactrouter.com/en/main/route/route#dynamic-segments) and passed to your "action" function via `params`; this is useful for figuring out which resource to mutate. The `request` is a [Fetch Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) instance being sent to your route; the most common use case is to parse the [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) from the request:
 
   ```react
   <Route
@@ -47,7 +47,7 @@ The `<Form>` component will make sure that the browser default of sending a requ
 
 You need to add to the `<Form>` component the `method` attribute and set this to "POST" for example, though the `<Form>` component also supports other HTTP methods like "GET" (default), "DELETE", "PATCH" or "PUT". Is important to understand that if you use the `<Form>` component the request will not be sent to the backend automatically, but instead to your "action" function and it will include all the form data.
 
-> **Note**: The default method is "get". Get submissions *will not call an action*. Get submissions are the same as a normal navigation (user clicks a link) except the user gets to supply the search params that go to the URL from the form. All other methods are "mutation submissions", meaning you intend to change something about your data with POST, PUT, PATCH, or DELETE.
+> **Note**: The default method is "GET". GET submissions *will not call an action*. GET submissions are the same as a normal navigation (user clicks a link) except the user gets to supply the search params that go to the URL from the form. All other methods are "mutation submissions", meaning you intend to change something about your data with POST, PUT, PATCH, or DELETE.
 
 #### The [`action`](https://reactrouter.com/en/main/components/form#action) attribute
 
@@ -57,7 +57,7 @@ You _optionally_ add to the `<Form>` component the `action` attribute. ==The `ac
 >
 > The method will be available on [`request.method`](https://developer.mozilla.org/en-US/docs/Web/API/Request/method) inside the route "action" function that is called.
 
-You could send the request to a different route by adding the `action` prop to the `<Form>` component and setting it to any other path, then in that case the "action" function of another path of another route definition object would be triggered.
+==You could send the request to a different route by adding the `action` prop to the `<Form>` component and setting it to any other path==, then in that case the "action" function of another path of another route definition object would be triggered.
 
 ```react
 <Form method="post" action="/any-other-path"></Form>

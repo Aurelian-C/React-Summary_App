@@ -2102,22 +2102,40 @@ const React_Router = {
         highlight2: ['"action" function', '<code><<span>Form</span>></code>'],
       },
       tooltips: [
-        'Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants a function as a value.',
-        `Just like "loader" function, "action" functions:
-        <br>- receives an object as parameter with <code>params</code> & <code>request</code> properties;
-        <br>- you can return anything from your "action" functions, even Responses;
-        <br>- you can <code>throw</code> in your "action" function to break out of the current call stack
+        `<p>Just as you can add <i>"loader" functions to <u>load</u> data</i>, you can also add <i>"action" functions to <u>send</u> data</i>. Like the "loader" property, "action" property wants a function as a value.</p>
+        <ul>Just like "loader" function, "action" functions:
+        <li>- receives an object as parameter with <code>params</code> & <code>request</code> properties;</li>
+        <li>- you can return anything from your "action" functions, even Responses;</li>
+        <li>- you can <code>throw</code> in your "action" function to break out of the current call stack.</li>
+        </ul>
+        <p><i>When the "action" function completes, all of the "loader" function data on the page will automatically revalidate to keep your UI in sync with your data.</i></p>
         `,
-        `The great thing about React Router is that it makes <i>handling form submissions</i> a brace and it helps with <i>extracting data from that form</i>. For that, you should go to the component that holds the form and make some changes to it:
-        <br>- all your form inputs must have the <code>name</code> attribute;
-        <br>- replace the <<span>form</span>> element with the special <<span>Form</span>> component which is provided by <code>react-router-dom</code>;
-        <br>- add to the <<span>Form</span>> component the <code>method</code> attribute and optionally the <code>action</code> attribute.
+        `<h3>Handling form submissions with React Router <<span>Form</span>> component</h3>
+        <ul>The great thing about React Router is that it makes <i>handling form submissions</i> a brace and it helps with <i>extracting data from that form</i>. For that, you should go to the component that holds the form and make some changes to it:
+        <li>- all your form inputs must have the <i><code>name</code> attribute</i>, because those names will later be used for extracting the data. Make sure your inputs have names or else the <code>FormData</code> will not include that field's value;</li>
+        <li>- you need to replace the HTML <<span>form</span>> with the <i><<span>Form</span>> component</i> provided by <code>react-router-dom</code>. The <<span>Form</span>> component will make sure that the browser default of sending a request to the backend will be omitted but it will <i>take that request that would've been sent and give it to your "action" function</i>. When the form is submitted, <i>the <<span>Form</span>> component will trigger the "action" function</i>;</li>
+        <li>- add to the <<span>Form</span>> component the <i><code>method</code> attribute</i> and optionally the <i><code>action</code> attribute</i>. Is important to understand that if you use the <<span>Form</span>> component the request will not be sent to the backend automatically, but instead to your "action" function and it will include all the form data.</li>
+        </ul>
         `,
-        'When the form is submitted, the <b><<span>Form</span>> component will <u>trigger the "action" function</u></b>.',
-        `To extract and use the data from your <<span>Form</span>> component in you "action" function you need to use the <code>request</code> object with it <code>.formData()</code> method and then the <code>.get()</code> method.
-        <br>- <i>The <code>.formData()</code> method return a Promise, so you need to use the <code>await</code> keyword</i>;
-        <br>- The <code>.get()</code> method is called to get access to the different input field values that were submitted.`,
-        'Typically, when submitting a form what you want to happen is that you navigate the user away to a different page after successfully submitting the form. To do that, you can return in your "action" function the result of calling <code>redirect()</code>.',
+        `<h3>The <code>method</code> attribute</h3>
+        <p>The default method is "GET". <i>GET submissions will not call an action</i>. GET submissions are the same as a normal navigation (user clicks a link) except the user gets to supply the search params that go to the URL from the form. All other methods are "mutation submissions", meaning you intend to change something about your data with POST, PUT, PATCH, or DELETE.</p>
+        `,
+        `<h3>The <code>action</code> attribute</h3>
+        <p>You <u>optionally</u> add to the <<span>Form</span>> component the <code>action</code> attribute. <i>The <code>action</code> attribute contains the url to which the form will be submitted, just like HTML form action</i>. The only difference is the default action. With HTML forms, it defaults to the full URL. With <<span>Form</span>>, it defaults to the relative URL of the closest route in context; in other words, <i>it points to the matching segment of the URL for the route in which the <<span>Form</span>> is rendered</i>.</p>
+        <p><i>You could send the request to a different route by adding the <code>action</code> prop to the <<span>Form</span>> component and setting it to any other path</i>, then in that case the "action" function of another path of another route definition object would be triggered. So if you had an "action" function on some other route, you could point at that "action" function by simply setting the <<span>Form</span>> component <code>action</code> prop value to the path of the route for which you wanna trigger the "action" function, but if you wanna trigger the "action" function of the currently active route you don't need the <code>action</code> prop.</p>
+        `,
+        `<h3>Extracting data from the <code>FormData</code></h3>
+        <p>Just as a "loader" function, the "action" function is executed by React Router and it receives an object that includes a couple of helpful properties, to be precise the <code>request</code> and <code>params</code> properties. These properties are objects.</p>
+        <ul>To extract and use the data from your <<span>Form</span>> component in you "action" function you need to use the<i> <code>request</code> object</i> with it <i><code>.formData()</code> method</i> and then the <i><code>.get()</code> method</i>.
+        <li>- <i>The <code>.formData()</code> method return a Promise, so you need to use the <code>await</code> keyword</i>;</li>
+        <li>- The <code>.get()</code> method is called to get access to the different input field values that were submitted.</li>
+        </ul>
+        <p><i>An alternative to <code>.get()</code> method is to use the spread operator & <code>Object.fromEntries()</code></i>.</p>
+        `,
+        `<h3>Redirect the user to another url with <code>redirect()</code></h3>
+        <p>Typically, when submitting a form what you want to happen is that you navigate the user away to a different page after successfully submitting the form. To do that, you can return in your "action" function the result of calling <code>redirect()</code>.</p>
+        <p><code>redirect()</code>, like <code>json()</code>, is a special function you can import from <code>react-router-dom</code> and like <code>json()</code>, <i><code>redirect()</code> creates a Response object</i>. However, it's a special Response object that simply redirects the user to a different page.</p>
+        `,
       ],
     },
     {
@@ -2130,16 +2148,21 @@ const React_Router = {
         highlight2: ['<code>useSubmit</code>'],
       },
       tooltips: [
-        'The typical and <i>default way</i> of triggering an "action" function is by using the <<span>Form</span>> component, but you can trigger an "action" function <i>programatically</i> with <code>useSubmit</code> hook.',
-        'Just as we can navigate programmatically, we can also <i><u>submit data</u> and <u>trigger an "action" function</u> programmatically</i> with the <code>useSubmit</code> hook imported from <code>react-router-dom</code>.',
-        "The <code>useSubmit()</code> function is the <i>imperative version of <<span>Form</span>> component</i> that let's you, the programmer, submit a form instead of the user.",
-        `To the <code>useSubmit</code> function you can pass two arguments:
-        <br>- submit <i>target</i>;
-        <br>- submit <i>options</i>;`,
-        `<b>The submit target</b>
-        <br>The first argument to submit accepts many different values. You can submit any form or form input element, or you can submit <code>FormData</code>. The first argument may be the <i>data that you wanna submit</i>, and that data will automatically be wrapped in a <<span>Form</span>> data object, which you then could extract with the <code>.formData()</code> method.`,
-        `<b>The submit options</b>
-        <br>The second argument is a set of options that map directly to <i>form submission attributes</i>. This argument allows you to basically set <i>the same values you could set on a <<span>Form</span>> component</i>, for example the <code>method</code> or the <code>action</code> if your "action" function would be defined on a different route path.`,
+        `<h3><<span>Form</span>> component vs <code>useSubmit</code> hook</h3>
+        <p>The typical and <i>default way</i> of triggering an "action" function is by using the <<span>Form</span>> component. The <<span>Form</span>> component will <i><u>automatically</u> trigger the "action" function of the currently active route</i>, so the route for which the <<span>Form</span>> component was loaded.</p>
+        <p>Just as you can navigate programmatically, you can also <i>submit data and trigger an "action" function <u>programmatically</u> with the <code>useSubmit</code> hook</i> imported from <code>react-router-dom</code>.</p>
+        <p>The <code>useSubmit()</code> function is the <i>imperative version of <<span>Form</span>> component</i> that let's you, the programmer, submit a form instead of the user.</p>
+        `,
+        `<h3>Triggering an "action" function with <code>useSubmit</code> hook</h3>
+        <ul>To the <code>useSubmit</code> function you can pass two arguments:
+        <li>- submit <i>target</i>;</li>
+        <li>- submit <i>options</i>;</li>
+        </ul>
+        `,
+        `<h3>The submit target</h3>
+        <p>The first argument to submit accepts many different values. You can submit any form or form input element, or you can submit <code>FormData</code>. The first argument may be the <i>data that you wanna submit</i>, and that data will automatically be wrapped in a <<span>Form</span>> data object, which you then could extract with the <code>.formData()</code> method.</p>`,
+        `<h3>The submit options</h3>
+        <p>The second argument is a set of options that map directly to <i>form submission attributes</i>. This argument allows you to basically set <i>the same values you could set on a <<span>Form</span>> component</i>, for example the <code>method</code> or the <code>action</code> if your "action" function would be defined on a different route path.</p>`,
       ],
     },
     {
@@ -2148,8 +2171,10 @@ const React_Router = {
       sectionSource:
         '/src/markdowns/12_React_Router/Updating_the_UI_state_based_on_the_submission_status.html',
       tooltips: [
-        'You can use the <code>useNavigation</code> hook to <i>update the UI based on different navigation state</i>.',
-        "It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.",
+        `<p>You can use the <code>useNavigation</code> hook to <i>update the UI based on different navigation state</i>.</p>
+        <p>The <code>useNavigation</code> hook gives you access to a navigation object (JavaScript object), and you can extract various pieces of information from that object, for example, all the data that was submitted; but you can also find out what <i>the current state of the currently active transition is</i>.</p>
+        <p><i>You can have a transition from one route to another if you click a link, but you can also have a transition if you submit a form</i>. Therefore, you also get information about the current data submission process and whether it completed already, so whether the "action" function that was triggered completed already.</p>
+        <p>It's important to undestand that <i><code>useNavigation</code> won't be called on the page which you're transitioning to</i>, but instead on some page or a component which is already visible on the screen when the transition is started.</p>`,
       ],
     },
     {
@@ -2161,8 +2186,10 @@ const React_Router = {
         highlight2: ['<code>useActionData</code>'],
       },
       tooltips: [
-        "<code>useActionData</code> hook does the same thing that <code>useLoaderData</code> hook. The most common use-case for this hook is <i>form validation errors</i>. If the form isn't right, you can return the errors and let the user try again.",
-        'Like in a "loader" function, the Response that you return from your "action" function will be automatically parsed by the <code>useActionData</code> for you.',
+        `<p><code>useActionData</code> hook does the same thing that <code>useLoaderData</code> hook. <i>The <code>useActionData</code> hook provides the returned value from the previous navigation's <code>action</code> result, or <code>undefined</code> if there was no submission</i>.</p>
+        <p>The most common use-case for this hook is <i>form validation errors</i>. If the form isn't right, you can return the errors and let the user try again.</p>
+        <p>Like in a "loader" function, the <code>Response</code> that you return from your "action" function will be automatically parsed by the <code>useActionData</code> for you.</p>
+        `,
       ],
     },
     {
@@ -2182,21 +2209,31 @@ const React_Router = {
         highlight2: ['<code>useFetcher()</code>'],
       },
       tooltips: [
-        'In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>. Sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</i>.',
-        `Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>.`,
-        `<code>useFetcher</code> interacts with route "action"/"loader" function without causing a navigation. It is great for any interaction that stays on the same page.
-        <br>The <code>useFetcher</code> hook is the tool you should use if you wanna <i>interact with some "action"/"loader" function <u>without transitioning</u></i>, so if you wanna send your requests behind the scenes without triggering any route changes. Use it if you wanna <i>trigger a "loader"/"action" function without actually loading the route's <code>element</code> to which that "loader"/"action" function belongs</i>.`,
-        'The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.',
-        `<b><code><<span>fetcher.Form</span>></code></b> component: <<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>. So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <code>fetcher.load()</code> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.
-        <br>With the default <<span>Form</span>> component you will trigger the route "action" function BUT you also load the route element component. With <<span>fetcher.Form</span>> you ONLY trigger the "action" function WITHOUT loading the route element component, because with <<span>fetcher.Form</span>> you don't transition, you don't move to a different route.`,
-        `<b><code>fetcher.data</code></b>: the returned data from the "action"/"loader" function is stored in <code>fetcher.data</code>. Once the data is set, it persists on the fetcher even through reloads and resubmissions`,
-        `<b><code>fetcher.state</code></b>: You can know the state of the fetcher with <code>fetcher.state</code>. It will be one of:
-        <br>- idle;
-        <br>- submitting;
-        <br>- loading.
+        `<p>In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>: <code><<span>a href</span>></code> and <code><<span>form action</span>></code>. Both cause a navigation in the browser. The React Router equivalents are <code><<span>Link</span>></code> and <code><<span>Form</span>></code>. But sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</i>.</p>
+        <p>Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>. <code>useFetcher</code> interacts with route "action"/"loader" function without causing a navigation. It is great for any interaction that stays on the same page.</p>
+        <p>The <code>useFetcher</code> hook is the tool you should use if you wanna <i>interact with some "action"/"loader" function <u>without transitioning</u></i>, so if you wanna send your requests behind the scenes without triggering any route changes. Use it if you wanna <i>trigger a "loader"/"action" function without actually loading the route's <code>element</code> to which that "loader"/"action" function belongs</i>.</p>
         `,
-        `<b><code>fetcher.load()</code></b>: loads data from a route "loader" function.`,
-        `<b><code>fetcher.submit()</code></b>: the imperative version of <<span>fetcher.Form</span>>. If a user interaction should initiate the fetch, you should use <<span>fetcher.Form</span>>. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.`,
+        `<h3><code>useFetcher()</code> returns an object</h3>
+        <p>The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.</p>
+        <p>For example, it gives you a <<span>fetcher.Form</span>> component which is different from the <<span>Form</span>> component you used before. It also gives you a <code>fetcher.submit</code> function which is different from the submit function you got from <code>useSubmit</code> hook, which you used before.</p>
+        `,
+        `<h3>The difference between <<span>fetcher.Form</span>> and <<span>Form</span>> component</h3>
+        <p><<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>.</p>
+        <p>So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <code>fetcher.load()</code> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.</p>
+        <p>With the default <<span>Form</span>> component you will trigger the route "action" function BUT you also load the route element component. With <<span>fetcher.Form</span>> you ONLY trigger the "action" function WITHOUT loading the route element component, because with <<span>fetcher.Form</span>> you don't transition, you don't move to a different route.</p>`,
+        `<h3><code>fetcher.data</code></h3>
+        <p>The returned data from the "action"/"loader" function is stored in <code>fetcher.data</code>. Once the data is set, it persists on the fetcher even through reloads and resubmissions.</p>`,
+        `<h3><code>fetcher.state</code></h3>
+        <ul>You can know the state of the fetcher with <code>fetcher.state</code>. It will be one of:
+        <li>- idle;</li>
+        <li>- submitting;</li>
+        <li>- loading.</li>
+        </ul>
+        `,
+        `<h3><code>fetcher.load()</code></h3>
+        <p>Loads data from a route "loader" function.</p>`,
+        `<h3><code>fetcher.submit()</code></h3>
+        <p>The imperative version of <<span>fetcher.Form</span>>. If a user interaction should initiate the fetch, you should use <<span>fetcher.Form</span>>. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.</p>`,
       ],
     },
     {
