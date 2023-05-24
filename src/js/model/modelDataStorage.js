@@ -2250,19 +2250,26 @@ const React_Router = {
         ],
       },
       tooltips: [
-        'React Router provides a feature that allows you to <i>defer when data is loaded</i>.',
-        'Sometimes you wanna <i>load a page component with some data <u>before fetching the data</u></i>, and show some parts of the that page component already until all the data is fetched. We can defer data loading and tell React Router that we actually wanna render a page component already, even though the data is not fully there yet.',
-        `<b>The <code>defer()</code> function</b>
-        <br>- allows you to <i>defer values returned from "loader" functions by passing promises instead of resolved values</i>
-        <br>- to <code>defer()</code> function you <i>pass an <u>object</u></i>. In that object you bundle all the different HTTP requests you might have going on a page component
+        `<p>React Router provides a feature that allows you to <i>defer when data is loaded</i>.</p>
+        <p>Sometimes you wanna <i>load a page component with some data <u>before fetching the data</u></i>, and show some parts of the that page component already until all the data is fetched. You can defer data loading and tell React Router that we actually wanna render a page component already, even though the data is not fully there yet.</p>
+        <p>React Router takes advantage of React 18's <code><<span>Suspense</span>></code> component for data fetching using the <code>defer()</code> utility and <code><<span>Await</span>></code> component to solve this kind of problems.</p>
+        <p>The defer feature can speed up your pages and make sure that you're already showing some content whilst you're waiting for other content. It especially shines if you have pages with multiple HTTP requests with different speeds though.</p>
         `,
-        `<b>The <code><<span>Await</span>></code> component</b>
-        <br>- used to <i>render <u>deferred values</u> with <u>automatic error handling</u></i>
-        <br>- <code><<span>Await</span>></code> children can either be React elements or a function
-        <br>- <code><<span>Await</span>></code> expects to be rendered inside of a <code><<span>React.Suspense</span>></code> or <code><<span>React.SuspenseList</span>></code> parent to enable the fallback UI
+        `<h3>The <code>defer()</code> function</h3>
+        <p><code>defer()</code> function allows you to <i>defer values returned from "loader" functions by passing promises instead of resolved values</i>.</p>
+        <p>To <code>defer()</code> you <i>pass an <u>object</u></i>. In that object you bundle all the different HTTP requests you might have going on on a page component.</p>
+        <p>You can only use <code>defer()</code> if you have call an async function. Now <i>the only thing you return in your "loader" function is the <code>defer()</code> function</i>.</p>
+        <p>If you use <code>defer()</code>, in your "loader" function you need to manually parse the response and return from "loader" function the resolved value, not the response (Promise). <i><code>defer()</code> doesn't parse your Response automatically, <code>defer()</code> need a <u>parsed Response</u></i>.</p>
+        <p>As your next step, you have to go to the component where you want to use the deferred data and you still use <code>useLoaderData</code> for extracting data, but now the data will be an object that gives you access to the deferred value keys in the <code>defer()</code> function. Now in the component you don't directly render the JSX markup that needs your data, instead what you do in is to return another component provided by <code>react-router-dom</code> and that's the <code><<span>Await</span>></code> component.</p>
         `,
-        `<b>The <code><<span>Suspense</span>></code> component</b>
-        <br>- lets you <i>display a fallback until its children have finished loading</i>
+        `<h3>The <code><<span>Await</span>></code> component</h3>
+        <p><code><<span>Await</span>></code> component is used to <i>render <u>deferred values</u> with <u>automatic error handling</u></i>. <code><<span>Await</span>></code> has a special <code>resolve</code> prop which wants one of your deferred values as a value.</p>
+        <p>Now the <code><<span>Await</span>></code> component will wait for the "loader" function data to be there, and then between the opening and closing tags, you output a dynamic value which must be a function that will be executed by a React Router once that data is there, so once that Promise resolved, once you have that data. <i><code><<span>Await</span>></code> children can either be React elements or a function.</i></p>
+        <p><code><<span>Await</span>></code> expects to be rendered inside of a <code><<span>React.Suspense</span>></code> or <code><<span>React.SuspenseList</span>></code> parent to enable the fallback UI.</p>
+        `,
+        `<h3>The <code><<span>Suspense</span>></code> component</h3>
+        <p><code><<span>Suspense</span>></code> component is imported from 'react', so not from 'react-router-dom'.</p>
+        <p><code><<span>Suspense</span>></code> lets you <i>display a fallback until its children have finished loading</i>.</p>
         `,
       ],
     },
@@ -2271,18 +2278,54 @@ const React_Router = {
         'Controlling which data should be deferred and which data should be loaded before navigation',
       sectionSource:
         '/src/markdowns/12_React_Router/Controlling_which_data_should_be_deferred.html',
+      highlights: {
+        highlight1: ['deferred', 'loaded'],
+      },
+      tooltips: [
+        `<p>So how does the <code>defer()</code> feature shine if you have multiple requests with different speeds? You can use <code>defer()</code> and <code>await</code> keyword to control which <i>data is <u>loaded</u> before navigation</i> and which <i>data is <u>deferred</u> before navigation</i> and loaded after the page component was rendered to the screen.</p>
+        <h3><code><<span>Await</span>></code> need to be wrapped by its own <code><<span>Suspense</span>></code></h3>
+        <p><i>Every <code><<span>Await</span>></code> block must be wrapped with its own <code><<span>Suspense</span>></code> component</i>, otherwise <code><<span>Suspense</span>></code> will wait for all <code><<span>Await</span>></code> components to complete before showing anything, which is not what you want.</p>
+        `,
+      ],
     },
     {
       sectionTitle:
         'More about the <code><<span>Await</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/More_about_the_Await_component.html',
+      tooltips: [
+        `<p><code><<span>Await</span>></code> component is used to <i>render deferred values</i> with <i>automatic error handling</i>.</p>
+        <p><code><<span>Await</span>></code> expects to be rendered inside of a <code><<span>React.Suspense</span>></code> or <code><<span>React.SuspenseList</span>></code> parent to enable the fallback UI.</p>
+        `,
+        `<h3>The <code>resolve</code> prop</h3>
+        <p>The <code>resolve</code> prop <i>takes a promise returned from a deferred loader</i> value to be resolved and rendered.</p>
+        `,
+        `<h3><code><<span>Await</span>></code> children</h3>
+        <p><code><<span>Await</span>></code> children can either be <i>React elements</i> or a <i>function</i>.</p>
+        <p>When using a function, the value is provided as the only parameter. When using React elements, <code>useAsyncValue</code> will provide the data.</p>
+        `,
+        `<h3>The <code>errorElement</code> prop</h3>
+        <p><i>The error element renders instead of the children when the promise rejects.</i> You can access the error with <code>useAsyncError</code>.</p>
+        <p>If you do not provide an <code>errorElement</code> prop, the rejected value will bubble up to the nearest route-level <code>errorElement</code> and be accessible via the <code>useRouteError</code> hook.</p>
+        `,
+      ],
     },
     {
       sectionTitle:
         'More about the <code><<span>Suspense</span>></code> component',
       sectionSource:
         '/src/markdowns/12_React_Router/More_about_the_Suspense_component.html',
+      tooltips: [
+        `<p><code><<span>Suspense</span>></code> lets you <i><u>display a fallback</u> until its children have finished loading</i>.</p>`,
+        `<h3>The <code>children</code> prop</h3>
+        <p><i>The actual UI you intend to render.</i> If <code>children</code> suspends while rendering, the <code><<span>Suspense</span>></code> boundary will switch to rendering <code>fallback</code>.</p>`,
+        `<h3>The <code>fallback</code> prop</h3>
+        <p><i>An alternate UI to render in place of the actual UI if it has not finished loading</i>.</p>
+        <p><code><<span>Suspense</span>></code> will automatically switch to <code>fallback</code> when <code>children</code> suspends, and back to <code>children</code> when the data is ready. If <code>fallback</code> suspends while rendering, it will activate <i>the closest parent <code><<span>Suspense</span>></code> boundary</i>.</p>
+        `,
+        `<h3>Caveats</h3> 
+        <p>React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.</p>`,
+      ],
     },
   ],
 };

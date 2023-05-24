@@ -38,7 +38,7 @@ function Component() {
 };
 ```
 
-## The difference between `fetcher.Form` and `<Form>` components
+## The difference between `fetcher.Form` and `<Form>` component
 
 ==But what is the difference between the `fetcher.Form` and `<Form>` component? If we use the `fetcher.Form` will actually _still trigger an "action" function_ but it will **not initialize a route transition**. So `fetcher.Form` should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the `fetcher.load` method, **without actually navigating to the page to which the "loader"/"action" function belongs**.==
 
@@ -48,7 +48,7 @@ function Component() {
 
 ### The `action` attribute
 
-As on the `<Form>` component, onthe `fetcher.Form` you can add the `action` attribute and for example, point at `/newsletter` because you wanna trigger the "action" function off the `/newsletter` route, but you wanna make sure that you don't load the `newsletter` route's element component; you don't wanna load the `NewsletterPage` element that belongs to the `newsletter` route.
+As on the `<Form>` component, on the `fetcher.Form` you can add the `action` attribute and for example, point at `/newsletter` because you wanna trigger the "action" function off the `/newsletter` route, but you wanna make sure that you don't load the `newsletter` route's element component; you don't wanna load the `NewsletterPage` element that belongs to the `newsletter` route.
 
 ==With the default `<Form>` component you will trigger the `newsletter` route's "action" function BUT you also load the `NewsletterPage` element. With `fetcher.Form` you ONLY trigger the "action" function WITHOUT loading the element, because with `fetcher.Form` you don't transition, you don't move to a different route==.
 

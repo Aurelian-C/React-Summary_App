@@ -8,7 +8,7 @@
 </Suspense>
 ```
 
-Usage
+Usage:
 
 - Displaying a fallback while content is loading
 - Revealing content together at once
@@ -27,11 +27,11 @@ Troubleshooting
 
 #### ==`children`==
 
-==The actual UI you intend to render==. If `children` suspends while rendering, the Suspense boundary will switch to rendering `fallback`.
+==The actual UI you intend to render==. If `children` suspends while rendering, the `<Suspense>` boundary will switch to rendering `fallback`.
 
 #### ==`fallback`==
 
-==An alternate UI to render in place of the actual UI if it has not finished loading==. Suspense will automatically switch to `fallback` when `children` suspends, and back to `children` when the data is ready. If `fallback` suspends while rendering, it will activate _the closest parent Suspense boundary_.
+==An alternate UI to render in place of the actual UI if it has not finished loading==. `<Suspense>` will automatically switch to `fallback` when `children` suspends, and back to `children` when the data is ready. If `fallback` suspends while rendering, it will activate _the closest parent `<Suspense>` boundary_.
 
 ## Caveats 
 
