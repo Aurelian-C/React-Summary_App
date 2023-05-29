@@ -1,4 +1,4 @@
-# Controlling which data should be deferred and which data should be loaded before navigation
+# Controlling which data should be _deferred_ and which data should be _loaded_ before navigation
 
 So how does this `defer` feature shine if you have multiple requests with different speeds? You can use `defer` and `await` keyword to control which data is loaded before navigation and which data is deferred before navigation and loaded after the page component was rendered to the screen.
 
