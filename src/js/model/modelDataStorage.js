@@ -2321,13 +2321,39 @@ const React_Router = {
       tooltips: [
         `<p><code><<span>Suspense</span>></code> lets you <i><u>display a fallback</u> until its children have finished loading</i>.</p>`,
         `<h3>The <code>children</code> prop</h3>
-        <p><i>The actual UI you intend to render.</i> If <code>children</code> suspends while rendering, the <code><<span>Suspense</span>></code> boundary will switch to rendering <code>fallback</code>.</p>`,
+        <p><i>The actual UI you intend to render.</i> If <code>children</code> suspends while rendering, the <code><<span>Suspense</span>></code> boundary will switch to rendering <code>fallback</code>.</p>
+        <p>You can wrap any part of your application with a Suspense boundary. React will display your loading fallback until all the code and data needed by the children has been loaded.</p>
+        `,
         `<h3>The <code>fallback</code> prop</h3>
         <p><i>An alternate UI to render in place of the actual UI if it has not finished loading</i>.</p>
         <p><code><<span>Suspense</span>></code> will automatically switch to <code>fallback</code> when <code>children</code> suspends, and back to <code>children</code> when the data is ready. If <code>fallback</code> suspends while rendering, it will activate <i>the closest parent <code><<span>Suspense</span>></code> boundary</i>.</p>
         `,
         `<h3>Caveats</h3> 
-        <p>React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.</p>`,
+        <p>React does not preserve any state for renders that got suspended before they were able to mount for the first time. When the component has loaded, React will retry rendering the suspended tree from scratch.</p>
+        <p>If Suspense was displaying content for the tree, but then it suspended again, the <code>fallback</code> will be shown again unless the update causing it was caused by <code>startTransition</code> or <code>useDeferredValue</code>.</p>
+        <p>If React needs to hide the already visible content because it suspended again, it will clean up layout Effects in the content tree. When the content is ready to be shown again, React will fire the layout Effects again. This lets you make sure that Effects measuring the DOM layout don't try to do this while the content is hidden.</p>
+        `,
+        `<h3>Revealing content together at once</h3>
+        <p><i>By default, the whole tree inside Suspense is treated as a single unit</i>. Components that load data don't have to be direct children of the Suspense boundary.</p>
+        `,
+        `<h3>Revealing nested content as it loads</h3>
+        <p>When a component suspends, the <u>closest parent Suspense component</u> shows the fallback. This lets you <i>nest multiple Suspense components to create a <u>loading sequence</u></i>.</p>
+        <p>Suspense boundaries let you coordinate which parts of your UI should always "pop in" together at the same time, and which parts should progressively reveal more content in a sequence of loading states.</p>
+        `,
+        `<h3>Preventing already revealed content from hiding</h3>
+        <p>When a component suspends, the closest parent Suspense boundary switches to showing the fallback. This can lead to a jarring user experience if it was already displaying some content. To prevent this from happening, you can mark the navigation state update as a transition with <code>startTransition</code>. This tells React that the state transition is not urgent, and it's better to keep showing the previous page instead of hiding any already revealed content.</p>
+        <p><i>A transition doesn't wait for <u>all</u> content to load. It only waits long enough to avoid hiding already revealed content.</i></p>
+        `,
+        `<h3>Resetting Suspense boundaries on navigation</h3>
+        <p><i>During a transition, React will avoid hiding already revealed content.</i> However, if you navigate to <i>a route with different parameters</i>, you might want to tell React it is <i><u>different</u> content</i>. You can express this with a <code>key</code>: <code><<span>ProfilePage key={queryParams.id} </span>/></code></p>
+        `,
+        `<h3>How do I prevent the UI from being replaced by a fallback during an update?</h3>
+        <p>Replacing visible UI with a fallback creates a jarring user experience. This can happen when an update causes a component to suspend, and the nearest Suspense boundary is already showing content to the user.</p>
+        <p><i>To prevent this from happening, mark the update as non-urgent using <code>startTransition</code>. During a transition, React will wait until enough data has loaded to prevent an unwanted fallback from appearing.</i></p>
+        <p>This will avoid hiding existing content. However, any newly rendered <code>Suspense</code> boundaries will still immediately display fallbacks to avoid blocking the UI and let the user see the content as it becomes available.</p>
+        <p><i>React will only prevent unwanted fallbacks during non-urgent updates. It will not delay a render if it's the result of an urgent update. You must opt in with an API like <Code>startTransition</code> or <Code>useDeferredValue</code>.</i></p>
+        <p>If your router is integrated with Suspense, it should wrap its updates into <Code>startTransition</code> automatically.</p>
+        `,
       ],
     },
   ],
