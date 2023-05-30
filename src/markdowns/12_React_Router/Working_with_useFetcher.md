@@ -13,11 +13,11 @@
 Fetchers have a lot of _built-in behavior_:
 
 - Automatically handles cancellation on interruptions of the fetch
-- When submitting with POST, PUT, PATCH, DELETE, the "action" function is called first
-  - After the "action" function completes, the data on the page is revalidated to capture any mutations that may have happened, automatically keeping your UI in sync with your server state
-- When multiple fetchers are inflight at once, it will
-  - commit the freshest available data as they each land
-  - ensure no stale loads override fresher data, no matter which order the responses return
+- ==When submitting with POST, PUT, PATCH, DELETE, the "action" function is called first==
+  - ==After the "action" function completes, the data on the page is revalidated to capture any mutations that may have happened, automatically keeping your UI in sync with your server state==
+- ==When multiple fetchers are inflight at once, it will==
+  - ==commit the freshest available data as they each land==
+  - ==ensure no stale loads override fresher data, no matter which order the responses return==
 - Handles uncaught errors by rendering the nearest `errorElement` (just like a normal navigation from `<Link>` or `<Form>`)
 - Will redirect the app if your "action"/"loader" function being called returns a redirect (just like a normal navigation from `<Link>` or `<Form>`)
 
@@ -40,7 +40,7 @@ function Component() {
 
 ## The difference between `fetcher.Form` and `<Form>` component
 
-==But what is the difference between the `fetcher.Form` and `<Form>` component? If we use the `fetcher.Form` will actually _still trigger an "action" function_ but it will **not initialize a route transition**. So `fetcher.Form` should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the `fetcher.load` method, **without actually navigating to the page to which the "loader"/"action" function belongs**.==
+==But what is the difference between the `fetcher.Form` and `<Form>` component? If you use the `fetcher.Form` will actually _still trigger an "action" function_ but it will **not initialize a route transition**. So `fetcher.Form` should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the `fetcher.load` method, **without actually navigating to the page to which the "loader"/"action" function belongs**.==
 
 > **Note**: `fetcher.Form` is just like `<Form>` except it _doesn't cause a navigation_.
 
@@ -72,9 +72,15 @@ You can also get hold of a `state` value which is equal to "idle", "loading" or 
 
 ### `fetcher.load()`
 
-==Loads data from a route "loader" function==. Although a URL might match multiple nested routes, a `fetcher.load()` call will only call the loader on the leaf match (or parent of [index routes](https://reactrouter.com/en/main/guides/index-search-param)).
+==Loads data from a route "loader" function==.
+
+![useFetcher1](../../img/useFetcher1.jpg)
+
+Although a URL might match multiple nested routes, a `fetcher.load()` call will only call the loader on the leaf match (or parent of [index routes](https://reactrouter.com/en/main/guides/index-search-param)).
 
 If you find yourself calling this function inside of click handlers, you can probably simplify your code by using `<fetcher.Form>` instead.
+
+> **Note**: Any `fetcher.load` calls that are active on the page will be re-executed as part of revalidation (either after a navigation submission, another fetcher submission, or a `useRevalidator()` call).
 
 ### `fetcher.submit()`
 

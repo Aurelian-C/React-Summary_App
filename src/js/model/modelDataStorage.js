@@ -2202,7 +2202,8 @@ const React_Router = {
       },
     },
     {
-      sectionTitle: 'Working with <code>useFetcher()</code>',
+      sectionTitle:
+        'Calling "action"/"loader" functions without causing a navigation (route transition): the <code>useFetcher()</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_useFetcher.html',
       highlights: {
@@ -2210,8 +2211,16 @@ const React_Router = {
       },
       tooltips: [
         `<p>In HTML/HTTP, <i>data mutations and loads are <u>modeled with navigation</u></i>: <code><<span>a href</span>></code> and <code><<span>form action</span>></code>. Both cause a navigation in the browser. The React Router equivalents are <code><<span>Link</span>></code> and <code><<span>Form</span>></code>. But sometimes you want to <i>call a "action"/"loader" function <u>outside of navigation</u> (without changing the URL)</i>.</p>
-        <p>Many interactions with the server aren't navigation events. The <code>useFetcher</code> hook lets you <i>plug your UI into your "action"/"loader" functions without navigating</i>. <code>useFetcher</code> interacts with route "action"/"loader" function without causing a navigation. It is great for any interaction that stays on the same page.</p>
+        <p><i>Many interactions with the server aren't navigation events.</i></p>
+        <p>The <code>useFetcher</code> hook <i>interacts with route "action"/"loader" function <u>without causing a navigation</u></i>. It is great for any interaction that stays on the same page.</p>
         <p>The <code>useFetcher</code> hook is the tool you should use if you wanna <i>interact with some "action"/"loader" function <u>without transitioning</u></i>, so if you wanna send your requests behind the scenes without triggering any route changes. Use it if you wanna <i>trigger a "loader"/"action" function without actually loading the route's <code>element</code> to which that "loader"/"action" function belongs</i>.</p>
+        `,
+        `<h3>Fetchers have a lot of built-in behavior</h3>
+        <p><i>When submitting with POST, PUT, PATCH, DELETE, the "action" function is called first.</i> After the "action" function completes, the data on the page is revalidated to capture any mutations that may have happened, automatically keeping your UI in sync with your server state.</p>
+        <ul>When multiple fetchers are inflight at once, it will:
+        <li>- commit the freshest available data as they each land;</li>
+        <li>- ensure no stale loads override fresher data, no matter which order the responses return.</li>
+        </ul>
         `,
         `<h3><code>useFetcher()</code> returns an object</h3>
         <p>The <code>useFetcher</code> hook, when executed, <i>returns an object</i> that includes a bunch of useful properties and methods.</p>
@@ -2221,6 +2230,9 @@ const React_Router = {
         <p><<span>fetcher.Form</span>> is just like <<span>Form</span>> component, except it <i>doesn't cause a navigation</i>. <<span>fetcher.Form</span>> will actually <i>still trigger an "action" function but it will <u>not initialize a route transition</u></i>.</p>
         <p>So <<span>fetcher.Form</span>> should basically be used whenever you wanna trigger an "action" function, or also a "loader" function with help of the <code>fetcher.load()</code> method, <i>without actually navigating to the page to which the "loader"/"action" function belongs</i>.</p>
         <p>With the default <<span>Form</span>> component you will trigger the route "action" function BUT you also load the route element component. With <<span>fetcher.Form</span>> you ONLY trigger the "action" function WITHOUT loading the route element component, because with <<span>fetcher.Form</span>> you don't transition, you don't move to a different route.</p>`,
+        `<h3><<span>fetcher.Form</span>>'s <code>action</code> attribute</h3>
+        <p>As on the <<span>Form</span>> component, on the <<span>fetcher.Form</span>> you can add the <code>action</code> attribute to specify the url to which the "action" function will be called, for example, point at <code>action="/someRoute"</code> because you wanna trigger the "action" function off the <code>/someRoute</code> route.</p>
+        `,
         `<h3><code>fetcher.data</code></h3>
         <p>The returned data from the "action"/"loader" function is stored in <code>fetcher.data</code>. Once the data is set, it persists on the fetcher even through reloads and resubmissions.</p>`,
         `<h3><code>fetcher.state</code></h3>
@@ -2231,9 +2243,9 @@ const React_Router = {
         </ul>
         `,
         `<h3><code>fetcher.load()</code></h3>
-        <p>Loads data from a route "loader" function.</p>`,
+        <p>Loads data from a route "loader" function. Although a URL might match multiple nested routes, a <i><code>fetcher.load()</code> call will only call the "loader" function on the leaf match</i> (or parent of index routes).</p>`,
         `<h3><code>fetcher.submit()</code></h3>
-        <p>The imperative version of <<span>fetcher.Form</span>>. If a user interaction should initiate the fetch, you should use <<span>fetcher.Form</span>>. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.</p>`,
+        <p><i>The imperative version of <<span>fetcher.Form</span>></i>. If a user interaction should initiate the fetch, you should use <<span>fetcher.Form</span>>. But if you, the programmer are initiating the fetch (not in response to a user clicking a button, etc.), then use this function.</p>`,
       ],
     },
     {

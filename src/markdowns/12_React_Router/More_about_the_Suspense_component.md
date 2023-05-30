@@ -137,7 +137,7 @@ A transition doesn’t wait for *all* content to load. It only waits long enough
 
 ## Resetting Suspense boundaries on navigation 
 
-During a transition, React will avoid hiding already revealed content. However, if you navigate to a route with different parameters, you might want to tell React it is *different* content. You can express this with a `key`:
+During a transition, React will avoid hiding already revealed content. However, ==if you navigate to **a route with different parameters**, you might want to tell React it is **_different_ content**. You can express this with a `key`==:
 
 ```react
 <ProfilePage key={queryParams.id} />
@@ -189,7 +189,7 @@ function handleNextPageClick() {
 
 This will avoid hiding existing content. However, any newly rendered `Suspense` boundaries will still immediately display fallbacks to avoid blocking the UI and let the user see the content as it becomes available.
 
-**React will only prevent unwanted fallbacks during non-urgent updates**. It will not delay a render if it’s the result of an urgent update. You must opt in with an API like [`startTransition`](https://beta.reactjs.org/reference/react/startTransition) or [`useDeferredValue`](https://beta.reactjs.org/reference/react/useDeferredValue).
+==React will only prevent unwanted fallbacks during non-urgent updates. It will not delay a render if it’s the result of an urgent update. You must opt in with an API like [`startTransition`](https://beta.reactjs.org/reference/react/startTransition) or [`useDeferredValue`](https://beta.reactjs.org/reference/react/useDeferredValue).==
 
 If your router is integrated with Suspense, it should wrap its updates into [`startTransition`](https://beta.reactjs.org/reference/react/startTransition) automatically.
 
