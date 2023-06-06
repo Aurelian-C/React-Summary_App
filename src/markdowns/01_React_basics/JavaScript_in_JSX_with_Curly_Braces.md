@@ -82,8 +82,6 @@ Now you know almost everything about JSX:
 - They work inside the JSX tag content or immediately after `=` in attributes;
 - `{{ ... }}` is not special syntax: it’s a JavaScript object tucked inside JSX curly braces.
 
-
-
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)

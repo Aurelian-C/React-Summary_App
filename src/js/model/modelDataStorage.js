@@ -17,10 +17,10 @@ const React_basics = {
         `<h3>Components: UI building blocks</h3>
         <p>React is a JavaScript library for <i>building user interfaces (UI)</i>.</p>
         <p>React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its <u>own logic</u> and <u>appearance</u></i>. A component can be as small as a button, or as large as an entire page.</p>
-        <p>React lets you combine your <i>markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom components, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
+        <p>React lets you combine your <i>HTML markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom components, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
         `,
         `<h3>What is a component?</h3>
-        <p>Conceptually, components are just JavaScript functions that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
+        <p>Conceptually, components are just <u>JavaScript functions</u> that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
         <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
         <ul>React components are regular JavaScript functions except:
@@ -29,8 +29,14 @@ const React_basics = {
         </ul>`,
         `<h3>Why components?</h3>
         <p>React is all about components because <i>the UI in the end is made up of components</i>.</p>
-        <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a <u>clear task</u></i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your code.</p>
+        <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a <u>clear task</u></i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your components.</p>
         <p>Components let you <i>split the UI into <u>independent</u>, <u>reusable</u> pieces, and <u>think about each piece in isolation</u></i>.</p>
+        `,
+        `<h3>Components & separation of concerns</h3>
+        <p>Separation of concerns = don't do too many things in one and the same place (function). Split big chunks of code into multiple smaller functions.</p>
+        <p>Having a separation of concerns helps you with <i>keeping your code base <u>small</u> and <u>manageable</u></i>, instead of having one large file which holds all the HTML markup and all the JavaScript logic.</p>
+        <p>For the entire UI you have <i>small separated units (components)</i>, where every component has <i>one specific task it focuses on</i>. If you <i>split your code across multiple files</i>, then you will have small pieces of code which are easy to manage and maintain.</p>
+        <p>These of course are not concepts or ideas React invented. If you take a step back from React and you think about programming in general, then of course in any programming language and no matter what you are building, you tend to work with functions and you <i>split your code into multiple small functions</i>, which then may call each other to outsource logic into a function, to separate concerns and to be <i>able to execute the same code multiple times</i> if you need to. React just picks up that concept of functions and of <i>separating code across functions</i>, and translates it to the front-end web application world where you built an entire UI by splitting your code into multiple components, which you then can mix and match as you need to.</p>
         `,
       ],
     },
@@ -45,10 +51,11 @@ const React_basics = {
         `<h3>Why React mixes markup with rendering logic?</h3>
         <p>The web has been built on HTML, CSS, and JavaScript. For many years, web developers kept content in HTML, design in CSS, and logic in JavaScript — often in separate files! Content was marked up inside HTML while the page's logic lived separately in JavaScript.</p>
         <p>But as the Web became more interactive, <i>logic increasingly determined content. JavaScript was in charge of the HTML!</i> This is why <i>in React, rendering logic and markup live together in the same place — components</i>.</p>
+        <p>Keeping a button's <i>rendering logic and markup together</i> ensures that they <i>stay in sync with each other</i> on every edit. Conversely, details that are unrelated, such as the button's markup and a sidebar's markup, are <i>isolated</i> from each other, making it safer to change either of them on their own.</p>
         `,
         `<h3>JSX: Putting markup into JavaScript</h3>
         <p>Each React component is a JavaScript function that may contain some markup that React renders into the browser. React components use a <i>syntax extension called JSX</i> to represent that markup. JSX looks a lot like HTML, but it is a bit stricter, has a few more rules than HTML and can display dynamic information.</p>
-        <p><i>JSX markup is written like HTML, but it is actually JavaScript under the hood!</i> JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.</p>
+        <p>If you have some (perfectly valid) HTML markup and you want to put it into your component by copy and paste it as is, it won't always work. This is because JSX is stricter and has a few more rules than HTML! <i>JSX markup is written like HTML, but it is actually JavaScript under the hood!</i> JSX just provides <i>syntactic sugar</i> for the <code>React.createElement()</code> function.</p>
         <p>JSX lets you <i>write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place</i>.</p>
         `,
         `<h3>You can store JSX markup in variables</h3>
@@ -57,7 +64,7 @@ const React_basics = {
         `<h3>How JSX is different from HTML (rules of JSX)</h3>
         <ul>JSX is stricter than HTML:
         <li>1. <i>Return a single root element</i>: Your component can't return multiple JSX tags. You have to wrap them into a shared parent, like a <<span>div></span>...<<span>/div></span> or if you don't want to add an extra parent tag to your markup you can write an empty <>...<</span>/></span> wrapper.</li>
-        <li>2. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span>, <<span>input></span> must become <<span>img /></span>, <<span>input /></span>.</li> 
+        <li>2. <i>Close all the tags</i>: JSX requires tags to be explicitly closed; self-closing tags like <<span>img></span> or <<span>input></span> must become <<span>img /></span> and <<span>input /></span>.</li> 
         <li>3. <i>camelCase all most of the things</i>: JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects. In your own components, you will often want to read those attributes into variables. But JavaScript has limitations on variable names; for example, their names can't contain dashes or be reserved words like <code>class</code>. This is why, in React, many HTML and SVG attributes are written in camelCase.</li>
         </ul>
         `,
@@ -87,7 +94,7 @@ const React_basics = {
         <p>JSX attributes inside quotes are passed as strings, but with curly braces you can also "escape into JavaScript" from JSX attributes.</p>
         `,
         `<h3>Using "double curlies": CSS and other objects in JSX</h3>
-        <p>In addition to strings, numbers, and other JavaScript expressions, <i>you can even pass objects in JSX</i>. To pass a JS object in JSX, <i>you must wrap the object in another pair of curly braces</i>.</p>
+        <p>In addition to strings, numbers, and other JavaScript expressions, <i>you can even pass objects in JSX</i>. To pass a JavaScript object in JSX, <i>you must wrap the object in another pair of curly braces</i>.</p>
         <p>You may see this with inline CSS styles in JSX. React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.</p>
         <p><i>The next time you see <code>{{ ... }}</code> in JSX, know that it's nothing more than an object inside the JSX curlies!</i></p>
         `,
