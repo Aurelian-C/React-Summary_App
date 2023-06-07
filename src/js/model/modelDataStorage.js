@@ -123,8 +123,9 @@ const React_basics = {
         <p>2. <i>Import</i> the component;</p>
         <p>3. <i>Use</i> the component.</p>`,
         `<h3>Components: UI building blocks</h3>
-        <p>The key difference between React components and built-in HTML tags is that <i>React components names must always start with a capital letter, while HTML tags must be lowercase</i>.</p>
-        <p>React components are regular JavaScript functions, but their names must start with a capital letter or they won't work!</p>
+        <p>React applications are built from <i>isolated pieces of UI</i> called components. A React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
+        <p>React lets you combine your markup, CSS, and JavaScript into custom “components”, reusable UI elements for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages. As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development.</p>
+        <p>The key difference between React components and built-in HTML tags is that <i>React components names must always start with a capital letter, while HTML tags must be lowercase</i>. React components are regular JavaScript functions, but their names must start with a capital letter or they won't work!</p>
         <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
         `,
         `<h3>React component & return statements</h3>
@@ -153,7 +154,7 @@ const React_basics = {
         <p>Props is a super important concept because it allows you to <i>make your components <u>reusable</u></i> and it <i>allows you to <u>pass data</u> or/and <u>functions</u></i> from a parent component to a child component.</p>
         `,
         `<h3>Passing props to a child component</h3>
-        <p>Props let you think about parent and child components independently.</p>
+        <p><i>To pass props, add them to the JSX markup, just like you would with HTML attributes.</i> Props let you think about parent and child components independently.</p>
         <p>Props serve the same role as arguments serve for functions — in fact, <i>props are the only argument to your component! React component functions accept a single argument, a <code>props</code> object</i>.</p>
         <p>When you pass props from parent to child you can't skip intermediate child components in between, so it's also totally fine to have a <i>component which just passes data on</i>.</p>
         `,
@@ -169,13 +170,13 @@ const React_basics = {
         `,
         `<h3>Forwarding props with the spread syntax</h3>
         <p>Sometimes, passing props gets very repetitive. Some components forward all of their props to their children, so <i>you can forward all props with the spread syntax</i>: <code><<span>input {...props}</span> /></code> or <code><<span>input {...props.object}</span> /></code></p>
-        <p>Use spread syntax with restraint. If you're using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX.</p>
+        <p>Use spread syntax with restraint. If you're using it in every other component, something is wrong. Often, it indicates that <i>you should split your components and pass children as JSX</i>.</p>
         `,
         `<h3>Passing JSX as children: <code>props.children</code></h3>
-        <p>It is common to nest built-in browser tags. Sometimes you'll want to nest your own components the same way.</p>
+        <p>It is common to nest built-in browser tags; sometimes you'll want to nest your own components the same way.</p>
         <p><i>When you nest content inside a JSX tag, the parent component will receive that content in a prop called <code>children</code></i>.</p>
         <p>With the help of <code>children</code> prop you can build <i>wrapper components</i>. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it.</p>
-        <p>You can think of a component with a children prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX.</p>
+        <p>You can think of a component with a <code>children</code> prop as having a “hole” that can be “filled in” by its parent components with arbitrary JSX markup.</p>
         `,
         `<h3>How props change over time</h3>
         <p><i>A component may receive different props over time. Props are not always static!</i> Props reflect a component's data at any point in time, rather than only in the beginning.</p>
@@ -196,9 +197,9 @@ const React_basics = {
       },
       tooltips: [
         `<h3>Pass components as data to other components: <code>props.children</code></h3>
-        <p>Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to <i>pass content (JSX markup) between the opening and closing tags of that component</i>.</p>
+        <p>Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to <i><u>pass content (JSX markup)</u> between the opening and closing tags of that component</i>.</p>
         <p><i>Out of the box, you can't use your custom components as wrappers around JSX markup</i>. Out of the box you can only use built-in HTML elements (<<span>div</span>>, <<span>h2</span>>, <<span>p</span>> tags) as wrappers.</p>
-        <p>If you want to use custom components as wrappers, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <code>props.children</code>.</p>
+        <p>If you want to use <i>custom components as wrappers</i>, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <i><code>props.children</code></i>.</p>
         <p>With the help of <code>props.children</code> prop you can build <i>wrapper components</i>. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it. <i>You can think of a component with a <code>props.children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.</i></p>
         <p><code>props.children</code> is a reserved name, and the value of this special <code>children</code> prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.</p>
         
@@ -217,20 +218,22 @@ const React_basics = {
         <p><i>The magic of components lies in their <u>reusability</u>: you can create components that are composed of other components</i>. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you <i>keep your files easy to scan and <u>reuse</u> components in more places</i>.</p>
         `,
         `<h3>Separation of concerns</h3>
-        <p>React is all about splitting your app into small building blocks (components), where every building block (component) is <i>focused on <u>one core task</u></i>, and therefore your <i>code stays <u>maintainable</u> and <u>manageable</u></i>. You build your overall UI by combining these building blocks (components).`,
+        <p>React is all about splitting your app into small building blocks (components), where every building block (component) is <i>focused on <u>one core task</u></i>, and therefore your <i>code stays <u>maintainable</u> and <u>manageable</u></i>. You build your overall UI by combining these building blocks (components).</p>
+        <p>If you split your code across multiple files, then you'll have small pieces of code which are easy to manage and maintain.</p>
+        `,
         `<h3>Multiple components per one file</h3>
         <p>Components are regular JavaScript functions, so you can keep multiple components in the same file. This is <i>convenient when components are relatively <u>small</u> or tightly <u>related to each other</u></i>. If the file gets crowded, you can always split your components to a separate file.</p>
         <p>Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have a component that is really only getting used by the other component in that file, having both components in the same file can make sense too.</p>`,
         `<h3>Importing and exporting components</h3>
         <ul>You can move a component into another file in three steps:
-        <li>1. <i>Make a new JS file</i> to put the components in;</li>
+        <li>1. <i>Make a new JS file</i> to put the component in;</li>
         <li>2. <i>Export your function component</i> from that file using either <u>default</u> or <u>named</u> exports;</li>
         <li>3. <i>Import it</i> in the file where you'll use the component using the corresponding technique for importing default or named exports.</li>
         </ul>
-        <p><i>How you export your component dictates how you must import it</i>.</p>
+        <p><i>How you export your component dictates how you must import it</i>. A file can have no more than one default export, but it can have as many named exports as you like.</p>
         `,
         `<h3>When to use default and named imports and exports</h3>
-        <p>People often use default exports if the file exports only one component, and use named exports if it exports multiple components and values.</p>
+        <p>People often use <i>default exports if the file exports only one component</i>, and use <i>named exports if it exports multiple components and values</i>.</p>
         <p>Regardless of which coding style you prefer, <i>always give meaningful names to your component functions and the files that contain them</i>. Components without names, like <code>export default () => {}</code>, are discouraged because they make debugging harder.</p>
         `,
       ],

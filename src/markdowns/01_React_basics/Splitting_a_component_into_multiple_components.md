@@ -12,7 +12,7 @@ You can declare many components in one file, but large files can get difficult t
 
 You can move a component into another file in three steps:
 
-1. **Make** a new JS file to put the components in
+1. **Make** a new JavaScript file to put the component in
 2. **Export** your function component from that file (using either [default](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/export#using_the_default_export) or [named](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/export#using_named_exports) exports)
 3. **Import** it in the file where you’ll use the component (using the corresponding technique for importing [default](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import#importing_defaults) or [named](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/import#import_a_single_export_from_a_module) exports).
 
@@ -26,7 +26,7 @@ You can move a component into another file in three steps:
 
 ## Default vs named exports
 
-==There are two primary ways to export values with JavaScript: default exports and named exports==. So far, our examples have only used default exports. But you can use one or both of them in the same file. ==A file can have no more than one _default_ export, but it can have as many _named_ exports as you like==.
+==There are two primary ways to export values with JavaScript: **default** exports and **named** exports==. So far, our examples have only used default exports. But you can use one or both of them in the same file. ==A file can have no more than one _default_ export, but it can have as many _named_ exports as you like==.
 
 ==How you export your component dictates how you must import it==. You will get an error if you try to import a default export the same way you would a named export! This chart can help you keep track:
 
@@ -43,7 +43,7 @@ When you write a *default* import, you can put any name you want after `import`.
 
 ## Multiple components per one file
 
-==Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other==. If this file gets crowded, you can always move your custom components to separate files.
+==Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other==. If the file gets crowded, you can always move your custom components to separate files.
 
 ==You can have multiple components per one file==, and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have ==a component that is really only getting used by the other component in that file==, having both components in the same file can make sense too.
 

@@ -1,4 +1,4 @@
-# The concept of composition - `children` props
+# The concept of "composition": pass components as data to other components via `props.children`
 
 Sometimes you wanna have a component where you don't configure everything through props, but where instead you're able to ==pass content between the opening and closing tags of that component. Out of the box, **you can't use your custom components as wrappers around other kind of content**. Having content between opening and closing tags doesn't work just like that with custom components as wrappers==.
 
@@ -13,7 +13,7 @@ function Card(props) {
 
 ==`props.children` is a **reserved name**, and the value of this special children prop will always be **the content between the opening and closing tags** of your custom component. This is a concept called **Composition**==.
 
-What do we gain by using composition (custom components as wrappers)? Well, with composition we are able to _extract some **code duplication** from inside our HTML/JSX/CSS files into a separate wrapper component_.
+What do you gain by using composition (custom components as wrappers)? Well, with composition you are able to _extract some **code duplication** from inside your HTML/JSX/CSS files into a separate wrapper component_.
 
 In the above example, it's just one `div` tag, but throughout the course you will also see more complex wrapper components which might have a more complex JSX structure, things like modals and alerts. In such cases, being able to extract that often allows you to **save a lot of code duplication** and it often allows you to **keep your other components clean**.
 

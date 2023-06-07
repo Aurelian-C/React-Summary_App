@@ -1,8 +1,8 @@
-# Passing data to a component via props
+# How to configure components with props: passing data to a component via props
 
-==React components use **_props_ to communicate** with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup! Props are the information that you pass to a JSX tag and you can see props as the **"attributes"** of your custom HTML elements==.
+==React components use **_props_ to communicate** with each other. Every parent component can pass some information to its child components by giving them props. Props might remind you of HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, functions, and even JSX markup!==
 
-==Props are the information that you pass to a JSX tag==. For example, `className`, `src`, `alt`, `width`, and `height` are some of the props you can pass to an `<img>`:
+==Attributes are the information that you pass to a JSX tag==. For example, `className`, `src`, `alt`, `width`, and `height` are some of the attributes you can pass to an `<img>`:
 
 ```react
 function Avatar() {
@@ -20,13 +20,15 @@ You will learn:
 
 ## Passing props to a child component
 
+To pass props, add them to the JSX markup, just like you would with HTML attributes:
+
 ![Passing_data_via_props](../../img/Passing_data_via_props.jpg)
 
 Now you can read these props inside the `Avatar` component:
 
 ![Passing_data_via_props1](../../img/Passing_data_via_props1.jpg)
 
-==Props let you think about parent and child components independently.== Props serve the same role as arguments serve for functions — in fact, ==props are the only argument to your component! React component functions accept a single argument, a `props` object==. Usually you don’t need the whole `props` object itself, so you destructure it into individual props.
+==Props let you think about parent and child components independently. Props serve the same role as arguments serve for functions — in fact, **props are the only argument to your component!** React component functions accept a single argument, a `props` object==. Usually you don’t need the whole `props` object itself, so you destructure it into individual props.
 
 > **Note**: _React will ensure that you get **one parameter in every component** which you use as a component, and that one parameter will be an **object** which holds all the received **attributes as properties**, hence the name props for the overall concept_. Therefore, you get one parameter, and you can name that parameter whatever you want. Typically, _it's named props to make it clear that is the object which holds all the values you get for the attributes on our custom element_.
 
@@ -59,7 +61,7 @@ Sometimes, passing props gets very repetitive. There’s nothing wrong with repe
 
 This forwards all of `Profile`’s props to the `Avatar` without listing each of their names. ==**Use spread syntax with restraint.** If you’re using it in every other component, something is wrong. Often, it indicates that you should split your components and pass children as JSX==.
 
-#### Another example
+#### Another example:
 
 ![Passing_data_via_props4](../../img/Passing_data_via_props4.jpg)
 
