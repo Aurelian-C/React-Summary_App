@@ -8,7 +8,7 @@ You ==can’t return more than one "root" JSX element== (you also can’t store 
 
 ## The solution
 
-The solution is to always wrap adjacent elements. You can use as a wrapper any element (`div`, `p`, `header`), or you can also use a custom component. The main thing that matters is that ==you only have one value which you return or which you store it in a variable==.
+The solution is to ==always wrap adjacent elements==. You can use as a wrapper any element (`div`, `p`, `header`), or you can also use a custom component. The main thing that matters is that ==you only have one value which you return or which you store it in a variable==.
 
 ![JSX_limitations1](../../img/JSX_limitations1.jpg)
 
@@ -51,7 +51,7 @@ A common pattern in React is for a component to return multiple elements. ==Frag
 
 ==You can access the **Fragment component** with `React.Fragment`, or in some projects you can also use the **shortcut syntax `<></>`**. These two syntaxes (`React.Fragment` & shortcut syntax) **render empty wrappers**, which don't render any actual HTML element to the DOM==. It's just built into React, but I showed you our custom wrapper, so that you understand what these built-in wrappers do.
 
-![React_Fragments](D:\Websites\Projects\Cioloca Aurelian__React Resume\src\img\React_Fragments.jpg)
+![React_Fragments](../../img/React_Fragments.jpg)
 
 > **Note**: You can use the shorthand syntax `<></>` the same way you’d use any other element, except that it doesn’t support _keys_ or _attributes_.
 >

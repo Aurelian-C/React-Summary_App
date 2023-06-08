@@ -1,6 +1,6 @@
 # Thinking in React
 
-React can change how you think about the designs you look at and the apps you build. ==When you build a UI with React, you will first break it apart into pieces called **components**==. Then, you will ==describe the different visual **states** for each of your components==. Finally, you will ==connect your components together so that the data flows through them==.
+React can change how you think about the designs you look at and the apps you build. ==When you build a UI with React, you will first break it apart into pieces called **components**==. Then, you will ==describe the different **visual states** for each of your components==. Finally, you will ==connect your components together so that the data flows through them==.
 
 ## Start with the mockup
 
@@ -42,7 +42,7 @@ After building your components, you’ll have a library of reusable components t
 
 ==To make the UI interactive, you need to let users change your underlying data model. You will use *state* for this.==
 
-==Think of state as the **minimal set of changing data that your app needs to remember**==. The most important principle for structuring state is to keep it DRY (Don’t Repeat Yourself). ==Figure out the absolute minimal representation of the state your application needs and _compute everything else on-demand_==. For example, if you’re building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don’t store the number of items as another state value—instead, read the length of your array.
+==Think of state as the **minimal set of changing data that your app needs to remember**==. The most important principle for structuring state is to keep it DRY (Don’t Repeat Yourself). ==Figure out the absolute minimal representation of the state your application needs and _compute everything else on-demand_==. For example, if you’re building a shopping list, you can store the items as an array in state. If you want to also display the number of items in the list, don’t store the number of items as another state value — instead, read the length of your array.
 
 Which of the data that your application has are state? Identify the ones that are not:
 

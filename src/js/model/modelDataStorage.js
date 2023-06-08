@@ -256,6 +256,7 @@ const React_basics = {
         <p>5. Add <i>inverse data flow</i></p>
         `,
         `<h3>Step 1: Break the UI into a component hierarchy</h3>
+        <p>Start by drawing boxes around every component and subcomponent in the mockup and naming them. If you work with a designer, they may have already named these components in their design tool. Check in with them!</p>
         <ul>Depending on your background, you can think about splitting up a design into components in different ways:
         <li>- <i>programming</i>: use the same techniques for deciding if you should create a new function or object. One such technique is the <i>single responsibility principle</i>, that is, <i>a component should ideally only do one thing</i>. If it ends up growing, it should be decomposed into smaller subcomponents.</li>
         <li>- CSS</li>
@@ -267,7 +268,7 @@ const React_basics = {
         `<h3>Step 2: Build a static version in React</h3>
         <p>Now that you have your component hierarchy, it's time to implement your app. The most straightforward approach is to <i>build a version that renders the UI from your data model without adding any interactivity… yet!</i></p>
         <p>It's often easier to <i>build the static version first and add interactivity later</i>. Building a static version requires a lot of typing and no thinking, but adding interactivity requires a lot of thinking and not a lot of typing.</p>
-        <p>To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using props. Props are a way of passing data from parent to child. If you're familiar with the concept of state, <i>don't use state at all to build this static version</i>. State is reserved only for interactivity, that is, data that changes over time. Since this is a static version of the app, you don't need it.</p>
+        <p>To build a static version of your app that renders your data model, you'll want to build components that reuse other components and pass data using props. Props are a way of passing data from parent to child. If you're familiar with the concept of state, <i>don't use state at all to build this static version. State is reserved only for interactivity</i>, that is, data that changes over time. Since this is a static version of the app, you don't need it.</p>
         <p>You can either build “top down” by starting with building the components higher up in the hierarchy or “bottom up” by working from components lower down. In simpler examples, it's usually easier to go top-down, and on larger projects, it's easier to go bottom-up.</p>
         `,
         `<h3>Step 3: Find the minimal but complete representation of UI state</h3>
@@ -288,8 +289,8 @@ const React_basics = {
         <li>3. Decide where the state should live.</li>
         </ul>
         `,
-        `<h3>Step 4: Identify where your state should live</h3>
-        <p>Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user interaction, you will need to support data flowing the other way: the components deep in the hierarchy need to update the state in their parent components.</p>
+        `<h3>Step 5: Add inverse data flow</h3>
+        <p>Currently your app renders correctly with props and state flowing down the hierarchy. But to change the state according to user interaction, you will need to support data flowing the other way: <i>the components deep in the hierarchy need to update the state in their parent components</i>.</p>
         <p>For that, you need to <i>pass the state updating functions from parent components down to the child components, so child components can change the parent's state</i>.</p>
         `,
       ],
@@ -323,10 +324,10 @@ const React_basics = {
         <p>However, <i>it's completely fine to change variables and objects that you've just <u>created while rendering</u></i>.</p>
         `,
         `<h3>Where you can cause side effects</h3>
-        <p>While functional programming relies heavily on purity, at some point, somewhere, something has to change. That's kind of the point of programming! These changes — updating the screen, starting an animation, changing the data — are called side effects. They're things that happen “on the side”, <u>not during rendering</u></i>.</p>
+        <p>While functional programming relies heavily on purity, at some point, somewhere, something has to change. That's kind of the point of programming! <i>These changes — updating the screen, starting an animation, changing the data — are called side effects. They're things that happen “on the side”, <u>not during rendering</u></i>.</p>
         <p>In React, <i>side effects usually belong inside <u>event handlers</u></i>. Even though event handlers are defined inside your component, <u>they don't run during rendering</u>! So <i>event handlers don't need to be pure</i>.</p>
         <p>If you've exhausted all other options and can't find the right event handler for your side effect, you can still attach it to your returned JSX with a <code>useEffect</code> call in your component. This tells React to execute it later, <u>after rendering</u>, when side effects are allowed. However, this approach should be your last resort.</p>
-        <p>Strive to express your component's logic in the JSX you return. When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can <code>useEffect</code>.</p>
+        <p>Strive to express your component's logic in the JSX you return. <i>When you need to "change things", you'll usually want to do it in an event handler. As a last resort, you can <code>useEffect</code>.</i></p>
         `,
         `<h3>Why does React care about purity?</h3>
         <p>- your components could run in a <i>different environment</i> — for example, on the server! Since they return the same result for the same inputs, one component can serve many user requests.</p>
@@ -347,7 +348,7 @@ const React_basics = {
       tooltips: [
         `<h3>JSX limitations</h3>
         <p><i>You can't return more than one "root" JSX element (you also can't store more than one "root" JSX element in a variable)</i>.</p>
-        <p>The solution: <i>always wrap adjacent elements!</i> You can use as a wrapper any element (<<span>div</span>>, <<span>p</span>>, <<span>header</span>>), or you can also use a custom component.</p>
+        <p>The solution: <i>always wrap adjacent elements!</i> You can use as a wrapper any element (<<span>div</span>>, <<span>p</span>>, <<span>header</span>>), or you can also use a custom component. The main thing that matters is that <i>you only have one value which you return or which you store it in a variable</i>.</p>
         `,
         `<h3>Creating a wrapper component</h3>
         <p>A wrapping element it's an element which <i>won't render anything to the DOM</i>, but the requirement is not that there must be one root component being rendered to the DOM, the requirement just is that there must be <i>one root element that you return or that you store in a variable</i>.</p>
@@ -356,8 +357,7 @@ const React_basics = {
         <p>In bigger apps, you can easily end up with tons of unnecessary <<span>div</span>>s (or other elements) which add <i>no semantic meaning or structure to the page</i>, but <i>are only there because of React's/JSX requirement</i>.</p>
         `,
         `<h3>React.Fragment</h3>
-        <p>Fragments let you <i>group a list of children without adding extra nodes to the DOM</i>.</p>
-        <p>Fragments allow you to write cleaner code, to end up with less unnecessary HTML elements on the browser.</p>
+        <p>Fragments let you <i>group a list of children without adding extra nodes to the DOM</i>. Fragments allow you to write cleaner code, to end up with less unnecessary HTML elements on the browser.</p>
         <p>You can access the Fragment component with <code>React.Fragment</code>, or in some projects you can also use the shortcut syntax. These two syntaxes <i>render empty wrappers</i>, which don't render any actual HTML tag to the DOM.</p>
         `,
       ],
@@ -380,11 +380,11 @@ const React_basics = {
         <li>1. The first argument need to be <i>a component that return JSX markup or only some JSX markup</i></li>
         <li>2. The second argument is <i>a pointer to the container in the real DOM</i> where the JSX markup in your component should be rendered in</li>
         </ul>
-        <p><i>A Portal only changes the physical placement of the DOM node.</i> In every other way, the JSX you render into a portal acts as a child node of the React component that renders it.</p>
+        <p><i>A Portal only changes the physical placement of the DOM node.</i> In every other way, <i>the JSX you render into a portal acts as a child node of the React component that renders it</i>. For example, the child can access the context provided by the parent tree, and events still bubble up from children to parents according to the React tree.</p>
         `,
         `<h3>React vs ReactDOM libraries</h3>
         <p>The <code>ReactDOM.createPortal()</code> method is actually not defined on React, but on another library that comes together with React, the ReactDOM library. You can <i>imagine React being the library that has all the React features, state management etc</i>, and <i>ReactDOM uses React to bring that logic and these features into the web browser</i>.</p>
-        <p>Put in other words, the React library itself doesn't care whether you run it in an environment that has a DOM, or if you would use it to build a native app.</p>
+        <p>Put in other words, the React library itself doesn't care whether you run it in an environment that has a DOM, or if you would use it to build a native app. For example, you can use React Native in conjunction with React, to build native mobile apps. So <i>ReactDOM is kind of the adapter for React to the browser</i>.</p>
         `,
         `<h3>Event bubbling through Portals</h3>
         <p><i>Even though a portal can be anywhere in the DOM tree, it behaves like a normal React child in every other way.</i> Features like context work exactly the same regardless of whether the child is a portal, as the portal still exists in the <u>React tree</u> regardless of position in the <u>DOM tree</u>.</p>
@@ -666,8 +666,8 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>There are two types of "model" data in React</h3>
         <ul>There are two types of "model" data in React: <i>props</i> and <i>state</i>. The two are very different:
-        <li>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance.</li>
-        <li>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions.</li>
+        <li>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance. For example, a <code>Form</code> can pass a <code>color</code> prop to a <code>Button</code>.</li>
+        <li>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions. For example, a <code>Button</code> might keep track of <code>isHovered</code> state.</li>
         </ul>
         `,
       ],

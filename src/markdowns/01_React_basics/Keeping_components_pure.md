@@ -117,7 +117,7 @@ export default function Clock({ time }) {
 
 > **HINT**: Rendering is a *calculation*, it shouldn’t try to “do” things. Can you express the same idea differently?
 
-ou can fix this component by calculating the `className` and including it in the render output:
+You can fix this component by calculating the `className` and including it in the render output:
 
 ```react
 export default function Clock({ time }) {
