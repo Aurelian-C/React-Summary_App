@@ -68,13 +68,13 @@ When you don’t need the `else` branch or conditional (ternary) operator, you c
 
 > **Note**: A [JavaScript && expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) returns the value of its right side (in our case, the `<AdminPanel/>`) if the left side (our condition) is `true`. But if the condition is `false`, the whole expression becomes `false`. React considers `false` as a “hole” in the JSX tree, just like `null` or `undefined`, and doesn’t render anything in its place.
 
->Pitfall: **Don’t put numbers on the left side of `&&`.**
+>**Pitfall**: ==**Don’t put numbers on the left side of `&&`.**==
 >
 >To test the condition, JavaScript converts the left side to a boolean automatically. However, if the left side is `0`, then the whole expression gets that value (`0`), and React will happily render `0` rather than nothing.
 >
 >For example, a common mistake is to write code like `messageCount && <p>New messages</p>`. It’s easy to assume that it renders nothing when `messageCount` is `0`, but it really renders the `0` itself!
 >
->To fix it, make the left side a boolean: `messageCount > 0 && <p>New messages</p>`.
+>==To fix it, make the left side a boolean: `messageCount > 0 && <p>New messages</p>`.==
 
 ## Conditionally assigning JSX to a variable
 
@@ -99,7 +99,7 @@ function Component() {
 }
 ```
 
-> **Note**: You can store JSX markup in variables. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.
+> **Note**: You can store ==JSX markup in variables==. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.
 
 ==All of these approaches also work for conditionally specifying attributes==.
 

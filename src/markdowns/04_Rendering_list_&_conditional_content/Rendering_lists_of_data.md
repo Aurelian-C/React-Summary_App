@@ -1,8 +1,8 @@
 # Rendering list of data
 
-==You will often want to display **multiple similar components** from a **collection of data**==. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. You can use JavaScript’s [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) with React to filter and ==transform your array of data into an array of components==.
+==You will often want to display **multiple similar components** from a **collection of data**==. You can use the [JavaScript array methods](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array#) to manipulate an array of data. You can use JavaScript’s [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) and [`filter()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) with React to filter and ==transform your **array of data** into an **array of components**==.
 
-For each array item, you will need to specify a `key`. Usually, you will want to use an ID from the database as a `key`. Keys let React keep track of each item’s place in the list even if the list changes.
+For each array item, you will need to specify a `key`. Usually, you will want to use an ID from the database as a `key`. ==Keys let React keep track of each item’s place in the list even if the list changes.==
 
 You will learn:
 
@@ -52,9 +52,9 @@ const listItems = people.map(person => <li>{person}</li>);
 return <ul>{listItems}</ul>;
 ```
 
-> **Note**: If you do ==output an **array of JSX elements**==, like `[<Card/>, <Card/>]`, then React is capable of rendering on the UI that JSX elements. So if you had something like `[<Card/>, <Card/>]`, ==an array of JSX elements as part of your JSX markup==, React would simply render that elements side by side.
+> **Note**: If you do ==output an **array of JSX elements**==, like `[<Card/>, <Card/>]`, then React is capable of rendering on the UI that array of JSX elements. So if you had something like `[<Card/>, <Card/>]`, ==an array of JSX elements as part of your JSX markup==, React would simply render that elements side by side.
 
-#### Filtering arrays of items 
+#### Filtering arrays of items
 
 This data can be structured even more:
 
@@ -106,9 +106,9 @@ const listOfChemists = people.filter(person =>
 
 > **Note**: JSX elements directly inside a `map()` call always need keys!
 
-Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
+==Keys tell React which array item each component corresponds to==, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
 
-==The `key` prop is a prop you can add to any component, no matter if it's a custom component or if it's a built-in HTML element==, you can always add `key` prop. If you do add it, if you add the `key` to your component or HTML element, then you can ==help React identify the individual items==. For that you need to ==set a unique value per list item==.
+==The `key` attribute is a attribute you can add to any component, no matter if it's a custom component or if it's a built-in HTML element==, you can always add `key` attribute. If you do add it, if you add the `key` to your component or HTML element, then you can ==help React identify the individual items==. For that you need to ==set a unique value per list item==.
 
 ## Displaying several DOM nodes for each list item 
 
