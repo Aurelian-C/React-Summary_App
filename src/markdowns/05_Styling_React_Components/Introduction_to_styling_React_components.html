@@ -6,6 +6,7 @@
 <style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
@@ -86,12 +87,14 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -168,7 +171,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -2256,6 +2259,6 @@ li {
 </style><title>Introduction_to_styling_React_components</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='introduction-to-styling-react-components'><span>Introduction to styling React components</span></h1><p><span>You wanna make sure that your apps look good, and styling is also an important part of building components. And there are </span><mark><span>different techniques for setting styles</span></mark><span> dynamically and for styling components, such that other components are not affected by a specific component&#39;s styles.</span></p><p><span>We will dive into how you can </span><mark><span>set up styles in a </span><strong><span>conditional</span></strong><span> </span><em><span>or</span></em><span> </span><strong><span>dynamic</span></strong><span> way</span></mark><span>, so how you, for example, can switch certain styles based on some conditions. For example, if a user enters an invalid input and you want to color the input field red.</span></p><p><span>Then we&#39;ll dive into </span><mark><span>two popular approaches for </span><strong><span>scoping styles</span></strong><span> to components</span></mark><span>, so for setting up styles such that they only affect the component and are not added as global styles.</span></p><p><span>We&#39;ll have a look at </span><mark><strong><span>styled components</span></strong></mark><span>, which is a third-party library, a very popular one, which allows us to set up pre-styled components with their own scoped styles.</span></p><p><span>We&#39;ll have a look at a concept called </span><mark><strong><span>CSS modules</span></strong></mark><span>.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></li></ol></div></div>
+<div id='write'  class=''><h1 id='introduction-to-styling-react-components'><span>Introduction to styling React components</span></h1><p><span>You wanna make sure that your apps look good, and styling is also an important part of building components. And there are </span><mark><span>different techniques for setting styles</span></mark><span> dynamically and for styling components, such that other components are not affected by a specific component&#39;s styles.</span></p><p><span>We will dive into how you can </span><mark><span>set up styles in a </span><strong><span>conditional</span></strong><span> </span><em><span>or</span></em><span> </span><strong><span>dynamic</span></strong><span> way</span></mark><span>, so how you, for example, can switch certain styles based on some conditions. For example, if a user enters an invalid input and you want to color the input field red.</span></p><p><span>Then we&#39;ll dive into </span><mark><span>two popular approaches for </span><strong><span>scoping styles</span></strong><span> to components</span></mark><span>, so for setting up styles such that they only affect the component and are not added as global styles.</span></p><p><span>We&#39;ll have a look at </span><mark><strong><span>styled components</span></strong></mark><span>, which is a third-party library, a very popular one, which allows us to set up pre-styled components with their own scoped styles.</span></p><p><span>We&#39;ll have a look at a concept called </span><mark><strong><span>CSS modules</span></strong></mark><span>.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li></ol></div></div>
 </body>
 </html>
