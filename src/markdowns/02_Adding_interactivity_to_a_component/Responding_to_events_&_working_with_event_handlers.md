@@ -1,4 +1,4 @@
-# Listening to events & working with event handlers
+# Responding to events & working with event handlers
 
 ==React lets you add *event handlers* to your JSX==. Event handlers are your own functions that will be triggered in response to interactions like clicking, hovering, focusing form inputs, and so on.
 
@@ -282,9 +282,9 @@ function Button({ onClick, children }) {
 }
 ```
 
-You could add more code to this handler before calling the parent `onClick` event handler, too. This pattern provides an *alternative* to propagation. It lets the child component handle the event, while also letting the parent component specify some additional behavior. Unlike propagation, it’s not automatic. But the benefit of this pattern is that you can clearly follow the whole chain code that executes as a result of some event.
+You could add more code to this handler before calling the parent `onClick` event handler, too. ==This pattern provides an *alternative* to propagation. It lets the child component handle the event, while also letting the parent component specify some additional behavior.== Unlike propagation, it’s not automatic. But the benefit of this pattern is that you can clearly follow the whole chain code that executes as a result of some event.
 
-If you rely on propagation and it’s difficult to trace which handlers execute and why, try this approach instead.
+==If you rely on propagation and it’s difficult to trace which handlers execute and why, try this approach instead.==
 
 ### Preventing default behavior 
 

@@ -628,6 +628,10 @@ const Adding_interactivity_to_a_component = {
         <p>For example, if you have register two click events, one on a child DOM element and another one on it's parent, <code>e.stopPropagation()</code> stop the propagation so that <u>clicking the child DOM element doesn't register as a click on the parent</u>.</p>
         <p>Events may have <i>unwanted default browser behavior</i>. Call <code>e.preventDefault()</code> to prevent that.</p>
         `,
+        `<h3>Passing handlers as alternative to propagation</h3>
+        <p>If you rely on propagation and it's difficult to trace which handlers execute and why, there is a pattern that provides an alternative to propagation. The pattern lets the <i>child component handle the event, while also letting the parent component specify some additional behavior</i>. Unlike propagation, it's not automatic. But the benefit of this pattern is that you can clearly follow the whole chain code that executes as a result of some event.</p>
+        <p>To see examples of this pattern, read the entire article.</p>
+        `,
         `<h3>Can event handlers have side effects?</h3>
         <p>Absolutely! <i>Event handlers are the best place for side effects</i>.</p>
         <p>Unlike rendering functions, event handlers don't need to be pure, so it's a great place to change something. <i>However, in order to change some information, you first need some way to store it. In React, this is done by using state</i>.</p>
@@ -691,6 +695,7 @@ const Adding_interactivity_to_a_component = {
         <li>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance. For example, a <code>Form</code> can pass a <code>color</code> prop to a <code>Button</code>.</li>
         <li>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions. For example, a <code>Button</code> might keep track of <code>isHovered</code> state.</li>
         </ul>
+        <p>Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and pass it down to child components as their props.</p>
         `,
       ],
     },
@@ -764,7 +769,7 @@ const Adding_interactivity_to_a_component = {
         <p>Variables and event handlers don't "survive" re-renders. <i>Every render has its own event handlers</i>. Event handlers created in the past have the state values from the render in which they were created.</p>
         `,
         `<h3>Why state does not update immediately after you set it</h3>
-        <p><i>Setting state only changes it for the next render! A state variable's value never changes within a render</i>, even if its event handler's code is asynchronous. <i>React keeps the state values "fixed" within one render's event handlers</i>. You don't need to worry whether the state has changed while the code is running.</p>
+        <p><i>Setting state only changes it for the <u>next render</u>! A state variable's value <u>never changes within a render</u>, even if its event handler's code is asynchronous. React keeps the state values "fixed" within one render's event handlers</i>. You don't need to worry whether the state has changed while the code is running.</p>
         <p>If you want to <i>read the latest state <u>before a re-render</u></i>, you'll need to use a <i>state updater function</i>.</p>
         `,
       ],
@@ -778,7 +783,7 @@ const Adding_interactivity_to_a_component = {
         highlight1: ['state scheduling', 'batching'],
       },
       tooltips: [
-        `<p><i>Setting a state variable does not change the variable in the existing render, but it requests a new render</i>. But sometimes you might want to <i>perform multiple operations on the value <u>before queueing the next render</u></i>. To do this, it helps to understand how React batches state updates. State updates are scheduled by React, they are not processed immediately.</p>`,
+        `<p><i>Setting a state variable does not change the variable in the existing render, but it requests a new render</i>. But sometimes you might want to <i>perform multiple operations on the value <u>before queueing (request) the next render</u></i>. To do this, it helps to understand how React batches state updates. State updates are scheduled by React, they are not processed immediately.</p>`,
         `<h3>What “batching” is and how React uses it to process multiple state updates</h3>
         <p><i>Each render's state values are fixed</i>. React waits until all code in the event handlers has run before processing your state updates. This is why the re-render only happens after all state updating function calls finished.</p>
         <p><i>React processes state updates after event handlers have finished running</i>: this is called <i><u>batching</u></i>.</p>
@@ -788,8 +793,8 @@ const Adding_interactivity_to_a_component = {
         `<h3>Updating the same state variable multiple times <u>before the next render</u></h3>
         <p>It is an uncommon use case, but if you would like to <i>update the <u>same state variable</u> multiple times <u>before the next render</u></i>, instead of passing the next state value like <code>setNumber(number + 1)</code>, you can <i>pass as argument an <u>updater function</u> that calculates the next state based on the previous one in the queue</i>, like <code>setNumber(n => n + 1)</code>. It is a way to tell React to "do something with the state value" instead of just replacing it.</p>
         <ul><i><code>n => n + 1</code> is called an updater function.</i> When you pass it to a state setter:
-        <li>1. React queues this function to be processed after all the other code in the event handler has run.</li>
-        <li>2. During the next render, React goes through the queue and gives you the final updated state.</li>
+        <li>1. <i>React queues this function</i> to be processed after all the other code in the event handler has run.</li>
+        <li>2. <i>During the next render, React goes through the queue</i> and gives you the final updated state.</li>
         </ul>
         <p>You may have noticed that <code>setState(x)</code> actually works like <code>setState(n => x)</code>, but <code>n</code> is unused! <i>To <u>update some state multiple times in one event</u>, you can use <code>setState(n => x)</code> updater function</i>.</p>
         <p>After the event handler completes, React will trigger a re-render. During the re-render, React will process the queue. <i><u>Updater functions run during rendering</u>, so updater functions must be pure</i> and only return the result. Don't try to set state from inside of them or run other side effects.</p>

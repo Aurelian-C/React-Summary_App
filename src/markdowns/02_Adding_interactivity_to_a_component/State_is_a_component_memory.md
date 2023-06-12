@@ -88,7 +88,7 @@ Instead, to enable their concise syntax, Hooks **rely on a stable call order on 
 
 Internally, React holds an array of state pairs for every component. It also maintains the current pair index, which is set to `0` before rendering. Each time you call `useState`, React gives you the next state pair and increments the index. You can read more about this mechanism in [React Hooks: Not Magic, Just Arrays.](https://medium.com/@ryardley/react-hooks-not-magic-just-arrays-cd4f1857236e)
 
-## State is isolated and private 
+## State is isolated and private
 
 ==State is local to a component instance on the screen. In other words, **if you render the same component multiple times, each copy will have completely isolated state!** Changing one of them will not affect the other.==
 

@@ -82,13 +82,13 @@ If you use the substitution method, you can see the “snapshot” of the state 
 
 ![State_as_a_snapshot4](../../img/State_as_a_snapshot4.jpg)
 
-==The state stored in React may have changed by the time the alert runs, but it was scheduled using a snapshot of the state at the time the user interacted with it!==
+==The state stored in React may have changed by the time the alert runs, but it was scheduled **using a snapshot of the state at the time the user interacted with it!**==
 
 ==**A state variable’s value never changes within a render,** even if its event handler’s code is asynchronous==. Inside *that render’s* `onClick`, the value of `number` continues to be `0` even after `setNumber(number + 5)` was called. Its value was “fixed” when React “took the snapshot” of the UI by calling your component.
 
 ==**Setting state only changes it for the _next_ render**. **A state variable’s value never changes within a render,** even if its event handler’s code is asynchronous. **React keeps the state values “fixed” within one render’s event handlers.** You don’t need to worry whether the state has changed while the code is running==.
 
-But what if you wanted to read the latest state before a re-render? You’ll want to use a [state updater function](https://react.dev/learn/queueing-a-series-of-state-updates). You will learn that in the next chapter: Understanding State Scheduling & Batching.
+But what if you wanted to read the latest state before a re-render? You’ll want to use a [state updater function](https://react.dev/learn/queueing-a-series-of-state-updates). You will learn that in the next article: Understanding State Scheduling & Batching.
 
 ## Example
 

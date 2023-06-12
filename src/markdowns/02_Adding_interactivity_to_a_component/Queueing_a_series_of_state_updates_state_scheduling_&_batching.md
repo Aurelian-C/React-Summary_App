@@ -40,7 +40,7 @@ Here’s how React works through these lines of code while executing the event h
 2. `setNumber(n => n + 1)` : `n => n + 1` is a function. React adds it to a queue.
 3. `setNumber(n => n + 1)` : `n => n + 1` is a function. React adds it to a queue.
 
-When you call `useState` during the next render, React goes through the queue. The previous `number` state was `0`, so that’s what React passes to the first updater function as the `n` argument. Then React takes the return value of your previous updater function and passes it to the next updater as `n`, and so on:
+==When you call `useState` during the next render, React goes through the queue.== The previous `number` state was `0`, so that’s what React passes to the first updater function as the `n` argument. Then React takes the return value of your previous updater function and passes it to the next updater as `n`, and so on:
 
 | queued update | `n`  | returns     |
 | ------------- | ---- | ----------- |
