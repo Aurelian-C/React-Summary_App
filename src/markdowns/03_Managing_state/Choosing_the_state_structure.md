@@ -18,7 +18,7 @@ You will learn:
 4. ==**Avoid duplication in state**==. When _the same data is duplicated between multiple state variables_, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.
 5. ==**Avoid deeply nested state**==. _Deeply hierarchical state is not very convenient to update_. When possible, prefer to structure state in a flat way.
 
-The goal behind these principles is to *make state easy to update without introducing mistakes*. ==Removing redundant and duplicate data from state helps ensure that all its pieces stay in sync==.
+The goal behind these principles is to *make state easy to update without introducing mistakes*. ==Removing redundant and duplicate data from state helps ensure that all its pieces **stay in sync**==.
 
 ## Group related state
 
@@ -41,7 +41,7 @@ const [position, setPosition] = useState({ x: 0, y: 0 });
 
 ## Avoid contradictions in state
 
-Here is a hotel feedback form with `isSending` and `isSent` state variables. While this code works, it leaves the door open for “impossible” states. For example, if you forget to call `setIsSent` and `setIsSending` together, you may end up in a situation where both `isSending` and `isSent` are `true` at the same time. The more complex your component is, the harder it is to understand what happened.
+Here is a hotel feedback form with `isSending` and `isSent` state variables. While this code works, it leaves the door open for “impossible” states. For example, _if you forget to call `setIsSent` and `setIsSending` together, you may end up in a situation where both `isSending` and `isSent` are `true` at the same time_. The more complex your component is, the harder it is to understand what happened.
 
 Since `isSending` and `isSent` should never be `true` at the same time, it is better to replace them with one `status` state variable that may take one of \*three\* valid states: `'typing'` (initial), `'sending'`, and `'sent'`:
 
@@ -200,7 +200,7 @@ const initialTravelPlan = {
 };
 ```
 
-Now let’s say you want to add a button to delete a place you’ve already visited. How would you go about it? Updating nested state involves making copies of objects all the way up from the part that changed. Deleting a deeply nested place would involve copying its entire parent place chain. Such code can be very verbose.
+Now let’s say you want to add a button to delete a place you’ve already visited. How would you go about it? **Updating nested state involves making copies of objects all the way up from the part that changed**. Deleting a deeply nested place would involve copying its entire parent place chain. Such code can be very verbose.
 
 ==If the state is too nested to update easily, consider making it “flat”==. Here is one way you can restructure this data. ==Instead of a tree-like structure where each `place` has an array of *its child places*, you can have each place hold an array of *its child place IDs*==. Then you can store a mapping from each place ID to the corresponding place.
 
@@ -286,7 +286,7 @@ In order to remove a place now, you only need to update two levels of state:
 - The updated version of its *parent* place should exclude the removed ID from its `childIds` array.
 - The updated version of the root “table” object should include the updated version of the parent place.
 
-You can nest state as much as you like, but making it “flat” can solve numerous problems. It makes state easier to update, and it helps ensure you don’t have duplication in different parts of a nested object.
+==You can nest state as much as you like, but making it “flat” can solve numerous problems. It makes state easier to update, and it helps ensure you don’t have duplication in different parts of a nested object.==
 
 Sometimes, you can also reduce state nesting by moving some of the nested state into the child components. This works well for ephemeral UI state that doesn’t need to be stored, like whether an item is hovered.
 

@@ -642,6 +642,9 @@ const Adding_interactivity_to_a_component = {
       sectionTitle: 'State: a component’s memory',
       sectionSource:
         '/src/markdowns/02_Adding_interactivity_to_a_component/State_is_a_component_memory.html',
+      highlights: {
+        highlight2: ['State'],
+      },
       tooltips: [
         `<p>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things.</p>
         <p>Often, you'll want your component to “remember” some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add state to your component.</p>
@@ -897,25 +900,25 @@ const Managing_state = {
         highlight1: ['declarative way'],
       },
       tooltips: [
-        `<h3>Reacting to Input with State</h3>
+        `<h3>How <u>declarative UI</u> programming differs from <u>imperative UI</u> programming</h3>
         <p>With just Vanilla JavaScript, you have to write every single line of code that should be taken to build an app (Imperative Way).</p>
         <p><i>React uses a declarative way to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you <i>describe the different states that your component can be in</i>, and <i>switch between them</i> in response to user actions (user events) or computer actions (http events).</p>
         <p>With React, you won't modify the UI from code directly. With React you will <i>describe the UI you want to see for the <u>different visual states</u> of your component</i>, and then trigger the state changes in response to user input.</p>
         `,
-        `<h3>How So you need to calculate both CSS classes based on the current state. UI compares to declarative UI </h3>
+        `<h3>Imperative way with Vanilla JavaScript vs declarative way with React</h3>
         <p>With just Vanilla JavaScript you have to write the exact instructions to manipulate the UI depending on what just happened. <i>It's called imperative because you have to "command" each element, telling the computer <u>how</u> to update the UI</i>.</p>
         <p>In React, you don't directly manipulate the UI. Instead, you declare what you want to show, and React figures out how to update the UI. When you design UI interactions, you probably think about <i>how the UI changes in response to user actions</i>.</p>
         <p>Declarative programming means <i>describing the UI for each <u>visual state</u></i> rather than micromanaging the UI (imperative).</p>
-        <p>In React you need to describe what you want to see rather than manipulate the UI elements. For example, if you want to add or remove a class from a DOM element, you need to calculate the CSS class based on a state variable, rather than select that DOM element and change it's class directly like you use to do imperatively with Vanilla Javascript.</p>
+        <p><i>In React you need to describe what you want to see rather than manipulate the UI elements.</i> For example, if you want to add or remove a class from a DOM element, you need to <i>calculate the CSS class based on a state variable</i>, rather than select that DOM element and <i>change it's class directly</i> like you use to do imperatively with Vanilla Javascript.</p>
         `,
         `<h3>Thinking about UI declaratively</h3>
         <p>In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.</p>
-        <ul>When developing a component:
-        <li>1. Identify your component's all <i>visual states</i></li>
-        <li>2. Determine what triggers those <i>state changes</i>: human or computer</li>
-        <li>3. Represent the <i>state in memory</i> using <code>useState</code></li>
+        <ul>There are some steps you need to follow when you build an app in React:
+        <li>1. Identify your component's <i>different "visual states"</i></li>
+        <li>2. Determine what triggers those <i>"visual states" changes</i>: human or computer</li>
+        <li>3. Represent the <i>"visual states" in memory</i> using <code>useState</code></li>
         <li>4. Remove any <i>non-essential state variables</i></li>
-        <li>5. Connect the <i>event handlers to set state</i></li>
+        <li>5. Connect the <i>event handlers to set the state variables</i></li>
         </ul>`,
       ],
     },
@@ -928,14 +931,14 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>Principles for structuring state</h3>
-        <ul>When you write a component that holds some state, you'll have to make choices about how many state variables to use and what the shape of their data should be:
+        <ul>When you write a <i>component that holds some state</i>, you'll have to make choices about how many state variables to use and what the shape of their data should be:
         <li>1. Group related state</li>
         <li>2. Avoid contradictions in state</li>
         <li>3. Avoid redundant state</li>
         <li>4. Avoid duplication in state</li>
         <li>5. Avoid deeply nested state</li>
         </ul>
-        <p>The goal behind these principles is to make state easy to update without introducing mistakes. <i>Removing redundant and duplicate data from state helps ensure that all its pieces <u>stay in sync</u></i>.</p>
+        <p>The goal behind these principles is to make state <i>easy to update</i> without introducing mistakes. <i>Removing redundant and duplicate data from state helps ensure that all its pieces <u>stay in sync</u></i>.</p>
         `,
         `<h3>Group related state</h3>
         <p>If you always <i>update two or more state variables at the same time</i>, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
@@ -967,20 +970,27 @@ const Managing_state = {
         highlight1: ['lifting state up'],
       },
       tooltips: [
-        `<h3>Lifting state up</h3>
+        `<h3>How to share state between components by lifting it up</h3>
         <p>Sometimes, you want <i>the state of two or multiple components to always change together</i>. To do it, <i>remove state from them, move it to their <u>closest common parent</u>, and then pass it down to them via props</i>. This is known as lifting state up.</p>
-        <p>To change the state in the parent component, you need to pass down to the to the child components an <i>event handler that allow the child components to <u>change the parent's state</u></i>.</p>
+        <p>To change the state in the parent component, you need to pass down to the child components an <i>event handler that allow the child components to <u>change the parent's state</u></i>.</p>
         <p><i>Moving state of some components into the common parent component allow you to coordinate that components</i>, and passing down an event handler to the child allow the child to change the parent's state. Lifting state up often changes the nature of what you're storing as state.</p>
+        <ul>You lift the state up in three steps:
+        <li>1. Remove state from the child components</li>
+        <li>2. Pass hardcoded data from the common parent</li>
+        <li>3. Add state to the common parent and pass it down together with the event handlers as props</li>
+        </ul>
         `,
         `<h3>Controlled and uncontrolled components</h3>
         <p>It is common to call <i>a component with some <u>local state</u> "uncontrolled". A child component that have a state variable that can't be changed by its parent component is called an uncontrolled component</i>.</p>
         <p>In contrast, you might say <i>a component is "controlled" when the important <u>data in it is driven by props</u> rather than its own local state</i>. This lets the parent component fully specify its behavior.</p>
         <p>Uncontrolled components are easier to use within their parents because they require less configuration. But they're less flexible when you want to coordinate them together. Controlled components are maximally flexible, but they require the parent components to fully configure them with props.</p>
+        <p>In practice, “controlled” and “uncontrolled” aren't strict technical terms — each component usually has some mix of both local state and props. However, this is a useful way to talk about how components are designed and what capabilities they offer.</p>
         <p>When writing a component, consider which information in it should be <i>controlled (via props)</i>, and which information should be <i>uncontrolled (via state)</i>.</p>
         `,
         `<h3>A single source of truth for each state</h3>
         <p>In a React application, many components will have their own state. Some state may "live" close to the leaf components (components at the bottom of the tree) like inputs. Other state may "live" closer to the top of the app.</p>
-        <p><i>For each unique piece of state, you will choose the component that "owns" it</i>. This principle is also known as having a "single source of truth". It doesn't mean that all state lives in one place — but that <i>for each piece of state, there is a specific component that holds that piece of information</i>. Instead of duplicating shared state between components, <i>lift it up</i> to their common shared parent, and <i>pass it down</i> to the children that need it.</p>
+        <p><i>For each unique piece of state, you will choose the component that "owns" it</i>. This principle is also known as having a "single source of truth". It doesn't mean that all state lives in one place — but that <i>for each piece of state, there is a specific component that holds that piece of information</i>.</p>
+        <p><i>Instead of duplicating shared state between components, <u>lift it up</u> to their common shared parent, and <u>pass it down</u> to the children that need it.</i></p>
         `,
       ],
     },
@@ -989,11 +999,14 @@ const Managing_state = {
       sectionSource:
         '/src/markdowns/03_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
       tooltips: [
+        `<p>When you re-render a component, React needs to decide <i>which parts of the tree to keep (and update)</i>, and <i>which parts to discard or re-create from scratch</i>. In most cases, React's automatic behavior works well enough. <i>By default, React preserves the parts of the tree that “match up” with the previously rendered component tree.</i> However, sometimes this is not what you want.</p>
+        <p>State is isolated between components. <i>React keeps track of which state belongs to which component based on their place in the UI tree</i>. You can control when to <u>preserve state</u> and when to <u>reset it</u> between re-renders.</p>
+        `,
         `<h3>The UI tree</h3>
-        <p>Browsers use many tree structures to model UI. The DOM represents HTML elements, the CSSOM does the same for CSS. React also uses tree structures to manage and model the UI you make. React makes UI trees from your JSX.</p>
+        <p>Browsers use many tree structures to model UI. The DOM represents HTML elements, the CSSOM does the same for CSS. <i>React also uses tree structures to manage and model the UI you make</i>.</p>
+        <p><i>React makes UI trees from your JSX</i>, then React DOM updates the browser DOM elements to match that UI tree.</p>
         `,
         `<h3>State is tied to a position in the UI tree</h3>
-        <p>State is isolated between components. <i>React keeps track of which state belongs to which component based on their place in the UI tree</i>.</p>
         <p>When you give a component state, you might think the state "lives" inside the component. But the <i>state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the UI tree</i>.</p>
         <p>State is not kept in JSX tags, it's associated with the tree position in which you put that JSX.</p>
         <p>In React, each component on the screen has fully isolated state.</p>`,
@@ -1009,13 +1022,18 @@ const Managing_state = {
         `,
         `<h3>Resetting state at the same position</h3>
         <p><i>By default, React preserves state of a component while it stays at the same position</i>. Usually, this is exactly what you want, so it makes sense as the default behavior. But sometimes, you may want to reset a component's state.</p>
-        <ul>There are <i>two ways to reset state when <u>switching between them</u></i>:
-        <li>1. Render components in <i>different positions</i></li>
+        <ul>There are <i>two ways to reset state when <u>switching between same component at the same position</u></i>:
+        <li>1. Render the component in <i>different positions</i></li>
         <li>2. Resetting state with a <i><code>key</code></i></li>
         </ul>
         <p>You might have seen <code>key</code>s when rendering lists. <i>Keys aren't just for lists! You can use keys to make React distinguish between any components. Specifying a <code>key</code> tells React to use the <code>key</code> itself as part of the position, instead of their order within the parent.</i> You can force a subtree to reset its state by giving it a different key.</p>
         <p>State is associated with the tree position. A <code>key</code> lets you specify a named position instead of relying on order.</p>
         <p>You can provide a <code>key</code> to a JSX tag and when that <code>key</code> changes, <i>React will re-create the DOM node from scratch, instead of reusing it</i>.</p>
+        `,
+        `<h3>Preserving state for removed components</h3>
+        <p>- <i>You could render all components instead of just the current one, but hide all the others with CSS.</i> The components would not get removed from the tree, so their local state would be preserved. This solution works great for simple UIs. But it can get very slow if the hidden trees are large and contain a lot of DOM nodes.</p>
+        <p>- <i>You could lift the state up and hold the state of child components in the parent component.</i> This way, when the child components get removed, it doesn't matter, because it's the parent that keeps the important information.</p>
+        <p>- <i>You might also use a different source in addition to React state.</i></p>
         `,
       ],
     },
@@ -1294,7 +1312,7 @@ const Handling_side_effects = {
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Synchronizing_with_effects.html',
       highlights: {
-        highlight1: ['"side effects"'],
+        highlight1: ['synchronize components with external systems'],
       },
       tooltips: [
         `<h3>What are Effects and how are they different from events?</h3>
@@ -1348,6 +1366,9 @@ const Handling_side_effects = {
         'How to remove unnecessary Effects from your components: You might not need an Effect',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/You_might_not_need_an_effect.html',
+      highlights: {
+        highlight1: ['remove unnecessary Effects'],
+      },
       tooltips: [
         `<h3>Why to remove unnecessary Effects from your components</h3>
         <p>Effects are an escape hatch from the React paradigm. They let you "step outside" of React and synchronize your components with some external system. <i>If there is no external system involved (for example, if you want to update a component's state when some props or state change), you shouldn't need an Effect</i>. Removing unnecessary Effects will make your code easier to follow, faster to run, and less error-prone.</p>`,
@@ -1365,6 +1386,9 @@ const Handling_side_effects = {
         'How an Effect’s lifecycle is different from a component’s: Lifecycle of reactive Effects',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Lifecycle_of_reactive_effects.html',
+      highlights: {
+        highlight2: ['an Effect’s lifecycle is different from a component’s'],
+      },
       tooltips: [
         `<h3>How an Effect's lifecycle is different from a component's lifecycle</h3>
         <p><i>Effects have a different lifecycle from components</i>. Components may mount, update, or unmount. An Effect can only do two things: to <i>start synchronizing</i> something, and later to <i>stop synchronizing</i> it. This cycle can happen multiple times if your Effect depends on <i>props and state that change over time</i>.</p>
@@ -1410,6 +1434,9 @@ const Handling_side_effects = {
         'How to prevent some values from re-triggering Effects: Separating Events from Effects',
       sectionSource:
         '/src/markdowns/07_Handling_side_effects/Separating_Events_from_Effects.html',
+      highlights: {
+        highlight1: ['prevent some values from re-triggering Effects'],
+      },
       tooltips: [
         `<h3>Why Effects are reactive, and event handlers are not</h3>
         <p>Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render.</p>
@@ -1525,6 +1552,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Preventing_unnecessary_reevaluations_with_React_memo.html',
       highlights: {
+        highlight1: ['Preventing unnecessary re-evaluations'],
         highlight2: ['<code>React.memo()</code>'],
       },
       tooltips: [
@@ -1543,6 +1571,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Preventing_function_recreation_with_useCallback.html',
       highlights: {
+        highlight1: ['Preventing function re-creation'],
         highlight2: ['<code>useCallback()</code>'],
       },
       tooltips: [
@@ -1604,6 +1633,7 @@ const Custom_React_Hooks = {
       sectionSource:
         '/src/markdowns/10_React_custom_Hooks/Reusing_logic_with_Custom_Hooks.html',
       highlights: {
+        highlight1: ['share logic between components'],
         highlight2: ['"custom Hooks"'],
       },
       tooltips: [
@@ -2842,568 +2872,6 @@ const Adding_authentication_to_React_apps = {
   ],
 };
 
-const React_and_TypeScript = {
-  title: '<p class="card__title--2">React + TypeScript</p>',
-  sections: [
-    {
-      sectionTitle: '396. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '397. What & Why?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '398. Installing & Using TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '399. Exploring the Base Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '400. Working with Array & Object Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '401. Understanding Type Inference',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '402. Using Union Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '403. Understanding Type Aliases',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '404. Functions & Function Types',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '405. Diving Into Generics',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '406. A Closer Look At Generics',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '407. Creating a React + TypeScript Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '408. Working with Components & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '409. Working with Props & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '410. Adding a Data Model',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '411. Time to Practice: Exercise Time!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '412. Form Submissions In TypeScript Projects',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '413. Working with refs & useRef',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '414. Working with "Function Props"',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '415. Managing State & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '416. Adding Styling',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '417. Time to Practice: Removing a Todo',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '418. The Context API & TypeScript',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '419. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '420. Bonus: Exploring tsconfig.json',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '421. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const Introduction_to_NextJS = {
-  title:
-    '<p class="card__title--2">A (Pretty Deep Dive) Introduction to Next.js</p>',
-  sections: [
-    {
-      sectionTitle: '316. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '317. What is NextJS?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '318. Key Feature 1: Built-in Server-side Rendering (Improved SEO!)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '319. Key Feature 2: Simplified Routing with File-based Routing',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '320. Key Feature 3: Build Fullstack Apps',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '321. Creating a New Next.js Project & App',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '322. Analyzing the Created Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '323. Adding First Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '324. Adding Nested Paths & Pages (Nested Routes)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '325. Creating Dynamic Pages (with Parameters)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '326. Extracting Dynamic Parameter Values',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '327. Linking Between Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '328. Onwards to a bigger Project!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '329. Preparing the Project Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '330. Outputting a List of Meetups',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '331. Adding the New Meetup Form',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '332. The "_app.js" File & Layout Wrapper',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '333. Using Programmatic (Imperative) Navigation',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '334. Adding Custom Components & CSS Modules',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '335. How Pre-rendering Works & Which Problem We Face',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '336. Data Fetching for Static Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '337. More on Static Site Generation (SSG)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '338. Exploring Server-side Rendering (SSR) with "getServerSideProps"',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '339. Working with Params for SSG Data Fetching',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '340. Preparing Paths with "getStaticPaths" & Working With Fallback Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '341. Introducing API Routes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '342. Working with MongoDB',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '343. Sending Http Requests To Our API Routes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '344. Getting Data From The Database',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '345. Getting Meetup Details Data & Preparing Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '346. Adding "head" Metadata',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '347. Deploying Next.js Projects',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '348. Using Fallback Pages & Re-deploying',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '349. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '350. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const Optional_React_Hooks_introduction_and_summary = {
-  title:
-    '<p class="card__title--2">Optional: React Hooks Introduction & Summary</p>',
-  sections: [
-    {
-      sectionTitle: '422. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '423. What Are React Hooks?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '424. The Starting Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '425. React 18 & This Section',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '426. Getting Started with useState()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '427. More on useState() & State Updating',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '428. Array Destructuring',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '429. Multiple States',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '430. Rules of Hooks',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '431. Passing State Data Across Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '432. Sending Http Requests',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '433. useEffect() & Loading Data',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '434. Understanding useEffect() Dependencies',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '435. More on useEffect()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: "436. What's useCallback()?",
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '437. Working with Refs & useRef()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '438. Cleaning Up with useEffect()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '439. Deleting Ingredients',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '440. Loading Errors & State Batching',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '441. More on State Batching & State Updates',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '442. Understanding useReducer()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '443. Using useReducer() for the Http State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '444. Working with useContext()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '445. Performance Optimizations with useMemo()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '446. Getting Started with Custom Hooks',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '447. Sharing Data Between Custom Hooks & Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '448. Using the Custom Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '449. Wrap Up',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '450. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const Optional_React_summary_and_core_feature_walkthrough = {
-  title:
-    '<p class="card__title--2">Optional: React Summary & Core Feature Walkthrough</p>',
-  sections: [
-    {
-      sectionTitle: '451. Module Introduction',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '452. What Is React?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '453. Why React?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '454. Building SPAs (Single Page Applications)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '455. React Alternatives',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '456. Creating a React Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '457. Setting Up A Code Editor',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '458. React 18',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '459. Diving Into The Created Project',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '460. How React Works & Understanding Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '461. More Component Work & Styling with CSS Classes',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '462. Building & Re-Using Another Component',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '463. Working with "props" & Dynamic Content',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '464. Handling Events',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '465. Adding More Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '466. Introducing State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle:
-        '467. Working with "Event Props" (Passing Function As Props)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '468. Use The Right React Router Version',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '469. Adding Routing',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '470. Adding Links & Navigation',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '471. Styling with CSS Modules',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '472. Outputting Lists of Data',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '473. Adding More React Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '474. Building Wrapper Components with props.children',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '475. Adding a Form',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '476. Getting User Input & Handling Form Submission',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '477. Preparing the App for Http',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '478. Sending a POST Request',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '479. Navigating Programmatically',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '480. Getting Started with Fetching Data',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '481. Using the useEffect() Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '482. Introducing React Context',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '483. Context Logic & Different Ways Of Updating State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '484. Using Context In Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '485. More Context Usage',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '486. Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '487. Module Resources',
-      sectionSource: '',
-    },
-  ],
-};
-
-const Course_Roundup = {
-  title: '<p class="card__title--2">Course Roundup</p>',
-  sections: [
-    {
-      sectionTitle: '488. What Now? Next Steps You Could Take!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '489. Explore The React Ecosystem!',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '490. Finishing Thoughts',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '491. Bonus!',
-      sectionSource: '',
-    },
-  ],
-};
-
 export const dataStorage = [
   React_basics,
   Styling_React_components,
@@ -3425,9 +2893,4 @@ export const dataStorage = [
   Animating_React_Apps,
   Testing_React_Apps,
   Adding_authentication_to_React_apps,
-  // React_and_TypeScript,
-  // Introduction_to_NextJS,
-  Optional_React_Hooks_introduction_and_summary,
-  Optional_React_summary_and_core_feature_walkthrough,
-  // Course_Roundup,
 ];

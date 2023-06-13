@@ -4,7 +4,7 @@
 
 ==With React, you won’t modify the UI from code directly== like you use to do with Vanilla JavaScript. For example, you won’t write commands like “disable the button”, “enable the button”, “show the success message”, etc. Instead, you will ==describe the UI you want to see for the different visual states of your component (“initial state”, “typing state”, “success state”), and then trigger the state changes in response to user input==.
 
-==React uses a **declarative way to manipulate the UI**. Instead of manipulating individual pieces of the UI directly, you **describe the different states that your component can be in**, and switch between them in response to the user input==.
+==React uses a **declarative way to manipulate the UI**. Instead of manipulating individual pieces of the UI directly, you **describe the different states that your component can be in**, and switch between them in response to the user actions or computer actions (http events)==.
 
 You will learn:
 
@@ -161,7 +161,7 @@ To help visualize this flow, try drawing each state on paper as a labeled circle
 
 ![React_code_is_written_in_a_declarative_way2](../../img/React_code_is_written_in_a_declarative_way2.jpg)
 
-### Step 3: Represent the **state in memory** with `useState`
+### Step 3: Represent the **visual state in memory** with `useState`
 
 ==Next you’ll need to _represent the visual states of your component in memory_ with [`useState`.](https://beta.reactjs.org/reference/react/useState)== Simplicity is key: each piece of state is a “moving piece”, and _you want as few “moving pieces” as possible_. More complexity leads to more bugs!
 
