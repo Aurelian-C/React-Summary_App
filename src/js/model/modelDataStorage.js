@@ -807,13 +807,13 @@ const Adding_interactivity_to_a_component = {
         '/src/markdowns/02_Adding_interactivity_to_a_component/Updating_objects_in_state.html',
       tooltips: [
         `<h3>Treat state as read-only</h3>
-        <p>State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>.</p>
-        <p>You should <i>treat object in React as if they were immutable (unchangeable or "read-only")</i>, so treat any JavaScript object that you put into state as read-only.</p>
+        <p>State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>. Usually, you will use the <code>...</code> spread syntax to copy objects and arrays that you want to change.</p>
+        <p>You should <i>treat object in React as if they were immutable (unchangeable or "read-only")</i>, so <i>treat any JavaScript object that you put into state as read-only</i>.</p>
         <p><i>When you <u>store objects in state</u>, <u>mutating them will not trigger renders</u> and <u>will change the state in previous render "snapshots"</u></i>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
         <p><i>In React, you treat all state as immutable!</i></p>
         `,
         `<h3>Local mutation is fine</h3>
-        <p><i>Mutation is only a problem when you change <u>existing objects that are already in state</u></i>, so mutating an object you've just created is okay because no other code references it yet. Changing it isn't going to accidentally impact something that depends on it. This is called a local mutation.</p>
+        <p><i>Mutation is only a problem when you change <u>existing objects that are already in state</u></i>. Mutating an object you've just created is okay because <i>no other code references it yet</i>. Changing it isn't going to accidentally impact something that depends on it. This is called a local mutation.</p>
         <p><i>You can even do local mutation <u>while rendering</u></i>.</p>
         `,
         `<h3>Copying objects with the spread syntax</h3>
@@ -854,16 +854,18 @@ const Adding_interactivity_to_a_component = {
         <p>The array spread syntax also lets you prepend an item by placing it before the original array. In this way, spread can do the job of both <code>push()</code> by adding to the end of an array and <code>unshift()</code> by adding to the beginning of an array.</p>
         `,
         `<h3>Removing from an array with <code>filter()</code> or <code>slice()</code></h3>
-        <p>The easiest way to remove an item from an array is to filter it out. In other words, you will produce a new array that will not contain that item. To do this, use the <i><code>filter()</code> method</i>.</p>
+        <p>The easiest way to remove an item from an array is to <u>filter it out</u>. In other words, you will <i>produce a new array that will not contain that item</i>. To do this, use the <i><code>filter()</code> method</i>.</p>
         `,
         `<h3>Transforming an array with <code>map()</code></h3>
         <p>If you want to change some or all items of the array, you can use <i><code>map()</code></i> to create a new array. The function you will pass to <code>map()</code> can decide what to do with each item, based on its data or its index (or both).</p>
         `,
         `<h3>Replacing items in an array with <code>map()</code></h3>
+        <p>It is particularly common to want to replace one or more items in an array. Assignments like <code>arr[0] = 'bird'</code> are mutating the original array, so instead you'll want to use <code>map()</code> for this as well.</p>
         <p>To replace an item, create a new array with <code>map()</code>. Inside your <code>map()</code> call, you will receive the item index as the second argument. Use it to decide whether to return the original item (the first argument) or something else.</p>
         `,
         `<h3>Inserting into an array</h3>
         <p>Sometimes, you may want to insert an item at a particular position that's neither at the beginning nor at the end. To do this, you can use the <i><code>...</code> array spread syntax together with the <code>slice()</code> method</i>.</p>
+        <p>The <code>slice()</code> method lets you cut a “slice” of the array. To insert an item, you will create an array that spreads the slice before the insertion point, then the new item, and then the rest of the original array.</p>
         `,
         `<h3>Making other changes to an array</h3>
         <p>There are some things you can't do with the spread syntax and non-mutating methods like <code>map()</code> and <code>filter()</code> alone. For example, you may want to reverse or sort an array. The JavaScript <code>reverse()</code> and <code>sort()</code> methods are mutating the original array, so you can't use them directly. However, <i>you can copy the array first, and then make changes to it</i>.</p>`,

@@ -38,7 +38,7 @@ Technically, it ==is possible to change the _contents_ of the object itself. Thi
 position.x = 5;
 ```
 
-==However, although objects in React state are technically mutable, you should **treat objects _as if_ they were immutable** (unchangeable or “read-only”) — like numbers, booleans, and strings. Instead of mutating them like `position.x = 5`, you should **_always_ replace them**==.
+==However, although objects in React state are technically mutable, you should **treat objects as if they were immutable** (unchangeable or “read-only”) — like numbers, booleans, and strings. Instead of mutating them like `position.x = 5`, you should **_always_ replace them**==.
 
 ## Treat state as read-only
 
@@ -114,9 +114,9 @@ You can also use the `[]` braces inside your object definition to specify a prop
 
 ![Updating_objects_in_state3](../../img/Updating_objects_in_state3.jpg)
 
-Here, `e.target.name` refers to the `name` property given to the `<input>` DOM element.
+==Here, `e.target.name` refers to the `name` property given to the `<input>` DOM element.==
 
-### Updating a nested object 
+### Updating a nested object
 
 Consider a nested object structure like this:
 
