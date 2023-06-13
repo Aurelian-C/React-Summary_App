@@ -1183,8 +1183,13 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>Combining a reducer with context</h3>
-        <p>The good thing is you can set up a dynamic context, where you don't just pass data to other components, but also functions. Therefore, you can build and using a component context to manage your state and functions that changes the state. You can combine reducer with context to let any component read and update state above it.</p>
-        <p>Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.</p>
+        <p>The good thing is you can set up a dynamic context, where you don't just pass data to other components, but also functions. Therefore, you can build and using a component context to manage your state and functions that changes the state. <i>You can combine reducer with context to let any component read and update state above it.</i></p>
+        <p><i>Context is not limited to static values. If you pass a different value on the next render, React will update all the components that are wrapped by that context!</i> This is why context is often used in combination with state.</p>
+        <ul>Here is how you can combine a reducer with context by building a <i>custom context Provider component</i>:
+        <li>1. Create the context</li>
+        <li>2. Put state and dispatch into context</li>
+        <li>3. Use context anywhere in the tree</li>
+        </ul>
         `,
       ],
     },
@@ -1208,9 +1213,9 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>Hooks are more restrictive than other functions</h3>
-        <p>Hooks — <i>functions starting with 'use'</i> — can only be <i>called at the top level of your components or your own custom Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. If you want to use a Hook like <code>useState</code> in a condition or a loop, extract a new component and put it there.</p>
+        <p>Hooks — <i>functions starting with 'use'</i> — can only be <i>called at the top level of your components or your own custom Hooks</i>. You can't call Hooks inside conditions, loops, or other nested functions. <i>If you want to use a Hook like <code>useState</code> in a condition or a loop, extract a new component and put it there.</i></p>
         <p>Hooks are special functions that are only available while React is rendering. They let you “hook into” different React features.</p>
-        <p>Hooks are functions, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.</p>
+        <p><i>Hooks are functions</i>, but it's helpful to think of them as unconditional declarations about your component's needs. You 'use' React features at the top of your component similar to how you 'import' modules at the top of your file.</p>
         `,
       ],
     },

@@ -14,7 +14,7 @@ You will learn:
 
 Let say that you have an app with a top-level component that have inside some state and that state is managed by a reducer. The reducer function inside of it contains all of the state update logic. ==A reducer helps keep the event handlers short and concise==. However, as your app grows, you might run into another difficulty.
 
-==The state and `dispatch` functions are only available in that the top-level component which contain them. To let other components read the state or trigger the `dispatch` functions, you have to explicitly pass down the current state and the event handlers that change it as props. In a small app this works well, but if you have tens or hundreds of components in the middle, passing down all state and functions can be quite frustrating!==
+==The state and `dispatch` functions are only available in that top-level component which contain them. To let other components read the state or trigger the `dispatch` functions, you have to explicitly pass down the current state and the event handlers that change it as props. In a small app this works well, but if you have tens or hundreds of components in the middle, passing down all state and functions can be quite frustrating!==
 
 ==This is why, as an alternative to passing state and `dispatch` functions through props, you might want to put them into context. This way, any component below in the tree can read the state and `dispatch` functions without the repetitive "prop drilling".==
 

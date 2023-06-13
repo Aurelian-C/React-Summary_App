@@ -6,6 +6,7 @@
 <style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
@@ -86,12 +87,14 @@ blockquote > :first-child, li > :first-child { margin-top: 0px; }
 #write .footnote-line { white-space: pre-wrap; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   .typora-export #write { break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
   .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
 a img, img a { cursor: pointer; }
@@ -168,7 +171,7 @@ mark .md-meta { color: rgb(0, 0, 0); }
 @media screen and (max-width: 800px) {
   .typora-export-sidebar { display: none; }
 }
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
 .outline-content ul { margin-top: 0px; margin-bottom: 0px; }
 .outline-content strong { font-weight: 400; }
 .outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
@@ -2256,6 +2259,6 @@ li {
 </style><title>Learning_the_rules_of_Hooks</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='learning-the-rules-of-hooks'><span>Learning the &quot;Rules of Hooks&quot;</span></h1><p><strong><span>React Hooks</span></strong><span> are simply all those </span><strong><span>functions</span></strong><span> that start with the word &#39;use&#39; (</span><code>useState</code><span>, </span><code>useContext</code><span>, </span><code>useEffect</code><span> etc). You can also write your own Hooks by combining the existing ones. Hooks are more restrictive than regular functions.</span></p><p><span>There are </span><strong><span>two main rules</span></strong><span> you have to know when it comes to working with React Hooks:</span></p><ol start='' ><li><span>Only call React Hooks in </span><strong><span>React Functions</span></strong><span>! That means in a </span><em><span>React Component Function</span></em><span>, or also allowed in a </span><em><span>Custom Hook Function</span></em><span>.</span></li><li><span>Only call React Hooks at the </span><strong><span>Top Level</span></strong><span> of your </span><em><span>React Component Function</span></em><span> or </span><em><span>Custom Hook Function</span></em><span>.</span></li></ol><p><img src="../../img/Learning_the_rules_of_hooks.jpg" referrerpolicy="no-referrer" alt="Learning_the_rules_of_hooks"></p><p><strong><span>Hooks — functions starting with </span><code>use</code><span> — can only be called at the top level of your components or </span><a href='https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks'><span>your own Hooks.</span></a></strong><span> You can’t call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs. You “use” React features at the top of your component similar to how you “import” modules at the top of your file.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></li><li><a href='https://beta.reactjs.org/learn#using-hooks'><span>Using Hooks - beta.reactjs.org</span></a></li></ol></div></div>
+<div id='write'  class=''><h1 id='learning-the-rules-of-hooks'><span>Learning the &quot;Rules of Hooks&quot;</span></h1><p><mark><span>React Hooks are simply all those </span><strong><span>functions</span></strong><span> that start with the word &#39;use&#39;</span></mark><span> (</span><code>useState</code><span>, </span><code>useContext</code><span>, </span><code>useEffect</code><span> etc). </span><mark><span>You can also write your own Hooks by combining the existing ones.</span></mark></p><p><span>Hooks are more restrictive than regular functions. There are </span><strong><span>two main rules</span></strong><span> you have to know when it comes to working with React Hooks:</span></p><ol start='' ><li><p><mark><span>Only call React Hooks in </span><strong><span>React Functions</span></strong><span>! That means in a </span><em><span>React Component Function</span></em><span>, or also allowed in a </span><em><span>Custom Hook Function</span></em><span>.</span></mark></p></li><li><p><mark><span>Only call React Hooks at the </span><strong><span>Top Level</span></strong><span> of your </span><em><span>React Component Function</span></em><span> or </span><em><span>Custom Hook Function</span></em><span>.</span></mark></p></li></ol><p><img src="../../img/Learning_the_rules_of_hooks.jpg" referrerpolicy="no-referrer" alt="Learning_the_rules_of_hooks"></p><p><span>Hooks are more restrictive than regular functions.</span></p><p><strong><span>Hooks — functions starting with </span><code>use</code><span> — can only be called at the top level of your components or </span><a href='https://beta.reactjs.org/learn/reusing-logic-with-custom-hooks'><span>your own Hooks.</span></a></strong><span> You can’t call Hooks inside conditions, loops, or other nested functions. Hooks are functions, but it’s helpful to think of them as unconditional declarations about your component’s needs. You “use” React features at the top of your component similar to how you “import” modules at the top of your file.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li><li><p><a href='https://beta.reactjs.org/learn#using-hooks'><span>Using Hooks - beta.reactjs.org</span></a></p></li></ol></div></div>
 </body>
 </html>
