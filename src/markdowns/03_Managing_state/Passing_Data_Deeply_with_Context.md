@@ -1,4 +1,4 @@
-# Passing data deeply with Context
+# How to pass information without “prop drilling”: passing data deeply with Context
 
 Usually, you will pass information from a parent component to a child component via props. But passing props can become verbose and inconvenient if you have to pass them through many components in the middle, or if many components in your app need the same information. ==_Context_ lets the parent component make some information available to any component in the tree below it — no matter how deep — without passing it explicitly through props==.
 
@@ -90,7 +90,7 @@ The Provider component accepts a `value` prop to be passed to consuming componen
 >
 > Passing `undefined` as a `Context.Provider` "value" prop does not cause consuming components to use the value passed as an argument to `createContext`.
 >
-> The good thing is ==you can set up a **dynamic Context** where we don't just pass **data** to other components but also **functions**.==
+> The good thing is ==you can set up a **dynamic Context** where you don't just pass **data** to other components but also **functions** that change that data.==
 
 The `Section` component currently renders its children:
 
