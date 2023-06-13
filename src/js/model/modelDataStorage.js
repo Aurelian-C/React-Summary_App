@@ -1094,6 +1094,22 @@ const Managing_state = {
         '<code>useReducer</code> vs <code>useState</code> for state management',
       sectionSource:
         '/src/markdowns/03_Managing_state/useReducer_vs_useState_for_state_management.html',
+      tooltips: [
+        `<h3><code>useState()</code></h3>
+        <p><i><code>useState()</code> is your main state management tool.</i> Typically, you start with <code>useState()</code> and often it's all you need. It's great for independent pieces of state and data. It's great if state updates are easy and limited to a few kinds of updates. So, if you don't have a lot of different cases that will change a state, and especially if you don't have an object as a state or anything like that.</p>`,
+        `<h3><code>useReducer()</code></h3>
+        <p>If you do have an object as a state or a <i>more complex state</i>, <code>useReducer()</code> might be interesting because, in general, <code>useReducer()</code> is great if you need more power and with more power, I simply mean that you can write such a reducer function that can contain <i>more complex state updating logic</i>, where you always are guaranteed to work with the latest state snapshot, and where you can move that potentially more complex logic out of your component function body into a separate reducer function.</p>
+        <p>You should especially consider <code>useReducer()</code> if you're dealing with <i>related data</i>, with state that is made up of <i>related pieces of state</i>.</p>
+        <p><code>useReducer()</code> can be helpful if you have more <i>complex state updates, if you have different cases, different actions that can change a state</i>.</p>
+        `,
+        `<h3>Comparing <code>useState()</code> and <code>useReducer()</code></h3>
+        <ul> Reducers are not without downsides! Here's a few ways you can compare them:
+        <li>- <i>Code size</i>: Generally, with <code>useState()</code> you have to write less code upfront. With <code>useReducer()</code>, you have to write both a reducer function and dispatch actions. However, <i><code>useReducer()</code> can help cut down on the code if <u>many event handlers modify state in a similar way</u></i>.</li>
+        <li>- <i>Readability</i>: <code>useState()</code> is very easy to read when the state updates are simple. When they get more complex, they can bloat your component's code and make it difficult to scan. In this case, <i><code>useReducer()</code> lets you cleanly separate the <u>how</u> of update logic from the <u>what happened</u> of event handlers</i>.</li>
+        <li>- <i>Debugging</i>: When you have a bug with <code>useState()</code>, it can be difficult to tell <u>where</u> the state was set incorrectly, and <u>why</u>. <i>With <code>useReducer()</code>, you can add a console log into your reducer to see every state update, and <u>why</u> it happened (due to which <code>action</code>).</i> If each <code>action</code> is correct, you'll know that the mistake is in the reducer logic itself. However, you have to step through more code than with <code>useState()</code>.</li>
+        <li>- <i>Testing</i>: A reducer is a pure function that doesn't depend on your component. This means that you can export and test it separately in isolation. While generally it's best to test components in a more realistic environment, for complex state update logic it can be useful to assert that your reducer returns a particular state for a particular initial state and action.</li>
+        </ul>`,
+      ],
     },
     {
       sectionTitle:
