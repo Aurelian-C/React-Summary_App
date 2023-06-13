@@ -47,13 +47,13 @@ Your event handlers currently specify *what to do* by setting state: Remove all 
 >
 > ```react
 > dispatch({
->  // specific to component
->  type: 'what_happened',
->  // other fields go here
+>    // specific to component
+>    type: 'what_happened',
+>    // other fields go here
 > });
 > ```
 >
-> Keep in mind that action types should ideally describe “what the user did” rather than “how you want the state to change”. This makes it easier to later add more features.
+> ==Keep in mind that action types should ideally describe “what the user did” rather than “how you want the state to change”. This makes it easier to later add more features.==
 
 ## Step 2: Write a reducer function 
 
@@ -79,13 +79,13 @@ Here is all the state setting logic migrated to a reducer function:
 
 ==Because the reducer function takes state (`tasks`) as an argument, you can **declare it outside of your component.** This decreases the indentation level and can make your code easier to read.==
 
-> **Note**: The code above uses if/else statements, but it’s a convention to use [switch statements](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) inside reducers. The result is the same, but it can be easier to read switch statements at a glance.
+> **Note**: The code above uses `if/else` statements, but it’s a convention to use [`switch` statements](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/switch) inside reducers. The result is the same, but it can be easier to read `switch` statements at a glance.
 >
 > ![Extracting_state_logic_into_a_reducer4](../../img/Extracting_state_logic_into_a_reducer4.jpg)
 >
 > We recommend wrapping each `case` block into the `{` and `}` curly braces so that variables declared inside of different `case`s don’t clash with each other. Also, a `case` should usually end with a `return`. If you forget to `return`, the code will “fall through” to the next `case`, which can lead to mistakes!
 >
-> If you’re not yet comfortable with switch statements, using if/else is completely fine.
+> If you’re not yet comfortable with `switch` statements, using `if/else` is completely fine.
 
 ## Step 3: Use the reducer from your component 
 
