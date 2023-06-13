@@ -1128,34 +1128,35 @@ const Managing_state = {
         `<h3>Context: an alternative to passing props</h3>
         <p>Context lets <i>a parent component provide data to the entire tree below it</i>.</p>
         <ul>You will implement context in three steps:
-        <li>1. <i>Create</i> a context</li>
-        <li>2. <i>Use</i> that context from the component that needs the data</li>
-        <li>3. <i>Provide</i> that context from the component that specifies the data</li>
+        <li>1. <i>Create</i> a context with <code>createContext()</code> from 'react'</li>
+        <li>2. <i>Use</i> that context from the component that needs the data with <code>useContext</code> Hook from 'react'</li>
+        <li>3. <i>Provide</i> that context from the component that specifies the data with the context Provider component</li>
         </ul>
         <p>Context lets you read information from a component above.</p>
         `,
         `<h3>Step 1: <u>Create</u> the context</h3>
-        <p>First, you need to create the context. You'll need to export it from a file so that your components can use it.</p>
-        <p>The only argument to <code>createContext</code> is the default value.</p>
-        <p><i><code>createContext</code>'s argument is <u>only used</u> when a component does not have a matching Provider above it in the tree.</i> This argument can be helpful for testing components in isolation without wrapping components with a Provider. If you don't provide the context, React will use the value that you pass as an argument to <code>createContext</code>.</p>
+        <p>First, you need to create the context with the <code>createContext()</code> from 'react'.</p> 
+        <p><code>createContext()</code> will return a <i>context <u>object</u></i> that you store in a variable. You'll need to export that context object so that your components can use it.</p>
+        <p>The only argument to <code>createContext()</code> is the default value. <i><code>createContext</code>'s argument is <u>only used</u> when a component does not have a matching context Provider component above it in the tree.</i> This argument can be helpful for testing components in isolation without wrapping components with a context Provider component. If you don't provide the context, React will use the value that you pass as an argument to <code>createContext()</code>.</p>
         <p>You can have <i>multiple Contexts for multiple global states</i> and of course, you can also use just <i>one Context for a bigger state</i>, that's all up to you.</p>
         `,
         `<h3>Step 2: <u>Use</u> the context</h3>
-        <p>Import the  <code>useContext</code> Hook from React and your context in the component that you want to use context.</p>
+        <p>Import the <code>useContext</code> Hook from 'react' and your context object in the component that you want to use context.</p>
+        <p><i>One component may <u>use</u> or <u>provide</u> many different contexts without a problem.</i></p>
         `,
         `<h3>Step 3: <u>Provide</u> the context</h3>
-        <p>If you don't provide the context, React will use the default value specified when you creating the context.</p>
-        <p>Every context object comes with a Provider React component, that allows consuming components to subscribe to context changes. To provide the context you need to <i>wrap all components that you want to use that context with a context provider</i>. This tells React: "if any child component inside the parent component asks for context, give them the context value”. Any component that's not wrapped will not be able to listen/subscribe to the context.</p>
-        <p>The context Provider component accepts a <code>value</code> prop to be passed to consuming components that are descendants of that Provider. One Provider can be connected to many consumers. <i>Providers can be nested to override values deeper within the tree. All consumers that are descendants of a Provider will re-render whenever the Provider's <code>value</code> prop changes.</i></p>
-        <p><i>The child component will use the value of the nearest context provider in the UI tree above it.</i></p>
+        <p><i>Every context object comes with a <u>context Provider component</u></i>, that allows consuming components to subscribe to context changes. If you don't provide the context, React will use the default value specified when you creating the context.</p>
+        <p>To provide the context you need to <i>wrap all components that you want to use that context with a context Provider component</i>. This tells React: "if any child component inside the parent component asks for context, give them the context value”. Any component that's not wrapped will not be able to listen/subscribe to the context. One context Provider component can be connected to many consumers.</p>
+        <p>The context Provider component accepts a <i><code>value</code> prop</i> to be passed to consuming components that are descendants of that context Provider component.</p>
+        <p><i>Context Provider components can be nested to override values deeper within the tree. All consumers that are descendants of a context Provider component will re-render whenever the context Provider's component <code>value</code> prop changes. The child component will use the value of the nearest context Provider component in the UI tree above it. One component may <u>use</u> or <u>provide</u> many different contexts without a problem.</i></p>
         <p>The good thing is you can set up a <i>dynamic Context</i> where you don't just pass <u>data</u> to other components but also <u>functions</u> that change that data.</p>
         `,
         `<h3>Context passes through intermediate components</h3>
         <p>You can insert as many components as you like between the component that provides context and the one that uses it. This includes both built-in components like <<span>div</span>> and components you might build yourself.</p>
         <p>Context lets you write components that "adapt to their surroundings" and display themselves differently depending on <u>where</u> (or, in other words, <u>in which context</u>) they are being rendered.</p>`,
         `<h3>Context work similar as CSS property inheritance</h3>
-        <p>How context works might remind you of CSS property inheritance. In CSS, you can specify <code>color: blue</code> for a <<span>div</span>>, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with <code>color: green</code>. Similarly, <i>in React, the only way to override some context coming from above is to wrap children into a context provider with a different value</i>.</p>
-        <p>In CSS, different properties like <code>color</code> and <code>background-color</code> don't override each other. You can set all  <<span>div</span>>'s <code>color</code> to red without impacting <code>background-color</code>. Similarly, <i>different React contexts don't override each other. Each context that you make with <code>createContext()</code> is completely separate from other ones, and ties together components using and providing that particular context</i>. One component may use or provide many different contexts without a problem.</p>
+        <p>How context works might remind you of CSS property inheritance. In CSS, you can specify <code>color: blue</code> for a <<span>div</span>>, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with <code>color: green</code>. Similarly, <i>in React, the only way to override some context coming from above is to wrap children into a context Provider component with a different <code>value</code> prop</i>.</p>
+        <p>In CSS, different properties like <code>color</code> and <code>background-color</code> don't override each other. You can set all  <<span>div</span>>'s <code>color</code> to red without impacting <code>background-color</code>. Similarly, <i>different React contexts don't override each other. Each context that you make with <code>createContext()</code> is completely separate from other ones, and ties together components using and providing that particular context</i>.</p>
         `,
         `<h3>Before you use context</h3>
         <p>Just because you need to pass some props several levels deep doesn't mean you should put that information into context.</p>
@@ -1168,7 +1169,7 @@ const Managing_state = {
         <p>Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!!</p>
         `,
         `<h3>React Context Limitations</h3>
-        <p>React Context can be great forcomponent wide state, so essentially states that affects multiple components, but it's not a replacement for component configuration. So props for configuration, context for state management across components or possibly across the entire app.</p>
+        <p>React Context can be great for component wide state, so essentially states that affects multiple components, but it's not a replacement for component configuration. So props for configuration, context for state management across components or possibly across the entire app.</p>
         `,
       ],
     },
