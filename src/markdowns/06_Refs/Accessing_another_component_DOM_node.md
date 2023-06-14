@@ -1,6 +1,6 @@
 ## Accessing another component’s DOM nodes: `React.forwardRef`
 
-==The `ref` prop is supported on all built-in HTML elements, but by default you can't use `ref` prop on your custom components !!!==
+==The `ref` attribute is supported on all built-in HTML elements, but by default you can't use `ref` attribute on your custom components !!!==
 
 ```react
 // Correct
