@@ -1346,40 +1346,45 @@ const Handling_side_effects = {
         highlight1: ['synchronize components with external systems'],
       },
       tooltips: [
+        `<p>Some components need to synchronize with external systems. <i>Effects let you run some code <u>after rendering</u></i> so that you can <i>synchronize your component with some system outside of React</i>.</p>
+        <p>Many Effects also “clean up” after themselves. For example, an Effect that sets up a connection to a chat server should return a <i>cleanup function</i> that tells React how to disconnect your component from that server.</p>
+        <p>In development, React will immediately run and clean up your Effect one extra time. This ensures that you don't forget to implement the cleanup function.</p>
+        `,
         `<h3>What are Effects and how are they different from events?</h3>
-        <p>Some components need to synchronize with external systems. <i>Effects let you run some code <u>after rendering</u></i> so that you can synchronize your component with some system outside of React.</p>
         <ul>Before getting to Effects, you need to be familiar with two types of logic inside React components:
-        <li>- <i>Rendering code</i> lives at the top level of your component. This is where you take the props and state, transform them, and return the JSX you want to see on the screen. Rendering code must be pure. Like a math formula, it should only calculate the result, but not do anything else.</li>
-        <li>- <i>Event handlers</i> are nested functions inside your components that do things rather than just calculate them. An event handler might update an input field, submit an HTTP POST request to buy a product, or navigate the user to another screen. Event handlers contain "side effects" (they change the program's state) and are caused by a specific user action (for example, a button click or typing).</li>
-        <li>Sometimes this isn't enough. <i>Effects let you specify <u>side effects that are caused by rendering itself</u>, rather than by a particular event</i>.</li>
+        <li>- <i>Rendering code</i> lives at the top level of your component. This is where you take the props and state, transform them, and return the JSX you want to see on the screen. <i>Rendering code must be pure.</i> Like a math formula, it should only calculate the result, but not do anything else.</li>
+        <li>- <i>Event handlers</i> are nested functions inside your components that <i>do things rather than just calculate them</i>. An event handler might update an input field, submit an HTTP POST request to buy a product, or navigate the user to another screen. <i>Event handlers contain "side effects"</i> (they change the program's state) and are caused by a specific user action (for example, a button click or typing).</li>
         </ul>
-        <p><i>Effects run at the end of the rendering process <u>after the screen updates</u></i>. Every time your component renders, React will update the screen and then run the code inside <code>useEffect</code>. In other words, <i><code>useEffect</code> "delays" a piece of code from running until that render is reflected on the screen</i>.</p>
-        <p><code>useEffect()</code> function runs after every component render cycle, not before it, not during it, but after it.</p>
-        <p>The code inside your Effect will only execute when the dependencies specified by you changed, and not when the component re-renders.</p>
-        <p><code>useEffect()</code> will run no matter what only when your app is run for the first time. After your app run for the first time, <code>useEffect()</code> will only executed if the dependencies changes.</p>
-        `,
-        `<h3>You might not need an Effect</h3>
-        <p>Effects let you synchronize a component with some external system. If there's no external system and you only want to adjust some state based on other state, you might not need an Effect.</p>
-        `,
+        <p>Sometimes this isn't enough. Consider a <code>ChatRoom</code> component that must connect to the chat server whenever it's visible on the screen. Connecting to a server is not a pure calculation (it's a side effect) so it can't happen during rendering. However, there is no single particular event like a click that causes <code>ChatRoom</code> to be displayed.</p>
+        <p><i>Effects let you specify <u>side effects that are caused by rendering itself</u>, rather than by a particular event</i>. Sending a message in the chat is an <u>event</u> because it is directly caused by the user clicking a specific button. However, setting up a server connection is an <u>Effect</u> because it should happen no matter which interaction caused the component to appear. <i>Effects run at the end of the rendering process <u>after the screen updates</u></i>.</p>`,
         `<h3>How to write an Effect</h3>
         <ul>To write an Effect, follow these three steps:
-        <li>1. <i>Declare</i> an Effect. By default, your Effect will run <u>after</u> every render.</li>
+        <li>1. <i>Declare</i> an Effect with <code>useEffect</code> hook. By default, your Effect will run <u>after</u> every render.</li>
         <li>2. Specify the <i>Effect dependencies</i>. Most Effects should only re-run <u>when needed</u>, rather than after every render.</li>
         <li>3. Add <i>cleanup</i> if needed. Some Effects need to specify how to stop, undo, or clean up whatever they were doing.</li>
         </ul>
         `,
-        `<h3>The DOM and side effects</h3>
-        <p><i>In React, rendering should be a pure calculation of JSX and should not contain side effects</i> like modifying the DOM. By wrapping the DOM update in an Effect, you let React update the screen first. Then your Effect runs.</p>`,
+        `<h3>When an Effect run?</h3>
+        <p>Every time your component renders, React will update the screen and then run the code inside <code>useEffect</code>. In other words, <i><code>useEffect</code> "delays" a piece of code from running until that render is reflected on the screen</i>.</p>
+        <p><code>useEffect()</code> function runs after every component render cycle, not before it, not during it, but after it.</p>
+        <p>The code inside your Effect will only execute when the dependencies specified by you changed, and not when the component re-renders.</p>
+        <p><code>useEffect()</code> will run no matter what only when your app is run for the first time. After your app run for the first time, <code>useEffect()</code> will only executed if the dependencies changes.</p>
+        `,
         `<h3>Specify the Effect dependencies</h3>
         <p>Does <code>useEffect</code> run after every render? Yes! By default, if you don't pass an array of dependencies, <code>useEffect</code> runs both after the first render and after every component render cycle.</p>
         <p><i>By default, Effects run <u>after every render</u> (including the initial one)</i>. Often, this is not what you want. <i>You can tell React to skip unnecessarily re-running the Effect by specifying an <u>array of dependencies</u></i> as the second argument to the <code>useEffect</code>. The dependency array can contain multiple dependencies. An empty dependency array <code>[]</code> corresponds to the component "mounting" (i.e. being added to the screen).</p>
-        <p>React will <i>only skip re-running the Effect if all of the dependencies you specify have exactly the same values as they had during the previous render</i>.</p>
+        <p>React will <i>only skip re-running the Effect if <u>all</u> of the dependencies you specify have exactly the same values as they had during the previous render</i>.</p>
         <p><i>You can't "choose" your dependencies, they are determined by the code inside the Effect</i>. You will get a lint error if the dependencies you specified don't match what React expects based on the code inside your Effect. This helps catch many bugs in your code. If your Effect uses some value but you don't want to re-run the Effect when it changes, you'll need to edit the Effect code itself to not "need" that dependency. If the linter lets you omit a dependency without errors, that means it is safe to do. Omitting <i>always-stable dependencies</i> only works when the linter can "see" that the object is stable.</p>
+        <ul>The behaviors <u>without</u> the dependency array and with an <u>empty</u> <code>[]</code> array dependency array are very different:
+        <li><code>useEffect(() => {})</code> - this Effect runs <i>after every render</i></li>
+        <li><code>useEffect(() => {}, [])</code> - this Effect runs <i>only on mount</i> (when the component appears)</li>
+        <li><code>useEffect(() => {}, [a, b])</code> - this Effect <i>runs on mount and also if either <code>a</code> or <code>b</code> have changed since the last render</i></li>
+        </il>
         `,
         `<h3>Add cleanup if needed</h3>
         <p>In the <code>useEffect()</code> function you can <i>return only one specific thing, and that thing is a function</i>.</p>
         <p>The function that you return from the <code>useEffect()</code> is called <i>cleanup function</i>. This function that you return from <code>useEffect()</code> will <i>run as a cleanup process <u>before</u> <code>useEffect()</code> will be re-executed. The cleanup function will not run when the <code>useEffect()</code> is executed for the first time</i>.</p>
-        <p>React will call your cleanup function each time <u>before</u> the Effect runs again, and one final time when the component unmounts from DOM (gets removed from DOM).</p>`,
+        <p>React will call your cleanup function each time <u>before</u> the Effect runs again, and one final time when the component unmounts from DOM (gets removed from DOM). In those cases, the first thing that will be executed inside the <code>useEffect()</code> function will be the cleanup function.</p>`,
         `<h3>How to handle the Effect firing twice in development?</h3>
         <p><i>In development React <u>remounts</u> every component once immediately after its initial mount. In production, you don't have this behavior</i>. Remounting components only happens in development to help you find Effects that need cleanup.</p>
         <p>The right question isn't “how to run an Effect once”, but “how to fix my Effect so that it works after remounting”. Usually, the answer is to implement the cleanup function.</p>
@@ -1387,8 +1392,13 @@ const Handling_side_effects = {
         <p>When Strict Mode is on, React mounts components twice (in development only!) to stress-test your Effects. <i>If your Effect breaks because of remounting, you need to implement a cleanup function</i>. React will call your cleanup function before the Effect runs next time, and during the unmount.</p>
         <p>When you implement the cleanup well, there should be no user-visible difference between running the Effect once vs running it, cleaning it up, and running it again.</p>
         `,
+        `<h3>You might not need an Effect</h3>
+        <p>Effects let you synchronize a component with some external system. If there's no external system and you only want to adjust some state based on other state, you might not need an Effect.</p>
+        `,
+        `<h3>The DOM and side effects</h3>
+        <p><i>In React, rendering should be a pure calculation of JSX and should not contain side effects</i> like modifying the DOM. By wrapping the DOM update in an Effect, you let React update the screen first. Then your Effect runs.</p>`,
         `<h3><code>useState()</code> vs <code>useEffect()</code></h3>
-        <p><code>useState()</code> run when the state change but <code>useEffect()</code> run when the dependencies change.</p>
+        <p><code>useState()</code> run when the <i>state change</i> but <code>useEffect()</code> run when the <i>dependencies change</i>.</p>
         `,
       ],
     },

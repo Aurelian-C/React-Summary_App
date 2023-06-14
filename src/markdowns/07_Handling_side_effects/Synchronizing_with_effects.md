@@ -66,7 +66,7 @@ function VideoPlayer({ src, isPlaying }) {
 
 However, the browser `<video>` tag does not have an `isPlaying` prop. The only way to control it is to manually call the [`play()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play) and [`pause()`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/pause) methods on the DOM element. **You need to synchronize the value of `isPlaying` prop, which tells whether the video _should_ currently be playing, with imperative calls like `play()` and `pause()`.** 
 
-We’ll need to first [get a ref](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs) to the `<video>` DOM node. You might be tempted to try to call `play()` or `pause()` during rendering, but that isn’t correct:
+You’ll need to first [get a ref](https://beta.reactjs.org/learn/manipulating-the-dom-with-refs) to the `<video>` DOM node. You might be tempted to try to call `play()` or `pause()` during rendering, but that isn’t correct:
 
 ![Synchronizing_with_effects1](../../img/Synchronizing_with_effects1.jpg)
 
@@ -160,9 +160,9 @@ Start by writing the Effect logic:
 
 ![Synchronizing_with_effects5](../../img/Synchronizing_with_effects5.jpg)
 
-The code inside the Effect does not use any props or state, so your dependency array is `[]` (empty). This tells React to only run this code when the component “mounts”, i.e. appears on the screen for the first time. This Effect only runs on mount, so you might expect `"✅ Connecting..."` to be printed once in the console. **However, if you check the console, `"✅ Connecting..."` gets printed twice. Why does it happen?**
+The code inside the Effect does not use any props or state, so your dependency array is `[]` (empty). This tells React to only run this code when the component “mounts” (i.e. appears on the screen for the first time). This Effect only runs on mount, so you might expect `"✅ Connecting..."` to be printed once in the console. **However, if you check the console, `"✅ Connecting..."` gets printed twice. Why does it happen?**
 
-Imagine the `ChatRoom` component is a part of a larger app with many different screens. The user starts their journey on the `ChatRoom` page. The component mounts and calls `connection.connect()`. Then imagine the user navigates to another screen — for example, to the Settings page. The `ChatRoom` component unmounts. Finally, the user clicks Back and `ChatRoom` mounts again. This would set up a second connection — but the first connection was never destroyed! As the user navigates across the app, the connections would keep piling up.
+Imagine the `ChatRoom` component is a part of a larger app with many different screens. The user starts their journey on the `ChatRoom` page. The component mounts and calls `connection.connect()`. Then imagine the user navigates to another screen — for example, to the Settings page. The `ChatRoom` component unmounts. Finally, the user clicks Back and `ChatRoom` mounts again. _This would set up a second connection — but the first connection was never destroyed!_ As the user navigates across the app, the connections would keep piling up.
 
 ==Bugs like this are easy to miss without extensive manual testing. To help you spot them quickly, **in development** React remounts every component once immediately after its initial mount==. **Seeing the `"✅ Connecting..."` log twice helps you notice the real issue: your code doesn’t close the connection when the component unmounts.**
 
@@ -346,7 +346,7 @@ When [Strict Mode](https://beta.reactjs.org/reference/react/StrictMode) is on, R
 - By default, Effects run after every render (including the initial one).
 - React will skip the Effect if all of its dependencies have the same values as during the last render.
 - You can’t “choose” your dependencies. They are determined by the code inside the Effect.
-- An empty dependency array (`[]`) corresponds to the component “mounting”, i.e. being added to the screen.
+- An empty dependency array (`[]`) corresponds to the component “mounting” (i.e. being added to the screen).
 - When Strict Mode is on, React mounts components twice (in development only!) to stress-test your Effects.
 - If your Effect breaks because of remounting, you need to implement a cleanup function.
 - React will call your cleanup function before the Effect runs next time, and during the unmount.
