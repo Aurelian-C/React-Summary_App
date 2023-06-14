@@ -1432,7 +1432,7 @@ const Handling_side_effects = {
       },
       tooltips: [
         `<h3>How an Effect's lifecycle is different from a component's lifecycle</h3>
-        <p><i>Effects have a different lifecycle from components</i>. Components may mount, update, or unmount. An Effect can only do two things: to <i>start synchronizing</i> something, and later to <i>stop synchronizing</i> it. This cycle can happen multiple times if your Effect depends on <i>props and state that change over time</i>.</p>
+        <p><i>Effects have a different lifecycle from components</i>. Components may <u>mount</u>, <u>update</u>, or <u>unmount</u>. An Effect can only do two things: to <i>start synchronizing</i> something, and later to <i>stop synchronizing</i> it. This cycle can happen multiple times if your Effect depends on <i>props and state that change over time</i>.</p>
         `,
         `<h3>How to think about each individual Effect in isolation</h3>
         <ul>Every React component goes through the same lifecycle:
@@ -1450,7 +1450,6 @@ const Handling_side_effects = {
         `,
         `<h3>How React verifies that your Effect can re-synchronize</h3>
         <p><i>In development, React always <u>remounts</u> each component once</i>. In other words, React verifies that your Effect can re-synchronize by forcing it to do that immediately in development. React starts and stops your Effect one extra time in development to check you've implemented its cleanup well.</p>
-        <p>The main reason your Effect will re-synchronize in practice is if some data it uses has changed.</p>
         `,
         `<h3>How React knows that it needs to re-synchronize the Effect</h3>
         <p>Every time <i>after your component re-renders</i>, React will look at the array of dependencies that you have passed. If any of the values in the array is different from the value at the same spot that you passed during the previous render, React will re-synchronize your Effect.</p>
@@ -1480,7 +1479,7 @@ const Handling_side_effects = {
       },
       tooltips: [
         `<h3>Why Effects are reactive, and event handlers are not</h3>
-        <p>Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render.</p>
+        <p>Event handlers only re-run when you perform the same interaction again. Unlike event handlers, Effects re-synchronize if some value they read, like a prop or a state variable, is different from what it was during the last render. Sometimes, you also want a mix of both behaviors: an Effect that re-runs in response to some values but not others.</p>
         <p>Event handlers run in response to <i>specific interactions</i> but Effects run <i>whenever synchronization is needed</i>.</p>
         `,
         `<h3>Reactive <u>values</u> and reactive <u>logic</u></h3>

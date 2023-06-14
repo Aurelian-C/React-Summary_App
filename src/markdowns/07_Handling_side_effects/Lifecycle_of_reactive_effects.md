@@ -1,4 +1,4 @@
-# Lifecycle of reactive Effects
+# How an Effect’s lifecycle is different from a component’s? Lifecycle of reactive Effects
 
 ==Effects have a different lifecycle from components. Components may _mount_, _update_, or _unmount_. An Effect can only do two things: to _start synchronizing_ something, and later to _stop synchronizing_ it. This cycle can happen multiple times if your Effect depends on props and state that change over time. React provides a linter rule to check that you’ve specified your Effect’s dependencies correctly. This keeps your Effect synchronized to the latest props and state.==
 
