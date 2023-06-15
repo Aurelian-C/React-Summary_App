@@ -1601,13 +1601,35 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
         highlight2: ['<code>React.memo()</code>'],
       },
       tooltips: [
-        '<code>React.memo()</code> lets you skip re-rendering a component when its props are unchanged. It help you optimize functional components to avoids unnecessary components re-rendering.',
-        '<code>React.memo()</code> only work for functional components.',
-        'React normally re-renders a component whenever its parent re-renders. With <code>React.memo()</code> you can create a component that React will not re-render when its parent re-renders so long as its new props are the same as the old props.',
-        'If you wrap a component with <code>React.memo()</code>, if that wrapped component is not re-evaluated, its children components are also not re-evaluated.',
-        '<code>React.memo()</code> can be a great tool if you have a huge component tree with a lot of child components, and on a high level in the component tree you can avoid unnecessary re-render cycles for the entire branch of the component tree, because even children components of the parent component that is wrapped by <code>React.memo()</code> will not be re-executed. With the help of <code>React.memo()</code> you can cut off entire branches of unnecessary re-evaluations.',
-        "You just don't wanna wrap every component with <code>React.memo()</code>, instead you wanna pick some key parts in your component tree which allows you to cut off an entire branch of child components, that's way more effective than doing this on every child component.",
-        'A component that receives through props reference values (arrays, objects or functions) will be re-evaluated although you wrap that component with <code>React.memo()</code>.',
+        `<p>In bigger apps you might want to <i>optimize children components re-evaluation</i>. Therefore, you as a developer can tell React that it should only re-execute a child component under certain circumstances, and those circumstances would be that the props changed.</p>`,
+        `<h3>Skipping component re-evaluationwhen its props are unchanged: <code>React.memo()</code></h3>
+        <p><i>React normally re-renders a component whenever its parent re-renders.</i> With <code>React.memo()</code> you can create a component that React will not re-render when its parent re-renders so long as its new props are the same as the old props. Such a component is said to be <i>memoized</i>.</p>
+        <p><code>React.memo()</code> lets you <i>skip re-rendering a component when its props are unchanged</i>. It help you optimize functional components to <i>avoids unnecessary components re-rendering</i>.</p>
+        <p><code>React.memo()</code> only work for functional components.</p>
+        <p>If you wrap a component with <code>React.memo()</code>, if that wrapped component is not re-evaluated, its children components are also not re-evaluated.</p>
+        <p>A React component should always have pure rendering logic. This means that it must return the same output if its props, state, and context haven't changed. By using <code>React.memo()</code>, you are telling React that your component complies with this requirement, so React doesn't need to re-render as long as its props haven't changed. <i>When you use <code>React.memo()</code>, your component will still re-render <u>if its own state changes</u> or <u>if a context that it's using changes</u>.</i> Memoization only has to do with props that are passed to the component from its parent.</p>
+        `,
+        `<h3>Should you add <code>React.memo()</code> everywhere?</h3>
+        <p>No. Optimizing with <code>React.memo()</code> is only valuable when <i>your component re-renders often with the same exact props, and its re-rendering logic is expensive</i>. If there is no perceptible lag when your component re-renders, <code>React.memo()</code> is unnecessary.</p>
+        <p>Keep in mind that <i><code>React.memo()</code> is completely useless if the props passed to your component are <u>always different</u></i>, such as if you pass an object or a plain function defined during rendering. This is why you will often need <code>useMemo</code> and <code>useCallback</code> together with <code>React.memo()</code>.</p>
+        `,
+        `<h3>When to use <code>React.memo()</code>?</h3>
+        <p><code>React.memo()</code> can be a great tool if you have a huge component tree with a lot of child components, and on a high level in the component tree <i>you can avoid unnecessary re-render cycles for the entire branch of the component tree</i>, because even children components of the parent component that is wrapped by <code>React.memo()</code> will not be re-executed. <i>With the help of <code>React.memo()</code> you can cut off entire branches of unnecessary re-evaluations.</i></p>
+        <p>You just don't wanna wrap every component with <code>React.memo()</code>, instead you wanna pick some key parts in your component tree which allows you to cut off an entire branch of child components, that's way more effective than doing this on every child component.</p>
+        `,
+        `<h3>Reference values vs <code>React.memo()</code></h3>
+        <p><i>A component that receives through props reference values (arrays, objects or functions) will be re-evaluated although you wrap that component with <code>React.memo()</code>.</i> This behavior is because that on every component re-evaluation the entire component function is re-executed, so if you store a reference value in a variable, a new reference value is created. And <code>React.memo()</code> compare that new reference value with the old reference value that you had in your previous re-evaluation, and as you know, two references values, although looks similar to us humans, they are not equal, and if they are not equal the component function will be re-evaluated.</p>
+        <p>You will not have this problem when you <i>pass through props primitive values</i>.</p>
+        <ul>React compares every props in your component with the previous value of that props using the <code>Object.is</code> comparison:
+        <li>- <code>Object.is(3, 3)</code> // true</li>
+        <li>- <code>Object.is({}, {})</code> // false</li>
+        </ul>
+        `,
+        `<h3>Minimizing props changes</h3>
+        <p>To get the most out of <code>React.memo()</code> method, minimize the times that the props change. For example, if the props is an object, <i>prevent the parent component from re-creating that object every time by using <code>useMemo</code></i>.</p>
+        <p>A better way to minimize props changes is to make sure the component accepts the minimum necessary information in its props. For example, it could <i>accept individual values instead of a whole object</i>.</p>
+        <p><i>When you need to pass a function to memoized component, either declare it outside your component so that it never changes, or <code>useCallback()</code> to cache its definition between re-renders.</i></p>
+        `,
       ],
     },
     {
