@@ -1769,34 +1769,6 @@ const Working_with_forms_and_user_inputs = {
       sectionSource:
         '/src/markdowns/11_Working_with_forms_&_user_inputs/What_is_so_complex_about_forms.html',
     },
-    {
-      sectionTitle: 'Dealing with form submission & getting user input values',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Adding basic validation',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Providing validation feedback',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'React to lost focus',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Managing The overall form validity',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Adding a custom input Hook',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Re-using the custom Hook',
-      sectionSource: '',
-    },
   ],
 };
 
@@ -2716,7 +2688,7 @@ const Replacing_Redux_with_React_Hooks = {
     },
     {
       sectionTitle:
-        'Alternative 2: Using a custom Hook - creating a concrete store & using the custom store',
+        'Alternative 2: Using a custom Hook - create a concrete store & using the custom store',
       sectionSource:
         '/src/markdowns/14_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part2.html',
       highlights: {
