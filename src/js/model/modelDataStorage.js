@@ -400,7 +400,7 @@ const Styling_React_components = {
     {
       sectionTitle: 'Introduction to styling React components',
       sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Introduction_to_styling_React_components.html',
+        '/src/markdowns/02_Styling_React_Components/Introduction_to_styling_React_components.html',
       tooltips: [
         `<p>You wanna make sure that your apps look good, and styling is also an important part of building components. And there are <i>different techniques for setting styles</i> dynamically and for styling components, such that other components are not affected by a specific component's styles.</p>
         <ul>Along this section you will learn:
@@ -415,7 +415,7 @@ const Styling_React_components = {
     {
       sectionTitle: 'Adding basic CSS styling',
       sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Adding_basic_CSS_styling.html',
+        '/src/markdowns/02_Styling_React_Components/Adding_basic_CSS_styling.html',
 
       tooltips: [
         `<h3>CSS <code>class</code> vs React <code>className</code> attribute</h3>
@@ -426,7 +426,7 @@ const Styling_React_components = {
     {
       sectionTitle: 'Adding dynamic inline styles',
       sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Adding_dynamic_inline_styles.html',
+        '/src/markdowns/02_Styling_React_Components/Adding_dynamic_inline_styles.html',
       highlights: {
         highlight1: ['dynamic inline styles'],
       },
@@ -450,7 +450,7 @@ const Styling_React_components = {
     {
       sectionTitle: 'Introducing styled components',
       sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Introducing_styled_components.html',
+        '/src/markdowns/02_Styling_React_Components/Introducing_styled_components.html',
       highlights: {
         highlight1: ['styled components'],
       },
@@ -464,7 +464,7 @@ const Styling_React_components = {
     {
       sectionTitle: 'Using CSS modules',
       sectionSource:
-        '/src/markdowns/05_Styling_React_Components/Using_CSS_modules.html',
+        '/src/markdowns/02_Styling_React_Components/Using_CSS_modules.html',
       highlights: {
         highlight2: ['CSS modules'],
       },
@@ -497,7 +497,7 @@ const Rendering_lists_and_conditional_content = {
     {
       sectionTitle: 'Rendering lists of data: the key prop',
       sectionSource:
-        '/src/markdowns/04_Rendering_list_&_conditional_content/Rendering_lists_of_data.html',
+        '/src/markdowns/03_Rendering_list_&_conditional_content/Rendering_lists_of_data.html',
       highlights: {
         highlight1: ['lists of data'],
         highlight2: ['key'],
@@ -538,7 +538,7 @@ const Rendering_lists_and_conditional_content = {
     {
       sectionTitle: 'Rendering conditional content',
       sectionSource:
-        '/src/markdowns/04_Rendering_list_&_conditional_content/Rendering_conditional_content.html',
+        '/src/markdowns/03_Rendering_list_&_conditional_content/Rendering_conditional_content.html',
       highlights: {
         highlight1: ['conditional content'],
       },
@@ -589,7 +589,7 @@ const Adding_interactivity_to_a_component = {
     {
       sectionTitle: 'Responding to events & working with event handlers',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/Responding_to_events_&_working_with_event_handlers.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/Responding_to_events_&_working_with_event_handlers.html',
       tooltips: [
         `<h3>How to write components that handle interactions</h3>
         <p>React lets you <i>add event handlers to your JSX</i>. Event handlers are your own <i>functions that will be triggered in response to interactions</i>.</p>
@@ -641,7 +641,7 @@ const Adding_interactivity_to_a_component = {
     {
       sectionTitle: 'State: a component’s memory',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/State_is_a_component_memory.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/State_is_a_component_memory.html',
       highlights: {
         highlight2: ['State'],
       },
@@ -705,7 +705,7 @@ const Adding_interactivity_to_a_component = {
     {
       sectionTitle: 'How component functions are executed: render & commit',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/How_component_functions_are_executed_render_&_commit.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/How_component_functions_are_executed_render_&_commit.html',
       highlights: {
         highlight1: ['render', 'commit'],
       },
@@ -756,7 +756,7 @@ const Adding_interactivity_to_a_component = {
     {
       sectionTitle: 'State as a snapshot in time',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/State_as_a_snapshot.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/State_as_a_snapshot.html',
       highlights: {
         highlight1: ['snapshot in time'],
       },
@@ -781,7 +781,7 @@ const Adding_interactivity_to_a_component = {
       sectionTitle:
         'Queueing a series of state updates: state scheduling & batching',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/Queueing_a_series_of_state_updates_state_scheduling_&_batching.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/Queueing_a_series_of_state_updates_state_scheduling_&_batching.html',
       highlights: {
         highlight1: ['state scheduling', 'batching'],
       },
@@ -807,7 +807,7 @@ const Adding_interactivity_to_a_component = {
     {
       sectionTitle: 'Updating objects in state',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/Updating_objects_in_state.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/Updating_objects_in_state.html',
       tooltips: [
         `<h3>Treat state as read-only</h3>
         <p>State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>. Usually, you will use the <code>...</code> spread syntax to copy objects and arrays that you want to change.</p>
@@ -841,7 +841,7 @@ const Adding_interactivity_to_a_component = {
     {
       sectionTitle: 'Updating arrays in state',
       sectionSource:
-        '/src/markdowns/02_Adding_interactivity_to_a_component/Updating_arrays_in_state.html',
+        '/src/markdowns/04_Adding_interactivity_to_a_component/Updating_arrays_in_state.html',
       tooltips: [
         `<h3>Treat state as read-only</h3>
         <p>Arrays are mutable in JavaScript, but <i>you should treat arrays as immutable when you store them in state</i>. Just like with objects, when you want to update an array stored in state, you need to <i>create a new one (or make a copy of an existing one), and then set state to use the new array</i>.</p>
@@ -895,7 +895,7 @@ const Managing_state = {
     {
       sectionTitle: 'React uses a declarative way to manipulate the UI',
       sectionSource:
-        '/src/markdowns/03_Managing_state/React_uses_a_declarative_way_to_manipulate_the_UI.html',
+        '/src/markdowns/05_Managing_state/React_uses_a_declarative_way_to_manipulate_the_UI.html',
       highlights: {
         highlight1: ['declarative way'],
       },
@@ -925,7 +925,7 @@ const Managing_state = {
     {
       sectionTitle: 'Choosing the state structure',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Choosing_the_state_structure.html',
+        '/src/markdowns/05_Managing_state/Choosing_the_state_structure.html',
       highlights: {
         highlight1: ['state structure'],
       },
@@ -965,7 +965,7 @@ const Managing_state = {
     {
       sectionTitle: 'Sharing state between components: lifting state up',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Sharing_state_between_components_lifting_state_up.html',
+        '/src/markdowns/05_Managing_state/Sharing_state_between_components_lifting_state_up.html',
       highlights: {
         highlight1: ['lifting state up'],
       },
@@ -997,7 +997,7 @@ const Managing_state = {
     {
       sectionTitle: 'How to control whether the state gets preserved or reset',
       sectionSource:
-        '/src/markdowns/03_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
+        '/src/markdowns/05_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
       tooltips: [
         `<p>When you re-render a component, React needs to decide <i>which parts of the tree to keep (and update)</i>, and <i>which parts to discard or re-create from scratch</i>. In most cases, React's automatic behavior works well enough. <i>By default, React preserves the parts of the tree that “match up” with the previously rendered component tree.</i> However, sometimes this is not what you want.</p>
         <p>State is isolated between components. <i>React keeps track of which state belongs to which component based on their place in the UI tree</i>. You can control when to <u>preserve state</u> and when to <u>reset it</u> between re-renders.</p>
@@ -1041,7 +1041,7 @@ const Managing_state = {
       sectionTitle:
         'Extracting state logic into a Reducer with the <code>useReducer</code> hook',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Extracting_state_logic_into_a_Reducer.html',
+        '/src/markdowns/05_Managing_state/Extracting_state_logic_into_a_Reducer.html',
       highlights: {
         highlight2: ['useReducer'],
       },
@@ -1094,7 +1094,7 @@ const Managing_state = {
       sectionTitle:
         '<code>useReducer</code> vs <code>useState</code> for state management',
       sectionSource:
-        '/src/markdowns/03_Managing_state/useReducer_vs_useState_for_state_management.html',
+        '/src/markdowns/05_Managing_state/useReducer_vs_useState_for_state_management.html',
       tooltips: [
         `<h3><code>useState()</code></h3>
         <p><i><code>useState()</code> is your main state management tool.</i> Typically, you start with <code>useState()</code> and often it's all you need. It's great for independent pieces of state and data. It's great if state updates are easy and limited to a few kinds of updates. So, if you don't have a lot of different cases that will change a state, and especially if you don't have an object as a state or anything like that.</p>`,
@@ -1116,7 +1116,7 @@ const Managing_state = {
       sectionTitle:
         'How to pass information without “prop drilling”: passing data deeply with Context',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Passing_Data_Deeply_with_Context.html',
+        '/src/markdowns/05_Managing_state/Passing_Data_Deeply_with_Context.html',
       highlights: {
         highlight2: ['Context'],
       },
@@ -1177,7 +1177,7 @@ const Managing_state = {
       sectionTitle:
         'Making Context dynamic: scaling up with <code>useState</code> or <code>useReducer</code>',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Making_Context_dynamic.html',
+        '/src/markdowns/05_Managing_state/Making_Context_dynamic.html',
       highlights: {
         highlight1: ['Context dynamic'],
       },
@@ -1196,7 +1196,7 @@ const Managing_state = {
     {
       sectionTitle: 'Adding two-way binding',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Adding_two_way_binding.html',
+        '/src/markdowns/05_Managing_state/Adding_two_way_binding.html',
       highlights: {
         highlight2: ['two-way binding'],
       },
@@ -1207,7 +1207,7 @@ const Managing_state = {
     {
       sectionTitle: 'Learning the "rules of Hooks"',
       sectionSource:
-        '/src/markdowns/03_Managing_state/Learning_the_rules_of_Hooks.html',
+        '/src/markdowns/05_Managing_state/Learning_the_rules_of_Hooks.html',
       highlights: {
         highlight1: ['rules of Hooks'],
       },
@@ -1768,47 +1768,6 @@ const Working_with_forms_and_user_inputs = {
       sectionTitle: "What's so complex about Forms?",
       sectionSource:
         '/src/markdowns/11_Working_with_forms_&_user_inputs/What_is_so_complex_about_forms.html',
-    },
-  ],
-};
-
-const Debugging_React_apps = {
-  title: '<p class="card__title--2">Debugging React apps</p>',
-  sections: [
-    {
-      sectionTitle: 'Understanding React error messages',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['error messages'],
-      },
-      tooltips: [
-        'As a side note, you can have errors  that your IDE (VSCode) able to detect, but sometimes you get a React error which is not showing up in your IDE.',
-      ],
-    },
-    {
-      sectionTitle: 'Analyzing code flow & warnings',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['code flow', 'warnings'],
-      },
-    },
-    {
-      sectionTitle: 'Working with breakpoints',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['breakpoints'],
-      },
-    },
-    {
-      sectionTitle: 'Using the React DevTools',
-      sectionSource: '',
-      highlights: {
-        highlight1: ['React DevTools'],
-      },
-      tooltips: [
-        "Let's have a look at a dedicated tool, which is available for React Development, which can help us with React specific problems and which can help us with understanding our React Application better and that would be the React Dev Tools.",
-        'In the Components tab (Google Chrome) we see the actual React Components and the Components structure that is responsible for the UI output.',
-      ],
     },
   ],
 };
@@ -2940,7 +2899,6 @@ export const dataStorage = [
   Class_based_components,
   Custom_React_Hooks,
   Working_with_forms_and_user_inputs,
-  Debugging_React_apps,
   React_Router,
   Redux,
   Advanced_Redux,
