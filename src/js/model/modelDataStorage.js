@@ -1721,9 +1721,9 @@ const Custom_React_Hooks = {
         highlight2: ['"custom Hooks"'],
       },
       tooltips: [
-        `<p>You can create custom Hooks, compose them together, pass data between them, and reuse them between components. As your app grows, you will write fewer Effects by hand because you’ll be able to reuse custom Hooks you already wrote.</p>`,
+        `<p>You can create custom Hooks, compose them together, pass data between them, and reuse them between components. As your app grows, <i>you will write fewer Effects by hand because you'll be able to <u>reuse</u> custom Hooks you already wrote</i>.</p>`,
         `<h3>Custom Hooks: <u>sharing logic</u> between components</h3>
-        <p>Custom hooks are just <i>regular functions</i>, just as the built-in hooks like <code>useState</code>, but they are functions which can contain stateful logic. You can build custom hooks to <i>outsource stateful logic into reusable functions</i>.</p>
+        <p>Custom hooks are just <i>regular functions</i>, just as the built-in hooks like <code>useState</code>, but they are functions which can <i>contain stateful logic</i>. You can build custom hooks to <i>outsource stateful logic into <u>reusable</u> functions</i>.</p>
         <p>Unlike regular functions, <i>custom hooks can use other React hooks, including other custom hooks</i>, and they can, therefore, also leverage React state managed with <code>useState</code> or <code>useReducer</code>; they can access <code>useEffect</code> and so on.</p>
         <p>Custom Hooks let you <i>share logic between components</i>.</p>
         <p>With custom hooks you can <i>outsource logic, which you might be using in different components</i>, into a custom hook, which you can then call from all these various components. So, it is simply <i>a mechanism of <u>reusing logic</u>, just as regular functions are, with the special thing that in these custom hook functions you can use React hooks and other hooks</i>.</p>
@@ -1740,7 +1740,7 @@ const Custom_React_Hooks = {
         <p><i>So just because you use a custom hook does not mean that you share state or effects across components</i>. Instead for every component the custom hook is executed again and every component instance then receives its own state, so it's just the logic which is shared, not the concrete state.</p>
         `,
         `<h3>Passing reactive values between Hooks</h3>
-        <p><i>The code inside your custom Hooks will re-run during every re-render of your component</i>. This is why, like components, custom Hooks need to be pure. <i>Think of custom Hooks’ code as part of your component's body!</i></p>
+        <p><i>The code inside your custom Hooks will re-run during every re-render of your component</i>. This is why, like components, custom Hooks need to be pure. <i>Think of custom Hooks code as part of your component's body!</i></p>
         <p>Because custom Hooks re-render together with your component, they always receive the latest props and state.</p>
         <p>If a component uses a custom hook and that custom hook uses <code>useState</code>, <i>the component that uses the custom hook will re-render when the state in that custom hook will trigger a re-render</i>.</p>
         `,
@@ -1751,7 +1751,7 @@ const Custom_React_Hooks = {
         `,
         `<h3>When to use custom Hooks</h3>
         <p>You don't need to extract a custom Hook for every little duplicated bit of code. Some duplication is fine.</p>
-        <p>However, whenever you write an Effect, consider whether it would be clearer to also wrap it in a custom Hook.</p>
+        <p>However, <i>whenever you write an Effect, consider whether it would be clearer to also wrap it in a custom Hook</i>.</p>
         `,
         `<h3>Custom Hooks help you migrate to better patterns</h3>
         <p>Effects are an “escape hatch”: you use them when you need to “step outside React” and when there is no better built-in solution for your use case. With time, the React team’s goal is to reduce the number of the Effects in your app to the minimum by providing more specific solutions to more specific problems. Wrapping your Effects in custom Hooks makes it easier to upgrade your code when these solutions become available.</p>

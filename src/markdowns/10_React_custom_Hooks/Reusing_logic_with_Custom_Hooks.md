@@ -1,6 +1,6 @@
 # Reusing Logic with Custom Hooks
 
-React comes with several built-in Hooks like `useState`, `useContext`, and `useEffect`. Sometimes, you’ll wish that there was a Hook for some more specific purpose: for example, to fetch data, to keep track of whether the user is online, or to connect to a chat room. You might not find these Hooks in React, but you can create your own Hooks for your application’s needs.
+React comes with several built-in Hooks like `useState`, `useContext`, and `useEffect`. Sometimes, you’ll wish that there was a Hook for some more specific purpose: for example, to fetch data, to keep track of whether the user is online, or to connect to a chat room. You might not find these Hooks in React, but ==you can create your own Hooks for your application’s needs.==
 
 ==You can create custom Hooks, compose them together, pass data between them, and reuse them between components. As your app grows, you will write fewer Effects by hand because you’ll be able to reuse custom Hooks you already wrote.== There are also many excellent custom Hooks maintained by the React community.
 
@@ -22,13 +22,13 @@ This will keep your component synchronized with the network status. You might st
 
 ![What_are_Custom_Hooks1](../../img/What_are_Custom_Hooks4.jpg)
 
-Now imagine you *also* want to use the same logic in a different component. You want to implement a "Save" button that will become disabled and show “Reconnecting…” instead of “Save” while the network is off.
+Now imagine you *also* want to **use the same logic in a different component**. You want to implement a "Save" button that will become disabled and show “Reconnecting…” instead of “Save” while the network is off.
 
 To start, you can copy and paste the `isOnline` state and the Effect into `SaveButton`:
 
 ![What_are_Custom_Hooks5](../../img/What_are_Custom_Hooks5.jpg)
 
-These two components work fine, but ==the duplication in logic between them is unfortunate. It seems like even though they have _different visual appearance_, you want to reuse the logic between them==.
+These two components work fine, but ==the duplication in logic between them is unfortunate. It seems like **even though they have _different visual appearance_, you want to reuse the logic between them**==.
 
 ## Extracting your own custom Hook from a component
 
@@ -42,7 +42,7 @@ Although there is no such built-in Hook, you can write it yourself. Declare a fu
 
 At the end of the function, return `isOnline`. This lets your components read that value. Now when you switching the network on and off updates both components.
 
-Now your components don’t have as much repetitive logic. ==More importantly, the code inside them describes **what they want to do** (use the online status!) rather than **how to do it** (by subscribing to the browser events).== When you extract logic into custom Hooks, you can hide the gnarly details of how you deal with some external system or a browser API. The code of your components expresses your intent, not the implementation.
+==Now your components don’t have as much _repetitive logic_. More importantly, the code inside them describes **what they want to do** (use the online status!) rather than **how to do it** (by subscribing to the browser events).== When you extract logic into custom Hooks, you can hide the gnarly details of how you deal with some external system or a browser API. The code of your components expresses your intent, not the implementation.
 
 > #### Hook names always start with `use`
 >
