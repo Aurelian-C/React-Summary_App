@@ -1,8 +1,8 @@
 # Preventing function re-creation with `useCallback()`
 
-We can make `React.memo()` work for prop values that are objects as well, we just need to tweak the way we create and store those objects a little bit. There is an extra hook provided by React that helps us with that and that is the `useCallback` hook.
+You can make `React.memo()` work for props values that are objects as well, you just need to tweak the way you create and store those objects a little bit. There is an extra hook provided by React that helps us with that and that is the `useCallback` hook.
 
-==`useCallback` is a hook that allows us to basically store a function across component executions==, so it allows us to tell React that we wanna save a function and that this function should not be recreated with every execution. With that one in the same function object is stored, so one in the same place in memory, and therefore the comparison does work.
+==`useCallback` is a hook that allows you to basically store a function across component executions==, so it allows you to tell React that you wanna save a function and that this function should not be recreated with every execution. With that one in the same function object is stored, so one in the same place in memory, and therefore the comparison does work.
 
 ```react
 import React, { useState, useCallback } from 'react';
@@ -34,7 +34,7 @@ function App() {
 
 ## Usage
 
-When you optimize rendering performance, you will sometimes need to cache the functions that you pass to child components. To cache a function between re-renders of your component, wrap its definition into the `useCallback` hook. Call `useCallback` at the top level of your component to cache a function definition between re-renders:
+==When you optimize rendering performance, you will sometimes need to cache the functions that you pass to child components. To cache a function between re-renders of your component, wrap its definition into the `useCallback` hook.== Call `useCallback` at the top level of your component to cache a function definition between re-renders:
 
 ```react
 import { useCallback } from 'react';
@@ -66,7 +66,7 @@ The list of all reactive values referenced inside of the `fn` code. Reactive val
 
 ## Some considerations about `useCallback`
 
-On the initial render, the returned function you’ll get from `useCallback` will be the function you passed. On the following renders, React will compare the dependencies with the dependencies you passed during the previous render. If none of the dependencies have changed (compared with `Object.is`, `useCallback` will return the same function as before. Otherwise, `useCallback` will return the function you passed on *this* render. In other words, `useCallback` caches a function between re-renders until its dependencies change.
+On the initial render, the returned function you’ll get from `useCallback` will be the function you passed. On the following renders, React will compare the dependencies with the dependencies you passed during the previous render. If none of the dependencies have changed (compared with `Object.is`), `useCallback` will return the same function as before. Otherwise, `useCallback` will return the function you passed on *this* render. In other words, `useCallback` caches a function between re-renders until its dependencies change.
 
 By wrapping a function in `useCallback`, you ensure that it’s the _same_ function between the re-renders (until dependencies change). You don’t *have to* wrap a function in `useCallback` unless you do it for some specific reason.
 

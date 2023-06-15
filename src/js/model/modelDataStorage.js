@@ -1642,30 +1642,46 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
         highlight2: ['<code>useCallback()</code>'],
       },
       tooltips: [
-        'When you optimize rendering performance, you will sometimes need to cache the functions that you pass to child components. To cache a function between re-renders of your component, wrap its definition into the <code>useCallback</code> hook.',
-        '<code>useCallback</code> is a hook that allows us to basically store a function across component executions.',
-        "By wrapping a function in <code>useCallback</code>, you ensure that it's the same function between the re-renders (until dependencies change). You don't have to wrap a function in <code>useCallback</code> unless you do it for some specific reason.",
+        `<p>You can make <code>React.memo()</code> work for props values that are objects as well, you just need to tweak the way you create and store those objects a little bit.</p>
+        <p>When you optimize rendering performance, you will sometimes need to <i>cache the functions that you pass to child components</i>. To cache a function between re-renders of your component, wrap its definition into the <code>useCallback</code> hook.</p>`,
+        `<h3><code>useCallback</code> hook</h3>
+        <p><code>useCallback</code> is a hook that allows you to basically store a function across component executions.</p>
+        <ul>You need to pass two things to <code>useCallback</code>:
+        <li>1. <i>A function definition</i> that you want to cache between re-renders</li>
+        <li>2. <i>A list of dependencies</i> including every reactive value within your component that's used inside your function</li>
+        </ul>`,
+        `<h3><code>useCallback()</code> and its dependencies</h3>
+        <p>On the initial render, the returned function you'll get from <code>useCallback</code> will be the function you passed. On the following renders, React will compare the dependencies with the dependencies you passed during the previous render. If none of the dependencies have changed (compared with <code>Object.is</code>), <code>useCallback</code> will return the same function as before. Otherwise, <code>useCallback</code> will return the function you passed on <u>this render</u>. In other words, <i><code>useCallback</code> caches a function between re-renders until its dependencies change</i>.</p>
+        <p>By wrapping a function in <code>useCallback</code>, you ensure that it's <i>the same function between re-renders (until dependencies change)</i>. You don't have to wrap a function in <code>useCallback</code> unless you do it for some specific reason.</p>`,
       ],
-    },
-    {
-      sectionTitle: '<code>useCallback()</code> and its dependencies',
-      sectionSource: '',
     },
     {
       sectionTitle: 'A first summary',
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/A_first_summary.html',
+      tooltips: ['This article have a summary of what you learn.'],
     },
     {
-      sectionTitle: 'Optimizing with <code>useMemo()</code>',
+      sectionTitle:
+        'Skipping expensive recalculations with <code>useMemo()</code>',
       sectionSource:
-        '/src/markdowns/08_React_&_optimization_techniques/Optimizing_with_useMemo.html',
+        '/src/markdowns/08_React_&_optimization_techniques/Skipping_expensive_recalculations_with_useMemo.html',
       highlights: {
+        highlight1: ['Skipping expensive recalculations'],
         highlight2: ['<code>useMemo()</code>'],
       },
       tooltips: [
-        '<code>useMemo</code> is a React hook that lets you cache the result of a calculation between re-renders until its dependencies change.',
-        'You will use <code>useMemo</code> far less often than you use <code>useCallback</code> because memoizing functions is much more useful and you need that more often than memoizing data. You essentially wanna memoize data if it would be performance-intensive to recalculate something based on it.',
+        `<h3>Skipping expensive recalculations</h3>
+        <p><code>useMemo</code> hook basically allows you to memoize (memoize means to store) any kind of data which you want to store, just like <code>useCallback</code> does it for functions.</p>
+        <p><code>useMemo</code> lets you <i>cache the result of a calculation between re-renders until its dependencies change</i>.</p>`,
+        `<h3><code>useMemo</code> hook</h3>
+        <ul>You need to pass two things to <code>useMemo</code>:
+        <li>1. A <i>calculation function</i> that takes no arguments, like <code>() => {}</code>, and <u>returns what you wanted to calculate</u>.</li>
+        <li>2. A <i>list of dependencies</i> including every reactive value within your component that's used inside your calculation.</li>
+        </ul>
+        <p>React will call the function that you pass to <code>useMemo</code> during the initial render. On subsequent renders, React will return the same value again if the dependencies have not changed since the last render. Otherwise, it will call the function that you pass to <code>useMemo</code>, return its result, and store it in case it can be reused later.</p>`,
+        `<h3>When to use <code>useMemo</code>?</h3>
+        <p>You will use <code>useMemo</code> far less often than you use <code>useCallback</code> because memoizing functions is much more useful and you need that more often than memoizing data. <i>You essentially wanna memoize data if it would be performance-intensive to recalculate something based on it.</i></p>`,
       ],
     },
   ],

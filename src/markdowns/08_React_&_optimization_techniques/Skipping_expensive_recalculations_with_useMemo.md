@@ -1,6 +1,6 @@
-# Optimizing with `useMemo()`
+# Skipping expensive recalculations with  `useMemo()`
 
-`useMemo` hook basically allows you to memoize (memoize means to store), any kind of data which you want to store, just like `useCallback` does it for functions.
+`useMemo` hook basically allows you to memoize (memoize means to store) any kind of data which you want to store, just like `useCallback` does it for functions.
 
 ==`useMemo` is a React hook that lets you cache the result of a calculation between re-renders==.
 
