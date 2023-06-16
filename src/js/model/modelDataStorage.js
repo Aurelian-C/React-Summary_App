@@ -1765,9 +1765,19 @@ const Working_with_forms_and_user_inputs = {
   title: '<p class="card__title--2">Working with forms & user inputs</p>',
   sections: [
     {
-      sectionTitle: "What's so complex about Forms?",
+      sectionTitle: 'What is so complex about Forms?',
       sectionSource:
         '/src/markdowns/11_Working_with_forms_&_user_inputs/What_is_so_complex_about_forms.html',
+      tooltips: [
+        `<p>Forms might seem simple and trivial, but they are not. Forms can actually be complex from a developer's point of view because forms and their inputs can assume <i>a broad variety of different states</i>.</p>`,
+        `<h3>When to validate?</h3>
+        <ul>You can validate the user input when:
+        <li>- the <i>form is submitted as a whole</i></li>
+        <li>- you can also check the value entered by a user once an <i>input loses focus</i>, to then check what the user did enter in the input and find out if it is valid</li>
+        <li>- you can of course also do that on every <i>keystroke</i> or on every <i>change</i> to user makes to an input</li>
+        </ul>
+        `,
+      ],
     },
   ],
 };
@@ -2677,6 +2687,15 @@ const Deploying_React_apps = {
       highlights: {
         highlight1: ['Lazy Loading'],
       },
+      tooltips: [
+        `<p>Lazy loading means that you wanna <i>load certain pieces of code only when it's needed</i>. The idea behind lazy loading is that <i>you tell to browser to load certain components only when they're needed, instead of ahead of time</i>.</p>
+        <p>You can <i>call <code>import</code> as a function</i> and in that case it will import something dynamically, only when it's needed. <i>When you call <code>import</code> as a function it gives you a Promise because is an asynchronous process</i>, which can take a bit longer because it must download the code after all.</p>
+        <ul>To lazy loading a component you must to do 2 things:
+        <li>- <code>import {lazy} from 'react'</code></li>
+        <li>- outside of your component function: <code>const BlogPage = lazy(() => import('./pages/Blog'))</code></li>
+        </ul>
+        `,
+      ],
     },
     {
       sectionTitle: 'Server-side Routing vs Client-side Routing',
