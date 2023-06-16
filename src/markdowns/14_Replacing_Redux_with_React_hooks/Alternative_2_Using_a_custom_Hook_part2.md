@@ -1,4 +1,4 @@
-# Alternative 2: Using a custom Hook - creating a concrete store & using the custom store
+# Alternative 2: Using a custom Hook - creating a concrete store & using the abstract store
 
 ![Replace_Redux_with_custom_hooks7](../../img/Replace_Redux_with_custom_hooks7.jpg)
 

@@ -40,7 +40,7 @@ Now we're adding a `setState` function to our `listeners` array for a component 
 
 ## Change the `globalState`: dispatch actions in our components
 
-Now we need to be able to **change our state** and for that we should be able to kind of **dispatch actions** in our components. For that we need to create a `dispatch` function with an `actionIdentifier` parameter because we'll to define the concrete actions in a different place, and with the help of `actionIdentifier` parameter we will find each specific action.
+Now we need to be able to **change our state** and for that we should be able to kind of **dispatch actions** in our components. For that we need to create a `dispatch` function with an `actionIdentifier` parameter because we'll define the concrete actions in a different place, and with the help of `actionIdentifier` parameter we will find each specific action.
 
 Global `actions` variable should be an object where we have keys which match with `actionIdentifier` parameter, and where the value of that key is a concrete function: `actions[actionIdentifier]()`.
 

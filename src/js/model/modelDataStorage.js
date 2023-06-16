@@ -2648,31 +2648,56 @@ const Replacing_Redux_with_React_Hooks = {
     },
     {
       sectionTitle:
-        'Alternative 2: Using a custom Hook - create an custom store hook that manage the wide-state data',
+        'Alternative 2: Using a custom Hook - create an abstract store hook that manage the wide-state data',
       sectionSource:
         '/src/markdowns/14_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part1.html',
       highlights: {
-        highlight1: ['custom store'],
+        highlight1: ['abstract store'],
       },
+      tooltips: [
+        `<ul>Understanding global variables:
+        <li>- <code>let <i>globalState</i> = {}</code> object</li>
+        <li>- <code>let <i>listeners</i> = []</code> array</li>
+        <li>- <code>let <i>actions</i> = {}</code> object</li>
+        </ul>
+        `,
+        `<h3>The <code>globalState</code> variable</h3>
+        <p>The <code>globalState</code> variable will be <i>defined outside of the <code>useStore</code> custom hook, so it's global</i>. It's <i><u>not recreated</u> when you call <code>useStore</code></i> custom hook, it's <i><u>not created separately</u> for every component that consumes the <code>useStore</code></i> custom hook.</p>
+        <p>Instead the <i><code>globalState</code> variable will be created <u>once</u> when the "store.js" file is first imported</i>, and thereafter any other file that imports from the "store.js" file, <i><u>all</u> will use the same state that is stored in that <code>globalState</code> variable</i>.</p>
+        <p>That's one important idea here: we'll <i><u>share data</u> between all files that import from "store.js"</i> and that's not something we did before when we learn custom hooks. When we learned custom hooks the idea was the opposite: we could share logic but not data. Now we can <i>share <u>logic</u> and <u>data</u> by managing the data outside of the custom hook, because inside of the custom hook it would not be shared, it would be inclusive to each component</i>.</p>
+        `,
+        `<h3>The <code>listeners</code> variable</h3>
+        <p>The <code>listeners</code> variable should be <i>an array full of functions</i> which I can call to update all components that are using the <code>useStore</code> custom hook.</p>
+        `,
+        `<h3>Change the <code>globalState</code> variable: dispatch actions in your components</h3>
+        <p>Now we need to be able to <i>change our state</i> and for that we should be able to kind of <i>dispatch actions</i> in our components.  For that, in our <code>useStore</code> custom hook we need to create a <code>dispatch</code> function with an <code>actionIdentifier</code> parameter because <i>we'll define the concrete actions in a different place</i>, and with the help of <code>actionIdentifier</code> parameter we will find each specific action.</p>
+        <p>Global <code>actions</code> variable should be an object where we have keys which match with <code>actionIdentifier</code> parameter, and where the value of that key is a concrete function: <code>actions[actionIdentifier]()</code>.</p>
+        `,
+      ],
     },
     {
       sectionTitle:
-        'Alternative 2: Using a custom Hook - create a concrete store & using the custom store',
+        'Alternative 2: Using a custom Hook - create a concrete store & using the abstract store',
       sectionSource:
         '/src/markdowns/14_Replacing_Redux_with_React_hooks/Alternative_2_Using_a_custom_Hook_part2.html',
       highlights: {
         highlight1: ['concrete store'],
       },
+      tooltips: ['<p></p>'],
     },
     {
       sectionTitle: 'Optimizing the custom store hook',
       sectionSource:
         '/src/markdowns/14_Replacing_Redux_with_React_hooks/Optimizing_the_custom_store_hook.html',
+      tooltips: [
+        '<p>In our <code>useStore</code> custom hook we could accept an argument (<code>shouldListen</code>) with a default value. We can use that argument (<code>shouldListen</code>) to <i>determine whether we actually want to register a listener (state updating function) for a components or not</i>.</p>',
+      ],
     },
     {
       sectionTitle: 'Managing multiple state slices with the custom store hook',
       sectionSource:
         '/src/markdowns/14_Replacing_Redux_with_React_hooks/Managing_multiple_state_slices_with_the_custom_store_hook.html',
+      tooltips: ['<p></p>'],
     },
   ],
 };
