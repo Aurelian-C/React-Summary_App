@@ -8,7 +8,7 @@ So to use the concrete store defined in "products-store.js" file, we need to go 
 
 Now, the cool thing is we don't need to wrap `configureStore` in a provider component or anything like that. 
 
-==By calling `configureStore` function we initialize our concrete store, and `configureStore` will call `initStore` function and `initStore` will initialize our global variables (`globalState` and `actions`) with the values we're passing to it.==
+==By calling `configureStore` function we initialize our concrete store, and in `configureStore` will call `initStore` function and `initStore` will initialize our global variables (`globalState` and `actions`) with the values we're passing to it.==
 
 ==If we had multiple stores, we would simply call `configureStore` for each different concrete store==, so you would call all the `configureStore` functions for all the different concrete stores you might have in your app, and with that the stores are ready to use.
 
@@ -30,7 +30,7 @@ Then in the same "store.js" file we create our own custom hook (`useStore`). The
 
 > **Note**: We're register one listener per component with the help of `useEffect` and we unregister it when that component unmounts.
 
-We then also have a way of ==initializing our store with the help of `initStore` function which you can _call multiple times_ because **we're not replacing our `globalState` or replacing our `actions`**, instead we're always taking the current `globalState` and the current `actions` to merge in them new data. We're doing this so that you can create concrete **store slices**==, just as we're doing it with Redux with multiple reducers, where is one slice you manage your products, maybe in another slice you manage the user authentication status.
+We then also have a way of ==initializing our store with the help of `initStore` function which you can _call multiple times_ because **we're not replacing our `globalState` or replacing our `actions`**, instead we're always taking the current `globalState` and the current `actions` to merge in them new data. We're doing this so that you can create concrete **store slices**==, just as we're doing it with Redux with multiple reducers, where in one slice you manage your products, maybe in another slice you manage the user authentication status.
 
 Then from anywhere in our project we can use the `useStore` custom hook to either tap into our `globalState` or use the `dispatch` function to dispatch an action.
 

@@ -8,9 +8,9 @@ I want to have some state in the `useStore` custom hook and that state will actu
 
 Is important to notice that ==`globalState` is **defined outside of the `useStore` custom hook, so it's global**. It's not recreated when we call `useStore` custom hook, it's not created separately for every component that consumes the `useStore` custom hook. Instead the `globalState` variable will be created _once_ when the "store.js" file is first imported, and thereafter any other file that imports from the "store.js" file, _all_ will use the same state that is stored in that `globalState` variable==.
 
-> **IMPORTANT**: That's one important idea here: we'll share data between all files that import from "store.js" and that's not something we did before when we learn custom hooks. When we learned custom hooks the idea was the opposite: we could share logic but not data. Now we can ==**share _logic_ and _data_** by managing the data outside of the custom hook, because inside of the custom hook it would not be shared, it would be inclusive to each component==.
+> **IMPORTANT**: That's one important idea here: we'll share data between all files that import from "store.js" and that's not something we did before when we learn custom hooks. When we learned custom hooks the idea was the opposite: we could share logic but not data. Now we can ==**share _logic_ and _data_** by managing the data outside of the custom hook, because inside of the custom hook it would not be shared (global), it would be inclusive to each component==.
 >
-> If `globalState` is defined inside of our `useStore` custom hook each component would get it's own data, but managing it outside of the custom hook every file that imports the "store.js" file or something from the "store.js" file gets the same shared data.
+> If `globalState` is defined inside of our `useStore` custom hook each component would get it's own data (it's own `globalState`), but managing it outside of the custom hook every file that imports the "store.js" file or something from the "store.js" file gets the same shared data.
 
 ### The state updating function that updates the `globalState` variable
 
@@ -20,7 +20,7 @@ Is important to notice that ==`globalState` is **defined outside of the `useStor
 
 ## The `listeners` array
 
-Now I want to add the `setState` (state updating function) to the `listeners` array because _`listeners` should be an array full of functions which I can call to update all components that are using the `useStore` custom hook_. So with `listeners` variable I have a list of `setState` functions (listeners) for each individual component that is interested in update the `globalState` variable.
+Now I want to add the `setState` (state updating function) to the `listeners` array because _`listeners` should be an **array full of functions** which I can call to update all components that are using the `useStore` custom hook_. So with `listeners` variable I have a list of `setState` functions (listeners) for each individual component that is interested in update the `globalState` variable.
 
 That means that ==every component that uses the `useStore` custom hook will get its own `setState` function which is then added to the shared `listeners` array==, so `listeners` array will grow over time the more components use the `useStore` custom hook.
 
@@ -46,7 +46,7 @@ Global `actions` variable should be an object where we have keys which match wit
 
 ![Replace_Redux_with_custom_hooks3](../../img/Replace_Redux_with_custom_hooks3.jpg)
 
-> **Note**: Keep in mind that what we add to `listeners` array is just `setState` functions. So in the `for` loop by calling `listener(globalState)` is the same like calling `setState(globalState)`. What this does is that it updates the React state and once the state is changed/updated React will re-render the component that is using the `useStore` custom hook.
+> **Note**: Keep in mind that what we add to `listeners` array is just `setState` functions. So in the `for` loop by ==calling `listener(globalState)` is the same like calling `setState(globalState)`==. What this does is that it updates the React state and once the state is changed/updated React will re-render the component that is using the `useStore` custom hook.
 
 Now I know we're still in a relatively abstract world but we're now having the `useStore` custom hook with its abstract `dispatch` function, and within this custom hook we're able to register listeners for each component that uses our `useStore` custom hook.
 

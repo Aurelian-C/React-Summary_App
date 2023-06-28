@@ -1,6 +1,6 @@
 # Optimizing the custom store hook
 
-In our `useStore` custom hook we could accept an argument (`shouldListen`) with a default value. ==We can use that argument (`shouldListen`) to _determine whether we actually want to register a listener (state updating function) for a components or not_==.
+In our `useStore` custom hook we could accept an argument (`shouldListen`) with a default value. ==We can use that argument (`shouldListen`) to _determine whether we actually want to register a listener (state updating function) for a component or not_==.
 
 So for the `ProductItem` component which is using the `useStore` custom hook, ==because is a component which only _uses the `useStore` custom hook to **only dispatch actions**_, well then we don't want to listen to state changes inside of it==. Inside `ProductItem` component we're not interested in state changes, we're only using the `useStore` custom hook so that we can dispatch an action.
 

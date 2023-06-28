@@ -402,7 +402,8 @@ const Styling_React_components = {
       sectionSource:
         '/src/markdowns/02_Styling_React_Components/Introduction_to_styling_React_components.html',
       tooltips: [
-        `<p>You wanna make sure that your apps look good, and styling is also an important part of building components. And there are <i>different techniques for setting styles</i> dynamically and for styling components, such that other components are not affected by a specific component's styles.</p>
+        `<p>In React we have <i>many different ways of styling our components</i> and React doesn't really care about how we do that, it doesn't have an opinion about styling. The reason for that is that <i>React is actually more of a library than a framework, so it doesn't have a preferred way of how we should style our components</i> and in the end our applications, therefore we can choose between many different options.</p>
+        <p>You wanna make sure that your apps look good, and styling is also an important part of building components. And there are <i>different techniques for setting styles</i> dynamically and for styling components, such that other components are not affected by a specific component's styles.</p>
         <ul>Along this section you will learn:
         <li>- how to <i>set up styles in a conditional or dynamic way</i>;</li>
         <li>- two popular approaches for <i>scoping styles</i> to components;</li>
