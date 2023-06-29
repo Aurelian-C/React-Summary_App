@@ -182,6 +182,10 @@ Now you get three console logs in development:
 
 ==**In production, you would only see `"✅ Connecting..."` printed once.** Remounting components only happens in development to help you find Effects that need cleanup.== You can turn off [Strict Mode](https://beta.reactjs.org/reference/react/StrictMode) to opt out of the development behavior, but we recommend keeping it on. This lets you find many bugs like the one above.
 
+#### How to abort fetching data with `useEffect` hook cleanup function and `AbortController` Constructor?
+
+![Abort-fetching-data](../../img/Abort-fetching-data.jpg)
+
 ## How to handle the Effect firing twice in development? 
 
 ==React intentionally remounts your components in development to help you find bugs like in the last example. **The right question isn’t “how to run an Effect once”, but “how to fix my Effect so that it works after remounting”.** Usually, the answer is to implement the cleanup function.==
