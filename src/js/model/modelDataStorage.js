@@ -1163,7 +1163,7 @@ const Managing_state = {
         <p>Just because you need to pass some props several levels deep doesn't mean you should put that information into context.</p>
         <ul>Here's a few alternatives you should consider before using context:
         <li>- <i>Start by passing props</i>. If your components are not trivial, it's not unusual to pass a dozen props down through a dozen components.</li>
-        <li>- <i>Extract components and pass JSX as <code>children</code> to them</i>. If you pass some data through many layers of intermediate components that don't use that data (and only pass it further down), this often means that you forgot to extract some components along the way.</li>
+        <li>- <i>Extract components and pass JSX as <code>children</code> to them (fixing the "prop drilling" with "composition")</i>. If you pass some data through many layers of intermediate components that don't use that data (and only pass it further down), this often means that you forgot to extract some components along the way.</li>
         </ul>
         <p>In general, if some information is needed by distant components in different parts of the tree, it's a good indication that context will help you.</p>
         <p>Context is not limited to static values. If you pass a different value on the next render, React will update all the components reading it below! This is why context is often used in combination with state.</p>
@@ -1357,7 +1357,7 @@ const Handling_side_effects = {
         <li>- <i>Event handlers</i> are nested functions inside your components that <i>do things rather than just calculate them</i>. An event handler might update an input field, submit an HTTP POST request to buy a product, or navigate the user to another screen. <i>Event handlers contain "side effects"</i> (they change the program's state) and are caused by a specific user action (for example, a button click or typing).</li>
         </ul>
         <p>Sometimes this isn't enough. Consider a <code>ChatRoom</code> component that must connect to the chat server whenever it's visible on the screen. Connecting to a server is not a pure calculation (it's a side effect) so it can't happen during rendering. However, there is no single particular event like a click that causes <code>ChatRoom</code> to be displayed.</p>
-        <p><i>Effects let you specify <u>side effects that are caused by rendering itself</u>, rather than by a particular event</i>. Sending a message in the chat is an <u>event</u> because it is directly caused by the user clicking a specific button. However, setting up a server connection is an <u>Effect</u> because it should happen no matter which interaction caused the component to appear. <i>Effects run at the end of the rendering process <u>after the screen updates</u></i>.</p>`,
+        <p><i>Effects let you specify <u>side effects that are caused by rendering itself</u>, rather than by a particular event</i>. Sending a message in the chat is an <u>event</u> because it is directly caused by the user clicking a specific button. However, setting up a server connection is an <u>Effect</u> because it should happen no matter which interaction caused the component to appear. <b>Effects run at the end of a commit process <u>after the screen updates</u></b>.</p>`,
         `<h3>How to write an Effect</h3>
         <ul>To write an Effect, follow these three steps:
         <li>1. <i>Declare</i> an Effect with <code>useEffect</code> hook. By default, your Effect will run <u>after</u> every render.</li>
@@ -1366,8 +1366,8 @@ const Handling_side_effects = {
         </ul>
         `,
         `<h3>When an Effect run?</h3>
-        <p>Every time your component renders, React will update the screen and then run the code inside <code>useEffect</code>. In other words, <i><code>useEffect</code> "delays" a piece of code from running until that render is reflected on the screen</i>.</p>
-        <p><code>useEffect()</code> function runs after every component render cycle, not before it, not during it, but after it.</p>
+        <p><i>Every time your component renders, React will update the screen and then run the code inside <code>useEffect</code>.</i> In other words, <i><code>useEffect</code> "delays" a piece of code from running until that render is reflected on the screen</i>.</p>
+        <p><code>useEffect()</code> function runs after every component render cycle, not before it, not during it, but after it, and only after React finished update the screen.</p>
         <p>The code inside your Effect will only execute when the dependencies specified by you changed, and not when the component re-renders.</p>
         <p><code>useEffect()</code> will run no matter what only when your app is run for the first time. After your app run for the first time, <code>useEffect()</code> will only executed if the dependencies changes.</p>
         `,
@@ -1690,7 +1690,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
 
 const Class_based_components = {
   title:
-    '<p class="card__title--2">An alternative way of building components: <br>Class-based components</p>',
+    '<p class="card__title--2">React before Hooks: Class-based components<br>- an alternative way of building components -</p>',
   sections: [
     {
       sectionTitle: 'Introducing error boundaries',

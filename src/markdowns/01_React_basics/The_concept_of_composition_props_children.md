@@ -73,6 +73,24 @@ Try replacing the `<Avatar>` inside `<Card>` with some text to see how the `Card
 
 ![props_children](../../img/props_children.jpg)
 
+## Examples
+
+```react
+function Box({ children }) {
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <div className="box">
+      <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
+        {isOpen ? "–" : "+"}
+      </button>
+      
+      {isOpen && children} {/* This render the children component/s (JXS markup) based on a condition*/}
+    </div>
+  );
+}
+```
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
