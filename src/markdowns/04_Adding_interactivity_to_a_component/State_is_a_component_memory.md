@@ -52,6 +52,8 @@ In React, `useState`, as well as any other function starting with ”`use`”, i
 
 ```react
 const [index, setIndex] = useState(0);
+// or
+const [index, setIndex] = useState(() => localStorage.getItem('index'));
 ```
 
 In this case, you want React to remember `index`.
@@ -75,6 +77,16 @@ const [index, setIndex] = useState(0);
 2. **You update the state.** When a user clicks the button, it calls `setIndex(index + 1)`. `index` is `0`, so it’s `setIndex(1)`. This tells React to remember `index` is `1` now and triggers another render.
 3. **Your component’s second render.** React still sees `useState(0)`, but because React *remembers* that you set `index` to `1`, it returns `[1, setIndex]` instead.
 4. And so on!
+
+### Initializing state with a callback (lazy initial state)
+
+```js
+const [index, setIndex] = useState(() => localStorage.getItem('index'));
+```
+
+==The only argument to `useState` is the **initial value** of your state variable== (the value you want the state to be initially). It can be a value of any type, but there is **a special behavior for functions**. This argument is ignored after the initial render.
+
+If you pass a function as `initialState`, it will be treated as an *initializer function*. It should be pure, should take no arguments, and should return a value of any type. React will call your initializer function when initializing the component, and store its return value as the initial state.
 
 ## Giving a component multiple state variables 
 

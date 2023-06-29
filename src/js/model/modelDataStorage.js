@@ -671,11 +671,14 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>Anatomy of <code>useState</code></h3>
         <p>When you call <code>useState</code>, you are telling React that you want this component to remember something.</p>
-        <p>The only argument to <code>useState</code> is the <i>initial value</i> of your state variable.</p>
+        <p>The only argument to <code>useState</code> is the <i>initial value</i> of your state variable. It can be a value of any type, but there is <i>a special behavior for functions</i>. This argument is ignored after the initial render.</p>
         <ul>Every time your component renders, <i><code>useState</code> gives you an array containing two values</i>:</p>
         <li>1. The <i>state <u>variable</u></i> with the value you stored.</li>
         <li>2. The <i>state setter <u>function</u></i> which can update the state variable and trigger React to render the component again.</li></ul>
         <p>You can use array destructuring to read values from the array that <code>useState</code> gives you.</p>
+        `,
+        `<h3>Initializing state with a callback (lazy initial state)</h3>
+        <p>If you pass a function as initial value, it will be treated as an <u>initializer function</u>. <i>It should be pure, should take no arguments, and should return a value of any type. React will call your initializer function when initializing the component, and store its return value as the initial state:</i> <code>const [state, setState] = useState(() => {return initialState})</code></p>
         `,
         `<h3>Naming convention</h3>
         <p>The convention is to name this pair like <code>const [something, setSomething]</code>. You could name it anything you like, but conventions make things easier to understand across projects.</p>
