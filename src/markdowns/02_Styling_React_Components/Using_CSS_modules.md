@@ -37,6 +37,32 @@ const Button = props => {
 };
 ```
 
+## Transform a scoped CSS module class into a global CSS class with `:global()`
+
+Let assume that this CSS below belongs to a CSS Module. ==You have a global `active` class defined in your `index.css` and you want to add it as a global class inside your CSS Module==, so you don't want to be scoped to a specific component.  How you will do?
+
+```css
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* The .active class is scoped to the component that uses this CSS Module */
+.nav .active { 
+    flex-wrap: nowrap;
+}
+
+/* The .active class is not scoped, it is the .active global class defined in your index.css file */
+.nav :global(.active) { 
+    flex-wrap: nowrap;
+}
+```
+
+==The `:global()` function is usually mostly important when you are working with some classes that are provided from external sources.==
+
+> Note: <code>:global()</code> ==switches to global scope for the current selector==.
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)

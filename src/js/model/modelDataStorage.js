@@ -510,6 +510,10 @@ const Styling_React_components = {
         </ul>
         <p>If you have a class name with a name like <code>.form-control</code>, you need to access that object property with bracket <code>[]</code> notation, example <code>classes['form-control']</code>, because <code>.form-control</code> isn't a valid name for accessing object property with dot <code>.</code> notation.</p>
         `,
+        `<h3>Transform a scoped CSS module class into a global CSS class with <code>:global(.class)</code></h3>
+        <p>Lets say you have a global <code>active</code> class defined in your <code>index.css</code> and <i>you want to add this class as a global class inside your CSS Module</i>, so you don't want this class to be scoped to a specific component.  How you will do? The <code>:global()</code> function is used in CSS Modules to transform a scoped CSS class into a global CSS class. <i>The <code>:global()</code> function is usually mostly important when you are working with some classes that are provided from external sources.</i></p>
+        <p><code>:global()</code> <i><u>switches to global scope</u> for the current selector</i>.</p>
+        `,
       ],
     },
     {
@@ -1870,6 +1874,7 @@ const React_Router = {
         `,
         `<h3>The <code>path</code> property</h3>
         <p>One key property which you will almost always add is the <code>path</code> property. With <code>path</code> you <i>define the path for which the route should be active</i>.</p>
+        <p><i>Setting <code>path="*"</code> will act as a catch-all for any <u>undefined URLs</u>.</i> This is great for a 404 error page: <code>{path: "*", element: <<span>NoPageFound /<span>>}</code></p>
         `,
         `<h3>The <code>element</code> property</h3>
         <p><i>To establish a connection between your route path and your component</i>, you add another key property and that's the <code>element</code> property. <i>The <code>element</code> property contains the JSX markup that should be loaded when the route path is active</i>, so for the <code>element</code> property you set some JSX markup that should be rendered to the screen when the route is active.</p>

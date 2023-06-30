@@ -41,6 +41,14 @@ const router = createBrowserRouter([{path: "/products"}]);
 >
 > However, ==`https://example.com/` is a path, just as `https://example.com/products` is a path==.
 
+==Setting the `path` to `*` will act as a catch-all for any undefined URLs.== This is great for a 404 error page:
+
+```react
+const router = createBrowserRouter([
+    {path: "*", element: <NoPageFound />}
+]);
+```
+
 ### The `element` property
 
 To establish a connection between your route path and your component, you add another key property and that's the `element` property. ==The `element` property contains the JSX markup that should be loaded when the route path is active==, so for the `element` property you set some JSX markup that should be rendered to the screen when the route is active.

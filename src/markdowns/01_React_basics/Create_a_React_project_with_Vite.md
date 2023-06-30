@@ -14,11 +14,11 @@ To create a React project with Vite, you need to follow these steps:
    - `vite-plugin-eslint`;
    - `eslint-config-react-app`.
 
-   The command in VSCode to install al these packages is `npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev`. With `--save-dev` you save all these packages as `devDependecies`.
+   The command in VSCode to install al these packages is ==`npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev`==. With `--save-dev` you save all these packages as `devDependecies`.
 
-4. Next, you need to actually config your project to integrate with these packages. For that you need to create a new file called `.eslintrc.json` with an `{"extends": "react-app"}` object. The `.eslintrc.json` file basically configure the behavior of ESLint, and in this case what you want to do is to _extend the default rules of ESLint with those React rules that you just installed_.
+4. Next, you need to actually ==config your project to integrate with these packages==. For that you need to ==create a new file called `.eslintrc.json` with an `{"extends": "react-app"}` object.== The `.eslintrc.json` file basically configure the behavior of ESLint, and in this case what you want to do is to _extend the default rules of ESLint with those React rules that you just installed_.
 
-5. Finally, you also need to config your Vite project with the `vite.config.js` file. On `vite.config.js` file you can configure all kinds of things about development and building of your project, but here all you need to do is to _add the ESLint plugin to `plugins` array_.
+5. Finally, you also need to ==config your Vite project with the `vite.config.js` file.== On `vite.config.js` file you can configure all kinds of things about development and building of your project, but here all you need to do is to ==add the ESLint plugin to `plugins` array==.
 
 ![create_a_react_project](../../img/create_a_react_project.jpg)
 
