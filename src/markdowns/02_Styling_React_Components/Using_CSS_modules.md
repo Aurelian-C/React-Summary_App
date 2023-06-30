@@ -37,9 +37,9 @@ const Button = props => {
 };
 ```
 
-## Transform a scoped CSS module class into a global CSS class with `:global()`
+## How to use a global CSS class inside of a CSS Module without scoping it: `:global()`
 
-Let assume that this CSS below belongs to a CSS Module. ==You have a global `active` class defined in your `index.css` and you want to add it as a global class inside your CSS Module==, so you don't want to be scoped to a specific component.  How you will do?
+Let assume that this CSS below belongs to a CSS Module. ==You have a global `active` class defined in your `index.css` and you want to add it as a global class inside your CSS Module==, so you don't want to be scoped to a specific component.  How you will do it?
 
 ```css
 .nav {

@@ -510,8 +510,8 @@ const Styling_React_components = {
         </ul>
         <p>If you have a class name with a name like <code>.form-control</code>, you need to access that object property with bracket <code>[]</code> notation, example <code>classes['form-control']</code>, because <code>.form-control</code> isn't a valid name for accessing object property with dot <code>.</code> notation.</p>
         `,
-        `<h3>Transform a scoped CSS module class into a global CSS class with <code>:global(.class)</code></h3>
-        <p>Lets say you have a global <code>active</code> class defined in your <code>index.css</code> and <i>you want to add this class as a global class inside your CSS Module</i>, so you don't want this class to be scoped to a specific component.  How you will do? The <code>:global()</code> function is used in CSS Modules to transform a scoped CSS class into a global CSS class. <i>The <code>:global()</code> function is usually mostly important when you are working with some classes that are provided from external sources.</i></p>
+        `<h3>How to use a global CSS class inside of a CSS Module without scoping it: <code>:global(.class)</code></h3>
+        <p>Lets say you have a global <code>active</code> class defined in your <code>index.css</code> and <i>you want to add this class as a global class inside your CSS Module</i>, so you don't want this class to be scoped to a specific component.  How you will do it? The <code>:global()</code> function is used in CSS Modules to transform a scoped CSS class into a global CSS class. <i>The <code>:global()</code> function is usually mostly important when you are working with some classes that are provided from external sources.</i></p>
         <p><code>:global()</code> <i><u>switches to global scope</u> for the current selector</i>.</p>
         `,
       ],
