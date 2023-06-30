@@ -1063,7 +1063,7 @@ const Managing_state = {
         <p>Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the user just did” by <i>dispatching “actions” from your event handlers</i>.</p>
         <p>The state update logic will live elsewhere! So <i>instead of “setting” state via an event handler, you're dispatching an “action”.</i> This is more descriptive of the user's intent.</p>
         <p><i>The object you pass to dispatch function is called an “action” and is a regular JavaScript object</i>. You decide what to put in it, but generally it should contain the minimal information about what happened.</p>
-        <p><i>An "action" object can have any shape. By convention, it is common to give it a string <code>type</code> that describes what happened</i>, and pass any additional information in other fields. Keep in mind that "action" <code>type</code>s should ideally describe “what the user did” rather than “how you want the state to change”. This makes it easier to later add more features.</p>
+        <p><i>An "action" object can have any shape. By convention, it is common to give it a property with a <code>type</code> key that describes what happened</i>, and pass any additional information in other fields. Keep in mind that "action" <code>type</code>s should ideally describe “what the user did” rather than “how you want the state to change”. This makes it easier to later add more features.</p>
         `,
         `<h3>2. Write a reducer function</h3>
         <p>A reducer function is <i>where you will put your state logic</i>. It takes two arguments, the <i>current state</i> and the <i>"action" object</i>, and it <i>returns the next state</i>.</p>

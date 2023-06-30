@@ -43,7 +43,7 @@ Your event handlers currently specify *what to do* by setting state: Remove all 
 
 ==It is a regular JavaScript object. You decide what to put in it, but generally it should contain the minimal information about *what happened*== (you will add the `dispatch` function itself in a later step).
 
-> **Note**: An action object can have any shape. By convention, it is common to give it a string `type` that describes what happened, and pass any additional information in other fields. The `type` is specific to a component, so in this example either `'added'` or `'added_task'` would be fine. Choose a name that says what happened!
+> **Note**: An action object can have any shape. By convention, it is common to give it a property with a `type` key that describes what happened, and pass any additional information in other fields. The `type` is specific to a component, so in this example either `'added'` or `'added_task'` would be fine. Choose a name that says what happened!
 >
 > ```react
 > dispatch({
