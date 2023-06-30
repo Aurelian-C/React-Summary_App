@@ -111,6 +111,33 @@ const React_basics = {
       ],
     },
     {
+      sectionTitle: 'Create a React project with Vite',
+      sectionSource:
+        '/src/markdowns/01_React_basics/Create_a_React_project_with_Vite.html',
+      highlights: {
+        highlight1: ['Create a React project'],
+      },
+      tooltips: [
+        `<h3>How to create a React project with Vite</h3>
+        <ul>To create a React project with Vite, you need to follow these steps:
+        <li>1. In you VSCode terminal write the <i><code>npm create vite@latest</code></i> command;</li>
+        <li>2. After your folder is created, you need to <i>manually install the dependencies</i> with <code>npm install</code> or <code>npm i</code>;</li>
+        <li>3. With Vite you now need to<i> manually config ESLint</i> in your project by installing 3 packages: <i><code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></i> and save them as <code>devDependencies</code>;</li>
+        <li>4. You need to config your project to integrate with these packages by creating a new file called <i><code>.eslintrc.json</code></i> that contains an <i><code>{"extends": "react-app"}</code></i> object;</li>
+        <li>5. Finally, you also need to config your Vite project with the <code>vite.config.js</code> file where you need to <i>add the ESLint plugin to <code>plugins</code> array</i>.</li>
+        </ul>
+        `,
+        `<h3>Differences between Vite and Create React App</h3>
+        <ul>The file structure created with Vite is different that the file structure created with Create-React-App:
+        <li>- <i><code>index.html</code></i> is outside of the <code>public</code> folder;</li>
+        <li>- instead of <code>.js</code> file extension, now you have <i><code>.jsx</code></i> file extension;</li>
+        <li>- the entry point is not <code>index.js</code>, instead is <i><code>main.jsx</code></i>;</li>
+        <li>- to start the application you don't write in your VSCode terminal the <code>npm run start</code> command, but you need to write <i><code>npm run dev</code></i> command.</li>
+        </ul>
+        `,
+      ],
+    },
+    {
       sectionTitle: 'Building a first custom component',
       sectionSource:
         '/src/markdowns/01_React_basics/Building_a_first_custom_component.html',

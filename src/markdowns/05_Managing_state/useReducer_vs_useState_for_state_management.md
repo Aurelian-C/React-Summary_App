@@ -28,7 +28,10 @@ Reducers are not without downsides! Here’s a few ways you can compare them:
 
 We recommend using a reducer if you often encounter bugs due to incorrect state updates in some component, and want to introduce more structure to its code. You don’t have to use reducers for everything: feel free to mix and match! You can even `useState` and `useReducer` in the same component.
 
+![useReducer_vs_useState](../../img/useReducer_vs_useState1.jpg)
+
 ## References
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
+1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
 1. [Extracting State Logic into a Reducer - beta.reactjs.org](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer)

@@ -27,11 +27,11 @@ This markup represents this article `<article>`, its heading `<h1>`, and an (abb
 
 As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development.
 
-## Defining a component 
+## Defining a component
 
 Traditionally when creating web pages, web developers marked up their content and then added interaction by sprinkling on some JavaScript. This worked great when interaction was a nice-to-have on the web. Now it is expected for many sites and all apps. React puts interactivity first while still using the same technology: **a React component is a JavaScript function that you can sprinkle with markup**.
 
-> **Note**: Before you start to build a component, you need to create first a React project. The easiest way of getting started with a React project is to use a tool called [Create React App](https://github.com/facebook/create-react-app).
+> **Note**: Before you start to build a component, you need to create first a React project. The easiest way of getting started with a React project is to use a tool called [Create React App](https://github.com/facebook/create-react-app). In real world app, there is a better way of create a React project calling [Vite](https://vitejs.dev/).
 
 ==Conceptually, components are just JavaScript functions==. They accept arbitrary inputs (called props) and return JSX markup describing what should appear on the screen. The simplest way to define a component is to write a JavaScript function:
 
