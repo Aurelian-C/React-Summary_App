@@ -2084,6 +2084,33 @@ const React_Router = {
       ],
     },
     {
+      sectionTitle:
+        'Setting and reading a query string (search params) with <code>useSearchParams</code> hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Setting_and_reading_a_query_string.html',
+      highlights: {
+        highlight1: ['query string (search params)'],
+        highlight2: ['<code>useSearchParams</code>'],
+      },
+      tooltips: [
+        `<h3>Query string (search params</h3>
+        <p>You must have seen long URLs and looks a bit strange with something you type, for example: <code>twitter.com/search<b>?</b>q=ui.dev<b>&</b>src=typed_query<b>&</b>f=live</code>
+        </p>
+        <p>They're the <code>?</code> and <code>&</code> you see appended onto URLs. The benefits of query string is that they allow you to <i>pass state via the URL</i>.</p>
+        <p>What's nice about this is it's <i>sharable</i>. You could copy and paste that URL into your browser right now and it would work. All the data Twitter needs to properly render the UI is right there in the URL.</p>
+        `,
+        `<h3>How do you add a query string to your URL?</h3>
+        <p><code><<span>Link to="/url?book=John&chapter=1&genre="fiction" /<span>></code></p>
+        `,
+        `<h3>How to read and update a query string from an URL?</h3>
+        <p>You can read a query string by importing and using the <i><code>useSearchParams</code></i> hook from <code>react-router-dom</code>. The <code>useSearchParams</code> hook is used to <i>read and modify the query string in the URL for the current location</i>.</p>
+        <p>Like React's own <code>useState</code> hook, <code>useSearchParams</code> <i>returns an array of two values</i>: the <i>current location's</i> search params and a <i>function</i> that may be used to update them: <code>const [searchParams, setSearchParams] = useSearchParams();</code></p>
+        <p>Just as React's <code>useState</code> hook, <i><code>setSearchParams</code> also supports functional updates</i>. Therefore, you may provide a function that takes a <code>searchParams</code> and returns an updated version.</p>
+        <p>If you needed to update the query string, you could use <code>setSearchParams</code>, passing it an object whose key/value pair will be added to the url as <code>&key=value</code></p>
+        `,
+      ],
+    },
+    {
       sectionTitle: 'Working with index routes',
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_index_routes.html',
