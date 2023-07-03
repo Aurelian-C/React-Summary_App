@@ -30,7 +30,11 @@ Here is how you can combine a reducer with context:
 
 This way of moving all wiring into a single file like `auth-context.js` ==keeps the components clean and uncluttered, focused on what they display rather than where they get the data==.
 
-==As your app grows, you may have many context-reducer pairs like this==. This is a powerful way to scale your app and lift state up without too much work whenever you want to access the data deep in the tree.
+==As your app grows, you may have many context-reducer pairs like this==. This is a powerful way to scale your app and lift state up without too much work whenever you want to access the data deep in the tree. 
+
+### Another pattern
+
+![Making_Context_dynamic1](../../img/Making_Context_dynamic1.jpg)
 
 ## References
 

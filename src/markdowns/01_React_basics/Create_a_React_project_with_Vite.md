@@ -25,7 +25,7 @@ To create a React project with Vite, you need to follow these steps:
 > Note: The file structure created with Vite is different that the file structure created with Create-React-App:
 >
 > - ==`index.html` is outside of the `public` folder== (React really doesn't care about this structure and it doesn't even know, basically, what the structure of the folder is. React really only is concerned about displaying components onto the screen, it doesn't care about the file structure.);
-> - instead of `.js` file extension, now you have ==`.jsx` file extension== (`.jsx` file extension stands for JavaScript JSX, so it's pretty much the same as a JavaScript file, but Vite really needs this to be `.jsx` files and not just `.js` files.);
+> - instead of `.js` file extension, now you have ==`.jsx` file extension== (`.jsx` file extension stands for JavaScript JSX, so it's pretty much the same as a JavaScript file, but Vite really needs this to be `.jsx` files and not just `.js` files.). Vite need the ==`.jsx` file extension only if you have a component that return JSX markup==. If you have a custom hook you can use the `.js` file extension);
 > -  the entry point is not `index.js`, instead is ==`main.jsx`==;
 > - to start the application you don't write in your VSCode terminal the `npm run start` command, but you need to write ==`npm run dev`== command.
 
