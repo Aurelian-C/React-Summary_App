@@ -1628,6 +1628,18 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
     },
     {
       sectionTitle:
+        'A surprising optimization trick with <code>children</code>',
+      sectionSource:
+        '/src/markdowns/08_React_&_optimization_techniques/A_surprising_optimization_trick_with_children.html',
+
+      tooltips: [
+        `<p>A component that is <i>passed inside another component as a <code>children</code> prop</i> re-render slightly different than a component that is <i>passed directly inside another component</i>. Why? Because <i>a component that is passed via <code>children</code> is already been created before anything happens inside the parent component</i> (like state updates in parent component). The state updates in the parent component will re-render the parent component, but will NOT RE-RENDER the child components passed via <code>children</code>.</p>
+        <p><i>This optimization technique works even with the components passed via <code>children</code> to Context Providers, <u>only if</u> that children components don't use (consume) the Provider context <code>value</code>.</i> So we are in the exact same situation as before where all the child components were <u>already created</u> before they were passed as <code>children</code> into the Context Provider component.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle:
         'Preventing unnecessary re-evaluations with <code>React.memo()</code>',
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Preventing_unnecessary_reevaluations_with_React_memo.html',
@@ -2532,10 +2544,6 @@ const Redux = {
   title:
     '<p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
   sections: [
-    {
-      sectionTitle: 'Module Introduction',
-      sectionSource: '',
-    },
     {
       sectionTitle: 'Another Look At State In React Apps',
       sectionSource: '',
