@@ -2589,8 +2589,8 @@ const Redux = {
         '/src/markdowns/13_Redux/How_to_work_with_Redux_state_correctly.html',
     },
     {
-      sectionTitle: 'Redux Challenges & Introducing Redux Toolkit',
-      sectionSource: '',
+      sectionTitle: 'Redux issues vs Redux Toolkit',
+      sectionSource: '/src/markdowns/13_Redux/Redux_vs_Redux_Toolkit.html',
     },
     {
       sectionTitle: 'Adding State Slices',
