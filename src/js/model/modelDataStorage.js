@@ -2542,7 +2542,7 @@ const React_Router = {
 
 const Redux = {
   title:
-    '<p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
+    '<p class="card__title--2">Diving into Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
   sections: [
     {
       sectionTitle: 'Redux vs React Context',
