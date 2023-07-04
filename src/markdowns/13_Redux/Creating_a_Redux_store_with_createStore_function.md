@@ -13,7 +13,7 @@ You install the Redux library by typing into your VSCode terminal the `npm insta
 To use the Redux library you need to import it into your `.js` file with:
 
 - `import { someFeature } from 'redux'` or
-- `import { someFeature } from 'react-redux'`.
+- `import { someFeature } from 'react-redux'`
 
 ## Steps to set up a functionally Redux store
 
@@ -72,7 +72,7 @@ const store = createStore(counterReducer);
 > - the same inputs always should produce exactly the same output;
 > - there should be no side effects inside of reducer function. You must not send a HTTP request or write something to local storage or fetch something from local storage.
 
-## 3. Create a component that **sets up a subscription** to the store
+## 3. Create a component that **sets up a subscription** to the Redux store
 
 ### Provide the Redux store to a React component with the help of `<Provider/>` component
 
@@ -124,7 +124,7 @@ function CounterComponent() {
 }
 ```
 
-The great thing is that when we use `useSelector`, ==React Redux will automatically set up a subscription to the Redux store for the component in which you use `useSelector` hook. So your component will be updated and will receive the latest data  automatically, whenever that data changes in the Redux store (in our case the `counter`).==
+The great thing is that when we use `useSelector`, ==React Redux will automatically set up a subscription to the Redux store for the component in which you use `useSelector` hook. So your React component will be updated and will receive the latest data  automatically, whenever that data changes in the Redux store (in our case the `counter`).==
 
 So ==by using the `useSelector` hook the `<CounterComponent/>` is automatically reactive and changes to the Redux store will cause the `<CounterComponent/>` to be re-executed==, so you always have the latest `counter`. That's why `useSelector` is a very useful hook, and why it is the hook we use for getting data out of the Redux store.
 
@@ -135,6 +135,8 @@ If you ever would unmount the `<CounterComponent/>`, if it would be removed from
 Now we got our Redux store, our reducer function, we subscribe the React component to the Redux store and we can read data from the Redux store. Now we also need an action that can be dispatched and trigger the reducer function to modify the data in the Redux store.
 
 For dispatching actions from React components, we need to import from 'react-redux' library the `useDispatch` hook. This hook returns a reference to the `dispatch` function from the Redux store. You may use it to dispatch actions as needed.
+
+To the `dispatch` function you will pass an object that have a `type` property that uniquely identify the `dispatch` function.
 
 ```react
 import { useSelector, useDispatch } from 'react-redux'

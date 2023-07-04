@@ -2592,17 +2592,65 @@ const Redux = {
         highlight2: ['<code>createStore()</code>'],
       },
       tooltips: [
-        `<h3>Creating a Redux Store for React</h3>`,
-        `<h3>Providing the Store</h3>`,
-        `<h3>Using Redux Data in React Components</h3>`,
-        `<h3>Dispatching Actions From Inside Components</h3>`,
+        `<p><i>Redux <code>createStore()</code> is (not) deprecated.</i> When using that function in your code, you might get a <u>deprecation warning</u> by your IDE or when running the app. You should ignore this warning! You can still use <code>createStore()</code> without issues.</p>
+        <p>Indeed, the React Redux team now recommends the usage of an extra package called <i>Redux Toolkit</i> and another way of creating the Redux store.</p>
+        `,
+        `<h3>How to install the Redux package with NPM?</h3>
+        <p>You install the Redux library by typing into your VSCode terminal the <i><code>npm install redux react-redux</code></i> command.</p>
+        <ul>To use the Redux library you need to import it into your <code>.js</code> file with:
+        <li>- <code>import { someFeature } from <i>'redux'</i></code> or</li>
+        <li>- <code>import { someFeature } from <i>'react-redux'</i></code></li>
+        </ul>
+        `,
+        `<h3>Steps to set up a functionally Redux store</h3>
+        <ul>To set up a Redux store we will need to:
+        <li>1. Create a <i>Redux store</i> with <code>createStore()</code> function imported from 'redux' library</li>
+        <li>2. Create a <i>reducer function</i> which changes the Redux store</li>
+        <li>3. Create a component that <i>sets up a subscription</i> to the Redux store with the help of <code>useSelector</code> hook imported from 'react-redux' library</li>
+        <li>4. Create an <i>action</i> that trigger state changes with the help of <code>useDispatch</code> hook imported from 'react-redux' library</li>
+        </ul>
+        `,
+        `<h3>1. Creating a Redux Store for React with <code>createStore()</code></h3>
+        <p>The <code>createStore()</code> is a function exposed by the 'redux' library which does what the name implies, it <i>creates a Redux store that <u>holds the complete state tree</u> of your app</i>. There should <i>only be <u>a single store</u> in your app</i>.</p>
+        `,
+        `<h3>2. Create a reducer function which changes the Redux store</h3>
+        <p>A reducer function is <i>a standard JavaScript function</i>, but it will be <i>called by the Redux library. The reducer function will manage, update and return the Redux store data.</i></p>
+        <p>The reducer function will always receive <i>two arguments</i>, the existing (old) <u>state</u> and the <u>action</u> that was dispatched. The reducer function must always return a certain output, it <i>must always return a new state object</i> which will replace the existing (old) state. <i>A reducer function should be a pure function.</i></p>
+        <p>The output of Reducer Function typically will be a state object, but it can be any kind of value type.</p>
+        <p><i>The reducer function is passed as the first argument to the <code>createStore()</code> function.</i></p>
+        `,
+        `<h3>3. Providing the Redux store with <code><<span>Provider/</span>></code> & get data inside the Redux store with <code>useSelector</code> hook</h3>
+        <p>You provide the Redux store to React components by importing from the 'react-redux' library the <i><code><<span>Provider/</span>></code> component</i>. <i>The <code><<span>Provider/</span>></code> component makes the Redux store available to any nested components that need to access the Redux data.</i> Since any React component in a React Redux app can be connected to the Redux store, <i>most applications will render a <code><<span>Provider/</span>></code> at the top level, with the entire app's component tree inside of it</i>.</p>
+        <p>To get access to our Redux store and to the data in there, we need to import from 'react-redux' library the <i><code>useSelector</code> hook</i>. <code>useSelector</code> allows us to automatically <i>select a part of our state managed by the Redux store</i>.</p>
+        <p><i><code>useSelector</code> need a function as an argument</i>, a function which will be executed by Redux, a function which determines which piece of data we wanna extract from our Redux store. The function passed as argument to <code>useSelector</code> we'll receive the state managed by Redux, and then we return the part of the state which you wanna extract.</p>
+        <p><i>React Redux will automatically set up a subscription to the Redux store for the component in which you use <code>useSelector</code> hook.</i> So your React component will be updated and will receive the latest data  automatically, whenever that data changes in the Redux store. If you ever would unmount that React component, if it would be removed from the DOM for whatever reason, React Redux would also automatically clear the subscription for you. So with <code>useSelector</code> hook React Redux manages the component subscription for you behind the scenes.</p>
+        `,
+        `<h3>4. Dispatching actions from inside React components with <code>useDispatch</code> hook</h3>
+        <p>For dispatching actions from React components, we need to import from 'react-redux' library the <code>useDispatch</code> hook. This hook returns a reference to the <code>dispatch</code> function from the Redux store. You may use it to dispatch actions as needed.</p>
+        <p>To the <code>dispatch</code> function you will pass an object that have a <i><code>type</code> property</i> that <u>uniquely identify</u> the <code>dispatch</code> function.</p>
+        `,
       ],
     },
     {
       sectionTitle: 'More about <code>createStore()</code> function',
       sectionSource:
         '/src/markdowns/13_Redux/More_about_createStore_function.html',
-      tooltips: [``],
+      tooltips: [
+        `<p><code>createStore()</code> function <i>creates a Redux store that <u>holds the complete state tree</u> of your app</i>. There should <i>only be <u>a single store</u> in your app</i>.</p>
+        <ul><code>createStore()</code> receives 3 arguments:
+        <li><i><code>reducerFunction</code></i>: A reducing function that returns the next state tree, given the current state tree and an action to handle.</li>
+        <li><i><code>initialState</code></i>: The initial state.</li>
+        <li><i><code>enhancer</code></i>: The store enhancer.</li>
+        </ul>
+        <p><code>createStore()</code> <i>returns a Redux store</i> (an object that holds the complete state of your app).</p>
+        `,
+        `<h3>Tips</h3>
+        <p>- Don't create more than <u>one store</u> in an application!</p>
+        <p>- Redux state is normally plain JS objects and arrays</p>
+        <p>- If your state is a plain object, make sure you never mutate it!</p>
+        <p>- When a store is created, Redux dispatches a dummy action to your reducer to populate the store with the initial state. You are not meant to handle the dummy action directly.</p>
+        `,
+      ],
     },
     {
       sectionTitle: 'Attaching payloads to actions',
