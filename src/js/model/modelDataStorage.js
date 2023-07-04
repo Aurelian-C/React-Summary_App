@@ -2547,10 +2547,40 @@ const Redux = {
     {
       sectionTitle: 'Redux vs React Context',
       sectionSource: '/src/markdowns/13_Redux/Redux_vs_React_Context.html',
+      tooltips: [
+        `<p>Redux is a <i><u>state management system</u> for a cross-component or app-wide state</i>. So it helps us manage state, data that changes and affects our application and what we display on the screen. It helps us manage such data across multiple components or even the complete app.</p>`,
+        `<h3>React Context disadvantages</h3>
+        <ul>React Context has a couple of potential disadvantages, and I say potential because they might not matter in the app you're building. And if they don't matter, you don't need Redux. Just as a side note, because it's all is important, it's also not an either or decision. You can also use both Contexts and Redux in the same application.
+        <li>- <i>Complex setup / management</i>: one potential disadvantage is that with React Context, you can have a very complex setup and managing state that can become quite complex, and that definitely depends on the kind of application you're building.</li>
+        <li>- <i>Performance</i>: another potential disadvantage could be performance. Context was build for low-frequency updates like changing a theme, or maybe also authentication, but it's not optimized for high-frequency state changes.</li>
+        
+        </ul>
+        `,
+      ],
     },
     {
       sectionTitle: 'How Redux works',
       sectionSource: '/src/markdowns/13_Redux/How_Redux_works.html',
+      tooltips: [
+        `<h3>Central Data (State) Store</h3>
+        <p>Redux is all about having <u>one</u> <i>Central Data (State) Store</i> in your application, and with data I mean state. You have exactly <u>one Redux store</u>, you never have more than one Redux store; it's <i>one store for all your state for your entire application</i>.</p>
+        <p>Now this might sound unmaintainable, but the good thing is that <i>we don't directly need to manage the entire store</i> all the time.</p>
+        `,
+        `<h3>React components subscribe to Central Data (State) Store</h3>
+        <p><i>React components subscribe to the Central Store, and whenever the data changes, the store notifies components</i>.</p>
+        <p>React components can also <i>get a slice of the Redux store</i>, and they can then use it.</p>
+        `,
+        `<h3>Manipulating data inside the Redux store with a reducer function</h3>
+        <p>Here's one very important rule: <i>React components <u>never</u> directly manipulate the Redux store data</i>. So we have that subscription, but we don't have a data flow in the other direction. React components don't directly manipulate that data in the Redux store. Instead for that, <i>we use a concept called <u>reducers</u>.</i> We have a reducer function. <i>This reducer function which we have to set up is responsible for mutating, so for changing/updating the store data</i>.</p>
+        <p>So we have a reducer function which is responsible for updating the store data, and we have React components that subscribe to that data. How do we now connect React components and that reducer function? Because ultimately it will be the <i>React components that should <u>trigger a data change</u></i>.</p>
+        `,
+        `<h3>Dispatching actions from React components</h3>
+        <p>Trigger is a good word for that because we have a third concept. We have actions and React components dispatch actions. Therefore we could also say that <i>React components trigger certain actions</i>.</p>
+        <p><i>An action is really just a simple JavaScript object which describes the kind of operation the reducers should perform.</i> Therefore, Redux then forwards actions to the Reducer Function, reads that description of the desired operation, and then this operation is performed by the reducer function.</p>
+        `,
+        `<h3>Summary</h3>
+        <p>So <i>components dispatch actions which describe what should be done, but don't do it directly</i>, and then these <i>actions are forwarded to the reducer function, and the reducer function then does what the action wants</i>. In the end the <i>reducer function spits out a new state, which effectively will replace the existing state in that Central Data Store</i>. And when that happens, when that state in that data store is updated, subscribing components are notified, so that they can update their UI.</p>`,
+      ],
     },
     {
       sectionTitle:
@@ -2572,21 +2602,25 @@ const Redux = {
       sectionTitle: 'More about <code>createStore()</code> function',
       sectionSource:
         '/src/markdowns/13_Redux/More_about_createStore_function.html',
+      tooltips: [``],
     },
     {
       sectionTitle: 'Attaching payloads to actions',
       sectionSource:
         '/src/markdowns/13_Redux/Attaching_payloads_to_actions.html',
+      tooltips: [``],
     },
     {
       sectionTitle: 'Working with multiple state properties',
       sectionSource:
         '/src/markdowns/13_Redux/Working_with_multiple_state_properties.html',
+      tooltips: [``],
     },
     {
       sectionTitle: 'How to work with Redux state correctly',
       sectionSource:
         '/src/markdowns/13_Redux/How_to_work_with_Redux_state_correctly.html',
+      tooltips: [``],
     },
     {
       sectionTitle: 'Redux issues vs Redux Toolkit',
