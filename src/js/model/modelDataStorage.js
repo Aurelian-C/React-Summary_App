@@ -2545,60 +2545,48 @@ const Redux = {
     '<p class="card__title--2">Diving into Redux <br>(an alternative to the Context API)</p>',
   sections: [
     {
-      sectionTitle: 'Another Look At State In React Apps',
-      sectionSource: '',
-    },
-    {
       sectionTitle: 'Redux vs React Context',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/13_Redux/Redux_vs_React_Context.html',
     },
     {
-      sectionTitle: 'How Redux Works',
-      sectionSource: '',
+      sectionTitle: 'How Redux works',
+      sectionSource: '/src/markdowns/13_Redux/How_Redux_works.html',
     },
     {
-      sectionTitle: 'Exploring The Core Redux Concepts',
-      sectionSource: '',
+      sectionTitle:
+        'Creating a Redux store for React with <code>createStore()</code>',
+      sectionSource:
+        '/src/markdowns/13_Redux/Creating_a_Redux_store_with_createStore_function.html',
+      highlights: {
+        highlight1: ['Redux store'],
+        highlight2: ['<code>createStore()</code>'],
+      },
+      tooltips: [
+        `<h3>Creating a Redux Store for React</h3>`,
+        `<h3>Providing the Store</h3>`,
+        `<h3>Using Redux Data in React Components</h3>`,
+        `<h3>Dispatching Actions From Inside Components</h3>`,
+      ],
     },
     {
-      sectionTitle: 'More Redux Basics',
-      sectionSource: '',
+      sectionTitle: 'More about <code>createStore()</code> function',
+      sectionSource:
+        '/src/markdowns/13_Redux/More_about_createStore_function.html',
     },
     {
-      sectionTitle: 'Preparing a new Project',
-      sectionSource: '',
+      sectionTitle: 'Attaching payloads to actions',
+      sectionSource:
+        '/src/markdowns/13_Redux/Attaching_payloads_to_actions.html',
     },
     {
-      sectionTitle: 'Creating a Redux Store for React',
-      sectionSource: '',
+      sectionTitle: 'Working with multiple state properties',
+      sectionSource:
+        '/src/markdowns/13_Redux/Working_with_multiple_state_properties.html',
     },
     {
-      sectionTitle: 'Providing the Store',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Using Redux Data in React Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Dispatching Actions From Inside Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Redux with Class-based Components',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Attaching Payloads to Actions',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Working with Multiple State Properties',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'How To Work With Redux State Correctly',
-      sectionSource: '',
+      sectionTitle: 'How to work with Redux state correctly',
+      sectionSource:
+        '/src/markdowns/13_Redux/How_to_work_with_Redux_state_correctly.html',
     },
     {
       sectionTitle: 'Redux Challenges & Introducing Redux Toolkit',
