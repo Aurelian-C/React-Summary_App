@@ -2753,19 +2753,19 @@ const Advanced_Redux = {
   title: '<p class="card__title--2">Advanced Redux</p>',
   sections: [
     {
-      sectionTitle: 'Redux & Side Effects (and Asynchronous Code)',
+      sectionTitle: 'Redux & side effects (and asynchronous code)',
       sectionSource: '/src/markdowns/12_React_Router/Redux_&_Side_Effects.html',
     },
     {
-      sectionTitle: 'Redux & Async Code',
+      sectionTitle: 'Redux & async code',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Frontend Code vs Backend Code',
+      sectionTitle: 'Frontend code vs Backend code',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Where To Put Our Logic',
+      sectionTitle: 'Where to put our logic',
       sectionSource: '',
     },
     {
@@ -2773,11 +2773,11 @@ const Advanced_Redux = {
       sectionSource: '',
     },
     {
-      sectionTitle: 'A Problem with useEffect()',
+      sectionTitle: 'A problem with useEffect()',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Handling Http States & Feedback with Redux',
+      sectionTitle: 'Handling Http states & feedback with Redux',
       sectionSource: '',
     },
     {
@@ -2785,11 +2785,11 @@ const Advanced_Redux = {
       sectionSource: '',
     },
     {
-      sectionTitle: 'Getting Started with Fetching Data',
+      sectionTitle: 'Getting started with fetching data',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Finalizing the Fetching Logic',
+      sectionTitle: 'Finalizing the fetching logic',
       sectionSource: '',
     },
     {
