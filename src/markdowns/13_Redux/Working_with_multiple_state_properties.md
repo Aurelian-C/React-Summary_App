@@ -1,9 +1,9 @@
 # Working with multiple state properties
 
-Up to this point, we always just worked with an object that has a single property.
+Up to this point, we always just worked with an object that has a single property. You can use as a Redux state an object that have multiple properties. Keep in mind that when you update a property in that object, you must overwrite the other properties with the old state.
 
 ```react
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 const initialState = { 
   firstName: '', 
@@ -29,8 +29,6 @@ function reducerFn(state = {}, action) {
 
 const store = createStore(reducerFn, initialState);
 ```
-
-
 
 ## References
 

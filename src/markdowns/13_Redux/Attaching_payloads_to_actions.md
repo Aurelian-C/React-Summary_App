@@ -1,6 +1,6 @@
 # Attaching payloads to actions
 
-Up to this point, we only dispatched simple actions. They only had a `type` property, nothing else. In reality, you often wanna dispatch actions that also carry an extra value.
+Up to this point, we only dispatched simple actions. They only had a `type` property, nothing else. ==In reality, you often wanna dispatch actions that also carry an extra value.==
 
 ```react
 import { useSelector, useDispatch } from 'react-redux'

@@ -2638,9 +2638,9 @@ const Redux = {
       tooltips: [
         `<p><code>createStore()</code> function <i>creates a Redux store that <u>holds the complete state tree</u> of your app</i>. There should <i>only be <u>a single store</u> in your app</i>.</p>
         <ul><code>createStore()</code> receives 3 arguments:
-        <li><i><code>reducerFunction</code></i>: A reducing function that returns the next state tree, given the current state tree and an action to handle.</li>
-        <li><i><code>initialState</code></i>: The initial state.</li>
-        <li><i><code>enhancer</code></i>: The store enhancer.</li>
+        <li>- <i><code>reducerFunction</code></i>: A reducing function that returns the next state tree, given the current state tree and an action to handle.</li>
+        <li>- <i><code>initialState</code></i>: The initial state.</li>
+        <li>- <i><code>enhancer</code></i>: The store enhancer.</li>
         </ul>
         <p><code>createStore()</code> <i>returns a Redux store</i> (an object that holds the complete state of your app).</p>
         `,
@@ -2656,55 +2656,95 @@ const Redux = {
       sectionTitle: 'Attaching payloads to actions',
       sectionSource:
         '/src/markdowns/13_Redux/Attaching_payloads_to_actions.html',
-      tooltips: [``],
+      tooltips: [
+        `<p>Up to this point, we only dispatched simple actions. They only had a <code>type</code> property, nothing else. <i>In reality, you often wanna dispatch actions that also carry an extra value.</i></p>
+        <p><code>dispatch({ type: 'IDENTIFIER', payload: 'value' })</code></p>
+        `,
+      ],
     },
     {
       sectionTitle: 'Working with multiple state properties',
       sectionSource:
         '/src/markdowns/13_Redux/Working_with_multiple_state_properties.html',
-      tooltips: [``],
+      tooltips: [
+        `<p>You can use as a Redux state an object that have multiple properties. Keep in mind that<i> when you update a property in that object, you must overwrite the other properties with the old state</i>.</p>`,
+      ],
     },
     {
       sectionTitle: 'How to work with Redux state correctly',
       sectionSource:
         '/src/markdowns/13_Redux/How_to_work_with_Redux_state_correctly.html',
-      tooltips: [``],
+      tooltips: [
+        `<h3>Treat Redux state as immutable</h3>
+        <p>Let's talk about the objects which we are returning in our Redux reducer. I mentioned that <i>we always return a brand new snapshot, a brand new state object</i> which Redux will use to replace its existing state with.</p>
+        <p>The object which we return in the reducer will not be merged with the existing state, but it will <i>overwrite the existing state</i>. We must always set all the other object's properties when we update a part of that object, because we overwrite the old object.</p>
+        <p>When working with Redux you should <i>never mutate the state</i>, the existing state.</p>
+        <p>Mutating state in Redux can have unwanted and unexpected side effects, where your state gets out of sync, and suddenly the UI is not reflecting your state correctly anymore.</p>
+      `,
+      ],
     },
     {
       sectionTitle: 'Redux issues vs Redux Toolkit',
       sectionSource: '/src/markdowns/13_Redux/Redux_vs_Redux_Toolkit.html',
+      tooltips: [
+        `<h3>Redux issues</h3>
+        <p>The more complex our projects become, the more complex it can get to use Redux correctly.</p>
+        <ul>Let's identify a couple of potential problems we could be facing if our application would continue to grow:
+        <li>- if we manage more and more state with Redux, one potential issue can be our <i>action types</i> (clashing identifier names);</li>
+        <li>- another potential problem is the <i>amount of data which we manage in our reducer function</i> (we need to copy a lot of state, we still need to copy and keep all the other state properties);</li>
+        <li>- another potential problem we could be facing is the <i>state immutability</i> which we have to respect.</li>
+        </ul>
+        `,
+      ],
     },
     {
-      sectionTitle: 'Adding State Slices',
-      sectionSource: '',
+      sectionTitle: 'Introduction to Redux Toolkit',
+      sectionSource:
+        '/src/markdowns/13_Redux/Introduction_to_Redux_Toolkit.html',
+      highlights: {
+        highlight2: ['Redux Toolkit'],
+      },
+      tooltips: [
+        `<h3>How to install Redux Toolkit</h3>
+        <p>Redux Toolkit is available as a package on NPM for use with a module bundler: <i><code>npm install @reduxjs/toolkit</code></i>. When you install Redux Toolkit you thereafter can also uninstall/erase Redux library itself from your <code>package.json</code> file because that is already included in Redux Toolkit.</p>
+        `,
+        `<h3>Reducer Functions in Redux Toolkit: Adding state slices with <code>createSlice</code> function</h3>
+        <p>To create a state slice in Redux Toolkit, we can import the <code>createSlice</code> function from <i>'@reduxjs/toolkit'</i>.</p>
+        <p><code>createSlice</code> <i>returns a <u>slice of our global state</u>. Each slice manage individual parts of the React store state.</i> When we have different pieces of state which are not directly related, <i>we could create multiple different slices</i>, potentially also in different files to make our code maintainable.</p>
+        <p><code>createSlice</code> want <i>a JavaScript <u>object</u> as an argument</i>.</p>
+        <ul>The object you pass to <code>createSlice</code> needs:
+        <li>- a <i><code>name</code></i> property that will identify that piece of state;</li>
+        <li>- an <i><code>initialState</code></i> property that will point to initial state;</li>
+        <li>- a <i><code>reducers</code></i> property that will have as a value to a JavaScript object that will hold all the <u>reducer methods</u> the created slice needs. In the <code>reducers</code> object, you can add methods with any names of your choice. Every method will automatically receive as arguments the latest state and the action that was dispatched. These methods will be called automatically for you by Redux depending on which action was triggered. With Redux Toolkit we don't need to write our own <code>if</code> checks anymore, instead we'll soon be able to identify these different reducer methods and dispatch actions that target these different reducers.</li>
+        </ul>
+        `,
+        `<h3>Configure a Redux store with <code>configureStore</code></h3>
+        <p><code>createSlice</code> return an object which has, among other properties, a <i><code>reducer</code> property</i>. This property holds all the reducers methods for that specific slice.</p>
+        <p>If we try to pass the reducer methods to <code>createStore</code>, tehnically it will work. But the problem is when we have multiple slices that contains reducer functions, because <code>createStore</code> can only have one reducer passed to it. For that, we need to configure a Redux store with another method, by importing the <code>configureStore</code> from '@reduxjs/toolkit'.</p>
+        <p><code>configureStore</code>, like <code>createStore</code>, creates a Redux store, but it makes <i>merging multiple reducers into one reducer</i> easier thereafter.</p>
+        <p>To the <code>configureStore</code> we pass an <u>object</u>, not a reducer function. It's a configuration object expected by <code>configureStore</code>, a configuration object where we then set a <i><code>reducer</code> property</i>, and that's an expected property by <code>configureStore</code>.</p>
+        <p><i>The value for <code>reducer</code> can be a single reducer</i>, but if we had multiple state slices in a bigger application, then the alternative as a single <i>value for the <code>reducer</code> key is an object</i>. In that object we can set up any keys of our choice, so any property names of our choice, and the values of those properties would then be different reducer methods.</p>
+        `,
+        `<h3>Dispatch actions with Redux Toolkit</h3>
+        <p>For dispatching actions, <code>createSlice</code> has got us covered. It automatically creates unique action identifiers for our different reducer methods. To get hold of these action identifiers, we can use the object returned by <code>createSlice</code>, and this object has access <i><code>actions</code> property</i>.</p>
+        <p><code>actions</code> is an <u>object full of keys</u>, where the <i>the key names match the reducer methods names we have in our <code>createSlice</code> function</i> in the reducers area.</p>
+        <p>Now we can access those keys on <code>action</code> object, and with that we don't access the reducer methods to find up actions key there, but instead we get methods created automatically by Redux Toolkit, which when we call them will <i>create <u>action objects</u> automatically for us</i>.</p>
+        <p>Therefore these methods are called <i>action creators</i>, because they will <i>create action objects</i> for us, where these objects already have a <code>type</code> property with a unique identifier per action. Automatically created behind the scenes, so <i>we don't have to worry about action identifiers, we don't have to create those action objects on our own</i>.</p>
+        `,
+      ],
     },
     {
-      sectionTitle: 'Connecting Redux Toolkit State',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Migrating Everything To Redux Toolkit',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Working with Multiple Slices',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Reading & Dispatching From A New Slice',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Splitting Our Code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Module Resources',
-      sectionSource: '',
+      sectionTitle: 'Redux Toolkit: working with multiple slices',
+      sectionSource:
+        '/src/markdowns/13_Redux/Redux_Toolkit_Working_with_multiple_slices.html',
+      tooltips: [
+        `<h3>Reading state from a new slice</h3>
+        <p><i>When you work with multiple state slices, in your React components you read the Redux state by the key you pass as identifier to the object inside the <code>reducer</code> property.</i> <code>reducer</code> is a property that belongs to the object that you pass as argument to the <code>configureStore</code> function.</p>
+        `,
+        `<h3>Splitting our code</h3>
+        <p>You can define each <code>createSlice</code> into a separate file, and then import all your slices in the folder which manages your Redux store logic.</p>
+        `,
+      ],
     },
   ],
 };
