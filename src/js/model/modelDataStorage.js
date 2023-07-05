@@ -2706,7 +2706,7 @@ const Redux = {
       },
       tooltips: [
         `<h3>How to install Redux Toolkit</h3>
-        <p>Redux Toolkit is available as a package on NPM for use with a module bundler: <i><code>npm install @reduxjs/toolkit</code></i>. When you install Redux Toolkit you thereafter can also uninstall/erase Redux library itself from your <code>package.json</code> file because that is already included in Redux Toolkit.</p>
+        <p>Redux Toolkit is available as a package on NPM for use with a module bundler: <i><code>npm install react-redux @reduxjs/toolkit</code></i>. When you install Redux Toolkit you thereafter can also uninstall/erase Redux library itself from your <code>package.json</code> file because that is already included in Redux Toolkit.</p>
         `,
         `<h3>Reducer Functions in Redux Toolkit: Adding state slices with <code>createSlice</code> function</h3>
         <p>To create a state slice in Redux Toolkit, we can import the <code>createSlice</code> function from <i>'@reduxjs/toolkit'</i>.</p>
@@ -2753,20 +2753,8 @@ const Advanced_Redux = {
   title: '<p class="card__title--2">Advanced Redux</p>',
   sections: [
     {
-      sectionTitle: 'Module Introduction',
-      sectionSource: '',
-    },
-    {
       sectionTitle: 'Redux & Side Effects (and Asynchronous Code)',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Refresher / Practice: Part 1/2',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Refresher / Practice: Part 2/2',
-      sectionSource: '',
+      sectionSource: '/src/markdowns/12_React_Router/Redux_&_Side_Effects.html',
     },
     {
       sectionTitle: 'Redux & Async Code',

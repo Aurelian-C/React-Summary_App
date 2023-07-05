@@ -1,6 +1,6 @@
 # Introduction to Redux Toolkit
 
-==Redux Toolkit is available as a package on NPM for use with a module bundler: `npm install @reduxjs/toolkit`.== When you install Redux Toolkit you thereafter can also uninstall/erase Redux library itself from your `package.json` file because that is already included in Redux Toolkit.
+==Redux Toolkit is available as a package on NPM for use with a module bundler: `npm install react-redux @reduxjs/toolkit`.== When you install Redux Toolkit you thereafter can also uninstall/erase Redux library itself from your `package.json` file because that is already included in Redux Toolkit.
 
 ## Reducer Functions in Redux Toolkit: Adding state slices with `createSlice` function
 
