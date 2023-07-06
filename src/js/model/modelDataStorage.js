@@ -2542,7 +2542,7 @@ const React_Router = {
 
 const Redux = {
   title:
-    '<p class="card__title--2">Diving into Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
+    '<p class="card__title--2">State management with Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
   sections: [
     {
       sectionTitle: 'Redux vs React Context',
@@ -2746,62 +2746,22 @@ const Redux = {
         `,
       ],
     },
-  ],
-};
-
-const Advanced_Redux = {
-  title: '<p class="card__title--2">Advanced Redux</p>',
-  sections: [
     {
       sectionTitle: 'Redux & side effects (and asynchronous code)',
       sectionSource: '/src/markdowns/12_React_Router/Redux_&_Side_Effects.html',
-    },
-    {
-      sectionTitle: 'Redux & async code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Frontend code vs Backend code',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Where to put our logic',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Using useEffect with Redux',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'A problem with useEffect()',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Handling Http states & feedback with Redux',
-      sectionSource: '',
+      tooltips: [``],
     },
     {
       sectionTitle: 'Using an Action Creator Thunk',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Getting started with fetching data',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Finalizing the fetching logic',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Using_an_Action_Creator_Thunk.html',
+      highlights: {
+        highlight2: ['Action Creator Thunk'],
+      },
+      tooltips: [``],
     },
     {
       sectionTitle: 'Exploring the Redux DevTools',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Summary',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Module Resources',
       sectionSource: '',
     },
   ],
@@ -3114,7 +3074,6 @@ export const dataStorage = [
   Working_with_forms_and_user_inputs,
   React_Router,
   Redux,
-  Advanced_Redux,
   Replacing_Redux_with_React_Hooks,
   Deploying_React_apps,
   Animating_React_Apps,

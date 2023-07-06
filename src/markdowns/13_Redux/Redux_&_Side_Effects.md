@@ -8,8 +8,14 @@ When working with Redux, when we dispatch some action that would involve a side 
 
 The answer to this question is that we have two possible places where we can put our side effects:
 
-- we can put our side effects directly into the component with `useEffect` and then we only dispatch an action once that side effect is done, so Redux doesn't know anything about that side effect,
-- we write our own action creator functions that have inside of them side effects, so we don't use the automatically generated ones Redux Toolkit gives us, but instead we write our own action creators. It turns out that for those action creators Redux actually has a solution that allows us to perform side effects and run asynchronous tasks as part of this action creators, without changing the reducer function because that function must stay side effect free.
+- ==we can **put our side effects directly into the component with `useEffect`** and then we only dispatch an action once that side effect is done==, so Redux doesn't know anything about that side effect;
+- ==we write our own **action creator functions** that have inside of them side effects==, so we don't use the automatically generated ones Redux Toolkit gives us, but instead we write our own action creators. It turns out that for those action creators Redux actually has a solution that allows us to perform side effects and run asynchronous tasks as part of this action creators, without changing the reducer function because that function must stay side effect free.
+
+![Redux9](../../img/Redux9.jpg)
+
+## Where should our logic (code) go?
+
+![Redux10](../../img/Redux10.jpg)
 
 ## References
 
