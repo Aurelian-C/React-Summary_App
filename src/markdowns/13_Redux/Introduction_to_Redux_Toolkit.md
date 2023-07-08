@@ -6,25 +6,21 @@
 
 Redux Toolkit simplifies a couple of aspects of working with Redux. Let's start with the reducer function and indirectly with the actions.
 
-At the top of the `.js` file that stores the Redux logic,  we can import the ==`createSlice` function from '@reduxjs/toolkit'==. There  is also a `createReducer` function which would also allow us to create a reducer function with certain enhancements, but `createSlice` is even more powerful than `createReducer`, and it will simplify a couple of aspects in one go.
+At the top of the `.js` file that stores the Redux logic,  we can import the ==`createSlice` function from '@reduxjs/toolkit'==.
+
+> **NOTE**: There is also a `createReducer` function which would also allow us to create a reducer function with certain enhancements, but `createSlice` is even more powerful than `createReducer`, and it will simplify a couple of aspects in one go.
+
+### `createSlice` benefits
 
 `createSlice` function gives us three big benefits:
 
 - ==it'll automatically create action creators from our reducers==;
-- it makes writing these reducers a lot easier because ==we no longer need the `switch` statement and also the `default` case is automatically handled==;
+- it makes writing these reducers a lot easier because ==we no longer need the `switch` statement, and also the `default` case is automatically handled==;
 - we ==can mutate our state inside reducers==.
 
+### How `createSlice` works
 
-
-
-
-
-
-
-
-
-
-==`createSlice` **returns a _slice of our global state_**. Each slice manage individual parts of the React store state,== in our case the slice which is responsible for working with our counter state. Now, what we do with `createSlice` is we are preparing **a slice of our global state**, and ==when we have different pieces of state which are not directly related, we could create multiple different slices==, potentially also in different files to make our code maintainable.
+==`createSlice` **returns a _slice of our global state_**. Each slice manage individual parts of the React store state,== in our case the slice which is responsible for working with our `counter` state. Now, what we do with `createSlice` is we are preparing **a slice of our global state**, and ==when we have different pieces of state which are not directly related, we could create multiple different slices==, potentially also in different files to make our code maintainable.
 
 ==`createSlice` want a JavaScript **object** as an argument.==
 
@@ -35,6 +31,8 @@ The object you pass to `createSlice` needs:
 - ==**a `reducers` property**==. `reducers` property will have as a value an object that map to all the **reducer methods** the created slice needs. Now ==in the `reducers` object, you can add methods with any names of your choice==, though those names will become important later. ==Every method will automatically receive as arguments the latest state and the action that was dispatched. These methods will be called automatically for you by Redux depending on which action was triggered.== With Redux Toolkit we don't need to write our own `if` checks anymore, instead we'll soon be able to identify these different reducers methods and dispatch actions that target these different reducers.
 
 ==In these reducer methods we can do something than we didn't could do before: in the reducer methods we are allowed to mutate the state.== So we can set `state.counter++`, for example, for incrementing it. Now mutating state was forbidden before and I emphasized that mutating state is forbidden. I also did emphasize it because in reducer methods create with `createSlice` mutating state seems to be allowed; but the important part is the word seems. **We still must not manipulate the existing state**, but the good thing is when we using the `createSlice` function provided by Redux Toolkit, we can't accidentally manipulate the existing state, because ==**Redux Toolkit internally uses another package, called Immer**. The Immer package will detect mutation code in your reducer methods, and Immer will automatically clone the existing state, create a new state object, keep all the state which we're not editing, and overwrite the state which we are editing _in an immutable way_. So with the help of Immer will have under the hood  immutable code, even though at the surface it doesn't look like it.== Therefore, we as a developer, have a much easier time working with Redux, because we don't have to create a copy manually and keep all the code we're not changing. Instead, we just change the code we wanna change and **internally it's translated into immutable code**.
+
+Another great thing is that ==with the reducer methods you **won't need to return any state**, you only need to manipulate state==.
 
 When using Redux Toolkit we of course can still have reducer methods that listen to actions, that have an extra payload (extra data), because the reducer methods gets two arguments: the old state and the action.
 

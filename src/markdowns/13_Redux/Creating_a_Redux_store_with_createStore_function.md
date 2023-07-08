@@ -36,11 +36,11 @@ import { createStore } from 'redux';
 const store = createStore(); // createStore() creates a Redux store that holds the complete state tree of your app. There should only be a single store in your app.
 ```
 
+`createStore()` ==**returns an object**== that holds the complete state of your app. The only way to change its state is by [dispatching actions](https://redux.js.org/api/store#dispatchaction). You may also [subscribe](https://redux.js.org/api/store#subscribelistener) to the changes to its state to update the UI.
+
 ## 2. Create a Reducer Function
 
-The question is how do we proceed? What do we do with the returned Redux store from the `createStore()` that is stored in the `store` variable?
-
-Well, that Redux store should manage some data and the data which it manages is in the end determined by the reducer function, because ==it's the reducer function which will produce new state snapshots. The reducer has to go of spitting out a new state snapshot whenever an action reaches it==. **When we run the code below _for the first time_, the reducer will also be executed with an initial state and a default action that should spit out the initial state**. So therefore the next thing we need to add after we create a Redux store is a reducer function:
+The Redux store should manage some data, and the data which it manages is in the end determined by the reducer function, because ==it's the reducer function which will produce new state snapshots.== ==The reducer has to go of spitting out a new state snapshot whenever an action reaches it==. So therefore the next thing we need to add after we create a Redux store is a reducer function, that will be passed as an argument to `createStore` function:
 
 ```react
 import { createStore } from 'redux';
@@ -61,20 +61,22 @@ function counterReducer(state = { counter: 0 }, action) {
 const store = createStore(counterReducer);
 ```
 
-==A reducer function is **a standard JavaScript function**, but it will be called by the Redux library.==
-
-==The reducer function will always receive **two arguments**, the existing (old) _state_ and the _action_ that was dispatched. The reducer function must always return a certain output, it **must always return a new state object** which will replace the existing (old) state==.
-
-==The output of Reducer Function typically will be a state object,== because in most applications state is more than just one single value, but theoretically, it can be any kind of value type. State can also just be a number or a string, but in reality it will most often be an object. The object returned by reducer function can have any structure we want.
+> **NOTE**: When we run the code above _for the first time_, the reducer function will be executed with an **initial state** and a **default action** that should spit out the initial state.
 
 ==The reducer function is passed as the first argument to the `createStore()` function== because the Redux store needs to know which reducer is responsible for changing its data. Keep in mind, it's the reducer function that works together with the Redux store, so the Redux store wants to know who the reducer function is that will manipulate the Redux data.
 
-> **Note**: A reducer function should be a pure function:
+==A reducer function is **a standard JavaScript function**, but it will be called by Redux.==
+
+==The reducer function will always receive **two arguments**, the existing (old) _state_ and the _action_ that was dispatched. The reducer function must always return a certain output, it **must always return a new state object** which will replace the existing (old) state==.
+
+==The output of Reducer Function typically will be a state _object_ (which can have any structure we want),== because in most applications state is more than just one single value, but theoretically, it can be any kind of value type (number, string, boolean etc).
+
+> **NOTE**: A reducer function should be a pure function:
 >
 > - the same inputs always should produce exactly the same output;
 > - there should be no side effects inside of reducer function. You must not send a HTTP request or write something to local storage or fetch something from local storage.
 
-## 3. Create a component that **sets up a subscription** to the Redux store
+## 3. Create a React component that **sets up a subscription** to Redux store
 
 ### Provide the Redux store to a React component with the help of `<Provider/>` component
 
@@ -99,19 +101,19 @@ export default function App() {
 
 ==The `<Provider>` component makes the Redux store available to any nested components that need to access the Redux data.== Since any React component in a React Redux app can be connected to the store, most applications will render a `<Provider>` at the top level, with the entire app’s component tree inside of it.
 
-> **Note**: To provide our Redux store to the React app, we typically go into the `index.js` file, where we rendered the entire app, so to the highest level we can go in our React application, to the top of our component tree.
+> **NOTE**: To provide our Redux store to the React app, we typically go into the `index.js` file, where we rendered the entire app, so to the highest level we can go in our React application, to the top of our component tree.
 >
 > ![Redux4](../../img/Redux4.jpg)
 
 ### Get access to the Redux store and subscribe a React component to it with the help of `useSelector` hook
 
-To get access to our Redux store and to the data in there, we need to import from 'react-redux' library a custom React Hook made by the React Redux team that is called `useSelector` hook.
+To get access to our Redux store and to the data in there, we need to import from 'react-redux' library a custom React Hook made by the React Redux team, that is called `useSelector` hook.
 
-> **Note**: There also is `useStore` hook, which we could use as well, which gives us direct access to the Redux store, but ==`useSelector` is a bit more convenient to use because that allows us to then automatically **select a part of our state managed by the Redux store**==.
+> **Note**: There also is a `useStore` hook, which we could use as well, which gives us direct access to the Redux store, but ==`useSelector` is a bit more convenient to use, because that allows us to then automatically **select a part of our state managed by the Redux store**==.
 
 ==`useSelector` need a function as an argument==, a function which will be executed by Redux, ==a function which determines which piece of data we wanna extract from our Redux store==.
 
-> **Note**: At this moment we have a very simple state, a single JavaScript object that contains only the `counter` property, but in bigger applications you will have more complex states with tons of different properties, maybe nested objects and arrays, and therefore being able to just get just a tiny part of that overall state object in a easy way is worth a lot.
+> **NOTE**: At this moment we have a very simple state, a single JavaScript object that contains only the `counter` property, but in bigger applications you will have more complex states with tons of different properties, maybe nested objects and arrays, and therefore being able to just get just a tiny part of that overall state object in a easy way is worth a lot.
 
 The function passed as argument to `useSelector` we'll receive the state managed by Redux, and then we return the part of the state which you wanna extract:
 
@@ -126,19 +128,34 @@ function CounterComponent() {
 }
 ```
 
-The great thing is that when we use `useSelector`, ==React Redux will automatically set up a subscription to the Redux store for the component in which you use `useSelector` hook. So your React component will be updated and will receive the latest data  automatically, whenever that data changes in the Redux store (in our case the `counter`).==
+The great thing is that when we use `useSelector`, ==React Redux will **automatically set up a subscription to the Redux store for the component in which you use `useSelector` hook**. So your React component will be updated and will receive the latest data  automatically, whenever that data changes in the Redux store (in our case the `counter`).==
 
-So ==by using the `useSelector` hook the `<CounterComponent/>` is automatically reactive and changes to the Redux store will cause the `<CounterComponent/>` to be re-executed==, so you always have the latest `counter`. That's why `useSelector` is a very useful hook, and why it is the hook we use for getting data out of the Redux store.
+So ==by using the `useSelector` hook, the `<CounterComponent/>` is automatically reactive and changes to the Redux store will cause the `<CounterComponent/>` to be re-executed==, so you always have the latest `counter`. That's why `useSelector` is a very useful hook, and why it is the hook we use for getting data out of the Redux store.
 
 If you ever would unmount the `<CounterComponent/>`, if it would be removed from the DOM for whatever reason, React Redux would also automatically clear the subscription for you. So ==with `useSelector` hook React Redux manages the component subscription for you behind the scenes==.
 
 ## 4. Create an **action** that trigger state changes with the help of `useDispatch` hook
 
-Now we got our Redux store, our reducer function, we subscribe the React component to the Redux store and we can read data from the Redux store. Now we also need an action that can be dispatched and trigger the reducer function to modify the data in the Redux store.
+Now we got our Redux store, our reducer function, we subscribe the React component to Redux store, and we can read data from the Redux store. Now we also need an _action that can be dispatched_, and _trigger the reducer function to modify the data_ in the Redux store.
 
 For dispatching actions from React components, we need to import from 'react-redux' library the `useDispatch` hook. This hook returns a reference to the `dispatch` function from the Redux store. You may use it to dispatch actions as needed.
 
-To the `dispatch` function you will pass a JavaScript object (called an **action object**) that have a `type` property that uniquely identify the `dispatch` function.
+==To the `dispatch` function you will pass:==
+
+- ==a JavaScript object (called an **action object**)== that have a `type` property that uniquely identify the `dispatch` function;
+- or ==an **action creator**==. An action creator is _a JavaScript function that creates an action object_. In Redux, action creators simply return an action object and pass the argument value if necessary. Action creator functions promotes writing _clean code_ and helps to achieve _reusability_.
+
+```react
+// Action object
+const actionObject = { type: 'ADD', payload: 'value' };
+dispatch(actionObject);
+
+// Action creator
+function add(value) {
+   return { type: 'ADD', payload: value };
+}
+dispatch(add('value'));
+```
 
 ```react
 import { useSelector, useDispatch } from 'react-redux'

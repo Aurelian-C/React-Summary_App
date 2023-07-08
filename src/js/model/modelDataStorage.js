@@ -2583,8 +2583,7 @@ const Redux = {
       ],
     },
     {
-      sectionTitle:
-        'Creating a Redux store for React with <code>createStore()</code>',
+      sectionTitle: 'Creating a Redux store with <code>createStore()</code>',
       sectionSource:
         '/src/markdowns/13_Redux/Creating_a_Redux_store_with_createStore_function.html',
       highlights: {
@@ -2601,20 +2600,22 @@ const Redux = {
         <li>- <code>import { someFeature } from <i>'redux'</i></code> or</li>
         <li>- <code>import { someFeature } from <i>'react-redux'</i></code></li>
         </ul>
+        <p>Through 'react-redux' package, Redux and React applications can communicate to each other.</p>
         `,
         `<h3>Steps to set up a functionally Redux store</h3>
         <ul>To set up a Redux store we will need to:
-        <li>1. Create a <i>Redux store</i> with <code>createStore()</code> function imported from 'redux' library</li>
-        <li>2. Create a <i>reducer function</i> which changes the Redux store</li>
-        <li>3. Create a component that <i>sets up a subscription</i> to the Redux store with the help of <code>useSelector</code> hook imported from 'react-redux' library</li>
-        <li>4. Create an <i>action</i> that trigger state changes with the help of <code>useDispatch</code> hook imported from 'react-redux' library</li>
+        <li>1. Create a <i>Redux store</i> with <code>createStore()</code> function, imported from 'redux' library</li>
+        <li>2. Create a <i>reducer function</i> which will manipulate the Redux store</li>
+        <li>3. Create a React component that <i>sets up a subscription</i> to the Redux store, with the help of <code>useSelector</code> hook, imported from 'react-redux' library</li>
+        <li>4. Create an <i>action</i> that trigger state changes, with the help of <code>useDispatch</code> hook, imported from 'react-redux' library</li>
         </ul>
         `,
-        `<h3>1. Creating a Redux Store for React with <code>createStore()</code></h3>
+        `<h3>1. Creating a Redux Store for React with <code>createStore()</code> function</h3>
         <p>The <code>createStore()</code> is a function exposed by the 'redux' library which does what the name implies, it <i>creates a Redux store that <u>holds the complete state tree</u> of your app</i>. There should <i>only be <u>a single store</u> in your app</i>.</p>
+        <p><code>createStore()</code> <i>returns an object</i> that holds the complete state of your app. The only way to change its state is by <u>dispatching actions</u>. You may also <u>subscribe</u> to the changes to its state to update the UI.</p>
         `,
-        `<h3>2. Create a reducer function which changes the Redux store</h3>
-        <p>A reducer function is <i>a standard JavaScript function</i>, but it will be <i>called by the Redux library. The reducer function will manage, update and return the Redux store data.</i></p>
+        `<h3>2. Create a reducer function which manipulate the Redux store</h3>
+        <p>A reducer function is <i>a standard JavaScript function</i>, but it will be <i>called by Redux. The reducer function will manage, update and return the Redux store data.</i></p>
         <p>The reducer function will always receive <i>two arguments</i>, the existing (old) <u>state</u> and the <u>action</u> that was dispatched. The reducer function must always return a certain output, it <i>must always return a new state object</i> which will replace the existing (old) state. <i>A reducer function should be a pure function.</i></p>
         <p>The output of Reducer Function typically will be a state object, but it can be any kind of value type.</p>
         <p><i>The reducer function is passed as the first argument to the <code>createStore()</code> function.</i></p>
@@ -2625,9 +2626,12 @@ const Redux = {
         <p><i><code>useSelector</code> need a function as an argument</i>, a function which will be executed by Redux, a function which determines which piece of data we wanna extract from our Redux store. The function passed as argument to <code>useSelector</code> we'll receive the state managed by Redux, and then we return the part of the state which you wanna extract.</p>
         <p><i>React Redux will automatically set up a subscription to the Redux store for the component in which you use <code>useSelector</code> hook.</i> So your React component will be updated and will receive the latest data  automatically, whenever that data changes in the Redux store. If you ever would unmount that React component, if it would be removed from the DOM for whatever reason, React Redux would also automatically clear the subscription for you. So with <code>useSelector</code> hook React Redux manages the component subscription for you behind the scenes.</p>
         `,
-        `<h3>4. Dispatching actions from inside React components with <code>useDispatch</code> hook</h3>
-        <p>For dispatching actions from React components, we need to import from 'react-redux' library the <code>useDispatch</code> hook. This hook returns a reference to the <code>dispatch</code> function from the Redux store. You may use it to dispatch actions as needed.</p>
-        <p>To the <code>dispatch</code> function you will pass an object that have a <i><code>type</code> property</i> that <u>uniquely identify</u> the <code>dispatch</code> function.</p>
+        `<h3>4. Dispatching actions from within React components with <code>useDispatch</code> hook</h3>
+        <p>For dispatching actions from within React components, we need to import from 'react-redux' library the <code>useDispatch</code> hook. This hook returns a reference to the <code>dispatch</code> function from the Redux store. You may use it to dispatch actions as needed.</p>
+        <ul>To the <code>dispatch</code> function you will pass: 
+        <li>- a JavaScript object (called an <i>action object</i>), that have a <i><code>type</code> property</i>, that <u>uniquely identify</u> the <code>dispatch</code> function.</li>
+        <li>- or an <i>action creator</i>. An action creator is <u>a JavaScript function that creates an action object</u>. In Redux, <u>action creators simply return an action object</u> and pass the argument value if necessary. Action creator functions promotes writing clean code and helps to achieve reusability.</li>
+        </ul>
         `,
       ],
     },
@@ -2667,7 +2671,7 @@ const Redux = {
       sectionSource:
         '/src/markdowns/13_Redux/Working_with_multiple_state_properties.html',
       tooltips: [
-        `<p>You can use as a Redux state an object that have multiple properties. Keep in mind that<i> when you update a property in that object, you must overwrite the other properties with the old state</i>.</p>`,
+        `<p>You can use as a Redux state an object that have multiple properties. Keep in mind that <i>when you update a property in that object, you must overwrite the other properties with the old state</i>.</p>`,
       ],
     },
     {
@@ -2685,7 +2689,8 @@ const Redux = {
     },
     {
       sectionTitle: 'Redux issues vs Redux Toolkit',
-      sectionSource: '/src/markdowns/13_Redux/Redux_vs_Redux_Toolkit.html',
+      sectionSource:
+        '/src/markdowns/13_Redux/Redux_issues_vs_Redux_Toolkit.md.html',
       tooltips: [
         `<h3>Redux issues</h3>
         <p>The more complex our projects become, the more complex it can get to use Redux correctly.</p>
@@ -2710,6 +2715,11 @@ const Redux = {
         `,
         `<h3>Reducer Functions in Redux Toolkit: Adding state slices with <code>createSlice</code> function</h3>
         <p>To create a state slice in Redux Toolkit, we can import the <code>createSlice</code> function from <i>'@reduxjs/toolkit'</i>.</p>
+        <ul><code>createSlice</code> function gives us three big benefits:
+        <li>- it'll <i>automatically create action creators from our reducers</i>;</li>
+        <li>- it makes writing these reducers a lot easier because <i>we no longer need the <code>switch</code> statement, and also the <code>default</code> case is automatically handled</i>;</li>
+        <li>- we <i>can mutate our state inside reducers</i>.</li>
+        </ul>
         <p><code>createSlice</code> <i>returns a <u>slice of our global state</u>. Each slice manage individual parts of the React store state.</i> When we have different pieces of state which are not directly related, <i>we could create multiple different slices</i>, potentially also in different files to make our code maintainable.</p>
         <p><code>createSlice</code> want <i>a JavaScript <u>object</u> as an argument</i>.</p>
         <ul>The object you pass to <code>createSlice</code> needs:
@@ -2717,6 +2727,7 @@ const Redux = {
         <li>- an <i><code>initialState</code></i> property that will point to initial state;</li>
         <li>- a <i><code>reducers</code></i> property that will have as a value to a JavaScript object that will hold all the <u>reducer methods</u> the created slice needs. In the <code>reducers</code> object, you can add methods with any names of your choice. Every method will automatically receive as arguments the latest state and the action that was dispatched. These methods will be called automatically for you by Redux depending on which action was triggered. With Redux Toolkit we don't need to write our own <code>if</code> checks anymore, instead we'll soon be able to identify these different reducer methods and dispatch actions that target these different reducers.</li>
         </ul>
+        <p>Another great thing is that <i>with the reducer methods you <u>won't need to return any state</u>, you only need to manipulate state</i>.</p>
         `,
         `<h3>Configure a Redux store with <code>configureStore</code></h3>
         <p><code>createSlice</code> return an object which has, among other properties, a <i><code>reducer</code> property</i>. This property holds all the reducers methods for that specific slice.</p>
