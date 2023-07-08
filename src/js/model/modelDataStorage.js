@@ -2759,13 +2759,13 @@ const Redux = {
     },
     {
       sectionTitle: 'Redux & side effects (and asynchronous code)',
-      sectionSource: '/src/markdowns/12_React_Router/Redux_&_Side_Effects.html',
+      sectionSource: '/src/markdowns/13_Redux/Redux_&_Side_Effects.html',
       tooltips: [``],
     },
     {
       sectionTitle: 'Using an Action Creator Thunk',
       sectionSource:
-        '/src/markdowns/12_React_Router/Using_an_Action_Creator_Thunk.html',
+        '/src/markdowns/13_Redux/Using_an_Action_Creator_Thunk.html',
       highlights: {
         highlight2: ['Action Creator Thunk'],
       },
