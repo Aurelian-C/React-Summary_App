@@ -2758,18 +2758,28 @@ const Redux = {
       ],
     },
     {
-      sectionTitle: 'Redux & side effects (and asynchronous code)',
-      sectionSource: '/src/markdowns/13_Redux/Redux_&_Side_Effects.html',
-      tooltips: [``],
-    },
-    {
-      sectionTitle: 'Using an Action Creator Thunk',
+      sectionTitle:
+        'Redux & side effects (and asynchronous code): Action Creator Thunk',
       sectionSource:
-        '/src/markdowns/13_Redux/Using_an_Action_Creator_Thunk.html',
+        '/src/markdowns/13_Redux/Redux_&_side_effects_Action_Creator_Thunk.html',
       highlights: {
         highlight2: ['Action Creator Thunk'],
       },
-      tooltips: [``],
+      tooltips: [
+        `<h3>Where to write our side effects?</h3>
+        <p>Your reducer functions must be <i>pure functions</i>, <i>side-effect free</i>, and <i>synchronous</i>. Therefore, <i>any asynchronous operations, like a HTTP request, need to happen outside of a reducer function</i>.</p>
+        <ul>When working with Redux, when we dispatch some action that would involve a side effect (like a HTTP request that should be sent), the question is where should we then put that side effect code? Where should we put our asynchronous code when working with Redux? Because the reducer functions is clearly the wrong place as we just learned. The answer to this question is that we have two possible places where we can put our side effects:
+        <li>1. We can <i>put our side effects directly into React component inside <code>useEffect</code> hook</i>, and then we only dispatch an action once that side effect is done, so Redux doesn't know anything about that side effect. This is not an ideal solution, and the reason for that is that we usually want to <i>keep our React components clean and free of data fetching</i>, and we also want our important data <i>fetching logic encapsulated somewhere, so all in one place</i>, and not have it spread all over the application. Therefore, fetching data inside React components is not ideal.</li>
+        <li>2. If we can't fetch data inside the Redux store and the React components is not ideal, then where do we perform asynchronous actions (side effect)? Well, that's where Thunks Middleware function comes into action. In Redux, <i>Thunks Middleware is basically a function</i> that sits between the dispatching and the Redux store. This means that a Thunks Middleware function <i>allows developers to run some code after dispatching an action, but before that action reaches the reducer in the Redux store.</i>
+        <br><i>A Thunks Middleware function is the perfect place for side effects</i>, like an API call (HTTP request), setting timers, logging to the console, or even pausing and canceling the action altogether. We can write Thunks Middleware functions ourselves, but usually, we just use some third party package.</li>
+        </ul>
+        `,
+        `<h3>Redux Toolkit and Thunks Middleware functions</h3>
+        <p><i>Redux Toolkit make automatic setup of Redux Thunk Middleware functions.</i></p>
+        <p>The Action Creator Thunk will not return an action object like you use to do with regular Action Creator, but it will <i>return a function that will receive an <code>dispatch</code> argument</i>.</p>
+        <p><i>The returned function must dispatch (that's the reason you passed to it the <code>dispatch</code> argument) the action object at the end of the HTTP request with the data retrieved from the API call.</i> So with Action Creator Thunk we delay the creation of the action object to the future, after the HTTP request has successfully retrieved the data.</p>
+        `,
+      ],
     },
     {
       sectionTitle: 'Exploring the Redux DevTools',

@@ -146,16 +146,18 @@ For dispatching actions from React components, we need to import from 'react-red
 - or ==an **action creator**==. An action creator is _a JavaScript function that creates an action object_. In Redux, action creators simply return an action object and pass the argument value if necessary. Action creator functions promotes writing _clean code_ and helps to achieve _reusability_.
 
 ```react
-// Action object
+// Dispatching by passing an action object
 const actionObject = { type: 'ADD', payload: 'value' };
 dispatch(actionObject);
 
-// Action creator
+// Build an action creator & dispatching by passing an action creator 
 function add(value) {
    return { type: 'ADD', payload: value };
 }
 dispatch(add('value'));
 ```
+
+![Redux11](../../img/Redux11.jpg)
 
 ```react
 import { useSelector, useDispatch } from 'react-redux'
@@ -184,6 +186,8 @@ export default function CounterComponent() {
   )
 }
 ```
+
+
 
 ## Final code snippet
 
