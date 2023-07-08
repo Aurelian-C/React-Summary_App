@@ -15,18 +15,20 @@ To use the Redux library you need to import it into your `.js` file with:
 - `import { someFeature } from 'redux'` or
 - `import { someFeature } from 'react-redux'`
 
+> **NOTE**: ==Through 'react-redux' package, Redux and React applications can communicate to each other.==
+
 ## Steps to set up a functionally Redux store
 
 If you remember the slide in the "How Redux works?", we will need to:
 
-1. Create a ==**Redux store**== with `.createStore()` function imported from 'redux' library
-2. Create a ==**reducer function**== which changes the Redux store
-3. Create a component that ==**sets up a subscription**== to the Redux store with the help of `useSelector` hook imported from 'react-redux' library
-4. Create an ==**action**== that trigger state changes with the help of `useDispatch` hook imported from 'react-redux' library
+1. Create a ==**Redux store**== with **`.createStore()` function**, imported from 'redux' library;
+2. Create a ==**reducer function**== which will manipulate the Redux store;
+3. Create a React component that ==**sets up a subscription**== to the Redux store, with the help of **`useSelector` hook**, imported from 'react-redux' library;
+4. Create an ==**action**== that trigger state changes, with the help of **`useDispatch` hook**, imported from 'react-redux' library.
 
-## 1. Create a **Redux store** with `.createStore()`
+## 1. Create a **Redux store** with `.createStore()` function
 
-The `createStore()` is a function exposed by the 'redux' library which does what the name implies, it ==creates a Redux store that **holds the complete state tree** of your app==. There should ==only be **a single store** in your app==.
+The `createStore()` is a function exposed by the 'redux' library, which does what the name implies, it ==creates a Redux store that **holds the complete state tree** of your app==. There should ==only be **a single store** in your app==.
 
 ```react
 import { createStore } from 'redux';
@@ -136,7 +138,7 @@ Now we got our Redux store, our reducer function, we subscribe the React compone
 
 For dispatching actions from React components, we need to import from 'react-redux' library the `useDispatch` hook. This hook returns a reference to the `dispatch` function from the Redux store. You may use it to dispatch actions as needed.
 
-To the `dispatch` function you will pass an object that have a `type` property that uniquely identify the `dispatch` function.
+To the `dispatch` function you will pass a JavaScript object (called an **action object**) that have a `type` property that uniquely identify the `dispatch` function.
 
 ```react
 import { useSelector, useDispatch } from 'react-redux'

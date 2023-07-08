@@ -8,6 +8,22 @@ Redux Toolkit simplifies a couple of aspects of working with Redux. Let's start 
 
 At the top of the `.js` file that stores the Redux logic,  we can import the ==`createSlice` function from '@reduxjs/toolkit'==. There  is also a `createReducer` function which would also allow us to create a reducer function with certain enhancements, but `createSlice` is even more powerful than `createReducer`, and it will simplify a couple of aspects in one go.
 
+`createSlice` function gives us three big benefits:
+
+- ==it'll automatically create action creators from our reducers==;
+- it makes writing these reducers a lot easier because ==we no longer need the `switch` statement and also the `default` case is automatically handled==;
+- we ==can mutate our state inside reducers==.
+
+
+
+
+
+
+
+
+
+
+
 ==`createSlice` **returns a _slice of our global state_**. Each slice manage individual parts of the React store state,== in our case the slice which is responsible for working with our counter state. Now, what we do with `createSlice` is we are preparing **a slice of our global state**, and ==when we have different pieces of state which are not directly related, we could create multiple different slices==, potentially also in different files to make our code maintainable.
 
 ==`createSlice` want a JavaScript **object** as an argument.==
@@ -52,7 +68,7 @@ const counterSlice = createSlice({
 
 Now that we created this slice, how do we now make our Redux store aware of that slice, how do we use the slice? And how do we then dispatch actions against this slice?
 
-## Connection Redux Toolkit State
+## Create a Redux store in Redux Toolkit: `configureStore()` function
 
 Now to use our slice, we first of all need to use the return value of calling `createSlice()` for register it with our Redux store. ==`createSlice` return an object which has, among other properties, a `.reducer` property. This property holds all the reducers methods for that specific slice.==
 
