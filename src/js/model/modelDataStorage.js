@@ -120,7 +120,7 @@ const React_basics = {
       tooltips: [
         `<h3>How to create a React project with Vite</h3>
         <ul>To create a React project with Vite, you need to follow these steps:
-        <li>1. In you VSCode terminal write the <i><code>npm create vite@latest</code></i> command;</li>
+        <li>1. In your VSCode terminal write the <i><code>npm create vite@latest</code></i> command;</li>
         <li>2. After your folder is created, you need to <i>manually install the dependencies</i> with <code>npm install</code> or <code>npm i</code>;</li>
         <li>3. With Vite you now need to<i> manually config ESLint</i> in your project by installing 3 packages: <i><code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></i> and save them as <code>devDependencies</code>;</li>
         <li>4. You need to config your project to integrate with these packages by creating a new file called <i><code>.eslintrc.json</code></i> that contains an <i><code>{"extends": "react-app"}</code></i> object;</li>
@@ -1831,7 +1831,7 @@ const Working_with_forms_and_user_inputs = {
 
 const React_Router = {
   title:
-    '<p class="card__title--2">Building a Multi-Page SPA with React Router</p>',
+    '<p class="card__title--2">Single Page Application with React Router</p>',
   sections: [
     {
       sectionTitle: 'Routing: Multiple Pages in Single-Page Applications',
