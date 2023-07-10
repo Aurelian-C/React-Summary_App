@@ -1831,7 +1831,7 @@ const Working_with_forms_and_user_inputs = {
 
 const React_Router = {
   title:
-    '<p class="card__title--2">Single Page Application with React Router</p>',
+    '<p class="card__title--2">Single Page Applications with React Router</p>',
   sections: [
     {
       sectionTitle: 'Routing: Multiple Pages in Single-Page Applications',
