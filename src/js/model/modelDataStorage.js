@@ -2859,6 +2859,24 @@ const React_Query = {
     {
       sectionTitle: 'What is React Query',
       sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
+      tooltips: [
+        `<h3>Data is stored in a cache</h3>
+        <p>The most fundamental thing about React Query is that <i><u>all remote state is cached</u>, which means that the fetched data will be stored in order to be reused in different points of the application.</i></p>
+        `,
+        `<h3>Automatic re-fetching to keep state synched</h3>
+        <p>React Query also <i>automatically re-fetches the data in certain situations</i>. For example, after a certain timeout or after we leave the browser window and then come back to it.</p>
+        <p>This is super important in order to make sure that <i>a remote state always stays in sync with the application</i>.</p>
+        `,
+        `<h3>Pre-fetching</h3>
+        <p>Besides re-fetching, we can also pre-fetch data, which basically means to <i>fetch data that we know will become necessary later, but before it is actually displayed on the screen</i>.</p>
+        `,
+        `<h3>Offline support</h3>
+        <p>A feature that I find really useful is <i>support for when the user becomes offline</i>. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using this cached cabin data.</p>
+        `,
+        `<h3>Why do we need React Query?</h3>
+        <p>We need a library like React Query with all these features because <i><u>remote state</u> is fundamentally different from <u>UI state</u>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</i>.</p>
+        `,
+      ],
     },
   ],
 };
