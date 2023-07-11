@@ -2852,6 +2852,17 @@ const Replacing_Redux_with_React_Hooks = {
   ],
 };
 
+const React_Query = {
+  title:
+    '<p class="card__title--2">React Query for remote state management</p>',
+  sections: [
+    {
+      sectionTitle: 'What is React Query',
+      sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
+    },
+  ],
+};
+
 const Deploying_React_apps = {
   title: '<p class="card__title--2">Deploying React apps</p>',
   sections: [
@@ -3096,6 +3107,7 @@ export const dataStorage = [
   React_Router,
   Redux,
   Replacing_Redux_with_React_Hooks,
+  React_Query,
   Deploying_React_apps,
   Animating_React_Apps,
   Testing_React_Apps,
