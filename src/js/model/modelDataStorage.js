@@ -2857,7 +2857,7 @@ const React_Query = {
     '<p class="card__title--2">React Query for remote state management</p>',
   sections: [
     {
-      sectionTitle: 'What is React Query',
+      sectionTitle: 'What is React Query?',
       sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
       tooltips: [
         `<h3>Data is stored in a cache</h3>
@@ -2875,6 +2875,35 @@ const React_Query = {
         `,
         `<h3>Why do we need React Query?</h3>
         <p>We need a library like React Query with all these features because <i><u>remote state</u> is fundamentally different from <u>UI state</u>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</i>.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle:
+        'Setting up React Query: <code>QueryClient()</code> & <code><<span>QueryClientProvider</span>></code>',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Setting_up_React_Query.html',
+      highlights: {
+        highlight2: [
+          '<code>QueryClient()</code>',
+          '<code><<span>QueryClientProvider</span>></code>',
+        ],
+      },
+      tooltips: [
+        `<h3>Install React Query library</h3>
+        <p>We install React Query by typing in our VSCode terminal the <i><code>npm install @tanstack/react-query</code></i> command. The library itself is actually called <i>TanStack Query</i> because it also works in other frameworks such as Svelte or Vue.</p>
+        `,
+        `<h3>Set up the <u>React Query cache</u> & <u>provide it</u> to the app</h3>
+        <p>The idea behind integrating React Query into our application is very similar to what we did with the Context API or Redux. So is a similar idea of <i>having the data in one place</i>, and then <i>providing it to the whole component tree</i>.</p>
+        <p>To set up the React Query cache, first we <i>create a place where the data lives</i>, and then second, we <i>provide that data to our application</i>, and in the case of React Query, we set up the cache by using <i><code>new QueryClient()</code></i>.</p>
+        <p>To <code>QueryClient()</code> you can <i>pass an object that specify a couple of options</i>. There are many options that we can override. So React Query sets a few quite aggressive, as they say, defaults options, but as always we can override them.</p>
+        <p>With <code>const queryClient = new QueryClient()</code> we have created our QueryClient, which basically sets up the cache behind the scenes, and now it's time to provide the <code>queryClient</code> to our application, so we want to provide our Query data to the entire application tree. We do that with <i><code><<span>QueryClientProvider client={queryClient}</span>></code></i> component.</p>
+        `,
+        `<h3>Install React Query DevTools</h3>
+        <p>We can install the React Query DevTools. Just like Redux, React Query also has some excellent DevTools, but we just set them up in a different way. <i>In the case of React Query DevTools, it is simply an <u>NPM package</u> and not something in the browser.</i></p>
+        <p>We install the React Query DevTools by typing into the VSCode terminal the <i><code>npm install @tanstack/react-query-devtools</code></i> command.</p>
+        <p>After we install the NPM package, we need to <code>import { ReactQueryDevtools } from '@tanstack/react-query-devtools'</code> and wrapping the entire app with it.</p>
+        <p><i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can.</i> The closer it is to the root of the page, the better it will work!</p>
         `,
       ],
     },
