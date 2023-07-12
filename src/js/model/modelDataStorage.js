@@ -2859,6 +2859,9 @@ const React_Query = {
       sectionTitle: 'What is React Query?',
       sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
       tooltips: [
+        `<h3>What is React Query?</h3>
+        <p>TanStack Query (FKA React Query) is often described as the missing <i>data-fetching library for web applications</i>, but in more technical terms, <i>it makes <u>fetching</u>, <u>caching</u>, <u>synchronizing</u> and <u>updating</u> server state in your web applications</i> a breeze.</p>
+        `,
         `<h3>Data is stored in a cache</h3>
         <p>The most fundamental thing about React Query is that <i><u>all remote state is cached</u>, which means that the fetched data will be stored in order to be reused in different points of the application.</i></p>
         `,
@@ -2903,6 +2906,48 @@ const React_Query = {
         <p>We install the React Query DevTools by typing into the VSCode terminal the <i><code>npm install @tanstack/react-query-devtools</code></i> command.</p>
         <p>After we install the NPM package, we need to <code>import { ReactQueryDevtools } from '@tanstack/react-query-devtools'</code> and wrapping the entire app with it.</p>
         <p><i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can.</i> The closer it is to the root of the page, the better it will work!</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Fetching data with <code>useQuery()</code> hook',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Fetching_data_with_useQuery.html',
+      highlights: {
+        highlight2: ['<code>useQuery()</code>'],
+      },
+      tooltips: [
+        `<p>The most important hook that we're going to use all the time is called the <code>useQuery</code> hook.</p>
+        <ul>To <code>useQuery</code> we need to pass in an object with two things:
+        <li>1. The <i><code>queryKey</code> that <u>uniquely identify the data</u></i> that we're going to query. The <code>queryKey</code> needs to be <u>an array</u>.</li>
+        <li>2. The <i><code>queryFn</code> (query function)</i>. <code>queryFn</code> is the function that the query will use to <u>request data from the API</u>. What's important is that the query function needs to return a Promise.</li>
+        </ul>
+        <p>The <code>useQuery</code> hook will <i>return an object</i> with a bunch of useful properties that we can use in our app. The most important property is <code>data</code>. Another useful property is <code>isLoading</code>.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Mutating data with <code>useMutation()</code> hook',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Mutating_data_with_useMutation.html',
+      highlights: {
+        highlight2: ['<code>useMutation()</code>'],
+      },
+      tooltips: [
+        `<ul>To mutate our remote server state we need to use the <code>useMutation()</code> hook. To <code>useMutation()</code> we need to pass in an object with one thing:
+        <li>1. <i>The <code>mutationFn</code> method.</i> This is the function that React Query will call to mutate our remote server data.</li>
+        </ul>
+        <p>The <code>useMutation()</code> hook will <i>return an object</i> with a bunch of useful properties and methods that we can use in our app to mutate data on the server. <i>The most important method is <code>.mutate()</code>. This method can be connected to our event handlers, inside our React components.</i></p>
+        <p>The <code>.mutate()</code> method will call the function that we pass as value to the <code>mutationFn</code> key.</p>
+        `,
+        `<h3>Automatically update the UI after mutate server's data: <code>onSucces</code> method & <code>queryClient.invalidateQuerie()</code> method</h3>
+        <p><i>By defining only the <code>mutationFn</code> property, the UI will not be update automatically after we mutate the data on our server.</i> If we want to trigger automatically UI updates after we mutate the data that's on our server, to <code>useMutation()</code> we can pass another property that is optional, and is called <code>onSucces</code>. <code>onSucces</code> will hold a method that will <i>invalidating the cache as soon as the mutation is done</i>, so with <code>onSucces</code> method we tell React Query what to do as soon as the mutation was successful.</p>
+        <p>We <i>manually invalidating the cache</i> by using the <code>queryClient.invalidateQueries()</code> method. This method tells React Query to immediately re-fetch the data that's on our server.</p>
+        <p>To <code>.invalidateQueries()</code> method we need to pass as argument the <code>queryKey</code> that we want to invalidate in our cache. We define the <code>queryKey</code> in <code>useQuery()</code> hook.</p>
+        <p>How do we get access to our <code>queryClient</code> instance? Well, for that we have a special hook called <code>useQueryClient</code>. The <code>useQueryClient</code> hook returns the current <code>QueryClient</code> instance.</p>
+        `,
+        `<h3>The <code>onError</code> property (optional)</h3>
+        <p>Another optional property that we can define in the object passed to <code>useMutation()</code> is the <code>onError</code> property. <i>The <code>onError</code> property will hold a function that will fire if the mutation encounters an error and will be passed the error.</i> If a Promise is returned, it will be awaited and resolved before proceeding.</p>
         `,
       ],
     },

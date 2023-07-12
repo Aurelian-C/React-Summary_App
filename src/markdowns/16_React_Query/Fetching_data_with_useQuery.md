@@ -1,10 +1,10 @@
 # Fetching data with `useQuery` hook
 
-The most important function that we're going to use all the time is called the `useQuery` custom hook.
+The most important hook that we're going to use all the time is called the `useQuery` hook.
 
 To `useQuery` we need to pass in an object with two things:
 
-1. ==The `queryKey` that **uniquely identify the data** that we're going to query==.  The `queryKey` can hold as a value a complex array, or it can just be an array with a string, but it needs to be an array.  The string that we pass to `queryKey` is what we will later also see insight or React Query DevTools. If later we would `useQuery` on another page with the exact key, then the data that correspond to that key would be read from the cache.
+1. ==The `queryKey` that **uniquely identify the data** that we're going to query==.  The `queryKey` can hold as a value a complex array, or it can just be an array with a string, but ==it needs to be **an array**==.  The string that we pass to `queryKey` is what we will later also see insight or React Query DevTools. If later we would use `useQuery` on another page with the exact key, then the data that correspond to that key would be read from the React Query cache.
 
    ```react
    import { useQuery } from '@tanstack/react-query'
@@ -14,9 +14,10 @@ To `useQuery` we need to pass in an object with two things:
    }
    ```
 
-2. ==The `queryFn` (query function)==. `queryFn` is the function that the query will use to request data from the API. What's important is that the query function needs to return a Promise.
+2. ==The `queryFn` (query function)==. `queryFn` is the function that the query will use to _request data from the API_. What's important is that _the query function needs to return a Promise_.
 
    ```react
+   import { getTodos } from '../my-api'
    import { useQuery } from '@tanstack/react-query'
    
    function Todos() {
@@ -27,7 +28,7 @@ To `useQuery` we need to pass in an object with two things:
    }
    ```
 
-==The `useQuery` hook will **return an object** with a bunch of useful properties== that we can use in our app.
+==The `useQuery` hook will **return an object** with a bunch of useful properties== that we can use in our app. The most important property is `data`. Another useful property is `isLoading`.
 
 ## React Query Overview
 
@@ -95,3 +96,4 @@ function Todos() {
 ## References
 
 1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
+1. [`useQuery` - tanstack.com](https://tanstack.com/query/latest/docs/react/reference/useQuery)
