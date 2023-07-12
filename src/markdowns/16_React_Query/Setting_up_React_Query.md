@@ -6,7 +6,7 @@ To install and set up React Query in our application, we need to install via VSC
 
 > **NOTE**: React Query is compatible with React v16.8+ and works with ReactDOM and React Native.
 
-==The library itself is actually called **TanStack Query** because it also works in other frameworks such as Svelte or Vue==. So the official name is not React Query anymore, but I will just keep calling it that way because that's what many people do, and the name is a bit more friendly as well.
+==The library itself is actually called **TanStack Query** because it also works in other frameworks such as Svelte or Vue==. So the official name is not React Query anymore, but I will just keep calling it that way, because that's what many people do, and the name is a bit more friendly as well.
 
 ## Set up the **React Query cache** & **provide it** to the app
 
@@ -78,6 +78,77 @@ function App() {
 ```
 
 > **NOTE**: If we don't have anything in our cache, then the ReactQueryDevtools is completely empty, but in the next lecture, we will start fetching some data, and so then that will show up right there in the DevTools.
+
+## React Query Overview
+
+This code snippet very briefly illustrates the 3 core concepts of React Query:
+
+- [Queries](https://tanstack.com/query/latest/docs/react/guides/queries)
+- [Mutations](https://tanstack.com/query/latest/docs/react/guides/mutations)
+- [Query Invalidation](https://tanstack.com/query/latest/docs/react/guides/query-invalidation)
+
+```react
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import { getTodos, postTodo } from '../my-api'
+
+// Create a client
+const queryClient = new QueryClient()
+
+function App() {
+  return (
+    // Provide the client to your App
+    <QueryClientProvider client={queryClient}>
+      <Todos />
+    </QueryClientProvider>
+  )
+}
+
+function Todos() {
+  // Access the client
+  const queryClient = useQueryClient()
+
+  // Queries
+  const query = useQuery({ queryKey: ['todos'], queryFn: getTodos })
+
+  // Mutations
+  const mutation = useMutation({
+    mutationFn: postTodo,
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries({ queryKey: ['todos'] })
+    },
+  })
+
+  return (
+    <div>
+      <ul>
+        {query.data?.map((todo) => (
+          <li key={todo.id}>{todo.title}</li>
+        ))}
+      </ul>
+
+      <button
+        onClick={() => {
+          mutation.mutate({
+            id: Date.now(),
+            title: 'Do Laundry',
+          })
+        }}
+      >
+        Add Todo
+      </button>
+    </div>
+  )
+}
+
+render(<App />, document.getElementById('root'))
+```
 
 ## References
 

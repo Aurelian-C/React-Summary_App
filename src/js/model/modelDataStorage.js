@@ -2542,7 +2542,7 @@ const React_Router = {
 
 const Redux = {
   title:
-    '<p class="card__title--2">State management with Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
+    '<p class="card__title--2">UI global state management: Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
   sections: [
     {
       sectionTitle: 'Redux vs React Context',
@@ -2853,8 +2853,7 @@ const Replacing_Redux_with_React_Hooks = {
 };
 
 const React_Query = {
-  title:
-    '<p class="card__title--2">React Query for remote state management</p>',
+  title: '<p class="card__title--2">Remote state management: React Query</p>',
   sections: [
     {
       sectionTitle: 'What is React Query?',
