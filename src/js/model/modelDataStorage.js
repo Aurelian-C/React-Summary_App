@@ -2907,6 +2907,9 @@ const React_Query = {
         <p>After we install the NPM package, we need to <code>import { ReactQueryDevtools } from '@tanstack/react-query-devtools'</code> and wrapping the entire app with it.</p>
         <p><i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can.</i> The closer it is to the root of the page, the better it will work!</p>
         `,
+        `<h3>React Query DevTools: <code>stale</code> status</h3>
+        <p>The <code>stale</code> status that you see in React Query DevTools means that the data is old, so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data. One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon as the data is stale.</p>
+        `,
       ],
     },
     {

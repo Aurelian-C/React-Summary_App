@@ -82,6 +82,8 @@ function App() {
 
 > **NOTE**: If we don't have anything in our cache, then the ReactQueryDevtools is completely empty, but in the next lecture, we will start fetching some data, and so then that will show up right there in the DevTools.
 
+The `stale` status that you see in React Query DevTools means that the data is old, so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data. One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon as the data is stale.
+
 ## React Query Overview
 
 This code snippet very briefly illustrates the ==**3 core concepts** of React Query==:
