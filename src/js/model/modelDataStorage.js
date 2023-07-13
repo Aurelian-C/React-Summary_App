@@ -229,7 +229,15 @@ const React_basics = {
         <p>If you want to use <i>custom components as wrappers</i>, you need to use one special prop that is build into React, which every component receives, even if you're never setting it explicitly, and that is <i><code>props.children</code></i>.</p>
         <p>With the help of <code>props.children</code> prop you can build <i>wrapper components</i>. Wrapper components can wrap any nested content. It doesn't need to “know” what's being rendered inside of it. <i>You can think of a component with a <code>props.children</code> prop as having a "hole" that can be "filled in" by its parent components with arbitrary JSX markup.</i></p>
         <p><code>props.children</code> is a reserved name, and the value of this special <code>children</code> prop will always be the content between the opening and closing tags of your custom component. This is a concept called composition.</p>
-        
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Set an element attribute via <code>props.children</code>',
+      sectionSource:
+        '/src/markdowns/01_React_basics/Set_an_element_attribute_via_props_children.html',
+      tooltips: [
+        `<p>You can set an element attribute via <code>props.children</code>. Remember that <code>props.children</code> is a object that contain some properties that you can use in your app. The most used property is <code>props</code>.</p>
         `,
       ],
     },
