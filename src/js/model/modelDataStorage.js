@@ -233,7 +233,8 @@ const React_basics = {
       ],
     },
     {
-      sectionTitle: 'Set an element attribute via <code>props.children</code>',
+      sectionTitle:
+        'Set an element attribute/prop that depends on it’s children element props via <code>props.children</code>',
       sectionSource:
         '/src/markdowns/01_React_basics/Set_an_element_attribute_via_props_children.html',
       tooltips: [
