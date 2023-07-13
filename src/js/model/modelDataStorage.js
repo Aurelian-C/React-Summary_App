@@ -2892,6 +2892,14 @@ const React_Query = {
         ],
       },
       tooltips: [
+        `<h3>React Query concepts</h3>
+        <ul>React Query has 3 core concepts:
+        <li>- <i>Queries</i></li>
+        <li>- <i>Mutations</i></li>
+        <li>- <i>Query Invalidation</i></li>
+        </ul>
+        <p>These three concepts make up most of the core functionality of React Query.</p>
+        `,
         `<h3>Install React Query library</h3>
         <p>We install React Query by typing in our VSCode terminal the <i><code>npm install @tanstack/react-query</code></i> command. The library itself is actually called <i>TanStack Query</i> because it also works in other frameworks such as Svelte or Vue.</p>
         `,
@@ -2899,7 +2907,7 @@ const React_Query = {
         <p>The idea behind integrating React Query into our application is very similar to what we did with the Context API or Redux. So is a similar idea of <i>having the data in one place</i>, and then <i>providing it to the whole component tree</i>.</p>
         <p>To set up the React Query cache, first we <i>create a place where the data lives</i>, and then second, we <i>provide that data to our application</i>, and in the case of React Query, we set up the cache by using <i><code>new QueryClient()</code></i>.</p>
         <p>To <code>QueryClient()</code> you can <i>pass an object that specify a couple of options</i>. There are many options that we can override. So React Query sets a few quite aggressive, as they say, defaults options, but as always we can override them.</p>
-        <p>With <code>const queryClient = new QueryClient()</code> we have created our QueryClient, which basically sets up the cache behind the scenes, and now it's time to provide the <code>queryClient</code> to our application, so we want to provide our Query data to the entire application tree. We do that with <i><code><<span>QueryClientProvider client={queryClient}</span>></code></i> component.</p>
+        <p>With <code>const queryClient = new QueryClient()</code> we have created our QueryClient, which basically sets up the cache behind the scenes, and now it's time to provide the <code>queryClient</code> to our application, so we want to provide our Query data to the entire component tree. We do that with <i><code><<span>QueryClientProvider client={queryClient}</span>></code></i> component.</p>
         `,
         `<h3>Install React Query DevTools</h3>
         <p>We can install the React Query DevTools. Just like Redux, React Query also has some excellent DevTools, but we just set them up in a different way. <i>In the case of React Query DevTools, it is simply an <u>NPM package</u> and not something in the browser.</i></p>
@@ -2907,8 +2915,11 @@ const React_Query = {
         <p>After we install the NPM package, we need to <code>import { ReactQueryDevtools } from '@tanstack/react-query-devtools'</code> and wrapping the entire app with it.</p>
         <p><i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can.</i> The closer it is to the root of the page, the better it will work!</p>
         `,
-        `<h3>React Query DevTools: <code>stale</code> status</h3>
-        <p>The <code>stale</code> status that you see in React Query DevTools means that the data is old, so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data. One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon as the data is stale.</p>
+        `<h3>React Query DevTools: <code>stale</code>, <code>inactive</code> & <code>fresh</code> status</h3>
+        <p>The <code>stale</code> status that you see in React Query DevTools means that the data is is out of date (old), so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data. One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon as the data is stale (<code>stale</code> status).</p>
+        <p>You can control the <code>stale</code> time by overwrite the <code>staleTime</code> property.</p>
+        <p><i>The data in the cache becomes inactive (has the <code>inactive</code> status) when the component that holds that data is unmounted from the DOM. Although the component is unmounted from the DOM, the data that correspond to that component is preserved in the React Query cache.</i> When the component is re-mounted to the DOM, React Query will re-fetch the data that correspond to that component automatically, only if it has the <code>stale</code> status. <i>As long as a component has the <code>fresh</code> status, the data in the cache that correspond to that component will not be re-fetch again, even if the component is unmounted and re-mounted to the DOM.</i></p>
+        <p>Traditionally, if we were doing fetching inside a component by using a <code>useEffect</code> hook, then as soon as the component is re-mounted to the DOM, the <code>useEffect</code> hook would then fetch again the data that correspond to that component. <i>When we use the TanStack Query library, this fetch & re-fetch behavior is controlled by React Query.</i></p>
         `,
       ],
     },
@@ -2920,12 +2931,16 @@ const React_Query = {
         highlight2: ['<code>useQuery()</code>'],
       },
       tooltips: [
-        `<p>The most important hook that we're going to use all the time is called the <code>useQuery</code> hook.</p>
+        `<h3>Fetching data from server: <code>useQuery</code> hook</h3>
+        <p>Instead of manually fetching data in a <code>useEffect</code> function like we used to do, we will now let React Query do the fetching work. <i>We fetch data from the server with the help of <code>useQuery</code> hook.</i></p>
         <ul>To <code>useQuery</code> we need to pass in an object with two things:
         <li>1. The <i><code>queryKey</code> that <u>uniquely identify the data</u></i> that we're going to query. The <code>queryKey</code> needs to be <u>an array</u>.</li>
         <li>2. The <i><code>queryFn</code> (query function)</i>. <code>queryFn</code> is the function that the query will use to <u>request data from the API</u>. What's important is that the query function needs to return a Promise.</li>
         </ul>
-        <p>The <code>useQuery</code> hook will <i>return an object</i> with a bunch of useful properties that we can use in our app. The most important property is <code>data</code>. Another useful property is <code>isLoading</code>.</p>
+        <p>The <code>useQuery</code> hook will <i>return an object</i> with a bunch of useful properties that we can use in our app. The most important property is <i><code>data</code></i>. Another useful properties are: <i><code>isLoading</code></i> and <i><code>status</code></i>.</p>
+        `,
+        `<h3>Query Keys (<code>queryKey</code>)</h3>
+        <p>At its core, TanStack Query <i>manages query caching for you based on query keys (<code>queryKey</code>)</i>. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and <i>unique to the query's data</i>, you can use it!</p>
         `,
       ],
     },

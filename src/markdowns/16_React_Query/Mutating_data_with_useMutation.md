@@ -1,6 +1,6 @@
 # Mutating data with `useMutation` hook
 
-Up until now we learned how to fetch and store data in the cache, using the `useQuery` hook. Now it's time to learn how to also mutate our remote server data and automatically re-render the user interface.
+Up until now we learned how to fetch and store data in the cache, using the `useQuery` hook. Now it's time to learn how to also mutate our remote server data, and automatically re-render the user interface.
 
 To mutate our remote server state we need to use the **`useMutation` hook**. To `useMutation` we need to pass in an object with one thing:
 
@@ -69,7 +69,7 @@ function Todos() {
     mutationFn: postTodo,
     onSuccess: () => {
       // Invalidate and re-fetch
-      queryClient.invalidateQueries({ queryKey: ['todos'] }) // re-fetch the server data after mutation is done
+      queryClient.invalidateQueries({ queryKey: ['todos'] }) // invalidate the cache data that correspond to 'todos' query and re-fetch it after the mutation is done
     },
     onError: (error) => {
       alert(error.message);

@@ -17,21 +17,7 @@ To integrating React Query into our application, we need to:
 - set up the React Query cache (create a place where the data lives) by using **`new QueryClient()`**;
 - provide that cache (data) to our application by using the `<QueryClientProvider>` component.
 
->**NOTE**: To `new QueryClient()` you can pass an object that specify a couple of options. We can specify `defaultOptions`, and then usually what we want is to specify options for our queries. One option that we can experiment with is called `staleTime`. `staleTime` is basically the amount of time that the data in the cache will stay fresh, so that it will stay valid, until it is re-fetched again:
->
->```react
->const queryClient = new QueryClient({
->    defaultOptions: {
->         queries: {
->            staleTime: 60 * 1000 // 1 minute (60 seconds * 1000 milliseconds)
->         }
->    }
->})
->```
->
->_`staleTime` is just one of the many options that we can override_. So React Query sets a few quite aggressive, as they say, defaults options, but as always we can override them.
-
-With `const queryClient = new QueryClient()` we have created our QueryClient, which basically sets up the cache behind the scenes, and now it's time to provide the `queryClient` to our application, so we want to provide our Query data to the entire application tree.
+With `const queryClient = new QueryClient()` we have created our QueryClient, which basically sets up the cache behind the scenes, and now it's time to provide the `queryClient` to our application, so we want to provide our Query data to the entire component tree.
 
 ```react
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -43,11 +29,25 @@ function App() {
   return (
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
-      <Todos />
+      <OtherComponents />
     </QueryClientProvider>
   )
 }
 ```
+
+>**NOTE**: To `new QueryClient()` you can pass an object that specify a couple of options. We can specify `defaultOptions`, and then usually what we want is to specify options for our queries. One option that we can experiment with is called `staleTime`. ==`staleTime` is basically the amount of time that the data in the cache will stay fresh, so that it will stay valid, until it is re-fetched again==:
+>
+>```react
+>const queryClient = new QueryClient({
+>  defaultOptions: {
+>        queries: {
+>           staleTime: 60 * 1000 // 1 minute (60 seconds * 1000 milliseconds)
+>        }
+>  }
+>})
+>```
+>
+>_`staleTime` is just one of the many options that we can override_. So React Query sets a few quite aggressive, as they say, defaults options, but as always we can override them.
 
 ## Install React Query DevTools
 
@@ -74,7 +74,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       {/* Place the following code as high in your React app as you can. The closer it is to the root of the page, the better it will work! */}
       <ReactQueryDevtools initialIsOpen={false} /> 
-      <Todos />
+      <OtherComponents />
     </QueryClientProvider>
   )
 }
@@ -82,7 +82,26 @@ function App() {
 
 > **NOTE**: If we don't have anything in our cache, then the ReactQueryDevtools is completely empty, but in the next lecture, we will start fetching some data, and so then that will show up right there in the DevTools.
 
-The `stale` status that you see in React Query DevTools means that the data is old, so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data. One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon as the data is stale.
+### React Query DevTools: `stale`, `inactive` & `fresh` status
+
+==The `stale` status that you see in React Query DevTools means that the data is out of date (old), so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data.== One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon _as the data has the staled (`stale` status)_.
+
+You can control the `stale` time by overwrite the `staleTime` property:
+
+```react
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // This means that for 1 minute the fetch data will have the "fresh" status. After 1 minute the data in the cache will become staled/old/out of date (will have the "stale" status)
+      staleTime: 60 * 1000 // 1 minute (60 seconds * 1000 milliseconds)
+    }
+  }
+})
+```
+
+==The data in the cache becomes inactive (has the `inactive` status) when the component that holds that data is unmounted from the DOM. Although the component is unmounted from the DOM, the data that correspond to that component is preserved in the React Query cache.== When the component is re-mounted to the DOM, React Query will re-fetch the data that correspond to that component automatically, only if it has the `stale` status. ==As long as a component has the `fresh` status, the data in the cache that correspond to that component will not be re-fetch again, even if the component is unmounted and re-mounted to the DOM.==
+
+> **NOTE**: Traditionally, if we were doing fetching inside a component by using a `useEffect` hook, then as soon as the component is re-mounted to the DOM, the `useEffect` hook would then fetch again the data that correspond to that component. When we use the TanStack Query library, this fetch & re-fetch behavior is controlled by React Query.
 
 ## React Query Overview
 
