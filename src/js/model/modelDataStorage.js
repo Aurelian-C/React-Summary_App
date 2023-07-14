@@ -1836,6 +1836,15 @@ const Working_with_forms_and_user_inputs = {
         `,
       ],
     },
+    {
+      sectionTitle:
+        'A custom hook for handling forms in React: <code>react-hook-form</code>',
+      sectionSource:
+        '/src/markdowns/11_Working_with_forms_&_user_inputs/A_custom_hook_for_handling_forms_in_React.html',
+      tooltips: [
+        `<p>React Hook Form simplify <i>handling forms in React</i>. React Hook Form is only about <i>handling the form <u>submission</u>, form <u>validation</u> and form <u>errors</u></i> and things like that. React Hook Form doesn't give us any pre-built React components.</p>`,
+      ],
+    },
   ],
 };
 
