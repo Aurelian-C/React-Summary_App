@@ -130,7 +130,7 @@ const React_basics = {
         `<h3>Differences between Vite and Create React App</h3>
         <ul>The file structure created with Vite is different that the file structure created with Create-React-App:
         <li>- <i><code>index.html</code></i> is outside of the <code>public</code> folder;</li>
-        <li>- instead of <code>.js</code> file extension, now you have <i><code>.jsx</code></i> file extension (Vite need the <i><code>.jsx</code> file extension only if you have a component that return JSX markup</i>. If you have a custom hook you can use the <code>.js</code> file extension);</li>
+        <li>- instead of <code>.js</code> file extension, now you have <i><code>.jsx</code></i> file extension (Vite need the <i><code>.jsx</code> file extension only if you have a component that return JSX markup</i>. If you have a custom hook you need to use the <code>.js</code> file extension);</li>
         <li>- the entry point is not <code>index.js</code>, instead is <i><code>main.jsx</code></i>;</li>
         <li>- to start the application you don't write in your VSCode terminal the <code>npm run start</code> command, but you need to write <i><code>npm run dev</code></i> command.</li>
         </ul>
