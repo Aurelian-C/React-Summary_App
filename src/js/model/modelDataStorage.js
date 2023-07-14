@@ -234,11 +234,11 @@ const React_basics = {
     },
     {
       sectionTitle:
-        'Set an element attribute/prop that depends on it’s children element props via <code>props.children</code>',
+        'Set an element attribute/prop that depends on it’s children element props via <code>children.props</code>',
       sectionSource:
-        '/src/markdowns/01_React_basics/Set_an_element_attribute_via_props_children.html',
+        '/src/markdowns/01_React_basics/Set_an_element_attribute_via_children_props.html',
       tooltips: [
-        `<p>You can set an element attribute via <code>props.children</code>. Remember that <code>props.children</code> is a object that contain some properties that you can use in your app. The most used property is <code>props</code>.</p>
+        `<p>You can set an element attribute via <code>children.props</code>. Remember that <code>children.props</code> is a object that contain some properties that you can use in your app. The most used property is <code>props</code>.</p>
         `,
       ],
     },
