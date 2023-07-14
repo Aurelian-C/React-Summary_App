@@ -240,6 +240,7 @@ const React_basics = {
       tooltips: [
         `<p>You can set an element attribute via <code>children.props</code>. Remember that <code>children.props</code> is a object that contain some properties that you can use in your app. The most used property is <code>props</code>.</p>
         `,
+        `<p><i>IMPORTANT: You need to be careful with this pattern if you pass to a parent component more than one children.</i> If you pass more than one children, the <code>children</code> prop will hold an array will all the children's props objects.</p>`,
       ],
     },
     {
