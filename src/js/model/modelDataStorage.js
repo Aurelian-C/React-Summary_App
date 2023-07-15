@@ -2991,6 +2991,48 @@ const React_Query = {
   ],
 };
 
+const Advanced_React_patterns = {
+  title: '<p class="card__title--2">Advanced React patterns</p>',
+  sections: [
+    {
+      sectionTitle: 'An overview of reusability in React',
+      sectionSource:
+        '/src/markdowns/17_Advanced_React_patterns/An_overview_of_reusability_in_React.html',
+      highlights: {
+        highlight1: ['reusability in React'],
+      },
+      tooltips: [
+        `
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'The Render Props pattern',
+      sectionSource:
+        '/src/markdowns/17_Advanced_React_patterns/The_Render_Props_pattern.html',
+      highlights: {
+        highlight2: ['Render Props'],
+      },
+    },
+    {
+      sectionTitle: 'The Higher-Order Components (HOC) pattern',
+      sectionSource:
+        '/src/markdowns/17_Advanced_React_patterns/The_HOC_pattern.html',
+      highlights: {
+        highlight2: ['Higher-Order Components (HOC)'],
+      },
+    },
+    {
+      sectionTitle: 'The Compound Component pattern',
+      sectionSource:
+        '/src/markdowns/17_Advanced_React_patterns/The_Compound_Component_pattern.html',
+      highlights: {
+        highlight2: ['Compound Component'],
+      },
+    },
+  ],
+};
+
 const Deploying_React_apps = {
   title: '<p class="card__title--2">Deploying React apps</p>',
   sections: [
@@ -3236,6 +3278,7 @@ export const dataStorage = [
   Redux,
   Replacing_Redux_with_React_Hooks,
   React_Query,
+  Advanced_React_patterns,
   Deploying_React_apps,
   Animating_React_Apps,
   Testing_React_Apps,
