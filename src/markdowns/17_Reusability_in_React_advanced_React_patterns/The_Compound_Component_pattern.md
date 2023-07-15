@@ -1,4 +1,4 @@
-# An overview of reusability in React
+# The Compound Component pattern
 
 ## References
 
