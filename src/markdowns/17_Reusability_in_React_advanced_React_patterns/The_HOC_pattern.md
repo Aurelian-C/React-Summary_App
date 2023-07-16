@@ -68,6 +68,13 @@ const ProductListWithToggles = withToggles(ProductList); // we store the new com
 
 With the Higher-Order Component pattern we reached our goal of enhancing the `<ProductList>` component with the features that we wanted it to have from `<List>` component. So if in any case you ever use a library which exports or which provides you with a Higher Order Component like this, then this is the logic behind that. So you called a Higher Order Component with another component as argument, and it will then return you an enhanced component.
 
+All three components ==inherit the stateful logic & UI interface== from the `<List>` component:
+
+- the first two are build with the React Props Pattern;
+- the last is build with HOC Pattern.
+
+![Reusability_in_React05](../../img/Reusability_in_React05.jpg)
+
 ## References
 
 1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
