@@ -2996,12 +2996,19 @@ const Advanced_React_patterns = {
     '<p class="card__title--2">Reusability in React: advanced React patterns</p>',
   sections: [
     {
+      sectionTitle: 'An overview of reusability in React',
+      sectionSource:
+        '/src/markdowns/17_Reusability_in_React_advanced_React_patterns/An_overview_of_reusability_in_React.html',
+      tooltips: [``],
+    },
+    {
       sectionTitle: 'The Render Props pattern',
       sectionSource:
         '/src/markdowns/17_Reusability_in_React_advanced_React_patterns/The_Render_Props_pattern.html',
       highlights: {
         highlight2: ['Render Props'],
       },
+      tooltips: [``],
     },
     {
       sectionTitle: 'The Higher-Order Components (HOC) pattern',
@@ -3010,6 +3017,7 @@ const Advanced_React_patterns = {
       highlights: {
         highlight2: ['Higher-Order Components (HOC)'],
       },
+      tooltips: [``],
     },
     {
       sectionTitle: 'The Compound Component pattern',
@@ -3018,6 +3026,7 @@ const Advanced_React_patterns = {
       highlights: {
         highlight2: ['Compound Component'],
       },
+      tooltips: [``],
     },
   ],
 };
