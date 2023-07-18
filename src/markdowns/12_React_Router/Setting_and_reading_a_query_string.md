@@ -12,6 +12,10 @@ What's nice about this is it's ==**sharable**. You could copy and paste that URL
 
 ![query_string1](../../img/query_string1.jpg)
 
+You can **add a query string to the URL without causing a navigation**, with the help of `searchParams.set()`:
+
+![query_string2](../../img/query_string2.jpg)
+
 ## How to read a query string from an URL?
 
 You can read a query string by importing and using the [`useSearchParams`](https://reactrouter.com/en/main/hooks/use-search-params) hook from `react-router-dom`.

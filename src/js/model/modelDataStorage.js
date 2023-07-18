@@ -2124,7 +2124,7 @@ const React_Router = {
         highlight2: ['<code>useSearchParams</code>'],
       },
       tooltips: [
-        `<h3>Query string (search params</h3>
+        `<h3>Query string (search params)</h3>
         <p>You must have seen long URLs and looks a bit strange with something you type, for example: <code>twitter.com/search<b>?</b>q=ui.dev<b>&</b>src=typed_query<b>&</b>f=live</code>
         </p>
         <p>They're the <code>?</code> and <code>&</code> you see appended onto URLs. The benefits of query string is that they allow you to <i>pass state via the URL</i>.</p>
@@ -2132,6 +2132,7 @@ const React_Router = {
         `,
         `<h3>How do you add a query string to your URL?</h3>
         <p><code><<span>Link to="/url?book=John&chapter=1&genre="fiction" /<span>></code></p>
+        <p>You can <i>add a query string to the URL without causing a navigation</i>, with the help of <code>searchParams.set()</code>.</p>
         `,
         `<h3>How to read and update a query string from an URL?</h3>
         <p>You can read a query string by importing and using the <i><code>useSearchParams</code></i> hook from <code>react-router-dom</code>. The <code>useSearchParams</code> hook is used to <i>read and modify the query string in the URL for the current location</i>.</p>
