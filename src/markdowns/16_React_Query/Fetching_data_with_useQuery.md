@@ -62,6 +62,21 @@ function Todos() {
 
 At its core, ==TanStack Query **manages query caching for you based on query keys (**`queryKey`**)**==. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and ==**unique to the query's data**==, you can use it!
 
+#### ==If your query function depends on a variable, include it in your query key !!!==
+
+Since query keys uniquely describe the data they are fetching, they should ==include any variables you use in your query function that **change**==. For example:
+
+```tsx
+function Todos({ todoId }) {
+  const result = useQuery({
+    queryKey: ['todos', todoId],
+    queryFn: () => fetchTodoById(todoId),
+  })
+}
+```
+
+Note that ==**query keys act as dependencies for your query functions**. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, *queries will be refetched automatically* (depending on your `staleTime` settings).==
+
 ## React Query Overview
 
 ```react

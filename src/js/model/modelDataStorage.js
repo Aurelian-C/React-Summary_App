@@ -2963,6 +2963,8 @@ const React_Query = {
         `,
         `<h3>Query Keys (<code>queryKey</code>)</h3>
         <p>At its core, TanStack Query <i>manages query caching for you based on query keys (<code>queryKey</code>)</i>. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and <i>unique to the query's data</i>, you can use it!</p>
+        <p><i>If your query function depends on a variable, include it in your query key</i>. Since query keys uniquely describe the data they are fetching, they should include any variables you use in your query function that <u>change</u>.</p>
+        <p>Note that <i>query keys act as dependencies for your query functions</i>. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</p>
         `,
       ],
     },
