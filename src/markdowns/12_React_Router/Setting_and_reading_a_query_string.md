@@ -74,8 +74,22 @@ You can add a query string to a URL with two methods:
 
    ![query_string2](../../img/query_string2.jpg)
 
+> **NOTE**: The `set()` method ==sets the value associated with a given search parameter to the given value. If there were several matching values, this method deletes the others. If the search parameter doesn't exist, this method creates it==.
+>
+> Syntax:
+>
+> ```javascript
+> set(name, value);
+> ```
+>
+> Parameters:
+>
+> - `name`: the name of the parameter to set.
+> - `value`: the value of the parameter to set.
+
 ## References
 
 1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
 1. [A Guide to Query Strings with React Router - Tyler McGinnis](https://ui.dev/react-router-query-strings)
 1. [ `useSearchParams` - reactrouter.com](https://reactrouter.com/en/main/hooks/use-search-params)
+1. [URLSearchParams: `set()` method - MDN](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams/set)

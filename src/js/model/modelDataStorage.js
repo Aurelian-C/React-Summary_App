@@ -2141,6 +2141,7 @@ const React_Router = {
         <li>1. A<code><<span>Link to="/url?book=John&chapter=1&genre="fiction" /<span>></code> component. This will cause a navigation.</li>
         <li>2. You can <i>add a query string to a URL without causing a navigation</i>, with <code>searchParams.set('key', 'value')</code>, and after that you need to update the URL by setting to it the query string with <code>setSearchParams(searchParams)</code> function.</li>
         </ul>
+        <p>The <code>set(name, value)</code> method <i>sets the value associated with a given search parameter to the given value. If there were several matching values, this method deletes the others. If the search parameter doesn't exist, this method creates it</i>.</p>
         `,
       ],
     },
@@ -2990,6 +2991,21 @@ const React_Query = {
         `,
         `<h3>The <code>onError</code> property (optional)</h3>
         <p>Another optional property that we can define in the object passed to <code>useMutation()</code> is the <code>onError</code> property. <i>The <code>onError</code> property will hold a function that will fire if the mutation encounters an error and will be passed the error.</i> If a Promise is returned, it will be awaited and resolved before proceeding.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Pre-fetching data with <code>prefetchQuery</code> method',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Prefetching_with_prefetchQuery_method.html',
+      highlights: {
+        highlight2: ['<code>prefetchQuery</code>'],
+      },
+      tooltips: [
+        `<p>Pre-fetching is all about <i>fetching some data that we know might become necessary before we actually need that data to render it on the UI</i>.</p>
+        <p>The way pre-fetching works is that we first need get <code>const queryClient = useQueryClient()</code>, and then on <code>queryClient</code> we call the <code>.prefetchQuery()</code> method.</p>
+        <p><i>The way <code>queryClient.prefetchQuery()</code> works is basically exactly the same as the <code>useQuery</code> hook itself, so we need a <code>queryKey</code> and a <code>queryFn</code> inside an object.</i></p>
+        <p><i>An alternative pre-fetching is to use infinite queries for infinite scroll with React Query.</i> So React Query also has that feature built-in, so if you want, you can check out the documentation and read all about that.</p>
         `,
       ],
     },
