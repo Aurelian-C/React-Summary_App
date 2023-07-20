@@ -43,7 +43,8 @@ function Todos() {
   
   const mutation = useMutation({
     mutationFn: postTodo,
-    onSuccess: () => {
+    onSuccess: (data) => {
+      // onSuccess function receive as parameter the data returned by mutationFn (postTodo)
       // Invalidate and re-fetch
       queryClient.invalidateQueries({ queryKey: ['todos'] }) // re-fetch the server data after mutation is done
     },
@@ -51,7 +52,27 @@ function Todos() {
 }
 ```
 
-> **NOTE**: The `onSucces` method will fire when the mutation is successful and will be passed the mutation's result. If a Promise is returned, it will be awaited and resolved before proceeding.
+> **NOTE**: The `onSucces` method will fire when the mutation is successful and will be _passed the mutation's result_. If a Promise is returned, it will be awaited and resolved before proceeding.
+
+==You can invalidate queries by passing to `.invalidateQueries()` an object with this shape `{active: true}`. `invalidateQueries({ active: true })` will invalidate **all the queries that are currently active on the page**.==
+
+```react
+import { postTodo } from '../my-api'
+import { useMutation,  useQueryClient } from '@tanstack/react-query'
+
+function Todos() {
+  const queryClient = useQueryClient();
+  
+  const mutation = useMutation({
+    mutationFn: postTodo,
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ active: true }) // {active: true} will invalidate all the queries that are currently active on the page
+    },
+  });
+}
+```
+
+`invalidateQueries({ active: true })` is a bit easier, because then we don't have to remember any query keys.
 
 ## The `onError` property _(optional)_
 
@@ -67,7 +88,7 @@ function Todos() {
   
   const mutation = useMutation({
     mutationFn: postTodo,
-    onSuccess: () => {
+    onSuccess: (data) => {
       // Invalidate and re-fetch
       queryClient.invalidateQueries({ queryKey: ['todos'] }) // invalidate the cache data that correspond to 'todos' query and re-fetch it after the mutation is done
     },
@@ -77,6 +98,35 @@ function Todos() {
   });
 }
 ```
+
+## The `mutationFn` receives only a single parameter
+
+The `mutationFn` receives only a single parameter, so if you want to pass to `mutationFn` multiple values, you need to wrap them into an object:
+
+```react
+import { postTodo } from '../my-api'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+
+function Todos() {
+  const queryClient = useQueryClient();
+  
+  const mutation = useMutation({
+    mutationFn: ({ keyOne: 'value1', keyTwo: 'value2' }) => postTodo(keyOne, keyTwo),
+  });
+}
+```
+
+## Mutation function options. Specify individual behavior for each mutate function
+
+We can also add, for example, `onSuccess` or `onError` handlers, not only into the `useMutation` hook, but right into the individual mutate function. So again, we do not need to specify these handlers for _all of the mutations_ by passing them directly into the `useMutation` hook, but we can also do it for _individual mutations_.
+
+You specify the individual mutate function behavior by passing to the mutate function an object. This object will contains indiviaul mutation options.
+
+So in the `<ComponentOne>` and `<ComponentTwo>` `onSuccess` will different behavior (specific to each component), different from the behavior specified in the `useMutation` hook.
+
+![React_Query04](../../img/React_Query04.jpg)
+
+We can say that in `useMutation` hook we specify the default behavior for functions like `onSuccess`, `onError`, `onSettled` etc, but we can overwrite these behavior in each individual mutate functions.
 
 ## React Query Overview
 
@@ -112,7 +162,7 @@ function Todos() {
   // Mutations
   const mutation = useMutation({
     mutationFn: postTodo,
-    onSuccess: () => {
+    onSuccess: (data) => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['todos'] })
     },

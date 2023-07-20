@@ -2004,6 +2004,26 @@ const React_Router = {
         <p>The <code>useNavigate</code> hook <i>returns a function that allows you, the programmer, to change the URL whenever you want, so <u>programmatically</u></i>.</p>
         <p>You should have a good reason to use <code>useNavigate</code> instead of <code><<span>Link</span>></code>. Aside from links and forms, very few interactions should change the URL because it introduces complexity around accessibility and user expectations.</p>
         `,
+        `<h3>Type declaration</h3>
+        <ul>The <code>navigate</code> function has two signatures:
+        <li>- Either pass a <code>to</code> value (same type as <code><<span>Link to</span>></code>) with an optional second <code>{ replace, state }</code> arg, or</li>
+        <li>- Pass the delta you want to go in the history stack. For example, <i><code>navigate(-1)</code> is equivalent to hitting the back button</i>.</li>
+        </ul>
+        <p>If using <code>replace: true</code>, the navigation will replace the current entry in the history stack instead of adding a new one.</p>`,
+      ],
+    },
+    {
+      sectionTitle:
+        'Navigating programmatically with <code><<span>Navigate</span>></code> component',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Navigating_programmatically_with_Navigate_component.html',
+      highlights: {
+        highlight2: ['<code><<span>Navigate</span>></code>'],
+      },
+      tooltips: [
+        `<p>A <code><<span>Navigate</span>></code> element <i>changes the current location when it is rendered</i>. It's a component <i>wrapper around <code>useNavigate</code></i>, and accepts all the same arguments as props.</p>
+        <p>Having a component-based version of the <code>useNavigate</code></i> hook makes it easier to use this feature in a <code>React.Component</code> subclass where hooks are not able to be used.</p>
+        `,
       ],
     },
     {

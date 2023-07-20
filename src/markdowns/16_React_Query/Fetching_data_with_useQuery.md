@@ -77,6 +77,18 @@ function Todos({ todoId }) {
 
 Note that ==**query keys act as dependencies for your query functions**. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, *queries will be refetched automatically* (depending on your `staleTime` settings).==
 
+## The `retry` property
+
+```react
+function Todos({ todoId }) {
+  const result = useQuery({
+    queryKey: ['todos', todoId],
+    queryFn: () => fetchTodoById(todoId),
+    retry: false, // by default, React Query will try to fetch data three times in case that it fails in the beginning, but sometimes that might not make so much sense. In this case, setting to 'retry: false' will not try to re-fetch if the first fetch fails.
+  })
+}
+```
+
 ## React Query Overview
 
 ```react

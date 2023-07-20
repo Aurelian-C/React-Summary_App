@@ -9,7 +9,7 @@ When the [URL](https://reactrouter.com/en/main/start/concepts#url) changes we ca
 
 In some situations, for example maybe because some form was submitted or because some timer expired, ==you as a programmer (not the user) might want to trigger a navigation action from inside your React code==, and you can do this by using a hook provided by `react-router-dom`. To trigger a navigation action from inside your React code, you can import the `useNavigate` hook and use it in your components to get access to a navigate function. ==This navigate function can be called to trigger a navigation action, so to **switch to a different route from inside your code**==, so **programmatically**.
 
-==**The `useNavigate` hook returns a function that allows you, the programmer, to change the URL whenever you want**==. You could do it on a timeout:
+==**The `useNavigate` hook returns a function that allows you, the programmer, to change the URL whenever you want**==. You could do it on a timeout: 
 
 ![useNavigate_hook](../../img/useNavigate_hook.jpg)
 
@@ -30,6 +30,15 @@ Aside from links and forms, very few interactions should change the URL because 
 > The button click triggered a function, and inside that function we then had the actual code, the programmatic imperative navigation code for moving to a different page.
 >
 > Again, you should use a link instead of a button but this is how you would navigate programmatically, if you would need to do so, for example, because some timer expired or anything like that.
+
+## Type declaration
+
+The `navigate` function has two signatures:
+
+- Either pass a `to` value (same type as `<Link to>`) with an optional second `{ replace, state }` arg, or
+- Pass the delta you want to go in the history stack. For example, ==`navigate(-1)` is equivalent to hitting the back button==.
+
+If using `replace: true`, the navigation will replace the current entry in the history stack instead of adding a new one.
 
 ## References
 
