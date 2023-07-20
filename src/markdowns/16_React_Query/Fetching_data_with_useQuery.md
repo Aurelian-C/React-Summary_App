@@ -4,9 +4,15 @@ Instead of manually fetching data in a `useEffect` function like we used to do, 
 
 ![React_Query02](../../img/React_Query02.jpg)
 
-We fetch data from the server with the help of `useQuery` hook. To `useQuery` we need to pass in an object with two things:
+==A query is a declarative dependency on an asynchronous source of data that is tied to a **unique key**.== A query can be used with any Promise based method (including GET and POST methods) to fetch data from a server. If your method modifies data on the server, we recommend using [Mutations](https://tanstack.com/query/v4/docs/react/guides/mutations) instead.
 
-1. ==The `queryKey` that **uniquely identify the data** that we're going to query==.  The `queryKey` can hold as a value a complex array, or it can just be an array with a string, but ==it needs to be **an array**==.  The string that we pass to `queryKey` is what we will later also see insight or React Query DevTools. If later we would use `useQuery` on another page with the exact key, then the data that correspond to that key would be read from the React Query cache.
+## `useQuery` options
+
+We fetch data from the server with the help of `useQuery` hook. To subscribe to a query in your components or custom hooks,  we need to pass to `useQuery` an object with at least two properties:
+
+1. ==The `queryKey`: a **unique key for the query**== This unique key **uniquely identify the data** that we're going to query. The **unique key** you provide is used internally for refetching, caching, and sharing your queries throughout your application.
+
+   The `queryKey` can hold as a value a complex array, or it can just be an array with a string, but ==it needs to be **an array**==.  The string that we pass to `queryKey` is what we will later also see insight of React Query DevTools cache. If later we would use `useQuery` on another page with the same key, then the data that correspond to that key would be read from the React Query cache.
 
    ```react
    import { useQuery } from '@tanstack/react-query'
@@ -16,7 +22,7 @@ We fetch data from the server with the help of `useQuery` hook. To `useQuery` we
    }
    ```
 
-2. ==The `queryFn` (query function)==. `queryFn` is the function that the query will use to _request data from the API_. What's important is that _the query function needs to return a Promise_.
+2. ==The `queryFn` (query function)==. The `queryFn` need to be _a function that returns a Promise_ that resolves the data or throws an error. This is the function that the query will use to _request data from the API_.
 
    ```react
    import { getTodos } from '../my-api'
@@ -30,7 +36,22 @@ We fetch data from the server with the help of `useQuery` hook. To `useQuery` we
    }
    ```
 
-==The `useQuery` hook will **return an object** with a bunch of useful properties== that we can use in our app. The most important property is `data`. Another useful properties are: `isLoading` and `status`.
+## `useQuery` returns an object
+
+==The `useQuery` hook will **return an object** with a bunch of useful properties== that we can use in our app. The most important property is `data`.
+
+The query result returned by `useQuery` contains all of the information about the query that you'll need for templating and any other usage of the data.
+
+The `query` object contains a few very important states you'll need to be aware of to be productive. A query can only be in one of the following states at any given moment:
+
+- `isLoading` or `status === 'loading'` - The query has no data yet
+- `isError` or `status === 'error'` - The query encountered an error
+- `isSuccess` or `status === 'success'` - The query was successful and data is available
+
+Beyond those primary states, more information is available depending on the state of the query:
+
+- `error` - If the query is in an `isError` state, the error is available via the `error` property.
+- `data` - If the query is in an `isSuccess` state, the data is available via the `data` property.
 
 ```react
 import TodosItem from './components/TodosItem';
@@ -58,13 +79,26 @@ function Todos() {
 }
 ```
 
+For **most** queries, it's usually sufficient to check for the `isLoading` state, then the `isError` state, then finally, assume that the data is available and render the successful state
+
 ## Query Keys (`queryKey`)
 
 At its core, ==TanStack Query **manages query caching for you based on query keys (**`queryKey`**)**==. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and ==**unique to the query's data**==, you can use it!
 
-#### ==If your query function depends on a variable, include it in your query key !!!==
+When a query needs more information to uniquely describe its data, you can use an array with a string and any number of serializable objects to describe it.
 
-Since query keys uniquely describe the data they are fetching, they should ==include any variables you use in your query function that **change**==. For example:
+```react
+// An individual todo
+useQuery({ queryKey: ['todo', 5], ... })
+
+// An individual todo in a "preview" format
+useQuery({ queryKey: ['todo', 5, { preview: true }], ...})
+
+// A list of todos that are "done"
+useQuery({ queryKey: ['todos', { type: 'done' }], ... })
+```
+
+==If your query function depends on a variable, include it in your query key!== Since query keys uniquely describe the data they are fetching, they should ==include any variable you use in your query function that **change**==. For example:
 
 ```tsx
 function Todos({ todoId }) {
@@ -77,17 +111,34 @@ function Todos({ todoId }) {
 
 Note that ==**query keys act as dependencies for your query functions**. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, *queries will be refetched automatically* (depending on your `staleTime` settings).==
 
-## The `retry` property
+## Query Functions (`queryFn`)
 
-```react
-function Todos({ todoId }) {
-  const result = useQuery({
-    queryKey: ['todos', todoId],
-    queryFn: () => fetchTodoById(todoId),
-    retry: false, // by default, React Query will try to fetch data three times in case that it fails in the beginning, but sometimes that might not make so much sense. In this case, setting to 'retry: false' will not try to re-fetch if the first fetch fails.
-  })
-}
+A query function can be literally ==any function that **returns a Promise**==. The Promise that is returned should either ==**resolve the data** or **throw an error**==.
+
+All of the following are valid query function configurations:
+
+```tsx
+useQuery({ queryKey: ['todos'], queryFn: fetchAllTodos })
+
+useQuery({ queryKey: ['todos', todoId], queryFn: () => fetchTodoById(todoId) })
+
+useQuery({
+  queryKey: ['todos', todoId],
+  queryFn: async () => {
+    const data = await fetchTodoById(todoId)
+    return data
+  },
+})
+
+useQuery({
+  queryKey: ['todos', todoId],
+  queryFn: ({ queryKey }) => fetchTodoById(queryKey[1]),
+})
 ```
+
+#### Handling and Throwing Errors
+
+==For TanStack Query to determine a query has errored, the query function **must throw** or return a **rejected Promise**.== Any error that is thrown in the query function will be persisted on the `error` state of the query.
 
 ## React Query Overview
 
@@ -123,9 +174,13 @@ function Todos() {
   // Mutations
   const mutation = useMutation({
     mutationFn: postTodo,
-    onSuccess: () => {
+    onSuccess: (data) => {
       // Invalidate and refetch
       queryClient.invalidateQueries({ queryKey: ['todos'] })
+      console.log(data)
+    },
+    onError: (error) => {
+      console.log(error)
     },
   })
 
@@ -155,5 +210,7 @@ function Todos() {
 ## References
 
 1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
+1. [Queries - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/queries)
 1. [`useQuery` - tanstack.com](https://tanstack.com/query/latest/docs/react/reference/useQuery)
 1. [Query Keys - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/query-keys)
+1. [Query Functions - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/query-functions)

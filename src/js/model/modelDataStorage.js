@@ -2896,10 +2896,11 @@ const Replacing_Redux_with_React_Hooks = {
 };
 
 const React_Query = {
-  title: '<p class="card__title--2">Remote state management: React Query</p>',
+  title:
+    '<p class="card__title--2">Remote state management: React Query (aka TanStack Query)</p>',
   sections: [
     {
-      sectionTitle: 'What is React Query?',
+      sectionTitle: 'What is React Query (aka TanStack Query)?',
       sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
       tooltips: [
         `<h3>What is React Query?</h3>
@@ -2988,6 +2989,12 @@ const React_Query = {
         <p>Note that <i>query keys act as dependencies for your query functions</i>. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</p>
         `,
       ],
+    },
+    {
+      sectionTitle: 'Query retries',
+      sectionSource: '/src/markdowns/16_React_Query/Query_retries.html',
+
+      tooltips: [``],
     },
     {
       sectionTitle: 'Mutating data with <code>useMutation()</code> hook',

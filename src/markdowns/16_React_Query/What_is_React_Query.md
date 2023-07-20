@@ -61,6 +61,18 @@ Remote state has many special needs, and so that's the reason why we use somethi
 
 Now, there are actually other libraries that do many of the things that React Query does. For example, SWR or Redux Toolkit Query, which as the name says, is the remote state solution integrated into Redux Toolkit. However, from what I've seen, none of them works as well and is as popular as React Query.
 
+## Does TanStack Query replace Redux, MobX or other global state managers?
+
+Well, let's start with a few important items:
+
+- TanStack Query is a **server-state** library, responsible for managing asynchronous operations between your server and client
+- Redux, MobX, Zustand, etc. are **client-state** libraries that *can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query*
+
+With those points in mind, the short answer is that TanStack Query **replaces the boilerplate code and related wiring used to manage cache data in your client-state and replaces it with just a few lines of code.**
+
+For a vast majority of applications, the truly **globally accessible client state** that is left over after migrating all of your async code to TanStack Query is usually very tiny.
+
 ## References
 
 1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
+1. [Does TanStack Query replace Redux, MobX or other global state managers? - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/does-this-replace-client-state)
