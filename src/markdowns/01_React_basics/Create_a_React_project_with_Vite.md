@@ -29,6 +29,14 @@ To create a React project with Vite, you need to follow these steps:
 > -  the entry point is not `index.js`, instead is ==`main.jsx`==;
 > - to start the application you don't write in your VSCode terminal the `npm run start` command, but you need to write ==`npm run dev`== command.
 
+## Summary
+
+1. `npm create vite@latest`
+2. `npm install`
+3. `npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev`
+4.  Create the `.eslintrc.json` file with an `{"extends": "react-app"}` object
+5. In `vite.config.js` file `import eslint from "vite-plugin-eslint"` and call `eslint()` in `plugins` array
+
 ## References
 
 1. [Vite](https://vitejs.dev/)

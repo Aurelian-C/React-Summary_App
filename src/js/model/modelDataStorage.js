@@ -135,6 +135,13 @@ const React_basics = {
         <li>- to start the application you don't write in your VSCode terminal the <code>npm run start</code> command, but you need to write <i><code>npm run dev</code></i> command.</li>
         </ul>
         `,
+        `<h3>Summary</h3>
+        <p>1. <code>npm create vite@latest</code></p>
+        <p>2. <code>npm install</code></p>
+        <p>3. <code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></p>
+        <p>4. Create the <code>.eslintrc.json</code> file with an <code>{"extends": "react-app"}</code> object</p>
+        <p>5. In <code>vite.config.js</code> file <code>import eslint from "vite-plugin-eslint"</code> and call <code>eslint()</code> in <code>plugins</code> array</p>
+        `,
       ],
     },
     {
