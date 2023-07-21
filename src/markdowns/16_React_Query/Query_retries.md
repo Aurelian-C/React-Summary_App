@@ -1,6 +1,6 @@
 # Query Retries: the `retry` property
 
-When a `useQuery` query fails (the query function throws an error), TanStack Query will automatically retry the query if that query's request has not reached the max number of consecutive retries (defaults to `3`) or a function is provided to determine if a retry is allowed.
+==When a `useQuery` query fails (the query function throws an error), TanStack Query will **automatically retry the query** if that query's request has not reached the max number of consecutive retries (defaults to `3`) or a function is provided to determine if a retry is allowed.==
 
 ```react
 function Todos({ todoId }) {
@@ -12,7 +12,7 @@ function Todos({ todoId }) {
 }
 ```
 
-You can configure retries both on a global level and an individual query level.
+==You can configure retries both on a **global level** and an **individual query level**.==
 
 - Setting `retry = false` will disable retries.
 - Setting `retry = 6` will retry failing requests 6 times before showing the final error thrown by the function.

@@ -8,11 +8,11 @@ Instead of manually fetching data in a `useEffect` function like we used to do, 
 
 ## `useQuery` options
 
-We fetch data from the server with the help of `useQuery` hook. To subscribe to a query in your components or custom hooks,  we need to pass to `useQuery` an object with at least two properties:
+==We fetch data from the server with the help of `useQuery` hook.== To subscribe to a query in your components or custom hooks,  we need to pass to `useQuery` an object with at least two properties:
 
-1. ==The `queryKey`: a **unique key for the query**== This unique key **uniquely identify the data** that we're going to query. The **unique key** you provide is used internally for refetching, caching, and sharing your queries throughout your application.
+1. ==The `queryKey`: a **unique key for the query**== This unique key **uniquely identify the data** that we're going to query. The **unique key** you provide is used internally for re-fetching, caching, and sharing your queries throughout your application.
 
-   The `queryKey` can hold as a value a complex array, or it can just be an array with a string, but ==it needs to be **an array**==.  The string that we pass to `queryKey` is what we will later also see insight of React Query DevTools cache. If later we would use `useQuery` on another page with the same key, then the data that correspond to that key would be read from the React Query cache.
+   The `queryKey` can hold as a value a complex array, or it can just be an array with a string, but ==it needs to be **an array**==.  The string that we pass to `queryKey` is what we will later also see in React Query DevTools cache. If later we would use `useQuery` on another page with the same key, then the data that correspond to that key would be read from the React Query cache.
 
    ```react
    import { useQuery } from '@tanstack/react-query'
@@ -79,7 +79,7 @@ function Todos() {
 }
 ```
 
-For **most** queries, it's usually sufficient to check for the `isLoading` state, then the `isError` state, then finally, assume that the data is available and render the successful state
+==For **most** queries, it's usually sufficient to check for the `isLoading` state, then the `isError` state, then finally, assume that the data is available and render the successful state==.
 
 ## Query Keys (`queryKey`)
 
@@ -136,7 +136,7 @@ useQuery({
 })
 ```
 
-#### Handling and Throwing Errors
+#### Handling and throwing errors
 
 ==For TanStack Query to determine a query has errored, the query function **must throw** or return a **rejected Promise**.== Any error that is thrown in the query function will be persisted on the `error` state of the query.
 

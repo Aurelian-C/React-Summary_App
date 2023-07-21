@@ -65,12 +65,12 @@ Now, there are actually other libraries that do many of the things that React Qu
 
 Well, let's start with a few important items:
 
-- TanStack Query is a **server-state** library, responsible for managing asynchronous operations between your server and client
-- Redux, MobX, Zustand, etc. are **client-state** libraries that *can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query*
+- ==TanStack Query is a **server-state** library==, responsible for managing asynchronous operations between your server and client
+- ==Redux, MobX, Zustand, etc. are **client-state** libraries== that *can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query*
 
 With those points in mind, the short answer is that TanStack Query **replaces the boilerplate code and related wiring used to manage cache data in your client-state and replaces it with just a few lines of code.**
 
-For a vast majority of applications, the truly **globally accessible client state** that is left over after migrating all of your async code to TanStack Query is usually very tiny.
+==For a vast majority of applications, the truly **globally accessible client state** that is left over after migrating all of your async code to TanStack Query is usually very tiny.==
 
 ## References
 

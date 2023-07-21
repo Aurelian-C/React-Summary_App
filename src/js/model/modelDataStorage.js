@@ -2922,6 +2922,13 @@ const React_Query = {
         `<h3>Why do we need React Query?</h3>
         <p>We need a library like React Query with all these features because <i><u>remote state</u> is fundamentally different from <u>UI state</u>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</i>.</p>
         `,
+        `<h3>Does TanStack Query replace Redux, MobX or other global state managers?</h3>
+        <ul>Well, let's start with a few important items:
+        <li>- <i>TanStack Query is a <u>server-state</u> library</i>, responsible for managing asynchronous operations between your server and client</li>
+        <li>- <i>Redux, MobX, Zustand, etc. are <u>client-state</u> libraries</i> that can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query</li>
+        </ul>
+        <p>For a vast majority of applications, the truly <u>globally accessible client state</u> that is left over after migrating all of your async code to TanStack Query is usually very tiny.</p>
+        `,
       ],
     },
     {
@@ -2977,16 +2984,33 @@ const React_Query = {
       tooltips: [
         `<h3>Fetching data from server: <code>useQuery</code> hook</h3>
         <p>Instead of manually fetching data in a <code>useEffect</code> function like we used to do, we will now let React Query do the fetching work. <i>We fetch data from the server with the help of <code>useQuery</code> hook.</i></p>
-        <ul>To <code>useQuery</code> we need to pass in an object with two things:
-        <li>1. The <i><code>queryKey</code> that <u>uniquely identify the data</u></i> that we're going to query. The <code>queryKey</code> needs to be <u>an array</u>.</li>
-        <li>2. The <i><code>queryFn</code> (query function)</i>. <code>queryFn</code> is the function that the query will use to <u>request data from the API</u>. What's important is that the query function needs to return a Promise.</li>
-        </ul>
+        <ul>To <code>useQuery</code> we need to pass in an object with at least two properties:
+        <li>1. The <i><code>queryKey</code> that <u>uniquely identify the data</u></i> that we're going to query. The <code>queryKey</code> needs to be <u>an array</u>. The unique key you provide is used internally for re-fetching, caching, and sharing your queries throughout your application.</li>
+        <li>2. The <i><code>queryFn</code> (query function)</i>. <code>queryFn</code> is the function that the query will use to <u>request data from the API</u>. What's important is that the query function needs to return a Promise that resolves the data or throws an error.</li>
+        </ul>`,
+        `<h3><code>useQuery</code> returns an object</h3>
         <p>The <code>useQuery</code> hook will <i>return an object</i> with a bunch of useful properties that we can use in our app. The most important property is <i><code>data</code></i>. Another useful properties are: <i><code>isLoading</code></i> and <i><code>status</code></i>.</p>
+        <p>The query result returned by <code>useQuery</code> contains all of the information about the query that you'll need for templating and any other usage of the data.<p>
         `,
         `<h3>Query Keys (<code>queryKey</code>)</h3>
         <p>At its core, TanStack Query <i>manages query caching for you based on query keys (<code>queryKey</code>)</i>. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and <i>unique to the query's data</i>, you can use it!</p>
         <p><i>If your query function depends on a variable, include it in your query key</i>. Since query keys uniquely describe the data they are fetching, they should include any variables you use in your query function that <u>change</u>.</p>
         <p>Note that <i>query keys act as dependencies for your query functions</i>. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</p>
+        `,
+        `<h3>Query Functions (<code>queryFn</code>)</h3>
+        <p>A query function can be literally <i>any function that <u>returns a Promise</u></i>. The Promise that is returned should either <u>resolve the data</u> or <u>throw an error</u>.</p>
+        <p>Handling and throwing errors: <i>for TanStack Query to determine a query has errored, the query function <u>must throw</u> or return a <u>rejected Promise</u>.</i> Any error that is thrown in the query function will be persisted on the <code>error</code> state of the query.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Query invalidation',
+      sectionSource: '/src/markdowns/16_React_Query/Query_invalidation.html',
+
+      tooltips: [
+        `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <code>invalidateQueries</code> method that lets you intelligently <u>mark queries as stale</u></i> and potentially re-fetch them too!</p>`,
+        `<h3>Query matching with <code>invalidateQueries</code></h3>
+        <p>When using APIs like <code>invalidateQueries</code> and <code>removeQueries</code> (and others that support partial query matching), <i>you can <u>match multiple queries by their prefix</u>, or get really specific and <u>match an exact query</u></i>.</p>
         `,
       ],
     },
@@ -2994,7 +3018,11 @@ const React_Query = {
       sectionTitle: 'Query retries',
       sectionSource: '/src/markdowns/16_React_Query/Query_retries.html',
 
-      tooltips: [``],
+      tooltips: [
+        `<p>When a <code>useQuery</code> query fails (the query function throws an error), TanStack Query will <i>automatically retry the query</i> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</p>
+        <p><i>You can configure retries both on a <u>global level</u> and an <u>individual query level</u>.</i></p>
+        `,
+      ],
     },
     {
       sectionTitle: 'Mutating data with <code>useMutation()</code> hook',
@@ -3004,21 +3032,42 @@ const React_Query = {
         highlight2: ['<code>useMutation()</code>'],
       },
       tooltips: [
-        `<ul>To mutate our remote server state we need to use the <code>useMutation()</code> hook. To <code>useMutation()</code> we need to pass in an object with one thing:
+        `<p>Up until now we learned how to fetch and store data in the cache, using the <code>useQuery</code> hook. Now it's time to learn how to also mutate our remote server data, and automatically re-render the UI.</p>
+        <ul>Unlike queries, <i>mutations are typically used to create/update/delete data or perform server side-effects</i>. For this purpose, TanStack Query exports a <code>useMutation</code> hook. To <code>useMutation</code> we need to pass in an object with at least one property:
         <li>1. <i>The <code>mutationFn</code> method.</i> This is the function that React Query will call to mutate our remote server data.</li>
-        </ul>
+        </ul>`,
+        `<h3><code>useMutation()</code> returns an object</h3>
         <p>The <code>useMutation()</code> hook will <i>return an object</i> with a bunch of useful properties and methods that we can use in our app to mutate data on the server. <i>The most important method is <code>.mutate()</code>. This method can be connected to our event handlers, inside our React components.</i></p>
         <p>The <code>.mutate()</code> method will call the function that we pass as value to the <code>mutationFn</code> key.</p>
+        `,
+        `<h3>The <code>mutationFn</code> receives only a single parameter</h3>
+        <p>You can pass variables to your mutations function by calling the <code>.mutate()</code> function with a <i>single variable or object</i>. The <code>mutationFn</code> receives only a single parameter, so <i>if you want to pass to <code>mutationFn</code> multiple values, you need to wrap them into an object</i>.</p>
         `,
         `<h3>Automatically update the UI after mutate server's data: <code>onSucces</code> method & <code>queryClient.invalidateQuerie()</code> method</h3>
         <p><i>By defining only the <code>mutationFn</code> property, the UI will not be update automatically after we mutate the data on our server.</i> If we want to trigger automatically UI updates after we mutate the data that's on our server, to <code>useMutation()</code> we can pass another property that is optional, and is called <code>onSucces</code>. <code>onSucces</code> will hold a method that will <i>invalidating the cache as soon as the mutation is done</i>, so with <code>onSucces</code> method we tell React Query what to do as soon as the mutation was successful.</p>
         <p>We <i>manually invalidating the cache</i> by using the <code>queryClient.invalidateQueries()</code> method. This method tells React Query to immediately re-fetch the data that's on our server.</p>
-        <p>To <code>.invalidateQueries()</code> method we need to pass as argument the <code>queryKey</code> that we want to invalidate in our cache. We define the <code>queryKey</code> in <code>useQuery()</code> hook.</p>
+        <ul>We can invalidate a query by passing to <code>.invalidateQueries()</code> one of two options:
+        <li>- the <code>queryKey</code> that we want to invalidate in our cache. We define the <code>queryKey</code> in <code>useQuery()</code> hook.</li>
+        <li>- the <code>{active: true}</code> object. <i><code>invalidateQueries({ active: true })</code> will <u>invalidate all the queries that are currently active on the page</u></i>. <code>invalidateQueries({ active: true })</code> is a bit easier, because then we don't have to remember any query keys.</li>
+        </ul>
         <p>How do we get access to our <code>queryClient</code> instance? Well, for that we have a special hook called <code>useQueryClient</code>. The <code>useQueryClient</code> hook returns the current <code>QueryClient</code> instance.</p>
         `,
         `<h3>The <code>onError</code> property (optional)</h3>
         <p>Another optional property that we can define in the object passed to <code>useMutation()</code> is the <code>onError</code> property. <i>The <code>onError</code> property will hold a function that will fire if the mutation encounters an error and will be passed the error.</i> If a Promise is returned, it will be awaited and resolved before proceeding.</p>
         `,
+        `<h3>Mutation function options. Specify individual behavior for each mutate function</h3>
+        <p>You might find that you want to <i>trigger additional callbacks</i> beyond the ones defined on <code>useMutation()</code> when calling <code>.mutate()</code>. This can be used to trigger <i>component-specific side effects</i>. To do that, you can provide any of the same callback options to the <code>.mutate()</code> function after your mutation variable. Supported options include: <code>onSuccess</code>, <code>onError</code> and <code>onSettled</code>. Please keep in mind that those additional callbacks won't run if your component unmounts <u>before</u> the mutation finishes.</p>
+        <p>We can say that in <code>useMutation</code> hook we specify the default behavior for functions like <code>onSuccess</code>, <code>onError</code> and <code>onSettled</code> etc, but we can overwrite these behavior in each individual mutate functions.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Invalidations from Mutations',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Invalidations_from_mutations.html',
+
+      tooltips: [
+        `<p>Invalidating queries is only half the battle. Knowing <u>when</u> to invalidate them is the other half. Usually when a mutation in your app succeeds, it's VERY likely that there are related queries in your application that need to be invalidated and possibly re-fetched to account for the new changes from your mutation.</p>`,
       ],
     },
     {
