@@ -136,11 +136,13 @@ const React_basics = {
         </ul>
         `,
         `<h3>Summary</h3>
-        <p>1. <code>npm create vite@latest</code></p>
-        <p>2. <code>npm install</code></p>
-        <p>3. <code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></p>
-        <p>4. Create the <code>.eslintrc.json</code> file with an <code>{"extends": "react-app"}</code> object</p>
-        <p>5. In <code>vite.config.js</code> file <code>import eslint from "vite-plugin-eslint"</code> and call <code>eslint()</code> in <code>plugins</code> array</p>
+        <p><i>1. <code>npm create vite@latest</code></i></p>
+        <p><i>2. <code>npm install</code></i></p>
+        <ul>3. With Vite, you need to manually install & config ESLint:
+        <li>3.1. <code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></li>
+        <li>3.2. Create the <code>.eslintrc.json</code> file with an <code>{"extends": "react-app"}</code> object</li>
+        <li>3.3. In <code>vite.config.js</code> file <code>import eslint from "vite-plugin-eslint"</code> and call <code>eslint()</code> in <code>plugins</code> array</li>
+        </ul>
         `,
       ],
     },
