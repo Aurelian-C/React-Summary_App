@@ -1862,6 +1862,10 @@ const React_Router = {
     '<p class="card__title--2">Single Page Applications with React Router</p>',
   sections: [
     {
+      sectionTitle: 'Server-side Routing vs Client-side Routing',
+      sectionSource: '',
+    },
+    {
       sectionTitle: 'Routing: Multiple Pages in Single-Page Applications',
       sectionSource:
         '/src/markdowns/12_React_Router/Routing_multiple_pages_in_single-page_applications.html',
@@ -3156,10 +3160,6 @@ const Deploying_React_apps = {
         </ul>
         `,
       ],
-    },
-    {
-      sectionTitle: 'Server-side Routing vs Client-side Routing',
-      sectionSource: '',
     },
   ],
 };

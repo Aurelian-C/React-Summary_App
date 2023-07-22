@@ -51,3 +51,4 @@ The file structure created with Vite is different that the file structure create
 
 1. [Vite](https://vitejs.dev/)
 1. [The Ultimate React Course: React, Redux & More - Jonas Schmedtmann](https://www.udemy.com/course/the-ultimate-react-course/)
+1. [Why you should add Eslint to a React Vite project - dev.to](https://dev.to/bushblade/add-eslint-to-a-react-vite-project-4pib)

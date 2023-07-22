@@ -8,7 +8,7 @@ You can declare many components in one file, but large files can get difficult t
 
 ## Importing and exporting components
 
-==The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you keep your files easy to scan and **reuse** components in more places==.
+==The magic of components lies in their **reusability**: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you keep your files easy to scan and **reuse** components in more places==.
 
 You can move a component into another file in three steps:
 
@@ -43,7 +43,7 @@ When you write a *default* import, you can put any name you want after `import`.
 
 ## Multiple components per one file
 
-==Components are regular JavaScript functions, so you can keep multiple components in the same file. This is convenient when components are relatively small or tightly related to each other==. If the file gets crowded, you can always move your custom components to separate files.
+==Components are regular JavaScript functions, so **you can keep multiple components in the same file**. This is convenient when **components are relatively small or tightly related to each other**==. If the file gets crowded, you can always move your custom components to separate files.
 
 ==You can have multiple components per one file==, and that this might make sense if a component is really only getting used in that file and not in other files. Thus far, we always had one component per file, and that generally is a good rule to keep, but if you have ==a component that is really only getting used by the other component in that file==, having both components in the same file can make sense too.
 
