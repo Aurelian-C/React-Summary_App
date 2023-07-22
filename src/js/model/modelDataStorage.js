@@ -3300,67 +3300,87 @@ const Adding_authentication_to_React_apps = {
   title: '<p class="card__title--2">Adding authentication to React apps</p>',
   sections: [
     {
-      sectionTitle: 'Module Introduction',
+      sectionTitle: 'Authentication: user login with Supabase',
       sectionSource: '',
     },
     {
-      sectionTitle: 'What, How & Why?',
+      sectionTitle: 'Authorization: protecting routes',
       sectionSource: '',
     },
     {
-      sectionTitle: 'More on "Authentication Tokens"',
+      sectionTitle: 'User logout',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Starting Setup & First Steps',
+      sectionTitle: 'Building the sign up form',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Adding User Signup',
+      sectionTitle: 'User sign up',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Showing Feedback To The User',
+      sectionTitle: 'Authorization on Supabase: protecting database (RLS)',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Adding User Login',
+      sectionTitle: 'Updating user data and password',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Managing The Auth State With Context',
+      sectionTitle: '---- What, How & Why?',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Using The Token For Requests To Protected Resources',
+      sectionTitle: '---- More on "Authentication Tokens"',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Redirecting The User',
+      sectionTitle: '---- Starting Setup & First Steps',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Adding Logout',
+      sectionTitle: '---- Adding User Signup',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Protecting Frontend Pages',
+      sectionTitle: '---- Showing Feedback To The User',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Persisting The User Authentication Status',
+      sectionTitle: '---- Adding User Login',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Adding Auto-Logout',
+      sectionTitle: '---- Managing The Auth State With Context',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Finishing Steps',
+      sectionTitle: '---- Using The Token For Requests To Protected Resources',
       sectionSource: '',
     },
     {
-      sectionTitle: 'Module Resources',
+      sectionTitle: '---- Redirecting The User',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '---- Adding Logout',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '---- Protecting Frontend Pages',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '---- Persisting The User Authentication Status',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '---- Adding Auto-Logout',
+      sectionSource: '',
+    },
+    {
+      sectionTitle: '---- Finishing Steps',
       sectionSource: '',
     },
   ],
