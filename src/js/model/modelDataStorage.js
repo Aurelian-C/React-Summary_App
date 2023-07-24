@@ -2022,7 +2022,7 @@ const React_Router = {
         <li>- Either pass a <code>to</code> value (same type as <code><<span>Link to</span>></code>) with an optional second <code>{ replace, state }</code> arg, or</li>
         <li>- Pass the delta you want to go in the history stack. For example, <i><code>navigate(-1)</code> is equivalent to hitting the back button</i>.</li>
         </ul>
-        <p>If using <code>replace: true</code>, the navigation will replace the current entry in the history stack instead of adding a new one.</p>`,
+        <p><i>If using <code>replace: true</code>, the navigation will <u>replace the current entry in the history stack</u> instead of adding a new one.</i></p>`,
       ],
     },
     {
