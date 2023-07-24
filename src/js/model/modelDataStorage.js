@@ -3032,15 +3032,37 @@ const React_Query = {
     },
     {
       sectionTitle:
-        'Manually set data into the React Query cache via <code>setQueriesData</code> function',
+        'Manually set data into the React Query cache via <code>setQueryData</code> function',
       sectionSource:
-        '/src/markdowns/16_React_Query/Manually_set_data_into_the_React_Query_cache_via_setQueriesData.html',
+        '/src/markdowns/16_React_Query/Manually_set_data_into_the_React_Query_cache_via_setQueryData.html',
       highlights: {
-        highlight2: ['<code>setQueriesData</code>'],
+        highlight2: ['<code>setQueryData</code>'],
       },
       tooltips: [
-        `<p>You can <i>manually set data into the React Query cache</i> via <code>queryClient.setQueriesData</code> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
-        <p><code>setQueriesData</code> is a synchronous function that can be <i>used to immediately <u>update cached data of multiple queries</u> by using filter function or partially matching the query key. Only queries that match the passed <code>queryKey</code> or <code>queryFilter</code> will be updated - no new cache entries will be created.</i> Under the hood, <code>setQueryData</code> is called for each existing query</p>
+        `<p>You can <i>manually set data into the React Query cache</i> via <code>queryClient.setQueryData</code> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
+        <p><code>setQueryData</code> is a <u>synchronous function</u> that can be used to immediately <i>update a query's cached data</i>. If the query does not exist, it will be created.</p>
+        <p>To update multiple queries at once and match query keys partially, you need to use <code>queryClient.setQueriesData</code> instead.</p>
+        `,
+        `<h3>You can use an updater function</h3>
+        <p>For convenience in syntax, you can also pass an updater function which receives the current data value and returns the new one: <code>setQueryData(queryKey, oldData => newData)</code></p>
+        <p><i>IMMUTABILITY: Updates via <code>setQueryData</code> must be performed in an immuatable way.</i> DO NOT attempt to write directly to the cache by mutating <code>oldData</code> or data that you retrieved via <code>getQueryData</code> in place.</p>
+        `,
+        `<h3>Difference between using <code>setQueryData</code> and <code>fetchQuery</code></h3>
+        <p>The difference between using <code>setQueryData</code> and <code>fetchQuery</code> is that <i><code>setQueryData</code> is synchronous</i> and <i>assumes that you already synchronously have the data available</i>. If you need to fetch the data asynchronously, it's suggested that you either re-fetch the query key or use <code>fetchQuery</code> to handle the asynchronous fetch.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle:
+        'Manually remove data from React Query cache with <code>removeQueries</code> function',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Manually_remove_data_from_React_Query_cache_with_removeQueries.html',
+      highlights: {
+        highlight2: ['<code>removeQueries</code>'],
+      },
+      tooltips: [
+        `<p>You can <i>manually remove data from React Query cache</i> with <code>queryClient.removeQueries</code> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
+        <p>The <code>removeQueries</code> method can be used to <i>remove queries from the cache based on their query keys or any other functionally accessible property/state of the query</i>. By writing <code>queryClient.removeQueries()</code> without any parameter, you will remove all queries that have been accumulated in the cache.</p>
         `,
       ],
     },
