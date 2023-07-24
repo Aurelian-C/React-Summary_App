@@ -3021,9 +3021,26 @@ const React_Query = {
       sectionSource: '/src/markdowns/16_React_Query/Query_invalidation.html',
 
       tooltips: [
-        `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <code>invalidateQueries</code> method that lets you intelligently <u>mark queries as stale</u></i> and potentially re-fetch them too!</p>`,
+        `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <code>invalidateQueries</code> method that lets you intelligently <u>mark queries as stale</u></i> and potentially re-fetch them too!</p>
+        <p>The <code>QueryClient</code> can be used to <u>interact with a cache</u>.</p>
+        `,
         `<h3>Query matching with <code>invalidateQueries</code></h3>
+        <p>The <code>invalidateQueries</code> method can be used to <i>invalidate and re-fetch single or multiple queries in the cache based on their query keys or any other functionally accessible property/state of the query</i>. By default, all matching queries are immediately marked as invalid and active queries are re-fetched in the background.</p>
         <p>When using APIs like <code>invalidateQueries</code> and <code>removeQueries</code> (and others that support partial query matching), <i>you can <u>match multiple queries by their prefix</u>, or get really specific and <u>match an exact query</u></i>.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle:
+        'Manually set data into the React Query cache via <code>setQueriesData</code> function',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Manually_set_data_into_the_React_Query_cache_via_setQueriesData.html',
+      highlights: {
+        highlight2: ['<code>setQueriesData</code>'],
+      },
+      tooltips: [
+        `<p>You can <i>manually set data into the React Query cache</i> via <code>queryClient.setQueriesData</code> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
+        <p><code>setQueriesData</code> is a synchronous function that can be <i>used to immediately <u>update cached data of multiple queries</u> by using filter function or partially matching the query key. Only queries that match the passed <code>queryKey</code> or <code>queryFilter</code> will be updated - no new cache entries will be created.</i> Under the hood, <code>setQueryData</code> is called for each existing query</p>
         `,
       ],
     },

@@ -2,6 +2,8 @@
 
 Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, ==the `QueryClient` has an `invalidateQueries` method that lets you intelligently **mark queries as stale**== and potentially re-fetch them too!
 
+> **NOTE**: The `QueryClient` can be used to _interact with a cache_.
+
 ```react
 // Invalidate every query in the cache
 queryClient.invalidateQueries()
@@ -14,6 +16,19 @@ When a query is invalidated with `invalidateQueries`, two things happen:
 
 - It is marked as stale. This stale state overrides any `staleTime` configurations being used in `useQuery` or related hooks
 - If the query is currently being rendered via `useQuery` or related hooks, it will also be re-fetched in the background
+
+The `invalidateQueries` method can be ==used to **_invalidate and re-fetch single or multiple queries in the cache_ based on their query keys or any other functionally accessible property/state of the query**. By default, all matching queries are immediately marked as invalid and active queries are re-fetched in the background.==
+
+- If you **do not want active queries to re-fetch**, and simply be marked as invalid, you can use the `refetchType: 'none'` option.
+- If you **want inactive queries to re-fetch** as well, use the `refetchType: 'all'` option
+
+```react
+await queryClient.invalidateQueries({
+  queryKey: ['posts'],
+  exact,
+  refetchType: 'active',
+}, { throwOnError, cancelRefetch })
+```
 
 ## Query matching with `invalidateQueries`
 
@@ -111,3 +126,5 @@ const todoListQuery = useQuery({
 ## References
 
 1. [Query Invalidation - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/mutations)
+1. [QueryClient - tanstack.com](https://tanstack.com/query/latest/docs/react/reference/QueryClient)
+1. [`queryClient.invalidateQueries` - tanstack.com](https://tanstack.com/query/latest/docs/react/reference/QueryClient#queryclientinvalidatequeries)
