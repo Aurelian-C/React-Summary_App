@@ -3341,17 +3341,19 @@ const Adding_authentication_to_React_apps = {
     {
       sectionTitle: 'Authentication: user login with Supabase',
       sectionSource: '',
+      highlights: {
+        highlight1: ['Authentication'],
+      },
     },
     {
       sectionTitle: 'Authorization: protecting routes',
       sectionSource: '',
+      highlights: {
+        highlight1: ['Authorization'],
+      },
     },
     {
       sectionTitle: 'User logout',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: 'Building the sign up form',
       sectionSource: '',
     },
     {
@@ -3364,62 +3366,6 @@ const Adding_authentication_to_React_apps = {
     },
     {
       sectionTitle: 'Updating user data and password',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- What, How & Why?',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- More on "Authentication Tokens"',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Starting Setup & First Steps',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Adding User Signup',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Showing Feedback To The User',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Adding User Login',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Managing The Auth State With Context',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Using The Token For Requests To Protected Resources',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Redirecting The User',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Adding Logout',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Protecting Frontend Pages',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Persisting The User Authentication Status',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Adding Auto-Logout',
-      sectionSource: '',
-    },
-    {
-      sectionTitle: '---- Finishing Steps',
       sectionSource: '',
     },
   ],
