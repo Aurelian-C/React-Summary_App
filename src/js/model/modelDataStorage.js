@@ -3097,7 +3097,7 @@ const React_Query = {
         `<h3>The <code>mutationFn</code> receives only a single parameter</h3>
         <p>You can pass variables to your mutations function by calling the <code>.mutate()</code> function with a <i>single variable or object</i>. The <code>mutationFn</code> receives only a single parameter, so <i>if you want to pass to <code>mutationFn</code> multiple values, you need to wrap them into an object</i>.</p>
         `,
-        `<h3>Automatically update the UI after mutate server's data: <code>onSucces</code> method & <code>queryClient.invalidateQuerie()</code> method</h3>
+        `<h3>Automatically update the UI after mutate server's data: <code>onSucces</code> method & <code>queryClient.invalidateQueries()</code> method</h3>
         <p><i>By defining only the <code>mutationFn</code> property, the UI will not be update automatically after we mutate the data on our server.</i> If we want to trigger automatically UI updates after we mutate the data that's on our server, to <code>useMutation()</code> we can pass another property that is optional, and is called <code>onSucces</code>. <code>onSucces</code> will hold a method that will <i>invalidating the cache as soon as the mutation is done</i>, so with <code>onSucces</code> method we tell React Query what to do as soon as the mutation was successful.</p>
         <p>We <i>manually invalidating the cache</i> by using the <code>queryClient.invalidateQueries()</code> method. This method tells React Query to immediately re-fetch the data that's on our server.</p>
         <ul>We can invalidate a query by passing to <code>.invalidateQueries()</code> one of two options:
