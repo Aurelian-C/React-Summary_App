@@ -503,7 +503,9 @@ const Styling_React_components = {
       },
       tooltips: [
         `<h3>Styled components package</h3>
-        <p>Styled components is <i>a package</i> that helps you <i>build components which have certain styles attached to them</i>, where <i>the styles really only affect the components to which they were attached and not any other components</i>.</p>`,
+        <p>Styled components is <i>a package</i> that helps you <i>build components which have certain styles attached to them</i>, where <i>the styles really only affect the components to which they were attached and not any other components</i>.</p>
+        <p>Styled components allow us to <i>write CSS right inside our JavaScript component files</i>.</p>
+        `,
         `<h3>Styled components & dynamic props</h3>`,
         `<h3>Styled components & media queries</h3>`,
       ],
