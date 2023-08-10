@@ -3147,9 +3147,9 @@ const Advanced_React_patterns = {
     '<p class="card__title--2">Reusability in React: advanced React patterns</p>',
   sections: [
     {
-      sectionTitle: 'An overview of reusability in React',
+      sectionTitle: 'How to reuse code in React?',
       sectionSource:
-        '/src/markdowns/17_Reusability_in_React_advanced_React_patterns/An_overview_of_reusability_in_React.html',
+        '/src/markdowns/17_Reusability_in_React_advanced_React_patterns/How_to_reuse_code_in_React.html',
       tooltips: [``],
     },
     {
