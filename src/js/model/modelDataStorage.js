@@ -3150,7 +3150,18 @@ const Advanced_React_patterns = {
       sectionTitle: 'How to reuse code in React?',
       sectionSource:
         '/src/markdowns/17_Reusability_in_React_advanced_React_patterns/How_to_reuse_code_in_React.html',
-      tooltips: [``],
+      tooltips: [
+        `<ul>In React, we basically might want to reuse two big types of code:
+        <li>1. we can <i>reuse pieces of <u>UI</u></i>;</li>
+        <li>2. we can <i>reuse some <u>stateful logic</u></i>, so logic that contains at least one React hook, no matter which one.</li>
+        </ul>`,
+        `<h3>Advanced patterns</h3>
+        <ul>If we need to <i>reuse visuals and stateful logic at the same time</i> in some more advanced ways, we have more advanced patterns. I say pattern because these are not things that are baked into React, so they are not React features. Instead, they are simply clever ways of using React that have emerged over time in order to solve certain problems.
+        <li>- <i>Render props pattern</i>: with render props, the user of a component has complete control over what the component actually renders by <u>passing in a function as a prop</u>. This function basically tells the component what and how to render.</li>
+        <li>- <i>Compound component pattern</i>: with compound component, we will have multiple components that play together in order to create one big, let's call it super component, which is then the compound component. This pattern allows us to <u>build extremely self-contained components</u> that need to, or that want to manage their own state internally, so without that state being necessary inside the parent component that uses the compound component.</li>
+        </ul>
+        `,
+      ],
     },
     {
       sectionTitle: 'The Render Props pattern',
@@ -3159,7 +3170,9 @@ const Advanced_React_patterns = {
       highlights: {
         highlight2: ['Render Props'],
       },
-      tooltips: [``],
+      tooltips: [
+        `<p>The Render Prop Pattern is all about <i>passing in a prop called <code>render</code>, which is a function that a component uses to know <u>what it should render</u> and <u>how to do it</u></i>.</p>`,
+      ],
     },
     {
       sectionTitle: 'The Higher-Order Components (HOC) pattern',
@@ -3168,7 +3181,9 @@ const Advanced_React_patterns = {
       highlights: {
         highlight2: ['Higher-Order Components (HOC)'],
       },
-      tooltips: [``],
+      tooltips: [
+        `<p>A Higher Order Component is simply a component that <i>takes in another component</i> and then <i>returns a new component</i> that is better, so an enhanced version of the initial component.</p>`,
+      ],
     },
     {
       sectionTitle: 'The Compound Component pattern',
@@ -3177,7 +3192,13 @@ const Advanced_React_patterns = {
       highlights: {
         highlight2: ['Compound Component'],
       },
-      tooltips: [``],
+      tooltips: [
+        `<p>Compound components is a <u>design pattern</u> used in React where <i>you have a component that doesn't render any UI itself, but instead serves as a container for other components. These "child" components are typically tightly related and work together to create a unified user interface.</i></p>
+        <p>By using compound components, you can provide a way for developers to compose complex UI structures while <i>keeping the control and logic centralized in the parent container component.</i> This pattern is especially useful when you want to maintain consistency and encapsulation while allowing for flexibility in how the components are used.</p>
+        <p>To implement compound components in React, you'll typically <i>create a parent container component that takes child components as its children and provides them with necessary props or context</i>. This way, you can ensure that the child components work together seamlessly within the parent container.</p>
+        <p>The idea of a Compound Component is that we can <i>create a <u>set of related components</u> that <u>together achieve a common and useful task</u></i>, for example, implementing a counter. The Compound Component pattern can also be used in all kinds of components that are actually more useful, for example modal windows, pagination, tables, and so on.</p>
+        <p>The alternative to Compound Component would be to create a component with tons of props to exactly configure the component as we wanted, so that would then create a so-called props explosion.</p>`,
+      ],
     },
   ],
 };

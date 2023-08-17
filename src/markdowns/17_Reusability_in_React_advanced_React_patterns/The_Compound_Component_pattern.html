@@ -229,7 +229,7 @@ mjx-container { break-inside: avoid; }
   /* for focus mode */
   --text-color5: rgba(170, 178, 180, 0.5);
   /* link color */
-  --link-color: #0091ff;
+  --link-color: #0091FF;
   /* table color */
   --table-border-color: #555;
   --table-thead-color: #2b2d2e;
@@ -264,7 +264,7 @@ mjx-container { break-inside: avoid; }
   --focus-ring-color: var(--focus-color);
   /* codeblock color */
   --code-red-color: #FF75B5;
-  --code-yellow-color: #e8ff94;
+  --code-yellow-color: #E8FF94;
   --code-cyan-color: #19f9d8;
   --code-blue-color: #6FC1FF;
   --code-purple-color: #FF75B5;
@@ -334,6 +334,7 @@ body {
 /* link */
 #write a:not([role="menuitem"]) {
   color: var(--link-color) !important;
+  text-decoration: none;
 }
 
 #write a:not([role="menuitem"]):hover {
@@ -1212,16 +1213,12 @@ footer.ty-footer {
 code {
   font-size: 0.9em;
   background-color: var(--bg-color5);
-	padding: .3em;
-  	padding-top: 0.15em;
-  	padding-bottom: 0.15em;
+  padding: .3em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
   border: 2px solid #666;
   border-radius: 0.25rem;
-  color: var(--text-color1);	
-}
-
-a code {
-  color: var(--link-color) !important;
+  color: var(--text-color1);
 }
 
 /* codeblock */
@@ -1485,7 +1482,7 @@ pre.md-meta-block:active {
 }
 
 #typora-source .CodeMirror-lines {
-  max-width: 1100px;
+  max-width: 800px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -2192,6 +2189,7 @@ mark {
     border-radius: 3px;
     padding: 1px 3px 1px 3px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 .task-list-done {
@@ -2206,59 +2204,21 @@ kbd {
   box-shadow: 0 2px 0 #333;
 }
 
+blockquote p {
+  text-indent: 0px;
+}
+
 p {
-    text-align: justify;
-    text-indent: 30px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
-blockquote > p {
-    text-indent: 0px;
-}
 
-li {
-    text-align: justify;
-}
-
-#write a:not([role="menuitem"]) {
-    text-decoration: none;
-}
-
-#write {
-    max-width: 950px;
-}
-
-@media only screen and (max-width: 850px) {
-  #write {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #write > h1:first-child,
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    width: 160px;
-  }
-
-  p {
-    text-indent: 20px;
-  }
-}
 
 
 </style><title>The_Compound_Component_pattern</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='the-compound-component-pattern'><span>The Compound Component pattern</span></h1><p><span>The idea of a Compound Component is that we can </span><mark><span>create a </span><strong><span>set of related components</span></strong><span> that </span><strong><span>together achieve a common and useful task</span></strong></mark><span>, for example, implementing a counter. The Compound Component pattern can also be used in all kinds of components that are actually more useful, for example modal windows, pagination, tables, and so on.</span></p><p><mark><span>The alternative to Compound Component would be to create </span><em><span>a component with tons of props</span></em><span> to exactly configure the component as we wanted, so that would then create a so-called </span><strong><span>props explosion</span></strong><span>.</span></mark></p><p><img src="../../img/Reusability_in_React08.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React08"></p><p><mark><span>The way we implement the Compound Component pattern is that we create a parent component, and then a few different child components that really belong to the parent, and that really only make sense when used together with the parent component.</span></mark><span> A good example of this is the HTML </span><code>&lt;select&gt;</code><span> and </span><code>&lt;option&gt;</code><span> elements. The </span><code>&lt;select&gt;</code><span> element implements a select box, and the </span><code>&lt;option&gt;</code><span> element implements each of the select options inside the select box. These </span><code>&lt;option&gt;</code><span> elements can really only be used inside a </span><code>&lt;select&gt;</code><span> element, so they only make sense within </span><code>&lt;select&gt;</code><span> element.</span></p><p><mark><span>The parent component will keep all the state and state updating logic, and it will pass to its children components via Context API.</span></mark></p><p><img src="../../img/Reusability_in_React06.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React06"></p><p><img src="../../img/Reusability_in_React07.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React07"></p><h2 id='another-example'><span>Another example</span></h2><p><img src="../../img/Reusability_in_React09.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React09"><span> </span></p><p><img src="../../img/Reusability_in_React10.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React10"></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/the-ultimate-react-course/'><span>The Ultimate React Course: React, Redux &amp; More - Jonas Schmedtmann</span></a></p></li></ol></div></div>
+<div id='write'  class=''><h1 id='the-compound-component-pattern'><span>The Compound Component pattern</span></h1><p><span>Compound components is a </span><strong><span>design pattern</span></strong><span> used in React where </span><mark><span>you have a component that doesn&#39;t render any UI itself, but instead serves as a container for other components. These &quot;child&quot; components are typically tightly related and work together to create a unified user interface.</span></mark></p><p><mark><span>By using compound components, you can provide a way for developers to compose complex UI structures while </span><strong><span>keeping the control and logic centralized in the parent container component.</span></strong></mark><span> This pattern is especially useful when you want to maintain consistency and encapsulation while allowing for flexibility in how the components are used.</span></p><p><mark><span>To implement compound components in React, you&#39;ll typically create a parent container component that takes child components as its children and provides them with necessary props or context.</span></mark><span> This way, you can ensure that the child components work together seamlessly within the parent container.</span></p><p><span>The idea of a Compound Component is that we can </span><mark><span>create a </span><strong><span>set of related components</span></strong><span> that </span><strong><span>together achieve a common and useful task</span></strong></mark><span>, for example, implementing a counter. The Compound Component pattern can also be used in all kinds of components that are actually more useful, for example modal windows, pagination, tables, and so on.</span></p><p><mark><span>The alternative to Compound Component would be to create </span><em><span>a component with tons of props</span></em><span> to exactly configure the component as we wanted, so that would then create a so-called </span><strong><span>props explosion</span></strong><span>.</span></mark></p><p><img src="../../img/Reusability_in_React08.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React08"></p><p><mark><span>The way we implement the Compound Component pattern is that we create a parent component, and then a few different child components that really belong to the parent, and that really only make sense when used together with the parent component.</span></mark><span> A good example of this is the HTML </span><code>&lt;select&gt;</code><span> and </span><code>&lt;option&gt;</code><span> elements. The </span><code>&lt;select&gt;</code><span> element implements a select box, and the </span><code>&lt;option&gt;</code><span> element implements each of the select options inside the select box. These </span><code>&lt;option&gt;</code><span> elements can really only be used inside a </span><code>&lt;select&gt;</code><span> element, so they only make sense within </span><code>&lt;select&gt;</code><span> element.</span></p><p><mark><span>The parent component will keep all the state and state updating logic, and it will pass to its children components via Context API.</span></mark></p><p><img src="../../img/Reusability_in_React06.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React06"></p><p><img src="../../img/Reusability_in_React07.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React07"></p><h2 id='another-example'><span>Another example</span></h2><p><img src="../../img/Reusability_in_React09.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React09"><span> </span></p><p><img src="../../img/Reusability_in_React10.jpg" referrerpolicy="no-referrer" alt="Reusability_in_React10"></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/the-ultimate-react-course/'><span>The Ultimate React Course: React, Redux &amp; More - Jonas Schmedtmann</span></a></p></li></ol></div></div>
 </body>
 </html>
