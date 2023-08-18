@@ -2021,10 +2021,10 @@ const React_Router = {
         `,
         `<h3>Type declaration</h3>
         <ul>The <code>navigate</code> function has two signatures:
-        <li>- Either pass a <code>to</code> value (same type as <code><<span>Link to</span>></code>) with an optional second <code>{ replace, state }</code> arg, or</li>
+        <li>- Either pass a <code>to</code> value (same type as <code><<span>Link to</span>></code>) with an optional second <code>options</code> arg. <i>If using <code>replace: true</code>, the navigation will <u>replace the current entry in the history stack</u> instead of adding a new one.</i> ex: <code>navigate('/account', { replace: true })</code></li>
         <li>- Pass the delta you want to go in the history stack. For example, <i><code>navigate(-1)</code> is equivalent to hitting the back button</i>.</li>
         </ul>
-        <p><i>If using <code>replace: true</code>, the navigation will <u>replace the current entry in the history stack</u> instead of adding a new one.</i></p>`,
+        <p></p>`,
       ],
     },
     {

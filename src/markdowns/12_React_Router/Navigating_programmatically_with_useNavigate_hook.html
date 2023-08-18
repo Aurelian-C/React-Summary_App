@@ -310,7 +310,7 @@ span.cm-strikethrough { text-decoration: line-through; }
   /* for focus mode */
   --text-color5: rgba(170, 178, 180, 0.5);
   /* link color */
-  --link-color: #0091ff;
+  --link-color: #0091FF;
   /* table color */
   --table-border-color: #555;
   --table-thead-color: #2b2d2e;
@@ -345,7 +345,7 @@ span.cm-strikethrough { text-decoration: line-through; }
   --focus-ring-color: var(--focus-color);
   /* codeblock color */
   --code-red-color: #FF75B5;
-  --code-yellow-color: #e8ff94;
+  --code-yellow-color: #E8FF94;
   --code-cyan-color: #19f9d8;
   --code-blue-color: #6FC1FF;
   --code-purple-color: #FF75B5;
@@ -415,6 +415,7 @@ body {
 /* link */
 #write a:not([role="menuitem"]) {
   color: var(--link-color) !important;
+  text-decoration: none;
 }
 
 #write a:not([role="menuitem"]):hover {
@@ -1293,16 +1294,12 @@ footer.ty-footer {
 code {
   font-size: 0.9em;
   background-color: var(--bg-color5);
-	padding: .3em;
-  	padding-top: 0.15em;
-  	padding-bottom: 0.15em;
+  padding: .3em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
   border: 2px solid #666;
   border-radius: 0.25rem;
-  color: var(--text-color1);	
-}
-
-a code {
-  color: var(--link-color) !important;
+  color: var(--text-color1);
 }
 
 /* codeblock */
@@ -1566,7 +1563,7 @@ pre.md-meta-block:active {
 }
 
 #typora-source .CodeMirror-lines {
-  max-width: 1100px;
+  max-width: 800px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -2273,6 +2270,7 @@ mark {
     border-radius: 3px;
     padding: 1px 3px 1px 3px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 .task-list-done {
@@ -2287,59 +2285,23 @@ kbd {
   box-shadow: 0 2px 0 #333;
 }
 
+blockquote p {
+  text-indent: 0px;
+}
+
 p {
-    text-align: justify;
-    text-indent: 30px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
-blockquote > p {
-    text-indent: 0px;
-}
 
-li {
-    text-align: justify;
-}
-
-#write a:not([role="menuitem"]) {
-    text-decoration: none;
-}
-
-#write {
-    max-width: 950px;
-}
-
-@media only screen and (max-width: 850px) {
-  #write {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #write > h1:first-child,
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    width: 160px;
-  }
-
-  p {
-    text-indent: 20px;
-  }
-}
 
 
 </style><title>Navigating_programmatically_with_useNavigate_hook</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='navigating-programmatically-with-usenavigate-hook'><span>Navigating programmatically with </span><code>useNavigate</code><span> hook</span></h1><p><span>Up until now you only use </span><strong><span>imperative routing</span></strong><span>. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it&#39;s not the only way.</span></p><p><span>When the </span><a href='https://reactrouter.com/en/main/start/concepts#url'><span>URL</span></a><span> changes we call that a &quot;navigation&quot;. There are </span><mark><span>two ways to navigate in React Router</span></mark><span>:</span></p><ul><li><p><a href='https://reactrouter.com/en/main/components/link'><code>Link</code></a></p></li><li><p><a href='https://reactrouter.com/en/main/hooks/use-navigate'><code>navigate</code></a><span> hook</span></p></li></ul><p><span>In some situations, for example maybe because some form was submitted or because some timer expired, </span><mark><span>you as a programmer (not the user) might want to trigger a navigation action from inside your React code</span></mark><span>, and you can do this by using a hook provided by </span><code>react-router-dom</code><span>. To trigger a navigation action from inside your React code, you can import the </span><code>useNavigate</code><span> hook and use it in your components to get access to a navigate function. </span><mark><span>This navigate function can be called to trigger a navigation action, so to </span><strong><span>switch to a different route from inside your code</span></strong></mark><span>, so </span><strong><span>programmatically</span></strong><span>.</span></p><p><mark><strong><span>The </span><code>useNavigate</code><span> hook returns a function that allows you, the programmer, to change the URL whenever you want</span></strong></mark><span>. You could do it on a timeout: </span></p><p><img src="../../img/useNavigate_hook.jpg" referrerpolicy="no-referrer" alt="useNavigate_hook"></p><blockquote><p><strong><span>Important</span></strong><span>: You should have a good reason to use </span><code>navigate</code><span> instead of </span><code>&lt;Link&gt;</code><span>. This makes us very sad:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="react"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="react"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">onClick</span>={() <span class="cm-operator">=&gt;</span> <span class="cm-variable">navigate</span>(<span class="cm-string">"/somewhere"</span>)} <span class="cm-tag cm-bracket">/&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre></blockquote><p><span>Aside from links and forms, very few interactions should change the URL because it introduces complexity around accessibility and user expectations.</span></p><h2 id='example'><span>Example</span></h2><p><img src="../../img/useNavigate_hook1.jpg" referrerpolicy="no-referrer" alt="useNavigate_hook1"></p><blockquote><p><strong><span>Note</span></strong><span>: You should not create buttons and then navigate programmatically, simply use a links instead. I only use a button to show you how </span><code>useNavigate</code><span> function generally works.</span></p><p><span>The button click triggered a function, and inside that function we then had the actual code, the programmatic imperative navigation code for moving to a different page.</span></p><p><span>Again, you should use a link instead of a button but this is how you would navigate programmatically, if you would need to do so, for example, because some timer expired or anything like that.</span></p></blockquote><h2 id='type-declaration'><span>Type declaration</span></h2><p><span>The </span><code>navigate</code><span> function has two signatures:</span></p><ul><li><p><span>Either pass a </span><code>to</code><span> value (same type as </span><code>&lt;Link to&gt;</code><span>) with an optional second </span><code>{ replace, state }</code><span> arg, or</span></p></li><li><p><span>Pass the delta you want to go in the history stack. For example, </span><mark><code>navigate(-1)</code><span> is equivalent to hitting the back button</span></mark><span>.</span></p></li></ul><p><span>If using </span><code>replace: true</code><span>, the navigation will replace the current entry in the history stack instead of adding a new one.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/start/concepts#navigate-function'><span>Navigate function - reactrouter.com</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/hooks/use-navigate'><code>useNavigate</code><span> - reactrouter.com</span></a></p></li></ol></div></div>
+<div id='write'  class=''><h1 id='navigating-programmatically-with-usenavigate-hook'><span>Navigating programmatically with </span><code>useNavigate</code><span> hook</span></h1><p><span>Up until now you only use </span><strong><span>imperative routing</span></strong><span>. You allow users to navigate between your app pages by providing links which can be clicked. This is the default way of providing navigation to users, but it&#39;s not the only way.</span></p><p><span>When the </span><a href='https://reactrouter.com/en/main/start/concepts#url'><span>URL</span></a><span> changes we call that a &quot;navigation&quot;. There are </span><mark><span>two ways to navigate in React Router</span></mark><span>:</span></p><ul><li><p><a href='https://reactrouter.com/en/main/components/link'><code>Link</code></a></p></li><li><p><a href='https://reactrouter.com/en/main/hooks/use-navigate'><code>navigate</code></a><span> hook</span></p></li></ul><p><span>In some situations, for example maybe because some form was submitted or because some timer expired, </span><mark><span>you as a programmer (not the user) might want to trigger a navigation action from inside your React code</span></mark><span>, and you can do this by using a hook provided by </span><code>react-router-dom</code><span>. To trigger a navigation action from inside your React code, you can import the </span><code>useNavigate</code><span> hook and use it in your components to get access to a navigate function. </span><mark><span>This navigate function can be called to trigger a navigation action, so to </span><strong><span>switch to a different route from inside your code</span></strong></mark><span>, so </span><strong><span>programmatically</span></strong><span>.</span></p><p><mark><strong><span>The </span><code>useNavigate</code><span> hook returns a function that allows you, the programmer, to change the URL whenever you want</span></strong></mark><span>. You could do it on a timeout: </span></p><p><img src="../../img/useNavigate_hook.jpg" referrerpolicy="no-referrer" alt="useNavigate_hook"></p><blockquote><p><strong><span>Important</span></strong><span>: You should have a good reason to use </span><code>navigate</code><span> instead of </span><code>&lt;Link&gt;</code><span>. This makes us very sad:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="react"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="react"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">li</span> <span class="cm-attribute">onClick</span>={() <span class="cm-operator">=&gt;</span> <span class="cm-variable">navigate</span>(<span class="cm-string">"/somewhere"</span>)} <span class="cm-tag cm-bracket">/&gt;</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre></blockquote><p><span>Aside from links and forms, very few interactions should change the URL because it introduces complexity around accessibility and user expectations.</span></p><h2 id='example'><span>Example</span></h2><p><img src="../../img/useNavigate_hook1.jpg" referrerpolicy="no-referrer" alt="useNavigate_hook1"></p><blockquote><p><strong><span>Note</span></strong><span>: You should not create buttons and then navigate programmatically, simply use a links instead. I only use a button to show you how </span><code>useNavigate</code><span> function generally works.</span></p><p><span>The button click triggered a function, and inside that function we then had the actual code, the programmatic imperative navigation code for moving to a different page.</span></p><p><span>Again, you should use a link instead of a button but this is how you would navigate programmatically, if you would need to do so, for example, because some timer expired or anything like that.</span></p></blockquote><h2 id='the-navigate-function-has-two-signatures'><span>The </span><code>navigate</code><span> function has two signatures</span></h2><ul><li><p><span>Either pass a </span><code>to</code><span> value (same type as </span><code>&lt;Link to&gt;</code><span>) with an optional second </span><code>options</code><span> argument (similar to the props you can pass to </span><a href='https://reactrouter.com/en/main/components/link'><code>&lt;Link&gt;</code></a><span>), or</span></p></li><li><p><span>Pass the delta you want to go in the history stack. For example, </span><mark><code>navigate(-1)</code><span> is equivalent to hitting the back button</span></mark><span>.</span></p></li></ul><h4 id='optionsreplace'><code>options.replace</code></h4><p><span>Specifying </span><code>replace: true</code><span> will cause the navigation to </span><mark><span>replace the current entry in the history stack instead of adding a new one</span></mark><span>.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="react"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="react"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> { <span class="cm-def">useNavigate</span> } <span class="cm-keyword">from</span> <span class="cm-string">'react-router-dom'</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">Component</span>() {</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-keyword">const</span> <span class="cm-def">navigate</span> <span class="cm-operator">=</span> <span class="cm-variable">useNavigate</span>();</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable-2">navigate</span>(<span class="cm-string">"/account"</span>, { <span class="cm-property">replace</span>: <span class="cm-atom">true</span> });</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 138px;"></div><div class="CodeMirror-gutters" style="display: none; height: 138px;"></div></div></div></pre><h4 id='optionsstate'><code>options.state</code></h4><p><span>You may include an optional state value in to store in </span><a href='https://developer.mozilla.org/en-US/docs/Web/API/History/state'><span>history state</span></a><span>.</span></p><h4 id='optionsrelative'><code>options.relative</code></h4><p><span>By default, navigation is relative to the route hierarchy (</span><code>relative: &quot;route&quot;</code><span>), so </span><code>..</code><span> will go up one </span><code>Route</code><span> level. Occasionally, you may find that you have matching URL patterns that do not make sense to be nested, and you&#39;d prefer to use relative </span><em><span>path</span></em><span> routing. You can opt into this behavior with </span><code>relative: &quot;path&quot;</code><span>:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="react"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="react"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">// Contact and EditContact do not share additional UI layout</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Route</span> <span class="cm-attribute">path</span>=<span class="cm-string">"/"</span> <span class="cm-attribute">element</span>={<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Layout</span> <span class="cm-tag cm-bracket">/&gt;</span>}<span class="cm-tag cm-bracket">&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Route</span> <span class="cm-attribute">path</span>=<span class="cm-string">"contacts/:id"</span> <span class="cm-attribute">element</span>={<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Contact</span> <span class="cm-tag cm-bracket">/&gt;</span>} <span class="cm-tag cm-bracket">/&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">Route</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">path</span>=<span class="cm-string">"contacts/:id/edit"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-attribute">element</span>={<span class="cm-tag cm-bracket">&lt;</span><span class="cm-tag">EditContact</span> <span class="cm-tag cm-bracket">/&gt;</span>}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-tag cm-bracket">/&gt;</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tag cm-bracket">&lt;/</span><span class="cm-tag">Route</span><span class="cm-tag cm-bracket">&gt;</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">function</span> <span class="cm-def">EditContact</span>() {</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// Since Contact is not a parent of EditContact we need to go up one level in the path, instead of one level in the Route hierarchy</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-variable">navigate</span>(<span class="cm-string">".."</span>, { <span class="cm-property">relative</span>: <span class="cm-string">"path"</span> });</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 323px;"></div><div class="CodeMirror-gutters" style="display: none; height: 323px;"></div></div></div></pre><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/start/concepts#navigate-function'><span>Navigate function - reactrouter.com</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/hooks/use-navigate'><code>useNavigate</code><span> - reactrouter.com</span></a></p></li></ol></div></div>
 </body>
 </html>
