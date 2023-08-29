@@ -15,7 +15,7 @@ const prefetchTodos = async () => {
 - If a `staleTime` is passed eg. `prefetchQuery('todos', fn, { staleTime: 5000 })` and the data is older than the specified staleTime, the query will be fetched
 - If no instances of `useQuery` appear for a prefetched query, it will be deleted and garbage collected after the time specified in `cacheTime`.
 
-The way `queryClient.prefetchQuery()` works is basically exactly the same as the `useQuery` hook itself, so we need a `queryKey` and a `queryFn` inside an object.
+==The way `queryClient.prefetchQuery()` works is basically exactly the same as the `useQuery` hook itself, so we need a `queryKey` and a `queryFn` inside an object.==
 
 ![React_Query03](../../img/React_Query03.jpg)
 

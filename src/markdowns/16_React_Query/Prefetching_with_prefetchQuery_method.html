@@ -310,7 +310,7 @@ span.cm-strikethrough { text-decoration: line-through; }
   /* for focus mode */
   --text-color5: rgba(170, 178, 180, 0.5);
   /* link color */
-  --link-color: #0091ff;
+  --link-color: #0091FF;
   /* table color */
   --table-border-color: #555;
   --table-thead-color: #2b2d2e;
@@ -345,7 +345,7 @@ span.cm-strikethrough { text-decoration: line-through; }
   --focus-ring-color: var(--focus-color);
   /* codeblock color */
   --code-red-color: #FF75B5;
-  --code-yellow-color: #e8ff94;
+  --code-yellow-color: #E8FF94;
   --code-cyan-color: #19f9d8;
   --code-blue-color: #6FC1FF;
   --code-purple-color: #FF75B5;
@@ -415,6 +415,7 @@ body {
 /* link */
 #write a:not([role="menuitem"]) {
   color: var(--link-color) !important;
+  text-decoration: none;
 }
 
 #write a:not([role="menuitem"]):hover {
@@ -1293,16 +1294,12 @@ footer.ty-footer {
 code {
   font-size: 0.9em;
   background-color: var(--bg-color5);
-	padding: .3em;
-  	padding-top: 0.15em;
-  	padding-bottom: 0.15em;
+  padding: .3em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
   border: 2px solid #666;
   border-radius: 0.25rem;
-  color: var(--text-color1);	
-}
-
-a code {
-  color: var(--link-color) !important;
+  color: var(--text-color1);
 }
 
 /* codeblock */
@@ -1566,7 +1563,7 @@ pre.md-meta-block:active {
 }
 
 #typora-source .CodeMirror-lines {
-  max-width: 1100px;
+  max-width: 800px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -2273,6 +2270,7 @@ mark {
     border-radius: 3px;
     padding: 1px 3px 1px 3px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 .task-list-done {
@@ -2287,59 +2285,21 @@ kbd {
   box-shadow: 0 2px 0 #333;
 }
 
+blockquote p {
+  text-indent: 0px;
+}
+
 p {
-    text-align: justify;
-    text-indent: 30px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
-blockquote > p {
-    text-indent: 0px;
-}
 
-li {
-    text-align: justify;
-}
-
-#write a:not([role="menuitem"]) {
-    text-decoration: none;
-}
-
-#write {
-    max-width: 950px;
-}
-
-@media only screen and (max-width: 850px) {
-  #write {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #write > h1:first-child,
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    width: 160px;
-  }
-
-  p {
-    text-indent: 20px;
-  }
-}
 
 
 </style><title>Prefetching_with_prefetchQuery_method</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='pre-fetching-data-with-prefetchquery-method'><span>Pre-fetching data with </span><code>prefetchQuery</code><span> method</span></h1><p><mark><span>Pre-fetching is all about fetching some data that we know might become necessary before we actually need that data to render it on the UI.</span></mark><span> An example is when we implement a pagination: in the context of pagination, pre-fetching means that we fetch the next page before it is actually displayed on the UI.</span></p><p><span>The way pre-fetching works is that we first need get </span><code>const queryClient = useQueryClient()</code><span>, and then on </span><code>queryClient</code><span> we call the </span><code>.prefetchQuery()</code><span> method. You can use the </span><code>prefetchQuery</code><span> method to </span><mark><span>prefetch the results of a query to be placed into the cache</span></mark><span>.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="react"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="react"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">prefetchTodos</span> <span class="cm-operator">=</span> <span class="cm-keyword">async</span> () <span class="cm-operator">=&gt;</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// The results of this query will be cached like a normal query</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">await</span> <span class="cm-variable">queryClient</span>.<span class="cm-property">prefetchQuery</span>(<span class="cm-string">'todos'</span>, <span class="cm-variable">fetchTodos</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre><ul><li><p><span>If data for this query is already in the cache and </span><strong><span>not invalidated</span></strong><span>, the data will not be fetched</span></p></li><li><p><span>If a </span><code>staleTime</code><span> is passed eg. </span><code>prefetchQuery(&#39;todos&#39;, fn, { staleTime: 5000 })</code><span> and the data is older than the specified staleTime, the query will be fetched</span></p></li><li><p><span>If no instances of </span><code>useQuery</code><span> appear for a prefetched query, it will be deleted and garbage collected after the time specified in </span><code>cacheTime</code><span>.</span></p></li></ul><p><span>The way </span><code>queryClient.prefetchQuery()</code><span> works is basically exactly the same as the </span><code>useQuery</code><span> hook itself, so we need a </span><code>queryKey</code><span> and a </span><code>queryFn</code><span> inside an object.</span></p><p><img src="../../img/React_Query03.jpg" referrerpolicy="no-referrer" alt="React_Query03"></p><p><span>An alternative pre-fetching is to use infinite queries for infinite scroll with React Query. So React Query also has that feature built-in, so if you want, you can check out the documentation and read all about that.</span></p><h2 id='manually-priming-a-query'><span>Manually Priming a Query</span></h2><p><span>Alternatively, if you already have the data for your query synchronously available, you don&#39;t need to prefetch it. You can just use the </span><a href='https://tanstack.com/query/v3/docs/react/reference/QueryClient#queryclientsetquerydata'><span>Query Client&#39;s </span><code>setQueryData</code><span> method</span></a><span> to directly add or update a query&#39;s cached result by key.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">queryClient</span>.<span class="cm-property">setQueryData</span>(<span class="cm-string">'todos'</span>, <span class="cm-variable">todos</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/the-ultimate-react-course/'><span>The Ultimate React Course: React, Redux &amp; More - Jonas Schmedtmann</span></a></p></li><li><p><a href='https://tanstack.com/query/v3/docs/react/guides/prefetching'><span>Prefetching - tanstack.com</span></a></p></li></ol></div></div>
+<div id='write'  class=''><h1 id='pre-fetching-data-with-prefetchquery-method'><span>Pre-fetching data with </span><code>prefetchQuery</code><span> method</span></h1><p><mark><span>Pre-fetching is all about fetching some data that we know might become necessary before we actually need that data to render it on the UI.</span></mark><span> An example is when we implement a pagination: in the context of pagination, pre-fetching means that we fetch the next page before it is actually displayed on the UI.</span></p><p><span>The way pre-fetching works is that we first need get </span><code>const queryClient = useQueryClient()</code><span>, and then on </span><code>queryClient</code><span> we call the </span><code>.prefetchQuery()</code><span> method. You can use the </span><code>prefetchQuery</code><span> method to </span><mark><span>prefetch the results of a query to be placed into the cache</span></mark><span>.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="react"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="react"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">const</span> <span class="cm-def">prefetchTodos</span> <span class="cm-operator">=</span> <span class="cm-keyword">async</span> () <span class="cm-operator">=&gt;</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-comment">// The results of this query will be cached like a normal query</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-keyword">await</span> <span class="cm-variable">queryClient</span>.<span class="cm-property">prefetchQuery</span>(<span class="cm-string">'todos'</span>, <span class="cm-variable">fetchTodos</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre><ul><li><p><span>If data for this query is already in the cache and </span><strong><span>not invalidated</span></strong><span>, the data will not be fetched</span></p></li><li><p><span>If a </span><code>staleTime</code><span> is passed eg. </span><code>prefetchQuery(&#39;todos&#39;, fn, { staleTime: 5000 })</code><span> and the data is older than the specified staleTime, the query will be fetched</span></p></li><li><p><span>If no instances of </span><code>useQuery</code><span> appear for a prefetched query, it will be deleted and garbage collected after the time specified in </span><code>cacheTime</code><span>.</span></p></li></ul><p><mark><span>The way </span><code>queryClient.prefetchQuery()</code><span> works is basically exactly the same as the </span><code>useQuery</code><span> hook itself, so we need a </span><code>queryKey</code><span> and a </span><code>queryFn</code><span> inside an object.</span></mark></p><p><img src="../../img/React_Query03.jpg" referrerpolicy="no-referrer" alt="React_Query03"></p><p><span>An alternative pre-fetching is to use infinite queries for infinite scroll with React Query. So React Query also has that feature built-in, so if you want, you can check out the documentation and read all about that.</span></p><h2 id='manually-priming-a-query'><span>Manually Priming a Query</span></h2><p><span>Alternatively, if you already have the data for your query synchronously available, you don&#39;t need to prefetch it. You can just use the </span><a href='https://tanstack.com/query/v3/docs/react/reference/QueryClient#queryclientsetquerydata'><span>Query Client&#39;s </span><code>setQueryData</code><span> method</span></a><span> to directly add or update a query&#39;s cached result by key.</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="js"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="js"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">queryClient</span>.<span class="cm-property">setQueryData</span>(<span class="cm-string">'todos'</span>, <span class="cm-variable">todos</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="display: none; height: 23px;"></div></div></div></pre><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/the-ultimate-react-course/'><span>The Ultimate React Course: React, Redux &amp; More - Jonas Schmedtmann</span></a></p></li><li><p><a href='https://tanstack.com/query/v3/docs/react/guides/prefetching'><span>Prefetching - tanstack.com</span></a></p></li></ol></div></div>
 </body>
 </html>

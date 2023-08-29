@@ -27,6 +27,24 @@ const mutation = useMutation({
 
 You can wire up your invalidations to happen using any of the callbacks available in the [`useMutation` hook](https://tanstack.com/query/latest/docs/react/guides/mutations).
 
+## Invalidate queries with `{active: true}`
+
+`queryClient.invalidateQueries({ active: true })` will ==invalidate all the queries that are currently active on the page==. This is a bit easier, because then ==we don't have to remember any query keys==.
+
+```react
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+
+const queryClient = useQueryClient()
+
+// When this mutation succeeds, invalidate all the queries that are currently active on the page
+const mutation = useMutation({
+  mutationFn: addTodo,
+  onSuccess: () => {
+    queryClient.invalidateQueries({ active: true })
+  },
+})
+```
+
 ## References
 
 1. [Invalidations from Mutations - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/invalidations-from-mutations)
