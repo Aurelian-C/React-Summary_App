@@ -2095,6 +2095,19 @@ const React_Router = {
       ],
     },
     {
+      sectionTitle: 'Get the current route with <code>useLocation</code> hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Get_the_current_route_with_useLocation_hook.html',
+      highlights: {
+        highlight2: ['<code>useLocation</code>'],
+      },
+      tooltips: [
+        ` <p>In React Router, use the <code>useLocation()</code> hook to <i>get the current route</i>. It <i>returns an object containing properties like <u>pathname</u>, <u>search</u>, and <u>hash</u></i>. To get the full URL in a React app, use <code>window.location</code>.</p>
+        <p><code>useLocation()</code> hook can be useful if you'd like to perform some side effect whenever the current location changes.</p>
+        `,
+      ],
+    },
+    {
       sectionTitle:
         'Defining dynamic path segments (path parameter) & using them with <code>useParams</code> hook',
       sectionSource:
