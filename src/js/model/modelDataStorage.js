@@ -122,9 +122,6 @@ const React_basics = {
         <ul>To create a React project with Vite, you need to follow these steps:
         <li>1. In your VSCode terminal write the <i><code>npm create vite@latest</code></i> command;</li>
         <li>2. After your folder is created, you need to <i>manually install the dependencies</i> with <code>npm install</code> or <code>npm i</code>;</li>
-        <li>3. With Vite you now need to<i> manually config ESLint</i> in your project by installing 3 packages: <i><code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></i> and save them as <code>devDependencies</code>;</li>
-        <li>4. You need to config your project to integrate with these packages by creating a new file called <i><code>.eslintrc.json</code></i> that contains an <i><code>{"extends": "react-app"}</code></i> object;</li>
-        <li>5. Finally, you also need to config your Vite project with the <code>vite.config.js</code> file where you need to <i>add the ESLint plugin to <code>plugins</code> array</i>.</li>
         </ul>
         `,
         `<h3>Differences between Vite and Create React App</h3>
@@ -138,11 +135,6 @@ const React_basics = {
         `<h3>Summary</h3>
         <p><i>1. <code>npm create vite@latest</code></i></p>
         <p><i>2. <code>npm install</code></i></p>
-        <ul>3. With Vite, you need to manually install & config ESLint:
-        <li>3.1. <code>npm install eslint vite-plugin-eslint eslint-config-react-app --save-dev</code></li>
-        <li>3.2. Create the <code>.eslintrc.json</code> file with an <code>{"extends": "react-app"}</code> object</li>
-        <li>3.3. In <code>vite.config.js</code> file <code>import eslint from "vite-plugin-eslint"</code> and call <code>eslint()</code> in <code>plugins</code> array</li>
-        </ul>
         `,
       ],
     },
