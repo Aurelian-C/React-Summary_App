@@ -529,10 +529,6 @@ const Styling_React_components = {
         `,
       ],
     },
-    {
-      sectionTitle: 'Dynamic styles with CSS modules',
-      sectionSource: '',
-    },
   ],
 };
 
