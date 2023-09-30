@@ -3416,7 +3416,7 @@ export const dataStorage = [
   React_Query,
   Advanced_React_patterns,
   Deploying_React_apps,
-  Animating_React_Apps,
-  Testing_React_Apps,
+  // Animating_React_Apps,
+  // Testing_React_Apps,
   Adding_authentication_to_React_apps,
 ];
