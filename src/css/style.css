@@ -5,7 +5,7 @@
   font-size: 62.5%;
 
   --card-title--font-size: 2.2rem;
-  --article-title--font-size: 1.3rem;
+  --article-title--font-size: 1.4rem;
   --descriptor-title--font-size: 1.4rem;
 
   /* --has-content-color: rgb(255, 255, 0); */
@@ -230,7 +230,7 @@ code {
   border: 1px solid rgb(107, 107, 107);
   border-radius: 6px;
   padding: 10px 25px;
-  font-size: 1.3rem;
+  font-size: var(--article-title--font-size);
   font-style: normal;
   overflow-y: scroll;
   /* column-count: auto;
@@ -282,7 +282,7 @@ code {
 .tooltip_paragraph p,
 .tooltip_paragraph ul {
   margin-bottom: 8px;
-  line-height: 19px;
+  line-height: 23px;
   text-align: justify;
 }
 

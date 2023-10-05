@@ -2066,49 +2066,6 @@ const React_Router = {
     },
     {
       sectionTitle:
-        'Showing error pages with <code>errorElement</code> property & <code>useRouteError</code> hook',
-      sectionSource:
-        '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement_and_useRouteError.html',
-      highlights: {
-        highlight1: ['error pages'],
-        highlight2: ['<code>errorElement</code>', '<code>useRouteError</code>'],
-      },
-      tooltips: [
-        `<h3>Default errors vs custom errors</h3>
-        <p>When you enter a URL that doesn't exist or when exceptions/errors are thrown in "loader"/"action" functions or component rendering, the <code>react-router-dom</code> package will <i>automatically generate an error. Instead of generate a default error, you can render a custom <code>ErrorPage</code> component</i>. The error made/thrown will be available with <code>useRouteError</code>.</p>
-        <p>With the <code>errorElement</code> property in your route definitions, you can specify a <i><u>fallback page component</u> that will be rendered if an error is created</i>.</p>
-        `,
-        `<h3>Error bubbling</h3>
-        <p><i>When a route does not have an <code>errorElement</code>, errors will <u>bubble up</u> through parent routes</i>.</p>
-        <p><i>Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in <u>one place</u></i>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh.</p>
-        <p>Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, errors will bubble up and be handled by a default <code>errorElement</code> which will print the error message and stack trace.</i></p>
-        `,
-        `<h3>Throwing errors manually</h3>
-        <p>While <code>errorElement</code> <i>handles <u>unexpected errors</u></i>, it can also be used to <i>handle <u>exceptions you expect</u></i>. Particularly in "loader"/"action" function, where you work with external data not in your control, you can't always plan on the data existing, the service being available, or the user having access to it. In these cases you can <code>throw</code> your own exceptions. As soon as you know you can't render the route with the data you're loading, you can throw to break the call stack.</p>
-        <p><i>You can throw anything from a "loader"/"action" function, just like you can return anything: responses, errors, or plain objects</i>.</p>
-        `,
-        `<h3>Throwing Responses</h3>
-        <p>While you can throw anything and it will be provided back to you through <code>useRouteError</code>, if you throw a <code>Response</code>, <i>React Router will automatically parse the response data before returning it to your components</i>. Coupled with <code>json</code>, you can easily throw responses with some data and render different cases in your boundary. This makes it possible to create a general error boundary, usually on your root route, that handles many cases.</p>
-        `,
-        `<h3>The <code>useRouteError</code> hook</h3>
-        <p><i>Inside of an <code>errorElement</code>, the <code>useRouteError</code> hook returns anything thrown during a "loader"/"action" function or rendering</i>.</p>`,
-      ],
-    },
-    {
-      sectionTitle: 'Get the current route with <code>useLocation</code> hook',
-      sectionSource:
-        '/src/markdowns/12_React_Router/Get_the_current_route_with_useLocation_hook.html',
-      highlights: {
-        highlight2: ['<code>useLocation</code>'],
-      },
-      tooltips: [
-        ` <p>In React Router, use the <code>useLocation()</code> hook to <i>get the current route</i>. It <i>returns an object containing properties like <u>pathname</u>, <u>search</u>, and <u>hash</u></i>. To get the full URL in a React app, use <code>window.location</code>.</p>
-        <p><code>useLocation()</code> hook can be useful if you'd like to perform some side effect whenever the current location changes.</p>
-        `,
-      ],
-    },
-    {
-      sectionTitle:
         'Defining dynamic path segments (path parameter) & using them with <code>useParams</code> hook',
       sectionSource:
         '/src/markdowns/12_React_Router/Defining_&_using_dynamic_path_segments.html',
@@ -2158,7 +2115,7 @@ const React_Router = {
         <p>When you are defining <i><u>child routes</u> as relative paths</i>, this means that the <i>child routes paths defined as relative paths are <u>appended after the path of the wrapper parent route path</u></i>. So if you have a child route with a relative path, then React Router will take a look at the path of the parent route and append the child route path after the parent route path. <i>Children relative route paths are relative to the path defined in theirs parent route definition</i>.</p>
         `,
         `<h3>Clashing route definitions</h3>
-        <p>All <i>absolute child route</i> paths must start with the combined path of all its parent routes.</p>
+        <p>All <i>absolute child route paths</i> must start with the combined path of all its parent routes.</p>
         `,
       ],
     },
@@ -2191,6 +2148,49 @@ const React_Router = {
         </ul>
         <p>The <code>set(name, value)</code> method <i>sets the value associated with a given search parameter to the given value. If there were several matching values, this method deletes the others. If the search parameter doesn't exist, this method creates it</i>.</p>
         `,
+      ],
+    },
+    {
+      sectionTitle: 'Get the current route with <code>useLocation</code> hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Get_the_current_route_with_useLocation_hook.html',
+      highlights: {
+        highlight2: ['<code>useLocation</code>'],
+      },
+      tooltips: [
+        ` <p>In React Router, use the <code>useLocation()</code> hook to <i>get the current route</i>. It <i>returns an object containing properties like <u>pathname</u>, <u>search</u>, and <u>hash</u></i>. To get the full URL in a React app, use <code>window.location</code>.</p>
+        <p><code>useLocation()</code> hook can be useful if you'd like to perform some side effect whenever the current location changes.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle:
+        'Showing error pages with <code>errorElement</code> property & <code>useRouteError</code> hook',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Showing_error_pages_with_errorElement_and_useRouteError.html',
+      highlights: {
+        highlight1: ['error pages'],
+        highlight2: ['<code>errorElement</code>', '<code>useRouteError</code>'],
+      },
+      tooltips: [
+        `<h3>Default errors vs custom errors</h3>
+        <p>When you enter a <i>URL that doesn't exist</i> or when <i>exceptions/errors are thrown</i> in "loader"/"action" functions or component rendering, the <code>react-router-dom</code> package will <i>automatically generate an error. Instead of generate a default error, you can render a custom <code>ErrorPage</code> component</i>. The error made/thrown will be available with <code>useRouteError</code>.</p>
+        <p>With the <code>errorElement</code> property in your route definitions, you can specify a <i><u>fallback page component</u> that will be rendered if an error is created</i>.</p>
+        `,
+        `<h3>Error bubbling</h3>
+        <p><i>When a route does not have an <code>errorElement</code>, errors will <u>bubble up</u> through parent routes</i>.</p>
+        <p><i>Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in <u>one place</u></i>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh.</p>
+        <p>Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, errors will bubble up and be handled by a default <code>errorElement</code> which will print the error message and stack trace.</i></p>
+        `,
+        `<h3>Throwing errors manually</h3>
+        <p>While <code>errorElement</code> <i>handles <u>unexpected errors</u></i>, it can also be used to <i>handle <u>exceptions you expect</u></i>. Particularly in "loader"/"action" function, where you work with external data not in your control, you can't always plan on the data existing, the service being available, or the user having access to it. In these cases you can <code>throw</code> your own exceptions. As soon as you know you can't render the route with the data you're loading, you can throw to break the call stack.</p>
+        <p><i>You can throw anything from a "loader"/"action" function, just like you can return anything: responses, errors, or plain objects</i>.</p>
+        `,
+        `<h3>Throwing Responses</h3>
+        <p>While you can throw anything and it will be provided back to you through <code>useRouteError</code>, if you throw a <code>Response</code>, <i>React Router will automatically parse the response data before returning it to your components</i>. Coupled with <code>json</code>, you can easily throw responses with some data and render different cases in your boundary. This makes it possible to create a general error boundary, usually on your root route, that handles many cases.</p>
+        `,
+        `<h3>The <code>useRouteError</code> hook</h3>
+        <p><i>Inside of an <code>errorElement</code>, the <code>useRouteError</code> hook returns anything thrown during a "loader"/"action" function or rendering</i>.</p>`,
       ],
     },
     {
