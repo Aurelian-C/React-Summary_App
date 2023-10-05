@@ -1860,24 +1860,20 @@ const React_Router = {
       sectionSource:
         '/src/markdowns/12_React_Router/Routing_multiple_pages_in_single-page_applications.html',
       tooltips: [
-        `<h3>Routing in traditional websites</h3>
+        `<h3>Routing in traditional websites (Server-Side Routing)</h3>
         <p><i>In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server.</i></p>
-        <p>When the user clicks a link, it starts the process all over again for a new page. The disadvantage is that you always have to request from the server a new HTML document (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.</p>`,
-        `<h3>Client Side Routing</h3>
-        <p>React Router enables "client side routing". Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
-        <p>This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.</p>
+        <p>When the user clicks a link, it starts the process all over again for a new page. <i>The disadvantage is that you always have to <u>request from the server a new HTML document</u></i> (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.</p>`,
+        `<h3>Client-Side Routing</h3>
+        <p>React Router enables "client side routing". Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another HTML document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
+        <p>This enables faster user experiences because the browser doesn't need to request an entirely new HTML document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.</p>
         <p>Instead of loading new HTML files from the backend, we could add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>
         `,
         `<h3>What Routing is all about?</h3>
         <p>Routing means that <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>`,
         `<h3>Enable client side routing</h3>
+        <p><code>npm install react-router-dom</code></p>
         <p>Client side routing is enabled by creating a <code>router</code> and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.</p>`,
       ],
-    },
-    {
-      sectionTitle: 'Installing React Router',
-      sectionSource: '',
-      tooltips: ['<code>npm install react-router-dom</code>'],
     },
     {
       sectionTitle:
