@@ -2044,7 +2044,23 @@ const React_Router = {
         `,
         `<h3>The <code><<span>Outlet/</span>></code> component</h3>
         <p>The <code><<span>Outlet/</span>></code> component specifies <i>where the content of the child routes should be rendered</i>. The <code><<span>Outlet/</span>></code> component alone <i>allows nested routes to render their element content</i> out and anything else the layout route is rendering, i.e. navbars, sidebars, specific layout components, etc.</p>
-        <p><i>An <code><<span>Outlet/</span>></code> should be used in parent route elements to render their child route elements</i>. This allows nested UI to show up when child routes are rendered. If the parent route matched exactly, it will render a child index route or nothing if there is no index route.</p>
+        <p><i>An <code><<span>Outlet/</span>></code> should be used in parent route elements to render their child route elements</i>. This allows nested UI to show up when child routes are rendered.</p>
+        <p><i>If the parent route matched exactly, it will render a <u>child index route</u> or nothing if there is no <u>index route</u>.</i></p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Working with index routes',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Working_with_index_routes.html',
+      highlights: {
+        highlight1: ['index Routes'],
+      },
+      tooltips: [
+        `<h3>Index routes</h3>
+        <p>Index routes can be used for <i>children routes that have the same path as the parent route</i>.</p>
+        <p>It is quite common that you might have a wrapping layout route and then <i>you have one child route that should be loaded for the parent's route path. Index routes render in their parent route's <code><<span>Outlet/</span>></code> at the parent route's path</i>.</p>
+        <p>Index routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.</p>
         `,
       ],
     },
@@ -2174,21 +2190,6 @@ const React_Router = {
         <li>2. You can <i>add a query string to a URL without causing a navigation</i>, with <code>searchParams.set('key', 'value')</code>, and after that you need to update the URL by setting to it the query string with <code>setSearchParams(searchParams)</code> function.</li>
         </ul>
         <p>The <code>set(name, value)</code> method <i>sets the value associated with a given search parameter to the given value. If there were several matching values, this method deletes the others. If the search parameter doesn't exist, this method creates it</i>.</p>
-        `,
-      ],
-    },
-    {
-      sectionTitle: 'Working with index routes',
-      sectionSource:
-        '/src/markdowns/12_React_Router/Working_with_index_routes.html',
-      highlights: {
-        highlight1: ['index Routes'],
-      },
-      tooltips: [
-        `<h3>Index routes</h3>
-        <p>Index routes can be used for <i>children routes that have the same path as the parent route</i>.</p>
-        <p>It is quite common that you might have a wrapping layout route and then <i>you have one child route that should be loaded for the parent's route path. Index routes render in their parent route's <code><<span>Outlet/</span>></code> at the parent route's path</i>.</p>
-        <p>Index routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.</p>
         `,
       ],
     },

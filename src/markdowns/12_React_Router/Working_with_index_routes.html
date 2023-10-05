@@ -7,7 +7,7 @@
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -229,7 +229,7 @@ mjx-container { break-inside: avoid; }
   /* for focus mode */
   --text-color5: rgba(170, 178, 180, 0.5);
   /* link color */
-  --link-color: #0091ff;
+  --link-color: #0091FF;
   /* table color */
   --table-border-color: #555;
   --table-thead-color: #2b2d2e;
@@ -264,7 +264,7 @@ mjx-container { break-inside: avoid; }
   --focus-ring-color: var(--focus-color);
   /* codeblock color */
   --code-red-color: #FF75B5;
-  --code-yellow-color: #e8ff94;
+  --code-yellow-color: #E8FF94;
   --code-cyan-color: #19f9d8;
   --code-blue-color: #6FC1FF;
   --code-purple-color: #FF75B5;
@@ -334,6 +334,7 @@ body {
 /* link */
 #write a:not([role="menuitem"]) {
   color: var(--link-color) !important;
+  text-decoration: none;
 }
 
 #write a:not([role="menuitem"]):hover {
@@ -1212,16 +1213,12 @@ footer.ty-footer {
 code {
   font-size: 0.9em;
   background-color: var(--bg-color5);
-	padding: .3em;
-  	padding-top: 0.15em;
-  	padding-bottom: 0.15em;
+  padding: .3em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
   border: 2px solid #666;
   border-radius: 0.25rem;
-  color: var(--text-color1);	
-}
-
-a code {
-  color: var(--link-color) !important;
+  color: var(--text-color1);
 }
 
 /* codeblock */
@@ -1485,7 +1482,7 @@ pre.md-meta-block:active {
 }
 
 #typora-source .CodeMirror-lines {
-  max-width: 1100px;
+  max-width: 800px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -2192,6 +2189,7 @@ mark {
     border-radius: 3px;
     padding: 1px 3px 1px 3px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 .task-list-done {
@@ -2206,59 +2204,25 @@ kbd {
   box-shadow: 0 2px 0 #333;
 }
 
+blockquote p {
+  text-indent: 0px;
+}
+
 p {
-    text-align: justify;
-    text-indent: 30px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
-blockquote > p {
-    text-indent: 0px;
+a code {
+  color: var(--link-color) !important;
 }
 
-li {
-    text-align: justify;
-}
 
-#write a:not([role="menuitem"]) {
-    text-decoration: none;
-}
-
-#write {
-    max-width: 950px;
-}
-
-@media only screen and (max-width: 850px) {
-  #write {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #write > h1:first-child,
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    width: 160px;
-  }
-
-  p {
-    text-indent: 20px;
-  }
-}
 
 
 </style><title>Working_with_index_routes</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='working-with-index-routes'><span>Working with index routes</span></h1><p><span>There is one special property you can add to some route definitions. This special property that would, for example, apply to the </span><code>&lt;HomePage&gt;</code><span> route definition in the example below:</span></p><p><img src="../../img/Working_with_index_routes.jpg" referrerpolicy="no-referrer" alt="Working_with_index_routes"></p><p><span>What&#39;s special about this </span><code>&lt;HomePage&gt;</code><span> route definition? Well, in the end, </span><mark><span>it doesn&#39;t have a path</span></mark><span>. Instead, the </span><code>&lt;HomePage&gt;</code><span> should be </span><mark><span>loaded for the same path as you have on the parent route</span></mark><span>. You have two different routes because you want to have the </span><code>&lt;RootLayout&gt;</code><span> as wrapping layout. </span><mark><span>It is quite common that you might have a wrapping layout route and then you have one child route that should be loaded for the parent&#39;s route path</span></mark><span>. Now, you could solve it by adding no path like in example above, but alternatively you can add the special </span><code>index</code><span> property and set it to </span><code>true</code><span>.</span></p><p><span>The </span><code>index</code><span> property turns the </span><code>&lt;HomePage&gt;</code><span> route into a so-called index route, which simply means it&#39;s the default route that should be displayed if the parent route&#39;s path is currently active. So it will not be loaded for </span><code>products</code><span> or </span><code>products/productId</code><span>, but if you&#39;re on just </span><code>/</code><span> the </span><code>&lt;HomePage&gt;</code><span> index route will be activated.</span></p><p><span>With </span><code>{ index: true, element: &lt;HomePage/&gt; }</code><span> you get the same behavior as before when you have </span><code>{ path: &#39;&#39;, element: &lt;HomePage/&gt; }</code><span>. </span><mark><span>You should be aware of this feature called index routes which allows you to define the default route that should be loaded if the parent routes path is active. Index routes render in their parent route&#39;s </span><a href='https://reactrouter.com/en/main/start/concepts#outlet'><span>outlet</span></a><span> at the parent route&#39;s path</span></mark><span>.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/route/route#index'><span>Index route - reactrouter.dom</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/start/concepts#index-routes'><span>Index routes - reactrouter.dom</span></a></p></li></ol></div></div>
+<div id='write'  class=''><h1 id='working-with-index-routes'><span>Working with index routes</span></h1><p><span>There is one special property you can add to some route definitions. This special property that would, for example, apply to the </span><code>&lt;HomePage&gt;</code><span> route definition in the example below:</span></p><p><img src="../../img/Working_with_index_routes.jpg" referrerpolicy="no-referrer" alt="Working_with_index_routes"></p><p><span>What&#39;s special about this </span><code>&lt;HomePage&gt;</code><span> route definition? Well, in the end, it doesn&#39;t have a path. Instead, the </span><code>&lt;HomePage&gt;</code><span> should be </span><mark><span>loaded for the same path as you have on the parent route</span></mark><span>. You have two different routes because you want to have the </span><code>&lt;RootLayout&gt;</code><span> as wrapping layout. </span><mark><span>It is quite common that you might have a wrapping layout route and then you have one child route that should be loaded for the parent&#39;s route path</span></mark><span>. Now, you could solve it by adding no path like in example above, but alternatively you can add the special </span><code>index</code><span> property and set it to </span><code>true</code><span>.</span></p><p><mark><span>The </span><code>index</code><span> property turns the </span><code>&lt;HomePage&gt;</code><span> route into a so-called </span><strong><span>index route</span></strong><span>, which simply means it&#39;s the default route that should be displayed if the parent route&#39;s path is currently active.</span></mark><span> So it will not be loaded for </span><code>products</code><span> or </span><code>products/productId</code><span>, but if you&#39;re on just </span><code>/</code><span> the </span><code>&lt;HomePage&gt;</code><span> index route will be activated.</span></p><p><span>With </span><code>{ index: true, element: &lt;HomePage/&gt; }</code><span> you get the same behavior as before when you have </span><code>{ path: &#39;&#39;, element: &lt;HomePage/&gt; }</code><span>. </span><mark><span>You should be aware of this feature called index routes which allows you to define the default route that should be loaded if the parent routes path is active. </span><strong><span>Index routes render in their parent route&#39;s </span><a href='https://reactrouter.com/en/main/start/concepts#outlet'><span>outlet</span></a><span> at the parent route&#39;s path</span></strong></mark><span>.</span></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/react-the-complete-guide-incl-redux/'><span>React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/route/route#index'><span>Index route - reactrouter.dom</span></a></p></li><li><p><a href='https://reactrouter.com/en/main/start/concepts#index-routes'><span>Index routes - reactrouter.dom</span></a></p></li></ol></div></div>
 </body>
 </html>
