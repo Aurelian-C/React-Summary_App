@@ -7,7 +7,7 @@
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -229,7 +229,7 @@ mjx-container { break-inside: avoid; }
   /* for focus mode */
   --text-color5: rgba(170, 178, 180, 0.5);
   /* link color */
-  --link-color: #0091ff;
+  --link-color: #0091FF;
   /* table color */
   --table-border-color: #555;
   --table-thead-color: #2b2d2e;
@@ -264,7 +264,7 @@ mjx-container { break-inside: avoid; }
   --focus-ring-color: var(--focus-color);
   /* codeblock color */
   --code-red-color: #FF75B5;
-  --code-yellow-color: #e8ff94;
+  --code-yellow-color: #E8FF94;
   --code-cyan-color: #19f9d8;
   --code-blue-color: #6FC1FF;
   --code-purple-color: #FF75B5;
@@ -334,6 +334,7 @@ body {
 /* link */
 #write a:not([role="menuitem"]) {
   color: var(--link-color) !important;
+  text-decoration: none;
 }
 
 #write a:not([role="menuitem"]):hover {
@@ -1212,16 +1213,12 @@ footer.ty-footer {
 code {
   font-size: 0.9em;
   background-color: var(--bg-color5);
-	padding: .3em;
-  	padding-top: 0.15em;
-  	padding-bottom: 0.15em;
+  padding: .3em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
   border: 2px solid #666;
   border-radius: 0.25rem;
-  color: var(--text-color1);	
-}
-
-a code {
-  color: var(--link-color) !important;
+  color: var(--text-color1);
 }
 
 /* codeblock */
@@ -1485,7 +1482,7 @@ pre.md-meta-block:active {
 }
 
 #typora-source .CodeMirror-lines {
-  max-width: 1100px;
+  max-width: 800px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -2192,6 +2189,7 @@ mark {
     border-radius: 3px;
     padding: 1px 3px 1px 3px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 .task-list-done {
@@ -2206,59 +2204,25 @@ kbd {
   box-shadow: 0 2px 0 #333;
 }
 
+blockquote p {
+  text-indent: 0px;
+}
+
 p {
-    text-align: justify;
-    text-indent: 30px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
-blockquote > p {
-    text-indent: 0px;
+a code {
+  color: var(--link-color) !important;
 }
 
-li {
-    text-align: justify;
-}
 
-#write a:not([role="menuitem"]) {
-    text-decoration: none;
-}
-
-#write {
-    max-width: 950px;
-}
-
-@media only screen and (max-width: 850px) {
-  #write {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #write > h1:first-child,
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    width: 160px;
-  }
-
-  p {
-    text-indent: 20px;
-  }
-}
 
 
 </style><title>What_is_React_Query</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h1 id='what-is-react-query'><span>What is React Query?</span></h1><p><span>TanStack Query (FKA React Query) is often described as the missing </span><mark><span>data-fetching library for web applications</span></mark><span>, but in more technical terms, </span><mark><span>it makes </span><strong><span>fetching, caching, synchronizing and updating server state</span></strong><span> in your web applications</span></mark><span> a breeze.</span></p><p><mark><span>While most traditional state management libraries are great for working with client state, they are </span><strong><span>not so great at working with async or server state</span></strong><span>. This is because </span><strong><span>server state is totally different</span></strong><span>.</span></mark><span> For starters, server state:</span></p><ul><li><p><span>Is persisted remotely in a location you do not control or own</span></p></li><li><p><span>Requires asynchronous APIs for fetching and updating</span></p></li><li><p><span>Implies shared ownership and can be changed by other people without your knowledge</span></p></li><li><p><span>Can potentially become &quot;out of date&quot; in your applications if you&#39;re not careful</span></p></li></ul><p><span>Once you grasp the nature of server state in your application, </span><strong><span>even more challenges will arise</span></strong><span> as you go, for example:</span></p><ul><li><p><span>Caching... (possibly the hardest thing to do in programming)</span></p></li><li><p><span>Deduping multiple requests for the same data into a single request</span></p></li><li><p><span>Updating &quot;out of date&quot; data in the background</span></p></li><li><p><span>Knowing when data is &quot;out of date&quot;</span></p></li><li><p><span>Reflecting updates to data as quickly as possible</span></p></li><li><p><span>Performance optimizations like pagination and lazy loading data</span></p></li><li><p><span>Managing memory and garbage collection of server state</span></p></li><li><p><span>Memoizing query results with structural sharing</span></p></li></ul><p><mark><span>React Query is hands down one of the best libraries for managing server state. It works amazingly well </span><strong><span>out-of-the-box, with zero-config, and can be customized</span></strong><span> to your liking as your application grows.</span></mark></p><p><span>On a more technical note, React Query will likely:</span></p><ul><li><p><span>Help you remove </span><strong><span>many</span></strong><span> lines of complicated and misunderstood code from your application and replace with just a handful of lines of React Query logic.</span></p></li><li><p><span>Make your application more maintainable and easier to build new features without worrying about wiring up new server state data sources</span></p></li><li><p><span>Have a direct impact on your end-users by making your application feel faster and more responsive than ever before.</span></p></li><li><p><span>Potentially help you save on bandwidth and increase memory performance</span></p></li></ul><p><img src="../../img/React_Query01.jpg" referrerpolicy="no-referrer" alt="React_Query01"></p><h2 id='data-is-stored-in-a-cache'><span>Data is stored in a cache</span></h2><p><span>The most fundamental thing about React Query is that </span><mark><strong><span>all remote state is cached</span></strong><span>, which means that the fetched data will be stored in order to be reused in different points of the application.</span></mark></p><p><span>For example, if we fetch data about cabins in Component A, React Query will fetch the data from the API. It will then store the received data in the cache, so that Component A can use it. Then if at a later point, Component B also wants to fetch the cabin data, then no additional API request will be necessary. Instead, React Query will simply provide the same data to Component B from the cache.</span></p><h2 id='automatic-re-fetching-to-keep-state-synched'><span>Automatic re-fetching to keep state synched</span></h2><p><span>React Query also </span><mark><span>automatically re-fetches the data in certain situations</span></mark><span>. For example, after a certain timeout or after we leave the browser window and then come back to it.</span></p><p><span>This is super important in order to make sure that </span><mark><span>a remote state always stays in sync with the application</span></mark><span>. For example, if some other user of the app changes the remote state at some point, for example, by updating a cabin, then the application running on all other computers will have this cabin state out of sync with the newly updated state. And so, React Query can help with this as well by keeping everything in sync with  automatically re-fetching data.</span></p><h2 id='pre-fetching'><span>Pre-fetching</span></h2><p><span>Besides re-fetching, we can also pre-fetch data, which basically means to </span><mark><span>fetch data that we know will become necessary later, but before it is actually displayed on the screen</span></mark><span>. A classic example of this is pagination, where with pre-fetching, we can fetch data not only for the current page, but also for the next page.</span></p><p><span>This way, when the user then moves to the next page, the data will always already be there in the cache.</span></p><h2 id='offline-support'><span>Offline support</span></h2><p><span>A feature that I find really useful is </span><mark><span>support for when the user becomes offline</span></mark><span>. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using this cached cabin data.</span></p><h2 id='why-do-we-need-react-query'><span>Why do we need React Query?</span></h2><p><span>We need a library like React Query with all these features because </span><mark><strong><span>remote state</span></strong><span> is fundamentally different from </span><strong><span>UI state</span></strong><span>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</span></mark><span>.</span></p><p><span>Remote state has many special needs, and so that&#39;s the reason why we use something like React Query.</span></p><p><span>Now, there are actually other libraries that do many of the things that React Query does. For example, SWR or Redux Toolkit Query, which as the name says, is the remote state solution integrated into Redux Toolkit. However, from what I&#39;ve seen, none of them works as well and is as popular as React Query.</span></p><h2 id='does-tanstack-query-replace-redux-mobx-or-other-global-state-managers'><span>Does TanStack Query replace Redux, MobX or other global state managers?</span></h2><p><span>Well, let&#39;s start with a few important items:</span></p><ul><li><p><mark><span>TanStack Query is a </span><strong><span>server-state</span></strong><span> library</span></mark><span>, responsible for managing asynchronous operations between your server and client</span></p></li><li><p><mark><span>Redux, MobX, Zustand, etc. are </span><strong><span>client-state</span></strong><span> libraries</span></mark><span> that </span><em><span>can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query</span></em></p></li></ul><p><span>With those points in mind, the short answer is that TanStack Query </span><strong><span>replaces the boilerplate code and related wiring used to manage cache data in your client-state and replaces it with just a few lines of code.</span></strong></p><p><mark><span>For a vast majority of applications, the truly </span><strong><span>globally accessible client state</span></strong><span> that is left over after migrating all of your async code to TanStack Query is usually very tiny.</span></mark></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/the-ultimate-react-course/'><span>The Ultimate React Course: React, Redux &amp; More - Jonas Schmedtmann</span></a></p></li><li><p><a href='https://tanstack.com/query/latest/docs/react/guides/does-this-replace-client-state'><span>Does TanStack Query replace Redux, MobX or other global state managers? - tanstack.com</span></a></p></li></ol></div></div>
+<div id='write'  class=''><h1 id='what-is-react-query'><span>What is React Query?</span></h1><p><span>TanStack Query (FKA React Query) is often described as the missing </span><mark><span>data-fetching library for web applications</span></mark><span>, but in more technical terms, </span><mark><span>it makes </span><strong><span>fetching, caching, synchronizing and updating server state</span></strong><span> in your web applications</span></mark><span> a breeze.</span></p><p><mark><span>While most traditional state management libraries are great for working with client state, they are </span><strong><span>not so great at working with async or server state</span></strong><span>. This is because </span><strong><span>server state is totally different</span></strong><span>.</span></mark><span> For starters, server state:</span></p><ul><li><p><span>Is persisted remotely in a location you do not control or own</span></p></li><li><p><span>Requires asynchronous APIs for fetching and updating</span></p></li><li><p><span>Implies shared ownership and can be changed by other people without your knowledge</span></p></li><li><p><span>Can potentially become &quot;out of date&quot; in your applications if you&#39;re not careful</span></p></li></ul><p><span>Once you grasp the nature of server state in your application, </span><strong><span>even more challenges will arise</span></strong><span> as you go, for example:</span></p><ul><li><p><span>Caching... (possibly the hardest thing to do in programming)</span></p></li><li><p><span>Deduping multiple requests for the same data into a single request</span></p></li><li><p><span>Updating &quot;out of date&quot; data in the background</span></p></li><li><p><span>Knowing when data is &quot;out of date&quot;</span></p></li><li><p><span>Reflecting updates to data as quickly as possible</span></p></li><li><p><span>Performance optimizations like pagination and lazy loading data</span></p></li><li><p><span>Managing memory and garbage collection of server state</span></p></li><li><p><span>Memoizing query results with structural sharing</span></p></li></ul><p><mark><span>React Query is hands down one of the best libraries for managing server state. It works amazingly well </span><strong><span>out-of-the-box, with zero-config, and can be customized</span></strong><span> to your liking as your application grows.</span></mark></p><p><span>On a more technical note, React Query will likely:</span></p><ul><li><p><span>Help you remove </span><strong><span>many</span></strong><span> lines of complicated and misunderstood code from your application and replace with just a handful of lines of React Query logic.</span></p></li><li><p><span>Make your application more maintainable and easier to build new features without worrying about wiring up new server state data sources</span></p></li><li><p><span>Have a direct impact on your end-users by making your application feel faster and more responsive than ever before.</span></p></li><li><p><span>Potentially help you save on bandwidth and increase memory performance</span></p></li></ul><p><img src="../../img/React_Query01.jpg" referrerpolicy="no-referrer" alt="React_Query01"></p><h2 id='data-is-stored-in-a-cache'><span>Data is stored in a cache</span></h2><p><span>The most fundamental thing about React Query is that </span><mark><strong><span>all remote state is cached</span></strong><span>, which means that the fetched data will be stored in order to be reused in different points of the application.</span></mark></p><p><span>For example, if we fetch data about cabins in Component A, React Query will fetch the data from the API. It will then store the received data in the cache, so that Component A can use it. Then if at a later point, Component B also wants to fetch the cabin data, then no additional API request will be necessary. Instead, React Query will simply provide the same data to Component B from the cache.</span></p><h2 id='automatic-re-fetching-to-keep-state-synched'><span>Automatic re-fetching to keep state synched</span></h2><p><span>React Query also </span><mark><span>automatically re-fetches the data in certain situations</span></mark><span>. For example, after a certain timeout or after we leave the browser window and then come back to it.</span></p><p><span>This is super important in order to make sure that </span><mark><span>a remote state always stays in sync with the application</span></mark><span>. For example, if some other user of the app changes the remote state at some point, for example, by updating a cabin, then the application running on all other computers will have this cabin state out of sync with the newly updated state. And so, React Query can help with this as well by keeping everything in sync with  automatically re-fetching data.</span></p><h2 id='pre-fetching'><span>Pre-fetching</span></h2><p><span>Besides re-fetching, we can also pre-fetch data, which basically means to </span><mark><span>fetch data that we know will become necessary later, but before it is actually displayed on the screen</span></mark><span>. A classic example of this is pagination, where with pre-fetching, we can fetch data not only for the current page, but also for the next page.</span></p><p><span>This way, when the user then moves to the next page, the data will always already be there in the cache.</span></p><h2 id='offline-support'><span>Offline support</span></h2><p><span>A feature that I find really useful is </span><mark><span>support for when the user becomes offline</span></mark><span>. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.</span></p><h2 id='why-do-we-need-react-query'><span>Why do we need React Query?</span></h2><p><span>We need a library like React Query with all these features because </span><mark><strong><span>remote state</span></strong><span> is fundamentally different from </span><strong><span>UI state</span></strong><span>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</span></mark><span>.</span></p><p><span>Remote state has many special needs, and so that&#39;s the reason why we use something like React Query.</span></p><p><span>Now, there are actually other libraries that do many of the things that React Query does. For example, SWR or Redux Toolkit Query, which as the name says, is the remote state solution integrated into Redux Toolkit. However, from what I&#39;ve seen, none of them works as well and is as popular as React Query.</span></p><h2 id='does-tanstack-query-replace-redux-mobx-or-other-global-state-managers'><span>Does TanStack Query replace Redux, MobX or other global state managers?</span></h2><p><span>Well, let&#39;s start with a few important items:</span></p><ul><li><p><mark><span>TanStack Query is a </span><strong><span>server-state</span></strong><span> library</span></mark><span>, responsible for managing asynchronous operations between your server and client</span></p></li><li><p><mark><span>Redux, MobX, Zustand, etc. are </span><strong><span>client-state</span></strong><span> libraries</span></mark><span> that </span><em><span>can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query</span></em></p></li></ul><p><span>With those points in mind, the short answer is that TanStack Query </span><strong><span>replaces the boilerplate code and related wiring used to manage cache data in your client-state and replaces it with just a few lines of code.</span></strong></p><p><mark><span>For a vast majority of applications, the truly </span><strong><span>globally accessible client state</span></strong><span> that is left over after migrating all of your async code to TanStack Query is usually very tiny.</span></mark></p><h2 id='references'><span>References</span></h2><ol start='' ><li><p><a href='https://www.udemy.com/course/the-ultimate-react-course/'><span>The Ultimate React Course: React, Redux &amp; More - Jonas Schmedtmann</span></a></p></li><li><p><a href='https://tanstack.com/query/latest/docs/react/guides/does-this-replace-client-state'><span>Does TanStack Query replace Redux, MobX or other global state managers? - tanstack.com</span></a></p></li></ol></div></div>
 </body>
 </html>

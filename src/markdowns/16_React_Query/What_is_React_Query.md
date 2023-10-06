@@ -51,7 +51,7 @@ This way, when the user then moves to the next page, the data will always alread
 
 ## Offline support
 
-A feature that I find really useful is ==support for when the user becomes offline==. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using this cached cabin data.
+A feature that I find really useful is ==support for when the user becomes offline==. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.
 
 ## Why do we need React Query?
 

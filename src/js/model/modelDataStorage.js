@@ -2930,7 +2930,7 @@ const React_Query = {
         <p>Besides re-fetching, we can also pre-fetch data, which basically means to <i>fetch data that we know will become necessary later, but before it is actually displayed on the screen</i>.</p>
         `,
         `<h3>Offline support</h3>
-        <p>A feature that I find really useful is <i>support for when the user becomes offline</i>. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using this cached cabin data.</p>
+        <p>A feature that I find really useful is <i>support for when the user becomes offline</i>. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.</p>
         `,
         `<h3>Why do we need React Query?</h3>
         <p>We need a library like React Query with all these features because <i><u>remote state</u> is fundamentally different from <u>UI state</u>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</i>.</p>
