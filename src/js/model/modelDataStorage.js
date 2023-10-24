@@ -1719,7 +1719,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
     },
     {
       sectionTitle:
-        'Skipping expensive recalculations with <code>useMemo()</code>',
+        'Skipping expensive re-calculations with <code>useMemo()</code>',
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Skipping_expensive_recalculations_with_useMemo.html',
       highlights: {
