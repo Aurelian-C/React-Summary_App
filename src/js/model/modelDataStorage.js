@@ -1649,7 +1649,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
     },
     {
       sectionTitle:
-        'Preventing unnecessary re-evaluations with <code>React.memo()</code>',
+        'Preventing unnecessary re-evaluations with <code>React.memo()</code> (memoize components)',
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Preventing_unnecessary_reevaluations_with_React_memo.html',
       highlights: {
@@ -1690,7 +1690,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
     },
     {
       sectionTitle:
-        'Preventing function re-creation with <code>useCallback()</code>',
+        'Preventing function re-creation with <code>useCallback()</code> (memoize functions)',
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Preventing_function_recreation_with_useCallback.html',
       highlights: {
@@ -1719,7 +1719,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
     },
     {
       sectionTitle:
-        'Skipping expensive re-calculations with <code>useMemo()</code>',
+        'Skipping expensive re-calculations with <code>useMemo()</code> (memoize objects)',
       sectionSource:
         '/src/markdowns/08_React_&_optimization_techniques/Skipping_expensive_recalculations_with_useMemo.html',
       highlights: {
