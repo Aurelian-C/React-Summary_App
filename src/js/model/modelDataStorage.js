@@ -754,7 +754,7 @@ const Adding_interactivity_to_a_component = {
         highlight1: ['render', 'commit'],
       },
       tooltips: [
-        `<p>Since a component is a function, someone has to call it, and you might notice that you never called your component functions, instead you just used them like HTML element in your JSX markup.</p>
+        `<p>Keep in mind that <i>your component is just a regular function</i>, the only special thing about that function is that it <i>returns JSX markup</i>. Since a component is just a regular function, someone has to call it, and you might notice that you never called your component functions, instead you just used them like HTML element in your JSX markup.</p>
         <p>Before your components are displayed on screen, they must be rendered by React.</p>
         `,
         `<h3>The steps involved in displaying a component on screen</h3>
