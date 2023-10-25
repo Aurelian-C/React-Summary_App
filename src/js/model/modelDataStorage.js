@@ -3017,6 +3017,22 @@ const React_Query = {
       ],
     },
     {
+      sectionTitle:
+        'How to fetch data programatically with <code>useQuery()</code> hook (for example, when a button is clicked)',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Fetching_data_programatically_with_useQuery.html',
+      highlights: {
+        highlight1: [
+          'fetch data programatically with <code>useQuery()</code> hook',
+        ],
+      },
+      tooltips: [
+        `<h3>How to fetch data programatically with <code>useQuery()</code> hook</h3>
+        <p>According to the API Reference, you need to <i>change the <code>enabled</code> option to <code>false</code> to disable a query from automatically running</i>. Then you re-fetch manually.</p>
+        `,
+      ],
+    },
+    {
       sectionTitle: 'Query invalidation',
       sectionSource: '/src/markdowns/16_React_Query/Query_invalidation.html',
 
