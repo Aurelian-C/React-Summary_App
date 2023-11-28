@@ -18,7 +18,7 @@ If you have some (perfectly valid) HTML markup and you want to put it into your 
 
 ![Writing_markup_with_JSX](../../img/Writing_markup_with_JSX.jpg)
 
-> **Note**: JSX and React are two separate things. They’re often used together, but you *can* use them independently of each other. JSX is a syntax extension, while React is a JavaScript library. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
+> **Note**: ==**JSX and React are two separate things.**== They’re often used together, but you *can* use them independently of each other. JSX is a syntax extension, while React is a JavaScript library. Although there are other ways to write components, most React developers prefer the conciseness of JSX, and most codebases use it.
 
 ## JSX: Putting markup into JavaScript
 
@@ -78,11 +78,13 @@ const expensesContent = filteredExpenses.map((item) => (
 
 ## The Rules of JSX: how JSX is different from HTML
 
-JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can’t return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper.
+JSX is stricter than HTML. You have to close tags like `<br/>`. Your component also can’t return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` wrapper.
 
 #### 1. Return a single root element
 
-==To return multiple elements from a component, **wrap them with a single parent tag** or if you don’t want to add an extra parent tag to your markup you can write `<>` and `</>` instead==. The `<></>` is an empty tag called _[Fragment.](https://beta.reactjs.org/reference/react/Fragment)_ Fragments let you group things without leaving any trace in the browser HTML tree.
+==To return multiple elements from a component, **wrap them with a single parent tag** or if you don’t want to add an extra parent tag to your markup you can write `<>` and `</>` instead==.
+
+==The `<></>` is an empty tag called **[Fragment.](https://beta.reactjs.org/reference/react/Fragment)** Fragments let you **group things without leaving any trace in the browser HTML tree**.==
 
 > **Note**: Why do multiple JSX tags need to be wrapped? JSX markup looks like HTML markup, but under the hood it is transformed into plain JavaScript objects. You can’t return two objects from a function without wrapping them into an array. This explains why you also can’t return two JSX tags without wrapping them into another tag or a Fragment.
 

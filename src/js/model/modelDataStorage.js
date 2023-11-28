@@ -20,7 +20,7 @@ const React_basics = {
         <p>React lets you combine your <i>HTML markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom components, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
         `,
         `<h3>What is a component?</h3>
-        <p>Conceptually, components are just <u>JavaScript functions</u> that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
+        <p>Conceptually, <i>components are just <u>JavaScript functions</u></i> that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
         <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
         <ul>React components are regular JavaScript functions except:
@@ -84,7 +84,7 @@ const React_basics = {
       },
       tooltips: [
         `<h3>JavaScript in JSX with curly braces</h3>
-        <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript.</p>
+        <p>JSX lets you write HTML-like markup inside a JavaScript file, keeping rendering logic and content in the same place. <i>Sometimes you will want to add a little JavaScript logic or reference a dynamic property inside that markup. In this situation, you can use curly braces in your JSX to “open a window” to JavaScript.</i></p>
         <p>JSX is a special way of writing JavaScript. That means it's possible to use JavaScript inside it — with curly braces <code>{}</code>.</p>
         <p><i>Curly braces <code>{}</code> let you <u>bring JavaScript logic and variables into your markup</u>!</i></p>
         <p>Curly braces let you "escape back" into JavaScript so that you can embed some variable from your code and display it to the user or to write some expressions. <i>Any JavaScript expression will work between curly braces, including function calls</i>.</p>
@@ -100,14 +100,14 @@ const React_basics = {
         `,
         `<h3>Write any expression inside JSX curly braces</h3>
         <ul>You can put more complex expressions inside the JSX curly braces, for example:
-        <li>- string concatenation</li>
-        <li>- function calls</li>
-        <li>- JavaScript objects</li>
+        <li>- string concatenation;</li>
+        <li>- function calls;</li>
+        <li>- JavaScript objects.</li>
         </ul>
         `,
         `<h3>You can only use curly braces in two ways inside JSX:</h3>
-        <p>- as <i>text</i> directly inside a JSX tag<p>
-        <p>- as <i>attributes</i> immediately following the <code>=</code> sign<p>`,
+        <p>- as <i>text</i> directly inside a JSX tag;<p>
+        <p>- as <i>attributes</i> immediately following the <code>=</code> sign.<p>`,
       ],
     },
     {
@@ -152,7 +152,7 @@ const React_basics = {
         <p>3. <i>Use</i> the component.</p>`,
         `<h3>Components: UI building blocks</h3>
         <p>React applications are built from <i>isolated pieces of UI</i> called components. A React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
-        <p>React lets you combine your markup, CSS, and JavaScript into custom “components”, reusable UI elements for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages. As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development.</p>
+        <p>React lets you combine your markup, CSS, and JavaScript into custom “components”, reusable UI elements for your app. <i>Just like with HTML tags, you can compose, order and nest components to design whole pages.</i> As your project grows, you will notice that many of your designs can be composed by reusing components you already wrote, speeding up your development.</p>
         <p>The key difference between React components and built-in HTML tags is that <i>React components names must always start with a capital letter, while HTML tags must be lowercase</i>. React components are regular JavaScript functions, but their names must start with a capital letter or they won't work!</p>
         <p>These custom components are not really HTML elements which end up on the screen, you just use them in your JSX markup. In the end, what ends up on the screen are just default HTML elements.</p>
         `,

@@ -4,13 +4,15 @@
 
 If you use React you ==won't have to focus on all the nitty-gritty details== and it will be ==less error prone==, because ==you will be able to focus on your core **business logic** that makes up your application, instead of having to focus on the actual steps==, for example updating the page when something happens somewhere. That's why you want to use libraries like React, and to make that work simpler for you, ==React embraces a concept called **"components"**==.
 
-> **Note**: With just Vanilla JavaScript, you have to write every single step that should be taken to build your application. You want to create an element, you want to set its content, you want to add classes, you want to add an event listener, then what should happen when that event occurs. Every single step needs to be described. This way of build applications is called **Imperative Way**.
+> **Note**: _With just Vanilla JavaScript, you have to write every single step that should be taken to build your application._ You want to create an element, you want to set its content, you want to add classes, you want to add an event listener, then what should happen when that event occurs. _With just Vanilla JavaScript, every single step needs to be described._ This way of build applications is called **Imperative Way**.
 
 ## What is a component?
 
-React applications are built from isolated pieces of UI called *components*. ==A React component is a JavaScript function that you can sprinkle with markup.== ==In other words, a React component is a piece of the UI that has its own logic and appearance==. Components can be as small as a button, or as large as an entire page.
+React applications are built from ==**isolated pieces of UI**== called *components*. ==A React component is a **JavaScript function** that you can sprinkle with markup.== ==In other words, a React component is a piece of the UI that has its **own logic** and **appearance**==. Components can be as small as a button, or as large as an entire page.
 
-Conceptually, ==components are just JavaScript functions== that accept arbitrary inputs (called **props**) and return **JSX markup ** describing what should appear on the screen. A component in React is just a JavaScript function, a special kind of function, special regarding what it returns (_it does return JSX markup_), but other than that it's just a JavaScript function.
+Conceptually, ==**components are just JavaScript functions** that accept arbitrary inputs (called **props**) and return **JSX markup ** describing what should appear on the screen==.
+
+> **Note**: _A component in React is just a JavaScript function_, a special kind of function, special regarding what it returns (_it does return JSX markup_), but other than that it's just a JavaScript function.
 
 ==Components are **_reusable_ building blocks** in your UI. Components are in the end just a combination of **HTML** markup, **CSS** code for styling and possibly **JavaScript** code for some logic==.
 

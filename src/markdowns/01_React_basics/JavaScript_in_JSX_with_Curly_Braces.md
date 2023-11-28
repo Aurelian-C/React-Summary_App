@@ -30,7 +30,7 @@ return <h1>{user.name}</h1>
 
 ### JSX curly braces & JSX attributes
 
-When you want to pass a string attribute to JSX, you put it in single or double quotes. In first JavaScript file, `"https://i.imgur.com/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings. But what if you want to dynamically specify the `src` or `alt` text? You could **use a value from JavaScript by replacing `" "` with `{ }`**.
+When you want to pass a string attribute to JSX, you put it in single or double quotes. In first JavaScript file, `"https://i.imgur.com/7vQD0fPs.jpg"` and `"Gregorio Y. Zara"` are being passed as strings. But what if you want to _dynamically_ specify the `src` or `alt` text? You could **use a value from JavaScript by replacing `" "` with `{ }`**.
 
 ==You can also “escape into JavaScript” from JSX attributes==, but you have to use curly braces _instead of_ quotes:
 
