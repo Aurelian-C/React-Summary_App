@@ -2598,7 +2598,7 @@ const React_Router = {
 
 const Redux = {
   title:
-    '<p class="card__title--2">UI global state management: Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
+    '<p class="card__title--2">Client State Management: Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
   sections: [
     {
       sectionTitle: 'Redux vs React Context',
@@ -2910,14 +2910,34 @@ const Replacing_Redux_with_React_Hooks = {
 
 const React_Query = {
   title:
-    '<p class="card__title--2">Remote state management: React Query (aka TanStack Query)</p>',
+    '<p class="card__title--2">Server State Management: React Query (aka TanStack Query)</p>',
   sections: [
+    {
+      sectionTitle: 'Client State vs Server State',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Client_state_vs_server_state.html',
+      tooltips: [
+        `<h3>Ownership of Data</h3>
+        <p>- Client State: In the context of client state, <i>the application owns the data</i>. This includes information like UI state, user preferences, or any data that is generated or manipulated on the client side.</p>
+        <p>- Server State: On the other hand, server state refers to <i>data that is owned and managed by the server</i>. Examples include lists of articles, user details, or any information retrieved from the server.</p>`,
+        `<h3>Borrowing Data</h3>
+        <p>- Client State: <i>Applications manage and own client state data</i>, using it for various purposes within the app.</p>
+        <p>- Server State: <i>The application borrows server state data to display the most recent version to the user. However, the server remains the true owner of this data.</i></p>`,
+        `<h3>Data Availability Across Components</h3>
+        <p>- Client State: Typically, client state needs to be made available to the whole app. This often involves using state management libraries like Redux to maintain a global state accessible across components.</p>
+        <p>- Server State: React Query introduces a different approach. With its caching mechanism, you can use the same <code>useQuery</code> hook in multiple components, and it will fetch the data once and subsequently return it from the cache. This reduces the need for managing client state globally, as the server state is effectively cached and accessible as needed.</p>
+        `,
+        `<h3>Summary</h3>
+        <p>In summary, the key <i>differences lie in the <u>ownership of data</u></i>, the way data is borrowed for display, the need for global state management, and the potential role of libraries like Redux or React Query in managing client and server states.</p>`,
+      ],
+    },
     {
       sectionTitle: 'What is React Query (aka TanStack Query)?',
       sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
       tooltips: [
         `<h3>What is React Query?</h3>
         <p>TanStack Query (FKA React Query) is often described as the missing <i>data-fetching library for web applications</i>, but in more technical terms, <i>it makes <u>fetching</u>, <u>caching</u>, <u>synchronizing</u> and <u>updating</u> server state in your web applications</i> a breeze.</p>
+        <p>The library operates on sane defaults that try to keep your data as fresh as possible while at the same time showing data to the user as early as possible, making it feel near instant at times and thus providing a great UX.</p>
         `,
         `<h3>Data is stored in a cache</h3>
         <p>The most fundamental thing about React Query is that <i><u>all remote state is cached</u>, which means that the fetched data will be stored in order to be reused in different points of the application.</i></p>
@@ -3013,6 +3033,7 @@ const React_Query = {
         `<h3>Query Functions (<code>queryFn</code>)</h3>
         <p>A query function can be literally <i>any function that <u>returns a Promise</u></i>. The Promise that is returned should either <u>resolve the data</u> or <u>throw an error</u>.</p>
         <p>Handling and throwing errors: <i>for TanStack Query to determine a query has errored, the query function <u>must throw</u> or return a <u>rejected Promise</u>.</i> Any error that is thrown in the query function will be persisted on the <code>error</code> state of the query.</p>
+        <p>IMPORTANT: <i>React Query does not invoke the <code>queryFn</code> on every re-render, even with the default <code>staleTime</code> of zero.</i> Your app can re-render for various reasons at any time, so fetching every time would be insane!</p>
         `,
       ],
     },

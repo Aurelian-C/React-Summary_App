@@ -140,6 +140,12 @@ useQuery({
 
 ==For TanStack Query to determine a query has errored, the query function **must throw** or return a **rejected Promise**.== Any error that is thrown in the query function will be persisted on the `error` state of the query.
 
+> **IMPORTANT**: ==React Query does not invoke the `queryFn` on every re-render, even with the default `staleTime` of zero.== Your app can re-render for various reasons at any time, so fetching every time would be insane!
+>
+> If you see a refetch that you are not expecting, it is likely because you just focused the window and React Query is doing a `refetchOnWindowFocus`, which is a great feature for production: If the user goes to a different browser tab, and then comes back to your app, a background refetch will be triggered automatically, and data on the screen will be updated if something has changed on the server in the meantime. All of this happens without a loading spinner being shown, and your component will not re-render if the data is the same as you currently have in the cache.
+>
+> During development, this will probably be triggered more frequently, especially because focusing between the Browser DevTools and your app will also cause a fetch, so be aware of that.
+
 ## React Query Overview
 
 ```react
@@ -214,3 +220,4 @@ function Todos() {
 1. [`useQuery` - tanstack.com](https://tanstack.com/query/latest/docs/react/reference/useQuery)
 1. [Query Keys - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/query-keys)
 1. [Query Functions - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/query-functions)
+1. [React Query defaults explained - tkdodo.eu](https://tkdodo.eu/blog/practical-react-query#the-defaults-explained)
