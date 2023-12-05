@@ -3030,11 +3030,16 @@ const React_Query = {
         <p><i>If your query function depends on a variable, include it in your query key</i>. Since query keys uniquely describe the data they are fetching, they should include any variables you use in your query function that <u>change</u>.</p>
         <p>Note that <i>query keys act as dependencies for your query functions</i>. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</p>
         `,
+        `<h3>Treat the query key like a dependency array</h3>
+        <p>I am referring to the dependency array of the <code>useEffect</code> hook here, which I assume you are familiar with.</p>
+        <p>Why are these two similar? Because <i>React Query will trigger a re-fetch whenever the query key changes</i>. So when we pass a variable parameter to our <code>queryFn</code>, we almost always want to fetch data when that value changes.</p>`,
         `<h3>Query Functions (<code>queryFn</code>)</h3>
         <p>A query function can be literally <i>any function that <u>returns a Promise</u></i>. The Promise that is returned should either <u>resolve the data</u> or <u>throw an error</u>.</p>
         <p>Handling and throwing errors: <i>for TanStack Query to determine a query has errored, the query function <u>must throw</u> or return a <u>rejected Promise</u>.</i> Any error that is thrown in the query function will be persisted on the <code>error</code> state of the query.</p>
         <p>IMPORTANT: <i>React Query does not invoke the <code>queryFn</code> on every re-render, even with the default <code>staleTime</code> of zero.</i> Your app can re-render for various reasons at any time, so fetching every time would be insane!</p>
         `,
+        `<h3>Keep server and client state separate</h3>
+        <p>If you get data from <code>useQuery</code>, try not to put that data into local state. The main reason is that you implicitly opt out of all background updates that React Query does for you, because the state "copy" will not update with it.</p>`,
       ],
     },
     {
@@ -3087,6 +3092,8 @@ const React_Query = {
         `<h3>Difference between using <code>setQueryData</code> and <code>fetchQuery</code></h3>
         <p>The difference between using <code>setQueryData</code> and <code>fetchQuery</code> is that <i><code>setQueryData</code> is synchronous</i> and <i>assumes that you already synchronously have the data available</i>. If you need to fetch the data asynchronously, it's suggested that you either re-fetch the query key or use <code>fetchQuery</code> to handle the asynchronous fetch.</p>
         `,
+        `<h3>Don't use the queryCache as a local state manager</h3>
+        <p>If you tamper with the queryCache (<code>queryClient.setQueryData</code>), it should only be for optimistic updates or for writing data that you receive from the backend after a mutation. Remember that every background refetch might override that data, so use something else for local state (Redux, Zustand etc.).</p>`,
       ],
     },
     {

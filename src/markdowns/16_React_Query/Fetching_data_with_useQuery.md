@@ -111,6 +111,14 @@ function Todos({ todoId }) {
 
 Note that ==**query keys act as dependencies for your query functions**. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, *queries will be refetched automatically* (depending on your `staleTime` settings).==
 
+### Treat the query key like a dependency array
+
+I am referring to the dependency array of the [`useEffect`](https://reactjs.org/docs/hooks-reference.html#conditionally-firing-an-effect) hook here, which I assume you are familiar with.
+
+Why are these two similar? Because ==React Query will trigger a re-fetch whenever the query key changes==. So when we pass a variable parameter to our `queryFn`, we almost always want to fetch data when that value changes.
+
+Imagine that our UI displays a list of todos along with a filter option. We would have some _local state_ to store that filtering, and as soon as the user changes their selection, we would _update that local state, and React Query will automatically trigger the refetch for us, because the query key changes_. We are thus **keeping the user's filter selection *in sync* with the query function**, which is very similar to what a dependency array represents for `useEffect`. I don't think I have ever passed a variable to the `queryFn` that was *not* part of the `queryKey`, too.
+
 ## Query Functions (`queryFn`)
 
 A query function can be literally ==any function that **returns a Promise**==. The Promise that is returned should either ==**resolve the data** or **throw an error**==.
@@ -145,6 +153,18 @@ useQuery({
 > If you see a refetch that you are not expecting, it is likely because you just focused the window and React Query is doing a `refetchOnWindowFocus`, which is a great feature for production: If the user goes to a different browser tab, and then comes back to your app, a background refetch will be triggered automatically, and data on the screen will be updated if something has changed on the server in the meantime. All of this happens without a loading spinner being shown, and your component will not re-render if the data is the same as you currently have in the cache.
 >
 > During development, this will probably be triggered more frequently, especially because focusing between the Browser DevTools and your app will also cause a fetch, so be aware of that.
+
+## Keep server and client state separate
+
+If you get data from `useQuery`, try not to put that data into local state. The main reason is that you implicitly opt out of all background updates that React Query does for you, because the state "copy" will not update with it.
+
+## Create custom hooks
+
+Even if it's only for wrapping one `useQuery` call, creating a custom hook usually pays off because:
+
+- You can keep the actual data fetching out of the ui, but co-located with your `useQuery` call.
+- You can keep all usages of one query key (and potentially type definitions) in one file.
+- If you need to tweak some settings or add some data transformation, you can do that in one place.
 
 ## React Query Overview
 
@@ -221,3 +241,4 @@ function Todos() {
 1. [Query Keys - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/query-keys)
 1. [Query Functions - tanstack.com](https://tanstack.com/query/latest/docs/react/guides/query-functions)
 1. [React Query defaults explained - tkdodo.eu](https://tkdodo.eu/blog/practical-react-query#the-defaults-explained)
+1. [Treat the query key like a dependency array - tkdodo.eu](https://tkdodo.eu/blog/practical-react-query#treat-the-query-key-like-a-dependency-array)

@@ -44,6 +44,10 @@ export function useLogin() {
 
 > **NOTE**: The `QueryClient` can be used to _interact with a React Query cache_.
 
+## Don't use the queryCache as a local state manager
+
+If you tamper with the queryCache (`queryClient.setQueryData`), it should only be for optimistic updates or for writing data that you receive from the backend after a mutation. Remember that every background refetch might override that data, so [use](https://reactjs.org/docs/hooks-state.html) [something](https://zustand.surge.sh/) [else](https://redux.js.org/) for local state.
+
 ## References
 
 1. [QueryClient - tanstack.com](https://tanstack.com/query/latest/docs/react/reference/QueryClient)
