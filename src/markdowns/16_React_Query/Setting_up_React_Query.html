@@ -7,7 +7,7 @@
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -310,7 +310,7 @@ span.cm-strikethrough { text-decoration: line-through; }
   /* for focus mode */
   --text-color5: rgba(170, 178, 180, 0.5);
   /* link color */
-  --link-color: #0091ff;
+  --link-color: #0091FF;
   /* table color */
   --table-border-color: #555;
   --table-thead-color: #2b2d2e;
@@ -345,7 +345,7 @@ span.cm-strikethrough { text-decoration: line-through; }
   --focus-ring-color: var(--focus-color);
   /* codeblock color */
   --code-red-color: #FF75B5;
-  --code-yellow-color: #e8ff94;
+  --code-yellow-color: #E8FF94;
   --code-cyan-color: #19f9d8;
   --code-blue-color: #6FC1FF;
   --code-purple-color: #FF75B5;
@@ -415,6 +415,7 @@ body {
 /* link */
 #write a:not([role="menuitem"]) {
   color: var(--link-color) !important;
+  text-decoration: none;
 }
 
 #write a:not([role="menuitem"]):hover {
@@ -1293,16 +1294,12 @@ footer.ty-footer {
 code {
   font-size: 0.9em;
   background-color: var(--bg-color5);
-	padding: .3em;
-  	padding-top: 0.15em;
-  	padding-bottom: 0.15em;
+  padding: .3em;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
   border: 2px solid #666;
   border-radius: 0.25rem;
-  color: var(--text-color1);	
-}
-
-a code {
-  color: var(--link-color) !important;
+  color: var(--text-color1);
 }
 
 /* codeblock */
@@ -1566,7 +1563,7 @@ pre.md-meta-block:active {
 }
 
 #typora-source .CodeMirror-lines {
-  max-width: 1100px;
+  max-width: 800px;
   padding-left: 70px;
   padding-right: 70px;
 }
@@ -1577,8 +1574,6 @@ pre.md-meta-block:active {
   opacity: 1;
   transition: 0.3s;
   max-width: 1100px !important;
-  padding-left: 70px;
-  padding-right: 70px;
 }
 
 .typora-sourceview-on #write {
@@ -2273,6 +2268,7 @@ mark {
     border-radius: 3px;
     padding: 1px 3px 1px 3px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    color: #000000;
 }
 
 .task-list-done {
@@ -2287,54 +2283,20 @@ kbd {
   box-shadow: 0 2px 0 #333;
 }
 
+blockquote p {
+  text-indent: 0px;
+}
+
 p {
-    text-align: justify;
-    text-indent: 30px;
+  text-align: justify;
+  text-indent: 30px;
 }
 
-blockquote > p {
-    text-indent: 0px;
+a code {
+  color: var(--link-color) !important;
 }
 
-li {
-    text-align: justify;
-}
 
-#write a:not([role="menuitem"]) {
-    text-decoration: none;
-}
-
-#write {
-    max-width: 950px;
-}
-
-@media only screen and (max-width: 850px) {
-  #write {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  #write > h1:first-child,
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  h2:after {
-    width: 160px;
-  }
-
-  p {
-    text-indent: 20px;
-  }
-}
 
 
 </style><title>Setting_up_React_Query</title>

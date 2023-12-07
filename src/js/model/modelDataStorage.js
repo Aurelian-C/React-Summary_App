@@ -3086,6 +3086,32 @@ const React_Query = {
       ],
     },
     {
+      sectionTitle: 'React Query and automatic/manually refetching',
+      sectionSource:
+        '/src/markdowns/16_React_Query/React_Query_and_automatic_refetching.html',
+      highlights: {},
+      tooltips: [
+        `<h3>Smart refetches</h3>
+        <ul>React Query is smart and chooses strategic points for triggering a refetch:
+          <li>- <i><code>refetchOnMount</code></i>: whenever a new component that calls <code>useQuery</code> mounts, React Query will do a revalidation.</li>
+          <li>- <i><code>refetchOnWindowFocus</code></i>: whenever you focus the browser tab, there will be a refetch.</li>
+          <li>- <i><code>refetchOnReconnect</code></i>: if you lose your network connection and regain it, it's also a good indicator to revalidate what you see on the screen.</li>
+        </ul>
+        <p>Finally, if you, as the developer of your app, know a good point in time, you can invoke a manual invalidation via <i><code>queryClient.invalidateQueries</code></i>. This comes in very handy after you perform a mutation.</p>
+        `,
+        `<h3>React Query defaults</h3>
+        <p><i>React Query comes with aggressive but sane defaults, but they are geared towards keeping things up-to-date, not to minimize the amount of network requests.</i> This is mainly because <code>staleTime</code> defaults to zero, which means that every time you mount a new component instance, you will get a background refetch.</p>
+        `,
+        `<h3>Customize <code>staleTime</code></h3>
+        <p>Set <code>staleTime</code> to a value you are comfortable with for your specific use-case. The key thing to know is: <i>As long as data is fresh, it will always come from the cache only. You will not see a network request for fresh data, no matter how often you want to retrieve it.</i></p>
+        <p>There is also no "correct" value for <code>staleTime</code>.</p>
+        `,
+        `<h3>Using <code>setQueryDefaults</code></h3>
+        <p>React Query supports a great way of <i>setting default values per Query Key via <code>QueryClient.setQueryDefaults</code></i>.</p>
+        `,
+      ],
+    },
+    {
       sectionTitle:
         'Manually set data into the React Query cache via <code>setQueryData</code> function',
       sectionSource:
