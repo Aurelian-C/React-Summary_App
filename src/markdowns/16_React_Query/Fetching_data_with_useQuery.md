@@ -83,9 +83,15 @@ function Todos() {
 
 ## Query Keys (`queryKey`)
 
-At its core, ==TanStack Query **manages query caching for you based on query keys (**`queryKey`**)**==. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and ==**unique to the query's data**==, you can use it!
+At its core, ==TanStack Query **manages query caching for you based on query keys (**`queryKey`**)**==.
 
-When a query needs more information to uniquely describe its data, you can use an array with a string and any number of serializable objects to describe it.
+Query Keys are a very important core concept in React Query. They are necessary so that the library can internally cache your data correctly and re-fetch automatically when a dependency to your query changes. Lastly, it will allow you to interact with the Query Cache manually when needed, for example, when updating data after a mutation or when you need to manually invalidate some queries.
+
+Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and ==**unique to the query's data**==, you can use it!
+
+> **NOTE**: Internally, **the Query Cache is just a JavaScript object**, where the keys are serialized Query Keys and the values are your Query Data plus meta information. The most important part is that **keys need to be _unique_ for your queries**. If React Query finds an entry for a key in the cache, it will use it.
+
+When a query needs more information to **uniquely** describe its data, you can use an array with a string and any number of serializable objects to describe it.
 
 ```react
 // An individual todo

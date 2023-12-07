@@ -3026,7 +3026,9 @@ const React_Query = {
         <p>The query result returned by <code>useQuery</code> contains all of the information about the query that you'll need for templating and any other usage of the data.<p>
         `,
         `<h3>Query Keys (<code>queryKey</code>)</h3>
-        <p>At its core, TanStack Query <i>manages query caching for you based on query keys (<code>queryKey</code>)</i>. Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and <i>unique to the query's data</i>, you can use it!</p>
+        <p>At its core, TanStack Query <i>manages query caching for you based on query keys (<code>queryKey</code>)</i>.</p>
+        <p>Query Keys are a very important core concept in React Query. They are necessary so that the library can internally <i>cache your data correctly</i> and <i>re-fetch automatically when a dependency to your query changes</i>. Lastly, it will allow you to <i>interact with the Query Cache manually when needed</i>, for example, when updating data after a mutation or when you need to manually invalidate some queries.</p>
+        <p>Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and <i>unique to the query's data</i>, you can use it!</p>
         <p><i>If your query function depends on a variable, include it in your query key</i>. Since query keys uniquely describe the data they are fetching, they should include any variables you use in your query function that <u>change</u>.</p>
         <p>Note that <i>query keys act as dependencies for your query functions</i>. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</p>
         `,
@@ -3055,6 +3057,17 @@ const React_Query = {
       tooltips: [
         `<h3>How to fetch data programatically with <code>useQuery()</code> hook</h3>
         <p>According to the API Reference, you need to <i>change the <code>enabled</code> option to <code>false</code> to disable a query from automatically running</i>. Then you re-fetch manually.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Query keys and automatic refetching',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Query_keys_and_automatic_refetching.html',
+      highlights: {},
+      tooltips: [
+        `<p>The <code>refetch</code> function returned by <code>useQuery</code> hook is for <i>refetching with the same parameters</i>.</p>
+        <p>If you have some <i><u>state</u> that changes your data</i>, all you need to do is to put it in the Query Key, because React Query will trigger a refetch automatically whenever the key changes.</p>
         `,
       ],
     },
