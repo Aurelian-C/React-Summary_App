@@ -1,6 +1,6 @@
 # Query Keys and Automatic Refetching
 
-This is a *very* important concept that cannot be emphasized enough, and it's also something that might take some time to "click". Most people think about queries, and especially refetching, in an *imperative* way.
+This is a very important concept that cannot be emphasized enough, and it's also something that might take some time to "click". Most people think about queries, and especially refetching, in an *imperative* way.
 
 I have a query, it fetches some data. Now I click this button and I want to refetch, but with different parameters. I've seen many attempts that look like this:
 
@@ -20,7 +20,7 @@ The answer is: **You don't.**
 
 ==That's not what `refetch` is for - it's for refetching *with the same parameters*.==
 
-==If you have some *state* that changes your data, all you need to do is to put it in the Query Key, because React Query will trigger a refetch automatically whenever the key changes.== So when you want to apply your filters, just change your *client state*:
+==If you have some *state* that changes your data, all you need to do is to put it in the Query Key, because **React Query will trigger a refetch automatically whenever the key changes**.== So when you want to apply your filters, just change your *client state*:
 
 ```jsx
 function Component() {

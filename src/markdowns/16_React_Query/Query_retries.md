@@ -32,7 +32,7 @@ const result = useQuery({
 
 ## Retry Delay
 
-By default, retries in TanStack Query do not happen immediately after a request fails. As is standard, a back-off delay is gradually applied to each retry attempt.
+==By default, retries in TanStack Query do not happen immediately after a request fails. As is standard, a back-off delay is gradually applied to each retry attempt.==
 
 The default `retryDelay` is set to double (starting at `1000`ms) with each attempt, but not exceed 30 seconds:
 

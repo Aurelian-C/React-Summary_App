@@ -2,7 +2,7 @@
 
 ## Smart refetches
 
-Cache invalidation is pretty hard, so when do you decide it's time to ask the backend again for new data? Surely we can't just do this every time a component that calls `useQuery` re-renders. That would be insanely expensive, even by modern standards.
+**Cache invalidation** is pretty hard, so when do you decide it's time to ask the backend again for new data? Surely we can't just do this every time a component that calls `useQuery` re-renders. That would be insanely expensive, even by modern standards.
 
 So React Query is being smart and chooses strategic points for triggering a refetch. Points that seem to be a good indicator for saying: "Yep, now would be a good time to go get some data". These are:
 
@@ -110,7 +110,7 @@ queryClient.setQueryDefaults(
 
 ## Takeaways
 
-React Query is great at managing async state globally in your app, if you let it. Only turn off the refetch flags if you know that make sense for your use-case, and resist the urge to sync server data to a different state manager. Usually, customizing `staleTime` is all you need to get a great ux while also being in control of how often background updates happen.
+React Query is great at managing async state globally in your app, if you let it. Only turn off the refetch flags if you know that make sense for your use-case, and resist the urge to sync server data to a different state manager. Usually, customizing `staleTime` is all you need to get a great UX while also being in control of how often background updates happen.
 
 ## References
 

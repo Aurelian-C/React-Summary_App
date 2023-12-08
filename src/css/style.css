@@ -329,7 +329,7 @@ b code {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .tooltip {
     max-width: 100%;
   }

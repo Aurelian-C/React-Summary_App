@@ -8,7 +8,7 @@ The `removeQueries` method can be used to ==remove queries from the cache based 
 queryClient.removeQueries({ queryKey, exact: true })
 ```
 
-By writing `queryClient.removeQueries()` without any parameter, you will remove all queries that have been accumulated in the cache.
+==By writing `queryClient.removeQueries()` without any parameter, you will remove all queries that have been accumulated in the cache.==
 
 ## Example
 

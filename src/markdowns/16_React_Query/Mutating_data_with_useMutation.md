@@ -89,11 +89,17 @@ By defining only the `mutationFn` property, the UI will not be update automatica
 
 ==We **manually invalidating the cache** by using the **`queryClient.invalidateQueries()`** method. This method tells React Query to immediately re-fetch the data that's on our server==.
 
-To `.invalidateQueries()` method we need to pass as argument the `queryKey` that we want to invalidate in our cache.
+ We can invalidate a query by passing to `.invalidateQueries()` on of two options:
 
-> **NOTE**: We define the `queryKey` in `useQuery()` hook.
+- the `queryKey` that we want to invalidate in our cache;
+
+  > **NOTE**: We define the `queryKey` in `useQuery()` hook.
+
+- the `{active: true}` object. `invalidateQueries({ active: true })` will invalidate all the queries that are currently active on the page.
 
 How do we get access to our `queryClient` instance? Well, for that we have a special hook called **`useQueryClient`**. ==The `useQueryClient` hook returns the current `QueryClient` instance.==
+
+### `queryClient.invalidateQueries({ queryKey: ['todos'] })`
 
 ```react
 import { postTodo } from '../my-api'
@@ -115,6 +121,8 @@ function Todos() {
 ```
 
 > **NOTE**: The `onSucces` method will fire when the mutation is successful and will be _passed the mutation's result_. If a Promise is returned, it will be awaited and resolved before proceeding.
+
+### `queryClient.invalidateQueries({ active: true })`
 
 ==You can invalidate queries by passing to `.invalidateQueries()` an object with this shape `{active: true}`. `invalidateQueries({ active: true })` will invalidate **all the queries that are currently active on the page**.==
 
@@ -179,7 +187,7 @@ useMutation({
 
 ## Mutation function options. Specify individual behavior for each mutate function
 
-==You might find that you want to **trigger additional callbacks** beyond the ones defined on `useMutation` when calling `mutate`. This can be used to trigger **component-specific side effects**. To do that, you can provide any of the same callback options to the `mutate` function after your mutation variable. _Supported options include: `onSuccess`, `onError` and `onSettled`_. Please keep in mind that those additional callbacks won't run if your component unmounts *before* the mutation finishes.==
+==You might find that you want to **trigger additional callbacks** beyond the ones defined on `useMutation` when calling `mutate`. This can be used to trigger **component-specific side effects**. To do that, **you can provide any of the same callback options to the `mutate` function after your mutation variable**. _Supported options include: `onSuccess`, `onError` and `onSettled`_. Please keep in mind that those additional callbacks won't run if your component unmounts *before* the mutation finishes.==
 
 ```react
 useMutation({

@@ -1,6 +1,8 @@
 # How to fetch data programatically with `useQuery()` hook (for example, when a button is clicked)?
 
-According to the [API Reference](https://react-query.tanstack.com/reference/useQuery), you need to ==change the **`enabled` option** to `false` to disable a query from automatically running.== Then you re-fetch manually.
+According to the [API Reference](https://react-query.tanstack.com/reference/useQuery), you need to ==change the **`enabled` option** to `false` to **disable a query from automatically running**.== Then you refetch manually.
+
+> **IMPORTANT**: The `refetch` function returned by `useQuery` hook is for **refetching with the same parameters**.
 
 ```react
 import { useQuery } from '@tanstack/react-query';
@@ -39,7 +41,7 @@ export default function BookIntroduction() {
 }
 ```
 
-> **IMPORTANT**: You can pass anything that returns a boolean to `enabled`. That way you could **create Dependent (or serial) queries**:
+> **IMPORTANT**: ==You can pass anything that returns a boolean to `enabled`.== That way you could **create Dependent (or serial) queries**:
 >
 > ```react
 > import { useQuery } from '@tanstack/react-query';

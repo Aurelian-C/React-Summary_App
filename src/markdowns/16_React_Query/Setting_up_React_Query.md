@@ -2,7 +2,7 @@
 
 ## Install React Query library
 
-To install and set up React Query in our application, we need to install the React Query library via VSCode terminal. We install React Query by typing in our VSCode terminal the ==**`npm install @tanstack/react-query`**== command.
+To install and set up React Query in our application, we need to install the React Query library. We install React Query by typing in our VSCode terminal the ==**`npm install @tanstack/react-query`**== command.
 
 > **NOTE**: React Query is compatible with React v16.8+ and works with ReactDOM and React Native.
 
@@ -17,17 +17,15 @@ To integrating React Query into our application, we need to:
 - set up the React Query cache (create a place where the data lives) by using **`new QueryClient()`**;
 - provide that cache (data) to our application by using the `<QueryClientProvider>` component.
 
-With `const queryClient = new QueryClient()` we have created our QueryClient, which basically sets up the cache behind the scenes, and now it's time to provide the `queryClient` to our application, so we want to provide our Query data to the entire component tree.
-
 ```react
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-// Create a client
+// 1. Create a client
 const queryClient = new QueryClient()
 
 function App() {
   return (
-    // Provide the client to your App
+    // 2. Provide the client to your App
     <QueryClientProvider client={queryClient}>
       <OtherComponents />
     </QueryClientProvider>
@@ -35,7 +33,7 @@ function App() {
 }
 ```
 
->**NOTE**: To `new QueryClient()` you can pass an object that specify a couple of options. We can specify `defaultOptions`, and then usually what we want is to specify options for our queries. One option that we can experiment with is called `staleTime`. ==`staleTime` is basically the amount of time that the data in the cache will stay fresh, so that it will stay valid, until it is re-fetched again==:
+>**NOTE**: ==To `new QueryClient()` we can pass an object that specify a couple of options==. We can specify `defaultOptions`, and then usually what we want is to specify options for our queries. One option that we can experiment with is called `staleTime`. ==`staleTime` is basically the amount of time that the data in the cache will stay fresh, so that it will stay valid, until it is refetched again==:
 >
 >```react
 >const queryClient = new QueryClient({
@@ -80,11 +78,13 @@ function App() {
 }
 ```
 
-> **NOTE**: If we don't have anything in our cache, then the ReactQueryDevtools is completely empty, but in the next lecture, we will start fetching some data, and so then that will show up right there in the DevTools.
+> **NOTE**: If we don't have anything in our cache, then the ReactQueryDevtools is completely empty, but in the next lectures, we will start fetching some data, and so then that will show up right there in the DevTools.
 
 ### React Query DevTools: `stale`, `inactive` & `fresh` status
 
-==The `stale` status that you see in React Query DevTools means that the data is out of date (old), so it's basically invalid. So therefore, when we do certain things, React Query will automatically re-fetch the data.== One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon _as the data has the staled (`stale` status)_.
+==The `stale` status that you see in React Query DevTools means that the data is out of date (old), so it's basically invalid. So therefore, when we do certain things, React Query will automatically refetch the data.== One of the things that we can do, which will then trigger a re-fetch, is to move away from the current browser tab and then come back to it later. So that will trigger a re-fetch as soon _as the data has the staled (`stale` status)_.
+
+> **IMPORTANT**: ==**As long as data is fresh, it will always come from the cache only.**== You will not see a network request for fresh data, no matter how often you want to retrieve it.
 
 You can control the `stale` time by overwrite the `staleTime` property:
 
@@ -99,9 +99,9 @@ const queryClient = new QueryClient({
 })
 ```
 
-==The data in the cache becomes inactive (has the `inactive` status) when the component that holds that data is unmounted from the DOM. Although the component is unmounted from the DOM, the data that correspond to that component is preserved in the React Query cache.== When the component is re-mounted to the DOM, React Query will re-fetch the data that correspond to that component automatically, only if it has the `stale` status. ==As long as a component has the `fresh` status, the data in the cache that correspond to that component will not be re-fetch again, even if the component is unmounted and re-mounted to the DOM.==
+==The data in the cache becomes inactive (has the `inactive` status) when the **component that holds that data is unmounted from the DOM**. Although the component is unmounted from the DOM, the data that correspond to that component is preserved in the React Query cache.== When the component is remounted to the DOM, React Query will refetch the data that correspond to that component automatically, but only if it has the `stale` status. Keep in mind that ==as long as a component has the `fresh` status, the data in the cache that correspond to that component will not be refetch again, even if the component is unmounted and remounted to the DOM.==
 
-> **NOTE**: Traditionally, if we were doing fetching inside a component by using a `useEffect` hook, then as soon as the component is re-mounted to the DOM, the `useEffect` hook would then fetch again the data that correspond to that component. When we use the TanStack Query library, this fetch & re-fetch behavior is controlled by React Query.
+> **NOTE**: Traditionally, if we were doing fetching inside a component by using a `useEffect` hook, then as soon as the component is remounted to the DOM, the `useEffect` hook would then fetch again the data that correspond to that component. When we use the TanStack Query library, this fetch & refetch behavior is controlled by React Query.
 
 ## React Query Overview
 

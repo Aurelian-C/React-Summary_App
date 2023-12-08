@@ -6,68 +6,40 @@ TanStack Query (FKA React Query) is often described as the missing ==data-fetchi
 >
 > So if React Query is no data fetching library, what is it? ==React Query is an **async (server) state manager**.== It can manage any form of asynchronous state - it is happy as long as it gets a Promise.
 
-==While most traditional state management libraries are great for working with client state, they are **not so great at working with async or server state**. This is because **server state is totally different**.== For starters, server state:
-
-- Is persisted remotely in a location you do not control or own
-- Requires asynchronous APIs for fetching and updating
-- Implies shared ownership and can be changed by other people without your knowledge
-- Can potentially become "out of date" in your applications if you're not careful
-
-Once you grasp the nature of server state in your application, **even more challenges will arise** as you go, for example:
-
-- Caching... (possibly the hardest thing to do in programming)
-- Deduping multiple requests for the same data into a single request
-- Updating "out of date" data in the background
-- Knowing when data is "out of date"
-- Reflecting updates to data as quickly as possible
-- Performance optimizations like pagination and lazy loading data
-- Managing memory and garbage collection of server state
-- Memoizing query results with structural sharing
-
-==React Query is hands down one of the best libraries for **managing server state**. It works amazingly well out-of-the-box, with zero-config, and can be customized to your liking as your application grows.==
-
-On a more technical note, React Query will likely:
-
-- Help you remove **many** lines of complicated and misunderstood code from your application and replace with just a handful of lines of React Query logic.
-- Make your application more maintainable and easier to build new features without worrying about wiring up new server state data sources
-- Have a direct impact on your end-users by making your application feel faster and more responsive than ever before.
-- Potentially help you save on bandwidth and increase memory performance
-
 ![React_Query01](../../img/React_Query01.jpg)
 
 ## Data is stored in a cache
 
-The most fundamental thing about React Query is that ==**all remote state is cached**, which means that the fetched data will be stored in order to be reused in different points of the application.==
+The most fundamental thing about React Query is that ==**all remote state is cached**, which means that **the fetched data will be stored in order to be reused** in different points of the application.==
 
-You might have heard this before, it's the caching mechanism that React Query uses. It's nothing new - you can read about the [HTTP Cache-Control Extensions for Stale Content here](https://datatracker.ietf.org/doc/html/rfc5861). In summary, it means React Query will cache data for you and give it to you when you need it, even if that data might not be up-to-date (stale) anymore. The principle is that stale data is better than no data, because no data usually means a loading spinner, and this will be perceived as "slow" by users. At the same time, it will try to perform a background refetch to revalidate that data.
-
-> **EXAMPLE**: If we fetch data about cabins in Component A, React Query will fetch the data from the API. It will then store the received data in the cache, so that Component A can use it. Then if at a later point, Component B also wants to fetch the cabin data, then no additional API request will be necessary. Instead, React Query will simply provide the same data to Component B from the cache.
+You might have heard this before, it's the caching mechanism that React Query uses. It's nothing new - you can read about the [HTTP Cache-Control Extensions for Stale Content](https://datatracker.ietf.org/doc/html/rfc5861). ==In summary, it means React Query will cache data for you and give it to you when you need it, even if that data might not be up-to-date (stale) anymore. The principle is that _stale data is better than no data_==, because no data usually means a loading spinner, and this will be perceived as "slow" by users. At the same time, it will try to perform a background refetch to revalidate that data.
 
 ## Automatic re-fetching to keep state synched
 
-React Query also ==automatically re-fetches the data in certain situations==. For example, after a certain timeout or after we leave the browser window and then come back to it. So React Query is a data synchronization tool.
-
-This is super important in order to make sure that ==a remote state always stays in sync with the application==.
-
-Because React Query manages async state (or, in terms of data fetching: server state), it assumes that the frontend application doesn't "own" the data. And that's totally right. If we display data on the screen that we fetch from an API, we only display a "snapshot" of that data - the version of how it looked when we retrieved it. So the question we have to ask ourselves is:
-
-Is that data still accurate after we fetch it?
+Because React Query manages async state (or, in terms of data fetching: server state), it assumes that the frontend application doesn't "own" the data. And that's totally right. If we display data on the screen that we fetch from an API, we only display a "snapshot" of that data - the version of how it looked when we retrieved it. So the question we have to ask ourselves is: Is that data still accurate after we fetch it?
 
 The answer depends totally on our problem domain. If we fetch a Twitter post with all its likes and comments, it is likely outdated (stale) pretty fast. If we fetch exchange rates that update on a daily basis, well, our data is going to be quite accurate for some time even without refetching.
 
-React Query provides the means to *synchronize* our view with the actual data owner - the backend. And by doing so, it errs on the side of updating often rather than not updating often enough.
+We can say that ==React Query is a **data synchronization tool**== because ==automatically refetches the data in certain situations==. For example, after a certain timeout or after we leave the browser window and then come back to it.
 
-## Pre-fetching
+This is super important in order to make sure that ==a remote state always stays in sync with the application==. React Query provides the means to ==*synchronize* our view (UI) with the actual data owner - the backend==. And by doing so, it errs on the side of updating often rather than not updating often enough.
 
-Besides re-fetching, we can also pre-fetch data, which basically means to ==fetch data that we know will become necessary later, but before it is actually displayed on the screen==. A classic example of this is pagination, where with pre-fetching, we can fetch data not only for the current page, but also for the next page.
+## Prefetching
 
-This way, when the user then moves to the next page, the data will always already be there in the cache.
+Besides refetching, we can also prefetch data, which basically means to ==fetch data that we know will become necessary later, but before it is actually displayed on the screen==. A classic example of this is pagination, where with prefetching, we can fetch data not only for the current page, but also for the next page. This way, when the user then moves to the next page, the data will always already be there in the cache.
 
 ## Offline support
 
-A feature that I find really useful is ==support for when the user becomes offline==. So, in this situation, since the data is already cached, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.
+A feature that I find really useful is ==support for when the user becomes offline==. So, in this situation, since the _data is already cached_, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.
 
 ## Why do we need React Query?
+
+==While most traditional _state management libraries_ are great for working with client state, they are **not so great at working with async (server) state**. This is because **server state is totally different**.== For starters, server state:
+
+- **Is persisted remotely in a location you do not control or own**;
+- Requires asynchronous APIs for fetching and updating;
+- **Implies shared ownership** and **can be changed by other people without your knowledge**;
+- **Can potentially become "out of date"** in your applications if you're not careful.
 
 We need a library like React Query with all these features because ==**remote state** is fundamentally different from **UI state**. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server==.
 
@@ -79,15 +51,15 @@ Now, there are actually other libraries that do many of the things that React Qu
 
 Two approaches to data fetching were pretty common before libraries like React Query came to the rescue:
 
-- fetch once, distribute globally, rarely update:
+- ==fetch once, distribute globally, rarely update==:
 
-  This is pretty much what I myself have been doing with redux a lot. Somewhere, I dispatch an action that initiates the data fetching, usually on mount of the application. After we get the data, we put it in a global state manager so that we can access it everywhere in our application. After all, many components need access to our Todo list. Do we refetch that data? No, we have "downloaded" it, so we have it already, why should we? Maybe if we fire a POST request to the backend, it will be kind enough to give us the "latest" state back. If you want something more accurate, you can always reload your browser window...
+  This is pretty much what I myself have been doing with Redux a lot. Somewhere, I dispatch an action that initiates the data fetching, usually on mount of the application. After we get the data, we put it in a global state manager so that we can access it everywhere in our application. After all, many components need access to our Todo list. Do we refetch that data? No, we have "downloaded" it, so we have it already, why should we? Maybe if we fire a POST request to the backend, it will be kind enough to give us the "latest" state back. If you want something more accurate, you can always reload your browser window...
 
-- fetch on every mount, keep it local:
+- ==fetch on every mount, keep it local==:
 
   Sometimes, we might also think that putting data in global state is "too much". We only need it in this Modal Dialog, so why not fetch it *just in time* when the Dialog opens. You know the drill: `useEffect`, empty dependency array (throw an eslint-disable at it if it screams), `setLoading(true)` and so on ... Of course, we now show a loading spinner every time the Dialog opens until we have the data. What else can we do, the local state is gone...
 
-Both of these approaches are pretty sub-optimal. The first one doesn't update our local cache often enough, while the second one potentially re-fetches too often, and also has a questionable ux because data is not there when we fetch for the second time.
+Both of these approaches are pretty sub-optimal. The first one doesn't update our local cache often enough, while the second one potentially refetches too often, and also has a questionable UX because data is not there when we fetch for the second time.
 
 ## Does TanStack Query replace Redux, MobX or other global state managers?
 
