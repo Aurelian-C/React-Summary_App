@@ -1,6 +1,6 @@
 # Invalidations from Mutations
 
-Invalidating queries is only half the battle. Knowing _when_ to invalidate them is the other half. Usually when a mutation in your app succeeds, it's VERY likely that there are related queries in your application that need to be invalidated and possibly re-fetched to account for the new changes from your mutation.
+Invalidating queries is only half the battle. Knowing _when_ to invalidate them is the other half. Usually when a mutation in your app succeeds, it's VERY likely that there are related queries in your application that need to be invalidated and possibly refetched to account for the new changes from your mutation.
 
 For example, assume we have a mutation to post a new todo:
 

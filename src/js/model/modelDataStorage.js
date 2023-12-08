@@ -3233,7 +3233,11 @@ const React_Query = {
         <p>The <code>QueryClient</code> can be used to <u>interact with a cache</u>.</p>
         `,
         `<h3>Query matching with <code>invalidateQueries</code></h3>
-        <p>The <code>invalidateQueries</code> method can be used to <i>invalidate and refetch single or multiple queries in the cache based on their query keys or any other functionally accessible property/state of the query</i>. By default, all matching queries are immediately marked as invalid and active queries are refetched in the background.</p>
+        <ul>The <code>invalidateQueries</code> method can be used to <i>invalidate and refetch single or multiple queries in the cache based on their query keys or any other functionally accessible property/state of the query</i>:
+          <li>- Invalidate every query in the cache: <code>queryClient.invalidateQueries()</code>;</li>
+          <li>- Invalidate every query with a key that starts with "todos": <code>queryClient.invalidateQueries({ queryKey: ['todos'] })</code>.</li>
+        </ul>
+        <p>By default, all matching queries are immediately marked as invalid and active queries are refetched in the background.</p>
         <p>When using APIs like <code>invalidateQueries</code> and <code>removeQueries</code> (and others that support partial query matching), <i>you can <u>match multiple queries by their prefix</u>, or get really specific and <u>match an exact query</u></i>.</p>
         `,
       ],
@@ -3245,6 +3249,8 @@ const React_Query = {
 
       tooltips: [
         `<p>Invalidating queries is only half the battle. Knowing <u>when</u> to invalidate them is the other half. Usually when a mutation in your app succeeds, it's VERY likely that there are related queries in your application that need to be invalidated and possibly refetched to account for the new changes from your mutation.</p>`,
+        `<h3>Invalidate queries with <code>{active: true}</code></h3>
+        <p><code>queryClient.invalidateQueries({ active: true })</code> will <i>invalidate all the queries that are currently active on the page</i>. This is a bit easier, because then we don't have to remember any query keys.</p>.`,
       ],
     },
     {

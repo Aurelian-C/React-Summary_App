@@ -14,13 +14,13 @@ queryClient.invalidateQueries({ queryKey: ['todos'] })
 
 When a query is invalidated with `invalidateQueries`, two things happen:
 
-- It is marked as stale. This stale state overrides any `staleTime` configurations being used in `useQuery` or related hooks
-- If the query is currently being rendered via `useQuery` or related hooks, it will also be re-fetched in the background
+- it is marked as stale. This stale state overrides any `staleTime` configurations being used in `useQuery` or related hooks;
+- if the query is currently being rendered via `useQuery` or related hooks, it will also be re-fetched in the background.
 
-The `invalidateQueries` method can be ==used to **_invalidate and re-fetch single or multiple queries in the cache_ based on their query keys or any other functionally accessible property/state of the query**. By default, all matching queries are immediately marked as invalid and active queries are re-fetched in the background.==
+The `invalidateQueries` method can be ==used to **_invalidate and refetch single or multiple queries in the cache_ based on their query keys or any other functionally accessible property/state of the query**. By default, all matching queries are immediately marked as invalid and active queries are re-fetched in the background.==
 
-- If you **do not want active queries to re-fetch**, and simply be marked as invalid, you can use the `refetchType: 'none'` option.
-- If you **want inactive queries to re-fetch** as well, use the `refetchType: 'all'` option
+- If you **do not want active queries to refetch**, and simply be marked as invalid, you can use the `refetchType: 'none'` option
+- If you **want inactive queries to refetch** as well, use the `refetchType: 'all'` option
 
 ```react
 await queryClient.invalidateQueries({
