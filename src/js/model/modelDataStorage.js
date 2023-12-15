@@ -1853,7 +1853,23 @@ const React_Router = {
   sections: [
     {
       sectionTitle: 'Server-side Routing vs Client-side Routing',
-      sectionSource: '',
+      sectionSource:
+        '/src/markdowns/12_React_Router/Server-side_Routing_vs_Client-side_Routing.html',
+      tooltips: [
+        `<p>I see the same problem happen again and again to juniors building their first Single-Page App (SPA). Everything works fine locally, but as soon as they deploy to a hosting platform like Netlify they get loads of "404 Not found" errors trying to load pages.</p>`,
+        `<h3>Client-side routing</h3>
+        <p>Single-Page Apps differ from traditional server-rendered applications in that they <i>only ever load one "page" from the server</i>. This means <i>your server only knows about a single route: the home <code>index.html</code></i>. The server is just there to deliver your client-side JS to the browser.</p>
+        `,
+        `<h3>The problem</h3>
+        <p><i>In order for the client-side routing to work the home page needs to load, along with all the JavaScript code.</i> Unfortunately this means if a user goes directly to another route in their browser — i.e. clicks a link to "/about", or refreshes — they will see a 404 error.</p>
+        <p>This is because <i>your server doesn't know about any routes like "/about". From its perspective there's only a single page — the home <code>index.html</code></i>. So when the server receives a request for "/about" it correctly responds with a 404.</p>
+        <p>NOTE: You generally don't catch this issue during local development since <i>most dev servers redirect all requests to the home <code>index.html</code>.</i></p>
+        `,
+        `<h3>The solution</h3>
+        <p>The solution is to <i>tell your server to respond with the <code>index.html</code> for <u>any</u> route</i>.</p>
+        <p><i>You can configure most static hosts to redirect all requests to the home route.</i> You'll have to each host's docs for something like <u>"SPA routing fallback"</u>.</p>
+        `,
+      ],
     },
     {
       sectionTitle: 'Routing: Multiple Pages in Single-Page Applications',
