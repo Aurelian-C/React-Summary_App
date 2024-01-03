@@ -2933,21 +2933,24 @@ const React_Query = {
       sectionSource:
         '/src/markdowns/16_React_Query/Client_state_vs_server_state.html',
       tooltips: [
-        `<p>In the intricate dance of web application development, <i>the <u>management of data</u> falls into two primary categories: <u>Client</u> State and <u>Server</u> State</i>.</p>`,
+        `<ul>In the intricate dance of web application development, <i>the <u>management of data</u> falls into two primary categories:</i>
+        <li>- <i>Client</i> State</li>
+        <li>- <i>Server</i> State</li>
+        </ul>`,
         `<h3>Ownership of Data</h3>
-        <p>- Client State: In the context of client state, <i>the application owns the data</i>. This includes information like UI state, user preferences, or any data that is generated or manipulated on the client side.</p>
+        <p>- Client State: In the context of client state, <i>the application owns the data</i>. This includes information like UI state, user preferences, or <i>any data that is generated or manipulated on the <u>client side</u></i>.</p>
         <p>- Server State: On the other hand, server state refers to <i>data that is owned and managed by the server</i>. Examples include lists of articles, user details, or any information retrieved from the server.</p>`,
         `<h3>Borrowing Data</h3>
-        <p>- Client State: <i>Applications manage and own client state data</i>, using it for various purposes within the app.</p>
-        <p>- Server State: <i>The application borrows server state data to display the most recent version to the user. However, the server remains the true owner of this data.</i></p>`,
+        <p>- Client State: <i>Applications manage and <u>own</u> client state data</i>, using it for various purposes within the app.</p>
+        <p>- Server State: <i>The application <u>borrows</u> server state data to display the most recent version to the user. However, the server remains the true owner of this data.</i></p>`,
         `<h3>Data Availability Across Components</h3>
         <p>- Client State: Typically, client state needs to be made available to the whole app. This often involves <i>using state management libraries like Redux to maintain a global state</i> accessible across components.</p>
-        <p>- Server State: React Query introduces a different approach. With its <i>caching mechanism</i>, you can use the same <code>useQuery</code> hook in multiple components, and it will fetch the data once and subsequently return it from the cache. This reduces the need for managing client state globally, as the server state is effectively cached and accessible as needed.</p>
+        <p>- Server State: React Query introduces a different approach. With its <i>caching mechanism</i>, you can use the same <code>useQuery</code> hook in multiple components, and it will fetch the data once and subsequently return it from the cache. This reduces the need for managing client state globally, as <i>the server state is effectively cached</i> and accessible as needed.</p>
         `,
         `<h3>Paradigm shift</h3>
         <p>The understanding that <i>server state is borrowed for display purposes</i> represents a paradigm shift. It challenges the traditional notion of treating all states (client and server) in a similar fashion and encourages developers to rethink how data ownership and borrowing are approached in the context of application architecture.</p>`,
         `<h3>Summary</h3>
-        <p>In summary, the key <i>differences lie in the <u>ownership of data</u></i>, the way data is borrowed for display, the need for global state management, and the potential role of libraries like Redux or React Query in managing client and server states.</p>`,
+        <p>In summary, <i>the key differences lie in the <u>ownership of data</u>, the way data is borrowed for display</i>, the need for global state management, and the potential role of libraries like Redux or React Query in managing client and server states.</p>`,
       ],
     },
     {
@@ -2955,13 +2958,13 @@ const React_Query = {
       sectionSource: '/src/markdowns/16_React_Query/What_is_React_Query.html',
       tooltips: [
         `<h3>What is React Query?</h3>
-        <p>TanStack Query (FKA React Query) is often described as the missing <i>datafetching library for web applications</i>, but in more technical terms, <i>it makes <u>fetching</u>, <u>caching</u>, <u>synchronizing</u> and <u>updating</u> server state in your web applications</i> a breeze.</p>
-        <p><i>The library operates on <u>sane defaults</u> that try to keep your data as fresh as possible</i> while at the same time showing data to the user as early as possible, making it feel near instant at times and thus providing a great UX.</p>
+        <p>TanStack Query (FKA React Query) is often described as the missing <i>data fetching library for web applications</i>, but in more technical terms, <i>it makes <u>fetching</u>, <u>caching</u>, <u>synchronizing</u> and <u>updating</u> server state in your web applications</i> a breeze.</p>
+        <p><i>The library operates on <u>sane defaults</u></i> that try to <i>keep your data as fresh as possible</i> while at the same time <i>showing data to the user as early as possible</i>, making it feel near instant at times and thus providing a great UX.</p>
         <p>IMPORTANT: React Query is in fact NOT a data fetching library. It doesn't fetch any data for you. React Query is an <i>async (server) state manager</i>. It can manage any form of asynchronous state - it is happy as long as it gets a Promise.</p>
         `,
         `<h3>Data is stored in a cache</h3>
         <p>The most fundamental thing about React Query is that <i><u>all remote state is cached</u>, which means that <u>the fetched data will be stored in order to be reused</u> in different points of the application.</i></p>
-        <p>In summary, it means React Query will cache data for you and give it to you when you need it, even if that data might not be up-to-date (stale) anymore. The principle is that stale data is better than no data, because no data usually means a loading spinner, and this will be perceived as "slow" by users. At the same time, it will try to perform a background refetch to revalidate that data.</p>
+        <p>In summary, it means <i>React Query will cache data for you and give it to you when you need it, even if that data might not be up-to-date anymore (data is "stale"). The principle is that stale data is better than no data</i>, because no data usually means a loading spinner, and this will be perceived as "slow" by users. At the same time, <i>it will try to perform a background refetch to revalidate that data</i>.</p>
         `,
         `<h3>Automatic refetching to keep state synched</h3>
         <p>We can say that React Query is a <u>data synchronization tool</u> because <i>automatically refetches the data in certain situations</i>. For example, after a certain timeout or after we leave the browser window and then come back to it.</p>
