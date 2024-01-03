@@ -2993,6 +2993,14 @@ const React_Query = {
         </ul>
         <p>Both of these approaches are pretty sub-optimal. The first one doesn't update our local cache often enough, while the second one potentially refetches too often, and also has a questionable UX because data is not there when we fetch for the second time.</p>
         `,
+        `<h3>React Query concepts</h3>
+        <ul>React Query has 3 core concepts:
+        <li>- <i>Queries</i></li>
+        <li>- <i>Mutations</i></li>
+        <li>- <i>Query Invalidation</i></li>
+        </ul>
+        <p>These three concepts make up most of the core functionality of React Query.</p>
+        `,
         `<h3>Does TanStack Query replace Redux, MobX or other global state managers?</h3>
         <ul>Well, let's start with a few important items:
         <li>- <i>TanStack Query is a <u>server-state</u> library</i>, responsible for managing asynchronous operations between your server and client</li>
@@ -3014,14 +3022,6 @@ const React_Query = {
         ],
       },
       tooltips: [
-        `<h3>React Query concepts</h3>
-        <ul>React Query has 3 core concepts:
-        <li>- <i>Queries</i></li>
-        <li>- <i>Mutations</i></li>
-        <li>- <i>Query Invalidation</i></li>
-        </ul>
-        <p>These three concepts make up most of the core functionality of React Query.</p>
-        `,
         `<h3>Install React Query library</h3>
         <p>We install React Query by typing in our VSCode terminal the <i><code>npm install @tanstack/react-query</code></i> command. The library itself is actually called <i>TanStack Query</i> because it also works in other frameworks such as Svelte or Vue.</p>
         `,
