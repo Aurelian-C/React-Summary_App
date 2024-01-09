@@ -3082,6 +3082,18 @@ const React_Query = {
         `,
         `<h3>Keep server and client state separate</h3>
         <p>If you get data from <code>useQuery</code>, try not to put that data into local state. The main reason is that you implicitly opt out of all background updates that React Query does for you, because the state "copy" will not update with it.</p>`,
+        `<h3><code>useQuery</code> and Important Defaults</h3>
+        <p>Query instances via <code>useQuery</code> by default <i>consider cached data as stale</i>. To change this behavior, you can <i>configure your queries both <u>globally</u> and <u>per-query</u> using the <code>staleTime</code> option</i>. Specifying a longer <code>staleTime</code> means queries will not refetch their data as often.</p>
+        <ul><i><u>Stale</u> queries are refetched automatically in the background when</i>:
+          <li>- New instances of the query mount;</li>
+          <li>- The window is refocused;</li>
+          <li>- The network is reconnected;</li>
+          <li>- The query is optionally configured with a refetch interval;</li>
+          <p>To change this functionality, you can use options like <code>refetchOnMount</code>, <code>refetchOnWindowFocus</code>, <code>refetchOnReconnect</code> and <code>refetchInterval</code>.</p>
+        </ul>
+        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. By default, "inactive" queries are <i>garbage collected</i> after 5 minutes. To change this, you can alter the default <code>gcTime</code> for queries to something other than "1000 * 60 * 5 milliseconds".</p>
+        <p>Queries that fail are <i>silently retried 3 times, with exponential backoff delay</i> before capturing and displaying an error to the UI. To change this, you can alter the default <code>retry</code> and <code>retryDelay</code> options for queries to something other than 3 and the default exponential backoff function.</p>
+        `,
       ],
     },
     {
@@ -3108,6 +3120,26 @@ const React_Query = {
         `,
         `<h3>Using <code>setQueryDefaults</code></h3>
         <p>React Query supports a great way of <i>setting default values per Query Key via <code>QueryClient.setQueryDefaults</code></i>.</p>
+        `,
+      ],
+    },
+    {
+      sectionTitle: 'Disabling/pausing queries & lazy queries',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Disabling_pausing_queries_and_lazy_queries.html',
+      highlights: {},
+      tooltips: [
+        `<h3>Disabling/Pausing Queries</h3>
+        <p>If you ever want to disable a query from automatically running, you can use the <code>enabled = false</code> option.</p>
+        <ul>When <code>enabled</code> is false:
+         <li>- If the query has cached data, then the query will be initialized in the <code>status === 'success'</code> or <code>isSuccess</code> state.</li>
+         <li>- If the query does not have cached data, then the query will start in the <code>status === 'pending'</code> and <code>fetchStatus === 'idle'</code> state.</li>
+         <li>- The query will not automatically fetch on mount.</li>
+         <li>- The query will not automatically refetch in the background.</li>
+         <li>- The query will ignore query client <code>invalidateQueries</code> and <code>refetchQueries</code> calls that would normally result in the query refetching.</li>
+         <li>- <code>refetch</code> function returned from <code>useQuery</code> can be used to manually trigger the query to fetch.</li>
+        </ul>
+        <p>Permanently disabling a query opts out of many great features that TanStack Query has to offer (like background refetches), and it's also not the idiomatic way. It takes you from the declarative approach (defining dependencies when your query should run) into an imperative mode (fetch whenever I click here). It is also not possible to pass parameters to <code>refetch</code>.</p>
         `,
       ],
     },
