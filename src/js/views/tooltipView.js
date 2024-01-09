@@ -8,6 +8,7 @@ class TooltipView {
 
       if (closeButton || !this._containerTooltip.contains(e.target)) {
         this._containerTooltip.classList.remove('show');
+        document.body.style.overflow = 'auto';
       }
 
       if (!cardArticle) return;
@@ -31,6 +32,7 @@ class TooltipView {
         `<a href=${obj.sectionSource} class="paragraph__article-anchor" target="_blank">Read more about this article!</a>`;
 
       this._containerTooltip.classList.add('show');
+      document.body.style.overflow = 'hidden';
     });
   }
 }

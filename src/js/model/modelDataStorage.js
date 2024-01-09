@@ -3130,14 +3130,14 @@ const React_Query = {
       highlights: {},
       tooltips: [
         `<h3>Disabling/Pausing Queries</h3>
-        <p>If you ever want to disable a query from automatically running, you can use the <code>enabled = false</code> option.</p>
+        <p>If you ever want to <i>disable a query from automatically running</i>, you can use the <i><code>enabled = false</code></i> option.</p>
         <ul>When <code>enabled</code> is false:
          <li>- If the query has cached data, then the query will be initialized in the <code>status === 'success'</code> or <code>isSuccess</code> state.</li>
          <li>- If the query does not have cached data, then the query will start in the <code>status === 'pending'</code> and <code>fetchStatus === 'idle'</code> state.</li>
-         <li>- The query will not automatically fetch on mount.</li>
-         <li>- The query will not automatically refetch in the background.</li>
-         <li>- The query will ignore query client <code>invalidateQueries</code> and <code>refetchQueries</code> calls that would normally result in the query refetching.</li>
-         <li>- <code>refetch</code> function returned from <code>useQuery</code> can be used to manually trigger the query to fetch.</li>
+         <li><i>- The query will not automatically fetch on mount.</i></li>
+         <li><i>- The query will not automatically refetch in the background.</i></li>
+         <li><i>- The query will ignore query client <code>invalidateQueries</code> and <code>refetchQueries</code> calls that would normally result in the query refetching.</i></li>
+         <li><i>- <code>refetch</code> function returned from <code>useQuery</code> can be used to manually trigger the query to fetch.</i></li>
         </ul>
         <p>Permanently disabling a query opts out of many great features that TanStack Query has to offer (like background refetches), and it's also not the idiomatic way. It takes you from the declarative approach (defining dependencies when your query should run) into an imperative mode (fetch whenever I click here). It is also not possible to pass parameters to <code>refetch</code>.</p>
         `,
