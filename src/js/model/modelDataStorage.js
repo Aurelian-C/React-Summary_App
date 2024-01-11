@@ -3097,10 +3097,10 @@ const React_Query = {
       ],
     },
     {
-      sectionTitle: 'React Query and automatic/manually refetching',
+      sectionTitle: 'React Query and automatic refetching',
       sectionSource:
         '/src/markdowns/16_React_Query/React_Query_and_automatic_refetching.html',
-      highlights: {},
+      highlights: { highlight1: ['automatic refetching'] },
       tooltips: [
         `<p><i>Cache invalidation</i> is pretty hard, so when do you decide it's time to ask the backend again for new data? Surely we can't just do this every time a component that calls <code>useQuery</code> re-renders. That would be insanely expensive, even by modern standards.</p>`,
         `<h3>Smart refetches</h3>
@@ -3176,12 +3176,13 @@ const React_Query = {
       ],
     },
     {
-      sectionTitle: 'Query retries',
+      sectionTitle:
+        '<code>useQuery</code> query fails (error thrown) and query retries',
       sectionSource: '/src/markdowns/16_React_Query/Query_retries.html',
-
+      highlights: { highlight1: ['query retries'] },
       tooltips: [
         `<h3>Query Retries: the <code>retry</code> property</h3>
-        <p>When a <code>useQuery</code> query fails (the query function throws an error), TanStack Query will <i>automatically retry the query</i> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</p>
+        <p><i>When a <code>useQuery</code> query fails (the query function throws an error), TanStack Query will <u>automatically retry the query</u></i> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</p>
         <ul><i>You can configure retries both on a <u>global level</u> and an <u>individual query level</u>.</i>
           <li>- Setting <code>retry = false</code> will disable retries.</li>
           <li>- Setting <code>retry = 6</code> will retry failing requests 6 times before showing the final error thrown by the function.</li>
@@ -3241,7 +3242,7 @@ const React_Query = {
     {
       sectionTitle: 'Query invalidation',
       sectionSource: '/src/markdowns/16_React_Query/Query_invalidation.html',
-
+      highlights: { highlight2: ['Query invalidation'] },
       tooltips: [
         `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <code>invalidateQueries</code> method that lets you intelligently <u>mark queries as stale</u></i> and potentially refetch them too!</p>
         <p>NOTE: The <code>QueryClient</code> can be used to <u>interact with a cache</u>.</p>
