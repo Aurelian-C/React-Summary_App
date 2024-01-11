@@ -1,6 +1,6 @@
 # Query invalidation
 
-Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, ==the `QueryClient` has an `invalidateQueries` method that lets you intelligently **mark queries as stale**== and potentially re-fetch them too!
+Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, ==the `QueryClient` has an `invalidateQueries` method that lets you intelligently **mark queries as stale**== and potentially refetch them too!
 
 > **NOTE**: The `QueryClient` can be used to _interact with a cache_.
 
@@ -12,15 +12,17 @@ queryClient.invalidateQueries()
 queryClient.invalidateQueries({ queryKey: ['todos'] })
 ```
 
+## `invalidateQueries` & `staleTime`
+
 When a query is invalidated with `invalidateQueries`, two things happen:
 
-- it is marked as stale. This stale state overrides any `staleTime` configurations being used in `useQuery` or related hooks;
+- ==it is **marked as stale. This stale state overrides any `staleTime` configurations being used in `useQuery`** or related hooks;==
 - if the query is currently being rendered via `useQuery` or related hooks, it will also be re-fetched in the background.
 
-The `invalidateQueries` method can be ==used to **_invalidate and refetch single or multiple queries in the cache_ based on their query keys or any other functionally accessible property/state of the query**. By default, all matching queries are immediately marked as invalid and active queries are re-fetched in the background.==
+The `invalidateQueries` method can be ==used to **_invalidate and refetch single or multiple queries in the cache_ based on their query keys or any other functionally accessible property/state of the query**. By default, all matching queries are immediately marked as invalid and active queries are refetched in the background:==
 
-- If you **do not want active queries to refetch**, and simply be marked as invalid, you can use the `refetchType: 'none'` option
-- If you **want inactive queries to refetch** as well, use the `refetchType: 'all'` option
+- if you **do not want active queries to refetch**, and simply be marked as invalid, you can use the `refetchType: 'none'` option;
+- if you **want inactive queries to refetch** as well, use the `refetchType: 'all'` option.
 
 ```react
 await queryClient.invalidateQueries({

@@ -3243,20 +3243,23 @@ const React_Query = {
 
       tooltips: [
         `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <code>invalidateQueries</code> method that lets you intelligently <u>mark queries as stale</u></i> and potentially refetch them too!</p>
-        <p>The <code>QueryClient</code> can be used to <u>interact with a cache</u>.</p>
-        `,
-        `<h3>Query matching with <code>invalidateQueries</code></h3>
-        <ul>The <code>invalidateQueries</code> method can be used to <i>invalidate and refetch single or multiple queries in the cache based on their query keys or any other functionally accessible property/state of the query</i>:
-          <li>- Invalidate every query in the cache: <code>queryClient.invalidateQueries()</code>;</li>
-          <li>- Invalidate every query with a key that starts with "todos": <code>queryClient.invalidateQueries({ queryKey: ['todos'] })</code>.</li>
-        </ul>
-        <p>By default, all matching queries are immediately marked as invalid and active queries are refetched in the background.</p>
-        <p>When using APIs like <code>invalidateQueries</code> and <code>removeQueries</code> (and others that support partial query matching), <i>you can <u>match multiple queries by their prefix</u>, or get really specific and <u>match an exact query</u></i>.</p>
+        <p>NOTE: The <code>QueryClient</code> can be used to <u>interact with a cache</u>.</p>
         `,
         `<h3><code>invalidateQueries</code> & <code>staleTime</code></h3>
-        <ul>When a query is invalidated with <code>invalidateQueries</code>, two things happen::
-          <li><i>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code> or related hooks;</i></li>
+        <ul>When a query is invalidated with <code>invalidateQueries</code>, two things happen:
+          <li><i>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code></i> or related hooks;</li>
           <li>- If the query is currently being rendered via <code>useQuery</code> or related hooks, it will also be refetched in the background.</li>
+        </ul>
+        `,
+        `<h3>Use <code>invalidateQueries</code> to invalidate and refetch query/queries</h3>
+        <ul>The <code>invalidateQueries</code> method can be used to <i><u>invalidate and refetch</u> <u>single</u> or <u>multiple</u> queries in the cache based on their query keys or any other functionally accessible property/state of the query</i>. By default, all matching queries are immediately marked as invalid and active queries are refetched in the background:
+          <li>- if you <i>do not want active queries to refetch</i>, and simply be marked as invalid, you can use the <code>refetchType: 'none'</code> option;</li>
+          <li>- if you <i>want inactive queries to refetch</i> as well, use the <code>refetchType: 'all'</code> option.</li>
+        </ul>`,
+        `<h3>Query matching with <code>invalidateQueries</code></h3>
+        <ul>When using APIs like <code>invalidateQueries</code> and <code>removeQueries</code> (and others that support partial query matching), you can <i>match multiple queries by their prefix</i>, or get really specific and <i>match an exact query</i>. So with <code>invalidateQueries</code> method you can:
+          <li>- invalidate every query in the cache: <code>queryClient.invalidateQueries()</code>;</li>
+          <li>- invalidate every query with a key that starts with "todos": <code>queryClient.invalidateQueries({ queryKey: ['todos'] })</code>.</li>
         </ul>
         `,
       ],
