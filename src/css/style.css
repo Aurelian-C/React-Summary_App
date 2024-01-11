@@ -221,7 +221,7 @@ code {
 
 /* Tooltip container */
 .tooltip {
-  max-width: 70vw;
+  max-width: 80vw;
   height: 100vh;
   background-color: rgb(43, 43, 43);
   color: #fff;
@@ -327,7 +327,7 @@ b code {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1300px) {
   .tooltip {
     max-width: 100%;
   }
