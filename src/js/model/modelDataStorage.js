@@ -3182,8 +3182,7 @@ const React_Query = {
       ],
     },
     {
-      sectionTitle:
-        '<code>useQuery</code> query fails (error thrown) and query retries',
+      sectionTitle: 'Query fails, thrown errors and query retries',
       sectionSource: '/src/markdowns/16_React_Query/Query_retries.html',
       highlights: { highlight1: ['query retries'] },
       tooltips: [
