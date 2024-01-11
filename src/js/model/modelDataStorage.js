@@ -3253,6 +3253,12 @@ const React_Query = {
         <p>By default, all matching queries are immediately marked as invalid and active queries are refetched in the background.</p>
         <p>When using APIs like <code>invalidateQueries</code> and <code>removeQueries</code> (and others that support partial query matching), <i>you can <u>match multiple queries by their prefix</u>, or get really specific and <u>match an exact query</u></i>.</p>
         `,
+        `<h3><code>invalidateQueries</code> & <code>staleTime</code></h3>
+        <ul>When a query is invalidated with <code>invalidateQueries</code>, two things happen::
+          <li><i>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code> or related hooks;</i></li>
+          <li>- If the query is currently being rendered via <code>useQuery</code> or related hooks, it will also be refetched in the background.</li>
+        </ul>
+        `,
       ],
     },
     {
