@@ -3034,6 +3034,14 @@ const React_Query = {
         <p>NOTE: <i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can.</i> The closer it is to the root of the page, the better it will work!</p>
         <p>To <code>new QueryClient()</code> we can <i>pass an object that specify a couple of options</i>. There are many options that we can override. So React Query sets a few quite aggressive, as they say, defaults options, but as always we can override them.</p>
         `,
+      ],
+    },
+    {
+      sectionTitle: 'Setting up React Query DevTools',
+      sectionSource:
+        '/src/markdowns/16_React_Query/Setting_up_React_Query_DevTools.html',
+      highlights: {},
+      tooltips: [
         `<h3>Install React Query DevTools</h3>
         <p>We can install the React Query DevTools. Just like Redux, React Query also has some excellent DevTools, but we just set them up in a different way. <i>In the case of React Query DevTools, it is simply an <u>NPM package</u> and not something in the browser.</i></p>
         <p>We install the React Query DevTools by typing into the VSCode terminal the <i><code>npm install @tanstack/react-query-devtools</code></i> command.</p>
@@ -3082,22 +3090,10 @@ const React_Query = {
         `,
         `<h3>Keep server and client state separate</h3>
         <p>If you get data from <code>useQuery</code>, try not to put that data into local state. The main reason is that you implicitly opt out of all background updates that React Query does for you, because the state "copy" will not update with it.</p>`,
-        `<h3><code>useQuery</code> and Important Defaults</h3>
-        <p>Query instances via <code>useQuery</code> by default <i>consider cached data as stale</i>. To change this behavior, you can <i>configure your queries both <u>globally</u> and <u>per-query</u> using the <code>staleTime</code> option</i>. Specifying a longer <code>staleTime</code> means queries will not refetch their data as often.</p>
-        <ul><i><u>Stale</u> queries are refetched automatically in the background when</i>:
-          <li>- New instances of the query mount;</li>
-          <li>- The window is refocused;</li>
-          <li>- The network is reconnected;</li>
-          <li>- The query is optionally configured with a refetch interval;</li>
-          <p>To change this functionality, you can use options like <code>refetchOnMount</code>, <code>refetchOnWindowFocus</code>, <code>refetchOnReconnect</code> and <code>refetchInterval</code>.</p>
-        </ul>
-        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. By default, "inactive" queries are <i>garbage collected</i> after 5 minutes. To change this, you can alter the default <code>gcTime</code> for queries to something other than "1000 * 60 * 5 milliseconds".</p>
-        <p>Queries that fail are <i>silently retried 3 times, with exponential backoff delay</i> before capturing and displaying an error to the UI. To change this, you can alter the default <code>retry</code> and <code>retryDelay</code> options for queries to something other than 3 and the default exponential backoff function.</p>
-        `,
       ],
     },
     {
-      sectionTitle: 'React Query and automatic refetching',
+      sectionTitle: 'React Query Defaults and automatic refetching',
       sectionSource:
         '/src/markdowns/16_React_Query/React_Query_and_automatic_refetching.html',
       highlights: { highlight1: ['automatic refetching'] },
@@ -3112,12 +3108,22 @@ const React_Query = {
         <p>Finally, if you, as the developer of your app, know a good point in time, you can invoke a manual invalidation via <i><code>queryClient.invalidateQueries</code></i>. This comes in very handy after you perform a mutation.</p>
         <p>IMPORTANT: <i>As long as data has <code>fresh</code> status, it will always come from the cache only.</i> You will not see a network request for fresh data, no matter how often you want to retrieve it. You can control the <code>stale</code> status time by overwrite the <code>staleTime</code> property. On the other hand, <i><code>queryClient.invalidateQueries</code> mark query/queries as stale. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code></i> or related hooks.</p>
         `,
-        `<h3>React Query defaults</h3>
+        `<h3>React Query defaults: <code>staleTime</code></h3>
         <p><i>React Query comes with aggressive but sane defaults, but they are geared towards keeping things up-to-date, not to minimize the amount of network requests.</i> This is mainly because <code>staleTime</code> defaults to zero, which means that every time you mount a new component instance, you will get a background refetch.</p>
+        <p>Query instances via <code>useQuery</code> by default <i>consider cached data as stale</i>. To change this behavior, you can <i>configure your queries both <u>globally</u> and <u>per-query</u> using the <code>staleTime</code> option</i>. Specifying a longer <code>staleTime</code> means queries will not refetch their data as often.</p>
+        <ul><i><u>Stale</u> queries are refetched automatically in the background when</i>:
+          <li>- New instances of the query mount;</li>
+          <li>- The window is refocused;</li>
+          <li>- The network is reconnected;</li>
+          <li>- The query is optionally configured with a refetch interval;</li>
+          <p>To change this functionality, you can use options like <code>refetchOnMount</code>, <code>refetchOnWindowFocus</code>, <code>refetchOnReconnect</code> and <code>refetchInterval</code>.</p>
+        </ul>
+        <p>Customize <code>staleTime</code>: set <code>staleTime</code> to a value you are comfortable with for your specific use-case. The key thing to know is: <i>As long as data is fresh, it will always come from the cache only. You will not see a network request for fresh data, no matter how often you want to retrieve it.</i> There is also no "correct" value for <code>staleTime</code>.</p>
         `,
-        `<h3>Customize <code>staleTime</code></h3>
-        <p>Set <code>staleTime</code> to a value you are comfortable with for your specific use-case. The key thing to know is: <i>As long as data is fresh, it will always come from the cache only. You will not see a network request for fresh data, no matter how often you want to retrieve it.</i></p>
-        <p>There is also no "correct" value for <code>staleTime</code>.</p>
+        `<h3>React Query defaults: garbage collection & <code>gcTime</code></h3>
+        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. By default, "inactive" queries are <i>garbage collected</i> after 5 minutes. To change this, you can alter the default <code>gcTime</code> for queries to something other than "1000 * 60 * 5 milliseconds".</p>`,
+        `<h3>React Query defaults: query retry</h3>
+        <p><i><u>Queries that fail</u> are silently retried 3 times, with exponential backoff delay</i> before capturing and displaying an error to the UI. To change this, you can alter the default <code>retry</code> and <code>retryDelay</code> options for queries to something other than 3 and the default exponential backoff function.</p>
         `,
         `<h3>Using <code>setQueryDefaults</code></h3>
         <p>React Query supports a great way of <i>setting default values per Query Key via <code>QueryClient.setQueryDefaults</code></i>.</p>
@@ -3182,7 +3188,7 @@ const React_Query = {
       highlights: { highlight1: ['query retries'] },
       tooltips: [
         `<h3>Query Retries: the <code>retry</code> property</h3>
-        <p><i>When a <code>useQuery</code> query fails (the query function throws an error), TanStack Query will <u>automatically retry the query</u></i> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</p>
+        <p><i>When a <code>useQuery</code> <u>query fails</u> (the query function throws an error), TanStack Query will <u>automatically retry the query</u></i> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</p>
         <ul><i>You can configure retries both on a <u>global level</u> and an <u>individual query level</u>.</i>
           <li>- Setting <code>retry = false</code> will disable retries.</li>
           <li>- Setting <code>retry = 6</code> will retry failing requests 6 times before showing the final error thrown by the function.</li>
@@ -3240,7 +3246,8 @@ const React_Query = {
       ],
     },
     {
-      sectionTitle: 'Query invalidation',
+      sectionTitle:
+        'Query invalidation with <code>invalidateQueries</code> method',
       sectionSource: '/src/markdowns/16_React_Query/Query_invalidation.html',
       highlights: { highlight2: ['Query invalidation'] },
       tooltips: [
