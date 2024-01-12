@@ -3121,7 +3121,7 @@ const React_Query = {
         <p>Customize <code>staleTime</code>: set <code>staleTime</code> to a value you are comfortable with for your specific use-case. The key thing to know is: <i>As long as data is fresh, it will always come from the cache only. You will not see a network request for fresh data, no matter how often you want to retrieve it.</i> There is also no "correct" value for <code>staleTime</code>.</p>
         `,
         `<h3>React Query defaults: garbage collection & <code>gcTime</code></h3>
-        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. By default, "inactive" queries are <i>garbage collected</i> after 5 minutes. To change this, you can alter the default <code>gcTime</code> for queries to something other than "1000 * 60 * 5 milliseconds".</p>`,
+        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. <i>By default, <u>"inactive" queries</u> are <u>garbage collected</u> after 5 minutes.</i> To change this, you can alter the default <code>gcTime</code> for queries to something other than "1000 * 60 * 5 milliseconds".</p>`,
         `<h3>React Query defaults: query retry</h3>
         <p><i><u>Queries that fail</u> are silently retried 3 times, with exponential backoff delay</i> before capturing and displaying an error to the UI. To change this, you can alter the default <code>retry</code> and <code>retryDelay</code> options for queries to something other than 3 and the default exponential backoff function.</p>
         `,
