@@ -96,3 +96,4 @@ Any screen update in a React app happens in three steps:
 
 1. [React - The Complete Guide (incl Hooks, React Router, Redux) - Maximilian Schwarzmüller](https://www.udemy.com/course/react-the-complete-guide-incl-redux/)
 1. [Render and Commit - beta.reactjs.org](https://beta.reactjs.org/learn/render-and-commit)
+1. [A (Mostly) Complete Guide to React Rendering Behavior - blog.isquaredsoftware.com](https://blog.isquaredsoftware.com/2020/05/blogged-answers-a-mostly-complete-guide-to-react-rendering-behavior/)

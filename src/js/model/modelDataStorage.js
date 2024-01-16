@@ -777,11 +777,28 @@ const Adding_interactivity_to_a_component = {
         <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <i>"Rendering" is React <u>calling</u> your components.</i></p>
         <p>- <i>On initial render</i>, React will call the root component.</p>
         <p>- <i>For subsequent renders</i>, React will call the component whose state update triggered the render. During a re-render, React will calculate which of component's properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.</p>
-        <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen.</p>
+        <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen. To repeat this another way: <i>Rendering a component will, by default, cause all components inside of it to be rendered too! In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!</i> This means that calling <code>setState()</code> in your root <<span>App</span>> component, with no other changes altering the behavior, will cause React to re-render every single component in the component tree.</p>
+        <p>Now, it's very likely that most of the components in the tree will return the exact same render output as last time, and therefore React won't need to make any changes to the DOM. But, React will still have to do the work of asking components to render themselves and diffing the render output. Both of those take time and effort.</p>
+        <p>Remember, rendering is not a bad thing - it's how React knows whether it needs to actually make any changes to the DOM!</p>
+        `,
+        `<h3>Rules of React Rendering</h3>
+        <p>One of the primary rules of React <i>rendering is that rendering must be "pure" and not have any side effects</i>! This can be tricky and confusing, because many side effects are not obvious, and don't result in anything breaking. For example, strictly speaking a console.log() statement is a side effect, but it won't actually break anything. Mutating a prop is definitely a side effect, and it might not break anything. Making an AJAX call in the middle of rendering is also definitely a side effect, and can definitely cause unexpected app behavior depending on the type of request.</p>
         <ul><i>Rendering must always be a pure calculation</i>:
         <li>- <i>Same inputs, same output.</i> Given the same inputs, a component should always return the same JSX.</li>
         <li>- <i>It minds its own business.</i> It should not change any objects or variables that existed before rendering.</li>
         </ul>
+        <ul>Render logic must not:
+          <li>- Can't mutate existing variables and objects;</li>
+          <li>- Can't create random values like <code>Math.random()</code> or <code>Date.now()</code>;</li>
+          <li>- Can't make network requests;</li>
+          <li>- Can't queue state updates.</li>
+        </ul>
+        <ul>Render logic may:
+          <li>- Mutate objects that were newly created while rendering;</li>
+          <li>- Throw errors;</li>
+          <li>- "Lazy initialize" data that hasn't been created yet, such as a cached value.</li>
+        </ul>
+        
         <p>When developing in “Strict Mode”, React calls each component's function twice, which can help surface mistakes caused by impure functions.</p>
         `,
         `<h3>Step 3. React <u>commits</u> changes to the DOM</h3>
@@ -1061,7 +1078,7 @@ const Managing_state = {
         <p><i>Same component at the same position preserves state. Different components at the same position reset state</i>. Remember that it's the position in the UI tree — not in the JSX markup — that matters to React!</p>
         `,
         `<h3>Different components at the same position reset state</h3>
-        <p><i>When you render a <u>different component</u> in the <u>same position</u>, it resets the state of its entire subtree.</i></p>
+        <p><i>When you render a <u>different component</u> in the <u>same position</u>, it resets the state of its <u>entire subtree</u>.</i></p>
         <p>As a rule of thumb, <i>if you want to preserve the state between re-renders, the structure of your tree needs to "match up" from one render to another</i>. If the structure is different, the state gets destroyed because <i>React destroys state when it removes a component from the tree</i>.</p>
         `,
         `<h3>Resetting state at the same position</h3>
