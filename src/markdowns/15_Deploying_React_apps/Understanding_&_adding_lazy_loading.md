@@ -1,4 +1,4 @@
-# Understanding & adding lazy loading
+# Understanding & adding lazy loading (Dynamic Imports)
 
 Lazy loading means that you wanna ==load certain pieces of code only when it's needed==. The idea behind lazy loading is that you tell to browser to load certain components only when they're needed, instead of ahead of time.
 

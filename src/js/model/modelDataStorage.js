@@ -3425,11 +3425,12 @@ const Deploying_React_apps = {
   title: '<p class="card__title--2">Deploying React apps</p>',
   sections: [
     {
-      sectionTitle: 'Understanding & adding Lazy Loading',
+      sectionTitle: 'Understanding & adding Lazy Loading (Dynamic Imports)',
       sectionSource:
         '/src/markdowns/15_Deploying_React_apps/Understanding_&_adding_lazy_loading.html',
       highlights: {
         highlight1: ['Lazy Loading'],
+        highlight2: ['Dynamic Imports'],
       },
       tooltips: [
         `<p>Lazy loading means that you wanna <i>load certain pieces of code only when it's needed</i>. The idea behind lazy loading is that <i>you tell to browser to load certain components only when they're needed, instead of ahead of time</i>.</p>
