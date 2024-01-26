@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700');
 
 :root {
   box-sizing: border-box;
@@ -148,6 +148,7 @@ body {
   width: fit-content;
   margin: auto;
   border-bottom: 1px solid white;
+  margin-bottom: 40px;
 }
 
 .card__article-title {
@@ -270,6 +271,10 @@ code {
   margin-bottom: 2rem;
 }
 
+.tooltip h2 code {
+  font-size: inherit;
+}
+
 .card__title .tooltip {
   left: -30%;
   min-width: 50rem;
@@ -298,7 +303,6 @@ code {
 .tooltip_paragraph p,
 .tooltip_paragraph ul {
   margin-bottom: 8px;
-  line-height: 27px;
   text-align: justify;
 }
 

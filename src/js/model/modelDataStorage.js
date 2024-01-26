@@ -1299,24 +1299,28 @@ const Refs = {
         <p>When you want a component to <i>"remember" some information, but you don't want that information to trigger new renders</i>, you can use a ref. Like state, <i>refs let you retain information between re-renders of a component</i>. However, setting state re-renders a component; changing a ref does not!</p>
         <p>You can add a ref to your component by importing the <code>useRef</code> hook from 'react'. Inside your component, call the <code>useRef</code> hook and pass the <u>initial value</u> that you want to reference as the only argument. The ref can point to anything: a number, a string, an object, or even a function.</p>
         <p><i><code>useRef</code> returns an <u>object</u></i> with a single property called <code>current</code>, which you can read or set. You can access the current value of that ref through the <i><code>ref.current</code> property</i>. This value is intentionally <u>mutable</u>, meaning you can both read and write to it.</p>
+        <p>NOTE: Ref is like a “box” (object) with a <i><u>mutable</u> <code>.current</code> property</i> that is <i>persisted across renders</i> (“normal” variables are always reset).</p>
         `,
         `<h3>Differences between refs and state</h3>
         <p>A component doesn't re-render when you modify the <code>ref.current</code> value.</p>
-        <p>You shouldn't read (or write) the <code>ref.current</code> value during rendering but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
-        <p><i>Limitations of React state don't apply to refs</i>. For example, state acts like a snapshot for every render and doesn't update synchronously, but when you mutate the current value of a ref, it changes immediately. This is because <i>the ref itself is a regular JavaScript object</i>, and so it behaves like one.</p>
-        <p>You also don't need to worry about avoiding mutation when you work with a ref. <i>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</i>. Refs are an escape hatch to <i>hold onto values that <u>aren't used for rendering</u></i>.</p>
+        <p><i>You shouldn't read (or write) the <code>ref.current</code> value <u>during rendering</u></i>, but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
+        <p><i>Limitations of React state don't apply to refs</i>, for example, state acts like a snapshot for every render and doesn't update synchronously, but when you mutate the current value of a ref, it changes immediately. This is because <i>the ref itself is a regular JavaScript object</i>, and so it behaves like one.</p>
+        <p>You also don't need to worry about avoiding mutation when you work with a refs. <i>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</i>. Refs are an escape hatch to <i>hold onto values that <u>aren't used for rendering</u></i>.</p>
         <p><i>When a piece of information is <u>used for rendering</u>, keep it in state</i>. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.</p>
         `,
         `<h3>When to use refs</h3>
         <ul>Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs — often a browser API <i>that won't impact the appearance of the component</i>:
-        <li>- Storing timeout IDs</li>
-        <li>- Storing and manipulating DOM elements</li>
-        <li>- Storing other objects <i>that aren't necessary to calculate the JSX</i>.</li>
+          <li>- Creating a variable that stays the same between rendersStoring (timeout IDs);</li>
+          <li>- Selecting and storing DOM elements;</li>
+          <li>- Storing other objects <i>that aren't necessary to calculate the JSX</i>.</li>
         </ul>
         <p><i>If your component needs to store some value, <u>but it doesn't impact the rendering logic</u>, choose refs</i>.</p>
         `,
         `<h3>Best practices for refs</h3>
-        <p><i>Treat refs as an escape hatch</i>. Refs are useful when you work with external systems or browser APIs.</p>
+        <ul><i>Treat refs as an escape hatch</i>. Refs are useful when you work with external systems or browser APIs:
+          <li>- Refs are for <i>data that is NOT rendered</i>: usually only appear in event handlers or effects, <u>not in JSX (otherwise use state)</u>;</li>
+          <li>- <i>Do NOT read or write</i> <code>.current</code> in <u>render logic</u> (like state).</li>
+        </ul>
         <p><i>Don't read or write <code>ref.current</code> during rendering</i>. If some information is needed during rendering, use state instead. Since React doesn't know when <code>ref.current</code> changes, even reading it while rendering makes your component's behavior difficult to predict.</p>
         <p>You can use refs to store timeout IDs, DOM elements, and other objects <i>that don't impact the component's rendering output</i>.</p>
         `,
