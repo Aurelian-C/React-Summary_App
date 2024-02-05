@@ -3276,7 +3276,7 @@ const React_Query = {
         `,
         `<h3><code>invalidateQueries</code> & <code>staleTime</code></h3>
         <ul>When a query is invalidated with <code>invalidateQueries</code>, two things happen:
-          <li><i>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code></i> or related hooks;</li>
+          <li><i>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code> or related hooks</i>;</li>
           <li>- If the query is currently being rendered via <code>useQuery</code> or related hooks, it will also be refetched in the background.</li>
         </ul>
         `,
