@@ -2972,7 +2972,7 @@ const React_Query = {
         <p>The understanding that <i>server state is borrowed for display purposes</i> represents a paradigm shift. It challenges the traditional notion of treating all states (client and server) in a similar fashion and encourages developers to rethink how data ownership and borrowing are approached in the context of application architecture.</p>`,
         `<h3>Summary</h3>
         <p>In summary, <i>the key differences lie in the <u>ownership of data</u>, the way data is borrowed for display</i>, the need for global state management, and the potential role of libraries like Redux or React Query in managing client and server states.</p>
-        <p>In few words, global UI state is state that IS NOT FETCHED from a server. You only need Redux if you want to manage a lot of non-remote state that updates frequently.</p>
+        <p>In few words, global UI state is state that IS NOT FETCHED from a server. You only need Redux if you want to manage a lot of non-remote state that updates frequently. But the truth is that most global state is actually remote, which is the reason why so many apps don't use Redux anymore.</p>
         `,
       ],
     },
