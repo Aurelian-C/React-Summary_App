@@ -3157,7 +3157,9 @@ const React_Query = {
       sectionTitle: 'Disabling/pausing queries & lazy queries',
       sectionSource:
         '/src/markdowns/16_React_Query/Disabling_pausing_queries_and_lazy_queries.html',
-      highlights: {},
+      highlights: {
+        highlight1: ['lazy queries'],
+      },
       tooltips: [
         `<h3>Disabling/Pausing Queries</h3>
         <p>If you ever want to <i>disable a query from automatically running</i>, you can use the <i><code>enabled = false</code></i> option.</p>
@@ -3169,7 +3171,7 @@ const React_Query = {
          <li><i>- The query will ignore query client <code>invalidateQueries</code> and <code>refetchQueries</code> calls that would normally result in the query refetching.</i></li>
          <li><i>- <code>refetch</code> function returned from <code>useQuery</code> can be used to manually trigger the query to fetch.</i></li>
         </ul>
-        <p>Permanently disabling a query opts out of many great features that TanStack Query has to offer (like background refetches), and it's also not the idiomatic way. It takes you from the declarative approach (defining dependencies when your query should run) into an imperative mode (fetch whenever I click here). It is also not possible to pass parameters to <code>refetch</code>.</p>
+        <p>Permanently disabling a query opts out of many great features that TanStack Query has to offer (like background refetches), and it's also not the idiomatic way. It takes you from the declarative approach (defining dependencies when your query should run) into an imperative mode (fetch whenever I click here). It is also <i>not possible to pass parameters to <code>refetch</code></i>.</p>
         `,
       ],
     },
