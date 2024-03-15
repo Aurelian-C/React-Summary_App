@@ -2136,7 +2136,14 @@ const React_Router = {
         highlight1: ['optional path segments'],
       },
       tooltips: [
-        `<p>You can make a route segment optional by adding a <code>?</code> to the end of the segment.</p>`,
+        `<p>You can make a route segment optional by adding a <code>?</code> to the end of the segment: <code>path: '/users/:id/<i>:section?</i>'</code>.</p>
+        <p>In this route, <code>:id</code> is a required parameter, meaning the route will only match if there's a value provided for <code>id</code>. However, <code>:section?</code> is an optional parameter, indicated by the <code>?</code> symbol after the parameter name.</p>
+        <ul>So, with this route:
+          <li>- <i><code>/users/123</code> <u>would match</u></i>, with <code>id</code> being "123" and <code>section</code> being undefined.</li>
+          <li>- <i><code>/users/123/about</code> <u>would also match</u></i>, with <code>id</code> being "123" and <code>section</code> being "about".</li>
+        </ul>`,
+        `<p>Optional segments are useful when <i>you have routes where certain parts may or may not be present in the URL, and you want to handle both cases within the same route handler or component.</i> They provide flexibility in defining your route structure and handling various URL configurations.</p>
+        `,
       ],
     },
     {
