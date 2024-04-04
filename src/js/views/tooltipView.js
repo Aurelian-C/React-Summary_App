@@ -22,14 +22,20 @@ class TooltipView {
       if (!obj.tooltips) return;
       // if (!obj.tooltips[0].length) return;
 
+      console.log(obj);
       const markup = obj.tooltips
         .map(paragraph => `<div class="tooltip_paragraph">${paragraph}</div>`)
         .join('');
 
+      const articleLink = obj.sectionSource
+        ? `<a class="extra__article" href=${obj.sectionSource} target="_blank">Read more about this article</a>`
+        : '';
+
       this._containerTooltip.innerHTML =
         '<i class="fa-solid fa-xmark"></i>' +
         `<h2>${obj.sectionTitle}</h2>` +
-        markup;
+        markup +
+        articleLink;
 
       this._containerTooltip.classList.add('show');
       document.body.style.overflow = 'hidden';

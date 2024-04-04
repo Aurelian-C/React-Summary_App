@@ -269,6 +269,18 @@ code {
   color: #e6e6e6;
 }
 
+.extra__article:link,
+.extra__article:visited {
+  display: block;
+  text-decoration: none;
+  margin: 10px auto 60px auto;
+  max-width: fit-content;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgb(0, 224, 255);
+}
+
 /* --------------------- Tooltip functionality --------------------- */
 
 /* Tooltip container */
