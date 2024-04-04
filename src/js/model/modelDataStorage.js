@@ -1,11 +1,7 @@
 const React_basics = {
   title: 'React basics & working with components',
-  titleDescription: '',
-  tooltips: [
-    `<p>React is a <i>JavaScript library for <u>rendering user interfaces</u> (UI)</i>. UI is built from small units like buttons, text, and images. <i>React lets you combine them into <u>reusable, nestable components</u></i>.</p>
-    <p>From web sites to phone apps, <i>everything on the screen can be broken down into components</i>.</p>
-    <p>In this section, you'll learn to create and customize React components.</p>`,
-  ],
+  titleDescription:
+    'React is a JavaScript library for rendering user interfaces',
   sections: [
     {
       sectionTitle: 'What are components and why is React all about them?',
@@ -435,7 +431,7 @@ const React_basics = {
 
 const Styling_React_components = {
   title: 'Styling React components',
-  titleDescription: '',
+  titleDescription: 'Many different ways of styling your components',
   sections: [
     {
       sectionTitle: 'Introduction to styling React components',
@@ -536,7 +532,8 @@ const Styling_React_components = {
 
 const Rendering_lists_and_conditional_content = {
   title: 'Rendering lists & conditional content',
-  titleDescription: '',
+  titleDescription:
+    'Display multiple similar components from a collection of data',
   sections: [
     {
       sectionTitle: 'Rendering lists of data: the key prop',
@@ -625,7 +622,7 @@ const Rendering_lists_and_conditional_content = {
 
 const Adding_interactivity_to_a_component = {
   title: 'Adding interactivity to a component',
-  titleDescription: '',
+  titleDescription: 'How to write components that handle interactions',
   tooltips: [
     `<p>Some things on the screen update in response to user input. <i>In React, data that changes over time is called state</i>. You can add state to any component, and update it as needed.</p>
     <p>In this section, you'll learn <i>how to write components that handle <u>interactions</u></i>, <i>update their <u>state</u></i>, and <i>display <u>different output</u> over time</i>.</p>`,
@@ -952,7 +949,7 @@ const Adding_interactivity_to_a_component = {
 
 const Managing_state = {
   title: 'Managing state',
-  titleDescription: '',
+  titleDescription: 'How to organize your state',
   tooltips: [
     `<p>As your application grows, it helps to be more intentional about <i>how your state is organized</i> and <i>how the data flows between your components</i>. Redundant or duplicate state is a common source of bugs.</p>
     <p>In this section, you'll learn how to <i>structure your state well</i>, how to <i>keep your state update logic maintainable</i>, and how to <i>share state between distant components</i>.</p>`,
@@ -1290,7 +1287,7 @@ const Managing_state = {
 
 const Refs = {
   title: 'Refs',
-  titleDescription: '',
+  titleDescription: '“Remember” information without re-rendering',
   sections: [
     {
       sectionTitle:
@@ -1407,7 +1404,7 @@ const Refs = {
 
 const Handling_side_effects = {
   title: 'Handling side effects',
-  titleDescription: '',
+  titleDescription: 'Synchronize components with external systems',
   sections: [
     {
       sectionTitle:
@@ -1643,8 +1640,8 @@ const Handling_side_effects = {
 };
 
 const Behind_the_scenes_of_React_and_optimization_techniques = {
-  title: 'Behind the scenes of React & <br>optimization techniques',
-  titleDescription: '',
+  title: 'Behind the scenes of React',
+  titleDescription: 'Optimization techniques',
   sections: [
     {
       sectionTitle: 'How React really works: ReactJS vs ReactDOM',
@@ -1773,7 +1770,7 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
 
 const Class_based_components = {
   title: 'React before Hooks: Class-based components',
-  titleDescription: 'an alternative way of building components',
+  titleDescription: 'An alternative way of building components',
   sections: [
     {
       sectionTitle: 'Introducing error boundaries',
@@ -1794,7 +1791,7 @@ const Class_based_components = {
 
 const Custom_React_Hooks = {
   title: 'Custom React Hooks',
-  titleDescription: '',
+  titleDescription: 'Share code logic between components',
   sections: [
     {
       sectionTitle:
@@ -1848,7 +1845,7 @@ const Custom_React_Hooks = {
 
 const Working_with_forms_and_user_inputs = {
   title: 'Working with forms & user inputs',
-  titleDescription: '',
+  titleDescription: 'Manage complex forms',
   sections: [
     {
       sectionTitle: 'What is so complex about Forms?',
@@ -1879,7 +1876,7 @@ const Working_with_forms_and_user_inputs = {
 
 const React_Router = {
   title: 'Single Page Applications with React Router',
-  titleDescription: '',
+  titleDescription: 'Client-side Routing',
   sections: [
     {
       sectionTitle: 'Server-side Routing vs Client-side Routing',
@@ -2650,8 +2647,9 @@ const React_Router = {
 };
 
 const Redux = {
-  title: 'Client State Management: Redux & Redux Toolkit',
-  titleDescription: 'an alternative to the Context API',
+  title: 'Redux & Redux Toolkit',
+  titleDescription:
+    'Client State Management: An alternative to the Context API',
   sections: [
     {
       sectionTitle: 'Redux vs React Context',
@@ -2899,7 +2897,7 @@ const Redux = {
 
 const Replacing_Redux_with_React_Hooks = {
   title: 'Replacing Redux with React Hooks',
-  titleDescription: '',
+  titleDescription: 'Manage your global UI state',
   sections: [
     {
       sectionTitle:
@@ -3607,7 +3605,7 @@ const Testing_React_Apps = {
 
 const Adding_authentication_to_React_apps = {
   title: 'Adding authentication to React apps',
-  titleDescription: '',
+  titleDescription: 'Authentication & Authorization',
   sections: [
     {
       sectionTitle: 'Authentication: user login with Supabase',
