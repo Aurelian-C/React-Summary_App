@@ -20,6 +20,7 @@ class TooltipView {
       const obj = data.find(el => el.sectionTitle === title);
 
       if (!obj.tooltips) return;
+      // if (!obj.tooltips[0].length) return;
 
       const markup = obj.tooltips
         .map(paragraph => `<div class="tooltip_paragraph">${paragraph}</div>`)
@@ -28,8 +29,7 @@ class TooltipView {
       this._containerTooltip.innerHTML =
         '<i class="fa-solid fa-xmark"></i>' +
         `<h2>${obj.sectionTitle}</h2>` +
-        markup +
-        `<a href=${obj.sectionSource} class="paragraph__article-anchor" target="_blank">Read more about this article!</a>`;
+        markup;
 
       this._containerTooltip.classList.add('show');
       document.body.style.overflow = 'hidden';

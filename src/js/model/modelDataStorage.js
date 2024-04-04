@@ -1,5 +1,6 @@
 const React_basics = {
-  title: '<p class="card__title--2">React basics & working with components</p>',
+  title: 'React basics & working with components',
+  titleDescription: '',
   tooltips: [
     `<p>React is a <i>JavaScript library for <u>rendering user interfaces</u> (UI)</i>. UI is built from small units like buttons, text, and images. <i>React lets you combine them into <u>reusable, nestable components</u></i>.</p>
     <p>From web sites to phone apps, <i>everything on the screen can be broken down into components</i>.</p>
@@ -433,7 +434,8 @@ const React_basics = {
 };
 
 const Styling_React_components = {
-  title: '<p class="card__title--2">Styling React components</p>',
+  title: 'Styling React components',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Introduction to styling React components',
@@ -533,7 +535,8 @@ const Styling_React_components = {
 };
 
 const Rendering_lists_and_conditional_content = {
-  title: '<p class="card__title--2">Rendering lists & conditional content</p>',
+  title: 'Rendering lists & conditional content',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Rendering lists of data: the key prop',
@@ -621,7 +624,8 @@ const Rendering_lists_and_conditional_content = {
 };
 
 const Adding_interactivity_to_a_component = {
-  title: '<p class="card__title--2">Adding interactivity to a component</p>',
+  title: 'Adding interactivity to a component',
+  titleDescription: '',
   tooltips: [
     `<p>Some things on the screen update in response to user input. <i>In React, data that changes over time is called state</i>. You can add state to any component, and update it as needed.</p>
     <p>In this section, you'll learn <i>how to write components that handle <u>interactions</u></i>, <i>update their <u>state</u></i>, and <i>display <u>different output</u> over time</i>.</p>`,
@@ -947,7 +951,8 @@ const Adding_interactivity_to_a_component = {
 };
 
 const Managing_state = {
-  title: '<p class="card__title--2">Managing state</p>',
+  title: 'Managing state',
+  titleDescription: '',
   tooltips: [
     `<p>As your application grows, it helps to be more intentional about <i>how your state is organized</i> and <i>how the data flows between your components</i>. Redundant or duplicate state is a common source of bugs.</p>
     <p>In this section, you'll learn how to <i>structure your state well</i>, how to <i>keep your state update logic maintainable</i>, and how to <i>share state between distant components</i>.</p>`,
@@ -1284,7 +1289,8 @@ const Managing_state = {
 };
 
 const Refs = {
-  title: '<p class="card__title--2">Refs</p>',
+  title: 'Refs',
+  titleDescription: '',
   sections: [
     {
       sectionTitle:
@@ -1400,7 +1406,8 @@ const Refs = {
 };
 
 const Handling_side_effects = {
-  title: '<p class="card__title--2">Handling side effects</p>',
+  title: 'Handling side effects',
+  titleDescription: '',
   sections: [
     {
       sectionTitle:
@@ -1636,8 +1643,8 @@ const Handling_side_effects = {
 };
 
 const Behind_the_scenes_of_React_and_optimization_techniques = {
-  title:
-    '<p class="card__title--2">Behind the scenes of React & <br>optimization techniques</p>',
+  title: 'Behind the scenes of React & <br>optimization techniques',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'How React really works: ReactJS vs ReactDOM',
@@ -1765,8 +1772,8 @@ const Behind_the_scenes_of_React_and_optimization_techniques = {
 };
 
 const Class_based_components = {
-  title:
-    '<p class="card__title--2">React before Hooks: Class-based components<br>- an alternative way of building components -</p>',
+  title: 'React before Hooks: Class-based components',
+  titleDescription: 'an alternative way of building components',
   sections: [
     {
       sectionTitle: 'Introducing error boundaries',
@@ -1786,7 +1793,8 @@ const Class_based_components = {
 };
 
 const Custom_React_Hooks = {
-  title: '<p class="card__title--2">Custom React Hooks</p>',
+  title: 'Custom React Hooks',
+  titleDescription: '',
   sections: [
     {
       sectionTitle:
@@ -1839,7 +1847,8 @@ const Custom_React_Hooks = {
 };
 
 const Working_with_forms_and_user_inputs = {
-  title: '<p class="card__title--2">Working with forms & user inputs</p>',
+  title: 'Working with forms & user inputs',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'What is so complex about Forms?',
@@ -1869,8 +1878,8 @@ const Working_with_forms_and_user_inputs = {
 };
 
 const React_Router = {
-  title:
-    '<p class="card__title--2">Single Page Applications with React Router</p>',
+  title: 'Single Page Applications with React Router',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Server-side Routing vs Client-side Routing',
@@ -2641,8 +2650,8 @@ const React_Router = {
 };
 
 const Redux = {
-  title:
-    '<p class="card__title--2">Client State Management: Redux & Redux Toolkit <br>(an alternative to the Context API)</p>',
+  title: 'Client State Management: Redux & Redux Toolkit',
+  titleDescription: 'an alternative to the Context API',
   sections: [
     {
       sectionTitle: 'Redux vs React Context',
@@ -2889,7 +2898,8 @@ const Redux = {
 };
 
 const Replacing_Redux_with_React_Hooks = {
-  title: '<p class="card__title--2">Replacing Redux with React Hooks</p>',
+  title: 'Replacing Redux with React Hooks',
+  titleDescription: '',
   sections: [
     {
       sectionTitle:
@@ -2953,8 +2963,8 @@ const Replacing_Redux_with_React_Hooks = {
 };
 
 const React_Query = {
-  title:
-    '<p class="card__title--2">Server State Management: React Query (aka TanStack Query)</p>',
+  title: 'React Query (aka TanStack Query)',
+  titleDescription: 'Server State Management',
   sections: [
     {
       sectionTitle: 'Client state vs Server state',
@@ -3373,8 +3383,8 @@ const React_Query = {
 };
 
 const Advanced_React_patterns = {
-  title:
-    '<p class="card__title--2">Reusability in React: advanced React patterns</p>',
+  title: 'Advanced React Patterns',
+  titleDescription: 'Reusability in React',
   sections: [
     {
       sectionTitle: 'How to reuse code in React?',
@@ -3437,7 +3447,8 @@ const Advanced_React_patterns = {
 };
 
 const Deploying_React_apps = {
-  title: '<p class="card__title--2">Deploying React apps</p>',
+  title: 'Deploying React apps',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Understanding & adding Lazy Loading (Dynamic Imports)',
@@ -3461,7 +3472,8 @@ const Deploying_React_apps = {
 };
 
 const Animating_React_Apps = {
-  title: '<p class="card__title--2">Animating React Apps</p>',
+  title: 'Animating React Apps',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Module Introduction',
@@ -3531,7 +3543,8 @@ const Animating_React_Apps = {
 };
 
 const Testing_React_Apps = {
-  title: '<p class="card__title--2">Testing React Apps (Unit Tests)</p>',
+  title: 'Testing React Apps (Unit Tests)',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Module Introduction',
@@ -3593,7 +3606,8 @@ const Testing_React_Apps = {
 };
 
 const Adding_authentication_to_React_apps = {
-  title: '<p class="card__title--2">Adding authentication to React apps</p>',
+  title: 'Adding authentication to React apps',
+  titleDescription: '',
   sections: [
     {
       sectionTitle: 'Authentication: user login with Supabase',
@@ -3650,3 +3664,39 @@ export const dataStorage = [
   // Testing_React_Apps,
   Adding_authentication_to_React_apps,
 ];
+
+const allSections = dataStorage.map(el => el.sections).flat();
+export const allArticles = allSections
+  .map(el => {
+    let subArticles;
+    if (el.sectionArticles?.length > 0) {
+      subArticles = el.sectionArticles.map(subElement => {
+        return {
+          sectionTitle: subElement.title,
+          id: subElement.id,
+          sectionSource: subElement.source,
+          tooltips: subElement.summary,
+        };
+      });
+    }
+
+    if (subArticles) {
+      return [
+        {
+          sectionTitle: el.title,
+          id: el.id,
+          sectionSource: el.source,
+          tooltips: el.summary,
+        },
+        ...subArticles,
+      ];
+    }
+
+    return {
+      sectionTitle: el.title,
+      id: el.id,
+      sectionSource: el.source,
+      tooltips: el.summary,
+    };
+  })
+  .flat();

@@ -28,13 +28,18 @@ class ApplicationView {
             <div class="card__title">
               <h2>
                 <p class="card__title--1">Section ${idx + 1}</p>
-                ${card.title}
+                <div>${card.title}</div>
+                ${
+                  card.titleDescription
+                    ? `<div class="card__title-description">- ${card.titleDescription} -</div>`
+                    : ''
+                }
               </h2>
               ${tooltipMarkup}
             </div>
-            <div class="card__articles">
+            <ul class="card__articles">
               ${card.sections.map(this._generateMarkupArticle).join('')}
-            </div>
+            </ul>
           </div>
     `;
       })
@@ -46,16 +51,30 @@ class ApplicationView {
     let title = article.sectionTitle;
 
     const createHighlight1 = highlight => {
-      title = title.replace(
-        highlight,
-        `<span class="highlight--1">${highlight}</span>`
-      );
+      if (highlight.includes('<code>')) {
+        title = title.replace(
+          highlight,
+          `<span class="highlight__code--1">${highlight}</span>`
+        );
+      } else {
+        title = title.replace(
+          highlight,
+          `<span class="highlight__text--1">${highlight}</span>`
+        );
+      }
     };
     const createHighlight2 = highlight => {
-      title = title.replace(
-        highlight,
-        `<span class="highlight--2">${highlight}</span>`
-      );
+      if (highlight.includes('<code>')) {
+        title = title.replace(
+          highlight,
+          `<span class="highlight__code--2">${highlight}</span>`
+        );
+      } else {
+        title = title.replace(
+          highlight,
+          `<span class="highlight__text--2">${highlight}</span>`
+        );
+      }
     };
 
     if (article.highlights?.highlight1) {
@@ -66,11 +85,11 @@ class ApplicationView {
     }
 
     return `
-      <div class="card__article">
+      <li class="card__article">
           ${`<p class="card__article-title" data-title='${
             article.sectionTitle
           }'>${idx + 1}. ${title}</p>`}
-      </div>
+      </li>
     `;
   }
 }
