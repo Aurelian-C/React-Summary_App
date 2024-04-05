@@ -773,18 +773,18 @@ const Adding_interactivity_to_a_component = {
         <p>Only the component where the <code>useState()</code> was registered and its child components will be updated, not any other components.</p>
         `,
         `<h3>Step 2. React <u>renders</u> your components. What rendering means in React?</h3>
-        <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <i>"Rendering" is React <u>calling</u> your components.</i></p>
+        <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <b>"Rendering" is React <u>calling</u> your components.</b></p>
         <p>- <i>On initial render</i>, React will call the root component.</p>
         <p>- <i>For subsequent renders</i>, React will call the component whose state update triggered the render. During a re-render, React will calculate which of component's properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.</p>
-        <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen. To repeat this another way: <i>Rendering a component will, by default, cause all components inside of it to be rendered too! In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!</i> This means that calling <code>setState()</code> in your root <<span>App</span>> component, with no other changes altering the behavior, will cause React to re-render every single component in the component tree.</p>
+        <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen. To repeat this another way: <b>Rendering a component will, by default, cause all components inside of it to be rendered too! In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!</b> This means that calling <code>setState()</code> in your root <<span>App</span>> component, with no other changes altering the behavior, will cause React to re-render every single component in the component tree.</p>
         <p>Now, it's very likely that most of the components in the tree will return the exact same render output as last time, and therefore React won't need to make any changes to the DOM. But, React will still have to do the work of asking components to render themselves and diffing the render output. Both of those take time and effort.</p>
         <p>Remember, rendering is not a bad thing - it's how React knows whether it needs to actually make any changes to the DOM!</p>
         `,
         `<h3>Rules of React Rendering</h3>
-        <p>One of the primary rules of React <i>rendering is that rendering must be "pure" and not have any side effects</i>! This can be tricky and confusing, because many side effects are not obvious, and don't result in anything breaking. For example, strictly speaking a console.log() statement is a side effect, but it won't actually break anything. Mutating a prop is definitely a side effect, and it might not break anything. Making an AJAX call in the middle of rendering is also definitely a side effect, and can definitely cause unexpected app behavior depending on the type of request.</p>
-        <ul><i>Rendering must always be a pure calculation</i>:
-        <li>- <i>Same inputs, same output.</i> Given the same inputs, a component should always return the same JSX.</li>
-        <li>- <i>It minds its own business.</i> It should not change any objects or variables that existed before rendering.</li>
+        <p>One of the primary rules of React <i>rendering is that rendering <b>must be "pure"</b> and <b>not have any side effects</b></i>! This can be tricky and confusing, because many side effects are not obvious, and don't result in anything breaking. For example, strictly speaking a <code>console.log()</code> statement is a side effect, but it won't actually break anything. Mutating a prop is definitely a side effect, and it might not break anything. Making an AJAX call in the middle of rendering is also definitely a side effect, and can definitely cause unexpected app behavior depending on the type of request.</p>
+        <ul><b>Rendering must always be a pure calculation</b>:
+        <li>- <b>Same inputs, same output.</b> Given the same inputs, a component should always return the same JSX.</li>
+        <li>- <b>It minds its own business.</b> It should not change any objects or variables that existed before rendering.</li>
         </ul>
         <ul>Render logic must not:
           <li>- Can't mutate existing variables and objects;</li>
@@ -798,18 +798,18 @@ const Adding_interactivity_to_a_component = {
           <li>- "Lazy initialize" data that hasn't been created yet, such as a cached value.</li>
         </ul>
         
-        <p>When developing in “Strict Mode”, React calls each component's function twice, which can help surface mistakes caused by impure functions.</p>
+        <p><i>When developing in “Strict Mode”, React calls each component's function twice</i>, which can help surface mistakes caused by impure functions.</p>
         `,
         `<h3>Step 3. React <u>commits</u> changes to the DOM</h3>
         <p>After rendering (calling) your components, React will modify the DOM.</p>
         <p>- For the <i>initial render</i>, React will use the <code>appendChild()</code> DOM API to put all the DOM nodes it has created on screen.</p>
-        <p>- For <i>re-renders</i>, React will apply the <u>minimal necessary operations</u> (calculated while rendering!) to make the DOM match the latest rendering output. <i>React only changes the DOM nodes if there's a difference between renders</i>.</p>
+        <p>- For <i>re-renders</i>, React will apply the <u>minimal necessary operations</u> (calculated while rendering!) to make the DOM match the latest rendering output. <b>React only changes the DOM nodes if there's a difference between renders</b>.</p>
         `,
         `<h3>Why rendering does not always produce a DOM update</h3>
         <p>React does not touch the DOM <i>if the rendering result is the same as last time</i>. React only changes the DOM nodes if there's a difference between renders.</p>
         `,
         `<h3>Optimizing performance</h3>
-        <p>The default behavior of rendering all components nested within the updated component is not optimal for performance if the updated component is very high in the tree. If you run into a performance issue, there are several opt-in ways to solve it. <i>Don't optimize prematurely!</i></p>
+        <p><i>The default behavior of rendering all components nested within the updated component is not optimal for performance <u>if the updated component is very high in the tree</u>.</i> If you run into a performance issue, there are several opt-in ways to solve it. <i>Don't optimize prematurely!</i></p>
         `,
       ],
     },
@@ -822,17 +822,17 @@ const Adding_interactivity_to_a_component = {
       },
       tooltips: [
         `<h3>Relationship between state and rendering: setting state triggers renders</h3>
-        <p><u>State variables</u> might look like <u>regular JavaScript variables</u> that you can read and write to. However, <i>state behaves more like a snapshot. Setting it does not change the state variable you already have</i>, but instead triggers a re-render.</p>
+        <p><b><u>State</u> variables</b> might look like <b><u>regular</u> JavaScript variables</b> that you can read and write to. However, <i><b>state behaves more like a snapshot. Setting it does not change the state variable you already have</b>, but instead triggers a re-render</i>.</p>
         <p>You might think of your UI as changing directly in response to the user event like a click. In React, it works a little differently from this mental model. You know that <i>setting state requests a re-render from React</i>. This means that <i>for an interface to react to the event, you need to <u>update the state</u></i>.</p>
         `,
         `<h3>When and how state updates? Rendering takes <u>a snapshot in time</u></h3>
         <p>"Rendering" means that React is calling your component, which is a function. The JSX you return from that function is like <i>a snapshot of the UI <u>in time</u></i>. Its props, event handlers and local variables were all <i>calculated using its state <u>at the time of the render</u></i>.</p>
-        <p>State behaves like a <i>component's memory</i>, so is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function. When React calls your component, it gives you <u>a snapshot of the state for that particular render</u></i>. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, <i>all calculated using the state values from that render</i>!</p>
+        <p>State behaves like a <i>component's memory</i>, so is not like a regular variable that disappears after your function returns. <i>State actually "lives" in React itself — as if on a shelf! — outside of your function. <b>When React calls your component, it gives you <u>a snapshot of the state for that particular render</u></b></i>. Your component returns a snapshot of the UI with a fresh set of props and event handlers in its JSX, <i>all calculated using the state values from that render</i>!</p>
         <p>When you call <code>useState</code>, React gives you <i>a snapshot of the state for that render</i>. Every render (and functions inside it) will always "see" the snapshot of the state that React gave to that render.</p>
-        <p>Variables and event handlers don't "survive" re-renders. <i>Every render has its own event handlers</i>. Event handlers created in the past have the state values from the render in which they were created.</p>
+        <p><b>Variables and event handlers don't "survive" re-renders. <u>Every render has its own event handlers</u>.</b> Event handlers created in the past have the state values from the render in which they were created.</p>
         `,
         `<h3>Why state does not update immediately after you set it</h3>
-        <p><i>Setting state only changes it for the <u>next render</u>! A state variable's value <u>never changes within a render</u>, even if its event handler's code is asynchronous. React keeps the state values "fixed" within one render's event handlers</i>. You don't need to worry whether the state has changed while the code is running.</p>
+        <p><i><b>Setting state only changes it for the <u>next render</u>! A state variable's value <u>never changes within a render</u></b>, even if its event handler's code is asynchronous. React keeps the state values "fixed" within one render's event handlers</i>. You don't need to worry whether the state has changed while the code is running.</p>
         <p>If you want to <i>read the latest state <u>before a re-render</u></i>, you'll need to use a <i>state updater function</i>.</p>
         `,
       ],
