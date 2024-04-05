@@ -1336,7 +1336,7 @@ const Refs = {
       sectionSource:
         '/src/markdowns/06_Refs/Manipulating_the_DOM_with_ref.html',
       highlights: {
-        highlight2: ['<code>ref</code> attribute'],
+        highlight1: ['access DOM elements managed by React'],
       },
       tooltips: [
         `<h3>Manipulating the DOM with Refs</h3>
@@ -1392,9 +1392,9 @@ const Refs = {
       sectionSource:
         '/src/markdowns/06_Refs/useRef_and_uncontrolled_components.html',
       tooltips: [
-        `<p>The approach of using <code>ref</code> to interact with DOM elements, specifically with <<span>input/</span>> elements, also has a special name. We're talking about <i>uncontrolled components, if you access values with a <code>ref</code>. Why uncontrolled? Because they're internal state, so the value which is reflected in them is not controlled by React</i>. You rely on the default behavior of the input, where a user is able to enter something, and that entered value is reflected. And you then just fetch it with a React feature (<code>ref</code>), but you don't feed data back into the <<span>input/</span>> like you do with <code>useState</code> and <code>value</code> attribute. So that's why is called uncontrolled, because you're not controlling the state off the <<span>input/</span>> element with React.</p>
+        `<p>The approach of using <code>ref</code> to interact with DOM elements, specifically with <<span>input/</span>> elements, also has a special name. We're talking about <i>uncontrolled components, if you access values with a <code>ref</code>. Why uncontrolled? Because they're internal state, so <b>the value which is reflected in them is not controlled by React</b></i>. You rely on the default behavior of the input, where a user is able to enter something, and that entered value is reflected. And <i>you then just fetch it with a React feature (<code>ref</code>), but <b>you don't feed data back into the <<span>input/</span>> like you do with <code>useState</code> and <code>value</code> attribute</b></i>. So that's why is called uncontrolled, because you're not controlling the state off the <<span>input/</span>> element with React.</p>
         <p>Now, you can talk about uncontrolled and controlled components, also in the context of other components, but most commonly you have this scenario when you talk about input components, about form components in general, because those components tend to have some internal state, natively by the browser, an input element is configured to take user input and save and reflect it, and when you then work with those components in a React app, you wanna connect your React state to that. That's why you typically have this controlled/uncontrolled thing when you work with input components in React.</p>
-        <p>When you use <code>ref</code> for inputs, you have uncontrolled input components.</p>`,
+        <p><i>When you use <code>ref</code> for inputs, you have uncontrolled input components.</i></p>`,
       ],
     },
   ],
