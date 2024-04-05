@@ -638,14 +638,14 @@ const Adding_interactivity_to_a_component = {
         <p>Built-in components like <<span>button</span>> only support built-in browser events like <code>onClick</code>. However, you can also create your own components, and give their event handler props any application-specific names that you like.</p>
         `,
         `<h3>Different ways to write an event handler</h3>
-        <p>You can define an event handler function <u>separately</u> or <u>inline</u>.</p>
+        <p><i>You can define an event handler function <b>separately</b> or <b>inline</b>.</i></p>
         <ul>To add an event handler, you need to follow these three steps:
-        <li>1. <i>Define a function</i> inside your component</li>
-        <li>2. Implement the logic inside that function</li>
-        <li>3. <i>Pass that function as a prop</i> to the appropriate JSX tag. Functions passed to event handlers must be passed, not called.</li>
+        <li>1. <i>Define a function</i> inside your component;</li>
+        <li>2. Implement the logic inside that function;</li>
+        <li>3. <i>Pass that function as a prop</i> to the appropriate JSX tag. <i>Functions passed to event handlers must be passed, not called.</i></li>
         </ul>
         <p>Alternatively, you can <i>define an event handler inline in the JSX</i>. Inline event handlers are convenient for short functions.</p>
-        <p>On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, you have full access to all the native DOM events, which you can listen to. <i>React exposes all native DOM events as props which start with "on"</i>.</p>
+        <p>On all built-in HTML elements, like <<span>div</span>>, <<span>h2</span>>, <<span>buttons</span>> and so on, you have full access to all the native DOM events, which you can listen to. <i>React exposes all <u>native DOM events</u> as props which start with "on"</i>.</p>
         `,
         `<h3>Event handlers naming convention</h3>
         <p>By convention, it is common to name event handlers as <i>"handle"</i> followed by the event name: <code>onClick={handleClick}</code>.</p>
@@ -655,7 +655,7 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>How to pass event handling logic from a parent component: passing event handlers as props</h3>
         <p>Often you'll want <i>the parent component to specify a child's event handler</i>. Consider buttons: depending on where you're using a Button component, you might want to execute a different function — perhaps one plays a movie and another uploads an image.</p>
-        <p>You can pass event handling logic from a parent component to a child component by <i>passing event handlers as props to the child component</i>.</p>
+        <p>You can pass event handling logic from a parent component to a child component by <b>passing event handlers as props to the child component</b>.</p>
         `,
         `<h3>Naming event handler props</h3>
         <p>Built-in components like <<span>button</span>> and <<span>div</span>> only support browser event names like <code>onClick</code>. However, when you're building your own components, you can name their event handler props any way that you like.</p>
@@ -665,8 +665,8 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>Event propagation: how events propagate and how to stop them</h3>
         <p>Event handlers will also catch events from any children your component might have. We say that an event <i>"bubbles" or "propagates" up the tree: it starts with where the event happened, and then goes up the tree</i> (events propagate upwards).</p>
-        <p>All events propagate in React except <code>onScroll</code>, which only works on the JSX tag you attach it to.</p>
-        <p>Event handlers receive an <i>event object</i> as their only argument. By convention, it's usually called <code>e</code>, which stands for "event". <i>You can use this object to read information about the event</i>. That event object also lets you stop the propagation. If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</p>
+        <p><i><b>All events propagate in React, except <code>onScroll</code></b>, which only works on the JSX tag you attach it to.</i></p>
+        <p>Event handlers receive an <i>event object</i> as their only argument. By convention, it's usually called <code>e</code>, which stands for "event". <i>You can use this object to read information about the event</i>. That event object also lets you stop the propagation. <b>If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</b></p>
         <p>For example, if you have register two click events, one on a child DOM element and another one on it's parent, <code>e.stopPropagation()</code> stop the propagation so that <u>clicking the child DOM element doesn't register as a click on the parent</u>.</p>
         <p>Events may have <i>unwanted default browser behavior</i>. Call <code>e.preventDefault()</code> to prevent that.</p>
         `,
@@ -675,8 +675,8 @@ const Adding_interactivity_to_a_component = {
         <p>To see examples of this pattern, read the entire article.</p>
         `,
         `<h3>Can event handlers have side effects?</h3>
-        <p>Absolutely! <i>Event handlers are the best place for side effects</i>.</p>
-        <p>Unlike rendering functions, event handlers don't need to be pure, so it's a great place to change something. <i>However, in order to change some information, you first need some way to store it. In React, this is done by using state</i>.</p>
+        <p>Absolutely! <b>Event handlers are the best place for side effects</b>.</p>
+        <p>Unlike rendering functions, <b>event handlers don't need to be pure</b>, so it's a great place to change something. <i>However, in order to change some information, you first need some way to store it. In React, this is done by using state</i>.</p>
         `,
       ],
     },
@@ -688,62 +688,60 @@ const Adding_interactivity_to_a_component = {
         highlight2: ['State'],
       },
       tooltips: [
-        `<p>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things.</p>
-        <p>Often, you'll want your component to “remember” some information and display it. For example, maybe you want to count the number of times a button is clicked. To do this, add state to your component.</p>
+        `<p><i>Components often need to change what's on the screen as a result of an interaction. Components need to "remember" things. Often, you'll want your component to “remember” some information and display it.</i> For example, maybe you want to count the number of times a button is clicked. To do this, add state to your component.</p>
         `,
         `<h3>When a <u>regular variable</u> isn't enough</h3>
-        <p>- <i>Local variables don't persist between renders</i>. When React renders a component a second time, it renders it from scratch — it doesn't consider any changes to the local variables.</p>
-        <p>- <i>Changes to local variables won't trigger renders</i>. React doesn't realize it needs to render the component again with the new data.</p>
+        <p>- <i><b>Local variables don't persist between renders.</b> When React renders a component a second time, it renders it from scratch</i> — it doesn't consider any changes to the local variables.</p>
+        <p>- <i><b>Changes to local variables won't trigger renders</b>. React doesn't realize it needs to render the component again with the new data.</i></p>
         `,
         `<h3>Adding a <u>state variable</u> with <code>useState</code> Hook</h3>
         <ul>To update a component with new data, two things need to happen:</p>
-        <li>1. <i><u>Retain</u> the data between renders.</i></li>
-        <li>2. <i><u>Trigger</u> React to render the component with new data (re-rendering).</i></li></ul>
+        <li>1. <i><b>Retain</b> the data between renders.</i></li>
+        <li>2. <i><b>Trigger</b> React to render the component with new data (re-rendering).</i></li></ul>
         <ul>The <code>useState</code> Hook provides those two things:
-        <li>1. A <i>state variable</i> to <u>retain the data between renders</u>.</li>
-        <li>2. A <i>state setter function</i> to <u>update the variable</u> and <u>trigger React to render the component again</u>.</li></ul>
-        <p>Use a state variable when a component needs to "remember" some information between renders.</p>
+        <li>1. A <b>state variable</b> to <i><u>retain</u> the data between renders</i>.</li>
+        <li>2. A <b>state setter function</b> to <i><u>update</u> the variable</i> and <i><u>trigger</u> React to render the component again</i>.</li></ul>
+        <p><b>Use a state variable when a component needs to <u>"remember" some information between renders</u>.</b></p>
         <p>The <code>useState</code> Hook allows you to <i>define values as state</i>, where changes to these values should reflect in a component function being called again, which is a key difference to a value stored in a regular variable.</p>
         `,
         `<h3>Your first Hook</h3>
-        <p>In React, <code>useState</code>, as well as any other <i>function starting with 'use'</i>, is called a Hook.</p>
-        <p>Hooks are special functions that are <i>only available while React is rendering</i>. They let you <i>“hook into” different React features</i>.</p>
-        <p>State is just one of those features, but you will meet the other Hooks later.</p>
+        <p>In React, <code>useState</code>, as well as any other <b>function starting with 'use'</b>, is called a Hook.</p>
+        <p>Hooks are special functions that are <i>only available while React is rendering</i>. They let you <i>“hook into” different React features</i>. State is just one of those features, but you will meet the other Hooks later.</p>
         `,
         `<h3>Anatomy of <code>useState</code></h3>
         <p>When you call <code>useState</code>, you are telling React that you want this component to remember something.</p>
-        <p>The only argument to <code>useState</code> is the <i>initial value</i> of your state variable. It can be a value of any type, but there is <i>a special behavior for functions</i>. This argument is ignored after the initial render.</p>
+        <p>The only argument to <code>useState</code> is the <b><code>initialValue</code></b> of your state variable. It can be a value of any type, but there is <i>a special behavior for functions</i>. <b>This argument (<code>initialValue</code>) is ignored after the initial render.</b></p>
         <ul>Every time your component renders, <i><code>useState</code> gives you an array containing two values</i>:</p>
-        <li>1. The <i>state <u>variable</u></i> with the value you stored.</li>
-        <li>2. The <i>state setter <u>function</u></i> which can update the state variable and trigger React to render the component again.</li></ul>
+        <li>1. The <b>state <u>variable</u></b> with the value you stored.</li>
+        <li>2. The <b>state setter <u>function</u></b> which can <u>update</u> the state variable and <u>trigger</u> React to render the component again.</li></ul>
         <p>You can use array destructuring to read values from the array that <code>useState</code> gives you.</p>
         `,
         `<h3>Initializing state with a callback (lazy initial state)</h3>
-        <p>If you pass a function as initial value, it will be treated as an <u>initializer function</u>. <i>It should be pure, should take no arguments, and should return a value of any type. React will call your initializer function when initializing the component, and store its return value as the initial state:</i> <code>const [state, setState] = useState(() => {return initialState})</code></p>
+        <p>If you <i>pass a function as initial value</i>, it will be treated as an <b>initializer function</b>. <i>It should be <u>pure</u>, should take <u>no arguments</u>, and should <u>return a value</u> of any type. React will call your initializer function when initializing the component, and store its return value as the initial state:</i> <code>const [state, setState] = useState(() => {return initialState})</code></p>
         `,
         `<h3>Naming convention</h3>
         <p>The convention is to name this pair like <code>const [something, setSomething]</code>. You could name it anything you like, but conventions make things easier to understand across projects.</p>
         `,
         `<h3>Giving a component multiple state variables</h3>
         <p><i>You can have as many state variables of as many types as you like in one component</i>.</p>
-        <p>It is a good idea to <i>have multiple state variables if their <u>state is unrelated</u></i>, but if you find that you often change two state variables together, it might be better to combine them into a single one.</p>
+        <p>It is a good idea to <b>have multiple state variables if their <u>state is unrelated</u></b>, but if you find that you often change two state variables together, it might be better to combine them into a single one.</p>
         `,
         `<h3>State is isolated and private</h3>
-        <p><i>State is <u>local to a component instance</u> on the screen. In other words, if you render the same component multiple times, each copy will have completely isolated state! Changing one of them will not affect the other</i>.</p>
+        <p><i>State is <b>local to a component instance</b> on the screen. In other words, if you render the same component multiple times, each copy will have completely <b>isolated state</b>! Changing one of them will not affect the other</i>.</p>
         <p>This is what makes state different from regular variables that you might declare at the top of your module. State is not tied to a particular function call or a place in the code, but it's "local" to the specific place on the screen. You can rendered a component multiple times and <i>each component's state is stored separately</i>.</p>
-        <p>Also <i>parent components doesn't "know" anything about their child component's state or even whether it has any. Unlike props, <u>state is fully private to the component declaring it</u></i>. The parent component can't change it. This lets you add state to any component or remove it without impacting the rest of the components.</p>`,
+        <p>Also <i>parent components doesn't "know" anything about their child component's state or even whether it has any. Unlike props, <b>state is fully private to the component declaring it</b></i>. The parent component can't change it. This lets you add state to any component or remove it without impacting the rest of the components.</p>`,
         `<h3>Keep child component's state in sync</h3>
-        <p>What if you wanted some child components to keep their states in sync? The right way to do it in React is to remove state from child components and add it to their closest shared parent.</p>
+        <p>What if you wanted some child components to keep their states in sync? The right way to do it in React is to <i>remove state from child components and add it to their closest shared parent</i>.</p>
         `,
         `<h3>Regular variable vs state variable</h3>
         <p><i>A state variable is only necessary to keep information between re-renders of a component</i>. Within a single event handler, a regular variable will do fine. <i>Don't introduce state variables when a regular variable works well.</i></p>
         `,
         `<h3>There are two types of "model" data in React</h3>
-        <ul>There are two types of "model" data in React: <i>props</i> and <i>state</i>. The two are very different:
-        <li>- props are like arguments you pass to a function. They let a parent component pass data to a child component and customize its appearance. For example, a <code>Form</code> can pass a <code>color</code> prop to a <code>Button</code>.</li>
-        <li>- state is like a component's memory. It lets a component keep track of some information and change it in response to interactions. For example, a <code>Button</code> might keep track of <code>isHovered</code> state.</li>
+        <ul>There are two types of "model" data in React: <b>props</b> and <b>state</b>. The two are very different:
+        <li>- <i>props are like arguments you pass to a function.</i> They let a parent component pass data to a child component and customize its appearance. For example, a <code>Form</code> can pass a <code>color</code> prop to a <code>Button</code>.</li>
+        <li>- <i>state is like a component's memory.</i> It lets a component keep track of some information and change it in response to interactions. For example, a <code>Button</code> might keep track of <code>isHovered</code> state.</li>
         </ul>
-        <p>Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and pass it down to child components as their props.</p>
+        <p><i>Props and state are different, but they work together. A parent component will often keep some information in state (so that it can change it), and pass it down to child components as their props.</i></p>
         `,
       ],
     },
