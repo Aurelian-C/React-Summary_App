@@ -377,13 +377,13 @@ ul {
 /* Tooltip box style marked word */
 i,
 i code {
-  color: rgb(138, 255, 0);
+  color: rgb(255, 255, 129);
   font-style: normal;
 }
 
 b,
 b code {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   color: rgb(255, 255, 0);
 }
 

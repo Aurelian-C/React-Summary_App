@@ -870,10 +870,10 @@ const Adding_interactivity_to_a_component = {
         '/src/markdowns/04_Adding_interactivity_to_a_component/Updating_objects_in_state.html',
       tooltips: [
         `<h3>Treat state as read-only</h3>
-        <p>State can hold any kind of JavaScript value, including objects. But <i>you shouldn't change objects that you hold in the React state directly</i>. Instead, when you want to update an object, you need to <i>create a new one (or make a copy of an existing one), and then set the state to use that copy</i>. Usually, you will use the <code>...</code> spread syntax to copy objects and arrays that you want to change.</p>
-        <p>You should <i>treat object in React as if they were immutable (unchangeable or "read-only")</i>, so <i>treat any JavaScript object that you put into state as read-only</i>.</p>
-        <p><i>When you <u>store objects in state</u>, <u>mutating them will not trigger renders</u> and <u>will change the state in previous render "snapshots"</u></i>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
-        <p><i>In React, you treat all state as immutable!</i></p>
+        <p>State can hold any kind of JavaScript value, including objects. But <b>you shouldn't change objects that you hold in the React state directly</b>. Instead, <i>when you want to update an object, you need to <b>create a new one (or make a copy of an existing one), and then set the state to use that copy</b></i>. Usually, you will use the <code>...</code> spread syntax to copy objects and arrays that you want to change.</p>
+        <p>You should <b>treat object in React as if they were immutable (unchangeable or "read-only")</b>, so <b>treat any JavaScript object that you put into state as read-only</b>.</p>
+        <p><b>When you <u>store objects in state</u>, <u>mutating them will not trigger renders</u> and <u>will change the state in previous render "snapshots"</u></b>. Instead of mutating an object, create a new version of it, and trigger a re-render by setting state to it.</p>
+        <p><b>In React, you treat all state as immutable!</b></p>
         `,
         `<h3>Local mutation is fine</h3>
         <p><i>Mutation is only a problem when you change <u>existing objects that are already in state</u></i>. Mutating an object you've just created is okay because <i>no other code references it yet</i>. Changing it isn't going to accidentally impact something that depends on it. This is called a local mutation.</p>
@@ -904,11 +904,11 @@ const Adding_interactivity_to_a_component = {
         '/src/markdowns/04_Adding_interactivity_to_a_component/Updating_arrays_in_state.html',
       tooltips: [
         `<h3>Treat state as read-only</h3>
-        <p>Arrays are mutable in JavaScript, but <i>you should treat arrays as immutable when you store them in state</i>. Just like with objects, when you want to update an array stored in state, you need to <i>create a new one (or make a copy of an existing one), and then set state to use the new array</i>.</p>
+        <p>Arrays are mutable in JavaScript, but <i>you should <b>treat arrays as immutable when you store them in state</b></i>. Just like with objects, when you want to update an array stored in state, you need to <i>create a new one (or make a copy of an existing one), and then set state to use the new array</i>.</p>
         <p>You can put arrays into state, but you can't change them.</p>
         `,
         `<h3>Updating arrays without mutation</h3>
-        <p>In JavaScript, arrays are just another kind of object. Like with objects, <i>you should treat arrays in React state as read-only</i>. This means that you <i>shouldn't reassign items inside an array</i> like <code>arr[0] = 'bird'</code>, and you also <i>shouldn't use methods that mutate the array</i>, such as <code>push()</code> and <code>pop()</code>.</p>
+        <p>In JavaScript, arrays are just another kind of object. Like with objects, <i>you should <b>treat arrays in React state as read-only</b></i>. This means that you <i>shouldn't reassign items inside an array</i> like <code>arr[0] = 'bird'</code>, and you also <i>shouldn't use methods that mutate the array</i>, such as <code>push()</code> and <code>pop()</code>.</p>
         <p>Instead, every time you want to update an array, you'll want to <i>pass a new array to your state setting function</i>. To do that, you can <i>create a new array from the original array</i> in your state by calling its non-mutating methods like <code>filter()</code> and <code>map()</code>. Then you can set your state to the resulting new array.</p>
         <p>You can use the <code>[...arr, newItem]</code> array spread syntax to create arrays with new items.</p>
         `,
@@ -936,7 +936,7 @@ const Adding_interactivity_to_a_component = {
         <p><i>However, even if you copy an array, you can't mutate existing items inside of it directly. This is because copying is "shallow" — the new array will contain the same items as the original one. So if you modify an object inside the copied array, you are mutating the existing state</i>.</p>
         `,
         `<h3>Updating objects inside arrays</h3>
-        <p><i>Objects are not really located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points"</i>.</p>
+        <p><b>Objects are not really located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points"</b>.</p>
         <p><i>When updating nested state, you need to create copies from the point where you want to update, and all the way up to the top level</i>.</p>
         <p><i>In general, you should only mutate objects that you have just created</i>. If you were inserting a new property to an object that you have just created, you could mutate it, but if you're dealing with something that's already in state, you need to make a copy.</p>
         `,
@@ -963,17 +963,17 @@ const Managing_state = {
       tooltips: [
         `<h3>How <u>declarative UI</u> programming differs from <u>imperative UI</u> programming</h3>
         <p>With just Vanilla JavaScript, you have to write every single line of code that should be taken to build an app (Imperative Way).</p>
-        <p><i>React uses a declarative way to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you <i>describe the different states that your component can be in</i>, and <i>switch between them</i> in response to user actions (user events) or computer actions (http events).</p>
+        <p><i>React uses a declarative way to manipulate the UI</i>. Instead of manipulating individual pieces of the UI directly, you <i>describe the different states that your component can be in</i>, and <i>switch between them</i> in response to <u>user actions</u> (user events) or <u>computer actions</u> (http events).</p>
         <p>With React, you won't modify the UI from code directly. With React you will <i>describe the UI you want to see for the <u>different visual states</u> of your component</i>, and then trigger the state changes in response to user input.</p>
         `,
         `<h3>Imperative way with Vanilla JavaScript vs declarative way with React</h3>
         <p>With just Vanilla JavaScript you have to write the exact instructions to manipulate the UI depending on what just happened. <i>It's called imperative because you have to "command" each element, telling the computer <u>how</u> to update the UI</i>.</p>
         <p>In React, you don't directly manipulate the UI. Instead, you declare what you want to show, and React figures out how to update the UI. When you design UI interactions, you probably think about <i>how the UI changes in response to user actions</i>.</p>
         <p>Declarative programming means <i>describing the UI for each <u>visual state</u></i> rather than micromanaging the UI (imperative).</p>
-        <p><i>In React you need to describe what you want to see rather than manipulate the UI elements.</i> For example, if you want to add or remove a class from a DOM element, you need to <i>calculate the CSS class based on a state variable</i>, rather than select that DOM element and <i>change it's class directly</i> like you use to do imperatively with Vanilla Javascript.</p>
+        <p><b>In React you need to describe what you want to see rather than manipulate the UI elements.</b> For example, if you want to add or remove a class from a DOM element, you need to <b>calculate the CSS class based on a state variable</b>, rather than select that DOM element and <i>change it's class directly</i> like you use to do imperatively with Vanilla Javascript.</p>
         `,
         `<h3>Thinking about UI declaratively</h3>
-        <p>In React, you need to think about UI declaratively: <i>UI changes as state changes</i>.</p>
+        <p>In React, you need to think about UI declaratively: <b>UI changes as state changes</b>.</p>
         <ul>There are some steps you need to follow when you build an app in React:
         <li>1. Identify your component's <i>different "visual states"</i></li>
         <li>2. Determine what triggers those <i>"visual states" changes</i>: human or computer</li>
@@ -992,8 +992,8 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>Principles for structuring state</h3>
-        <ul>When you write a <i>component that holds some state</i>, you'll have to make choices about how many state variables to use and what the shape of their data should be:
-        <li>1. Group related state</li>
+        <ul>When you write a <u>component that holds some state</u>, you'll have to make choices about how many state variables to use and what the shape of their data should be:
+        <li>1. <b>Group related state</b></li>
         <li>2. Avoid contradictions in state</li>
         <li>3. Avoid redundant state</li>
         <li>4. Avoid duplication in state</li>
@@ -1002,15 +1002,15 @@ const Managing_state = {
         <p>The goal behind these principles is to make state <i>easy to update</i> without introducing mistakes. <i>Removing redundant and duplicate data from state helps ensure that all its pieces <u>stay in sync</u></i>.</p>
         `,
         `<h3>Group related state</h3>
-        <p>If you always <i>update two or more state variables at the same time</i>, consider merging them into a single state variable. If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
+        <p><i>If you always <b>update two or more state variables at the same time</b>, consider merging them into a single state variable.</i> If some two state variables <i>always change together</i>, it might be a good idea to unify them into a single state variable. Then you won't forget to always <i>keep them in sync</i>.</p>
         <p>Another case where you'll group data into an object or an array is when <i>you don't know how many different pieces of state you'll need</i>. For example, it's helpful when you have a form where the user can add custom fields.</p>
         `,
         `<h3>Avoid contradictions in state</h3>
         <p>When the state is structured in a way that several pieces of state may contradict and "disagree" with each other, you leave room for mistakes. Try to avoid this.</p>
         `,
         `<h3>Avoid redundant state</h3>
-        <p>If you can <i>calculate some information from the component's props or its existing state variables during rendering</i>, you should not put that information into that component's state.</p>
-        <p><i>Don't mirror props in state!</i> If you initialize a state variable with a prop, if the parent component passes a different value for that prop, that state variable would not be updated! That's because <i>the state is only initialized during the <u>first render</u></i>. "Mirroring" props into state only makes sense when you want to <i>ignore all updates for a specific prop</i>. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
+        <p><i>If you can <b>calculate some information from the component's props or its existing state variables during rendering</b>, you should not put that information into that component's state.</i></p>
+        <p><b>Don't mirror props in state!</b> If you initialize a state variable with a prop, if the parent component passes a different value for that prop, that state variable would not be updated! That's because <i>the state is only initialized during the <u>first render</u></i>. "Mirroring" props into state only makes sense when you want to <i>ignore all updates for a specific prop</i>. By convention, start the prop name with "initial" or "default" to clarify that its new values are ignored.</p>
         `,
         `<h3>Avoid duplication in state</h3>
         <p>When <i>the same data is duplicated between multiple state variables, or within nested objects, it is <u>difficult to keep them in sync</u></i>. Reduce duplication when you can.</p>
@@ -1032,7 +1032,7 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>How to share state between components by lifting it up</h3>
-        <p>Sometimes, you want <i>the state of two or multiple components to always change together</i>. To do it, <i>remove state from them, move it to their <u>closest common parent</u>, and then pass it down to them via props</i>. This is known as lifting state up.</p>
+        <p>Sometimes, you want <i>the state of two or multiple components to <u>always change together</u></i>. To do it, <i>remove state from them, move it to their <u>closest common parent</u>, and then pass it down to them via props</i>. This is known as lifting state up.</p>
         <p>To change the state in the parent component, you need to pass down to the child components an <i>event handler that allow the child components to <u>change the parent's state</u></i>.</p>
         <p><i>Moving state of some components into the common parent component allow you to coordinate that components</i>, and passing down an event handler to the child allow the child to change the parent's state. Lifting state up often changes the nature of what you're storing as state.</p>
         <ul>You lift the state up in three steps:
@@ -1051,7 +1051,7 @@ const Managing_state = {
         `<h3>A single source of truth for each state</h3>
         <p>In a React application, many components will have their own state. Some state may "live" close to the leaf components (components at the bottom of the tree) like inputs. Other state may "live" closer to the top of the app.</p>
         <p><i>For each unique piece of state, you will choose the component that "owns" it</i>. This principle is also known as having a "single source of truth". It doesn't mean that all state lives in one place — but that <i>for each piece of state, there is a specific component that holds that piece of information</i>.</p>
-        <p><i>Instead of duplicating shared state between components, <u>lift it up</u> to their common shared parent, and <u>pass it down</u> to the children that need it.</i></p>
+        <p><b>Instead of duplicating shared state between components, <u>lift it up</u> to their common shared parent, and <u>pass it down</u> to the children that need it.</b></p>
         `,
       ],
     },
@@ -1060,7 +1060,7 @@ const Managing_state = {
       sectionSource:
         '/src/markdowns/05_Managing_state/How_to_control_whether_the_state_gets_preserved_or_reset.html',
       tooltips: [
-        `<p>When you re-render a component, React needs to decide <i>which parts of the tree to keep (and update)</i>, and <i>which parts to discard or re-create from scratch</i>. In most cases, React's automatic behavior works well enough. <i>By default, React preserves the parts of the tree that “match up” with the previously rendered component tree.</i> However, sometimes this is not what you want.</p>
+        `<p>When you re-render a component, React needs to decide <i>which parts of the tree to keep (and update)</i>, and <i>which parts to discard or re-create from scratch</i>. In most cases, React's automatic behavior works well enough. <b>By default, React preserves the parts of the tree that “match up” with the previously rendered component tree.</b> However, sometimes this is not what you want.</p>
         <p>State is isolated between components. <i>React keeps track of which state belongs to which component based on their place in the UI tree</i>. You can control when to <u>preserve state</u> and when to <u>reset it</u> between re-renders.</p>
         `,
         `<h3>The UI tree</h3>
@@ -1068,33 +1068,33 @@ const Managing_state = {
         <p><i>React makes UI trees from your JSX</i>, then React DOM updates the browser DOM elements to match that UI tree.</p>
         `,
         `<h3>State is tied to a position in the UI tree</h3>
-        <p>When you give a component state, you might think the state "lives" inside the component. But the <i>state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the UI tree</i>.</p>
+        <p>When you give a component state, you might think the state "lives" inside the component. But the <b>state is actually held inside React. React associates each piece of state it's holding with the correct component by where that component sits in the UI tree</b>.</p>
         <p>State is not kept in JSX tags, it's associated with the tree position in which you put that JSX.</p>
         <p>In React, each component on the screen has fully isolated state.</p>`,
         `<h3>Same component at the same position preserves state</h3>
         <p><i>React will keep the state around for as long as you render the <u>same component</u> at the <u>same position</u></i>.</p>
-        <p><i>When React removes a component, it destroys its state. When you add that component again to the DOM, its state is initialized from scratch</i>.</p>
+        <p><b>When React removes a component, it destroys its state. When you add that component again to the DOM, its state is initialized from scratch</b>.</p>
         <p>React preserves a component's state for as long as it's being rendered at its position in the UI tree. If it gets removed, or a different component gets rendered at the same position, React discards its state.</p>
-        <p><i>Same component at the same position preserves state. Different components at the same position reset state</i>. Remember that it's the position in the UI tree — not in the JSX markup — that matters to React!</p>
+        <p><b><u>Same component</u> at the <u>same position</u> preserves state. <u>Different components</u> at the <u>same position</u> reset state</b>. Remember that it's the position in the UI tree — not in the JSX markup — that matters to React!</p>
         `,
         `<h3>Different components at the same position reset state</h3>
-        <p><i>When you render a <u>different component</u> in the <u>same position</u>, it resets the state of its <u>entire subtree</u>.</i></p>
+        <p><i>When you render a <u>different component</u> in the <u>same position</u>, it <b>resets the state of its <u>entire subtree</u></b>.</i></p>
         <p>As a rule of thumb, <i>if you want to preserve the state between re-renders, the structure of your tree needs to "match up" from one render to another</i>. If the structure is different, the state gets destroyed because <i>React destroys state when it removes a component from the tree</i>.</p>
         `,
         `<h3>Resetting state at the same position</h3>
         <p><i>By default, React preserves state of a component while it stays at the same position</i>. Usually, this is exactly what you want, so it makes sense as the default behavior. But sometimes, you may want to reset a component's state.</p>
         <ul>There are <i>two ways to reset state when <u>switching between same component at the same position</u></i>:
-        <li>1. Render the component in <i>different positions</i></li>
-        <li>2. Resetting state with a <i><code>key</code></i></li>
+        <li>1. Render the component in <b>different positions</b>;</li>
+        <li>2. Resetting state with a <b><code>key</code></b>.</li>
         </ul>
-        <p>You might have seen <code>key</code>s when rendering lists. <i>Keys aren't just for lists! You can use keys to make React distinguish between any components. Specifying a <code>key</code> tells React to use the <code>key</code> itself as part of the position, instead of their order within the parent.</i> You can force a subtree to reset its state by giving it a different key.</p>
+        <p>You might have seen <code>key</code>s when rendering lists. <b>Keys aren't just for lists! You can use keys to make React distinguish between any components. Specifying a <code>key</code> tells React to use the <code>key</code> itself as part of the position, instead of their order within the parent.</b> You can force a subtree to reset its state by giving it a different key.</p>
         <p>State is associated with the tree position. A <code>key</code> lets you specify a named position instead of relying on order.</p>
         <p>You can provide a <code>key</code> to a JSX tag and when that <code>key</code> changes, <i>React will re-create the DOM node from scratch, instead of reusing it</i>.</p>
         `,
         `<h3>Preserving state for removed components</h3>
-        <p>- <i>You could render all components instead of just the current one, but hide all the others with CSS.</i> The components would not get removed from the tree, so their local state would be preserved. This solution works great for simple UIs. But it can get very slow if the hidden trees are large and contain a lot of DOM nodes.</p>
-        <p>- <i>You could lift the state up and hold the state of child components in the parent component.</i> This way, when the child components get removed, it doesn't matter, because it's the parent that keeps the important information.</p>
-        <p>- <i>You might also use a different source in addition to React state.</i></p>
+        <p>- <i>You could render all components instead of just the current one, but <b>hide all the others with CSS</b>.</i> The components would not get removed from the tree, so their local state would be preserved. This solution works great for simple UIs. But it can get very slow if the hidden trees are large and contain a lot of DOM nodes.</p>
+        <p>- <i>You could <b>lift the state up</b> and hold the state of child components in the parent component.</i> This way, when the child components get removed, it doesn't matter, because it's the parent that keeps the important information.</p>
+        <p>- <i>You might also <b>use a different source in addition to React state</b>.</i></p>
         `,
       ],
     },
@@ -1117,9 +1117,9 @@ const Managing_state = {
         </ul>
         `,
         `<h3>1. Move from <u>setting state</u> to <u>dispatching actions</u></h3>
-        <p>Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the user just did” by <i>dispatching “actions” from your event handlers</i>.</p>
+        <p>Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the user just did” by <b>dispatching “actions” from your event handlers</b>.</p>
         <p>The state update logic will live elsewhere! So <i>instead of “setting” state via an event handler, you're dispatching an “action”.</i> This is more descriptive of the user's intent.</p>
-        <p><i>The object you pass to dispatch function is called an “action” and is a regular JavaScript object</i>. You decide what to put in it, but generally it should contain the minimal information about what happened.</p>
+        <p><b>The object you pass to dispatch function is called an “action” and is a regular JavaScript object</b>. You decide what to put in it, but generally it should contain the minimal information about what happened.</p>
         <p><i>An "action" object can have any shape. By convention, it is common to give it a property with a <code>type</code> key that describes what happened</i>, and pass any additional information in other fields. Keep in mind that "action" <code>type</code>s should ideally describe “what the user did” rather than “how you want the state to change”. This makes it easier to later add more features.</p>
         `,
         `<h3>2. Write a reducer function</h3>
@@ -1141,12 +1141,12 @@ const Managing_state = {
         </ul>
         `,
         `<h3><code>useReducer</code> vs <code>useState</code></h3>
-        <p>Component logic can be easier to read when you separate concerns. By consolidate state logic with a reducer the event handlers <i>only specify what happened by dispatching actions</i>, and <i>the reducer function determines how the state updates in response to them</i>.</p>
+        <p>Component logic can be easier to read when you separate concerns. By consolidate state logic with a reducer the event handlers <b>only specify what happened by dispatching actions</b>, and <b>the reducer function determines how the state updates in response to them</b>.</p>
         `,
         `<h3>Writing reducers well</h3>
         <ul>Keep these two tips in mind when writing reducers:
-        <li>- <i>reducers must be pure</i>. Similar to state updater functions, reducers run during rendering! (Actions are queued until the next render.) This means that reducers must be pure — <i>same inputs always result in the same output</i>. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should <i>update objects and arrays without mutations</i>.</li>
-        <li>- <i>each action describes a single user interaction</i>, even if that leads to multiple changes in the data. For example, if a user presses “Reset” on a form with five fields managed by a reducer, it makes more sense to dispatch one <code>reset_form</code> action rather than five separate <code>set_field</code> actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!</li>
+        <li>- <b>reducers must be pure</b>. Similar to state updater functions, reducers run during rendering! (Actions are queued until the next render.) This means that reducers must be pure — <i>same inputs always result in the same output</i>. They should not send requests, schedule timeouts, or perform any side effects (operations that impact things outside the component). They should <i>update objects and arrays without mutations</i>.</li>
+        <li>- <b>each action describes a single user interaction</b>, even if that leads to multiple changes in the data. For example, if a user presses “Reset” on a form with five fields managed by a reducer, it makes more sense to dispatch one <code>reset_form</code> action rather than five separate <code>set_field</code> actions. If you log every action in a reducer, that log should be clear enough for you to reconstruct what interactions or responses happened in what order. This helps with debugging!</li>
         </ul>
         `,
       ],
@@ -1161,12 +1161,12 @@ const Managing_state = {
         <p><i><code>useState()</code> is your main state management tool.</i> Typically, you start with <code>useState()</code> and often it's all you need. It's great for independent pieces of state and data. It's great if state updates are easy and limited to a few kinds of updates. So, if you don't have a lot of different cases that will change a state, and especially if you don't have an object as a state or anything like that.</p>`,
         `<h3><code>useReducer()</code></h3>
         <p>If you do have an object as a state or a <i>more complex state</i>, <code>useReducer()</code> might be interesting because, in general, <code>useReducer()</code> is great if you need more power and with more power, I simply mean that you can write such a reducer function that can contain <i>more complex state updating logic</i>, where you always are guaranteed to work with the latest state snapshot, and where you can move that potentially more complex logic out of your component function body into a separate reducer function.</p>
-        <p>You should especially consider <code>useReducer()</code> if you're dealing with <i>related data</i>, with state that is made up of <i>related pieces of state</i>.</p>
-        <p><code>useReducer()</code> can be helpful if you have more <i>complex state updates, if you have different cases, different actions that can change a state</i>.</p>
+        <p>You should especially consider <code>useReducer()</code> if you're dealing with <b>related data</b>, with state that is made up of <i>related pieces of state</i>.</p>
+        <p><code>useReducer()</code> can be helpful if you have more <i>complex state updates, <b>if you have different cases, different actions that can change a state</b></i>.</p>
         `,
         `<h3>Comparing <code>useState()</code> and <code>useReducer()</code></h3>
         <ul> Reducers are not without downsides! Here's a few ways you can compare them:
-        <li>- <i>Code size</i>: Generally, with <code>useState()</code> you have to write less code upfront. With <code>useReducer()</code>, you have to write both a reducer function and dispatch actions. However, <i><code>useReducer()</code> can help cut down on the code if <u>many event handlers modify state in a similar way</u></i>.</li>
+        <li>- <i>Code size</i>: Generally, with <code>useState()</code> you have to write less code upfront. With <code>useReducer()</code>, you have to write both a reducer function and dispatch actions. However, <b><code>useReducer()</code> can help cut down on the code if <u>many event handlers modify state in a similar way</u></b>.</li>
         <li>- <i>Readability</i>: <code>useState()</code> is very easy to read when the state updates are simple. When they get more complex, they can bloat your component's code and make it difficult to scan. In this case, <i><code>useReducer()</code> lets you cleanly separate the <u>how</u> of update logic from the <u>what happened</u> of event handlers</i>.</li>
         <li>- <i>Debugging</i>: When you have a bug with <code>useState()</code>, it can be difficult to tell <u>where</u> the state was set incorrectly, and <u>why</u>. <i>With <code>useReducer()</code>, you can add a console log into your reducer to see every state update, and <u>why</u> it happened (due to which <code>action</code>).</i> If each <code>action</code> is correct, you'll know that the mistake is in the reducer logic itself. However, you have to step through more code than with <code>useState()</code>.</li>
         <li>- <i>Testing</i>: A reducer is a pure function that doesn't depend on your component. This means that you can export and test it separately in isolation. While generally it's best to test components in a more realistic environment, for complex state update logic it can be useful to assert that your reducer returns a particular state for a particular initial state and action.</li>
@@ -1187,11 +1187,11 @@ const Managing_state = {
         <p><i>Context lets the parent component make some information available to any component in the tree below it — no matter how deep — without passing it explicitly through props</i>.</p>
         `,
         `<h3>Context: an alternative to passing props</h3>
-        <p>Context lets <i>a parent component provide data to the entire tree below it</i>.</p>
+        <p>Context lets <b>a parent component provide data to the entire tree below it</b>.</p>
         <ul>You will implement context in three steps:
-        <li>1. <i>Create</i> a context with <code>createContext()</code> from 'react'</li>
-        <li>2. <i>Use</i> that context from the component that needs the data with <code>useContext</code> Hook from 'react'</li>
-        <li>3. <i>Provide</i> that context from the component that specifies the data with the context Provider component</li>
+        <li>1. <b>Create</b> a context with <code>createContext()</code> from 'react'</li>
+        <li>2. <b>Use</b> that context from the component that needs the data with <code>useContext</code> Hook from 'react'</li>
+        <li>3. <b>Provide</b> that context from the component that specifies the data with the context Provider component</li>
         </ul>
         <p>Context lets you read information from a component above.</p>
         `,
@@ -1207,17 +1207,18 @@ const Managing_state = {
         `,
         `<h3>Step 3: <u>Provide</u> the context</h3>
         <p><i>Every context object comes with a <u>context Provider component</u></i>, that allows consuming components to subscribe to context changes. If you don't provide the context, React will use the default value specified when you creating the context.</p>
-        <p>To provide the context you need to <i>wrap all components that you want to use that context with a context Provider component</i>. This tells React: "if any child component inside the parent component asks for context, give them the context value”. Any component that's not wrapped will not be able to listen/subscribe to the context. One context Provider component can be connected to many consumers.</p>
+        <p>To provide the context you need to <b>wrap all components that you want to use that context with a context Provider component</b>. This tells React: "if any child component inside the parent component asks for context, give them the context value”. Any component that's not wrapped will not be able to listen/subscribe to the context. One context Provider component can be connected to many consumers.</p>
         <p>The context Provider component accepts a <i><code>value</code> prop</i> to be passed to consuming components that are descendants of that context Provider component.</p>
-        <p><i>Context Provider components can be nested to override values deeper within the tree. All consumers that are descendants of a context Provider component will re-render whenever the context Provider's component <code>value</code> prop changes. The child component will use the value of the nearest context Provider component in the UI tree above it. One component may <u>use</u> or <u>provide</u> many different contexts without a problem.</i></p>
-        <p>The good thing is you can set up a <i>dynamic Context</i> where you don't just pass <u>data</u> to other components but also <u>functions</u> that change that data.</p>
+        <p><i>Context Provider components can be nested to override values deeper within the tree. <b>All consumers that are descendants of a context Provider component will re-render whenever the context Provider's component <code>value</code> prop changes.</b></i></p>
+        <p><i><b>The child component will use the value of the nearest context Provider component in the UI tree above it.</b> One component may <u>use</u> or <u>provide</u> many different contexts without a problem.</i></p>
+        <p>The good thing is you can set up a <i>dynamic Context</i> where you don't just pass <u>data</u> to other components, but also <u>functions</u> that change that data.</p>
         `,
         `<h3>Context passes through intermediate components</h3>
         <p>You can insert as many components as you like between the component that provides context and the one that uses it. This includes both built-in components like <<span>div</span>> and components you might build yourself.</p>
         <p>Context lets you write components that "adapt to their surroundings" and display themselves differently depending on <u>where</u> (or, in other words, <u>in which context</u>) they are being rendered.</p>`,
         `<h3>Context work similar as CSS property inheritance</h3>
-        <p>How context works might remind you of CSS property inheritance. In CSS, you can specify <code>color: blue</code> for a <<span>div</span>>, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with <code>color: green</code>. Similarly, <i>in React, the only way to override some context coming from above is to wrap children into a context Provider component with a different <code>value</code> prop</i>.</p>
-        <p>In CSS, different properties like <code>color</code> and <code>background-color</code> don't override each other. You can set all  <<span>div</span>>'s <code>color</code> to red without impacting <code>background-color</code>. Similarly, <i>different React contexts don't override each other. Each context that you make with <code>createContext()</code> is completely separate from other ones, and ties together components using and providing that particular context</i>.</p>
+        <p>How context works might remind you of CSS property inheritance. In CSS, you can specify <code>color: blue</code> for a <<span>div</span>>, and any DOM node inside of it, no matter how deep, will inherit that color unless some other DOM node in the middle overrides it with <code>color: green</code>. Similarly, <b>in React, the only way to override some context coming from above is to wrap children into a context Provider component with a different <code>value</code> prop</b>.</p>
+        <p>In CSS, different properties like <code>color</code> and <code>background-color</code> don't override each other. You can set all  <<span>div</span>>'s <code>color</code> to red without impacting <code>background-color</code>. Similarly, <i><b>different React contexts don't override each other</b>. Each context that you make with <code>createContext()</code> is completely separate from other ones, and ties together components using and providing that particular context</i>.</p>
         `,
         `<h3>Before you use context</h3>
         <p>Just because you need to pass some props several levels deep doesn't mean you should put that information into context.</p>
@@ -1230,7 +1231,7 @@ const Managing_state = {
         <p>Apply Context sparingly because it MAKES COMPONENT REUSE MORE DIFFICULT !!!</p>
         `,
         `<h3>React Context Limitations</h3>
-        <p>React Context can be great for component wide state, so essentially states that affects multiple components, but it's not a replacement for component configuration. So props for configuration, context for state management across components or possibly across the entire app.</p>
+        <p>React Context can be great for component wide state, so essentially states that affects multiple components, but <i>it's not a replacement for component configuration</i>. So <i>props for configuration</i>, <i>context for state management across components</i> or possibly across the entire app.</p>
         `,
       ],
     },
@@ -1244,7 +1245,7 @@ const Managing_state = {
       },
       tooltips: [
         `<h3>Combining a reducer with context</h3>
-        <p>The good thing is you can set up a dynamic context, where you don't just pass data to other components, but also functions. Therefore, you can build and using a component context to manage your state and functions that changes the state. <i>You can combine reducer with context to let any component read and update state above it.</i></p>
+        <p>The good thing is you can set up a dynamic context, where you don't just pass data to other components, but also functions. Therefore, you can build and using a component context to manage your state and functions that changes the state. <b>You can combine reducer with context to let any component <u>read</u> and <u>update</u> state above it.</b></p>
         <p><i>Context is not limited to static values. If you pass a different value on the next render, React will update all the components that are wrapped by that context!</i> This is why context is often used in combination with state.</p>
         <ul>Here is how you can combine a reducer with context by building a <i>custom context Provider component</i>:
         <li>1. Create the context</li>
@@ -1304,18 +1305,18 @@ const Refs = {
         `,
         `<h3>Differences between refs and state</h3>
         <p>A component doesn't re-render when you modify the <code>ref.current</code> value.</p>
-        <p><i>You shouldn't read (or write) the <code>ref.current</code> value <u>during rendering</u></i>, but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
+        <p><b>You shouldn't read (or write) the <code>ref.current</code> value <u>during rendering</u></b>, but you can read state at any time. However, each render has its own <u>snapshot of state</u> which does not change.</p>
         <p><i>Limitations of React state don't apply to refs</i>, for example, state acts like a snapshot for every render and doesn't update synchronously, but when you mutate the current value of a ref, it changes immediately. This is because <i>the ref itself is a regular JavaScript object</i>, and so it behaves like one.</p>
-        <p>You also don't need to worry about avoiding mutation when you work with a refs. <i>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</i>. Refs are an escape hatch to <i>hold onto values that <u>aren't used for rendering</u></i>.</p>
-        <p><i>When a piece of information is <u>used for rendering</u>, keep it in state</i>. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.</p>
+        <p>You also don't need to worry about avoiding mutation when you work with a refs. <b>As long as the object you're mutating isn't used for rendering, React doesn't care what you do with the ref or its contents</b>. Refs are an escape hatch to <b>hold onto values that <u>aren't used for rendering</u></b>.</p>
+        <p><b>When a piece of information is <u>used for rendering</u>, keep it in state</b>. When a piece of information is only needed by event handlers and changing it doesn't require a re-render, using a ref may be more efficient.</p>
         `,
         `<h3>When to use refs</h3>
-        <ul>Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs — often a browser API <i>that won't impact the appearance of the component</i>:
+        <ul>Typically, you will use a ref when your component needs to “step outside” React and communicate with external APIs — often a browser API <b>that won't impact the appearance of the component</b>:
           <li>- Creating a variable that stays the same between rendersStoring (timeout IDs);</li>
           <li>- Selecting and storing DOM elements;</li>
-          <li>- Storing other objects <i>that aren't necessary to calculate the JSX</i>.</li>
+          <li>- Storing other objects <b>that aren't necessary to calculate the JSX</b>.</li>
         </ul>
-        <p><i>If your component needs to store some value, <u>but it doesn't impact the rendering logic</u>, choose refs</i>.</p>
+        <p><b>If your component needs to store some value, <u>but it doesn't impact the rendering logic</u>, choose refs</b>.</p>
         `,
         `<h3>Best practices for refs</h3>
         <ul><i>Treat refs as an escape hatch</i>. Refs are useful when you work with external systems or browser APIs:
