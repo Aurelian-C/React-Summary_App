@@ -8,7 +8,7 @@ class ApplicationView {
 
   _generateMarkup(card) {
     const markupString = card
-      .map((card, idx) => {
+      .map(card => {
         let tooltipMarkup = '';
 
         if (card.tooltips?.length > 0) {
@@ -27,7 +27,7 @@ class ApplicationView {
           <div class="card">
             <div class="card__title">
               <h2>
-                <p class="card__title--1">Section ${idx + 1}</p>
+                <p class="card__title--1">Section ${card.titleNumber}</p>
                 <div>${card.title}</div>
                 ${
                   card.titleDescription

@@ -17,6 +17,7 @@ const searchTopic = function () {
         return {
           title: section.title,
           titleDescription: section.titleDescription,
+          titleNumber: section.titleNumber,
           sections: filteredSections,
         };
       })

@@ -3662,7 +3662,8 @@ export const dataStorage = [
   Adding_authentication_to_React_apps,
 ];
 
-dataStorage.forEach(el => {
+dataStorage.forEach((el, index) => {
+  el.titleNumber = index + 1;
   el.sections.forEach((section, idx) => (section.sectionNumber = idx + 1));
 });
 
