@@ -47,7 +47,7 @@ class ApplicationView {
     return markupString;
   }
 
-  _generateMarkupArticle(article, idx) {
+  _generateMarkupArticle(article) {
     let title = article.sectionTitle;
 
     const createHighlight1 = highlight => {
@@ -86,9 +86,7 @@ class ApplicationView {
 
     return `
       <li class="card__article">
-          ${`<p class="card__article-title" data-title='${
-            article.sectionTitle
-          }'>${idx + 1}. ${title}</p>`}
+          ${`<p class="card__article-title" data-title='${article.sectionTitle}'>${article.sectionNumber}. ${title}</p>`}
       </li>
     `;
   }
