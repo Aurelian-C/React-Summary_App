@@ -12,14 +12,14 @@ const React_basics = {
       },
       tooltips: [
         `<h3>Components: UI building blocks</h3>
-        <p>React is a JavaScript library for <i>building user interfaces (UI)</i>.</p>
-        <p>React applications are built from <i>isolated pieces of UI</i> called components. A component is <i>a piece of the UI that has its <u>own logic</u> and <u>appearance</u></i>. A component can be as small as a button, or as large as an entire page.</p>
-        <p>React lets you combine your <i>HTML markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom components, <i>reusable UI elements</i> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
+        <p>React is a <b>JavaScript library</b> for <i>building user interfaces (UI)</i>.</p>
+        <p>React applications are built from <b><u>isolated</u> pieces of UI</b> called components. A component is <b>a piece of the UI that has its <u>own logic</u> and <u>appearance</u></b>. A component can be as small as a button, or as large as an entire page.</p>
+        <p>React lets you combine your <i>HTML markup</i>, <i>CSS</i>, and <i>JavaScript</i> into custom components, <b><u>reusable</u> UI elements/blocks</b> for your app. Just like with HTML tags, you can compose, order and nest components to design whole pages.</p>
         `,
         `<h3>What is a component?</h3>
-        <p>Conceptually, <i>components are just <u>JavaScript functions</u></i> that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
+        <p>Conceptually, <i>components are just regular <b>JavaScript functions</b></i> that accept arbitrary inputs (called <i>props</i>) and return <i>JSX markup</i> describing what should appear on the screen. So a React component is <i>a JavaScript function that you can sprinkle with markup</i>.</p>
         <p>Components are in the end just a combination of HTML, CSS and JavaScript.</p>
-        <p>Components are <i><u>reusable</u> building blocks</i> in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. Components are a handy way to organize UI code and markup, even if some of them are only used once.</p>
+        <p>Components are reusable building blocks in your UI. You don't have to reuse a component to make it a component, it's just one of its traits that a component is reusable. <i>Components are a handy way to organize UI code and markup, even if some of them are only used once.</i></p>
         <ul>React components are regular JavaScript functions except:
         <li>- their names always begin with a <i>capital letter</i>;</li>
         <li>- they <i>return JSX markup</i>.</li>
@@ -27,12 +27,12 @@ const React_basics = {
         `<h3>Why components?</h3>
         <p>React is all about components because <i>the UI in the end is made up of components</i>.</p>
         <p>React is all about <i>splitting your UI into small building blocks (components), where every building block (component) has a <u>clear task</u></i>, and therefore your code stays maintainable and manageable, and React will do the heavy lifting of rendering something onto the screen and of combining all your components.</p>
-        <p>Components let you <i>split the UI into <u>independent</u>, <u>reusable</u> pieces, and <u>think about each piece in isolation</u></i>.</p>
+        <p>Components let you <b>split the UI into <u>independent</u>, <u>reusable</u> pieces, and <u>think about each piece in isolation</u></b>.</p>
         `,
         `<h3>Components & separation of concerns</h3>
-        <p>Separation of concerns = don't do too many things in one and the same place (function). Split big chunks of code into multiple smaller functions.</p>
+        <p><b>Separation of concerns = don't do too many things in one and the same place (function).</b> Split big chunks of code into multiple smaller functions.</p>
         <p>Having a separation of concerns helps you with <i>keeping your code base <u>small</u> and <u>manageable</u></i>, instead of having one large file which holds all the HTML markup and all the JavaScript logic.</p>
-        <p>For the entire UI you have <i>small separated units (components)</i>, where every component has <i>one specific task it focuses on</i>. If you <i>split your code across multiple files</i>, then you will have small pieces of code which are easy to manage and maintain.</p>
+        <p>For the entire UI you have small separated units (components), where every component has one specific task it focuses on. If you <i>split your code across multiple files</i>, then you will have small pieces of code which are easy to manage and maintain.</p>
         <p>These of course are not concepts or ideas React invented. If you take a step back from React and you think about programming in general, then of course in any programming language and no matter what you are building, you tend to work with functions and you <i>split your code into multiple small functions</i>, which then may call each other to outsource logic into a function, to separate concerns and to be <i>able to execute the same code multiple times</i> if you need to. React just picks up that concept of functions and of <i>separating code across functions</i>, and translates it to the front-end web application world where you built an entire UI by splitting your code into multiple components, which you then can mix and match as you need to.</p>
         `,
       ],
