@@ -438,11 +438,11 @@ const Styling_React_components = {
       sectionSource:
         '/src/markdowns/02_Styling_React_Components/Introduction_to_styling_React_components.html',
       tooltips: [
-        `<p>In React we have <i>many different ways of styling our components</i> and React doesn't really care about how we do that, it doesn't have an opinion about styling. The reason for that is that <i>React is actually more of a library than a framework, so it doesn't have a preferred way of how we should style our components</i> and in the end our applications, therefore we can choose between many different options.</p>
+        `<p>In React we have <b>many different ways of styling our components</b> and React doesn't really care about how we do that, it doesn't have an opinion about styling. The reason for that is that <i>React is actually more of a library than a framework, so it doesn't have a preferred way of how we should style our components</i> and in the end our applications, therefore we can choose between many different options.</p>
         <p>You wanna make sure that your apps look good, and styling is also an important part of building components. And there are <i>different techniques for setting styles</i> dynamically and for styling components, such that other components are not affected by a specific component's styles.</p>
         <ul>Along this section you will learn:
-        <li>- how to <i>set up styles in a conditional or dynamic way</i>;</li>
-        <li>- two popular approaches for <i>scoping styles</i> to components;</li>
+        <li>- how to <b>set up styles in a conditional or dynamic way</b>;</li>
+        <li>- two popular approaches for <b>scoping styles</b> to components;</li>
         <li>- styled components;</li>
         <li>- CSS modules.</li>
         </ul>
@@ -456,7 +456,7 @@ const Styling_React_components = {
 
       tooltips: [
         `<h3>CSS <code>class</code> vs React <code>className</code> attribute</h3>
-        <p>In React, you specify a CSS class with <code>className</code>. It works the same way as the HTML <code>class</code> attribute.</p>
+        <p>In React, you specify a CSS class with <b><code>className</code></b>. It works the same way as the HTML <code>class</code> attribute.</p>
         `,
       ],
     },
@@ -470,8 +470,8 @@ const Styling_React_components = {
       tooltips: [
         `<h3>The <code>style</code> attribute</h3>
         <p>You can set the style of an element dynamically by adding the <code>style</code> attribute.</p>
-        <p><i>In React <code>style</code> attribute doesn't want a string as a value, instead <code>style</code> want as a value an <u>object</u>.</i> This object you should use have the CSS property names as key names, and the values as key values.</p>
-        <p><i>Inline style properties are written in camelCase.</i> For example <code>background-color</code> would be written as <code>backgroundColor</code>.</p>
+        <p><i>In React <code>style</code> attribute doesn't want a string as a value, instead <b><code>style</code> want as a value an <u>object</u></b>. This object you should use have the CSS property names as key names, and the values as key values.</i></p>
+        <p><b>Inline style properties are written in camelCase.</b> For example <code>background-color</code> would be written as <code>backgroundColor</code>.</p>
         <p>React does not require you to use inline styles (CSS classes work great for most cases). But when you need an inline style, you pass an object to the <code>style</code> attribute.</p>
         <p>The next time you see <code>{{ ... }}</code> in JSX, know that it's nothing more than an object inside the JSX curlies!</p>
         `,
@@ -508,21 +508,21 @@ const Styling_React_components = {
         highlight2: ['CSS modules'],
       },
       tooltips: [
-        `<p>Wherever you like styled components or not, as an absolutely personal thing, there is no wrong or right here. Now, when it comes to me personally, <i>I prefer CSS in the CSS files. I like the separation of CSS and JavaScript</i>. I like having clean JavaScript files and I simply like default CSS. Now, of course you can absolutely stick to the CSS approach we used at the beginning, where you had <u>global non-scoped styles</u>, and you as a developer had to make sure you're not accidentally reusing classes names, you're not accidentally affecting the styles of other components. That is definitely one route you can take. You can also however take CSS to the next level with a feature called CSS Modules.</p>`,
+        `<p>Wherever you like styled components or not, as an absolutely personal thing, there is no wrong or right here. Now, when it comes to me personally, <i><b>I prefer CSS in the CSS files</b>. I like the separation of CSS and JavaScript</i>. I like having clean JavaScript files and I simply like default CSS. Now, of course you can absolutely stick to the CSS approach we used at the beginning, where you had <i>global non-scoped styles</i>, and you as a developer had to make sure you're not accidentally reusing classes names, you're not accidentally affecting the styles of other components. That is definitely one route you can take. You can also however take CSS to the next level with a feature called CSS Modules.</p>`,
         `<h3>CSS modules</h3>
         <p>CSS Modules is a feature which is only available in projects that are configured to support it.</p>
         <p>What CSS Modules does under the hood is it takes CSS classes that are in the CSS file that you are importing, and changes the name of that classes to be unique. That's the core thing it does, for every component it changes the classes names off the classes that are in the CSS file that you're importing, it <i>generates new classes names to be unique</i>.</p>
-        <p>CSS Modules concept ensures that the <i>CSS styles you set up in a CSS file are scoped to the component you import that file into</i>. For that you need to work with CSS classes because you access that classes as properties on the imported <code>classes</code> object.</p>`,
+        <p><i>CSS Modules concept ensures that the <b>CSS styles you set up in a CSS file are scoped to the component you import that file into</b>.</i> For that you need to work with CSS classes because you access that classes as properties on the imported <code>classes</code> object.</p>`,
         `<h3>Using CSS modules</h3>
         <ul>There are 3 steps that you need to follow when you use CSS Modules:
         <li>1. Name your CSS file component: <code>ComponentName<i>.module.css</i></code></li>
         <li>2. Import you CSS file component in your JavaScript file component: <code>import classes from './ComponentName<i>.module.css</i>'</code></li>
-        <li>3. Instead of applying a string class name, you refer to that <code>classes</code> thing which you're importing from the CSS module file. <i>That <code>classes</code> thing turns out to be an <u>object</u></i>, and in that <code>classes</code> object you'll have every class name selector you defined in your CSS component file, as a property of that object<li>
+        <li>3. Instead of applying a string class name, you refer to that <code>classes</code> thing which you're importing from the CSS module file. <i>That <code>classes</code> thing turns out to be an <u>object</u>, and in that <code>classes</code> object you'll have every class name selector you defined in your CSS component file, as a property of that object.</i><li>
         </ul>
         <p>If you have a class name with a name like <code>.form-control</code>, you need to access that object property with bracket <code>[]</code> notation, example <code>classes['form-control']</code>, because <code>.form-control</code> isn't a valid name for accessing object property with dot <code>.</code> notation.</p>
         `,
         `<h3>How to use a global CSS class inside of a CSS Module without scoping it: <code>:global(.class)</code></h3>
-        <p>Lets say you have a global <code>active</code> class defined in your <code>index.css</code> and <i>you want to add this class as a global class inside your CSS Module</i>, so you don't want this class to be scoped to a specific component.  How you will do it? The <code>:global()</code> function is used in CSS Modules to transform a scoped CSS class into a global CSS class. <i>The <code>:global()</code> function is usually mostly important when you are working with some classes that are provided from external sources.</i></p>
+        <p>Lets say you have a global <code>active</code> class defined in your <code>index.css</code> and <i>you want to add this class as a global class inside your CSS Module</i>, so you don't want this class to be scoped to a specific component.  How you will do it? <b>The <code>:global()</code> function is used in CSS Modules to transform a <u>scoped CSS class</u> into a <u>global CSS class</u>.</b> <i>The <code>:global()</code> function is usually mostly important when you are working with some classes that are provided from external sources.</i></p>
         <p><code>:global()</code> <i><u>switches to global scope</u> for the current selector</i>.</p>
         `,
       ],
