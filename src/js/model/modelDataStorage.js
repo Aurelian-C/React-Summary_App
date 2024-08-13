@@ -700,8 +700,8 @@ const Adding_interactivity_to_a_component = {
         <ul>The <code>useState</code> Hook provides those two things:
         <li>1. A <b>state variable</b> to <i><u>retain</u> the data between renders</i>.</li>
         <li>2. A <b>state setter function</b> to <i><u>update</u> the variable</i> and <i><u>trigger</u> React to render the component again</i>.</li></ul>
-        <p><b>Use a state variable when a component needs to <u>"remember" some information between renders</u>.</b></p>
-        <p>The <code>useState</code> Hook allows you to <i>define values as state</i>, where changes to these values should reflect in a component function being called again, which is a key difference to a value stored in a regular variable.</p>
+        <p><i>Use a state variable when a component needs to <u>"remember" some information between renders</u>.</i></p>
+        <p><i>The <code>useState</code> Hook allows you to <b>define values as state</b></i>, where changes to these values should reflect in a component function being called again, which is a key difference to a value stored in a regular variable.</p>
         `,
         `<h3>Your first Hook</h3>
         <p>In React, <code>useState</code>, as well as any other <b>function starting with 'use'</b>, is called a Hook.</p>
@@ -775,7 +775,7 @@ const Adding_interactivity_to_a_component = {
         <p>After you trigger a render, <u>React calls your components</u> to figure out what to display on screen. <b>"Rendering" is React <u>calling</u> your components.</b></p>
         <p>- <i>On initial render</i>, React will call the root component.</p>
         <p>- <i>For subsequent renders</i>, React will call the component whose state update triggered the render. During a re-render, React will calculate which of component's properties, if any, have changed since the previous render. It won't do anything with that information until the next step, the commit phase.</p>
-        <p><i>This process is <u>recursive</u></i>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen. To repeat this another way: <b>Rendering a component will, by default, cause all components inside of it to be rendered too! In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!</b> This means that calling <code>setState()</code> in your root <<span>App</span>> component, with no other changes altering the behavior, will cause React to re-render every single component in the component tree.</p>
+        <p><i>This process is <u>recursive</u>: if the updated component returns some other component, React will render that component next, and if that component also returns something, it will render that component next, and so on. The process will continue until there are no more nested components and React knows exactly what should be displayed on screen. To repeat this another way: <b>Rendering a component will, by default, cause all components inside of it to be rendered too! In normal rendering, React does not care whether "props changed" - it will render child components unconditionally just because the parent rendered!</b> This means that calling <code>setState()</code> in your root <<span>App</span>> component, with no other changes altering the behavior, will cause React to re-render every single component in the component tree.</i></p>
         <p>Now, it's very likely that most of the components in the tree will return the exact same render output as last time, and therefore React won't need to make any changes to the DOM. But, React will still have to do the work of asking components to render themselves and diffing the render output. Both of those take time and effort.</p>
         <p>Remember, rendering is not a bad thing - it's how React knows whether it needs to actually make any changes to the DOM!</p>
         `,
@@ -785,13 +785,13 @@ const Adding_interactivity_to_a_component = {
         <li>- <b>Same inputs, same output.</b> Given the same inputs, a component should always return the same JSX.</li>
         <li>- <b>It minds its own business.</b> It should not change any objects or variables that existed before rendering.</li>
         </ul>
-        <ul>Render logic must not:
+        <ul><i>Render logic must not:</i>
           <li>- Can't mutate existing variables and objects;</li>
           <li>- Can't create random values like <code>Math.random()</code> or <code>Date.now()</code>;</li>
           <li>- Can't make network requests;</li>
           <li>- Can't queue state updates.</li>
         </ul>
-        <ul>Render logic may:
+        <ul><i>Render logic may:</i>
           <li>- Mutate objects that were newly created while rendering;</li>
           <li>- Throw errors;</li>
           <li>- "Lazy initialize" data that hasn't been created yet, such as a cached value.</li>
@@ -847,7 +847,7 @@ const Adding_interactivity_to_a_component = {
       tooltips: [
         `<p><b>Setting a state variable does not change the variable in the existing render, but it requests a new render</b>. But sometimes you might want to <i>perform multiple operations on the value <u>before queueing (request) the next render</u></i>. To do this, it helps to understand how React batches state updates. State updates are scheduled by React, they are not processed immediately.</p>`,
         `<h3>What “batching” is and how React uses it to process multiple state updates</h3>
-        <p><i>Each render's state values are fixed</i>. React waits until all code in the event handlers has run before processing your state updates. This is why the re-render only happens after all state updating function calls finished.</p>
+        <p><i>Each render's state values are fixed</i>. <b>React waits until <u>all code</u> in the event handlers has run before processing your state updates.</b> This is why the re-render only happens after all state updating function calls finished.</p>
         <p><b>React processes state updates after event handlers have finished running</b>: this is called <b><u>batching</u></b>.</p>
         <p><i>React lets you update multiple state variables — even from multiple components — without triggering too many re-renders</i>. But this also means that <i>the UI won't be updated until after your event handler, and any code in it, completes</i>. This behavior, also known as batching, makes your React app run much faster. It also avoids dealing with confusing "half-finished" renders where only some of the variables have been updated.</p>
         <p><i>React does not batch across multiple intentional events like clicks — each click is handled separately</i>. Rest assured that <i>React only does batching when it's generally safe to do</i>. This ensures that, for example, if the first button click disables a form, the second click would not submit it again.</p>
