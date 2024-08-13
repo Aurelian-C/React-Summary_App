@@ -654,7 +654,7 @@ const Adding_interactivity_to_a_component = {
         `,
         `<h3>How to pass event handling logic from a parent component: passing event handlers as props</h3>
         <p>Often you'll want <i>the parent component to specify a child's event handler</i>. Consider buttons: depending on where you're using a Button component, you might want to execute a different function — perhaps one plays a movie and another uploads an image.</p>
-        <p>You can pass event handling logic from a parent component to a child component by <b>passing event handlers as props to the child component</b>.</p>
+        <p><i>You can pass event handling logic from a parent component to a child component by <b>passing event handlers as props to the child component</b>.</i></p>
         `,
         `<h3>Naming event handler props</h3>
         <p>Built-in components like <<span>button</span>> and <<span>div</span>> only support browser event names like <code>onClick</code>. However, when you're building your own components, you can name their event handler props any way that you like.</p>
@@ -666,7 +666,7 @@ const Adding_interactivity_to_a_component = {
         <p>Event handlers will also catch events from any children your component might have. We say that an event <i>"bubbles" or "propagates" up the tree: it starts with where the event happened, and then goes up the tree</i> (events propagate upwards).</p>
         <p><i><b>All events propagate in React, except <code>onScroll</code></b>, which only works on the JSX tag you attach it to.</i></p>
         <p>Event handlers receive an <i>event object</i> as their only argument. By convention, it's usually called <code>e</code>, which stands for "event". <i>You can use this object to read information about the event</i>. That event object also lets you stop the propagation. <b>If you want to prevent an event from reaching parent components, you need to call <code>e.stopPropagation()</code>.</b></p>
-        <p>For example, if you have register two click events, one on a child DOM element and another one on it's parent, <code>e.stopPropagation()</code> stop the propagation so that <u>clicking the child DOM element doesn't register as a click on the parent</u>.</p>
+        <p><i>For example, if you have register two click events, one on a child DOM element and another one on it's parent, <code>e.stopPropagation()</code> stop the propagation so that <u>clicking the child DOM element doesn't register as a click on the parent</u>.</i></p>
         <p>Events may have <i>unwanted default browser behavior</i>. Call <code>e.preventDefault()</code> to prevent that.</p>
         `,
         `<h3>Passing handlers as alternative to propagation</h3>
