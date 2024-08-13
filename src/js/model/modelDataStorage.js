@@ -544,30 +544,30 @@ const Rendering_lists_and_conditional_content = {
         highlight2: ['key'],
       },
       tooltips: [
-        `<p>You will often want to <i>display multiple <u>similar components</u> from a <u>collection of data</u></i>. You can use the JavaScript array methods to <i>manipulate an array of data</i>. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to <i><u>filter</u> and <u>transform</u> your <u>array of data</u> into an <u>array of components</u></i>.</p>
-        <p>For each array item, you will need to specify a <code>key</code>. Usually, you will want to use an ID from the database as a <code>key</code>. <i>Keys let React keep track of each item's place in the list even if the list changes</i>.</p>
+        `<p>You will often want to <b>display multiple <u>similar components</u> from a <u>collection of data</u></b>. You can use the JavaScript array methods to <i>manipulate an array of data</i>. You can use JavaScript's <code>filter()</code> and <code>map()</code> with React to <i><u>filter</u> and <u>transform</u> your <b>array of data</b> into an <b>array of components</b></i>.</p>
+        <p><b>For each array item, you will need to specify a <code>key</code></b>. Usually, you will want to use an ID from the database as a <code>key</code>. <i>Keys let React keep track of each item's place in the list even if the list changes</i>.</p>
         `,
         `<h3>Render components from an array & render only specific components from an array</h3>
-        <p>You will often need to <i>show several <u>instances of the same component</u> using <u>different data</u></i> when building interfaces. You will rely on JavaScript features like <code>for</code> loop, the array <code>map()</code> and <code>filter()</code> functions to <i>render lists of components</i>.</p>
-        <p>If you do <i>output an <u>array of JSX elements</u>, then React is capable of rendering on the UI that array of JSX elements</i>. So if you had <i>an array of JSX elements as part of your JSX markup</i>, React would simply render that array of JSX elements side by side.</p>
+        <p>You will often need to <i>show several <u>instances of the same component</u> using <u>different data</u></i> when building interfaces. You will rely on JavaScript features like <code>for</code> loop, the array <code>map()</code> and <code>filter()</code> functions to <b>render lists of components</b>.</p>
+        <p>If you do <i>output an <b>array of JSX elements</b>, then React is capable of rendering on the UI that array of JSX elements</i>. So if you had <b>an array of JSX elements as part of your JSX markup</b>, React would simply render that array of JSX elements side by side.</p>
         `,
         `<h3>Keeping list items in order with <code>key</code></h3>
-        <p>You need to give each array item a <code>key</code> — a string or a number that <i><u>uniquely</u> identifies that item among other items in that array, in other words among its siblings</i>.</p>
+        <p>You need to give each array item a <code>key</code> — a string or a number that <i><b><u>uniquely</u> identifies</b> that item among other items in that array, in other words among its siblings</i>.</p>
         <p>JSX elements directly inside a <code>map()</code> call always need keys! Whenever you're working with an array of JSX elements React wants a <code>key</code> on every element.</p>
         <p><i>Keys tell React which array item each component corresponds to</i>, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen <code>key</code> helps React infer what exactly has happened, and make the correct updates to the DOM tree.</p>
         <p>The <code>key</code> atrribute <i>can be added to any component, no matter if it's a custom component or if it's a built-in HTML tag</i>.</p>
         `,
         `<h3>Displaying several DOM nodes for each list item</h3>
-        <p>What do you do when each item needs to render not one, but several DOM nodes? The short <code><><span><</span>/></code> Fragment syntax won't let you pass a key, so you need to either group them into a single <<span>div</span>>, or use the slightly longer and more explicit <code><<span>Fragment key={id}</span>></code> syntax.</p>
+        <p>What do you do when each item needs to render not one, but several DOM nodes? The short <code><><span><</span>/></code> Fragment syntax won't let you pass a key, so you need to either group them into a single <<span>div</span>>, or use the slightly longer and more explicit <i><code><<span>Fragment key={id}</span>></code></i> syntax.</p>
         `,
         `<h3>Where to get your <code>key</code></h3>
-        <p>Rather than generating keys on the fly, you should include them in your data.</p>
+        <p><i>Rather than generating keys on the fly, you should include them in your data.</i></p>
         <p>You might be tempted to use an item's index in the array as its key. In fact, that's what React will use if you don't specify a <code>key</code> at all. But the order in which you render items will change over time if an item is inserted, deleted, or if the array gets reordered. Index as a key often leads to subtle and confusing bugs.</p>
-        <p>Similarly, do not generate keys on the fly, e.g. with <code>key={Math.random()}</code>. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time.</p>
+        <p>Similarly, <i>do not generate keys on the fly, e.g. with <code>key={Math.random()}</code>. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time.</i></p>
         `,
         `<h3>Rules of keys</h3> 
-        <p>- <i>Keys must be <u>unique</u> among siblings</i>. However, it's okay to use the same keys for JSX nodes in different arrays.<p>
-        <p>- <i>Keys must <u>not change</u></i> or that defeats their purpose! Don't generate them while rendering.</p>
+        <p>- <b>Keys must be <u>unique</u> among siblings</b>. However, it's okay to use the same keys for JSX nodes in different arrays.<p>
+        <p>- <b>Keys must <u>not change</u></b> or that defeats their purpose! Don't generate them while rendering.</p>
         `,
         `<h3>Why does React need keys?</h3>
         <p>Why should you add the special <code>key</code> prop to list JSX elements? It's required for React to <i>correctly <u>identify</u> and update (if needed) the list of JSX elements</i>.</p>
@@ -585,29 +585,28 @@ const Rendering_lists_and_conditional_content = {
       },
       tooltips: [
         `<h3>Outputting conditional content (conditionally returning JSX)</h3>
-        <p>Your components will often need to <i>display different things</i> depending on <i>different conditions</i>. In React, you can conditionally render JSX using JavaScript syntax like <code>if</code> statements, Conditional (ternary) operator <code>? :</code>, and Logical AND operator <code>&&</code>.</p>
+        <p>Your components will often need to <i><b>display different things</b> depending on <b>different conditions</b></i>. In React, you can conditionally render JSX using JavaScript syntax like <code>if</code> statements, Conditional (ternary) operator <code>? :</code>, and Logical AND operator <code>&&</code>.</p>
         <p><i>Conditional content</i> is about rendering <i>different output</i> under <i>different conditions</i>.</p>
         `,
         `<h3>How to return different JSX depending on a condition</h3>
         <p>In React, there is no special syntax for writing conditions. Instead, you'll use the same techniques as you use when writing regular JavaScript code.  For example, <i>you can use an <code>if</code> statement to <u>conditionally return</u> JSX markup</i>.</p>
         `,
         `<h3>Conditionally returning nothing with <code>null</code></h3>
-        <p>In some situations, you won't want to render anything at all. A component must return something. In this case, you can return <code>null</code>.</p>
-        <p>In practice, <i>returning <code>null</code> from a component isn't common</i> because it might surprise a developer trying to render it. More often, you would <i>conditionally include or exclude the component in the parent component's JSX</i>.</p>
+        <p>In some situations, you won't want to render anything at all. <i><b>A component must return something.</b> In this case, you can return <code>null</code>.</i></p>
+        <p>In practice, <i>returning <code>null</code> from a component isn't common</i> because it might surprise a developer trying to render it. More often, you would <b>conditionally include or exclude the component in the parent component's JSX</b>.</p>
         `,
         `<h3>How to conditionally include or exclude a piece of JSX</h3>
-        <p>When it comes to output content conditionally, <i>long statements like <code>if..else</code> or <code>for</code> loops are not allowed between curly braces, in JSX markup</i>. So, for achive your results, you need to use Ternary Operator <code>? :</code> or Logical AND operator <code>&&</code>.</p>
+        <p>When it comes to output content conditionally, <i>long statements like <code>if..else</code> or <code>for</code> loops are not allowed between curly braces, in JSX markup</i>. So, for achive your results, you need to use Ternary Operator <b><code>? :</code></b> or Logical AND operator <b><code>&&</code></b>.</p>
         <ul>You can conditionally include or exclude a piece of JSX with the help of:
         <li>- Conditional (ternary) operator <code>? :</code></li>
         <li>- Logical AND operator <code>&&</code>: inside React components, it often comes up when you want to render some JSX when the condition is true, or render nothing otherwise</li>
         </ul>
         <p>A JavaScript <code>&&</code> expression returns the value of its right side if the left side is <code>true</code>. But if the condition is <code>false</code>, the whole expression becomes <code>false</code>. <i>React considers <code>false</code> as a “hole” in the JSX tree, just like <code>null</code> or <code>undefined</code>, and doesn't render anything in its place.</i></p>
-        <p><i>Don't put numbers on the left side of <code>&&</code>.</i> To test the condition, JavaScript converts the left side to a boolean automatically. However, if the left side is <code>0</code>, then the whole expression gets that value (<code>0</code>), and React will happily render <code>0</code> rather than nothing. To fix it, <i>make the left side a boolean</i>: <code>{messageCount > 0 && <<span>Component /</span>>}</code></p>
+        <p>IMPORTANT: <i>Don't put numbers on the left side of <code>&&</code>.</i> To test the condition, JavaScript converts the left side to a boolean automatically. However, if the left side is <code>0</code>, then the whole expression gets that value (<code>0</code>), and React will happily render <code>0</code> rather than nothing. To fix it, <i>make the left side a boolean</i>: <code>{messageCount > 0 && <<span>Component /</span>>}</code></p>
         `,
         `<h3>Conditionally assigning JSX to a variable</h3>
-        <p>You can use an <code>if</code> or <code>if..else</code> statement to conditionally assign JSX to a variable and then <i>include</i> it in your returned JSX tree.</p>
-        <p>You can <i>store JSX markup in variables</i>. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable.</p>
-        <p>In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.</p>
+        <p><i>You can use an <code>if</code> or <code>if..else</code> statement to <b>conditionally assign JSX to a variable and then <u>include</u> it in your returned JSX tree</b>.</i></p>
+        <p>NOTE: You can <i>store JSX markup in variables</i>. You are not limited to using JSX only if you return it, you can also use it to create a value, which is stored in a variable. In React, markup is a part of your code, so you can use tools like variables and functions to tidy up complex expressions.</p>
         `,
         `<h3>Common conditional syntax shortcuts you'll encounter in React codebases</h3>
         <p>If you prefer more compact code, you can use the <i>conditional <code>? :</code> operator</i>. Unlike <code>if</code>, it <i>works inside JSX markup</i>.</p>
