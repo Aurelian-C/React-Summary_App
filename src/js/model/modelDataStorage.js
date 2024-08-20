@@ -1880,16 +1880,15 @@ const React_Router = {
       tooltips: [
         `<p>I see the same problem happen again and again to juniors building their first Single-Page App (SPA). Everything works fine locally, but as soon as they deploy to a hosting platform like Netlify they get loads of "404 Not found" errors trying to load pages.</p>`,
         `<h3>Client-side routing</h3>
-        <p>Single-Page Apps differ from traditional server-rendered applications in that they <i>only ever load one "page" from the server</i>. This means <i>your server only knows about a single route: the home <code>index.html</code></i>. The server is just there to deliver your client-side JS to the browser.</p>
+        <p>Single-Page Apps differ from traditional server-rendered applications in that they <b>only ever load one "page" from the server</b>. This means <b>your server only knows about a single route: the home <code>index.html</code></b>. The server is just there to deliver your client-side JS to the browser.</p>
         `,
         `<h3>The problem</h3>
-        <p><i>In order for the client-side routing to work the home page needs to load, along with all the JavaScript code.</i> Unfortunately this means if a user goes directly to another route in their browser — i.e. clicks a link to "/about", or refreshes — they will see a 404 error.</p>
+        <p><i>In order for the client-side routing to work, the home page needs to load along with all the JavaScript code.</i> Unfortunately this means if a user goes directly to another route in their browser — i.e. clicks a link to "/about", or refreshes — they will see a 404 error.</p>
         <p>This is because <i>your server doesn't know about any routes like "/about". From its perspective there's only a single page — the home <code>index.html</code></i>. So when the server receives a request for "/about" it correctly responds with a 404.</p>
         <p>NOTE: You generally don't catch this issue during local development since <i>most dev servers redirect all requests to the home <code>index.html</code>.</i></p>
         `,
         `<h3>The solution</h3>
-        <p>The solution is to <i>tell your server to respond with the <code>index.html</code> for <u>any</u> route</i>.</p>
-        <p><i>You can configure most static hosts to redirect all requests to the home route.</i> You'll have to each host's docs for something like <u>"SPA routing fallback"</u>.</p>
+        <p>The solution is to <b>tell your server to respond with the <code>index.html</code> for <u>any</u> route</b>. <i>You can configure most static hosts to <b>redirect all requests to the home route</b>.</i> You'll have to each host's docs for something like <u>"SPA routing fallback"</u>.</p>
         `,
       ],
     },
@@ -1900,14 +1899,13 @@ const React_Router = {
       tooltips: [
         `<h3>Routing in traditional websites (Server-Side Routing)</h3>
         <p><i>In traditional websites, the browser requests a document from a web server, downloads and evaluates CSS and JavaScript assets, and renders the HTML sent from the server.</i></p>
-        <p>When the user clicks a link, it starts the process all over again for a new page. <i>The disadvantage is that you always have to <u>request from the server a new HTML document</u></i> (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.</p>`,
+        <p><i>When the user clicks a link, it starts the process all over again for a new page. The disadvantage is that <b>you always have to request from the server a new HTML document</b></i> (a new HTTP request is sent and a new response is received) and that can kind of break the user flow, it can introduce some lag and slow down your website, and it can therefore lead to a suboptimal user experience.</p>`,
         `<h3>Client-Side Routing</h3>
-        <p>React Router enables "client side routing". Client side routing allows your app to <i>update the URL</i> from a link click <i>without making another request for another HTML document from the server</i>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.
+        <p>React Router enables "client side routing". <i>Client side routing allows your app to <b>update the URL</b> from a link click <b>without making another request for another HTML document from the server</b>. Instead, your app can immediately render some new UI and make data requests with <code>fetch</code> to update the page with new information.</i></p>
         <p>This enables faster user experiences because the browser doesn't need to request an entirely new HTML document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.</p>
-        <p>Instead of loading new HTML files from the backend, we could add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>
         `,
         `<h3>What Routing is all about?</h3>
-        <p>Routing means that <i>different <u>URL paths</u> load different content on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>`,
+        <p>Routing means that <i><b>different <u>URL paths</u></b> load <b>different content</b> on the screen</i>. Instead of loading new HTML files from the backend, with React Router we add some client-side code that simply <i>watches the URL</i> and then <i>loads a different React component when that URL changes</i>.</p>`,
         `<h3>Enable client side routing</h3>
         <p><code>npm install react-router-dom</code></p>
         <p>Client side routing is enabled by creating a <code>router</code> and linking/submitting to pages with <code><<span>Link</span>></code> and <code><<span>Form</span>></code>.</p>`,
@@ -1929,33 +1927,33 @@ const React_Router = {
       tooltips: [
         `<h3>First step: defining routes</h3>
         <ul>There are two ways of defining routes:
-        <li>1. Using <i><code>createBrowserRouter()</code></i> and pass as an argument an array with single/multiple JavaScript objects, and that objects will describing the route/s characteristics;</li>
+        <li>1. Using <b><code>createBrowserRouter()</code></b> and pass as an argument an array with single/multiple JavaScript objects, and that objects will describing the route/s characteristics;</li>
         <li>2. In older versions of <code>react-router-dom</code> you are defining routes with <i><code>createRoutesFromElements()</code></i> function and <i><code><<span>Route</span>></code></i> component.</li>
         </ul>
-        <p>You can use a router in your JSX markup by importing the <i><code>RouterProvider</code> component</i> from the <code>react-router-dom</code> package.</p>
+        <p>You can use a router in your JSX markup by importing the <b><code>RouterProvider</code> component</b> from the <code>react-router-dom</code> package.</p>
         `,
         `<h3>The recommended router: <code>createBrowserRouter</code></h3>
-        <p>The <code>createBrowserRouter</code> is the recommended router for all React Router web projects. It uses the DOM History API to update the URL and manage the history stack.</p>
-        <p>The <code>createBrowserRouter</code> is a function provided by <code>react-router-dom</code> package which allows you to define your routes that you wanna support in your application. Routes are simply <i>path<=>component mappings</i>; so for which path (<code>/products</code>) should which component (<code><<span>Products/</span>></code>) be loaded?</p>
-        <p>To the <code>createBrowserRouter()</code> function you pass as an argument an <i>array of <u>routes objects</u></i>, where <i>every object represents <u>one route</u></i>. To every object you add some properties to define the route characteristics, so these route objects take a couple of properties with which you configure every route.</p>
-        <p>Routes are perhaps the most important part of a React Router app. They <i>couple URL segments to components, data loading and data mutations</i>.</p>
+        <p>The <code>createBrowserRouter</code> is the recommended router for all React Router web projects. <i>It uses the DOM History API to update the URL and manage the history stack.</i></p>
+        <p>The <code>createBrowserRouter</code> is a function provided by <code>react-router-dom</code> package which allows you to define your routes that you wanna support in your application. <i>Routes are simply <b>path<=>component mappings</b>;</i> so for which path (<code>/products</code>) should which component (<code><<span>Products/</span>></code>) be loaded?</p>
+        <p>To the <code>createBrowserRouter()</code> function you pass as an argument an <b>array of <u>routes objects</u></b>, where <b>every object represents <u>one route</u></b>. <i>To every object you add some properties to define the route characteristics</i>, so these route objects take a couple of properties with which you configure every route.</p>
+        <p>Routes are perhaps the most important part of a React Router app. They <i><b>couple URL segments to components</b>, data loading and data mutations</i>.</p>
         `,
         `<h3>The <code>path</code> property</h3>
         <p>One key property which you will almost always add is the <code>path</code> property. With <code>path</code> you <i>define the path for which the route should be active</i>.</p>
-        <p><i>Setting <code>path="*"</code> will act as a catch-all for any <u>undefined URLs</u>.</i> This is great for a 404 error page: <code>{path: "*", element: <<span>NoPageFound /<span>>}</code></p>
+        <p><b>Setting <code>path="*"</code> will act as a catch-all for any <u>undefined URLs</u>.</b> This is great for a 404 error page: <code>{path: "*", element: <<span>NoPageFound /<span>>}</code></p>
         `,
         `<h3>The <code>element</code> property</h3>
-        <p><i>To establish a connection between your route path and your component</i>, you add another key property and that's the <code>element</code> property. <i>The <code>element</code> property contains the JSX markup that should be loaded when the route path is active</i>, so for the <code>element</code> property you set some JSX markup that should be rendered to the screen when the route is active.</p>
+        <p><i>To establish a connection between your route path and your component</i>, you add another key property and that's the <code>element</code> property. <b>The <code>element</code> property contains the JSX markup that should be loaded when the route path is active</b>, so for the <code>element</code> property you set some JSX markup that should be rendered to the screen when the route is active.</p>
         <p><i>You could have any JSX markup in the <code>element</code> property</i>, but very often you will simply render a single component that then represents the entire page that should be rendered on the screen.</p>
         `,
         `<h3>Second step: using the route object with the help of <code>RouterProvider</code> component</h3>
-        <p>Another step is to use the router object. To use it, you need store the returned value of the <code>createBrowserRouter()</code> function in a variable. You use that variable to tell React that the router stored in it should be rendered to the screen.</p>
+        <p>Another step is to <i>use the router object. To use it, you need store the returned value of the <code>createBrowserRouter()</code> function in a variable.</i> You use that variable to tell React that the router stored in it should be rendered to the screen.</p>
         <p>To tell React that the stored router should be used, you need to import the <code>RouterProvider</code> component from the <code>react-router-dom</code> package. All router objects are passed to <code>RouterProvider</code> component to render your app and enable the rest of the APIs.</p>
-        <p><i>The <code>RouterProvider</code> has a special prop which you must set, and that is the <code>router</code> prop. The value you pass to the <code>router</code> prop should be a router created with <code>createBrowserRouter()</code> function.</i></p>
+        <p><i>The <code>RouterProvider</code> has a special prop which you must set, and that is the <b><code>router</code> prop</b>. The value you pass to the <code>router</code> prop should be a router created with <code>createBrowserRouter()</code> function.</i></p>
         <p><i><code>RouterProvider</code> is a regular component which you can use in our JSX markup, and you could of course wrap it with other JSX markup or add more JSX markup.</i></p>
         `,
         `<h3>Separate components render by React Router from other components</h3>
-        <p>Typically, you add a folder named 'pages' to hold the <i>components that will be <u>loaded as pages</u> by the router</i>. You don't have to name folder 'pages'. You can use the 'components' folder you already know, you could name it 'routes' or whatever you want. Is a good practice to separate pages folder with a name of 'pages' to clearly indicate that the components stored in there, <i>whilst being regular React components</i>, will be loaded with help of React Router.</p>
+        <p><i>Typically, you add a folder named 'pages' to hold the <b>components that will be <u>loaded as pages</u> by the router</b>.</i> You don't have to name folder 'pages'. You can use the 'components' folder you already know, you could name it 'routes' or whatever you want. Is a good practice to separate pages folder with a name of 'pages' to clearly indicate that the components stored in there, <i>whilst being regular React components</i>, will be loaded with help of React Router.</p>
         `,
       ],
     },
@@ -1970,26 +1968,26 @@ const React_Router = {
       },
       tooltips: [
         `<h3>Two ways to navigate in React Router</h3>
-        <ul>When the URL changes we call that a "navigation". There are <i>two ways to navigate in React Router</i>:
+        <ul><i>When the URL changes we call that a "navigation".</i> There are <i>two ways to navigate in React Router</i>:
         <li>- <b><code><<span>Link</span>></code></b> component</li>
         <li>- <b><code>useNavigate</code></b> hook</li>
         </ul>`,
         `<h3>About <<span>Link</span>></code> component</h3>
-        <p><<span>Link</span>></code> is the <i>primary means of navigation</i>. Rendering a <<span>Link</span>></code> <i>allows the user to change the URL when they click it</i>. React Router will <i>prevent the browser's default behavior</i> and tell the History API to push a new entry into the History stack. The location changes and the new matches will render.</p>
-        <p>A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, without sending a new HTTP request.</p>
+        <p><i><<span>Link</span>></code> is the <b>primary means of navigation</b>.</i> Rendering a <<span>Link</span>></code> <i>allows the user to change the URL when they click it. React Router will <b>prevent the browser's default behavior</b> and tell the History API to push a new entry into the History stack.</i> The location changes and the new matches will render.</p>
+        <p>A <code><<span>Link</span>></code> is an element that lets the user navigate to another page by clicking or tapping on it, <i>without sending a new HTTP request</i>.</p>
         <p>In <code>react-router-dom</code>, a <code><<span>Link</span>></code> renders an accessible <<span>a</span>> element with a real <code>href</code> that points to the resource it's linking to. Instead of setting a path with the <code>href</code> attribute (like you do for <<span>a</span>> tag), <i><code><<span>Link</span>></code> component uses a <code>to</code> prop to setting a path: <code><<span>Link to="/path"</span> /></code></i>.</p>`,
         `<h3>Absolute & relative links path</h3>
-        <p>If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths.</p>
-        <p><i>A link that have an absolute path it's added directly after the domain name</i>, not after the currently active path (the route path they are rendered in).</p>
-        <p><i>Relative links are always relative to the route path they are <u>rendered in</u></i>, not to the full URL. Relative links inherit the route within which they are rendered. This makes it so your route components don't have to really know anything about the rest of the routes in the app.</p>`,
+        <p><i>If a <code><<span>Link</span>></code> path starts with <code>/</code>, it is an absolute path. Paths that don't start with <code>/</code> are relative paths.</i></p>
+        <p><b>A link that have an absolute path it's added directly after the domain name</b>, not after the currently active path (the route path they are rendered in).</p>
+        <p><i><b>Relative links are always relative to the <u>route path</u> they are <u>rendered in</u></b>, not to the full URL.</i> Relative links inherit the route within which they are rendered. This makes it so your route components don't have to really know anything about the rest of the routes in the app.</p>`,
         `<h3>Relative links & theirs <code>relative</code> prop</h3>
-        <p>When using the <code><<span>Link</span>></code> component, you also have a special <code>relative</code> prop which you can add to it. The <code>relative</code> prop can be set to one of two values: <code>path</code> or <code>route</code>. <i>With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <u>the route path they are rendered in</u> or to the <u>currently active path in the browser URL</u></i>.</p>
-        <p>The <code>relative</code> prop does not matter if you have an absolute path, always that absolute path is added after the domain name.</p>
+        <p>When using the <code><<span>Link</span>></code> component, you also have a special <b><code>relative</code> prop</b> which you can add to it. <i>The <code>relative</code> prop can be set to one of two values: <b><code>path</code></b> or <b><code>route</code></b>. With these values you control whether the segment defined on <code><<span>Link</span>></code> is added relative to the <b>the route path they are rendered in</b> or to the <b>currently active path in the browser URL</b></i>.</p>
+        <p>The <code>relative</code> prop does not matter if you have an absolute path, <i>always that absolute path is added after the domain name</i>.</p>
         `,
         `<h3>The <code>..</code> relative path</h3>
-        <p>If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router</i>. A link can set to be "relative" to the <u>routes definitions</u>, or "relative" to the <u>browser URL</u>.</p>
+        <p>If you have a relative path, like <code><<span>Link to=".."</span>></code> which simply goes back, then <i>the <code>relative</code> prop can be used to control the behavior of React Router</i>. <b>A link can set to be "relative" to the <u>routes definitions</u>, or "relative" to the <u>browser URL</u>.</b></p>
         <p><i>By default, the <code>..</code> in relative links <u>traverse the route hierarchy</u>, not the URL segments. Adding <code>relative="path"</code> allows you to <u>traverse the path segments</u> instead</i>.</p>
-        <p><code>..</code> is a relative path that goes back <u>one level</u> to the <u>previously</u> active route/URL path. By default, links are relative to the route hierarchy, so <code>..</code> will go up one route level. Occasionally, you may find that you have matching URL patterns that do not make sense to be nested, and you'd prefer to use <code>relative="path"</code> routing.</p>
+        <p><i><code>..</code> is a relative path that goes back <u>one level</u> to the <u>previously</u> active route/URL path.</i> <b>By default, links are relative to the route hierarchy</b>, so <code>..</code> will go up one route level. Occasionally, you may find that you have matching URL patterns that do not make sense to be nested, and you'd prefer to use <code>relative="path"</code> routing.</p>
         `,
       ],
     },
@@ -2002,19 +2000,19 @@ const React_Router = {
         highlight2: ['<code><<span>NavLink</span>></code>'],
       },
       tooltips: [
-        `<p>Sometimes you might want to see which link is currently active when you're on a page. To support links that should show you whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.</p>`,
+        `<p>Sometimes you might want to <b>see which link is currently active when you're on a page</b>. To support links that should show you whether they active or not, <code>react-router-dom</code> has an alternative to the <code><<span>Link</span>></code> component, and that is the <code><<span>NavLink</span>></code> component.</p>`,
         `<h3>Add classes or inline-styles to a link <u>conditionally</u></h3>
         <p>A <code><<span>NavLink</span>></code> is a special kind of <code><<span>Link</span>></code> that knows whether or not it is "active".</p>
-        <p><i>By default, an "active" class is added to a <code><<span>NavLink</span>></code> component when it is active.</i></p>
+        <p><b>By default, an "active" class is added to a <code><<span>NavLink</span>></code> component when it is active.</b></p>
         <p>With <code><<span>NavLink</span>></code> you can <i>add classes or inline-styles <u>conditionally</u>, based on whether a link is active or not</i>.</p>
         <p>With <code><<span>NavLink</span>></code> you can pass a function to either <code>style</code> or <code>className</code> that will allow you to customize the inline styling or the class string based on the component's active state. You can also pass a function as children to customize the content of the <code><<span>NavLink</span>></code> component based on their active state, specially useful to change styles on internal elements.</p>
         `,
         `<h3>The <code>isActive</code> property</h3>
-        <p><code><<span>NavLink</span>></code> has one special behavior. The <code>className</code> prop in <code><<span>NavLink</span>></code> is different from the regular <code>className</code> prop. The <code>className</code> in <code><<span>NavLink</span>></code> receives a function, and with that function you can set conditionally a class or inline-style on the <code><<span>NavLink</span>></code> element.</p>
-        <p>Now that function also receives automatically an object from which you can destructure the <code>isActive</code> property. Base on the <code>isActive</code> property, you can set classes or inline-style conditionally.</p>
+        <p><code><<span>NavLink</span>></code> has one special behavior. The <code>className</code> prop in <code><<span>NavLink</span>></code> is different from the regular <code>className</code> prop. <i>The <code>className</code> in <code><<span>NavLink</span>></code> receives a function, and with that function you can set conditionally a class or inline-style on the <code><<span>NavLink</span>></code> element.</i></p>
+        <p><i>Now that function also receives automatically an object from which you can destructure the <code>isActive</code> property.</i> Base on the <code>isActive</code> property, you can set classes or inline-style conditionally.</p>
         `,
         `<h3>The <code>end</code> prop</h3>
-        <p>By default, the behavior of <code><<span>NavLink</span>></code> is to <i>treated a link as active when its <u>descendant paths are matched</u></i>. You can use the <code>end</code> prop to ensure that a component isn't matched as "active" when its descendant paths are matched.</p>
+        <p>By default, the behavior of <code><<span>NavLink</span>></code> is to <b>treated a link as active when its <u>descendant paths are matched</u></b>. <i>You can use the <code>end</code> prop to ensure that a component isn't matched as "active" when its descendant paths are matched.</i></p>
         <p><code>end</code> pros take as a value a boolean: <code>end={true}</code> or <code>end={false}</code>. You can also just add <code>end</code> with no value and this means that <code>end</code> is automatically set to <code>true</code>.</p>
         `,
       ],
@@ -2043,8 +2041,8 @@ const React_Router = {
         `,
         `<h3>Type declaration</h3>
         <ul>The <code>navigate</code> function has two signatures:
-        <li>- Either pass a <code>to</code> value (same type as <code><<span>Link to</span>></code>) with an optional second <code>options</code> arg. <i>If using <code>replace: true</code>, the navigation will <u>replace the current entry in the history stack</u> instead of adding a new one.</i> ex: <code>navigate('/account', { replace: true })</code></li>
-        <li>- Pass the delta you want to go in the history stack. For example, <i><code>navigate(-1)</code> is equivalent to hitting the back button</i>.</li>
+        <li>- Either pass a <code>to</code> value (same type as <code><<span>Link to</span>></code>) with an optional second <code>options</code> arg. <b>If using <code>replace: true</code>, the navigation will <u>replace the current entry in the history stack</u> instead of adding a new one.</b> ex: <i><code>navigate('/account', { replace: true })</code></i></li>
+        <li>- <i>Pass the delta you want to go in the history stack.</i> For example, <b><code>navigate(-1)</code> is equivalent to hitting the back button</b>.</li>
         </ul>
         <p></p>`,
       ],
@@ -2058,8 +2056,8 @@ const React_Router = {
         highlight2: ['<code><<span>Navigate</span>></code>'],
       },
       tooltips: [
-        `<p>A <code><<span>Navigate</span>></code> element <i>changes the current location when it is rendered</i>. It's a component <i>wrapper around <code>useNavigate</code></i>, and accepts all the same arguments as props.</p>
-        <p>Having a component-based version of the <code>useNavigate</code></i> hook makes it easier to use this feature in a <code>React.Component</code> subclass where hooks are not able to be used.</p>
+        `<p>A <code><<span>Navigate</span>></code> element <b>changes the current location when it is rendered</b>. It's a component <i>wrapper around <code>useNavigate</code></i>, and accepts all the same arguments as props.</p>
+        <p>Having a component-based version of the <code>useNavigate</code></i> hook makes it easier to <i>use this feature in a <code>React.Component</code> subclass where hooks are not able to be used</i>.</p>
         `,
       ],
     },
@@ -2077,13 +2075,13 @@ const React_Router = {
       },
       tooltips: [
         `<h3>Nesting routes</h3>
-        <p>You can nest routes in other route with the help of <code>children</code> property.</p>
-        <p>A child route is like any other route, in that it needs both a path and a component . The one difference is that you place child routes in a <code>children</code> array within the parent route.</p>
+        <p>You can <i>nest routes in other route with the help of <code>children</code> property</i>.</p>
+        <p>A child route is like any other route, in that it needs both a path and a component. The one difference is that you place child routes in a <code>children</code> array within the parent route.</p>
         `,
         `<h3>The <code><<span>Outlet/</span>></code> component</h3>
-        <p>The <code><<span>Outlet/</span>></code> component specifies <i>where the content of the child routes should be rendered</i>. The <code><<span>Outlet/</span>></code> component alone <i>allows nested routes to render their element content</i> out and anything else the layout route is rendering, i.e. navbars, sidebars, specific layout components, etc.</p>
+        <p>The <code><<span>Outlet/</span>></code> component <b>specifies where the content of the child routes should be rendered</b>. The <code><<span>Outlet/</span>></code> component alone <b>allows nested routes to render their element content</b> out and anything else the layout route is rendering, i.e. navbars, sidebars, specific layout components, etc.</p>
         <p><i>An <code><<span>Outlet/</span>></code> should be used in parent route elements to render their child route elements</i>. This allows nested UI to show up when child routes are rendered.</p>
-        <p><i>If the parent route matched exactly, it will render a <u>child index route</u> or nothing if there is no <u>index route</u>.</i></p>
+        <p><b>If the parent route matched exactly, it will render a <u>child index route</u> or nothing if there is no <u>index route</u>.</b></p>
         `,
       ],
     },
@@ -2092,11 +2090,11 @@ const React_Router = {
       sectionSource:
         '/src/markdowns/12_React_Router/Working_with_index_routes.html',
       highlights: {
-        highlight1: ['index Routes'],
+        highlight1: ['index routes'],
       },
       tooltips: [
         `<h3>Index routes</h3>
-        <p>Index routes can be used for <i>children routes that have the same path as the parent route</i>.</p>
+        <p>Index routes can be used for <b>children routes that have the same path as the parent route</b>.</p>
         <p>It is quite common that you might have a wrapping layout route and then <i>you have one child route that should be loaded for the parent's route path. Index routes render in their parent route's <code><<span>Outlet/</span>></code> at the parent route's path</i>.</p>
         <p>Index routes allows you to define the <i><u>default route</u> that should be loaded for a child route if the parent route path is active</i>.</p>
         `,
@@ -2113,19 +2111,18 @@ const React_Router = {
       },
       tooltips: [
         `<h3>Dynamic paths</h3>
-        <p><code>react-router-dom</code> supports dynamic path segments or path parameters. <i>In your routes definitions, if a path segment starts with <code>:</code> then it becomes a "dynamic segment".</i> When the route matches the URL, the dynamic segment will be parsed from the URL and provided as <code>params</code> to other router APIs.</p>
-        <p>Dynamic path segments helps you to always <i>render the <u>same component</u> for <u>different paths</u> (dynamic paths)</i>.</p>
-        <p>You add a path parameter by adding a <code>:</code> and then any identifier of you choice: <code>{path: "/products/:productId"}</code></p>
-        <p>The <code>:</code> signals to <code>react-router-dom</code> that the part after the <code>:</code> is dynamic. You could thereafter have more hard coded segments if you needed to, but <i>the segment with the <code>:</code> is dynamic</i>. You can also have <i>multiple dynamic segments in one route path</i>.</p>
+        <p><code>react-router-dom</code> supports dynamic path segments or path parameters. <i>In your routes definitions, if <b>a path segment starts with <code>:</code></b> then it becomes a "dynamic segment".</i> When the route matches the URL, the dynamic segment will be parsed from the URL and provided as <code>params</code> to other router APIs.</p>
+        <p>Dynamic path segments helps you to always <b>render the <u>same component</u> for <u>different paths</u> (dynamic paths)</b>.</p>
+        <p>You add a path parameter by adding a <code>:</code> and then any identifier of you choice: <code>{path: "/products/<i>:productId</i>"}</code></p>
+        <p><i>The <code>:</code> signals to <code>react-router-dom</code> that the part after the <code>:</code> is dynamic.</i> You could thereafter have more hard coded segments if you needed to, but <i>the segment with the <code>:</code> is dynamic</i>. You can also have <i>multiple dynamic segments in one route path</i>.</p>
         <ul>Examples:
-        <li><code>{path: "/products/:productId/newseg"}</code></li>
-        <li><code>{path="/c/:categoryId/p/:productId"}</code></li>
+        <li><code>{path: "/products/<i>:productId</i>/newseg"}</code></li>
+        <li><code>{path="/someURLsegment/<i>:categoryId</i>/anotherURLSegment/<i>:productId</i>"}</code></li>
         </ul>
         `,
         `<h3>The <code>useParams</code> hook</h3>
-        <p>With <code>useParams</code> hook you can <i>get the <u>dynamic path data</u> that's encoded in the URL</i>.</p>
-        <p>The <code>useParams</code> hook <i>returns an object</i> of key/value pairs of the dynamic params from the current URL that were matched by the <code><<span>Route path</span>></code>. Child routes inherit all params from their parent routes.</p>
-        <p>The <code>useParams</code> hook returns a JavaScript object which <i>contains <u>every dynamic path segment</u> you defined in our route definition as a property</i>.</p>
+        <p><i>With <code>useParams</code> hook you can <b>get the <u>dynamic path data</u> that's encoded in the URL</b>.</i></p>
+        <p>The <code>useParams</code> hook <i><b>returns an JavaScript object</b> of key/value pairs of the dynamic params from the current URL</i> that were matched by the <code><<span>Route path</span>></code>. <i>Child routes inherit all params from their parent routes.</i></p>
         `,
       ],
     },
@@ -2137,7 +2134,7 @@ const React_Router = {
         highlight1: ['optional path segments'],
       },
       tooltips: [
-        `<p>You can make a route segment optional by adding a <code>?</code> to the end of the segment: <code>path: '/users/:id/<i>:section?</i>'</code>.</p>
+        `<p><i>You can make a route segment optional by <b>adding a <code>?</code> to the end of the segment</b></i>: <code>path: '/users/:id/<i>:section?</i>'</code>.</p>
         <p>In this route, <code>:id</code> is a required parameter, meaning the route will only match if there's a value provided for <code>id</code>. However, <code>:section?</code> is an optional parameter, indicated by the <code>?</code> symbol after the parameter name.</p>
         <ul>So, with this route:
           <li>- <i><code>/users/123</code> <u>would match</u></i>, with <code>id</code> being "123" and <code>section</code> being undefined.</li>
@@ -2157,10 +2154,10 @@ const React_Router = {
       tooltips: [
         `<h3>Absolute vs relative routes paths</h3>
         <p>When you defining <u>routes</u>, you define the <u>paths</u> for which that routes should be active. <i>If a route path starts with <code>/</code>, it is an absolute route path. Routes paths that don't start with <code>/</code> are relative routes paths</i>.</p>
-        <p>When you are defining <i><u>child routes</u> as relative paths</i>, this means that the <i>child routes paths defined as relative paths are <u>appended after the path of the wrapper parent route path</u></i>. So if you have a child route with a relative path, then React Router will take a look at the path of the parent route and append the child route path after the parent route path. <i>Children relative route paths are relative to the path defined in theirs parent route definition</i>.</p>
+        <p>When you are defining <b><u>child routes</u> as relative paths</b>, this means that the <i>child routes paths defined as relative paths are <b>appended after the path of the wrapper parent route path</b></i>. So if you have a child route with a relative path, then React Router will take a look at the path of the parent route and append the child route path after the parent route path. <b>Children relative route paths are relative to the path defined in theirs parent route definition</b>.</p>
         `,
         `<h3>Clashing route definitions</h3>
-        <p>All <i>absolute child route paths</i> must start with the combined path of all its parent routes.</p>
+        <p><i>All <u>absolute child route paths</u> must start with the combined path of all its parent routes.</i></p>
         `,
       ],
     },
@@ -2177,19 +2174,19 @@ const React_Router = {
         `<h3>Query string (search params)</h3>
         <p>You must have seen long URLs and looks a bit strange with something you type, for example: <code>twitter.com/search<b>?</b>q=ui.dev<b>&</b>src=typed_query<b>&</b>f=live</code>
         </p>
-        <p>They're the <code>?</code> and <code>&</code> you see appended onto URLs. The benefits of query string is that they allow you to <i>pass state via the URL</i>.</p>
+        <p>They're the <code>?</code> and <code>&</code> you see appended onto URLs. <i>The benefits of query string is that they allow you to <b>pass state via the URL</b>.</i></p>
         <p>What's nice about this is it's <i>sharable</i>. You could copy and paste that URL into your browser right now and it would work. All the data Twitter needs to properly render the UI is right there in the URL.</p>
         `,
         `<h3>How to read and update a query string from an URL?</h3>
-        <p>You can read a query string by importing and using the <i><code>useSearchParams</code></i> hook from <code>react-router-dom</code>. The <code>useSearchParams</code> hook is used to <i><u>read</u> and <u>modify</u> the query string in the URL for the current location</i>.</p>
-        <p>Like React's own <code>useState</code> hook, <code>useSearchParams</code> <i>returns an array of two values</i>: the <i>current location's</i> search params and a <i>function</i> that may be used to update them: <code>const [searchParams, setSearchParams] = useSearchParams();</code></p>
+        <p>You can read a query string by importing and using the <code>useSearchParams</code> hook from <code>react-router-dom</code>. <i>The <code>useSearchParams</code> hook is used to <b><u>read</u> and <u>modify</u> the query string in the URL for the current location</b></i>.</p>
+        <p>Like React's own <code>useState</code> hook, <i><code>useSearchParams</code> <b>returns an array of two values</b></i>: the <b>current location's</b> search params and a <b>function</b> that may be used to update them: <code>const [searchParams, setSearchParams] = useSearchParams();</code></p>
         <p>Just as React's <code>useState</code> hook, <i><code>setSearchParams</code> also supports functional updates</i>. Therefore, you may provide a function that takes a <code>searchParams</code> and returns an updated version.</p>
         <p>If you needed to update the query string, you could use <code>setSearchParams</code>, passing it an object whose key/value pair will be added to the url as <code>&key=value</code></p>
         `,
         `<h3>How do you add a query string to your URL?</h3>
         <ul>You can add a query string to a URL with two methods:
         <li>1. A<code><<span>Link to="/url?book=John&chapter=1&genre="fiction" /<span>></code> component. This will cause a navigation.</li>
-        <li>2. You can <i>add a query string to a URL without causing a navigation</i>, with <code>searchParams.set('key', 'value')</code>, and after that you need to update the URL by setting to it the query string with <code>setSearchParams(searchParams)</code> function.</li>
+        <li>2. <i>You can <b>add a query string to a URL without causing a navigation</b>, with <code>searchParams.set('key', 'value')</code>, and after that you need to <u>update the URL</u> by setting to it the query string with <code>setSearchParams(searchParams)</code> function.</i></li>
         </ul>
         <p>The <code>set(name, value)</code> method <i>sets the value associated with a given search parameter to the given value. If there were several matching values, this method deletes the others. If the search parameter doesn't exist, this method creates it</i>.</p>
         `,
@@ -2203,7 +2200,8 @@ const React_Router = {
         highlight2: ['<code>useLocation</code>'],
       },
       tooltips: [
-        ` <p>In React Router, use the <code>useLocation()</code> hook to <i>get the current route</i>. It <i>returns an object containing properties like <u>pathname</u>, <u>search</u>, and <u>hash</u></i>. To get the full URL in a React app, use <code>window.location</code>.</p>
+        ` <p>In React Router, use the <code>useLocation()</code> hook to <b>get the current route</b>. It <b>returns an object containing properties like <u>pathname</u>, <u>search</u>, and <u>hash</u></b>.</p>
+        <p><i>To get the <u>full URL</u> in a React app, use <code>window.location</code>.</i></p>
         <p><code>useLocation()</code> hook can be useful if you'd like to perform some side effect whenever the current location changes.</p>
         `,
       ],
@@ -2219,13 +2217,13 @@ const React_Router = {
       },
       tooltips: [
         `<h3>Default errors vs custom errors</h3>
-        <p>When you enter a <i>URL that doesn't exist</i> or when <i>exceptions/errors are thrown</i> in "loader"/"action" functions or component rendering, the <code>react-router-dom</code> package will <i>automatically generate an error. Instead of generate a default error, you can render a custom <code>ErrorPage</code> component</i>. The error made/thrown will be available with <code>useRouteError</code>.</p>
-        <p>With the <code>errorElement</code> property in your route definitions, you can specify a <i><u>fallback page component</u> that will be rendered if an error is created</i>.</p>
+        <p><i>When you enter a <b>URL that doesn't exist</b> or when <b>exceptions/errors are thrown</b> in <u>"loader"/"action" functions</u> or <u>component rendering</u></i>, the <code>react-router-dom</code> package will <i><b>automatically generate an error</b>. Instead of generate a default error, you can render a custom <code>ErrorPage</code> component. The error made/thrown will be available with <code>useRouteError</code>.</i></p>
+        <p><i>With the <code>errorElement</code> property in your route definitions, you can <b>specify a <u>fallback page component</u> that will be rendered if an error is created</b></i>.</p>
         `,
         `<h3>Error bubbling</h3>
-        <p><i>When a route does not have an <code>errorElement</code>, errors will <u>bubble up</u> through parent routes</i>.</p>
-        <p><i>Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in <u>one place</u></i>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally. This gives the user more options to recover from errors instead of a hard refresh.</p>
-        <p>Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, errors will bubble up and be handled by a default <code>errorElement</code> which will print the error message and stack trace.</i></p>
+        <p><i>When a route does not have an <code>errorElement</code>, <b>errors will <u>bubble up</u> through parent routes</b></i>.</p>
+        <p><i>Put an <code>errorElement</code> at the top of your route tree and handle nearly every error in your app in <u>one place</u>. Or, put them on all of your routes and allow the parts of the app that don't have errors to continue to render normally.</i> This gives the user more options to recover from errors instead of a hard refresh.</p>
+        <p>Is recommend to always providing at least a root-level <code>errorElement</code> before shipping your application to production, because the UI of the default <code>errorElement</code> is ugly and not intended for end-user consumption. <i>If you do not provide an <code>errorElement</code> in your route tree to handle a given error, errors will bubble up and be <u>handled by a default</u> <code>errorElement</code> which will print the error message and stack trace.</i></p>
         `,
         `<h3>Throwing errors manually</h3>
         <p>While <code>errorElement</code> <i>handles <u>unexpected errors</u></i>, it can also be used to <i>handle <u>exceptions you expect</u></i>. Particularly in "loader"/"action" function, where you work with external data not in your control, you can't always plan on the data existing, the service being available, or the user having access to it. In these cases you can <code>throw</code> your own exceptions. As soon as you know you can't render the route with the data you're loading, you can throw to break the call stack.</p>

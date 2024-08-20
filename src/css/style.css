@@ -82,7 +82,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   gap: 30px;
 }
 
@@ -461,7 +461,7 @@ pre code {
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
