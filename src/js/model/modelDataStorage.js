@@ -3654,7 +3654,7 @@ export const dataStorage = [
   Deploying_React_apps,
   // Animating_React_Apps,
   // Testing_React_Apps,
-  Adding_authentication_to_React_apps,
+  // Adding_authentication_to_React_apps,
 ];
 
 dataStorage.forEach((el, index) => {
