@@ -2963,25 +2963,25 @@ const React_Query = {
       sectionSource:
         '/src/markdowns/16_React_Query/Client_state_vs_server_state.html',
       tooltips: [
-        `<ul>In the intricate dance of web application development, <i>the <u>management of data</u> falls into two primary categories:</i>
-        <li>- <i>Client</i> State</li>
-        <li>- <i>Server</i> State</li>
+        `<ul>In the intricate dance of web application development, <i>the <b>management of data</b> falls into two primary categories:</i>
+        <li>- <b><u>Client</u> State</b></li>
+        <li>- <b><u>Server</u> State</b></li>
         </ul>`,
         `<h3>Ownership of Data</h3>
         <p>- Client State: In the context of client state, <i>the application owns the data</i>. This includes information like UI state, user preferences, or <i>any data that is generated or manipulated on the <u>client side</u></i>.</p>
-        <p>- Server State: On the other hand, server state refers to <i>data that is owned and managed by the server</i>. Examples include lists of articles, user details, or any information retrieved from the server.</p>`,
+        <p>- Server State: On the other hand, server state refers to <i>data that is owned and managed by the server</i>. Examples include lists of articles, user details, or <i>any information retrieved from the server</i>.</p>`,
         `<h3>Borrowing Data</h3>
         <p>- Client State: <i>Applications manage and <u>own</u> client state data</i>, using it for various purposes within the app.</p>
         <p>- Server State: <i>The application <u>borrows</u> server state data to display the most recent version to the user. However, the server remains the true owner of this data.</i></p>`,
         `<h3>Data Availability Across Components</h3>
         <p>- Client State: Typically, client state needs to be made available to the whole app. This often involves <i>using state management libraries like Redux to maintain a global state</i> accessible across components.</p>
-        <p>- Server State: React Query introduces a different approach. With its <i>caching mechanism</i>, you can use the same <code>useQuery</code> hook in multiple components, and it will fetch the data once and subsequently return it from the cache. This reduces the need for managing client state globally, as <i>the server state is effectively cached</i> and accessible as needed.</p>
+        <p>- Server State: <i>React Query introduces a different approach. With its <b>caching mechanism</b>, you can use the same <code>useQuery</code> hook in multiple components, and it will fetch the data once and subsequently return it from the cache.</i> This reduces the need for managing client state globally, as <b>the server state is effectively cached</b> and accessible as needed.</p>
         `,
         `<h3>Paradigm shift</h3>
         <p>The understanding that <i>server state is borrowed for display purposes</i> represents a paradigm shift. It challenges the traditional notion of treating all states (client and server) in a similar fashion and encourages developers to rethink how data ownership and borrowing are approached in the context of application architecture.</p>`,
         `<h3>Summary</h3>
         <p>In summary, <i>the key differences lie in the <u>ownership of data</u>, the way data is borrowed for display</i>, the need for global state management, and the potential role of libraries like Redux or React Query in managing client and server states.</p>
-        <p>In few words, global UI state is state that IS NOT FETCHED from a server. You only need Redux if you want to manage a lot of non-remote global state that updates frequently. But the truth is that most global state is actually remote, which is the reason why so many apps don't use Redux anymore.</p>
+        <p><i>In few words, <b>global UI state is state that IS NOT FETCHED from a server</b>. You only need Redux if you want to manage a lot of non-remote global state that updates frequently.</i> But the truth is that most global state is actually remote, which is the reason why so many apps don't use Redux anymore.</p>
         `,
       ],
     },
@@ -2991,22 +2991,22 @@ const React_Query = {
       tooltips: [
         `<h3>What is React Query?</h3>
         <p>TanStack Query (FKA React Query) is often described as the missing <i>data fetching library for web applications</i>, but in more technical terms, <i>it makes <u>fetching</u>, <u>caching</u>, <u>synchronizing</u> and <u>updating</u> server state in your web applications</i> a breeze.</p>
-        <p><i>The library operates on <u>sane defaults</u></i> that try to <i>keep your data as fresh as possible</i> while at the same time <i>showing data to the user as early as possible</i>, making it feel near instant at times and thus providing a great UX.</p>
-        <p>IMPORTANT: React Query is in fact NOT a data fetching library. It doesn't fetch any data for you. React Query is an <i>async (server) state manager</i>. It can manage any form of asynchronous state - it is happy as long as it gets a Promise.</p>
+        <p><i>The library operates on <b>sane defaults</b> that try to <b>keep your data as fresh as possible</b> while at the same time <b>showing data to the user as early as possible</b></i>, making it feel near instant at times and thus providing a great UX.</p>
+        <p>IMPORTANT: <i>React Query is in fact NOT a data fetching library. It doesn't fetch any data for you. React Query is an <b>async (server) state manager</b>.</i> It can manage any form of asynchronous state - it is happy as long as it gets a Promise.</p>
         `,
         `<h3>Data is stored in a cache</h3>
-        <p>The most fundamental thing about React Query is that <i><u>all remote state is cached</u>, which means that <u>the fetched data will be stored in order to be reused</u> in different points of the application.</i></p>
+        <p>The most fundamental thing about React Query is that <i><b>all remote state is cached</b>, which means that <b>the fetched data will be stored in order to be reused</b> in different points of the application.</i></p>
         <p>In summary, it means <i>React Query will cache data for you and give it to you when you need it, even if that data might not be up-to-date anymore (data is "stale"). The principle is that stale data is better than no data</i>, because no data usually means a loading spinner, and this will be perceived as "slow" by users. At the same time, <i>it will try to perform a background refetch to revalidate that data</i>.</p>
         `,
         `<h3>Automatic refetching to keep state synched</h3>
-        <p>We can say that React Query is a <u>data synchronization tool</u> because <i>automatically refetches the data in certain situations</i>. For example, after a certain timeout or after we leave the browser window and then come back to it.</p>
+        <p><i>We can say that React Query is a <b>data synchronization tool</b> because <b>automatically refetches the data in certain situations</b></i>. For example, after a certain timeout or after we leave the browser window and then come back to it.</p>
         <p>This is super important in order to make sure that <i>a remote state always stays in sync with the application</i>. React Query provides the means to <i>synchronize our UI with the actual data owner - the backend</i>.</p>
         `,
         `<h3>Prefetching</h3>
-        <p>Besides refetching, we can also prefetch data, which basically means to <i>fetch data that we know will become necessary later, but before it is actually displayed on the screen</i>.</p>
+        <p><i>Besides refetching, we can also prefetch data, which basically means to <b>fetch data that we know will become necessary later, but before it is actually displayed on the screen</b>.</i></p>
         `,
         `<h3>Offline support</h3>
-        <p>A feature that I find really useful is <i>support for when the user becomes offline</i>. So, in this situation, since the <u>data is already cached</u>, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.</p>
+        <p>A feature that I find really useful is <i>support for when the user becomes offline</i>. So, in this situation, since the <i><u>data is already cached</u></i>, as the user moves around in the app while being offline, Components A and B can still be displayed using the cached data.</p>
         `,
         `<h3>Why do we need React Query?</h3>
         <ul>While most traditional <u>state management libraries</u> are great for working with client state, they are not so great at working with async (server) state. This is because server state is totally different. For starters, server state:
@@ -3015,7 +3015,7 @@ const React_Query = {
           <li>- <i>Implies shared ownership</i> and <i>can be changed by other people without your knowledge</i>;</li>
           <li>- <i>Can potentially become "out of date"</i> in your applications if you're not careful.</li>
         </ul>
-        <p>We need a library like React Query with all these features because <i><u>remote state</u> is fundamentally different from <u>UI state</u>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</i>.</p>
+        <p>We need a library like React Query with all these features because <i><b><u>remote state</u> is fundamentally different from <u>UI state</u></b>. Remote state is asynchronous and usually shared by many users of the app, which makes it so that applications running in different browsers can very easily get out of sync with the remote data that is stored on a server</i>.</p>
         <p>Remote state has many special needs, and so that's the reason why we use something like React Query.</p>
         `,
         `<h3>Before React Query</h3>
@@ -3027,18 +3027,18 @@ const React_Query = {
         `,
         `<h3>React Query concepts</h3>
         <ul>React Query has 3 core concepts:
-        <li>- <i>Queries</i></li>
-        <li>- <i>Mutations</i></li>
-        <li>- <i>Query Invalidation</i></li>
+        <li>- <b>Queries</b>;</li>
+        <li>- <b>Mutations</b>;</li>
+        <li>- <b>Query Invalidation</b>.</li>
         </ul>
         <p>These three concepts make up most of the core functionality of React Query.</p>
         `,
         `<h3>Does TanStack Query replace Redux, MobX or other global state managers?</h3>
         <ul>Well, let's start with a few important items:
-        <li>- <i>TanStack Query is a <u>server-state</u> library</i>, responsible for managing asynchronous operations between your server and client</li>
-        <li>- <i>Redux, MobX, Zustand, etc. are <u>client-state</u> libraries</i> that can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query</li>
+        <li>- <i>TanStack Query is a <u>server-state</u> library</i>, responsible for managing asynchronous operations between your server and client;</li>
+        <li>- <i>Redux, MobX, Zustand, etc. are <u>client-state</u> libraries</i> that can be used to store asynchronous data, albeit inefficiently when compared to a tool like TanStack Query.</li>
         </ul>
-        <p>For a vast majority of applications, the truly <u>globally accessible client state</u> that is left over after migrating all of your async code to TanStack Query is usually very tiny.</p>
+        <p>For a vast majority of applications, <i>the truly <u>globally accessible client state</u> that is left over after migrating all of your async code to TanStack Query is usually very tiny</i>.</p>
         `,
       ],
     },
@@ -3055,15 +3055,15 @@ const React_Query = {
       },
       tooltips: [
         `<h3>Install React Query library</h3>
-        <p>We install React Query by typing in our VSCode terminal the <i><code>npm install @tanstack/react-query</code></i> command. The library itself is actually called <i>TanStack Query</i> because it also works in other frameworks such as Svelte or Vue.</p>
+        <p>We install React Query by typing in our VSCode terminal the <i><code>npm install <b>@tanstack/react-query</b></code></i> command. The library itself is actually called <i>TanStack Query</i> because it also works in other frameworks such as Svelte or Vue.</p>
         `,
         `<h3>Set up the <u>React Query cache</u> & <u>provide it</u> to the app</h3>
-        <p>The idea behind integrating React Query into our application is very similar to what we did with the Context API or Redux. So is a similar idea of <i>having the data in one place</i>, and then <i>providing it to the whole component tree</i>.</p>
+        <p><i>The idea behind integrating React Query into our application is very similar to what we did with the Context API or Redux. So is a similar idea of <b>having the data in one place</b>, and then <b>providing it to the whole component tree</b>.</i></p>
         <ul>To integrating React Query into our application, we need to:
-          <li>- <i>set up the React Query cache</i> (create a place where the data lives) by using <code>new QueryClient()</code>;</li>
-          <li>- <i>provide that cache</i> (data) to our application by using the <code><<span>QueryClientProvider</span>></code> component.</li>
+          <li>- <i>set up the <b>React Query cache</b> (create a place where the data lives) by using <b><code>new QueryClient()</code></b>;</i></li>
+          <li>- <i><b>provide that cache</b> (data) to our application by using the <b><code><<span>QueryClientProvider</span>></code></b> component.</i></li>
         </ul>
-        <p>NOTE: <i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can.</i> The closer it is to the root of the page, the better it will work!</p>
+        <p>IMPORTANT: <i>Place the <code><<span>QueryClientProvider client={queryClient}</span>></code> as high in your React app as you can. The closer it is to the root of the page, the better it will work!</i></p>
         <p>To <code>new QueryClient()</code> we can <i>pass an object that specify a couple of options</i>. There are many options that we can override. So React Query sets a few quite aggressive, as they say, defaults options, but as always we can override them.</p>
         `,
       ],
@@ -3075,14 +3075,13 @@ const React_Query = {
       highlights: {},
       tooltips: [
         `<h3>Install React Query DevTools</h3>
-        <p>We can install the React Query DevTools. Just like Redux, React Query also has some excellent DevTools, but we just set them up in a different way. <i>In the case of React Query DevTools, it is simply an <u>NPM package</u> and not something in the browser.</i></p>
-        <p>We install the React Query DevTools by typing into the VSCode terminal the <i><code>npm install @tanstack/react-query-devtools</code></i> command.</p>
-        <p>After we install the NPM package, we need to <code>import { ReactQueryDevtools } from '@tanstack/react-query-devtools'</code> and wrapping the entire app with it.</p>
+        <p>We can install the React Query DevTools. Just like Redux, React Query also has some excellent DevTools, but we just set them up in a different way. <b>In the case of React Query DevTools, it is simply an <u>NPM package</u> and not something in the browser.</b></p>
+        <p>We install the React Query DevTools by typing into the VSCode terminal the <i><code>npm install <b>@tanstack/react-query-devtools</b></code></i> command. <i>After we install the NPM package, we need to <b><code>import { ReactQueryDevtools } from '@tanstack/react-query-devtools'</code></b> and wrapping the entire app with it.</i></p>
         `,
         `<h3>React Query DevTools: <code>stale</code>, <code>inactive</code> & <code>fresh</code> status</h3>
-        <p>The <code>stale</code> status that you see in React Query DevTools means that the data is out of date (old). So therefore, <i>when we do certain things, React Query will automatically refetch the data</i>. One of the things that we can do, which will then trigger a refetch, is to move away from the current browser tab and then come back to it later. So that will trigger a refetch as soon as the data is stale (<code>stale</code> status).</p>
-        <p>IMPORTANT: <i>As long as data has <code>fresh</code> status, it will always come from the cache only.</i> You will not see a network request for fresh data, no matter how often you want to retrieve it. You can control the <code>stale</code> status time by overwrite the <code>staleTime</code> property.</p>
-        <p><i>The data in the cache becomes inactive (has the <code>inactive</code> status) when the <u>component that holds that data is unmounted from the DOM</u>. Although the component is unmounted from the DOM, the data that correspond to that component is preserved in the React Query cache.</i> When the component is remounted to the DOM, React Query will refetch the data that correspond to that component automatically, but only if it has the <code>stale</code> status. Keep in mind that <i>as long as a component has the <code>fresh</code> status, the data in the cache that correspond to that component will not be refetch again, even if the component is unmounted and remounted to the DOM.</i></p>
+        <p>The <code>stale</code> status that you see in React Query DevTools means that the <i>data is out of date (old or stale)</i>. So therefore, <i>when we do certain things, React Query will automatically refetch the data</i>. One of the things that we can do, which will then trigger a refetch, is to move away from the current browser tab and then come back to it later. So that will trigger a refetch as soon as the data is stale (<code>stale</code> status).</p>
+        <p>IMPORTANT: <i><b>As long as data has <code>fresh</code> status, it will always come from the cache only.</b> You will not see a network request for fresh data, no matter how often you want to retrieve it.</i> <b>You can control the <code>stale</code> status time by overwrite the <code>staleTime</code> property.</b></p>
+        <p><i><b>The data in the cache becomes inactive (has the <code>inactive</code> status) when the <u>component that holds that data is unmounted from the DOM</u>.</b> Although the component is unmounted from the DOM, the data that correspond to that component is preserved in the React Query cache.</i> When the component is remounted to the DOM, React Query will refetch the data that correspond to that component automatically, but only if it has the <code>stale</code> status. Keep in mind that <i>as long as a component has the <code>fresh</code> status, the data in the cache that correspond to that component will not be refetch again, even if the component is unmounted and remounted to the DOM.</i></p>
         <p>NOTE: Traditionally, if we were doing fetching inside a component by using a <code>useEffect</code> hook, then as soon as the component is remounted to the DOM, the <code>useEffect</code> hook would then fetch again the data that correspond to that component. <i>When we use the TanStack Query library, this fetch & refetch behavior is controlled by React Query.</i></p>
         `,
       ],
@@ -3098,25 +3097,25 @@ const React_Query = {
         `<h3>Fetching data from server: <code>useQuery</code> hook</h3>
         <p>Instead of manually fetching data in a <code>useEffect</code> function like we used to do, we will now let React Query do the fetching work. <i>We fetch data from the server with the help of <code>useQuery</code> hook.</i></p>
         <ul>To <code>useQuery</code> we need to pass in an object with at least two properties:
-        <li>1. The <i><code>queryKey</code> that <u>uniquely identify the data</u></i> that we're going to query. The <code>queryKey</code> needs to be <u>an array</u>. The unique key you provide is used internally for caching, refetching, and sharing your queries throughout your application.</li>
-        <li>2. The <i><code>queryFn</code> (query function)</i>. <code>queryFn</code> is the function that the query will use to <u>request data from the API</u>. What's important is that the query function needs to return a Promise that resolves the data or throws an error.</li>
+        <li>1. <i>The <b><code>queryKey</code></b> that <b>uniquely identify the data</b> that we're going to query.</i> <b>The <code>queryKey</code> needs to be <u>an array</u>.</b> The unique key you provide is used internally for caching, refetching, and sharing your queries throughout your application.</li>
+        <li>2. <i>The <b><code>queryFn</code></b> (query function). <code>queryFn</code> is the function that the query will use to <b>request data from the API</b>.</i> What's important is that <b>the query function needs to return a Promise that resolves the data or throws an error</b>.</li>
         </ul>`,
         `<h3><code>useQuery</code> returns an object</h3>
-        <p>The <code>useQuery</code> hook will <i>return an object</i> with a bunch of useful properties that we can use in our app. The most important property is <i><code>data</code></i>. Another useful properties are: <i><code>isLoading</code></i> and <i><code>status</code></i>.</p>
+        <p>The <code>useQuery</code> hook will <b>return an object</b> with a bunch of useful properties that we can use in our app. The most important property is <i><code>data</code></i>. Another useful properties are: <i><code>isLoading</code></i> and <i><code>status</code></i>.</p>
         <p>The query result returned by <code>useQuery</code> contains all of the information about the query that you'll need for templating and any other usage of the data.<p>
         `,
         `<h3>Query Keys (<code>queryKey</code>)</h3>
-        <p>At its core, TanStack Query <i>manages query caching for you based on query keys (<code>queryKey</code>)</i>.</p>
-        <p>Query Keys are a very important core concept in React Query. They are necessary so that the library can internally <i>cache your data correctly</i> and <i>refetch automatically when a dependency to your query changes</i>. Lastly, it will allow you to <i>interact with the Query Cache manually when needed</i>, for example, when updating data after a mutation or when you need to manually invalidate some queries.</p>
+        <p><i>At its core, TanStack Query <b>manages query caching for you based on query keys (<code>queryKey</code>)</b>.</i></p>
+        <p>Query Keys are a very important core concept in React Query. They are necessary so that the library can internally <i>cache your data correctly</i> and <b>refetch automatically when a dependency to your query changes</b>. Lastly, it will allow you to <i>interact with the Query Cache manually when needed</i>, for example, when <u>updating data after a mutation</u> or when <u>you need to manually invalidate some queries</u>.</p>
         <p>Query keys have to be an Array at the top level, and can be as simple as an Array with a single string, or as complex as an array of many strings and nested objects. As long as the query key is serializable, and <i>unique to the query's data</i>, you can use it!</p>
         <p><i>If your query function depends on a variable, include it in your query key</i>. Since query keys uniquely describe the data they are fetching, they should include any variables you use in your query function that <u>change</u>.</p>
-        <p>Note that <i>query keys act as dependencies for your query functions</i>. Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</p>
+        <p>Note that <b>query keys act as dependencies for your query functions</b>. <i>Adding dependent variables to your query key will ensure that queries are cached independently, and that any time a variable changes, queries will be refetched automatically (depending on your <code>staleTime</code> settings).</i></p>
         `,
         `<h3>Treat the query key like a dependency array</h3>
         <p>I am referring to the dependency array of the <code>useEffect</code> hook here, which I assume you are familiar with.</p>
-        <p>Why are these two similar? Because <i>React Query will trigger a refetch whenever the query key changes</i>. So when we pass a variable parameter to our <code>queryFn</code>, we almost always want to fetch data when that value changes.</p>`,
+        <p>Why are these two similar? Because <b>React Query will trigger a refetch whenever the query key changes</b>. So when we pass a variable parameter to our <code>queryFn</code>, we almost always want to fetch data when that value changes.</p>`,
         `<h3>Query Functions (<code>queryFn</code>)</h3>
-        <p>A query function can be literally <i>any function that <u>returns a Promise</u></i>. The Promise that is returned should either <u>resolve the data</u> or <u>throw an error</u>.</p>
+        <p>A query function can be literally <b>any function that <u>returns a Promise</u></b>. The Promise that is returned should either <u>resolve the data</u> or <u>throw an error</u>.</p>
         <p>Handling and throwing errors: <i>for TanStack Query to determine a query has errored, the query function <u>must throw</u> or return a <u>rejected Promise</u>.</i> Any error that is thrown in the query function will be persisted on the <code>error</code> state of the query.</p>
         <p>IMPORTANT: <i>React Query does not invoke the <code>queryFn</code> on every re-render, even with the default <code>staleTime</code> of zero.</i> Your app can re-render for various reasons at any time, so fetching every time would be insane!</p>
         `,
@@ -3130,57 +3129,64 @@ const React_Query = {
         '/src/markdowns/16_React_Query/React_Query_and_automatic_refetching.html',
       highlights: { highlight1: ['automatic refetching'] },
       tooltips: [
-        `<p><i>Cache invalidation</i> is pretty hard, so when do you decide it's time to ask the backend again for new data? Surely we can't just do this every time a component that calls <code>useQuery</code> re-renders. That would be insanely expensive, even by modern standards.</p>`,
+        `<p><b>Cache invalidation</b> is pretty hard, so when do you decide it's time to ask the backend again for new data? Surely <i>we can't just do this every time a component that calls <code>useQuery</code> re-renders</i>. That would be insanely expensive, even by modern standards.</p>`,
         `<h3>Smart refetches</h3>
-        <ul>React Query is smart and chooses strategic points for triggering a refetch. These are:
-          <li>- <i><code>refetchOnMount</code></i>: whenever a new component that calls <code>useQuery</code> mounts, React Query will do a revalidation.</li>
-          <li>- <i><code>refetchOnWindowFocus</code></i>: whenever you focus the browser tab, there will be a refetch.</li>
-          <li>- <i><code>refetchOnReconnect</code></i>: if you lose your network connection and regain it, it's also a good indicator to revalidate what you see on the screen.</li>
+        <ul>React Query is smart and chooses <i>strategic points for triggering a refetch</i>. These are:
+          <li>- <b><code>refetchOnMount</code></b>: whenever a new component that calls <code>useQuery</code> mounts, React Query will do a revalidation.</li>
+          <li>- <b><code>refetchOnWindowFocus</code></b>: whenever you focus the browser tab, there will be a refetch.</li>
+          <li>- <b><code>refetchOnReconnect</code></b>: if you lose your network connection and regain it, it's also a good indicator to revalidate what you see on the screen.</li>
         </ul>
-        <p>Finally, if you, as the developer of your app, know a good point in time, you can invoke a manual invalidation via <i><code>queryClient.invalidateQueries</code></i>. This comes in very handy after you perform a mutation.</p>
-        <p>IMPORTANT: <i>As long as data has <code>fresh</code> status, it will always come from the cache only.</i> You will not see a network request for fresh data, no matter how often you want to retrieve it. You can control the <code>stale</code> status time by overwrite the <code>staleTime</code> property. On the other hand, <i><code>queryClient.invalidateQueries</code> mark query/queries as stale. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code></i> or related hooks.</p>
+        <p>Finally, if you, as the developer of your app, know a good point in time, <i>you can invoke a <u>manual invalidation</u> via <b><code>queryClient.invalidateQueries</code></b></i>. This comes in very handy after you perform a mutation.</p>
+        <p>IMPORTANT: <b>As long as data has <code>fresh</code> status, it will always come from the cache only.</b> <i>You will not see a network request for fresh data, no matter how often you want to retrieve it.</i> You can control the <code>stale</code> status time by overwrite the <code>staleTime</code> property. On the other hand, <i><b><code>queryClient.invalidateQueries</code> mark query/queries as stale</b>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code></i> or related hooks.</p>
         `,
         `<h3>React Query defaults: <code>staleTime</code></h3>
-        <p><i>React Query comes with aggressive but sane defaults, but they are geared towards keeping things up-to-date, not to minimize the amount of network requests.</i> This is mainly because <code>staleTime</code> defaults to zero, which means that every time you mount a new component instance, you will get a background refetch.</p>
-        <p>Query instances via <code>useQuery</code> by default <i>consider cached data as stale</i>. To change this behavior, you can <i>configure your queries both <u>globally</u> and <u>per-query</u> using the <code>staleTime</code> option</i>. Specifying a longer <code>staleTime</code> means queries will not refetch their data as often.</p>
+        <p>React Query comes with aggressive but sane defaults, but they are geared towards keeping things up-to-date, not to minimize the amount of network requests. This is mainly because <i><code>staleTime</code> defaults to zero, which means that every time you mount a new component instance, you will get a background refetch</i>.</p>
+        <p><i>Query instances via <code>useQuery</code> by default consider cached data as stale. To change this behavior, you can <b>configure your queries both <u>globally</u> and <u>per-query</u> using the <code>staleTime</code> option</b>. Specifying a longer <code>staleTime</code> means queries will not refetch their data as often.</i></p>
         <ul><i><u>Stale</u> queries are refetched automatically in the background when</i>:
           <li>- New instances of the query mount;</li>
           <li>- The window is refocused;</li>
           <li>- The network is reconnected;</li>
-          <li>- The query is optionally configured with a refetch interval;</li>
-          <p>To change this functionality, you can use options like <code>refetchOnMount</code>, <code>refetchOnWindowFocus</code>, <code>refetchOnReconnect</code> and <code>refetchInterval</code>.</p>
+          <li>- <i>The query is optionally configured with a refetch interval;</i></li>
+          <p>To change this functionality, you can use options like <code>refetchOnMount</code>, <code>refetchOnWindowFocus</code>, <code>refetchOnReconnect</code> and <i><code>refetchInterval</code></i>.</p>
         </ul>
-        <p>Customize <code>staleTime</code>: set <code>staleTime</code> to a value you are comfortable with for your specific use-case. The key thing to know is: <i>As long as data is fresh, it will always come from the cache only. You will not see a network request for fresh data, no matter how often you want to retrieve it.</i> There is also no "correct" value for <code>staleTime</code>.</p>
+        <p>Customize <code>staleTime</code>: set <code>staleTime</code> to a value you are comfortable with for your specific use-case. The key thing to know is: As long as data is fresh, it will always come from the cache only. You will not see a network request for fresh data, no matter how often you want to retrieve it. There is also no "correct" value for <code>staleTime</code>.</p>
         `,
         `<h3>React Query defaults: garbage collection & <code>gcTime</code></h3>
-        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. <i>By default, <u>"inactive" queries</u> are <u>garbage collected</u> after 5 minutes.</i> To change this, you can alter the default <code>gcTime</code> for queries to something other than "1000 * 60 * 5 milliseconds".</p>`,
+        <p>Query results that have no more <i>active instances</i> of <code>useQuery</code> are labeled as "inactive" and remain in the cache in case they are used again at a later time. <b>By default, <u>"inactive" queries</u> are <u>garbage collected</u> after 5 minutes.</b> <i>To change this, you can alter the default <b><code>gcTime</code></b> for queries to something other than "1000 * 60 * 5 milliseconds".</i></p>`,
         `<h3>React Query defaults: query retry</h3>
-        <p><i><u>Queries that fail</u> are silently retried 3 times, with exponential backoff delay</i> before capturing and displaying an error to the UI. To change this, you can alter the default <code>retry</code> and <code>retryDelay</code> options for queries to something other than 3 and the default exponential backoff function.</p>
+        <p><i><b><u>Queries that fail</u> are silently retried 3 times, with exponential backoff delay</b> before capturing and displaying an error to the UI.</i> To change this, you can alter the default <b><code>retry</code></b> and <b><code>retryDelay</code></b> options for queries to something other than 3 and the default exponential backoff function.</p>
         `,
         `<h3>Using <code>setQueryDefaults</code></h3>
-        <p>React Query supports a great way of <i>setting default values per Query Key via <code>QueryClient.setQueryDefaults</code></i>.</p>
+        <p>React Query supports a great way of <b>setting default values per Query Key via <code>QueryClient.setQueryDefaults</code></b>.</p>
         `,
       ],
     },
     {
-      sectionTitle: 'Disabling/pausing queries & lazy queries',
+      sectionTitle:
+        'Disabling/pausing queries (lazy queries) with <code>enable</code> option & <code>refetch</code> function',
       sectionSource:
         '/src/markdowns/16_React_Query/Disabling_pausing_queries_and_lazy_queries.html',
       highlights: {
         highlight1: ['lazy queries'],
+        highlight2: ['enable', 'refetch'],
       },
       tooltips: [
         `<h3>Disabling/Pausing Queries</h3>
-        <p>If you ever want to <i>disable a query from automatically running</i>, you can use the <i><code>enabled = false</code></i> option.</p>
+        <p>If you ever want to <b>disable a query from <u>automatically running</u></b>, you can use the <b><code>enabled = false</code></b> option.</p>
         <ul>When <code>enabled</code> is false:
          <li>- If the query has cached data, then the query will be initialized in the <code>status === 'success'</code> or <code>isSuccess</code> state.</li>
          <li>- If the query does not have cached data, then the query will start in the <code>status === 'pending'</code> and <code>fetchStatus === 'idle'</code> state.</li>
-         <li><i>- The query will not automatically fetch on mount.</i></li>
+         <li><b>- The query will not automatically fetch on mount.</b></li>
          <li><i>- The query will not automatically refetch in the background.</i></li>
-         <li><i>- The query will ignore query client <code>invalidateQueries</code> and <code>refetchQueries</code> calls that would normally result in the query refetching.</i></li>
-         <li><i>- <code>refetch</code> function returned from <code>useQuery</code> can be used to manually trigger the query to fetch.</i></li>
+         <li><i>- <b>The query will ignore query client <code>invalidateQueries</code> and <code>refetchQueries</code> calls</b> that would normally result in the query refetching.</i></li>
+         <li><i>- <b><code>refetch</code> function</b> returned from <code>useQuery</code> can be used to <b>manually trigger the query to fetch</b>.</i></li>
         </ul>
-        <p>Permanently disabling a query opts out of many great features that TanStack Query has to offer (like background refetches), and it's also not the idiomatic way. It takes you from the declarative approach (defining dependencies when your query should run) into an imperative mode (fetch whenever I click here). It is also <i>not possible to pass parameters to <code>refetch</code></i>.</p>
+        <p>Permanently disabling a query opts out of many great features that TanStack Query has to offer (like background refetches), and it's also not the idiomatic way. It takes you from the declarative approach (defining dependencies when your query should run) into an imperative mode (fetch whenever I click here). It is also <b>not possible to pass parameters to <code>refetch</code></b>.</p>
+        `,
+        `<h3>The <code>refetch</code> function, query keys and automatic refetching</h3>
+        <p>Most people think about queries, and especially refetching, in an imperative way. I have a query, it fetches some data. Now I click this button and I want to refetch, but with different parameters. The answer is: You don't.</p>
+        <p>That's not what <code>refetch</code> function is for - it's for <i>refetching with the same parameters</i>.</p>
+        <p>If you have some <i><u>state</u> that changes your data</i>, all you need to do is to put it in the Query Key, because <i>React Query will trigger a refetch automatically whenever the key changes</i>.</p>
         `,
       ],
     },
@@ -3190,9 +3196,7 @@ const React_Query = {
       sectionSource:
         '/src/markdowns/16_React_Query/Fetching_data_programatically_with_useQuery.html',
       highlights: {
-        highlight1: [
-          'fetch data programatically with <code>useQuery()</code> hook',
-        ],
+        highlight1: ['fetch data programatically'],
       },
       tooltips: [
         `<h3>How to fetch data programatically with <code>useQuery()</code> hook</h3>
@@ -3203,34 +3207,21 @@ const React_Query = {
       ],
     },
     {
-      sectionTitle:
-        'The <code>refetch</code> function, query keys and automatic refetching',
-      sectionSource:
-        '/src/markdowns/16_React_Query/Query_keys_and_automatic_refetching.html',
-      highlights: {},
-      tooltips: [
-        `<p>Most people think about queries, and especially refetching, in an imperative way. I have a query, it fetches some data. Now I click this button and I want to refetch, but with different parameters. The answer is: You don't.</p>
-        <p>That's not what <code>refetch</code> function is for - it's for <i>refetching with the same parameters</i>.</p>
-        <p>If you have some <i><u>state</u> that changes your data</i>, all you need to do is to put it in the Query Key, because <i>React Query will trigger a refetch automatically whenever the key changes</i>.</p>
-        `,
-      ],
-    },
-    {
       sectionTitle: 'Query fails, thrown errors and query retries',
       sectionSource: '/src/markdowns/16_React_Query/Query_retries.html',
       highlights: { highlight1: ['query retries'] },
       tooltips: [
         `<h3>Query Retries: the <code>retry</code> property</h3>
-        <p><i>When a <code>useQuery</code> <u>query fails</u> (the query function throws an error), TanStack Query will <u>automatically retry the query</u></i> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</p>
+        <p><i>When a <code>useQuery</code> query fails (<b>the query function throws an error</b>), TanStack Query will <b>automatically retry the query</b> if that query's request has not reached the max number of consecutive retries (defaults to <code>3</code>) or a function is provided to determine if a retry is allowed.</i></p>
         <ul><i>You can configure retries both on a <u>global level</u> and an <u>individual query level</u>.</i>
           <li>- Setting <code>retry = false</code> will disable retries.</li>
           <li>- Setting <code>retry = 6</code> will retry failing requests 6 times before showing the final error thrown by the function.</li>
-          <li>- Setting <code>retry = true</code> will infinitely retry failing requests.</li>
+          <li>- Setting <code>retry = true</code> will infinitely retry <u>failing requests</u>.</li>
           <li>- Setting <code>retry = (failureCount, error) => ...</code> allows for custom logic based on why the request failed.</li>
         </ul>
         `,
         `<h3>Retry Delay</h3>
-        <p><i>By default, retries in TanStack Query do not happen immediately after a request fails.</i> As is standard, a back-off delay is gradually applied to each retry attempt.</p>
+        <p><b>By default, retries in TanStack Query do not happen immediately after a request fails.</b> <i>As is standard, a back-off delay is gradually applied to each retry attempt.</i></p>
         <p>The default <code>retryDelay</code> is set to double (starting at 1000ms) with each attempt, but not exceed 30 seconds.</p>
         <p>Though it is not recommended, you can obviously override the <code>retryDelay</code> function/integer in both the Provider and individual query options. If set to an integer instead of a function the delay will always be the same amount of time.</p>
         `,
@@ -3241,22 +3232,23 @@ const React_Query = {
       sectionSource:
         '/src/markdowns/16_React_Query/Mutating_data_with_useMutation.html',
       highlights: {
+        highlight1: ['Mutating data'],
         highlight2: ['<code>useMutation()</code>'],
       },
       tooltips: [
-        `<p>Up until now we learned how to fetch and store data in the cache, using the <code>useQuery</code> hook. Now it's time to learn how to also mutate our remote server data, and automatically re-render the UI.</p>
+        `<p>Up until now we learned how to fetch and store data in the cache, using the <code>useQuery</code> hook. Now it's time to learn how to also <i>mutate our remote server data, and automatically re-render the UI</i>.</p>
         <ul>Unlike queries, <i>mutations are typically used to perform server side-effects</i> (create/update/delete data). For this purpose, TanStack Query exports a <code>useMutation</code> hook. To <code>useMutation</code> we need to pass in an object with at least one property:
-        <li>1. <i>The <code>mutationFn</code> method.</i> This is the function that React Query will call to mutate our remote server data.</li>
+        <li>1. <i>The <b><code>mutationFn</code></b> method. This is the function that React Query will call to mutate our remote server data.</i></li>
         </ul>`,
         `<h3><code>useMutation()</code> returns an object</h3>
-        <p>The <code>useMutation()</code> hook will <i>return an object</i> with a bunch of useful properties and methods that we can use in our app to mutate data on the server. <i>The most important method is <code>.mutate()</code>. This method can be connected to our event handlers, inside our React components. The <code>.mutate()</code> method will call the function that we pass as value to the <code>mutationFn</code> key.</i></p>
+        <p>The <code>useMutation()</code> hook will <b>return an object</b> with a bunch of useful properties and methods that we can use in our app to mutate data on the server. <i>The most important one is the <b><code>mutate</code> function</b>. This function can be connected to our event handlers, inside our React components. <b>The <code>mutate</code> function will call the function that we pass as value to the <code>mutationFn</code> key.</b></i></p>
         `,
-        `<h3>The <code>mutationFn</code> receives only a single parameter</h3>
-        <p>You can pass variables to your mutations function by calling the <code>.mutate()</code> function with a <i>single variable or object</i>. The <code>mutationFn</code> receives only a single parameter, so <i>if you want to pass to <code>mutationFn</code> multiple values, you need to wrap them into an object</i>.</p>
+        `<h3>The <code>mutationFn</code> function receives only a single parameter</h3>
+        <p>You can pass variables to your <code>mutationFn</code> function by <i>calling the <code>mutate</code> function with a <u>single variable or object</u></i>. <b>The <code>mutationFn</code> receives only a single parameter</b>, <i>so if you want to pass to it multiple values, you need to wrap them into an object when you pass them to the <code>mutate</code> function</i>.</p>
         `,
         `<h3>Automatically update the UI after mutate server's data: <code>onSucces</code> method & <code>queryClient.invalidateQueries()</code> method</h3>
-        <p><i>By defining only the <code>mutationFn</code> property, the UI will not be automatically updated after we mutate the data on our server.</i> If we want to trigger automatically UI updates after we mutate the data that's on our server, to <code>useMutation()</code> we can pass another property that is optional, and is called <code>onSucces</code>. <code>onSucces</code> will hold a method that will <i>invalidating the cache as soon as the mutation is done</i>, so with <code>onSucces</code> method we tell React Query what to do as soon as the mutation was successful.</p>
-        <p>We <i>manually invalidating the cache</i> by using the <code>queryClient.invalidateQueries()</code> method. This method tells React Query to immediately refetch the data that's on our server.</p>
+        <p><i>By defining only the <code>mutationFn</code> property, <b>the UI will not be automatically updated after we mutate the data on our server</b>. If we want to trigger automatically UI updates after we mutate the data that's on our server, to <code>useMutation()</code> we can pass another property that is optional, and is called <b><code>onSucces</code></b>. <code>onSucces</code> will hold a method that will <b>invalidating the cache as soon as the mutation is done</b>, so with <code>onSucces</code> method we tell React Query what to do as soon as the mutation was successful.</i></p>
+        <p><i>We <b>manually invalidating the cache</b> by using the <b><code>queryClient.invalidateQueries()</code></b> method.</i> This method tells React Query to immediately refetch the data that's on our server.</p>
         <ul>We can invalidate a query by passing to <code>.invalidateQueries()</code> one of two options:
         <li>- the <code>queryKey</code> that we want to invalidate in our cache. We define the <code>queryKey</code> in <code>useQuery()</code> hook.</li>
         <li>- the <code>{active: true}</code> object. <i><code>invalidateQueries({ active: true })</code> will <u>invalidate all the queries that are currently active on the page</u></i>. <code>invalidateQueries({ active: true })</code> is a bit easier, because then we don't have to remember any query keys.</li>
@@ -3264,17 +3256,22 @@ const React_Query = {
         <p>How do we get access to our <code>queryClient</code> instance? Well, for that we have a special hook called <code>useQueryClient</code>. The <code>useQueryClient</code> hook returns the current <code>QueryClient</code> instance.</p>
         `,
         `<h3>The <code>onError</code> property (optional)</h3>
-        <p>Another optional property that we can define in the object passed to <code>useMutation()</code> is the <code>onError</code> property. <i>The <code>onError</code> property will hold a function that will fire if the mutation encounters an error and will be passed the error.</i> If a Promise is returned, it will be awaited and resolved before proceeding.</p>
+        <p>Another optional property that we can define in the object passed to <code>useMutation()</code> is the <b><code>onError</code> property</b>. <i>The <code>onError</code> property will hold a function that will fire if the mutation encounters an error and will be passed the error.</i> If a Promise is returned, it will be awaited and resolved before proceeding.</p>
         `,
-        `<h3>Mutation function options. Specify individual behavior for each <code>.mutate()</code> function</h3>
-        <p>You might find that you want to <i>trigger additional callbacks</i> beyond the ones defined on <code>useMutation()</code> when calling <code>.mutate()</code>. This can be used to trigger <i>component-specific side effects</i>. To do that, <i>you can provide any of the same callback options to the <code>.mutate()</code> function after your mutation variable</i>. Supported options include: <code>onSuccess</code>, <code>onError</code> and <code>onSettled</code>. Please keep in mind that those additional callbacks won't run if your component unmounts <u>before</u> the mutation finishes.</p>
-        <p>We can say that in <code>useMutation</code> hook we specify the default behavior for functions like <code>onSuccess</code>, <code>onError</code> and <code>onSettled</code> etc, but we can overwrite these behavior in each individual <code>.mutate()</code> functions.</p>
+        `<h3>Mutation function options. Specify individual behavior for each <code>mutate</code> function</h3>
+        <p><i>You might find that you want to <u>trigger additional callbacks</u> beyond the ones defined on <code>useMutation()</code> when calling <code>mutate()</code>.</i> This can be used to trigger <i>component-specific side effects</i>. To do that, <b>you can also provide to the <code>mutate()</code> function (after your mutation variable) any of the same callback options that you pass to <code>mutationFn</code></b>. <i>Supported options include: <code>onSuccess</code>, <code>onError</code> and <code>onSettled</code>.</i></p>
+        <p>IMPORTANT <b>Please keep in mind that those additional callbacks won't run if your component <u>unmounts before the mutation finishes</u>.</b></p>
+        <p>We can say that in <code>useMutation</code> hook we specify the default behavior for functions like <code>onSuccess</code>, <code>onError</code> and <code>onSettled</code> etc, but we can overwrite these behavior in each individual <code>mutate</code> functions.</p>
         `,
         `<h3>Retry</h3>
         <ul><i>By default TanStack Query will not retry a mutation on error, but it is possible with the <code>retry</code> option:</i>
           <li><code>const mutation = useMutation({ mutationFn: addTodo, retry: 3 })</code></li>
         </ul>
         <p>If mutations fail because the device is offline, they will be retried in the same order when the device reconnects.</p>
+        `,
+        `<h3>Invalidations from Mutations</h3>
+        <p>Invalidating queries is only half the battle. Knowing <u>when</u> to invalidate them is the other half. Usually when a mutation in your app succeeds, it's VERY likely that there are related queries in your application that need to be invalidated and possibly refetched to account for the new changes from your mutation.</p>
+        <p><code>queryClient.invalidateQueries({ active: true })</code> will <i>invalidate all the queries that are currently active on the page</i>. This is a bit easier, because then we don't have to remember any query keys.</p>
         `,
       ],
     },
@@ -3284,17 +3281,17 @@ const React_Query = {
       sectionSource: '/src/markdowns/16_React_Query/Query_invalidation.html',
       highlights: { highlight2: ['Query invalidation'] },
       tooltips: [
-        `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <code>invalidateQueries</code> method that lets you intelligently <u>mark queries as stale</u></i> and potentially refetch them too!</p>
+        `<p>Waiting for queries to become stale before they are fetched again doesn't always work, especially when you know for a fact that a query's data is out of date because of something the user has done. For that purpose, <i>the <code>QueryClient</code> has an <b><code>invalidateQueries</code></b> method that lets you intelligently <b>mark queries as stale</b> and potentially refetch them too!</i></p>
         <p>NOTE: The <code>QueryClient</code> can be used to <u>interact with a cache</u>.</p>
         `,
         `<h3><code>invalidateQueries</code> & <code>staleTime</code></h3>
         <ul>When a query is invalidated with <code>invalidateQueries</code>, two things happen:
-          <li><i>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code> or related hooks</i>;</li>
+          <li><b>- It is <u>marked as stale</u>. This stale state overrides any <code>staleTime</code> configurations being used in <code>useQuery</code> or related hooks</b>;</li>
           <li>- If the query is currently being rendered via <code>useQuery</code> or related hooks, it will also be refetched in the background.</li>
         </ul>
         `,
         `<h3>Use <code>invalidateQueries</code> to invalidate and refetch query/queries</h3>
-        <ul>The <code>invalidateQueries</code> method can be used to <i><u>invalidate and refetch</u> <u>single</u> or <u>multiple</u> queries in the cache based on their query keys or any other functionally accessible property/state of the query</i>. By default, all matching queries are immediately marked as invalid and active queries are refetched in the background:
+        <ul><i>The <code>invalidateQueries</code> method can be <b>used to <u>invalidate and refetch</u> <u>single</u> or <u>multiple</u> queries in the cache based on their query keys</b> or any other functionally accessible property/state of the query</i>. By default, all matching queries are immediately marked as invalid and active queries are refetched in the background:
           <li>- if you <i>do not want active queries to refetch</i>, and simply be marked as invalid, you can use the <code>refetchType: 'none'</code> option;</li>
           <li>- if you <i>want inactive queries to refetch</i> as well, use the <code>refetchType: 'all'</code> option.</li>
         </ul>`,
@@ -3307,27 +3304,17 @@ const React_Query = {
       ],
     },
     {
-      sectionTitle: 'Invalidations from Mutations',
-      sectionSource:
-        '/src/markdowns/16_React_Query/Invalidations_from_mutations.html',
-
-      tooltips: [
-        `<p>Invalidating queries is only half the battle. Knowing <u>when</u> to invalidate them is the other half. Usually when a mutation in your app succeeds, it's VERY likely that there are related queries in your application that need to be invalidated and possibly refetched to account for the new changes from your mutation.</p>`,
-        `<h3>Invalidate queries with <code>{active: true}</code></h3>
-        <p><code>queryClient.invalidateQueries({ active: true })</code> will <i>invalidate all the queries that are currently active on the page</i>. This is a bit easier, because then we don't have to remember any query keys.</p>`,
-      ],
-    },
-    {
       sectionTitle:
         'Manually set data into the React Query cache via <code>setQueryData</code> function',
       sectionSource:
         '/src/markdowns/16_React_Query/Manually_set_data_into_the_React_Query_cache_via_setQueryData.html',
       highlights: {
+        highlight1: ['Manually set data into the React Query cache'],
         highlight2: ['<code>setQueryData</code>'],
       },
       tooltips: [
-        `<p>You can <i>manually set data into the React Query cache</i> via <code>queryClient.setQueryData</code> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
-        <p><code>setQueryData</code> is a <u>synchronous function</u> that can be used to immediately <i>update a query's cached data</i>. If the query does not exist, it will be created.</p>
+        `<p>You can <b>manually set data into the React Query cache</b> via <b><code>queryClient.setQueryData</code></b> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
+        <p><b><code>setQueryData</code> is a <u>synchronous function</u> that can be used to <u>immediately update a query's cached data</u></b>. <i>If the query does not exist, it will be created.</i></p>
         <p>To update multiple queries at once and match query keys partially, you need to use <code>queryClient.setQueriesData</code> instead.</p>
         <p>Syntax: <code>queryClient.setQueryData(['queryKey'], data)</code>; (if the updaterData is undefined, the query data is not updated).</p>
         `,
@@ -3336,10 +3323,10 @@ const React_Query = {
         <p><i>IMMUTABILITY: Updates via <code>setQueryData</code> must be performed in an immuatable way.</i> DO NOT attempt to write directly to the cache by mutating <code>oldData</code> or data that you retrieved via <code>getQueryData</code> in place.</p>
         `,
         `<h3>Difference between using <code>setQueryData</code> and <code>fetchQuery</code></h3>
-        <p>The difference between using <code>setQueryData</code> and <code>fetchQuery</code> is that <i><code>setQueryData</code> is synchronous</i> and <i>assumes that you already synchronously have the data available</i>. If you need to fetch the data asynchronously, it's suggested that you either refetch the query key or use <code>fetchQuery</code> to handle the asynchronous fetch.</p>
+        <p>The difference between using <code>setQueryData</code> and <code>fetchQuery</code> is that <b><code>setQueryData</code> is synchronous</b> and <b>assumes that you already synchronously have the data available</b>. If you need to fetch the data asynchronously, it's suggested that you either refetch the query key or use <code>fetchQuery</code> to handle the asynchronous fetch.</p>
         `,
         `<h3>Don't use the queryCache as a local state manager</h3>
-        <p>If you tamper with the queryCache (<code>queryClient.setQueryData</code>), it should only be for optimistic updates or for writing data that you receive from the backend after a mutation. Remember that every background refetch might override that data, so use something else for local state (Redux, Zustand etc.).</p>`,
+        <p><i>If you tamper with the queryCache (<code>queryClient.setQueryData</code>), it should only be for optimistic updates or for writing data that you receive from the backend after a mutation. Remember that every background refetch might override that data, so use something else for local state (Redux, Zustand etc.).</i></p>`,
       ],
     },
     {
@@ -3348,11 +3335,13 @@ const React_Query = {
       sectionSource:
         '/src/markdowns/16_React_Query/Manually_remove_data_from_React_Query_cache_with_removeQueries.html',
       highlights: {
+        highlight1: ['Manually remove data from React Query cache'],
         highlight2: ['<code>removeQueries</code>'],
       },
       tooltips: [
-        `<p>You can <i>manually remove data from React Query cache</i> with <code>queryClient.removeQueries</code> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
-        <p>The <code>removeQueries</code> method can be used to <i>remove queries from the cache based on their query keys or any other functionally accessible property/state of the query</i>. By writing <code>queryClient.removeQueries()</code> without any parameter, you will remove all queries that have been accumulated in the cache.</p>
+        `<p>You can <b>manually remove data from React Query cache</b> with <b><code>queryClient.removeQueries</code></b> function. The <code>QueryClient</code> can be used to <i>interact with a React Query cache</i>.</p>
+        <p>The <code>removeQueries</code> method can be used to <i><b>remove queries from the cache based on their query keys</b> or any other functionally accessible property/state of the query</i>.</p>
+        <p>IMPORTANT: <b>By writing <code>queryClient.removeQueries()</code> without any parameter, you will remove all queries that have been accumulated in the cache.</b></p>
         `,
       ],
     },
@@ -3361,12 +3350,13 @@ const React_Query = {
       sectionSource:
         '/src/markdowns/16_React_Query/Prefetching_with_prefetchQuery_method.html',
       highlights: {
+        highlight1: ['Prefetching data'],
         highlight2: ['<code>prefetchQuery</code>'],
       },
       tooltips: [
         `<p>Prefetching is all about <i>fetching some data that we know might become necessary before we actually need that data to render it on the UI</i>.</p>
         <p>The way prefetching works is that we first need get <code>const queryClient = useQueryClient()</code>, and then on <code>queryClient</code> we call the <code>.prefetchQuery()</code> method.</p>
-        <p><i>The way <code>queryClient.prefetchQuery()</code> works is basically exactly the same as the <code>useQuery</code> hook itself, so we need a <code>queryKey</code> and a <code>queryFn</code> inside an object.</i></p>
+        <p><b>The way <code>queryClient.prefetchQuery()</code> works is basically exactly the same as the <code>useQuery</code> hook itself, so we need a <code>queryKey</code> and a <code>queryFn</code> inside an object.</b></p>
         <p><i>An alternative prefetching is to use infinite queries for infinite scroll with React Query.</i> So React Query also has that feature built-in, so if you want, you can check out the documentation and read all about that.</p>
         `,
       ],
